@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  Android - Admob 使用串接 &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/zh-cn" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/android/mediation/admob/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/android/mediation/admob/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/android/mediation/admob/">简体中文</a></li>
+          <li><a class="jp" href="/jp/android/mediation/admob/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>Android - Admob 使用串接</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2" role="complementary" >
+      <div class="bs-sidebar-left bs-sidenav">
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<ul class= "nav nav-sidebar nav-left">
+  <span id= "sidebar-title1">Android 串接</span>
+  <li><a id= "getting-started" href="/zh-cn/android">开始使用</a></li>
+  <li><a id= "integration-guide" href="/zh-cn/android/integration-guide">串接说明</a></li>
+  <span id= "sidebar-title2">广告型态选择</span>
+  <li><a id= "banner-id" href="/zh-cn/android/banner">横幅广告</a></li>
+  <li><a id= "interstitial-id" href="/zh-cn/android/interstitial">插页广告</a></li>
+  <li><a id= "mediation" href="/zh-cn/android/mediation">中介服务</a></li>
+  <li><a id= "advanced" href="/zh-cn/android/advanced">进阶设定</a></li>
+  <span id= "sidebar-title3">广告型态选择</span>
+  <li><a id= "download" href="/zh-cn/android/download">下载 SDK</a></li>
+  <li><a id= "latest-news" href="/zh-cn/android/latest-news">最新消息</a></li>
+  <li><a id= "support" href="/zh-cn/android/support">其他协助</a></li>
+</ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h1 id="google-admob-mediation">Google AdMob mediation</h1>
+
+<hr>
+
+<p>Google AdMob mediation 请看<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android">这裡</a></p>
+
+<h1 id="admob-mediation-操作图示">Admob Mediation 操作图示</h1>
+
+<hr>
+
+<ol>
+<li><p>请登入到 <a href="https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android">这裡</a><br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid1.png" alt="1">  </p></li>
+<li><p>盈利 -&gt; 透过新应用程式盈利<br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid2.png" alt="">  </p></li>
+<li><p>选取应用程式:<br>
+(1) 填入 app name <br>
+(2) 选取平台 <br>
+(3) 点选 “新增应用程式&quot; <br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid3.png" alt="">  </p></li>
+<li><p>选取广告格式并对广告单元命名:<br>
+(1) 选择横幅广告或者插页广告 <br>
+(2) 设定  <br>
+(3) 广告单元名称(ex. Vpon_Banner) <br>
+(4) 储存<br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid4.png" alt="">  </p></li>
+<li><p>得到一组广告单元编号，选取完成<br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid5.png" alt="">  </p></li>
+<li><p>编辑中介服务<br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid6.png" alt="">  </p></li>
+<li><p>新增广告连播网<br>
+<img src="/assets/img/AdMobScreenshotTradChineseAndroid7.png" alt="">  </p></li>
+<li><p>设定Vpon进入您的聚合列表：<br>
+(1) 在可用的广告联播网中找到 Vpon<br>
+(2) Vpon Ad Id: 填入您在 Vpon 后台申请的版位ID<br>
+(3) Zone: 选择您欲请求的广告平台的地区<br>
+(例：如果您的 App 是欲给大陆平台使用者使用，则您需在此栏位中填入<code>cn</code>，若您 app 是给除了大陆平台以外地区使用者使用则填入<code>tw</code>)  </p></li>
+</ol>
+
+<p><img src="/assets/img/AdMobScreenshotTradChineseAndroid8.png" alt="">  </p>
+
+<h1 id="串接-vpon-进专案">串接 Vpon 进专案</h1>
+
+<p>您需将载入两个 Jar 档进入您专案中的 libs 资料夹，分别是：admob-adapter-****.jar 和 vpadn-sdk-***-***-***.jar.<br>
+<img src="/assets/img/AdMobLibJarFiles.jpg" alt="">  </p>
+
+<h1 id="需求条件">需求条件</h1>
+
+<hr>
+
+<ol>
+<li>请确认您已安装最新版的<a href="https://developer.android.com/sdk/index.html">Android SDK</a>，并至少在 Android v3.2 (target in project.properties to android-13)下编译。<br></li>
+<li>Google Mobile Ads SDK可在Android 2.3以上的版本(在 AndroidManifest.xml 设定 android:minSdkVersion 为至少 9)执行。<br></li>
+</ol>
+
+<h1 id="导入sdk">导入SDK</h1>
+
+<hr>
+
+<p>以下的步骤为将Google Mobile Ads SDK 导入您的 App 中:  </p>
+
+<ol>
+<li>新增并 reference Google Play Services library到您的 Eclipse/Android Studio workspace.<br></li>
+<li>在 AndroidManifest.xml中新增 meta-data tag.<br></li>
+<li>在 AndroidManifest 中宣告 com.google.android.gms.ads.AdActivity.<br></li>
+<li>在 manifest 中加入 permissions<br></li>
+</ol>
+
+<h2 id="google-play-services-library">Google Play Services library</h2>
+
+<p>请先安装设定 Google Play Service SDK: <a href="https://developer.android.com/google/play-services/setup.html">Android instructions</a></p>
+
+<h3 id="eclipse">Eclipse</h3>
+
+<hr>
+
+<p>a.在您的应用程式专案中按右键并选择 <code>properties</code>  </p>
+
+<p><img src="/assets/img/GooglePlay_Properties.png" alt="">  </p>
+
+<p>b.选择 Android -&gt;
+<code>Add...</code> 寻找 google-play-services_lib 内容后按下 OK 新增 Google Play Services library.  </p>
+
+<p><img src="/assets/img/GooglePlay_Addlib.png" alt="">  </p>
+
+<p>如图示，您的专案已经 reference Google Play Services library.  </p>
+
+<p><img src="/assets/img/GooglePlay_Addlib2.png" alt="">  </p>
+
+<h3 id="android-studio">Android Studio</h3>
+
+<hr>
+
+<ol>
+<li><p>请打开 <code>app</code> 模组下的 <code>build.gradle</code></p>
+
+<blockquote>
+<p><strong>Note</strong>: Android Studio 专案下有两个 <code>build.gradle</code>，请小心以免搞溷</p>
+</blockquote></li>
+<li><p>增加 build rule 在 dependencies 底下，已取得最新版 <code>play-services</code></p></li>
+</ol>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;com.android.application&#39;</span>
+    <span class="o">...</span>
+
+    <span class="n">dependencies</span> <span class="o">{</span>
+      <span class="n">compile</span> <span class="s1">&#39;com.google.android.gms:play-services:+&#39;</span>
+    <span class="o">}</span>
+</code></pre></div>
+<p>接着，存挡并至 toolbar 点选 <strong>Sync Project with Gradle Files</strong></p>
+
+<h2 id="新增-meta-data-tag">新增 meta-data tag</h2>
+
+<p>Google Play Service 需要在 AndroidManifest.xml 中加入以下设定:  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
+          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>  
+ <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>  
+  <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
+             <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>  
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>  
+     <span class="nt">&lt;intent-filter&gt;</span>  
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>  
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>  
+     <span class="nt">&lt;/intent-filter&gt;</span>  
+   <span class="nt">&lt;/activity&gt;</span>  
+ <span class="nt">&lt;/application&gt;</span>  
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div>
+<h2 id="宣告-adactivity">宣告 AdActivity</h2>
+
+<hr>
+
+<p>Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ads.AdActivity  </p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
+          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>  
+ <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>  
+   <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
+               <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;</span>  
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>  
+     <span class="nt">&lt;intent-filter&gt;</span>  
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>  
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>  
+     <span class="nt">&lt;/intent-filter&gt;</span>  
+   <span class="nt">&lt;/activity&gt;</span>  
+   <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;om.google.android.gms.ads.AdActivity&quot;</span>
+       <span class="na">android:configChanges=</span><span class="s">&quot;keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+ <span class="nt">&lt;/application&gt;</span>
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div>
+<h2 id="permissions">Permissions</h2>
+
+<hr>
+
+<p>加入以下 permission 在您的 AndroidManifest.xml<br>
+<code>&#39;INTERNET&quot;</code> 此为必要，以开啓网路功能进行传输。<br>
+<code>&#39;ACCESS_NETWORK_STATE&quot;</code> 此为选择，用来读取使用者当前的网路状态。<br></p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"> <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+ <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+          <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
+          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
+               <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;intent-filter&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/intent-filter&gt;</span>
+    <span class="nt">&lt;/activity&gt;</span>
+    <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.ads.AdActivity&quot;</span>
+              <span class="na">android:configChanges=</span><span class="s">&quot;keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/application&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+ <span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div>
+<h1 id="banner-横幅广告">Banner 横幅广告</h1>
+
+<hr>
+
+<p>要在您的 Android app 中展示横幅广告，只需要简单的新增 com.google.android.gms.ads.AdView 到您的使用者介面。
+新增 com.google.android.gms.ads.AdView</p>
+
+<p>利用以下五个步骤新增出一个横幅广告:
+• 汇入 com.google.android.gms.ads.*
+• 宣告一个 AdView物件
+• 建立并指定一个 ad unit ID
+• 在使用者介面中新增 view
+• 取得banner</p>
+
+<p>最简易的方法为在您的 Activity 中做出所有的步骤.</p>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">  <span class="kn">import</span> <span class="nn">com.google.android.gms.ads.*</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BannerExample</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">AdView</span> <span class="n">adView</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+
+    <span class="c1">// Create the adView.</span>
+    <span class="n">adView</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">AdView</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="n">adView</span><span class="o">.</span><span class="na">setAdUnitId</span><span class="o">(</span><span class="n">MY_AD_UNIT_ID</span><span class="o">);</span>
+    <span class="n">adView</span><span class="o">.</span><span class="na">setAdSize</span><span class="o">(</span><span class="n">AdSize</span><span class="o">.</span><span class="na">BANNER</span><span class="o">);</span>
+
+    <span class="c1">// Lookup your LinearLayout assuming it&#39;s been given</span>
+    <span class="c1">// the attribute android:id=&quot;@+id/mainLayout&quot;.</span>
+    <span class="n">LinearLayout</span> <span class="n">layout</span> <span class="o">=</span> <span class="o">(</span><span class="n">LinearLayout</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">mainLayout</span><span class="o">);</span>
+
+    <span class="c1">// Add the adView to it.</span>
+    <span class="n">layout</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">adView</span><span class="o">);</span>
+
+    <span class="c1">// Initiate a generic request.</span>
+    <span class="n">AdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+
+    <span class="c1">// Load the adView with the ad request.</span>
+    <span class="n">adView</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">adView</span><span class="o">.</span><span class="na">pause</span><span class="o">();</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
+    <span class="n">adView</span><span class="o">.</span><span class="na">resume</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">adView</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+   <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div>
+<p>参考更多的 banner 设定: <a href="https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate#play">here</a></p>
+
+<h1 id="interstitial-插页广告">Interstitial 插页广告</h1>
+
+<hr>
+
+<p>和 AdView 的使用方式相似:
+• 汇入 <code>com.google.android.gms.ads.*</code>
+• 宣告物件
+• 建立并指定一个和banner不同的 AdMob Ad Unit ID。</p>
+
+<p>同样的，最方便的方式为在您的 Activity 中做以下的步骤。</p>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java"> <span class="kn">import</span> <span class="nn">com.google.android.gms.ads.*</span><span class="o">;</span>
+ <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BannerExample</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+
+  <span class="kd">private</span> <span class="n">InterstitialAd</span> <span class="n">interstitial</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+
+    <span class="c1">// Create the interstitial.</span>
+    <span class="n">interstitial</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">InterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="n">interstitial</span><span class="o">.</span><span class="na">setAdUnitId</span><span class="o">(</span><span class="n">MY_AD_UNIT_ID</span><span class="o">);</span>
+
+    <span class="c1">// Create ad request.</span>
+    <span class="n">AdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+
+    <span class="c1">// Begin loading your interstitial.</span>
+    <span class="n">interstitial</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
+
+  <span class="o">}</span>
+
+  <span class="c1">// Invoke displayInterstitial() when you are ready to display an interstitial.</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayInterstitial</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">interstitial</span><span class="o">.</span><span class="na">isLoaded</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">interstitial</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
+     <span class="o">}</span>
+   <span class="o">}</span>
+ <span class="o">}</span>
+</code></pre></div>
+<h1 id="下载-sample-code">下载 Sample Code</h1>
+
+<hr>
+
+<p><a href="/zh-cn/android/download/#admob">Download Sample Code</a></p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

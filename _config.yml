@@ -1,0 +1,115 @@
+# Dependencies
+markdown:           redcarpet
+redcarpet:
+  extensions:       ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+highlighter:        pygments
+
+#github settings
+baseurl:
+assetsurl:          /assets
+jsurl:              /assets/js
+cssurl:             /assets/css
+imgurl:             /assets/img
+dnldurl:            /assets/download
+gem:
+
+# Permalinks
+permalink:          pretty
+
+#Server
+# host:               127.0.0.1
+# port:               4000
+# baseurl:            /
+# url:                http://localhost:4000
+# encoding:           UTF-8
+
+# the excluded directoies
+exclude:            []
+
+# site information
+info:
+  site_name:        Vpon-SDK
+
+meta:
+  description:      "Here presents the latest Vpon SDK documentation."
+  keywords:         ["Vpon", 'SDK']
+  author:           "Finn Yeh"
+
+# multiple language
+lang:          ["en", "zh-tw", "zh-cn", "jp"]
+
+# left navigation
+left_nav:
+  en:
+    title:          "Vpon SDK"
+    path:           /
+    # items:
+    #   - path:       /page1
+    #     title:      "Another page"
+    #   - path:       /page2
+    #     title:      "Yet another page"
+  zh-tw:
+    title:          "Vpon SDK"
+    path:           /zh-tw
+
+  zh-cn:
+    title:          "Vpon SDK"
+    path:           /zh-cn
+
+  jp:
+    title:          "Vpon SDK"
+    path:           /jp
+
+
+# new right navigation
+right_nav_new:
+  - title: Android
+    cls: right-android
+    url1: /android/
+    url2: /zh-tw/android/
+    url3: /zh-cn/android/
+    url4: /jp/android/
+  - title: iOS
+    cls: right-ios
+    url1: /ios/
+    url2: /zh-tw/ios/
+    url3: /zh-cn/ios/
+    url4: /jp/ios/
+  - title: Web
+    cls: right-web
+    url1: /web/
+    url2: /zh-tw/web/
+    url3: /zh-cn/web/
+    url4: /jp/web/
+
+
+# right navigation
+# right_nav:
+#   - title:          English
+#     url:            /
+#     url1:           /android/
+#     url2:           /ios/
+#     url3:           /web/
+#
+#   - title:          繁體中文
+#     url:            /zh-tw/
+#     url1:           /zh-tw/android/
+#     url2:           /zh-tw/ios/
+#     url3:           /zh-tw/web/
+#
+#   - title:          简体中文
+#     url:            /zh-cn
+#     url1:           /zh-cn/android/
+#     url2:           /zh-cn/ios/
+#     url3:           /zh-cn/web/
+#
+#   - title:          日本語
+#     url:            /jp
+#     url1:           /jp/android/
+#     url2:           /jp/ios/
+#     url3:           /jp/web/
+
+# analytics account information, remember to change this.
+analytics:
+  google:
+    account:         UA-43024238-5

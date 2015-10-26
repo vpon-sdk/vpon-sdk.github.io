@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  Android - 横幅广告  &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/zh-cn" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/android/banner/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/android/banner/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/android/banner/">简体中文</a></li>
+          <li><a class="jp" href="/jp/android/banner/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>Android - 横幅广告 </h1>
+      <p>Android - Banner</p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2" role="complementary" >
+      <div class="bs-sidebar-left bs-sidenav">
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<ul class= "nav nav-sidebar nav-left">
+  <span id= "sidebar-title1">Android 串接</span>
+  <li><a id= "getting-started" href="/zh-cn/android">开始使用</a></li>
+  <li><a id= "integration-guide" href="/zh-cn/android/integration-guide">串接说明</a></li>
+  <span id= "sidebar-title2">广告型态选择</span>
+  <li><a id= "banner-id" href="/zh-cn/android/banner">横幅广告</a></li>
+  <li><a id= "interstitial-id" href="/zh-cn/android/interstitial">插页广告</a></li>
+  <li><a id= "mediation" href="/zh-cn/android/mediation">中介服务</a></li>
+  <li><a id= "advanced" href="/zh-cn/android/advanced">进阶设定</a></li>
+  <span id= "sidebar-title3">广告型态选择</span>
+  <li><a id= "download" href="/zh-cn/android/download">下载 SDK</a></li>
+  <li><a id= "latest-news" href="/zh-cn/android/latest-news">最新消息</a></li>
+  <li><a id= "support" href="/zh-cn/android/support">其他协助</a></li>
+</ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h2 id="完成串接指示">完成串接指示</h2>
+
+<hr>
+
+<p>若您尚未完成串接广告形式前的串接说明，请先前往<a href="../integration-guide/">串接说明</a>完成相关设定</p>
+
+<h1 id="概要">概要</h1>
+
+<hr>
+
+<p>Vpon 横幅广告 (banner) 利用画面的一小部分来吸引使用者点击，即可打开全萤幕享受更丰富的浏览体验，例如网站或应用程式商店网页。
+若要在 Android 应用程式中显示横幅广告，只要在您的 Eclipse 专案中导入 SDK，然后在使用者介面上加入 com.vpadn.ads.VpadnBanner 即可。</p>
+
+<h1 id="开始撰写-banner">开始撰写 Banner</h1>
+
+<hr>
+
+<p>Android 应用程式由 View 物件所组成，也就是以文字区域和按钮等控制项的形式向使用者呈现的 Java 执行个体。VpadnBanner 只是另一种 View 子类别，用来显示由使用者点击触发的小型 HTML5 广告。
+和所有的 View 一样，AdView 可以单用程式码撰写，也可以绝大部分用 XML 写成。</p>
+
+<p>加入横幅广告会用到程式码：</p>
+
+<ol>
+<li>汇入 <code>com.vpadn.ads.*</code></li>
+<li>宣告 VpadnBanner 执行个体</li>
+<li>建立例项，指定 BannerId，也就是 Vpon 申请的 BannerId</li>
+<li>将该检视加进使用者介面</li>
+<li>透过广告载入例项</li>
+</ol>
+
+<p>最简易的方式是在应用程式的 Activity 内进行上述所有步骤。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kn">import</span> <span class="nn">com.vpadn.ads.*</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">RelativeLayout</span> <span class="n">adBannerLayout</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">VpadnBanner</span> <span class="n">vponBanner</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="c1">//TODO: VPON Banner ID</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">bannerId</span> <span class="o">=</span> <span class="n">CHANGE</span> <span class="n">ME</span> <span class="o">;</span>
+
+         <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+        <span class="c1">//get your layout view for Vpon banner</span>
+        <span class="n">adBannerLayout</span> <span class="o">=</span> <span class="o">(</span><span class="n">RelativeLayout</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">adLayout</span><span class="o">);</span>
+        <span class="c1">//create VpadnBanner instance</span>
+                  <span class="n">vponBanner</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnBanner</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">bannerId</span><span class="o">,</span> <span class="n">VpadnAdSize</span><span class="o">.</span><span class="na">SMART_BANNER</span><span class="o">,</span> <span class="s">&quot;CN&quot;</span><span class="o">);</span>
+        <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+        <span class="c1">//set auto refresh to get banner</span>
+        <span class="n">adRequest</span><span class="o">.</span><span class="na">setEnableAutoRefresh</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+                  <span class="c1">//load vpon banner</span>
+        <span class="n">vponBanner</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
+                  <span class="c1">//add vpon banner to your layout view</span>
+        <span class="n">adBannerLayout</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">vponBanner</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">vponBanner</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">//remember to call destroy method</span>
+            <span class="n">vponBanner</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+            <span class="n">vponBanner</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div>
+<p><br></p>
+
+<h1 id="使用-layout-xml-设定">使用 layout xml 设定</h1>
+
+<hr>
+
+<p>也可以直接使用 xml 定义 Banner 这样你就不需要写任何 java code</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">  <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+      <span class="na">xmlns:vpadn=</span><span class="s">&quot;http://schemas.android.com/apk/lib/com.vpadn.ads&quot;</span>
+      <span class="na">android:id=</span><span class="s">&quot;@+id/mainLayout&quot;</span>
+      <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+      <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
+      <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span> <span class="nt">&gt;</span>
+
+      <span class="nt">&lt;RelativeLayout</span>
+          <span class="na">android:id=</span><span class="s">&quot;@+id/adLayout&quot;</span>
+          <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
+          <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> <span class="nt">&gt;</span>
+
+          <span class="nt">&lt;com.vpadn.ads.VpadnBanner</span>
+              <span class="na">android:id=</span><span class="s">&quot;@+id/vpadnBannerXML&quot;</span>
+              <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
+              <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
+              <span class="na">vpadn:adSize=</span><span class="s">&quot;SMART_BANNER&quot;</span>
+              <span class="na">vpadn:autoFresh=</span><span class="s">&quot;true&quot;</span>
+              <span class="na">vpadn:bannerId=</span> <span class="s">CHANGE_ME</span>
+              <span class="na">vpadn:loadAdOnCreate=</span><span class="s">&quot;true&quot;</span>
+              <span class="na">vpadn:platform=</span><span class="s">&quot;CN&quot;</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/RelativeLayout&gt;</span>
+  <span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div>
+<p><br></p>
+
+<blockquote>
+<p><strong>Note:</strong>
+记得将上面的 vpon:bannerId 填入你真实的 banner ID</p>
+</blockquote>
+
+<h1 id="测试广告">测试广告</h1>
+
+<hr>
+
+<p>如果你的 banner ID 还未经过审核可以使用下列的方式取得测试广告
+<br></p>
+<div class="highlight"><pre><code class="language-java" data-lang="java">      <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span>  <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+      <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">testDeviceImeiSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+      <span class="n">testDeviceImeiSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;your device advertising id&quot;</span><span class="o">);</span>
+      <span class="c1">//TODO: put Android device advertising id</span>
+      <span class="n">adRequest</span><span class="o">.</span><span class="na">setTestDevices</span><span class="o">(</span><span class="n">testDeviceImeiSet</span><span class="o">);</span>
+      <span class="n">vponBanner</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
+</code></pre></div>
+<h2 id="advertising-id">Advertising ID</h2>
+
+<p>可以使用下列任一方式取得 device 上的 Advertising ID</p>
+
+<ol>
+<li>于 log 搜寻&quot;advertising_id&quot;</li>
+<li>直接操作手机: 设定 → Google → 广告 → 您的广告 ID (Advertising ID)</li>
+</ol>
+
+<h1 id="横幅广告大小">横幅广告大小</h1>
+
+<hr>
+
+<p>除了支援手机上的 320x50 大小外，Vpon 还支援各种不同的横幅广告：</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">大小 (宽度x高度)</th>
+<th style="text-align: center">说明</th>
+<th style="text-align: center">VponAdSize 常数值</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">320x50</td>
+<td style="text-align: center">标准横幅广告</td>
+<td style="text-align: center">VpadnAdSize.BANNER</td>
+</tr>
+<tr>
+<td style="text-align: center">468x60</td>
+<td style="text-align: center">IAB 全横幅广告</td>
+<td style="text-align: center">VpadnAdSize.IAB_BANNER</td>
+</tr>
+<tr>
+<td style="text-align: center">728x90</td>
+<td style="text-align: center">IAB 超级横幅广告</td>
+<td style="text-align: center">VpadnAdSize.IAB_LEADERBOARD</td>
+</tr>
+<tr>
+<td style="text-align: center">device width x auto height</td>
+<td style="text-align: center">Smart Banner</td>
+<td style="text-align: center">VpadnAdSize.SMART_BANNER</td>
+</tr>
+</tbody></table>
+
+<p>如无特定需求，我们建议您直接使用上面最后一项 <code>smart banner</code> 即可 (目前不支援VpadnAdSize.IAB_WIDE_SKYSCRAPER)</p>
+
+<h1 id="更新广告">更新广告</h1>
+
+<hr>
+
+<p>如果您在伺服器的 Vpon 帐户中指定了更新速率，则需要使用下面的 sample 才会启动 banner 自动更新</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+ <span class="c1">//设定成 true 才会自动更新</span>
+ <span class="n">adRequest</span><span class="o">.</span><span class="na">setEnableAutoRefresh</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+ <span class="n">adShowBanner</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
+</code></pre></div>
+<h1 id="下载-sample-code">下载 Sample code</h1>
+
+<hr>
+
+<p><a href="/zh-cn/download/">Go to download page</a>
+<br></p>
+
+<h1 id="结果">结果</h1>
+
+<hr>
+
+<p>现在只要执行这个应用程式，您应该就会在画面上方看到横幅广告：
+<img src="/assets/img/A-sdk330-03.png" alt="gogo"></p>
+
+<h1 id="其他诀窍">其他诀窍</h1>
+
+<blockquote>
+<p>请参阅<a href="../Interstitial">插页广告</a>、<a href="../mediation">中介服务</a>、<a href="../advanced">进阶设定</a>中获取更多简介。</p>
+</blockquote>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

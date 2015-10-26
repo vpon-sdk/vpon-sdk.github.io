@@ -1,0 +1,91 @@
+{% assign v = {{site.baseurl}} %}
+{% assign langs = {{page.lang}}%}
+{% if page.lang == "en" %}
+  {% assign urlGettingStarted = site.baseurl | append:"/ios" %}
+  {% assign urlIntegrationGuide = v | append:"/ios/integration-guide" %}
+  {% assign urlBanner = v | append:"/ios/banner" %}
+  {% assign urlInterstitial = v | append:"/ios/interstitial" %}
+  {% assign urlMediation = v | append:"/ios/mediation" %}
+  {% assign urlAdvanced = v | append:"/ios/advanced" %}
+  {% assign urlLatestNews = v | append:"/ios/latest-news" %}
+  {% assign urlDownload = v | append:"/ios/download" %}
+  {% assign urlSupport = v | append:"/ios/support" %}
+  {% assign sidebar-title1 = "iOS Integration" %}
+  {% assign getting-started = "Getting Started" %}
+  {% assign integration-guide = "Integration Guide" %}
+  {% assign sidebar-title2 = "Ad Type Choices" %}
+  {% assign banner-id = "Banner Ad" %}
+  {% assign interstitial-id = "interstitial Ad" %}
+  {% assign mediation = "Mediation" %}
+  {% assign advanced = "Advanced" %}
+  {% assign sidebar-title3 = "Download/Other" %}
+  {% assign download = "Download" %}
+  {% assign latest-news = "Latest News" %}
+  {% assign support = "Support" %}
+{% else %}
+  {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/ios" %}
+  {% assign urlIntegrationGuide = v | append:"/" | append: langs | append: "/ios/integration-guide" %}
+  {% assign urlBanner = v | append:"/" | append: langs | append: "/ios/banner" %}
+  {% assign urlInterstitial = v | append:"/" | append: langs | append: "/ios/interstitial" %}
+  {% assign urlMediation = v | append:"/" | append: langs | append: "/ios/mediation" %}
+  {% assign urlAdvanced = v | append:"/" | append: langs | append: "/ios/advanced" %}
+  {% assign urlLatestNews = v | append:"/" | append: langs | append: "/ios/latest-news" %}
+  {% assign urlDownload = v | append:"/" | append: langs | append: "/ios/download" %}
+  {% assign urlSupport = v | append:"/" | append: langs | append: "/ios/support" %}
+{% endif %}
+
+{% if page.lang == "zh-tw" %}
+  {% assign sidebar-title1 = "iOS 串接" %}
+  {% assign getting-started = "開始使用" %}
+  {% assign integration-guide = "串接說明" %}
+  {% assign sidebar-title2 = "廣告型態選擇" %}
+  {% assign banner-id = "橫幅廣告" %}
+  {% assign interstitial-id = "插頁廣告" %}
+  {% assign mediation = "中介服務" %}
+  {% assign advanced = "進階設定" %}
+  {% assign sidebar-title3 = "下載/其他輔助" %}
+  {% assign download = "下載 SDK" %}
+  {% assign latest-news = "最新消息" %}
+  {% assign support = "其他協助" %}
+{% elsif page.lang == "zh-cn" %}
+  {% assign sidebar-title1 = "iOS 串接" %}
+  {% assign getting-started = "开始使用" %}
+  {% assign integration-guide = "串接说明" %}
+  {% assign sidebar-title2 = "广告型态选择" %}
+  {% assign banner-id = "横幅广告" %}
+  {% assign interstitial-id = "插页广告" %}
+  {% assign mediation = "中介服务" %}
+  {% assign advanced = "进阶设定" %}
+  {% assign sidebar-title3 = "下载/其他辅助" %}
+  {% assign download = "下载 SDK" %}
+  {% assign latest-news = "最新消息" %}
+  {% assign support = "其他协助" %}
+{% elsif page.lang == "jp" %}
+  {% assign sidebar-title1 = "iOS 串接" %}
+  {% assign getting-started = "スタートガイド" %}
+  {% assign integration-guide = "インテグレーションガ" %}
+  {% assign sidebar-title2 = "広告パターンとを選択" %}
+  {% assign banner-id = "バナー広告" %}
+  {% assign interstitial-id = "インタースティシャル広告" %}
+  {% assign mediation = "メディエーション" %}
+  {% assign advanced = "詳細設定" %}
+  {% assign sidebar-title3 = "ダウンロード/その他" %}
+  {% assign download = "最新ニュース" %}
+  {% assign latest-news = "ダウンロード" %}
+  {% assign support = "サポート" %}
+{% endif %}
+
+  <ul class= "nav nav-sidebar nav-left">
+    <span id= "sidebar-title1">{{sidebar-title1}}</span>
+    <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+    <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
+    <span id= "sidebar-title2">{{sidebar-title2}}</span>
+    <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
+    <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
+    <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
+    <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
+    <span id= "sidebar-title3">{{sidebar-title2}}</span>
+    <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
+    <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
+    <li><a id= "support" href="{{urlSupport}}">{{support}}</a></li>
+  </ul>

@@ -1,0 +1,215 @@
+body {
+    background-color: #fff;
+    font-family: 'Noto Sans', serif,SimHei;
+    font-size: 16px;
+    font-weight: 400;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Tahoma', sans-serif;
+    font-weight: 300;
+    color: #333
+}
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px
+}
+
+.centered {
+    text-align: center
+}
+
+a {
+    color: #FF8D16;
+    word-wrap: break-word;
+    -webkit-transition: color .1s ease-in, background .1s ease-in;
+    -moz-transition: color .1s ease-in, background .1s ease-in;
+    -ms-transition: color .1s ease-in, background .1s ease-in;
+    -o-transition: color .1s ease-in, background .1s ease-in;
+    transition: color .1s ease-in, background .1s ease-in
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0
+}
+
+a:before,
+a:after {
+    -webkit-transition: color .1s ease-in, background .1s ease-in;
+    -moz-transition: color .1s ease-in, background .1s ease-in;
+    -ms-transition: color .1s ease-in, background .1s ease-in;
+    -o-transition: color .1s ease-in, background .1s ease-in;
+    transition: color .1s ease-in, background .1s ease-in
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #DAD8D8;
+    margin: 1em 0;
+    padding: 0
+}
+
+#wrap-text {
+    width: 90%;
+    min-height: 700px;
+    background-color: white;
+    font-color: black;
+    padding: 3em;
+    text-align: left
+}
+
+#headerwrap {
+    background: #FF8A1B no-repeat center top url(../img/top_bg.png) ;
+    margin-top: -10px;
+    padding-top: 20px;
+    text-align: center;
+    background-attachment: relative;
+    background-position: center center;
+    min-height: 450px;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover
+}
+
+#headerwrap h1 {
+    margin-top: 100px;
+    color: white;
+    font-size: 70px;
+    font-weight: 700;
+
+}
+
+#headerwrap h3 {
+    color: white;
+    font-size: 40px;
+    margin-bottom:50px;
+    font-weight: 400;
+    font-family: 'Noto Sans', serif
+}
+
+#headerwrap .logo {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 15px
+}
+
+.dark-block {
+    background: #1a1a1a
+}
+
+#f {
+    background: white;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#ff {
+    padding-bottom: 0px;
+    text-align: center;
+}
+
+#fff {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    text-align: left
+}
+
+#f h3 {
+    color: #f14800;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+     text-align:left;
+}
+
+#f i {
+    font-size: 8px;
+    color: #1a1a1a;
+    padding: 3px
+}
+
+#f p {
+    font-size: 16px;
+    line-height:24px;
+    color: #666666;
+    text-align:left;
+}
+
+#f img {
+    text-align: center
+}
+
+.body-push {
+    overflow-x: hidden;
+    position: relative;
+    left: 0
+}
+
+.body-push-toright {
+    left: 200px
+}
+
+.body-push-toleft {
+    left: -200px
+}
+
+.menu,
+.body-push {
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease
+}
+
+.img-md {
+    margin: 13px 5px 45px 0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+}
+
+.download-icon {
+    width: 30%;
+    display: inline;
+}
+
+.slide-pt {
+    color: #1a1a1a
+}
+
+li {
+    color: black
+}
+
+.jumbo-list-item {
+    padding-top: 50px
+}
+
+#ff h3,
+#about-vpon-sdk {
+    font-weight: 700;
+    font-size: 40px;
+    font-family:  'Tahoma';
+    color:#666;
+    margin-top:30px;
+}

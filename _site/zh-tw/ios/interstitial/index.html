@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Here presents the latest Vpon SDK documentation.">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  iOS - 插頁廣告 &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/zh-tw" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-tw/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-tw/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-tw/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/ios/interstitial/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/ios/interstitial/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/ios/interstitial/">简体中文</a></li>
+          <li><a class="jp" href="/jp/ios/interstitial/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>iOS - 插頁廣告</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+
+    <div class="row">
+      <div class="bs-sidebar-left">
+      <div class="col-sm-3 col-md-2" >
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  <ul class= "nav nav-sidebar nav-left">
+    <span id= "sidebar-title1">iOS 串接</span>
+    <li><a id= "getting-started" href="/zh-tw/ios">開始使用</a></li>
+    <li><a id= "integration-guide" href="/zh-tw/ios/integration-guide">串接說明</a></li>
+    <span id= "sidebar-title2">廣告型態選擇</span>
+    <li><a id= "banner-id" href="/zh-tw/ios/banner">橫幅廣告</a></li>
+    <li><a id= "interstitial-id" href="/zh-tw/ios/interstitial">插頁廣告</a></li>
+    <li><a id= "mediation" href="/zh-tw/ios/mediation">中介服務</a></li>
+    <li><a id= "advanced" href="/zh-tw/ios/advanced">進階設定</a></li>
+    <span id= "sidebar-title3">廣告型態選擇</span>
+    <li><a id= "download" href="/zh-tw/ios/download">下載 SDK</a></li>
+    <li><a id= "latest-news" href="/zh-tw/ios/latest-news">最新消息</a></li>
+    <li><a id= "support" href="/zh-tw/ios/support">其他協助</a></li>
+  </ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h2 id="完成串接指示">完成串接指示</h2>
+
+<hr>
+
+<p>若您尚未完成串接廣告形式前的串接說明，請先前往<a href="../integration-guide/">串接說明</a>完成相關設定</p>
+
+<h1 id="總覽">總覽</h1>
+
+<hr>
+
+<p>插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。這類廣告由於內容更豐富、更吸引人，因此製作起來更昂貴，而曝光機會卻有限。</p>
+
+<p><img src="/assets/img/Interstitial.png" alt=""></p>
+
+<h1 id="vpadn-interstitial-ad">Vpadn Interstitial Ad</h1>
+
+<hr>
+
+<p>Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。
+不過，它的用法與 Vpadn Banner 非常類似：</p>
+
+<ol>
+<li>匯入 lib檔與標頭檔</li>
+<li>宣告物件</li>
+<li>建立物件，並指定 Vpon interstitial banner Id (不能與橫幅廣告所用 banner Id 重複)</li>
+</ol>
+
+<blockquote>
+<p><strong>Note</strong>: 再次提醒您，最好在應用程式的 ViewController 內執行上述步驟。</p>
+</blockquote>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+
+<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
+<span class="p">{</span>
+    <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnInterstitial</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>    <span class="c1">// 填入您的Interstitial BannerId</span>
+    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>     <span class="c1">// 台灣地區請填TW 大陸則填CN</span>
+    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+    <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="nl">getInterstitial</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span>
+<span class="p">}</span>
+<span class="k">@end</span>
+</code></pre></div>
+<p>不過，目前沒有任何項目可加入 ViewController，而且您必須等到這個請求成功後才能嘗試顯示廣告，
+這點請格外注意。最簡單的做法是當 onVpadnInterstitialAdReceived 收到通知時 則執行 [vpadnInterstitial show]</p>
+
+<p>若想進一步瞭解 protocol 相關詳情，請參閱<a href="../advanced/">進階設定</a>。</p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

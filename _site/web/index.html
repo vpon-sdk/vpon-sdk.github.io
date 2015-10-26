@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  Web SDK &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/web/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/web/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/web/">简体中文</a></li>
+          <li><a class="jp" href="/jp/web/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>Web SDK</h1>
+      <p>fantastic HTML5 ads you should not miss</p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+
+    <div class="row">
+      <div class="col-md-9" role="main">
+        <h1 id="overview">Overview</h1>
+
+<hr>
+
+<p>Vpon Mobile Web SDK enables mobile web developers to maximize their monetization on Android and iOS. <br>
+<font color="red">* NOTE：It only supports ads on mobile site, it would not show any ad if you open your website on personal computer.</font>
+<br></p>
+
+<h1 id="requirement">Requirement</h1>
+
+<hr>
+
+<ol>
+<li>The basic concept of HTML <br></li>
+<li>Registering a banner ID for Vpon Mobile Web<br></li>
+<li>Having the permission to modify code of mobile website
+<br><br></li>
+</ol>
+
+<h1 id="ad-formats">Ad Formats</h1>
+
+<hr>
+
+<p>Vpon Mobile Web SDK supports the following formats:<br><br></p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name</th>
+<th style="text-align: center">Size(WxH)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">Banner</td>
+<td style="text-align: center">320x50</td>
+</tr>
+<tr>
+<td style="text-align: left">Medium Rectangle</td>
+<td style="text-align: center">300x250</td>
+</tr>
+</tbody></table>
+
+<p><br>
+<br></p>
+
+<h1 id="setups">Setups</h1>
+
+<hr>
+
+<h2 id="basic-setup">Basic Setup</h2>
+
+<ol>
+<li>You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it:</li>
+</ol>
+<div class="highlight"><pre><code class="language-HTML" data-lang="HTML"><span class="nt">&lt;body&gt;</span>
+...
+  <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
+        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_first_vpon_banner_id_here&quot;</span>
+        <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
+        <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+...
+  <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
+        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_second_vpon_banner_id_here&quot;</span>
+        <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
+        <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+...
+  <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
+        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_third_vpon_banner_id_here&quot;</span>
+        <span class="na">vpon_ad_format=</span><span class="s">&quot;300x250_mb&quot;</span>
+        <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+...
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>  <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+<p>Note:<br>
+* You only allow to use 3 ads at most in one page and please use different banner ID for every ad.<br>
+* You only need to put <font color="red">just one</font> JavaScript before &quot;</body>&quot; like the sample code above. <br>
+* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test=&quot;0&quot;)
+<br></p>
+
+<h2 id="advanced-setup">Advanced Setup</h2>
+
+<table><thead>
+<tr>
+<th style="text-align: center">Name</th>
+<th style="text-align: center">Description</th>
+<th style="text-align: center">Necessary</th>
+<th style="text-align: center">Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">vpon_ad_licensy_key</td>
+<td style="text-align: center">Banner ID</td>
+<td style="text-align: center">Y</td>
+<td style="text-align: center"><font color="red">Put your Vpon License Key</font></td>
+</tr>
+<tr>
+<td style="text-align: center">vpon_ad_format</td>
+<td style="text-align: center">Size：320x50_mb, 300x250_mb</td>
+<td style="text-align: center">Y</td>
+<td style="text-align: center">“320x50_mb”</td>
+</tr>
+<tr>
+<td style="text-align: center">vpon_ad_test</td>
+<td style="text-align: center">Test Ad</td>
+<td style="text-align: center">N</td>
+<td style="text-align: center">1(Yes)/0(No)，Default(Yes)</td>
+</tr>
+<tr>
+<td style="text-align: center">debug</td>
+<td style="text-align: center">Debugging information in console</td>
+<td style="text-align: center">N</td>
+<td style="text-align: center">true/false，Default:false</td>
+</tr>
+<tr>
+<td style="text-align: center">openTab</td>
+<td style="text-align: center">If open a new tab to show ad&#39;s contents</td>
+<td style="text-align: center">N</td>
+<td style="text-align: center">true/false，Default:true</td>
+</tr>
+</tbody></table>
+
+<p><br>
+<br></p>
+
+<h1 id="sample-code">Sample Code</h1>
+
+<hr>
+<div class="highlight"><pre><code class="language-HTML" data-lang="HTML"><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>The Test Page<span class="nt">&lt;/h1&gt;</span>
+
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
+            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;Your Banner ID&quot;</span>
+            <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
+            <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/br&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
+            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;Your Banner ID&quot;</span>
+            <span class="na">vpon_ad_format=</span><span class="s">&quot;300x250_mb&quot;</span>
+            <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong>
+If you use iframe for embedding vpon&#39;s ad, please remember to modify the size of iframe to fit the right size of vpon&#39;s ad.
+<br>
+<br></p>
+</blockquote>
+
+<h1 id="mobile-site-dfp">Mobile Site DFP</h1>
+
+<hr>
+
+<p>This document provides instructions for using the mobile site DFP to display banner ads. If you&#39;re not familiar setting mobile web api, review the documents first: &quot;Vpon Mobile Web SDK&quot; to become familiar with this document. Then come back this page and follow the DFP setting steps.</p>
+
+<h2 id="generate-tags">Generate tags</h2>
+
+<hr>
+
+<p>Check the &quot;Enable single request&quot; and place Header code into the HEAD element of the web page and Document body code into the page body where you want to show ad.</p>
+
+<h2 id="setting-inventory">Setting Inventory</h2>
+
+<hr>
+
+<p>Go to DFP <a href="https://www.google.com/dfp/">Here</a>:</p>
+
+<ol>
+<li>Create Inventory.</li>
+<li>Setting Name, Size, and other items.</li>
+<li>Generate tags (choose Google Publisher Tag)</li>
+</ol>
+
+<p><img src="/assets/img/MobileDPF_Eng.png" alt="MobileDPF_Eng"></p>
+
+<h2 id="setting-orders-items-and-creatives">Setting Orders, Items and Creatives</h2>
+
+<p>To run a new ad campaign through DFP Small Business, you&#39;ll first need to create a new order. After creating the order, you&#39;ll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), DFP will not reserve inventory until the order is approved.</p>
+
+<h3 id="creat-orders-manually">Creat Orders Manually</h3>
+
+<p>To create an order before running an inventory forecast:</p>
+
+<ol>
+<li>In your DFP Small Business account, click the <code>Orders</code> tab.</li>
+<li>Click <code>New order</code>.</li>
+<li>Enter your order information in the appropriate fields.
+&gt; Order names must be unique within your network.</li>
+<li>Enter your line item information.</li>
+<li>Click Check inventory to ensure the order will have enough available impressions.
+![Warning]</li>
+<li>Click <code>Save</code>。Once you&#39;ve created an order, you&#39;ll need to approve it before the line items are eligible to serve. See Approve an order to learn how.</li>
+</ol>
+
+<h3 id="create-a-line-item">Create a Line Item</h3>
+
+<p>To create a line item:</p>
+
+<ol>
+<li>In your DFP Small Business account, click the Orders tab.</li>
+<li>Create a new order or click an existing order in the table.</li>
+<li>Click New line item.</li>
+<li>Enter a line item name. Line item names must be unique within your network.</li>
+<li>Enter the inventory sizes of the creatives you plan to upload.</li>
+<li>(Optional) Enter some comments about the line item that might help with trafficking the line item.</li>
+<li>Enter the line item type, dates, quantity and cost.</li>
+<li>Under Adjust delivery, configure your delivery settings (optional). See Optional delivery settings below for more information.</li>
+<li>Select the inventory you want to target.</li>
+</ol>
+
+<p>You can target at ad units, placements, or both. To find inventory to target at, you can either browse through your network’s inventory or perform a search.</p>
+
+<p>The ad unit named after your network represents all of the ad units in your network. If you target the line item to this network-level ad unit, the line item will target any ad unit in your network.</p>
+
+<p>Example：
+<img src="/assets/img/AppType.png" alt="AppType.png"></p>
+
+<p>10.Enter additional targeting criteria to target a specific audience (optional). If you don’t target the line item to any ad units or placements, then the line item will be set to serve as run-of-network. This means the line item can serve to any ad unit on your website.</p>
+
+<p>11.Click <code>Save</code>.</p>
+
+<h3 id="upload-a-creative">Upload a Creative</h3>
+
+<ol>
+<li>Click the line item where you&#39;d like to add the creative. You can also create a new line item if needed.</li>
+<li>Click Add creatives. All creatives and ad unit dimensions associated with your line item will be listed on the left-hand column. You can upload creatives to any unit size in this list.</li>
+<li>You can either drag and drop multiple creatives into the line item or just add one at a time.</li>
+</ol>
+
+<h3 id="add-only-one-creative">Add only one creative</h3>
+
+<p>Click New creative and select the creative&#39;s dimensions. (Choose All → Third party)
+<img src="/assets/img/Moblie_DFP_creative.png" alt="Moblie_DFP_creative"></p>
+
+<h3 id="creative-settings">Creative settings</h3>
+
+<p>Input the snippet of code:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;0&quot;</span>
+       <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;Your license Key&quot;</span>
+       <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
+       <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>  <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Note</strong>: vpon vpon_ad_test=&quot;1&quot; 爲開啓測試廣告， vpon vpon_ad_test=&quot;0&quot;爲拉取正式廣告。</p>
+</blockquote>
+
+<p>Example：
+<img src="/assets/img/MobileDFP_creativeSetting.png" alt="MobileDFP_creativeSetting"></p>
+
+<h3 id="callback-for-traffic-remnant-ads">Callback for traffic remnant ads</h3>
+
+<p>snippet of code is provided below:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Vpadn_tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.googletagservices.com/tag/js/gpt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">&#39;write_your_ad_unit&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">enableSingleRequest</span><span class="p">();</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">();</span>
+    <span class="p">});</span>
+    <span class="nt">&lt;/script&gt;</span>
+
+    <span class="nt">&lt;script&gt;</span>
+    <span class="kd">function</span> <span class="nx">vponCallBackMethod</span><span class="p">(</span><span class="nx">adStatus</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">adStatus</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">);});</span>
+    <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nt">&lt;/script&gt;</span>
+
+           <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
+            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;write_your_license_key&quot;</span>
+            <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
+            <span class="na">debug=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">ad_request_callback=</span><span class="s">&quot;vponCallBackMethod&quot;</span>
+            <span class="na">is_rotate=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Note</strong>：</p>
+
+<ol>
+<li>write_your_ad_unit: put the other ad unit, which got from inventory. This ad unit formate is like: <code>/network_ID/ad_unit</code> And this ad unit is target by the line item, which is the next ads you want to show when vpon lack of ads. For example, in this line item it includes Adsense script. Make sure that the subsequent ad requests that are passed-back from the third-party ad server to DFP are unique and therefore do not call that same third party for an ad.</li>
+<li>[320, 50]： change it to the ad size you want.</li>
+<li>vpon vpon_ad_test=&quot;1&quot; is for test ad， vpon vpon_ad_test=&quot;0&quot; is to get official ad</li>
+<li>write_your_license_key：please put the vpon&#39;s Banner ID here</li>
+<li>320x50_mb：change it to the ad size you want: 320x50_mb or 300x250_mb</li>
+</ol>
+</blockquote>
+
+<p>Example：
+<img src="/assets/img/DFP_WEB_CALLBACK.png" alt="DFP_WEB_CALLBACK"></p>
+
+<p>Need more details to understand how its working, please take a look at this page:<a href="https://support.google.com/dfp_sb/answer/1693146?hl=en">GAM tags</a></p>
+
+<h1 id="getting-support">Getting Support</h1>
+
+<hr>
+
+<p><a href="https://support.google.com/dfp_sb/">DFP Small Business</a> <br>
+<a href="https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android">Google Developers DFP Banner Ads</a></p>
+
+<h1 id="faq">FAQ</h1>
+
+<hr>
+
+<h2 id="still-can-39-t-see-any-ad">Still can&#39;t see any ad</h2>
+
+<p>Please check the following items:</p>
+
+<ul>
+<li>Please open the page by mobile browser not the personal computer.<br></li>
+<li>Clean the cache, delete cookie and reload the page.</li>
+</ul>
+
+<h2 id="still-can-39-t-solve-it">Still can&#39;t solve it</h2>
+
+<p>Open the debug mode and send all of  &quot;Vpadn-&quot; informations to <a href="mailto:fae@vpon.com">Vpon FAE</a></p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>
