@@ -144,7 +144,7 @@ Size (WxH)                 |Description             |  VponAdSize Constant      
 320x50                     | Standard Banner        | VpadnAdSizeBANNER              |iPhone & iPad
 468x60                     | IAB Full-Size Banner   |VpadnAdSizeFullBanner           |iPad
 728x90                     | IAB  Leaderboard       |  VpadnAdSizeLeaderboard        |iPad
-320x250                    |IAB Medium Recangle     |VpadnAdSizeMediumRectangle      |iPad
+300x250                    |IAB Medium Recangle     |VpadnAdSizeMediumRectangle      |iPad
 device width x auto height |Smart Banner Portrait   |  VpadnAdSizeSmartBannerPortrait |iPhone & iPad
 device width x auto height |Smart Banner Landscape  |VpadnAdSizeSmartBannerLandscape  |iPhone & iPad
 

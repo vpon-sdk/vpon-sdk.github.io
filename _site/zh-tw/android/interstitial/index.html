@@ -1,4 +1,209 @@
-<!DOCTYPE html><html lang="zh-tw"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Here presents the latest Vpon SDK documentation."><meta name="keywords" content="Keywords for this page, in the meta data"><meta name="author" content="Finn Yeh"><title> Android - 插頁廣告 &middot; Vpon-SDK (Alpha) </title><link href="/dist/css/bootstrap.min.css" rel="stylesheet"><link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><link href="/assets/css/docs.min.css" rel="stylesheet"><!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/assets/ico/favicon.ico"><script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-43024238-5"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script></head><body><a class="sr-only" href="#content">Skip to main content</a><header class="navbar navbar-static-top bs-docs-nav" role="banner"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/zh-tw" class="navbar-brand"><img src="/assets/img/vpon-logo.png" id="vpon-logo"/></a></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="/zh-tw/android/" class="right-android">Android</a></li><li class="dropdown"><a href="/zh-tw/ios/" class="right-ios">iOS</a></li><li class="dropdown"><a href="/zh-tw/web/" class="right-web">Web</a></li><li class="dropdown"><button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Language <span class="caret"></span></button><ul class="dropdown-menu language-dropdown"><li><a class="en" href="/android/interstitial/">English</a></li><li><a class="zh-tw" href="/zh-tw/android/interstitial/">繁體中文</a></li><li><a class="zh-cn" href="/zh-cn/android/interstitial/">简体中文</a></li><li><a class="jp" href="/jp/android/interstitial/">日本語</a></li></ul></li></ul></nav></div></header><div class="bs-header" id="content"><div class="container"><h1>Android - 插頁廣告</h1><p>Interstitia ad</p></div></div><div class="container bs-docs-container"><div class="row"><div class="col-sm-3 col-md-2" role="complementary"><div class="bs-sidebar-left bs-sidenav"><ul class="nav nav-sidebar nav-left"><span id="sidebar-title1">Android 串接</span><li><a id="getting-started" href="/zh-tw/android">開始使用</a></li><li><a id="integration-guide" href="/zh-tw/android/integration-guide">串接說明</a></li><span id="sidebar-title2">廣告型態選擇</span><li><a id="banner-id" href="/zh-tw/android/banner">橫幅廣告</a></li><li><a id="interstitial-id" href="/zh-tw/android/interstitial">插頁廣告</a></li><li><a id="mediation" href="/zh-tw/android/mediation">中介服務</a></li><li><a id="advanced" href="/zh-tw/android/advanced">進階設定</a></li><span id="sidebar-title3">廣告型態選擇</span><li><a id="download" href="/zh-tw/android/download">下載 SDK</a></li><li><a id="latest-news" href="/zh-tw/android/latest-news">最新消息</a></li><li><a id="support" href="/zh-tw/android/support">其他協助</a></li></ul></div></div><div class="col-md-7" role="main"><h2 id="完成串接指示">完成串接指示</h2><hr><p>若您尚未完成串接廣告形式前的串接說明，請先前往<a href="/zh-tw/android/integration-guide/">串接說明</a>完成相關設定</p><h1 id="總覽">總覽</h1><hr><p>插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。這類廣告由於內容更豐富、更吸引人，因此製作起來更昂貴，而曝光機會卻有限。</p><p><img src="/assets/img/Interstitial.png" alt=""></p><h1 id="vpon-插頁廣告">Vpon 插頁廣告</h1><hr><p>插頁廣告的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。</p><p>不過，它的用法與 Banner 非常類似：</p><ul><li>匯入 <code>com.vpadn.ads.*</code></li><li>宣告例項</li><li>建立例項，並指定 Vpon 發佈商編號 (bannerId)</li></ul><p>(不能與橫幅廣告所用發佈商編號重複)</p><p>再次提醒您，最好在應用程式的 Activity 內執行上述步驟。</p><div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">VpadnAdListener</span> <span class="o">{</span>
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Here presents the latest Vpon SDK documentation.">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  Android - 插頁廣告 &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/zh-tw" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-tw/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-tw/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-tw/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/android/interstitial/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/android/interstitial/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/android/interstitial/">简体中文</a></li>
+          <li><a class="jp" href="/jp/android/interstitial/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>Android - 插頁廣告</h1>
+      <p>Interstitia ad</p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2" role="complementary" >
+      <div class="bs-sidebar-left bs-sidenav">
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<ul class= "nav nav-sidebar nav-left">
+  <span id= "sidebar-title1">Android 串接</span>
+  <li><a id= "getting-started" href="/zh-tw/android">開始使用</a></li>
+  <li><a id= "integration-guide" href="/zh-tw/android/integration-guide">串接說明</a></li>
+  <span id= "sidebar-title2">廣告型態選擇</span>
+  <li><a id= "banner-id" href="/zh-tw/android/banner">橫幅廣告</a></li>
+  <li><a id= "interstitial-id" href="/zh-tw/android/interstitial">插頁廣告</a></li>
+  <li><a id= "mediation" href="/zh-tw/android/mediation">中介服務</a></li>
+  <li><a id= "advanced" href="/zh-tw/android/advanced">進階設定</a></li>
+  <span id= "sidebar-title3">廣告型態選擇</span>
+  <li><a id= "download" href="/zh-tw/android/download">下載 SDK</a></li>
+  <li><a id= "latest-news" href="/zh-tw/android/latest-news">最新消息</a></li>
+  <li><a id= "support" href="/zh-tw/android/support">其他協助</a></li>
+</ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h2 id="完成串接指示">完成串接指示</h2>
+
+<hr>
+
+<p>若您尚未完成串接廣告形式前的串接說明，請先前往<a href="/zh-tw/android/integration-guide/">串接說明</a>完成相關設定</p>
+
+<h1 id="總覽">總覽</h1>
+
+<hr>
+
+<p>插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。這類廣告由於內容更豐富、更吸引人，因此製作起來更昂貴，而曝光機會卻有限。</p>
+
+<p><img src="/assets/img/Interstitial.png" alt=""></p>
+
+<h1 id="vpon-插頁廣告">Vpon 插頁廣告</h1>
+
+<hr>
+
+<p>插頁廣告的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。</p>
+
+<p>不過，它的用法與 Banner 非常類似：</p>
+
+<ul>
+<li>匯入 <code>com.vpadn.ads.*</code></li>
+<li>宣告例項</li>
+<li>建立例項，並指定 Vpon 發佈商編號 (bannerId)</li>
+</ul>
+
+<p>(不能與橫幅廣告所用發佈商編號重複)</p>
+
+<p>再次提醒您，最好在應用程式的 Activity 內執行上述步驟。</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">VpadnAdListener</span> <span class="o">{</span>
         <span class="c1">//TODO: 您像VPON 申請的interstitial banner Id (提醒您 跟一般的橫幅廣告banner ID是不同的)</span>
       <span class="kd">private</span> <span class="n">String</span> <span class="n">interstitialBannerId</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxx&quot;</span><span class="o">;</span>
       <span class="kd">private</span> <span class="n">VpadnInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
@@ -26,11 +231,67 @@
                           <span class="n">interstitialAd</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
           <span class="o">}</span>
       <span class="o">}</span>
-</code></pre></div><p>不過，目前沒有任何項目可加入檢視階層，而且您必須等到這個請求成功後才能嘗試顯示廣告，這點請格外注意。最簡單的做法是執行 AdListener (「InterstitialAd」也是一種廣告)，或是直接使用布林屬性 isReady。</p><p>一旦 load Ad 成功，廣告就可以顯示了：</p><div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="nd">@Override</span>
+</code></pre></div>
+<p>不過，目前沒有任何項目可加入檢視階層，而且您必須等到這個請求成功後才能嘗試顯示廣告，這點請格外注意。最簡單的做法是執行 AdListener (「InterstitialAd」也是一種廣告)，或是直接使用布林屬性 isReady。</p>
+
+<p>一旦 load Ad 成功，廣告就可以顯示了：</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="nd">@Override</span>
     <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">ad</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">interstitialAd</span><span class="o">)</span> <span class="o">{</span>
                          <span class="c1">//show interstitial ad 或可以延後在show</span>
              <span class="n">interstitialAd</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
         <span class="o">}</span>
     <span class="o">}</span>
-</code></pre></div><p>接著，插頁式廣告會佔據整個畫面，直到使用者點擊關閉；這時控制權才會交還給應用程式。<a href="/zh-tw/android/advanced">進階設定</a>中 Vpadn AdListener 小節列出了多種實用的回呼方式，供您參考。</p><h1 id="download-sample-code">Download Sample Code</h1><hr><p><a href="/zh-tw/android/download">Go to Download Page</a></p><h1 id="注意事項">注意事項</h1><hr><blockquote><ol><li><span style="line-height:2.5em"><strong>我們不建議您在程式開啓時直接拉取 interstitial ad 並立即顯示</strong><br></span> 如此將會拖慢程式開啓時的執行速度。因此我們建議您可以先 load interstitial 但不顯示，等待特定事件(e.g. 使用者過關、停留在某個畫面超過特定時間、按下某個 button 或離開 app 之前...)發生再顯示。</li><li><span style="line-height:2em"><strong>請避免沒有 load 就要求顯示廣告</strong><br></span><code>android:configChanges=“orientation|screenSize”</code>若您沒在 activity 裡沒有加上這句，請避免在 onCreate 時做 load interstitial 並立即顯示插頁廣告。</li></ol></blockquote></div><div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary"><ul class="nav bs-sidenav"></ul></div></div></div></div><footer class="bs-footer" role="contentinfo"><div class="container"><ul class="footer-links muted"><li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li><li>&middot;</li><li>Hosted by <a href="https://pages.github.com">Github Pages</a></li></ul></div></footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="/dist/js/bootstrap.min.js"></script><script src="/assets/js/docs.min.js"></script></body></html>
+</code></pre></div>
+<p>接著，插頁式廣告會佔據整個畫面，直到使用者點擊關閉；這時控制權才會交還給應用程式。<a href="/zh-tw/android/advanced">進階設定</a>中 Vpadn AdListener 小節列出了多種實用的回呼方式，供您參考。</p>
+
+<h1 id="download-sample-code">Download Sample Code</h1>
+
+<hr>
+
+<p><a href="/zh-tw/android/download">Go to Download Page</a></p>
+
+<h1 id="注意事項">注意事項</h1>
+
+<hr>
+
+<blockquote>
+<ol>
+<li><span style="line-height:2.5em"><strong>我們不建議您在程式開啓時直接拉取 interstitial ad 並立即顯示</strong><br></span>
+如此將會拖慢程式開啓時的執行速度。因此我們建議您可以先 load interstitial 但不顯示，等待特定事件(e.g. 使用者過關、停留在某個畫面超過特定時間、按下某個 button 或離開 app 之前...)發生再顯示。</li>
+<li><span style="line-height:2em"> <strong>請避免沒有 load 就要求顯示廣告</strong> <br> </span>
+<code>android:configChanges=“orientation|screenSize”</code>若您沒在 activity 裡沒有加上這句，請避免在 onCreate 時做 load interstitial 並立即顯示插頁廣告。</li>
+</ol>
+</blockquote>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

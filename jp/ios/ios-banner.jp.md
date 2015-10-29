@@ -143,7 +143,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 320x50                     | 標準のバナー広告             | VpadnAdSizeBANNER              |iPhone & iPad
 468x60                     | IAB フルサイズバナー広告     |VpadnAdSizeFullBanner           |iPad
 728x90                     | IAB ビッグバナー広告         |  VpadnAdSizeLeaderboard        |iPad
-320x250                    |IAB ミディアムレクタングル広告 |VpadnAdSizeMediumRectangle      |iPad
+300x250                    |IAB ミディアムレクタングル広告 |VpadnAdSizeMediumRectangle      |iPad
 device width x auto height |Smart Banner Portrait       |  VpadnAdSizeSmartBannerPortrait |iPhone & iPad
 device width x auto height |Smart Banner Landscape       |VpadnAdSizeSmartBannerLandscape  |iPhone & iPad
 

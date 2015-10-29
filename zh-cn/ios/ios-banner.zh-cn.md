@@ -151,7 +151,7 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
 320x50                     | 标准横幅广告     | VpadnAdSizeBANNER                   |iPhone & iPad
 468x60                     | IAB 全横幅广告   |VpadnAdSizeFullBanner              |iPad
 728x90                     | IAB 超级横幅广告 |  VpadnAdSizeLeaderboard        |iPad
-320x250                    |IAB 中矩形广告    |VpadnAdSizeMediumRectangle            |iPad
+300x250                    |IAB 中矩形广告    |VpadnAdSizeMediumRectangle            |iPad
 device width x auto height |Smart Banner Portrait |  VpadnAdSizeSmartBannerPortrait |iPhone & iPad
 device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandscape  |iPhone & iPad
 

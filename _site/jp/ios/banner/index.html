@@ -1,4 +1,206 @@
-<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content=""><meta name="keywords" content="Keywords for this page, in the meta data"><meta name="author" content="Finn Yeh"><title> iOS - バナー広告 &middot; Vpon-SDK (Alpha) </title><link href="/dist/css/bootstrap.min.css" rel="stylesheet"><link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><link href="/assets/css/docs.min.css" rel="stylesheet"><!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/assets/ico/favicon.ico"><script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-43024238-5"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script></head><body><a class="sr-only" href="#content">Skip to main content</a><header class="navbar navbar-static-top bs-docs-nav" role="banner"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/jp" class="navbar-brand"><img src="/assets/img/vpon-logo.png" id="vpon-logo"/></a></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="/jp/android/" class="right-android">Android</a></li><li class="dropdown"><a href="/jp/ios/" class="right-ios">iOS</a></li><li class="dropdown"><a href="/jp/web/" class="right-web">Web</a></li><li class="dropdown"><button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Language <span class="caret"></span></button><ul class="dropdown-menu language-dropdown"><li><a class="en" href="/ios/banner/">English</a></li><li><a class="zh-tw" href="/zh-tw/ios/banner/">繁體中文</a></li><li><a class="zh-cn" href="/zh-cn/ios/banner/">简体中文</a></li><li><a class="jp" href="/jp/ios/banner/">日本語</a></li></ul></li></ul></nav></div></header><div class="bs-header" id="content"><div class="container"><h1>iOS - バナー広告</h1><p></p></div></div><div class="container bs-docs-container"><div class="row"><div class="bs-sidebar-left"><div class="col-sm-3 col-md-2"><ul class="nav nav-sidebar nav-left"><span id="sidebar-title1">iOS 串接</span><li><a id="getting-started" href="/jp/ios">スタートガイド</a></li><li><a id="integration-guide" href="/jp/ios/integration-guide">インテグレーションガ</a></li><span id="sidebar-title2">広告パターンとを選択</span><li><a id="banner-id" href="/jp/ios/banner">バナー広告</a></li><li><a id="interstitial-id" href="/jp/ios/interstitial">インタースティシャル広告</a></li><li><a id="mediation" href="/jp/ios/mediation">メディエーション</a></li><li><a id="advanced" href="/jp/ios/advanced">詳細設定</a></li><span id="sidebar-title3">広告パターンとを選択</span><li><a id="download" href="/jp/ios/download">最新ニュース</a></li><li><a id="latest-news" href="/jp/ios/latest-news">ダウンロード</a></li><li><a id="support" href="/jp/ios/support">サポート</a></li></ul></div></div><div class="col-md-7" role="main"><h2 id="実装ガイドを終了いたします">実装ガイドを終了いたします</h2><hr><p>まだ以前の実装ガイドを終了していない場合は、<a href="../integration-guide">ここから全設定</a>をご確認ください。</p><h1 id="バナー広告を表示させるためのコーディング">バナー広告を表示させるためのコーディング</h1><hr><p>iOS アプリは、UIView オブジェクトで構成され、テキストエリアやボタン、その他のコントロールの形でユーザーに表示される Objective-C インスタンスです。VpadnBanner はユーザーのタップ操作に反応して HTML5 の小さな広告を表示するもう 1 つのUIView のサブクラスです。</p><p>全ての UIView と同じように、VpadnBanner もコードだけで作成できます。以下は、必要なステッ プとなります。</p><ol><li>VpadnBanner.hとVpadnInterstitial.hをインポートする。</li><li>アプリの UIViewController 内で VpadnBanner を宣言する。</li><li>VpadnBanner オブジェクトを作成する。</li><li>BannerId、つまり Vponの登録済みプロパティIDを指定する。</li><li>window の rootViewController を設定する。</li><li>対象View を ViewController 内に追加する。</li><li>広告をロードする</li></ol><p>これらすべての処理を最も簡単に実行できるのはアプリの UIViewController 内です。</p><div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  iOS - バナー広告 &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/jp" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/ios/banner/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/ios/banner/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/ios/banner/">简体中文</a></li>
+          <li><a class="jp" href="/jp/ios/banner/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>iOS - バナー広告</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+
+    <div class="row">
+      <div class="bs-sidebar-left">
+      <div class="col-sm-3 col-md-2" >
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  <ul class= "nav nav-sidebar nav-left">
+    <span id= "sidebar-title1">iOS 串接</span>
+    <li><a id= "getting-started" href="/jp/ios">スタートガイド</a></li>
+    <li><a id= "integration-guide" href="/jp/ios/integration-guide">インテグレーションガ</a></li>
+    <span id= "sidebar-title2">広告パターンとを選択</span>
+    <li><a id= "banner-id" href="/jp/ios/banner">バナー広告</a></li>
+    <li><a id= "interstitial-id" href="/jp/ios/interstitial">インタースティシャル広告</a></li>
+    <li><a id= "mediation" href="/jp/ios/mediation">メディエーション</a></li>
+    <li><a id= "advanced" href="/jp/ios/advanced">詳細設定</a></li>
+    <span id= "sidebar-title3">広告パターンとを選択</span>
+    <li><a id= "download" href="/jp/ios/download">最新ニュース</a></li>
+    <li><a id= "latest-news" href="/jp/ios/latest-news">ダウンロード</a></li>
+    <li><a id= "support" href="/jp/ios/support">サポート</a></li>
+  </ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h2 id="実装ガイドを終了いたします">実装ガイドを終了いたします</h2>
+
+<hr>
+
+<p>まだ以前の実装ガイドを終了していない場合は、<a href="../integration-guide">ここから全設定</a>をご確認ください。</p>
+
+<h1 id="バナー広告を表示させるためのコーディング">バナー広告を表示させるためのコーディング</h1>
+
+<hr>
+
+<p>iOS アプリは、UIView オブジェクトで構成され、テキストエリアやボタン、その他のコントロールの形でユーザーに表示される Objective-C インスタンスです。VpadnBanner はユーザーのタップ操作に反応して HTML5 の小さな広告を表示するもう 1 つのUIView のサブクラスです。</p>
+
+<p>全ての UIView と同じように、VpadnBanner もコードだけで作成できます。以下は、必要なステッ プとなります。</p>
+
+<ol>
+<li>VpadnBanner.hとVpadnInterstitial.hをインポートする。</li>
+<li>アプリの UIViewController 内で VpadnBanner を宣言する。</li>
+<li>VpadnBanner オブジェクトを作成する。</li>
+<li>BannerId、つまり Vponの登録済みプロパティIDを指定する。</li>
+<li>window の rootViewController を設定する。</li>
+<li>対象View を ViewController 内に追加する。</li>
+<li>広告をロードする</li>
+</ol>
+
+<p>これらすべての処理を最も簡単に実行できるのはアプリの UIViewController 内です。</p>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
 <span class="c1">//ヘッダーファイルを読み込む</span>
 <span class="cp">#import &quot;VpadnBanner.h&quot;</span>
 <span class="cp">#import &quot;VpadnInterstitial.h&quot;</span>
@@ -10,7 +212,9 @@
     <span class="n">VpadnInterstitial</span><span class="o">*</span>    <span class="n">vpadnInterstitial</span><span class="p">;</span> <span class="c1">//Vpadn インタースティシャル広告のインスタンスを宣言する</span>
 <span class="p">}</span>
 <span class="k">@end</span>
-</code></pre></div><p>以下のコードは viewControllerのviewDidLoad初期段階でバナー広告を設定します。</p><div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+</code></pre></div>
+<p>以下のコードは viewControllerのviewDidLoad初期段階でバナー広告を設定します。</p>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span>
 <span class="p">{</span>
@@ -97,4 +301,122 @@
     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;vpadn スプラッシュ広告ページを閉じる&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">@end</span>
-</code></pre></div><h1 id="バナー広告のサイズ">バナー広告のサイズ</h1><hr><p>スマートフォン用の 320x50 以外に、タブレット向けの広告サイズもサポート しています。</p><table><thead><tr><th style="text-align: center">サイズ (幅 x 高さ)</th><th style="text-align: center">説明</th><th style="text-align: center">VponAdSize 定数値</th><th style="text-align: center">適用デバイス</th></tr></thead><tbody><tr><td style="text-align: center">320x50</td><td style="text-align: center">標準のバナー広告</td><td style="text-align: center">VpadnAdSizeBANNER</td><td style="text-align: center">iPhone &amp; iPad</td></tr><tr><td style="text-align: center">468x60</td><td style="text-align: center">IAB フルサイズバナー広告</td><td style="text-align: center">VpadnAdSizeFullBanner</td><td style="text-align: center">iPad</td></tr><tr><td style="text-align: center">728x90</td><td style="text-align: center">IAB ビッグバナー広告</td><td style="text-align: center">VpadnAdSizeLeaderboard</td><td style="text-align: center">iPad</td></tr><tr><td style="text-align: center">320x250</td><td style="text-align: center">IAB ミディアムレクタングル広告</td><td style="text-align: center">VpadnAdSizeMediumRectangle</td><td style="text-align: center">iPad</td></tr><tr><td style="text-align: center">device width x auto height</td><td style="text-align: center">Smart Banner Portrait</td><td style="text-align: center">VpadnAdSizeSmartBannerPortrait</td><td style="text-align: center">iPhone &amp; iPad</td></tr><tr><td style="text-align: center">device width x auto height</td><td style="text-align: center">Smart Banner Landscape</td><td style="text-align: center">VpadnAdSizeSmartBannerLandscape</td><td style="text-align: center">iPhone &amp; iPad</td></tr></tbody></table><p>特定のニーズがない場合、Smart bannerr(portrait or landscape)の使用で十分です</p><h1 id="広告の自動リフレッシュ">広告の自動リフレッシュ</h1><hr><p>VPONアカウントで更新頻度を指定し、以下のサンプルコードを使用するとバナーの自動リフレッシュがオンとなります。</p><p>[vpadnAd setAdAutoRefresh:YES];</p><h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1><hr><p><a href="../download/">Go to download page</a></p><h1 id="結果">結果</h1><hr><p>実行すると、ディスプレイの上方にバナー広告が表示されます。 <img src="/assets/img/IOS-Banner_result.png" alt="IOS-Banner_result"></p><h1 id="app-transport-security">App Transport Security</h1><hr><p>Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to <a href="/jp/ios/latest-news/ios9ats/">this link</a> for some modification.</p><h1 id="ヒント">ヒント</h1><hr><p>より詳細な情報は<a href="../interstitial">ンタースティシャル広告</a>、<a href="../mediation">メディエーション</a>、<a href="../advanced">詳細設定</a>をご確認 ください。</p></div><div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary"><ul class="nav bs-sidenav"></ul></div></div></div></div><footer class="bs-footer" role="contentinfo"><div class="container"><ul class="footer-links muted"><li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li><li>&middot;</li><li>Hosted by <a href="https://pages.github.com">Github Pages</a></li></ul></div></footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="/dist/js/bootstrap.min.js"></script><script src="/assets/js/docs.min.js"></script></body></html>
+</code></pre></div>
+<h1 id="バナー広告のサイズ">バナー広告のサイズ</h1>
+
+<hr>
+
+<p>スマートフォン用の 320x50 以外に、タブレット向けの広告サイズもサポート しています。</p>
+
+<table><thead>
+<tr>
+<th style="text-align: center">サイズ (幅 x 高さ)</th>
+<th style="text-align: center">説明</th>
+<th style="text-align: center">VponAdSize 定数値</th>
+<th style="text-align: center">適用デバイス</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: center">320x50</td>
+<td style="text-align: center">標準のバナー広告</td>
+<td style="text-align: center">VpadnAdSizeBANNER</td>
+<td style="text-align: center">iPhone &amp; iPad</td>
+</tr>
+<tr>
+<td style="text-align: center">468x60</td>
+<td style="text-align: center">IAB フルサイズバナー広告</td>
+<td style="text-align: center">VpadnAdSizeFullBanner</td>
+<td style="text-align: center">iPad</td>
+</tr>
+<tr>
+<td style="text-align: center">728x90</td>
+<td style="text-align: center">IAB ビッグバナー広告</td>
+<td style="text-align: center">VpadnAdSizeLeaderboard</td>
+<td style="text-align: center">iPad</td>
+</tr>
+<tr>
+<td style="text-align: center">300x250</td>
+<td style="text-align: center">IAB ミディアムレクタングル広告</td>
+<td style="text-align: center">VpadnAdSizeMediumRectangle</td>
+<td style="text-align: center">iPad</td>
+</tr>
+<tr>
+<td style="text-align: center">device width x auto height</td>
+<td style="text-align: center">Smart Banner Portrait</td>
+<td style="text-align: center">VpadnAdSizeSmartBannerPortrait</td>
+<td style="text-align: center">iPhone &amp; iPad</td>
+</tr>
+<tr>
+<td style="text-align: center">device width x auto height</td>
+<td style="text-align: center">Smart Banner Landscape</td>
+<td style="text-align: center">VpadnAdSizeSmartBannerLandscape</td>
+<td style="text-align: center">iPhone &amp; iPad</td>
+</tr>
+</tbody></table>
+
+<p>特定のニーズがない場合、Smart bannerr(portrait or landscape)の使用で十分です</p>
+
+<h1 id="広告の自動リフレッシュ">広告の自動リフレッシュ</h1>
+
+<hr>
+
+<p>VPONアカウントで更新頻度を指定し、以下のサンプルコードを使用するとバナーの自動リフレッシュがオンとなります。</p>
+
+<p>[vpadnAd setAdAutoRefresh:YES];</p>
+
+<h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1>
+
+<hr>
+
+<p><a href="../download/">Go to download page</a></p>
+
+<h1 id="結果">結果</h1>
+
+<hr>
+
+<p>実行すると、ディスプレイの上方にバナー広告が表示されます。
+<img src="/assets/img/IOS-Banner_result.png" alt="IOS-Banner_result"></p>
+
+<h1 id="app-transport-security">App Transport Security</h1>
+
+<hr>
+
+<p>Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to <a href="/jp/ios/latest-news/ios9ats/">this link</a> for some modification.</p>
+
+<h1 id="ヒント">ヒント</h1>
+
+<hr>
+
+<p>より詳細な情報は<a href="../interstitial">ンタースティシャル広告</a>、<a href="../mediation">メディエーション</a>、<a href="../advanced">詳細設定</a>をご確認 ください。</p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

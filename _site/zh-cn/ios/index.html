@@ -1,1 +1,253 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Here presents the latest Vpon SDK documentation."><meta name="keywords" content="Keywords for this page, in the meta data"><meta name="author" content="Finn Yeh"><title> iOS - 串接说明 &middot; Vpon-SDK (Alpha) </title><link href="/dist/css/bootstrap.min.css" rel="stylesheet"><link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><link href="/assets/css/docs.min.css" rel="stylesheet"><!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/assets/ico/favicon.ico"><script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-43024238-5"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script></head><body><a class="sr-only" href="#content">Skip to main content</a><header class="navbar navbar-static-top bs-docs-nav" role="banner"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/zh-cn" class="navbar-brand"><img src="/assets/img/vpon-logo.png" id="vpon-logo"/></a></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="/zh-cn/android/" class="right-android">Android</a></li><li class="dropdown"><a href="/zh-cn/ios/" class="right-ios">iOS</a></li><li class="dropdown"><a href="/zh-cn/web/" class="right-web">Web</a></li><li class="dropdown"><button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Language <span class="caret"></span></button><ul class="dropdown-menu language-dropdown"><li><a class="en" href="/ios/">English</a></li><li><a class="zh-tw" href="/zh-tw/ios/">繁體中文</a></li><li><a class="zh-cn" href="/zh-cn/ios/">简体中文</a></li><li><a class="jp" href="/jp/ios/">日本語</a></li></ul></li></ul></nav></div></header><div class="bs-header" id="content"><div class="container"><h1>iOS - 串接说明</h1><p>快速上手 - 串接SDK与显示广告</p></div></div><div class="container bs-docs-container"><div class="row"><div class="bs-sidebar-left"><div class="col-sm-3 col-md-2"><ul class="nav nav-sidebar nav-left"><span id="sidebar-title1">iOS 串接</span><li><a id="getting-started" href="/zh-cn/ios">开始使用</a></li><li><a id="integration-guide" href="/zh-cn/ios/integration-guide">串接说明</a></li><span id="sidebar-title2">广告型态选择</span><li><a id="banner-id" href="/zh-cn/ios/banner">横幅广告</a></li><li><a id="interstitial-id" href="/zh-cn/ios/interstitial">插页广告</a></li><li><a id="mediation" href="/zh-cn/ios/mediation">中介服务</a></li><li><a id="advanced" href="/zh-cn/ios/advanced">进阶设定</a></li><span id="sidebar-title3">广告型态选择</span><li><a id="download" href="/zh-cn/ios/download">下载 SDK</a></li><li><a id="latest-news" href="/zh-cn/ios/latest-news">最新消息</a></li><li><a id="support" href="/zh-cn/ios/support">其他协助</a></li></ul></div></div><div class="col-md-7" role="main"><h1 id="快速上手-串接-sdk-与显示广告">快速上手 - 串接 SDK 与显示广告</h1><h2 id="step1-下载sdk">Step1: 下载SDK</h2><hr><p>请先<a href="/zh-cn/ios/download/">下载最新SDK</a>，若尚未加入Vpon开发商，请参照此<a href="/zh-cn/ios/registration/">说明</a>成为开发商伙伴 <br><br></p><h2 id="step2-串接sdk">Step2: 串接SDK</h2><hr><p>请遵循<a href="/zh-cn/ios/integration-guide/">串接说明</a>完成各种SDK串接，包括最低需求、权限以及其他设定<br><br></p><h2 id="step3-串接广告">Step3: 串接广告</h2><hr><table><thead><tr><th style="text-align: center"><a href="/zh-cn/ios/banner/">横幅广告</a></th><th style="text-align: center"><a href="/zh-cn/ios/interstitial/">插页广告</a></th><th style="text-align: center"><a href="/zh-cn/ios/mediation/">中介服务</a></th></tr></thead><tbody></tbody></table><p><br><br></p><h2 id="诀窍">诀窍</h2><hr><p>所有 iOS 相关资讯都在左排列表中，右排为文章的目录，若想跳转其他装置平台或语言，请点选网站右上角的目标语言与平台。若您有任何技术问题，请不吝联络 <a href="mailto:fae@vpon.com">FAE 团队</a><br><br></p><blockquote><p><strong>Note</strong>:</p><ol><li>串接完毕后，请自行检查是否有印出VponLog:didImpression，以确认有成功回传资讯到Vpon Server</li><li>iOS9 多了安全条款 App Transport Security (ATS)，若您使用 Xcode 7 建立 iOS9 专案，请参考<a href="../latest-news/ios9ats/">这篇</a>来修改部份设定</li></ol></blockquote></div><div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary"><ul class="nav bs-sidenav"></ul></div></div></div></div><footer class="bs-footer" role="contentinfo"><div class="container"><ul class="footer-links muted"><li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li><li>&middot;</li><li>Hosted by <a href="https://pages.github.com">Github Pages</a></li></ul></div></footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="/dist/js/bootstrap.min.js"></script><script src="/assets/js/docs.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Here presents the latest Vpon SDK documentation.">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  iOS - 串接说明 &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/zh-cn" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/ios/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/ios/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/ios/">简体中文</a></li>
+          <li><a class="jp" href="/jp/ios/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>iOS - 串接说明</h1>
+      <p>快速上手 - 串接SDK与显示广告</p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+
+    <div class="row">
+      <div class="bs-sidebar-left">
+      <div class="col-sm-3 col-md-2" >
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  <ul class= "nav nav-sidebar nav-left">
+    <span id= "sidebar-title1">iOS 串接</span>
+    <li><a id= "getting-started" href="/zh-cn/ios">开始使用</a></li>
+    <li><a id= "integration-guide" href="/zh-cn/ios/integration-guide">串接说明</a></li>
+    <span id= "sidebar-title2">广告型态选择</span>
+    <li><a id= "banner-id" href="/zh-cn/ios/banner">横幅广告</a></li>
+    <li><a id= "interstitial-id" href="/zh-cn/ios/interstitial">插页广告</a></li>
+    <li><a id= "mediation" href="/zh-cn/ios/mediation">中介服务</a></li>
+    <li><a id= "advanced" href="/zh-cn/ios/advanced">进阶设定</a></li>
+    <span id= "sidebar-title3">广告型态选择</span>
+    <li><a id= "download" href="/zh-cn/ios/download">下载 SDK</a></li>
+    <li><a id= "latest-news" href="/zh-cn/ios/latest-news">最新消息</a></li>
+    <li><a id= "support" href="/zh-cn/ios/support">其他协助</a></li>
+  </ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h1 id="快速上手-串接-sdk-与显示广告">快速上手 - 串接 SDK 与显示广告</h1>
+
+<h2 id="step1-下载sdk">Step1: 下载SDK</h2>
+
+<hr>
+
+<p>请先<a href="/zh-cn/ios/download/">下载最新SDK</a>，若尚未加入Vpon开发商，请参照此<a href="/zh-cn/ios/registration/">说明</a>成为开发商伙伴 <br><br></p>
+
+<h2 id="step2-串接sdk">Step2: 串接SDK</h2>
+
+<hr>
+
+<p>请遵循<a href="/zh-cn/ios/integration-guide/">串接说明</a>完成各种SDK串接，包括最低需求、权限以及其他设定<br><br></p>
+
+<h2 id="step3-串接广告">Step3: 串接广告</h2>
+
+<hr>
+
+<table><thead>
+<tr>
+<th style="text-align: center"><a href="/zh-cn/ios/banner/">横幅广告</a></th>
+<th style="text-align: center"><a href="/zh-cn/ios/interstitial/">插页广告</a></th>
+<th style="text-align: center"><a href="/zh-cn/ios/mediation/">中介服务</a></th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p><br><br></p>
+
+<h2 id="诀窍">诀窍</h2>
+
+<hr>
+
+<p>所有 iOS 相关资讯都在左排列表中，右排为文章的目录，若想跳转其他装置平台或语言，请点选网站右上角的目标语言与平台。若您有任何技术问题，请不吝联络 <a href="mailto:fae@vpon.com">FAE 团队</a>
+<br><br></p>
+
+<blockquote>
+<p><strong>Note</strong>:</p>
+
+<ol>
+<li>串接完毕后，请自行检查是否有印出VponLog:didImpression，以确认有成功回传资讯到Vpon Server</li>
+<li>iOS9 多了安全条款 App Transport Security (ATS)，若您使用 Xcode 7 建立 iOS9 专案，请参考<a href="../latest-news/ios9ats/">这篇</a>来修改部份设定</li>
+</ol>
+</blockquote>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

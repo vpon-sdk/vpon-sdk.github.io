@@ -1,1 +1,312 @@
-<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content=""><meta name="keywords" content="Keywords for this page, in the meta data"><meta name="author" content="Finn Yeh"><title> iOS - インテグレーションガイド &middot; Vpon-SDK (Alpha) </title><link href="/dist/css/bootstrap.min.css" rel="stylesheet"><link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><link href="/assets/css/docs.min.css" rel="stylesheet"><!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/assets/ico/favicon.ico"><script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-43024238-5"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script></head><body><a class="sr-only" href="#content">Skip to main content</a><header class="navbar navbar-static-top bs-docs-nav" role="banner"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/jp" class="navbar-brand"><img src="/assets/img/vpon-logo.png" id="vpon-logo"/></a></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="/jp/android/" class="right-android">Android</a></li><li class="dropdown"><a href="/jp/ios/" class="right-ios">iOS</a></li><li class="dropdown"><a href="/jp/web/" class="right-web">Web</a></li><li class="dropdown"><button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Language <span class="caret"></span></button><ul class="dropdown-menu language-dropdown"><li><a class="en" href="/ios/integration-guide/">English</a></li><li><a class="zh-tw" href="/zh-tw/ios/integration-guide/">繁體中文</a></li><li><a class="zh-cn" href="/zh-cn/ios/integration-guide/">简体中文</a></li><li><a class="jp" href="/jp/ios/integration-guide/">日本語</a></li></ul></li></ul></nav></div></header><div class="bs-header" id="content"><div class="container"><h1>iOS - インテグレーションガイド</h1><p></p></div></div><div class="container bs-docs-container"><div class="row"><div class="bs-sidebar-left"><div class="col-sm-3 col-md-2"><ul class="nav nav-sidebar nav-left"><span id="sidebar-title1">iOS 串接</span><li><a id="getting-started" href="/jp/ios">スタートガイド</a></li><li><a id="integration-guide" href="/jp/ios/integration-guide">インテグレーションガ</a></li><span id="sidebar-title2">広告パターンとを選択</span><li><a id="banner-id" href="/jp/ios/banner">バナー広告</a></li><li><a id="interstitial-id" href="/jp/ios/interstitial">インタースティシャル広告</a></li><li><a id="mediation" href="/jp/ios/mediation">メディエーション</a></li><li><a id="advanced" href="/jp/ios/advanced">詳細設定</a></li><span id="sidebar-title3">広告パターンとを選択</span><li><a id="download" href="/jp/ios/download">最新ニュース</a></li><li><a id="latest-news" href="/jp/ios/latest-news">ダウンロード</a></li><li><a id="support" href="/jp/ios/support">サポート</a></li></ul></div></div><div class="col-md-7" role="main"><h1 id="vpon-sdk-4-基本編">VPON SDK 4 基本編</h1><hr><ol><li><p>まず下記URLから登録済みネットワークプラットフォームを確認してください:<br> 台湾: <a href="http://tw.pub.vpon.com/">http://tw.pub.vpon.com/</a><br> 中国: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p></li><li><p>台湾のプラットフォームを利用する場合、以下をご利用ください。 <code>vpadnAd.platform = @&quot;TW&quot;</code>;</p></li><li><p>中国のプラットフォームを利用する場合、以下をご利用ください。 <code>vpadnAd.platform = @&quot;CN&quot;</code>;</p></li><li><p>iOS8にアップデート後、ログに <code>didImpression</code> が確認できない場合、原因としてデフォルト設定でウィンドウの幅 x 高さが存在しない可能性が考えられます。setFrame関数をマニュアルで呼び出して調整する必要があります。<code>didImpression</code> が正しく実装されているかご確認ください。</p></li></ol><h1 id="概要">概要</h1><hr><p>VPONバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。 iOS アプリでバナー広告を表示させるためには、XcodeプロジェクトにSDKを導入し、ユーザインターフ ェースに VpadnBanner を追加するだけです。</p><h1 id="要件">要件</h1><hr><ul><li>iOS 5.x 以降のバージョン</li><li>XCode 4.4 以降のバー ジョン</li></ul><p>を組み合わせて使用する必要があります。</p><h1 id="sdk-の導入">SDK の導入</h1><hr><p>解凍した SDK には、Objective-C ヘッダー、実行期間のライブラリー、READMEテキストが含まれています。アプリにVPON広告を導入するためには、次の3つのステップを完了させてください。</p><ol><li>プロジェクトに <code>libAdOn.a</code> , <code>VpadnBanner.h</code> および <code>VpadnInterstitial.h</code> を追加します。</li><li>必要なフレームワークを追加します。</li><li>Build Settings 内の Other Linker Flagsに <code>-all_load</code> と<code>-Obj-C</code> を追加し、また Summary の下で AdSupport を Optional に設定します。</li></ol><blockquote><p><strong>Note</strong>: <strong>All three</strong> these steps are necessary!</p></blockquote><h2 id="sdk-lib-の追加">SDK lib の追加</h2><p>解凍した SDK には、lib ファイル 1 つ・ヘッダーファイル 2つが含まれています。</p><ol><li><p>Xcode 内のプロジェクト内で右クリックし、 [Add Files to &quot;Vpadn_BannerInter_x5&quot;...]を選択し&quot;Vpadn_BannerInter_x5&quot; 内でファイルを新規作成します。 <img src="/assets/img/IOS-add-file_vpadn.png" alt="IOS-add-file_vpadn.png"></p></li><li><p>次に、 SDK 内で <code>libAdOn.a</code> , <code>VpadnBanner.h</code> および <code>VpadnInterstitial.h</code> を選択します。 <img src="/assets/img/IOS-add-lib&amp;header_vpadn.png" alt="IOS-add-lib&amp;header_vpadn"></p></li><li><p>SDK lib は、以下のフレームワーク を参照できます。 SDK 4.2.8 バージョンをお使いになる場合、AddressBookとAddressBookUIは使用しないでください。 <br><code>AdSupport</code>, <br><code>AssetsLibrary</code>, <br><code>AudioToolbox</code>, <br><code>AVFoundation</code>, <br><code>CoreFoundation</code>, <br><code>CoreGraphics</code>, <br><code>CoreLocation</code>, <br><code>CoreMedia</code>, <br><code>CoreMotion</code>, <br><code>CoreTelephony</code>, <br><code>EventKit</code>, <br><code>Foundation</code>, <br><code>MediaPlayer</code>, <br><code>MessageUI</code>, <br><code>MobileCoreServices</code>, <br><code>QuartzCore</code>, <br><code>Security</code>, <br><code>StoreKit</code>, <br><code>SystemConfiguration</code>, <br><code>UIKit</code></p></li></ol><p>これらのフレームワークを追加する場合、 プロジェクト[Vpadn_BannerInter_x5]をダブルクリックし、[Build Phases] タブ下の [Link Binary With Libraries]プルダウンメニューを開いてから、画面に表示される <code>+</code> ボタンで iOS SDK内のアーキテクチャを追加します。 <img src="/assets/img/IOS-add-frameworks_vpadn.png" alt="IOS-add-frameworks_vpadn"></p><h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1><hr><p>SDK 4 lib ファイルは、Sample codeフォルダ内にあります。 <a href="/android/download">Go to download page</a></p><h1 id="app-transport-security">App Transport Security</h1><hr><p>アップルは最近、iOS9 に App Transport Security (ATS)という新しいセキュリティシステ ムを導入しました。最新の Xcode 7 を使用して、 iOS9 プロジェクトを作成または移行し ている場合は、<a href="latest-news/ios9ats">このリンク</a>)先を参考に修正を行ってください。</p><h1 id="ヒント">ヒント</h1><hr><p>より詳細な情報は、<a href="../banner">バナー広告</a>、<a href="../interstitial">ンタースティシャル広告</a>、<a href="../mediation">メディエーション</a>をご確認 ください。</p></div><div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary"><ul class="nav bs-sidenav"></ul></div></div></div></div><footer class="bs-footer" role="contentinfo"><div class="container"><ul class="footer-links muted"><li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li><li>&middot;</li><li>Hosted by <a href="https://pages.github.com">Github Pages</a></li></ul></div></footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="/dist/js/bootstrap.min.js"></script><script src="/assets/js/docs.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  iOS - インテグレーションガイド &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/jp" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/ios/integration-guide/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/ios/integration-guide/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/ios/integration-guide/">简体中文</a></li>
+          <li><a class="jp" href="/jp/ios/integration-guide/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>iOS - インテグレーションガイド</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+
+    <div class="row">
+      <div class="bs-sidebar-left">
+      <div class="col-sm-3 col-md-2" >
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  <ul class= "nav nav-sidebar nav-left">
+    <span id= "sidebar-title1">iOS 串接</span>
+    <li><a id= "getting-started" href="/jp/ios">スタートガイド</a></li>
+    <li><a id= "integration-guide" href="/jp/ios/integration-guide">インテグレーションガ</a></li>
+    <span id= "sidebar-title2">広告パターンとを選択</span>
+    <li><a id= "banner-id" href="/jp/ios/banner">バナー広告</a></li>
+    <li><a id= "interstitial-id" href="/jp/ios/interstitial">インタースティシャル広告</a></li>
+    <li><a id= "mediation" href="/jp/ios/mediation">メディエーション</a></li>
+    <li><a id= "advanced" href="/jp/ios/advanced">詳細設定</a></li>
+    <span id= "sidebar-title3">広告パターンとを選択</span>
+    <li><a id= "download" href="/jp/ios/download">最新ニュース</a></li>
+    <li><a id= "latest-news" href="/jp/ios/latest-news">ダウンロード</a></li>
+    <li><a id= "support" href="/jp/ios/support">サポート</a></li>
+  </ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <h1 id="vpon-sdk-4-基本編">VPON SDK 4 基本編</h1>
+
+<hr>
+
+<ol>
+<li><p>まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
+台湾: <a href="http://tw.pub.vpon.com/">http://tw.pub.vpon.com/</a><br>
+中国: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p></li>
+<li><p>台湾のプラットフォームを利用する場合、以下をご利用ください。
+<code>vpadnAd.platform = @&quot;TW&quot;</code>;</p></li>
+<li><p>中国のプラットフォームを利用する場合、以下をご利用ください。
+<code>vpadnAd.platform = @&quot;CN&quot;</code>;</p></li>
+<li><p>iOS8にアップデート後、ログに <code>didImpression</code> が確認できない場合、原因としてデフォルト設定でウィンドウの幅 x 高さが存在しない可能性が考えられます。setFrame関数をマニュアルで呼び出して調整する必要があります。<code>didImpression</code> が正しく実装されているかご確認ください。</p></li>
+</ol>
+
+<h1 id="概要">概要</h1>
+
+<hr>
+
+<p>VPONバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
+iOS アプリでバナー広告を表示させるためには、XcodeプロジェクトにSDKを導入し、ユーザインターフ ェースに VpadnBanner を追加するだけです。</p>
+
+<h1 id="要件">要件</h1>
+
+<hr>
+
+<ul>
+<li>iOS 5.x 以降のバージョン</li>
+<li>XCode 4.4 以降のバー ジョン</li>
+</ul>
+
+<p>を組み合わせて使用する必要があります。</p>
+
+<h1 id="sdk-の導入">SDK の導入</h1>
+
+<hr>
+
+<p>解凍した SDK には、Objective-C ヘッダー、実行期間のライブラリー、READMEテキストが含まれています。アプリにVPON広告を導入するためには、次の3つのステップを完了させてください。</p>
+
+<ol>
+<li>プロジェクトに <code>libAdOn.a</code> , <code>VpadnBanner.h</code> および <code>VpadnInterstitial.h</code> を追加します。</li>
+<li>必要なフレームワークを追加します。</li>
+<li>Build Settings 内の Other Linker Flagsに <code>-all_load</code> と<code>-Obj-C</code> を追加し、また Summary の下で AdSupport を Optional に設定します。</li>
+</ol>
+
+<blockquote>
+<p><strong>Note</strong>: <strong>All three</strong> these steps are necessary!</p>
+</blockquote>
+
+<h2 id="sdk-lib-の追加">SDK lib の追加</h2>
+
+<p>解凍した SDK には、lib ファイル 1 つ・ヘッダーファイル 2つが含まれています。</p>
+
+<ol>
+<li><p>Xcode 内のプロジェクト内で右クリックし、 [Add Files to &quot;Vpadn_BannerInter_x5&quot;...]を選択し&quot;Vpadn_BannerInter_x5&quot; 内でファイルを新規作成します。
+<img src="/assets/img/IOS-add-file_vpadn.png" alt="IOS-add-file_vpadn.png"></p></li>
+<li><p>次に、 SDK 内で <code>libAdOn.a</code> , <code>VpadnBanner.h</code> および <code>VpadnInterstitial.h</code> を選択します。
+<img src="/assets/img/IOS-add-lib&amp;header_vpadn.png" alt="IOS-add-lib&amp;header_vpadn"></p></li>
+<li><p>SDK lib は、以下のフレームワーク を参照できます。
+SDK 4.2.8 バージョンをお使いになる場合、AddressBookとAddressBookUIは使用しないでください。 <br  >
+<code>AdSupport</code>, <br>
+<code>AssetsLibrary</code>, <br>
+<code>AudioToolbox</code>, <br>
+<code>AVFoundation</code>, <br>
+<code>CoreFoundation</code>, <br>
+<code>CoreGraphics</code>, <br>
+<code>CoreLocation</code>, <br>
+<code>CoreMedia</code>, <br>
+<code>CoreMotion</code>, <br>
+<code>CoreTelephony</code>, <br>
+<code>EventKit</code>, <br>
+<code>Foundation</code>, <br>
+<code>MediaPlayer</code>, <br>
+<code>MessageUI</code>, <br>
+<code>MobileCoreServices</code>, <br>
+<code>QuartzCore</code>, <br>
+<code>Security</code>, <br>
+<code>StoreKit</code>, <br>
+<code>SystemConfiguration</code>, <br>
+<code>UIKit</code></p></li>
+</ol>
+
+<p>これらのフレームワークを追加する場合、 プロジェクト[Vpadn_BannerInter_x5]をダブルクリックし、[Build Phases] タブ下の [Link Binary With Libraries]プルダウンメニューを開いてから、画面に表示される <code>+</code> ボタンで iOS SDK内のアーキテクチャを追加します。
+<img src="/assets/img/IOS-add-frameworks_vpadn.png" alt="IOS-add-frameworks_vpadn"></p>
+
+<h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1>
+
+<hr>
+
+<p>SDK 4 lib ファイルは、Sample codeフォルダ内にあります。
+<a href="/android/download">Go to download page</a></p>
+
+<h1 id="app-transport-security">App Transport Security</h1>
+
+<hr>
+
+<p>アップルは最近、iOS9 に App Transport Security (ATS)という新しいセキュリティシステ ムを導入しました。最新の Xcode 7 を使用して、 iOS9 プロジェクトを作成または移行し ている場合は、<a href="latest-news/ios9ats">このリンク</a>)先を参考に修正を行ってください。</p>
+
+<h1 id="ヒント">ヒント</h1>
+
+<hr>
+
+<p>より詳細な情報は、<a href="../banner">バナー広告</a>、<a href="../interstitial">ンタースティシャル広告</a>、<a href="../mediation">メディエーション</a>をご確認 ください。</p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

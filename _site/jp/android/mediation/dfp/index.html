@@ -1,1 +1,345 @@
-<!DOCTYPE html><html lang="jp"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content=""><meta name="keywords" content="Keywords for this page, in the meta data"><meta name="author" content="Finn Yeh"><title> Android - DFP &middot; Vpon-SDK (Alpha) </title><link href="/dist/css/bootstrap.min.css" rel="stylesheet"><link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><link href="/assets/css/docs.min.css" rel="stylesheet"><!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/assets/ico/favicon.ico"><script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-43024238-5"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script></head><body><a class="sr-only" href="#content">Skip to main content</a><header class="navbar navbar-static-top bs-docs-nav" role="banner"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/jp" class="navbar-brand"><img src="/assets/img/vpon-logo.png" id="vpon-logo"/></a></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="/jp/android/" class="right-android">Android</a></li><li class="dropdown"><a href="/jp/ios/" class="right-ios">iOS</a></li><li class="dropdown"><a href="/jp/web/" class="right-web">Web</a></li><li class="dropdown"><button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Language <span class="caret"></span></button><ul class="dropdown-menu language-dropdown"><li><a class="en" href="/android/mediation/dfp/">English</a></li><li><a class="zh-tw" href="/zh-tw/android/mediation/dfp/">繁體中文</a></li><li><a class="zh-cn" href="/zh-cn/android/mediation/dfp/">简体中文</a></li><li><a class="jp" href="/jp/android/mediation/dfp/">日本語</a></li></ul></li></ul></nav></div></header><div class="bs-header" id="content"><div class="container"><h1>Android - DFP</h1><p>Android メディエーション</p></div></div><div class="container bs-docs-container"><div class="row"><div class="col-sm-3 col-md-2" role="complementary"><div class="bs-sidebar-left bs-sidenav"><ul class="nav nav-sidebar nav-left"><span id="sidebar-title1">Android 串接</span><li><a id="getting-started" href="/jp/android">スタートガイド</a></li><li><a id="integration-guide" href="/jp/android/integration-guide">インテグレーションガ</a></li><span id="sidebar-title2">広告パターンとを選択</span><li><a id="banner-id" href="/jp/android/banner">バナー広告</a></li><li><a id="interstitial-id" href="/jp/android/interstitial">インタースティシャル広告</a></li><li><a id="mediation" href="/jp/android/mediation">メディエーション</a></li><li><a id="advanced" href="/jp/android/advanced">詳細設定</a></li><span id="sidebar-title3">広告パターンとを選択</span><li><a id="download" href="/jp/android/download">最新ニュース</a></li><li><a id="latest-news" href="/jp/android/latest-news">ダウンロード</a></li><li><a id="support" href="/jp/android/support">サポート</a></li></ul></div></div><div class="col-md-7" role="main"><p>このドキュメントは、 Google Mobile Ads SDK を使用してバナー広告を表示するためのガ イドです。バナー広告やインタースティシャル広告の設定に慣れていない場合は、まず始 めに SDK および DFP の<a href="../../integration-guide/">実装ガイド</a>をご覧ください。</p><p>AdMob または DFP をご利用中の場合は、プロジェクトに JAR を 2 つインポートしてくだ さい。(<a href="/jp/android/download/#dfp">download</a>)</p><ol><li>Fundamental SDK</li><li>Adapter SDK</li></ol><h1 id="dfp-ad-unitの作成">DFP Ad unitの作成</h1><hr><p>まず、DFPでAd unit IDを生成し、アプリに設定します。これが一般的なAd unitの設定方法です。Ad unitのフォーマットは、<code>/networkCode/adUnitName</code> となります</p><h2 id="unit-ads-settings">Unit Ads Settings</h2><p>DFP ユーザインターフェースにて <a href="https://www.google.com/dfp/">Here</a>：</p><ol><li>Inventoryをクリック</li><li>Settings内項目の入力 （Ad unitに掲載位置・ユニットサイズを含め簡単に判別できるような名前をつけてください）</li><li>広告コードを生成します （&quot;Mobile application&quot;を選択)。</li></ol><p><img src="/assets/img/ADUNIT_DFP.png" alt="DFP 廣告空間"></p><h2 id="オーダー、広告申込情報及び広告クリエイティブの設定">オーダー、広告申込情報及び広告クリエイティブの設定</h2><p>DFP Small Businessを通じて新しい広告キャンペーンを実行する場合、まず新しいオーダーを作成してください。オー ダーを作成した後、広告申込情報の作成・広告クリエイティブの追加および承認を受けてから掲載が開始されます。留保された広告申込情報(sponsorshipとstandard)につきましては、承認を得るまで DFP は広告在庫を確保しません。 <br><br></p><h2 id="オーダーの作成">オーダーの作成</h2><p>広告枠予測を行う前にオーダーを作成する方法：</p><ol><li>DFP Small Businessアカウント内で<code>オーダー</code> タグをクリックします。</li><li><code>新しいオーダー</code>をクリックします。</li><li>オーダー情報を適切に入力します。 (オーダー名は他のアドネットワークと重複しないようにしてください。)</li><li>広告申込情報を入力します。</li><li><p><code>広告枠のチェック</code>タブでオーダーに十分なインプレッションがあることを確認します。 <img src="/assets/img/DFP_EN2.png" alt="Warning"></p></li><li><p><code>保存</code>をクリックします。 オーダーを作成後、まず承認されてから広告申込情報を掲載することができます。 <br><br></p></li></ol><h2 id="広告申込情報">広告申込情報</h2><p>To create a line item:</p><p>広告申込情報の作成方法: 1. DFP Small Businessアカウント内の[オーダー] タブを開きます。 2. 新しいオーダーを作成、もしくはフォーム内の既存オーダーを開きます。 3. [新しい広告申込情報]をクリックします。 4. 広告申込情報の名称を入力してください。他アドネットワーク内の広告申込情報の名称と重複しないようにしてください。 5. アップロードしたい広告クリエイティブの広告枠のサイズを入力します。 6. (オプション)広告申込情報の投稿作業をアシストするあらゆる注釈を入力します。 7. 広告申込情報のタイプ、期日、数量及び費用を入力します。 8. (オプション) [放送調整] 下方で放送設定を行います。 9. ターゲット広告枠を選択します。 広告ユニット、プレースメントを指定或いは同時に両者を指定できます。指定したい広告枠を探す場合、アドネットワークの 広告枠を一つずつ閲覧または検索を実行できます。</p><p>広告ユニットは、アドネットワーク名称をそのまま使用し、アドネットワーク内の全ての広告ユニットを代表します。広告申込 情報のためにこのアドネットワークレベルの広告ユニットを指定する場合、広告申込情報はアドネットワーク内のあらゆる 広告ユニットを指定します。</p><p>例：<br><img src="/assets/img/AddTargeting_jp.png" alt="新增指定目標"></p><p>10.(オプション)その他の指定条件を入力して特定ターゲット対象を指定します。広告申込情報を広告ユニット或いはプレ ースメントに指定しなかった場合、システムは広告申込情報を全てのアドネットワークにランダム放送するよう設定します。 これは、広告申込情報が、ウェブサイト上のいかなる広告ユニット内でも放送できることを示しています。</p><p>11.<code>保存</code>をクリックします。</p><h2 id="広告クリエイティブ-のアップロード">広告クリエイティブ のアップロード</h2><ol><li>新しい広告クリエイティブの広告申込情報をクリックします。ニーズを見て新しい広告申込情報も作成できます。</li><li>[新しい広告クリエイティブ]をクリックします。広告申込情報に係る全ての広告クリエイティブと広告ユニットのサイズが、 左欄内にリストアップされます。広告クリエイティブをマニフェスト内のあらゆるサイズの広告ユニットにアップロードできます。</li><li>広告申込情報に複数のクリエイティブをまとめてドラッグ&amp;ドロップするか、1 つずつ追加します。</li></ol><h3 id="広告クリエイティブを-1-つだけ追加">広告クリエイティブを 1 つだけ追加</h3><p>広告クリエイティブタイプの選択:<code>モバイルアプリケーションプログラム</code>内の<code>SDK 仲介サービスの広告クリエイティブ</code>を選択します。 <img src="/assets/img/SDKMediation_jp.png" alt="廣告素材類型"></p><h1 id="広告クリエイティブの設定">広告クリエイティブの設定</h1><hr><p>順次通り：</p><ol><li>Vponネットワークタグを利用可能な広告ネットワークで検索</li><li>地域：Vponプラットフォームからリクエストしたい地域を選択する （あなたのアプリのユーザーが中国から利用している場合は、この列にcnと入力し、それ以外はtwと入力します）</li><li>Vpon広告ID：Vponのバックオフィスから取得したVponバナーIDを入力 記入します。</li></ol><p>例: <img src="/assets/img/DFP_Partner_Japanese.png" alt="DFP_Partner_Japanese"></p><h1 id="広告の放送">広告の放送</h1><hr><h2 id="バナー広告">バナー広告</h2><p>320x50.</p><h2 id="インターステイシャル広告">インターステイシャル広告</h2><p>お客様は DFP 内に広告ユニットを作成することで、インターステイシャル広告ユニットとすることができます。インターステイシャル広告ユニットは通常よく見られる四種類のサイズがあ りますが、各デバイスの実際のディスプレイのサイズとは関係ありません。SDK が広告素材を調整することで、サイズが若干異なるディスプレイ上に正確に表示します。</p><ul><li>モバイル:320×480(横向き)、480×320(縦向き)</li><li>タブレット:768×1024(横向き)、1024×768(縦向き)</li></ul><p>お客様は縦向きモードのために個別の広告ユニットを作成する必要はなく、インターステイシャル広告注文書に縦向きのサイズ(例:スマートフォン 480×320)を指定するだけです。 横向きサイズの他に、縦向きサイズの広告素材を加えてください。</p><p>範例:</p><p><img src="/assets/img/dfp_interstitial.png" alt="插頁尺寸"></p><h1 id="その他の秘訣">その他の秘訣</h1><hr><p><a href="https://support.google.com/dfp_sb/">DFP Small Business</a><br><a href="https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android">Google Developers DFP Banner Ads</a><br><a href="https://developers.google.com/mobile-ads-sdk/docs/android/doubleclick/#support">Google Developers Interstitial Ads</a></p><h1 id="sample-code-ダウンロード">Sample Code ダウンロード</h1><hr><p><a href="/jp/android/download/#dfp">Android Download</a></p></div><div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary"><ul class="nav bs-sidenav"></ul></div></div></div></div><footer class="bs-footer" role="contentinfo"><div class="container"><ul class="footer-links muted"><li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li><li>&middot;</li><li>Hosted by <a href="https://pages.github.com">Github Pages</a></li></ul></div></footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="/dist/js/bootstrap.min.js"></script><script src="/assets/js/docs.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  Android - DFP &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/jp" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/jp/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/android/mediation/dfp/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/android/mediation/dfp/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/android/mediation/dfp/">简体中文</a></li>
+          <li><a class="jp" href="/jp/android/mediation/dfp/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>Android - DFP</h1>
+      <p>Android メディエーション</p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2" role="complementary" >
+      <div class="bs-sidebar-left bs-sidenav">
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<ul class= "nav nav-sidebar nav-left">
+  <span id= "sidebar-title1">Android 串接</span>
+  <li><a id= "getting-started" href="/jp/android">スタートガイド</a></li>
+  <li><a id= "integration-guide" href="/jp/android/integration-guide">インテグレーションガ</a></li>
+  <span id= "sidebar-title2">広告パターンとを選択</span>
+  <li><a id= "banner-id" href="/jp/android/banner">バナー広告</a></li>
+  <li><a id= "interstitial-id" href="/jp/android/interstitial">インタースティシャル広告</a></li>
+  <li><a id= "mediation" href="/jp/android/mediation">メディエーション</a></li>
+  <li><a id= "advanced" href="/jp/android/advanced">詳細設定</a></li>
+  <span id= "sidebar-title3">広告パターンとを選択</span>
+  <li><a id= "download" href="/jp/android/download">最新ニュース</a></li>
+  <li><a id= "latest-news" href="/jp/android/latest-news">ダウンロード</a></li>
+  <li><a id= "support" href="/jp/android/support">サポート</a></li>
+</ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <p>このドキュメントは、 Google Mobile Ads SDK を使用してバナー広告を表示するためのガ イドです。バナー広告やインタースティシャル広告の設定に慣れていない場合は、まず始 めに SDK および DFP の<a href="../../integration-guide/">実装ガイド</a>をご覧ください。</p>
+
+<p>AdMob または DFP をご利用中の場合は、プロジェクトに JAR を 2 つインポートしてくだ さい。(<a href="/jp/android/download/#dfp">download</a>)</p>
+
+<ol>
+<li>Fundamental SDK</li>
+<li>Adapter SDK</li>
+</ol>
+
+<h1 id="dfp-ad-unitの作成">DFP Ad unitの作成</h1>
+
+<hr>
+
+<p>まず、DFPでAd unit IDを生成し、アプリに設定します。これが一般的なAd unitの設定方法です。Ad unitのフォーマットは、<code>/networkCode/adUnitName</code> となります</p>
+
+<h2 id="unit-ads-settings">Unit Ads Settings</h2>
+
+<p>DFP ユーザインターフェースにて <a href="https://www.google.com/dfp/">Here</a>：</p>
+
+<ol>
+<li>Inventoryをクリック</li>
+<li>Settings内項目の入力 （Ad unitに掲載位置・ユニットサイズを含め簡単に判別できるような名前をつけてください）</li>
+<li>広告コードを生成します （&quot;Mobile application&quot;を選択)。</li>
+</ol>
+
+<p><img src="/assets/img/ADUNIT_DFP.png" alt="DFP 廣告空間"></p>
+
+<h2 id="オーダー、広告申込情報及び広告クリエイティブの設定">オーダー、広告申込情報及び広告クリエイティブの設定</h2>
+
+<p>DFP Small Businessを通じて新しい広告キャンペーンを実行する場合、まず新しいオーダーを作成してください。オー ダーを作成した後、広告申込情報の作成・広告クリエイティブの追加および承認を受けてから掲載が開始されます。留保された広告申込情報(sponsorshipとstandard)につきましては、承認を得るまで DFP は広告在庫を確保しません。 <br><br></p>
+
+<h2 id="オーダーの作成">オーダーの作成</h2>
+
+<p>広告枠予測を行う前にオーダーを作成する方法：</p>
+
+<ol>
+<li>DFP Small Businessアカウント内で<code>オーダー</code> タグをクリックします。</li>
+<li><code>新しいオーダー</code>をクリックします。</li>
+<li>オーダー情報を適切に入力します。
+(オーダー名は他のアドネットワークと重複しないようにしてください。)</li>
+<li>広告申込情報を入力します。</li>
+<li><p><code>広告枠のチェック</code>タブでオーダーに十分なインプレッションがあることを確認します。
+<img src="/assets/img/DFP_EN2.png" alt="Warning"></p></li>
+<li><p><code>保存</code>をクリックします。
+オーダーを作成後、まず承認されてから広告申込情報を掲載することができます。
+<br><br></p></li>
+</ol>
+
+<h2 id="広告申込情報">広告申込情報</h2>
+
+<p>To create a line item:</p>
+
+<p>広告申込情報の作成方法:
+1. DFP Small Businessアカウント内の[オーダー] タブを開きます。
+2. 新しいオーダーを作成、もしくはフォーム内の既存オーダーを開きます。
+3. [新しい広告申込情報]をクリックします。
+4. 広告申込情報の名称を入力してください。他アドネットワーク内の広告申込情報の名称と重複しないようにしてください。
+5. アップロードしたい広告クリエイティブの広告枠のサイズを入力します。
+6. (オプション)広告申込情報の投稿作業をアシストするあらゆる注釈を入力します。
+7. 広告申込情報のタイプ、期日、数量及び費用を入力します。
+8. (オプション) [放送調整] 下方で放送設定を行います。
+9. ターゲット広告枠を選択します。
+広告ユニット、プレースメントを指定或いは同時に両者を指定できます。指定したい広告枠を探す場合、アドネットワークの 広告枠を一つずつ閲覧または検索を実行できます。</p>
+
+<p>広告ユニットは、アドネットワーク名称をそのまま使用し、アドネットワーク内の全ての広告ユニットを代表します。広告申込 情報のためにこのアドネットワークレベルの広告ユニットを指定する場合、広告申込情報はアドネットワーク内のあらゆる 広告ユニットを指定します。</p>
+
+<p>例：<br>
+<img src="/assets/img/AddTargeting_jp.png" alt="新增指定目標"></p>
+
+<p>10.(オプション)その他の指定条件を入力して特定ターゲット対象を指定します。広告申込情報を広告ユニット或いはプレ ースメントに指定しなかった場合、システムは広告申込情報を全てのアドネットワークにランダム放送するよう設定します。 これは、広告申込情報が、ウェブサイト上のいかなる広告ユニット内でも放送できることを示しています。</p>
+
+<p>11.<code>保存</code>をクリックします。</p>
+
+<h2 id="広告クリエイティブ-のアップロード">広告クリエイティブ のアップロード</h2>
+
+<ol>
+<li>新しい広告クリエイティブの広告申込情報をクリックします。ニーズを見て新しい広告申込情報も作成できます。</li>
+<li>[新しい広告クリエイティブ]をクリックします。広告申込情報に係る全ての広告クリエイティブと広告ユニットのサイズが、 左欄内にリストアップされます。広告クリエイティブをマニフェスト内のあらゆるサイズの広告ユニットにアップロードできます。</li>
+<li>広告申込情報に複数のクリエイティブをまとめてドラッグ&amp;ドロップするか、1 つずつ追加します。</li>
+</ol>
+
+<h3 id="広告クリエイティブを-1-つだけ追加">広告クリエイティブを 1 つだけ追加</h3>
+
+<p>広告クリエイティブタイプの選択:<code>モバイルアプリケーションプログラム</code>内の<code>SDK 仲介サービスの広告クリエイティブ</code>を選択します。
+<img src="/assets/img/SDKMediation_jp.png" alt="廣告素材類型"></p>
+
+<h1 id="広告クリエイティブの設定">広告クリエイティブの設定</h1>
+
+<hr>
+
+<p>順次通り：</p>
+
+<ol>
+<li>Vponネットワークタグを利用可能な広告ネットワークで検索</li>
+<li>地域：Vponプラットフォームからリクエストしたい地域を選択する
+（あなたのアプリのユーザーが中国から利用している場合は、この列にcnと入力し、それ以外はtwと入力します）</li>
+<li>Vpon広告ID：Vponのバックオフィスから取得したVponバナーIDを入力
+記入します。</li>
+</ol>
+
+<p>例:
+<img src="/assets/img/DFP_Partner_Japanese.png" alt="DFP_Partner_Japanese"></p>
+
+<h1 id="広告の放送">広告の放送</h1>
+
+<hr>
+
+<h2 id="バナー広告">バナー広告</h2>
+
+<p>320x50.</p>
+
+<h2 id="インターステイシャル広告">インターステイシャル広告</h2>
+
+<p>お客様は DFP 内に広告ユニットを作成することで、インターステイシャル広告ユニットとすることができます。インターステイシャル広告ユニットは通常よく見られる四種類のサイズがあ りますが、各デバイスの実際のディスプレイのサイズとは関係ありません。SDK が広告素材を調整することで、サイズが若干異なるディスプレイ上に正確に表示します。</p>
+
+<ul>
+<li>モバイル:320×480(横向き)、480×320(縦向き)</li>
+<li>タブレット:768×1024(横向き)、1024×768(縦向き)</li>
+</ul>
+
+<p>お客様は縦向きモードのために個別の広告ユニットを作成する必要はなく、インターステイシャル広告注文書に縦向きのサイズ(例:スマートフォン 480×320)を指定するだけです。 横向きサイズの他に、縦向きサイズの広告素材を加えてください。</p>
+
+<p>範例:</p>
+
+<p><img src="/assets/img/dfp_interstitial.png" alt="插頁尺寸"></p>
+
+<h1 id="その他の秘訣">その他の秘訣</h1>
+
+<hr>
+
+<p><a href="https://support.google.com/dfp_sb/">DFP Small Business</a><br>
+<a href="https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android">Google Developers DFP Banner Ads</a><br>
+<a href="https://developers.google.com/mobile-ads-sdk/docs/android/doubleclick/#support">Google Developers Interstitial Ads</a></p>
+
+<h1 id="sample-code-ダウンロード">Sample Code ダウンロード</h1>
+
+<hr>
+
+<p><a href="/jp/android/download/#dfp">Android Download</a></p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>

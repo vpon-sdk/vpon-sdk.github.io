@@ -1,1 +1,338 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content=""><meta name="keywords" content="Keywords for this page, in the meta data"><meta name="author" content="Finn Yeh"><title> Android 中介服务 - DFP &middot; Vpon-SDK (Alpha) </title><link href="/dist/css/bootstrap.min.css" rel="stylesheet"><link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'><link href="/assets/css/docs.min.css" rel="stylesheet"><!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script><![endif]--><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/assets/ico/favicon.ico"><script>var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-43024238-5"]);_gaq.push(["_trackPageview"]);(function(){var b=document.createElement("script");b.async=true;b.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a)})();</script></head><body><a class="sr-only" href="#content">Skip to main content</a><header class="navbar navbar-static-top bs-docs-nav" role="banner"><div class="container"><div class="navbar-header"><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/zh-cn" class="navbar-brand"><img src="/assets/img/vpon-logo.png" id="vpon-logo"/></a></div><nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"><li class="dropdown"><a href="/zh-cn/android/" class="right-android">Android</a></li><li class="dropdown"><a href="/zh-cn/ios/" class="right-ios">iOS</a></li><li class="dropdown"><a href="/zh-cn/web/" class="right-web">Web</a></li><li class="dropdown"><button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Language <span class="caret"></span></button><ul class="dropdown-menu language-dropdown"><li><a class="en" href="/android/mediation/dfp/">English</a></li><li><a class="zh-tw" href="/zh-tw/android/mediation/dfp/">繁體中文</a></li><li><a class="zh-cn" href="/zh-cn/android/mediation/dfp/">简体中文</a></li><li><a class="jp" href="/jp/android/mediation/dfp/">日本語</a></li></ul></li></ul></nav></div></header><div class="bs-header" id="content"><div class="container"><h1>Android 中介服务 - DFP</h1><p></p></div></div><div class="container bs-docs-container"><div class="row"><div class="col-sm-3 col-md-2" role="complementary"><div class="bs-sidebar-left bs-sidenav"><ul class="nav nav-sidebar nav-left"><span id="sidebar-title1">Android 串接</span><li><a id="getting-started" href="/zh-cn/android">开始使用</a></li><li><a id="integration-guide" href="/zh-cn/android/integration-guide">串接说明</a></li><span id="sidebar-title2">广告型态选择</span><li><a id="banner-id" href="/zh-cn/android/banner">横幅广告</a></li><li><a id="interstitial-id" href="/zh-cn/android/interstitial">插页广告</a></li><li><a id="mediation" href="/zh-cn/android/mediation">中介服务</a></li><li><a id="advanced" href="/zh-cn/android/advanced">进阶设定</a></li><span id="sidebar-title3">广告型态选择</span><li><a id="download" href="/zh-cn/android/download">下载 SDK</a></li><li><a id="latest-news" href="/zh-cn/android/latest-news">最新消息</a></li><li><a id="support" href="/zh-cn/android/support">其他协助</a></li></ul></div></div><div class="col-md-7" role="main"><p>本页专为 DFP 使用者而设，主要说明 DoubleClick 联播网搭配 Google AdMob 广告 SDK 的方式。请先从<a href="../../integration-guide">串接说明</a>看起，熟悉文件后，再回来参考本页，瞭解如何同时执行 SDK 和 DFP。</p><p>使用 AdMob 或 DFP 串接时，请务必将两个 JAR 档都要加入到您的专案内(<a href="/zh-cn/android/download/#dfp">下载</a>)</p><ol><li>Fundamental SDK</li><li>Adapter SDK</li></ol><h1 id="dfp-广告单元编号">DFP 广告单元编号</h1><hr><p>DFP 使用者必须指定「DFP 广告单元编号」，而不是「AdMob 发佈商编号」，这样 Google AdMob 广告 SDK 才知道要使用 DoubleClick 联播网，而不是 AdMob 联播网。DFP 广告单元编号的格式像这样：<span style="color:#228B22">/networkCode/adUnitName。</span></p><h2 id="设定广告单元">设定广告单元</h2><p>在 DFP 使用者介面中(<a href="https://www.google.com/dfp/">Here</a>)：</p><ol><li>新增广告空间</li><li>在广告单元中设定名称、 大小、目标视窗后储存</li><li>产生广告代码 (选取行动应用装置)</li></ol><p><img src="/assets/img/UnitAdSetting_Sim.png" alt="DFP 广告空间"></p><h2 id="设定委刊单、委刊项及广告素材">设定委刊单、委刊项及广告素材</h2><p>如要透过「DFP 广告管理系统标准版」放送新的广告活动，请先建立新委刊单。建好委刊单后，您还必须建立委刊项、新增广告素材以及核准委刊单，委刊单广告才能放送。针对保留的委刊项类型 (贊助和标准)，在委刊单获得核准以前，DFP 不会保留广告空间。<br><br></p><h2 id="建立委刊单">建立委刊单</h2><p>若要在执行广告空间预测之前建立委刊单，请按照下列指示进行：</p><ol><li><p>在「DFP 广告管理系统标准版」帐户中，按一下 <code>委刊单</code> 标籤。</p></li><li><p>按一下 <code>新增委刊单</code>。</p></li><li><p>在适当栏位中输入您的委刊单资讯。 不可与联播网中其他的委刊单名称重複。</p></li><li><p>输入委刊项资讯。</p></li><li><p>按一下 <code>检查广告空间</code>，确认委刊单拥有足够的曝光供应量。 <img src="/assets/img/Warning.png" alt="Warning"></p></li><li><p>按一下 <code>储存</code>。 建好委刊单之后，您必须先予以核准，委刊项才能放送。 <br><br></p></li></ol><h2 id="委刊项资讯">委刊项资讯</h2><p>如何建立委刊项：</p><ol><li><p>在 DFP 广告管理系统标准版帐户中，按一下 <code>委刊单</code> 标籤。</p></li><li><p>建立新委刊单，或按一下表格中的现有委刊单。</p></li><li><p>按一下 [新增委刊项]。</p></li><li><p>输入委刊项名称，不得与联播网中其他委刊项的名称重複。</p></li><li><p>输入您想要上传广告素材的广告空间大小。</p></li><li><p>(选用程序) 输入任何有助于委刊项投放作业的相关注释。</p></li><li><p>输入委刊项类型、日期、数量和费用。</p></li><li><p>(选用程序) 在 <code>调整放送</code> 下方进行放送设定。</p></li><li><p>选取您的目标广告空间。</p></li></ol><p>您可以指定广告单元、刊登位置或同时指定两者。如要寻找要指定的广告空间，可以逐步浏览联播网的广告空间或是执行搜寻。</p><p>广告单元会沿用您的联播网名称，代表您联播网中所有的广告单元。如果您为委刊项指定这个联播网层级的广告单元，委刊项将指定联播网中的任何广告单元。<br><br>范例：<br><img src="/assets/img/%E6%96%B0%E5%A2%9E%E6%8C%87%E5%AE%9A%E7%9B%AE%E6%A0%87.png" alt="新增指定目标"> 10. (选用程序) 输入其他指定条件，指定特定目标对象。如果您未将委刊项指定给任何广告单元或刊登位置，系统会将委刊项设成在全联播网随机放送。这表示委刊项可在您网站上的任何广告单元中放送。按一下 [储存]。<br><br></p><h2 id="上传广告素材">上传广告素材</h2><ol><li><p>按一下要新增广告素材的委刊项。您也可以视需求建立新委刊项。</p></li><li><p>按一下 <code>新增广告素材</code>。所有与委刊项相关联的广告素材和广告单元尺寸，都会列在左栏中。您可以将广告素材上传至清单中任何大小的广告单元。</p></li><li><p>您可以将多个广告素材拖曳到委刊项，或一次只加入一个广告素材<br><br></p></li></ol><h3 id="只加入一个广告素材">只加入一个广告素材</h3><p>选取广告素材类型: 选取<code>行动应用程式</code>中的<code>SDK 中介服务广告素材</code><br><img src="/assets/img/%E5%B9%BF%E5%91%8A%E7%B4%A0%E6%9D%90%E7%B1%BB%E5%9E%8B.png" alt="广告素材类型"></p><h3 id="广告素材设定">广告素材设定</h3><p>依次填入名称：</p><ol><li>Select Network：<code>Vpon</code></li><li>Zone：<code>TW</code> 或 <code>CN</code></li><li>Vpon Ad ID：向 Vpon 申请的 <code>License key</code><br></li></ol><p>范例： <img src="/assets/img/DFP_Partner_Simplified_Chinese.png" alt="DFP Partner Simplified Chinese.png"></p><h1 id="横幅-插页式广告单元">横幅/插页式广告单元</h1><hr><h2 id="横幅广告单元">横幅广告单元</h2><p>文章前面篇幅皆讨论横幅的广告单元，尺寸设定值为 320x50</p><h2 id="插页广告单元">插页广告单元</h2><p>您可以在 DFP 中建立广告单元，做为插页式广告单元。插页式广告单元有四种常见大小，与各装置的实际萤幕大小无关。SDK 会调整广告素材，以便正确呈现在大小稍微不同的萤幕上。</p><ul><li>手机：320x480 (直向)、480x320 (纵向)</li><li>平板电脑：768x1024 (直向)、1024x768 (纵向)</li></ul><p>您不需特别为纵向模式建立个别的广告单元，只要在指定插页式广告单元的订单项中加入纵向大小 (例如，智慧型手机採 480x320)，然后除了一般的直向大小外，另外加入纵向大小的广告素材。</p><p>范例： <img src="/assets/img/%E6%8F%92%E9%A0%81%E5%B0%BA%E5%AF%B8.png" alt="插页尺寸"></p><h1 id="其它诀窍">其它诀窍</h1><hr><p><a href="https://support.google.com/dfp_sb/">DFP Small Business</a><br><a href="https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android">Google Developers DFP Banner Ads</a><br><a href="https://developers.google.com/mobile-ads-sdk/docs/android/doubleclick/#support">Google Developers Interstitial Ads</a></p><h1 id="sample-code-下载">Sample Code 下载</h1><hr><p><a href="/zh-cn/android/download/#dfp">Android Download</a></p></div><div class="col-md-3"><div class="bs-sidebar hidden-print" role="complementary"><ul class="nav bs-sidenav"></ul></div></div></div></div><footer class="bs-footer" role="contentinfo"><div class="container"><ul class="footer-links muted"><li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li><li>&middot;</li><li>Hosted by <a href="https://pages.github.com">Github Pages</a></li></ul></div></footer><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="/dist/js/bootstrap.min.js"></script><script src="/assets/js/docs.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+
+
+<meta name="keywords" content="Keywords for this page, in the meta data">
+
+<meta name="author" content="Finn Yeh">
+<title>
+  
+  Android 中介服务 - DFP &middot; Vpon-SDK (Alpha)
+  
+</title>
+<!-- Bootstrap core CSS -->
+<link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Noto Sans Font -->
+<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+<!-- Documentation extras -->
+<link href="/assets/css/docs.min.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/assets/ico/favicon.ico">
+
+<script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-43024238-5']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+<body>
+  <a class="sr-only" href="#content">Skip to main content</a>
+  <!-- Docs master nav -->
+  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  <div class="container">
+    
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/zh-cn" class="navbar-brand">
+        <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/android/" class="right-android">Android</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/ios/" class="right-ios">iOS</a>
+        </li>
+        
+        <li class="dropdown">
+          
+            
+          
+          <a href="/zh-cn/web/" class="right-web">Web</a>
+        </li>
+        
+        <li class="dropdown">
+          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Language
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu language-dropdown">
+            
+               
+               
+               
+               
+            
+          <li><a class="en" href="/android/mediation/dfp/">English</a></li>
+          <li><a class="zh-tw" href="/zh-tw/android/mediation/dfp/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/zh-cn/android/mediation/dfp/">简体中文</a></li>
+          <li><a class="jp" href="/jp/android/mediation/dfp/">日本語</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- Docs page layout -->
+  <div class="bs-header" id="content">
+    <div class="container">
+      <h1>Android 中介服务 - DFP</h1>
+      <p></p>
+    </div>
+  </div>
+  <div class="container bs-docs-container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2" role="complementary" >
+      <div class="bs-sidebar-left bs-sidenav">
+        
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+<ul class= "nav nav-sidebar nav-left">
+  <span id= "sidebar-title1">Android 串接</span>
+  <li><a id= "getting-started" href="/zh-cn/android">开始使用</a></li>
+  <li><a id= "integration-guide" href="/zh-cn/android/integration-guide">串接说明</a></li>
+  <span id= "sidebar-title2">广告型态选择</span>
+  <li><a id= "banner-id" href="/zh-cn/android/banner">横幅广告</a></li>
+  <li><a id= "interstitial-id" href="/zh-cn/android/interstitial">插页广告</a></li>
+  <li><a id= "mediation" href="/zh-cn/android/mediation">中介服务</a></li>
+  <li><a id= "advanced" href="/zh-cn/android/advanced">进阶设定</a></li>
+  <span id= "sidebar-title3">广告型态选择</span>
+  <li><a id= "download" href="/zh-cn/android/download">下载 SDK</a></li>
+  <li><a id= "latest-news" href="/zh-cn/android/latest-news">最新消息</a></li>
+  <li><a id= "support" href="/zh-cn/android/support">其他协助</a></li>
+</ul>
+
+      </div>
+      </div>
+      <div class="col-md-7" role="main">
+        <p>本页专为 DFP 使用者而设，主要说明 DoubleClick 联播网搭配 Google AdMob 广告 SDK 的方式。请先从<a href="../../integration-guide">串接说明</a>看起，熟悉文件后，再回来参考本页，瞭解如何同时执行 SDK 和 DFP。</p>
+
+<p>使用 AdMob 或 DFP 串接时，请务必将两个 JAR 档都要加入到您的专案内(<a href="/zh-cn/android/download/#dfp">下载</a>)</p>
+
+<ol>
+<li>Fundamental SDK</li>
+<li>Adapter SDK</li>
+</ol>
+
+<h1 id="dfp-广告单元编号">DFP 广告单元编号</h1>
+
+<hr>
+
+<p>DFP 使用者必须指定「DFP 广告单元编号」，而不是「AdMob 发佈商编号」，这样 Google AdMob 广告 SDK 才知道要使用 DoubleClick 联播网，而不是 AdMob 联播网。DFP 广告单元编号的格式像这样：<span style="color:#228B22">/networkCode/adUnitName。</span></p>
+
+<h2 id="设定广告单元">设定广告单元</h2>
+
+<p>在 DFP 使用者介面中(<a href="https://www.google.com/dfp/">Here</a>)：</p>
+
+<ol>
+<li>新增广告空间</li>
+<li>在广告单元中设定名称、 大小、目标视窗后储存</li>
+<li>产生广告代码 (选取行动应用装置)</li>
+</ol>
+
+<p><img src="/assets/img/UnitAdSetting_Sim.png" alt="DFP 广告空间"></p>
+
+<h2 id="设定委刊单、委刊项及广告素材">设定委刊单、委刊项及广告素材</h2>
+
+<p>如要透过「DFP 广告管理系统标准版」放送新的广告活动，请先建立新委刊单。建好委刊单后，您还必须建立委刊项、新增广告素材以及核准委刊单，委刊单广告才能放送。针对保留的委刊项类型 (贊助和标准)，在委刊单获得核准以前，DFP 不会保留广告空间。<br><br></p>
+
+<h2 id="建立委刊单">建立委刊单</h2>
+
+<p>若要在执行广告空间预测之前建立委刊单，请按照下列指示进行：</p>
+
+<ol>
+<li><p>在「DFP 广告管理系统标准版」帐户中，按一下 <code>委刊单</code> 标籤。</p></li>
+<li><p>按一下 <code>新增委刊单</code>。</p></li>
+<li><p>在适当栏位中输入您的委刊单资讯。
+不可与联播网中其他的委刊单名称重複。</p></li>
+<li><p>输入委刊项资讯。</p></li>
+<li><p>按一下 <code>检查广告空间</code>，确认委刊单拥有足够的曝光供应量。
+<img src="/assets/img/Warning.png" alt="Warning"></p></li>
+<li><p>按一下 <code>储存</code>。
+建好委刊单之后，您必须先予以核准，委刊项才能放送。
+<br><br></p></li>
+</ol>
+
+<h2 id="委刊项资讯">委刊项资讯</h2>
+
+<p>如何建立委刊项：</p>
+
+<ol>
+<li><p>在 DFP 广告管理系统标准版帐户中，按一下 <code>委刊单</code> 标籤。</p></li>
+<li><p>建立新委刊单，或按一下表格中的现有委刊单。</p></li>
+<li><p>按一下 [新增委刊项]。</p></li>
+<li><p>输入委刊项名称，不得与联播网中其他委刊项的名称重複。</p></li>
+<li><p>输入您想要上传广告素材的广告空间大小。</p></li>
+<li><p>(选用程序) 输入任何有助于委刊项投放作业的相关注释。</p></li>
+<li><p>输入委刊项类型、日期、数量和费用。</p></li>
+<li><p>(选用程序) 在 <code>调整放送</code> 下方进行放送设定。</p></li>
+<li><p>选取您的目标广告空间。</p></li>
+</ol>
+
+<p>您可以指定广告单元、刊登位置或同时指定两者。如要寻找要指定的广告空间，可以逐步浏览联播网的广告空间或是执行搜寻。</p>
+
+<p>广告单元会沿用您的联播网名称，代表您联播网中所有的广告单元。如果您为委刊项指定这个联播网层级的广告单元，委刊项将指定联播网中的任何广告单元。<br>
+<br>范例：<br>
+<img src="/assets/img/%E6%96%B0%E5%A2%9E%E6%8C%87%E5%AE%9A%E7%9B%AE%E6%A0%87.png" alt="新增指定目标">
+10. (选用程序) 输入其他指定条件，指定特定目标对象。如果您未将委刊项指定给任何广告单元或刊登位置，系统会将委刊项设成在全联播网随机放送。这表示委刊项可在您网站上的任何广告单元中放送。按一下 [储存]。<br><br></p>
+
+<h2 id="上传广告素材">上传广告素材</h2>
+
+<ol>
+<li><p>按一下要新增广告素材的委刊项。您也可以视需求建立新委刊项。</p></li>
+<li><p>按一下 <code>新增广告素材</code>。所有与委刊项相关联的广告素材和广告单元尺寸，都会列在左栏中。您可以将广告素材上传至清单中任何大小的广告单元。</p></li>
+<li><p>您可以将多个广告素材拖曳到委刊项，或一次只加入一个广告素材<br><br></p></li>
+</ol>
+
+<h3 id="只加入一个广告素材">只加入一个广告素材</h3>
+
+<p>选取广告素材类型: 选取<code>行动应用程式</code>中的<code>SDK 中介服务广告素材</code><br>
+<img src="/assets/img/%E5%B9%BF%E5%91%8A%E7%B4%A0%E6%9D%90%E7%B1%BB%E5%9E%8B.png" alt="广告素材类型"></p>
+
+<h3 id="广告素材设定">广告素材设定</h3>
+
+<p>依次填入名称：</p>
+
+<ol>
+<li>Select Network：<code>Vpon</code></li>
+<li>Zone：<code>TW</code> 或 <code>CN</code></li>
+<li>Vpon Ad ID：向 Vpon 申请的 <code>License key</code><br></li>
+</ol>
+
+<p>范例：
+<img src="/assets/img/DFP_Partner_Simplified_Chinese.png" alt="DFP Partner Simplified Chinese.png"></p>
+
+<h1 id="横幅-插页式广告单元">横幅/插页式广告单元</h1>
+
+<hr>
+
+<h2 id="横幅广告单元">横幅广告单元</h2>
+
+<p>文章前面篇幅皆讨论横幅的广告单元，尺寸设定值为 320x50</p>
+
+<h2 id="插页广告单元">插页广告单元</h2>
+
+<p>您可以在 DFP 中建立广告单元，做为插页式广告单元。插页式广告单元有四种常见大小，与各装置的实际萤幕大小无关。SDK 会调整广告素材，以便正确呈现在大小稍微不同的萤幕上。</p>
+
+<ul>
+<li>手机：320x480 (直向)、480x320 (纵向)</li>
+<li>平板电脑：768x1024 (直向)、1024x768 (纵向)</li>
+</ul>
+
+<p>您不需特别为纵向模式建立个别的广告单元，只要在指定插页式广告单元的订单项中加入纵向大小 (例如，智慧型手机採 480x320)，然后除了一般的直向大小外，另外加入纵向大小的广告素材。</p>
+
+<p>范例：
+<img src="/assets/img/%E6%8F%92%E9%A0%81%E5%B0%BA%E5%AF%B8.png" alt="插页尺寸"></p>
+
+<h1 id="其它诀窍">其它诀窍</h1>
+
+<hr>
+
+<p><a href="https://support.google.com/dfp_sb/">DFP Small Business</a><br>
+<a href="https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android">Google Developers DFP Banner Ads</a><br>
+<a href="https://developers.google.com/mobile-ads-sdk/docs/android/doubleclick/#support">Google Developers Interstitial Ads</a></p>
+
+<h1 id="sample-code-下载">Sample Code 下载</h1>
+
+<hr>
+
+<p><a href="/zh-cn/android/download/#dfp">Android Download</a></p>
+
+      </div>
+      <div class="col-md-3">
+        <div class="bs-sidebar hidden-print" role="complementary">
+          <ul class="nav bs-sidenav">
+            <!-- auto gen -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <!-- Footer
+================================================== -->
+<footer class="bs-footer" role="contentinfo">
+  <div class="container">
+    <ul class="footer-links muted">
+      <li>Document framework powered by <a href="http://bt-docs.liaohuqiu.net">Bt-docs</a></li>
+      <li>&middot;</li>
+      <li>Hosted by <a href="https://pages.github.com">Github Pages</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- JavaScript ================================================== -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+</body>
+
+</html>
