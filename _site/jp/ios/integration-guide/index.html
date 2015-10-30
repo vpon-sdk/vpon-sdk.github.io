@@ -235,8 +235,13 @@ iOS アプリでバナー広告を表示させるためには、Xcodeプロジ�
 <img src="/assets/img/IOS-add-file_vpadn.png" alt="IOS-add-file_vpadn.png"></p></li>
 <li><p>次に、 SDK 内で <code>libAdOn.a</code> , <code>VpadnBanner.h</code> および <code>VpadnInterstitial.h</code> を選択します。
 <img src="/assets/img/IOS-add-lib&amp;header_vpadn.png" alt="IOS-add-lib&amp;header_vpadn"></p></li>
-<li><p>SDK lib は、以下のフレームワーク を参照できます。
-SDK 4.2.8 バージョンをお使いになる場合、AddressBookとAddressBookUIは使用しないでください。 <br  >
+</ol>
+
+<h2 id="framework-の追加">Framework の追加</h2>
+
+<p>The SDK library references the a few iOS development frameworks. You can add these frameworks in two alternatives, adding all frameworks one by one, or adding vpon all-in-1 framework.  <br  ></p>
+
+<p>1.Add all the following frameworks.<br>
 <code>AdSupport</code>, <br>
 <code>AssetsLibrary</code>, <br>
 <code>AudioToolbox</code>, <br>
@@ -256,11 +261,34 @@ SDK 4.2.8 バージョンをお使いになる場合、AddressBookとAddressBook
 <code>Security</code>, <br>
 <code>StoreKit</code>, <br>
 <code>SystemConfiguration</code>, <br>
-<code>UIKit</code></p></li>
-</ol>
+<code>UIKit</code><br></p>
 
 <p>これらのフレームワークを追加する場合、 プロジェクト[Vpadn_BannerInter_x5]をダブルクリックし、[Build Phases] タブ下の [Link Binary With Libraries]プルダウンメニューを開いてから、画面に表示される <code>+</code> ボタンで iOS SDK内のアーキテクチャを追加します。
 <img src="/assets/img/IOS-add-frameworks_vpadn.png" alt="IOS-add-frameworks_vpadn"></p>
+
+<p>2.You can choose another way to add necessary frameworks by using our all-in-1 framework. But this convenient way is only for apps designed for iOS version higher than 7.1. If your app targets at users including devices OS version lower than 7.1, you should choose the first method to add frameworks.</p>
+
+<p>First, right-click your project and choose <code>Add Files to your_project</code>
+<img src="/assets/img/ios_framework_1.png" alt=""></p>
+
+<p>Second, add <code>VpadnSDKAdKit.framework</code> into your project.
+<img src="/assets/img/ios_framework_2.png" alt=""></p>
+
+<p>Third, find <code>Embedded Binaries</code> under <code>General</code> and click <code>+</code> to add <code>VpadnSDKAdKit.framework</code>
+<img src="/assets/img/ios_framework_3.png" alt=""></p>
+
+<p>Remember you have added the framework in <code>Embedded Binaries</code>.
+<img src="/assets/img/ios_framework_4.png" alt=""></p>
+
+<p>Finally, import the framework:</p>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">@</span><span class="n">import</span> <span class="n">VpadnSDKAdKit</span>
+</code></pre></div>
+<p><img src="/assets/img/ios_framework_5.png" alt=""></p>
+
+<blockquote>
+<p><strong>Note:</strong> <br>
+Remind again that all-in-1 framework only support devices in iOS version higher than 7.1 and do not use this framework if your app targets at users with devices OS version lower than 7.1.</p>
+</blockquote>
 
 <h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1>
 

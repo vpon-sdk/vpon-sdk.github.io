@@ -210,7 +210,7 @@ China平台為: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br
 
 <ol>
 <li>在專案中加入 <code>libAdOn.a</code>， <code>VpadnBanner.h</code> 與 <code>VpadnInterstitial.h</code></li>
-<li>加入相關所需的 frameworks</li>
+<li>加入相關所需的 framework</li>
 <li>在 <code>Build Settings</code> 內 <code>Other Linker Flags</code> 請填入 <code>-all_load</code> 與 <code>-Obj-C</code>，並把 <code>Summary</code> 下把 <code>AdSupport</code> 設為 <code>Optional</code>
 &gt; <strong>Note</strong>: 上述三項缺一不可，請務必完成！</li>
 </ol>
@@ -222,8 +222,18 @@ China平台為: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br
 <img src="/assets/img/IOS-add-file_vpadn.png" alt="IOS-add-file_vpadn.png"></li>
 <li>接著在 SDK 中選取 <code>libAdOn.a</code>, <code>VpadnBanner.h</code> 與 <code>VpadnInterstitial.h</code>
 <img src="/assets/img/IOS-add-lib&amp;header_vpadn.png" alt="IOS-add-lib&amp;header_vpadn"></li>
-<li>SDK lib 會參照 iOS 的 frameworks： <br  >
-<code>AdSupport</code>, <br>
+</ol>
+
+<h2 id="新增-framework">新增 Framework</h2>
+
+<p>SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework。<br>
+加入方法有兩種：<br>
+(1) 手動拉取所有 framework<br>
+(2) 加入 vpon all-in-one framework<br></p>
+
+<h3 id="1-手動拉取所有-framework：">(1) 手動拉取所有 framework：<br></h3>
+
+<p><code>AdSupport</code>, <br>
 <code>AssetsLibrary</code>, <br>
 <code>AudioToolbox</code>, <br>
 <code>AVFoundation</code>, <br>
@@ -242,11 +252,37 @@ China平台為: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br
 <code>Security</code>, <br>
 <code>StoreKit</code>, <br>
 <code>SystemConfiguration</code>, <br>
-<code>UIKit</code></li>
-</ol>
+<code>UIKit</code></p>
 
-<p>若要加入這些 Framework，請對 Vpadn_BannerInter_x5 這個專案名稱按兩下滑鼠，開啟 <code>Build Phases</code> 分頁下的 <code>Link Binary With Libraries</code> 下拉式選單，然後用畫面上出現的 <code>+</code> 按鈕加入 iOS SDK 中的架構。
+<p>欲加入這些 Framework，請對 Vpadn_BannerInter_x5 這個專案名稱按兩下滑鼠，開啟 <code>Build Phases</code> 分頁下的 <code>Link Binary With Libraries</code> 下拉式選單，然後用畫面上出現的 <code>+</code> 按鈕加入 iOS SDK 中的架構。
 <img src="/assets/img/IOS-add-frameworks_vpadn.png" alt="IOS-add-frameworks_vpadn"></p>
+
+<h3 id="2-加入-all-in-1-framework">(2) 加入 all-in-1 framework</h3>
+
+<p>您可以選擇只加入一個 framework 就好——也就是 all-in-1 framework，此 framework 會自動幫您 reference 沒有加入、但必須加入的 framework。但請特別注意，all-in-1 framework <strong>只對 iOS 7.1 以上的裝置有用</strong>。若您的 app 還支援 7.1 以下的裝置，請勿使用此 framework，而是用手動加入所有必須的 framework。</p>
+
+<p>首先，對專案按下右鍵，選擇 <code>Add Files to your_project</code>
+<img src="/assets/img/ios_framework_1.png" alt=""></p>
+
+<p>接著，加入 <code>VpadnSDKAdKit.framework</code> 至專案中
+<img src="/assets/img/ios_framework_2.png" alt=""></p>
+
+<p>再來，至專案設定選項中的 <code>General</code> 下方的 <code>Embedded Binaries</code> 中點擊 <code>+</code>，新增 <code>VpadnSDKAdKit.framework</code>
+<img src="/assets/img/ios_framework_3.png" alt=""></p>
+
+<p>記得，確認一下 <code>Embedded Binaries</code> 內是否已加入此 framework
+<img src="/assets/img/ios_framework_4.png" alt=""></p>
+
+<p>最後，至專案中透過 “@import VpadnSDKAdKit” 引入 SDK</p>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">@</span><span class="n">import</span> <span class="n">VpadnSDKAdKit</span>
+</code></pre></div>
+<p><img src="/assets/img/ios_framework_5.png" alt=""></p>
+
+<blockquote>
+<p><strong>Note:</strong> <br>
+再次提醒您 all-in-1 framework <strong>只對 iOS 7.1 以上的裝置有用</strong>。
+若您的 app 還支援 7.1 以下的裝置，請勿使用此 framework，而是用手動加入所有必須的 framework。</p>
+</blockquote>
 
 <h1 id="app-transport-security">App Transport Security</h1>
 

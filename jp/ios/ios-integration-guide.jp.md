@@ -53,8 +53,11 @@ iOS アプリでバナー広告を表示させるためには、Xcodeプロジ�
 2. 次に、 SDK 内で `libAdOn.a` , `VpadnBanner.h` および `VpadnInterstitial.h` を選択します。
 ![IOS-add-lib&header_vpadn]
 
-3. SDK lib は、以下のフレームワーク を参照できます。
-SDK 4.2.8 バージョンをお使いになる場合、AddressBookとAddressBookUIは使用しないでください。 <br  >
+
+## Framework の追加
+The SDK library references the a few iOS development frameworks. You can add these frameworks in two alternatives, adding all frameworks one by one, or adding vpon all-in-1 framework.  <br  >
+
+1.Add all the following frameworks.<br>
 `AdSupport`, <br>
 `AssetsLibrary`, <br>
 `AudioToolbox`, <br>
@@ -74,10 +77,35 @@ SDK 4.2.8 バージョンをお使いになる場合、AddressBookとAddressBook
 `Security`, <br>
 `StoreKit`, <br>
 `SystemConfiguration`, <br>
-`UIKit`
+`UIKit`<br>
 
 これらのフレームワークを追加する場合、 プロジェクト[Vpadn_BannerInter_x5]をダブルクリックし、[Build Phases] タブ下の [Link Binary With Libraries]プルダウンメニューを開いてから、画面に表示される `+` ボタンで iOS SDK内のアーキテクチャを追加します。
 ![IOS-add-frameworks_vpadn]
+
+2.You can choose another way to add necessary frameworks by using our all-in-1 framework. But this convenient way is only for apps designed for iOS version higher than 7.1. If your app targets at users including devices OS version lower than 7.1, you should choose the first method to add frameworks.
+
+First, right-click your project and choose `Add Files to your_project`
+![]({{site.imgurl}}/ios_framework_1.png)
+
+Second, add `VpadnSDKAdKit.framework` into your project.
+![]({{site.imgurl}}/ios_framework_2.png)
+
+Third, find `Embedded Binaries` under `General` and click `+` to add `VpadnSDKAdKit.framework`
+![]({{site.imgurl}}/ios_framework_3.png)
+
+Remember you have added the framework in `Embedded Binaries`.
+![]({{site.imgurl}}/ios_framework_4.png)
+
+Finally, import the framework:
+
+```Objective-C
+@import VpadnSDKAdKit
+```
+![]({{site.imgurl}}/ios_framework_5.png)
+
+> **Note:** <br>
+> Remind again that all-in-1 framework only support devices in iOS version higher than 7.1 and do not use this framework if your app targets at users with devices OS version lower than 7.1.
+
 
 
 # サンプルコードのダウンロード

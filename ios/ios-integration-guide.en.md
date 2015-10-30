@@ -45,8 +45,11 @@ The decompressed SDK consists of a lib file and two header files.
 ![IOS-add-file_vpadn.png]
 2. Choose `libAdOn.a`, `VpadnBanner.h` and `VpadnInterstitial.h` in SDK
 ![IOS-add-lib&header_vpadn]
-3. The SDK library references the following iOS development frameworks which may not be part of your project: (You do not have to include AddressBook and AddressBookUI if you use the version of SDK 4.2.8
-) <br  >
+
+## Add Framework
+The SDK library references the a few iOS development frameworks. You can add these frameworks in two alternatives, adding all frameworks one by one, or adding vpon all-in-1 framework.  <br  >
+
+1.Add all the following frameworks.
 `AdSupport`, <br>
 `AssetsLibrary`, <br>
 `AudioToolbox`, <br>
@@ -66,10 +69,34 @@ The decompressed SDK consists of a lib file and two header files.
 `Security`, <br>
 `StoreKit`, <br>
 `SystemConfiguration`, <br>
-`UIKit`
+`UIKit`<br>
 
 To add these frameworks, double-click the project name. Open the Link Binary With Libraries dropdown under the Build phases tab. Add the frameworks from the iOS SDK using the `+` button that becomes visible.
 ![IOS-add-frameworks_vpadn]
+
+2. You can choose another way to add necessary frameworks by using our all-in-1 framework. But this convenient way is only for apps designed for iOS version higher than 7.1. If your app targets at users including devices OS version lower than 7.1, you should choose the first method to add frameworks.
+
+First, right-click your project and choose `Add Files to your_project`
+![]({{site.imgurl}}/ios_framework_1.png)
+
+Second, add `VpadnSDKAdKit.framework` into your project.
+![]({{site.imgurl}}/ios_framework_2.png)
+
+Third, find `Embedded Binaries` under `General` and click `+` to add `VpadnSDKAdKit.framework`
+![]({{site.imgurl}}/ios_framework_3.png)
+
+Remember you have added the framework in `Embedded Binaries`.
+![]({{site.imgurl}}/ios_framework_4.png)
+
+Finally, import the framework:
+
+```Objective-C
+@import VpadnSDKAdKit
+```
+![]({{site.imgurl}}/ios_framework_5.png)
+
+> **Note:** <br>
+> Remind again that all-in-1 framework only support devices in iOS version higher than 7.1 and do not use this framework if your app targets at users with devices OS version lower than 7.1.
 
 
 # Download

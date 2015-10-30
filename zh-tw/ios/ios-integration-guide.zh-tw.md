@@ -2,7 +2,7 @@
 layout: "ios"
 title: "iOS - 串接說明"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/integration-guide/
 lang: "zh-tw"
@@ -32,7 +32,7 @@ VPON 廣告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 �
 解壓縮後的 SDK 包含Objective-C 標頭、一個執行期間程式庫 要在應用程式中加入 Vpon 廣告，您必須完成三個步驟：
 
 1. 在專案中加入 `libAdOn.a`， `VpadnBanner.h` 與 `VpadnInterstitial.h`
-2. 加入相關所需的 frameworks
+2. 加入相關所需的 framework
 3. 在 `Build Settings` 內 `Other Linker Flags` 請填入 `-all_load` 與 `-Obj-C`，並把 `Summary` 下把 `AdSupport` 設為 `Optional`
 > **Note**: 上述三項缺一不可，請務必完成！
 
@@ -41,7 +41,14 @@ VPON 廣告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 �
 ![IOS-add-file_vpadn.png]
 2. 接著在 SDK 中選取 `libAdOn.a`, `VpadnBanner.h` 與 `VpadnInterstitial.h`
 ![IOS-add-lib&header_vpadn]
-3. SDK lib 會參照 iOS 的 frameworks： <br  >
+
+## 新增 Framework
+SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework。<br>
+加入方法有兩種：<br>
+(1) 手動拉取所有 framework<br>
+(2) 加入 vpon all-in-one framework<br>
+
+###(1) 手動拉取所有 framework：<br>
 `AdSupport`, <br>
 `AssetsLibrary`, <br>
 `AudioToolbox`, <br>
@@ -63,8 +70,35 @@ VPON 廣告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 �
 `SystemConfiguration`, <br>
 `UIKit`
 
-若要加入這些 Framework，請對 Vpadn_BannerInter_x5 這個專案名稱按兩下滑鼠，開啟 `Build Phases` 分頁下的 `Link Binary With Libraries` 下拉式選單，然後用畫面上出現的 `+` 按鈕加入 iOS SDK 中的架構。
+欲加入這些 Framework，請對 Vpadn_BannerInter_x5 這個專案名稱按兩下滑鼠，開啟 `Build Phases` 分頁下的 `Link Binary With Libraries` 下拉式選單，然後用畫面上出現的 `+` 按鈕加入 iOS SDK 中的架構。
 ![IOS-add-frameworks_vpadn]
+
+###(2) 加入 all-in-1 framework
+您可以選擇只加入一個 framework 就好——也就是 all-in-1 framework，此 framework 會自動幫您 reference 沒有加入、但必須加入的 framework。但請特別注意，all-in-1 framework **只對 iOS 7.1 以上的裝置有用**。若您的 app 還支援 7.1 以下的裝置，請勿使用此 framework，而是用手動加入所有必須的 framework。
+
+首先，對專案按下右鍵，選擇 `Add Files to your_project`
+![]({{site.imgurl}}/ios_framework_1.png)
+
+接著，加入 `VpadnSDKAdKit.framework` 至專案中
+![]({{site.imgurl}}/ios_framework_2.png)
+
+再來，至專案設定選項中的 `General` 下方的 `Embedded Binaries` 中點擊 `+`，新增 `VpadnSDKAdKit.framework`
+![]({{site.imgurl}}/ios_framework_3.png)
+
+記得，確認一下 `Embedded Binaries` 內是否已加入此 framework
+![]({{site.imgurl}}/ios_framework_4.png)
+
+最後，至專案中透過 “@import VpadnSDKAdKit” 引入 SDK
+
+```Objective-C
+@import VpadnSDKAdKit
+```
+![]({{site.imgurl}}/ios_framework_5.png)
+
+> **Note:** <br>
+> 再次提醒您 all-in-1 framework **只對 iOS 7.1 以上的裝置有用**。
+> 若您的 app 還支援 7.1 以下的裝置，請勿使用此 framework，而是用手動加入所有必須的 framework。
+
 
 
 # App Transport Security
