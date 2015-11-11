@@ -22,7 +22,7 @@ Fundamental     | AdMob        |    DFP       |   MoPub     | Mogo
 [6]: http://m.vpon.com/sdk/Mopub_iOS_Vpon_Adapter1.0.zip
 [7]: http://m.vpon.com/sdk/MOGO/MangoDemo.zip
 
-[8]: {{site.dnldurl}}/sdk/VpadnSDKAdKit.framework
+[8]: {{site.dnldurl}}/sdk/VpadnSDKAdKit.framework.zip
 
 
 <br><br>
