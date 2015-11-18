@@ -269,13 +269,13 @@ textarea {
 }
 
 a {
-    color: #337ab7;
+    color: #FF8D16;
     text-decoration: none
 }
 
 a:focus,
 a:hover {
-    color: #23527c;
+    color: #FF8D16;
     text-decoration: underline
 }
 
@@ -6390,9 +6390,8 @@ button.close {
     left: 0;
     width: 15%;
     font-size: 20px;
-    color: white;
+    color: #C2C2C2;
     text-align: center;
-    opacity: 0
 }
 
 .carousel-control.right {
@@ -6468,8 +6467,8 @@ button.close {
     text-indent: -999px;
     cursor: pointer;
     background-color: #000\9;
-    background-color: rgba(0, 0, 0, 0);
-    border: 1px solid #fff;
+    background-color: #FFB42D;
+    border: 1px solid #FFB42D;
     border-radius: 10px
 }
 
@@ -6818,4 +6817,9 @@ button.close {
 }
 
 
+}
+@media(min-width:768px){
+  h1{
+    font: 20px;
+  }
 }
