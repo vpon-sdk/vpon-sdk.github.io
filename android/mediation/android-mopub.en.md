@@ -39,8 +39,8 @@ Fill in BannerID which you apply from our Vpon website, and the key is adUnitID
 
 ![][4]
 
-  []: {{site.imgurl}}/mopub_001.png "mopub_001.png"
-  [1]: {{site.imgurl}}/mopub_002.png "mopub_002.png"
+  []: {{site.imgurl}}/mopub_001.png
+  [1]: {{site.imgurl}}/mopub_002.png
   [2]: {{site.imgurl}}/mopub_003.png
-  [3]: {{site.imgurl}}/mopub_004-a.png "mopub_004-a.png"
-  [4]: {{site.imgurl}}/mopub_005.png "mopub_005.png"
+  [3]: {{site.imgurl}}/mopub_004-a.png
+  [4]: {{site.imgurl}}/mopub_005.png 
