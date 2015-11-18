@@ -25,7 +25,7 @@ Mopub 後台設定請參考下列步驟:
 ## Step4: 填入標題名稱
 填入辨識用的標題名稱, 方便您管理增加的 Ad network
 
-![]({{site.imgurl}}/mopub_003.png)
+![]({{site.imgurl}}/Mopub_003.png)
 
 ## Step5: package name/class name
 填入您的 package name + class name, 可以參考範例所示
@@ -41,8 +41,8 @@ Mopub 後台設定請參考下列步驟:
 
 ![][4]
 
-[]: {{site.imgurl}}/mopub_001.png
-[1]: {{site.imgurl}}/mopub_002.png
-[2]: {{site.imgurl}}/mopub_003.png
-[3]: {{site.imgurl}}/mopub_004-a.png
-[4]: {{site.imgurl}}/mopub_005.png
+[]: {{site.imgurl}}/Mopub_001.png
+[1]: {{site.imgurl}}/Mopub_002.png
+[2]: {{site.imgurl}}/Mopub_003.png
+[3]: {{site.imgurl}}/Mopub_004-a.png
+[4]: {{site.imgurl}}/Mopub_005.png
