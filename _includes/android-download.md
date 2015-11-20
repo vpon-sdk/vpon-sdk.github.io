@@ -1,6 +1,6 @@
 # SDK Download
 ---
-Fundamental SDK<br> (Version: 4.3.2) | AdMob SDK <br> (Version: 1.0.1) |    
+Fundamental SDK<br> (Version: 4.3.2) | AdMob SDK <br> (Version: 1.0.0) |    
 :-------------: | :--------:|
 [download][1]   | [download][2]
 
