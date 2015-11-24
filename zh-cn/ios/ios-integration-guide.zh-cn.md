@@ -29,26 +29,64 @@ VPON 广告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 �
 
 # 导入 SDK
 ---
-解压缩後的 SDK 包含Objective-C 标头丶一个执行期间程式库 要在应用程式中加入 Vpon 广告，您必须完成三个步骤：
+
+Vpon 提供以下两种串接广告的 SDK，择一即可:<br>
+  1. Fundamental SDK (iOS 5.0+)<br>
+  2. Framework SDK (iOS 7.0+)
+
+这两个 SDK 其实提供的功能一样，差别在于，iOS 版本需求较高的 Framework SDK 的串接较简单、轻便
+
+## Framework SDK
+
+若您的 app 使用客群是 iOS 7 以上，我们建议您使用 Framework SDK。
+
+Framework SDK 是一包 dynamic library，它会动态抓取 framework reference, headers 还有 Fundamental SDK 内的程式码，因此对您的广告串接而言：步骤少、容量也小。
+
+### 导入 Framework SDK
+
+首先，对专案按下右键，选择 `Add Files to your_project`
+![]({{site.imgurl}}/ios_framework_1.png)
+
+接着，加入 `VpadnSDKAdKit.framework` 至专案中
+![]({{site.imgurl}}/ios_framework_2.png)
+
+再来，至专案设定选项中的 `General` 下方的 `Embedded Binaries` 中点击 `+`，新增 `VpadnSDKAdKit.framework`
+![]({{site.imgurl}}/ios_framework_3.png)
+
+记得，确认一下 `Embedded Binaries` 内是否已加入此 framework
+![]({{site.imgurl}}/ios_framework_4.png)
+
+最后，至专案中透过 “@import VpadnSDKAdKit” 引入 SDK
+
+```Objective-C
+@import VpadnSDKAdKit
+```
+![]({{site.imgurl}}/ios_framework_5.png)
+
+> **Note:** <br>
+> 再次提醒您 Framework SDK **只对 iOS 7.0 以上的装置有用**。
+> 若您的 app 还支援 7.0 以下的装置，请勿使用此 framework，而是使用 [Fundamental SDK](#fundamental-sdk)。
+
+
+
+## Fundamental SDK
+解压缩后的 SDK 包含Objective-C 标头、一个执行期间程式库 要在应用程式中加入 Vpon 广告，您必须完成三个步骤：
 
 1. 在专案中加入 `libAdOn.a`， `VpadnBanner.h` 与 `VpadnInterstitial.h`
 2. 加入相关所需的 framework
 3. 在 `Build Settings` 内 `Other Linker Flags` 请填入 `-all_load` 与 `-Obj-C`，并把 `Summary` 下把 `AdSupport` 设为 `Optional`
+
 > **Note**: 上述三项缺一不可，请务必完成！
 
-## 新增 SDK lib
-1. 解压缩後的 SDK 包含一个 lib 档丶及两个标头档。 对 Xcode 中的专案按一下滑鼠右键，然後选取 [Add Files to "Vpadn_BannerInter_x5"...] (在 "Vpadn_BannerInter_x5" 中新增档案)。
+### 新增 SDK lib
+1. 解压缩后的 SDK 包含一个 lib 档、及两个标头档。 对 Xcode 中的专案按一下滑鼠右键，然后选取 [Add Files to "Vpadn_BannerInter_x5"...] (在 "Vpadn_BannerInter_x5" 中新增档案)。
 ![IOS-add-file_vpadn.png]
 2. 接着在 SDK 中选取 `libAdOn.a`, `VpadnBanner.h` 与 `VpadnInterstitial.h`
 ![IOS-add-lib&header_vpadn]
 
 ## 新增 Framework
 SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework。<br>
-加入方法有两种：<br>
-(1) 手动拉取所有 framework<br>
-(2) 加入 vpon all-in-one framework<br>
 
-###(1) 手动拉取所有 framework：<br>
 `AdSupport`, <br>
 `AssetsLibrary`, <br>
 `AudioToolbox`, <br>
@@ -70,34 +108,8 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 `SystemConfiguration`, <br>
 `UIKit`
 
-欲加入这些 Framework，请对 Vpadn_BannerInter_x5 这个专案名称按两下滑鼠，开启 `Build Phases` 分页下的 `Link Binary With Libraries` 下拉式选单，然後用画面上出现的 `+` 按钮加入 iOS SDK 中的架构。
+欲加入这些 Framework，请对 Vpadn_BannerInter_x5 这个专案名称按两下滑鼠，开启 `Build Phases` 分页下的 `Link Binary With Libraries` 下拉式选单，然后用画面上出现的 `+` 按钮加入 iOS SDK 中的架构。
 ![IOS-add-frameworks_vpadn]
-
-###(2) 加入 all-in-1 framework
-您可以选择只加入一个 framework 就好——也就是 all-in-1 framework，此 framework 会自动帮您 reference 没有加入丶但必须加入的 framework。但请特别注意，all-in-1 framework **只对 iOS 7.1 以上的装置有用**。若您的 app 还支援 7.1 以下的装置，请勿使用此 framework，而是用手动加入所有必须的 framework。
-
-首先，对专案按下右键，选择 `Add Files to your_project`
-![]({{site.imgurl}}/ios_framework_1.png)
-
-接着，加入 `VpadnSDKAdKit.framework` 至专案中
-![]({{site.imgurl}}/ios_framework_2.png)
-
-再来，至专案设定选项中的 `General` 下方的 `Embedded Binaries` 中点击 `+`，新增 `VpadnSDKAdKit.framework`
-![]({{site.imgurl}}/ios_framework_3.png)
-
-记得，确认一下 `Embedded Binaries` 内是否已加入此 framework
-![]({{site.imgurl}}/ios_framework_4.png)
-
-最後，至专案中透过 “@import VpadnSDKAdKit” 引入 SDK
-
-```Objective-C
-@import VpadnSDKAdKit
-```
-![]({{site.imgurl}}/ios_framework_5.png)
-
-> **Note:** <br>
-> 再次提醒您 all-in-1 framework **只对 iOS 7.1 以上的装置有用**。
-> 若您的 app 还支援 7.1 以下的装置，请勿使用此 framework，而是用手动加入所有必须的 framework。
 
 
 

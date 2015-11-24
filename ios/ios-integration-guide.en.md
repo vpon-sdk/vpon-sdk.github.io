@@ -31,9 +31,9 @@ Banner ads use a small portion of the screen to entice users to "click through" 
 
 # Import SDK
 ---
-Vpon provides two SDKs serving the same functions for our publishers:<br>
-  1. Fundamental SDK (iOS 5.0+)<br>
-  2. Framework SDK (iOS 7.0+)
+Vpon provides two SDKs serving the same functions for our publishers. You should choose either of these 2 for integration.<br>
+  1. Fundamental SDK (Require iOS 5.0+)<br>
+  2. Framework SDK (Require iOS 7.0+)
 
 There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.
 
