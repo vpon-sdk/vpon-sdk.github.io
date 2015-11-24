@@ -22,11 +22,9 @@ permalink:          pretty
 # baseurl:            /
 # url:                http://localhost:4000
 # encoding:           UTF-8
-host:               192.168.168.180
-port:               4000
-baseurl:            
-url:                192.168.168.180:4000
-encoding:           UTF-8
+# host:               192.168.168.180
+# url:                http://192.168.168.180
+
 
 # the excluded directoies
 exclude:            []

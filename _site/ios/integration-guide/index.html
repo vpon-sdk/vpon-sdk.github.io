@@ -193,14 +193,14 @@ China is: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p><
 
 <hr>
 
-<p>Banner ads use a small portion of the screen to entice users to &quot;click through&quot; to a richer, full-screen experience such as a website or app store page.To display banner ads in your iOS app, simply import Vpadn SDK in Xcode project and add a VpadnBanner to your UI.</p>
+<p>Banner ads use a small portion of the screen to entice users to &quot;click through&quot; to a richer, full-screen experience such as a website or app store page. To display banner ads in your iOS app, simply import Vpadn SDK in Xcode project and add a VpadnBanner to your UI.</p>
 
 <h1 id="requirement">Requirement</h1>
 
 <hr>
 
 <ul>
-<li>iOS version 5.x or later</li>
+<li>iOS version 5.0 or later</li>
 <li>Xcode 4.4 or later</li>
 </ul>
 
@@ -208,16 +208,56 @@ China is: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p><
 
 <hr>
 
+<p>Vpon provides two SDKs serving the same functions for our publishers:<br>
+  1. Fundamental SDK (iOS 5.0+)<br>
+  2. Framework SDK (iOS 7.0+)</p>
+
+<p>There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.</p>
+
+<h2 id="framework-sdk">Framework SDK</h2>
+
+<hr>
+
+<p>Framework SDK is a dynamic library, our latest SDK within any necessary references, headers and lib, needs fewer steps, and is lighter than Fundamental SDK.</p>
+
+<p>However, this convenient way is only for apps designed for iOS version higher than 7.0. If you are targeting at users with devices OS version lower than 7.0, you should definitely choose the <a href="#fundamental-sdk">fundamental SDK</a> instead.</p>
+
+<p>First, right-click your project and choose <code>Add Files to your_project</code>
+<img src="/assets/img/ios_framework_1.png" alt=""></p>
+
+<p>Second, add <code>VpadnSDKAdKit.framework</code> into your project.
+<img src="/assets/img/ios_framework_2.png" alt=""></p>
+
+<p>Third, find <code>Embedded Binaries</code> under <code>General</code> and click <code>+</code> to add <code>VpadnSDKAdKit.framework</code>
+<img src="/assets/img/ios_framework_3.png" alt=""></p>
+
+<p>Remember you have added the framework in <code>Embedded Binaries</code>.
+<img src="/assets/img/ios_framework_4.png" alt=""></p>
+
+<p>Finally, import the framework:</p>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">@</span><span class="n">import</span> <span class="n">VpadnSDKAdKit</span>
+</code></pre></div>
+<p><img src="/assets/img/ios_framework_5.png" alt=""></p>
+
+<blockquote>
+<p><strong>Note:</strong> <br>
+Remind again that Framework SDK only support devices in iOS version higher than 7.0 and do not use this SDK if your app targets at users with devices OS version lower than 7.0.</p>
+</blockquote>
+
+<h2 id="fundamental-sdk">Fundamental SDK</h2>
+
+<hr>
+
 <p>The decompressed SDK consists of Objective-C, a runtime library and a README. Show Vpadn banner on your Android App, you must complete three steps:</p>
 
 <ol>
-<li>Import <code>libAdOn.a</code>， <code>VpadnBanner.h</code> and <code>VpadnInterstitial.h</code></li>
+<li>Import <code>libAdOn.a</code>, <code>VpadnBanner.h</code> and <code>VpadnInterstitial.h</code></li>
 <li>Add all iOS development frameworks</li>
-<li>Add  <code>-all_load</code> 與 <code>-Obj-C</code> under <code>Other Linker Flags</code> of <code>Build Settings</code>. Click the <code>Build Phases</code> and set the <code>AdSupport</code> framework to <code>Optional</code>.
+<li>Add  <code>-all_load</code> and <code>-Obj-C</code> under <code>Other Linker Flags</code> of <code>Build Settings</code>. Click the <code>Build Phases</code> and set the <code>AdSupport</code> framework to <code>Optional</code>.
 &gt; <strong>Note</strong>: <strong>All three</strong> these steps are necessary!</li>
 </ol>
 
-<h2 id="add-sdk-lib">Add SDK lib</h2>
+<h3 id="add-sdk-lib">Add SDK lib</h3>
 
 <p>The decompressed SDK consists of a lib file and two header files.</p>
 
@@ -228,9 +268,9 @@ China is: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p><
 <img src="/assets/img/IOS-add-lib&amp;header_vpadn.png" alt="IOS-add-lib&amp;header_vpadn"></li>
 </ol>
 
-<h2 id="add-framework">Add Framework</h2>
+<h3 id="add-framework">Add Framework</h3>
 
-<p>The SDK library references the a few iOS development frameworks. You can add these frameworks in two alternatives, adding all frameworks one by one, or adding vpon all-in-1 framework.  <br  ></p>
+<p>The SDK library references the a few iOS development frameworks.<br></p>
 
 <p>1.Add all the following frameworks.
 <code>AdSupport</code>, <br>
@@ -256,32 +296,6 @@ China is: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p><
 
 <p>To add these frameworks, double-click the project name. Open the Link Binary With Libraries dropdown under the Build phases tab. Add the frameworks from the iOS SDK using the <code>+</code> button that becomes visible.
 <img src="/assets/img/IOS-add-frameworks_vpadn.png" alt="IOS-add-frameworks_vpadn"></p>
-
-<ol>
-<li>You can choose another way to add necessary frameworks by using our all-in-1 framework. But this convenient way is only for apps designed for iOS version higher than 7.1. If your app targets at users including devices OS version lower than 7.1, you should choose the first method to add frameworks.</li>
-</ol>
-
-<p>First, right-click your project and choose <code>Add Files to your_project</code>
-<img src="/assets/img/ios_framework_1.png" alt=""></p>
-
-<p>Second, add <code>VpadnSDKAdKit.framework</code> into your project.
-<img src="/assets/img/ios_framework_2.png" alt=""></p>
-
-<p>Third, find <code>Embedded Binaries</code> under <code>General</code> and click <code>+</code> to add <code>VpadnSDKAdKit.framework</code>
-<img src="/assets/img/ios_framework_3.png" alt=""></p>
-
-<p>Remember you have added the framework in <code>Embedded Binaries</code>.
-<img src="/assets/img/ios_framework_4.png" alt=""></p>
-
-<p>Finally, import the framework:</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">@</span><span class="n">import</span> <span class="n">VpadnSDKAdKit</span>
-</code></pre></div>
-<p><img src="/assets/img/ios_framework_5.png" alt=""></p>
-
-<blockquote>
-<p><strong>Note:</strong> <br>
-Remind again that all-in-1 framework only support devices in iOS version higher than 7.1 and do not use this framework if your app targets at users with devices OS version lower than 7.1.</p>
-</blockquote>
 
 <h1 id="download">Download</h1>
 

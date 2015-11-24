@@ -1,9 +1,17 @@
 # SDK Download
 ---
-Fundamental SDK<br> (Version: 4.2.18) | AdMob SDK <br> (Version: 1.0.1)|All-in-1 <br>framework
-:-------------: | :------------:|:-------------:|
-[download][1]   | [download][2] | [download][8]
+Fundamental SDK<br> (Version: 4.2.18) | Framework SDK |
+:-------------: | :------------:|    
+[download][1]   | [download][8] |     
 
+
+>**Note:** You can choose either fundamental SDK or framework SDK for ad integration. If using framework SDK, you don't have to reference necessary frameworks,  one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 7.1. So, if you are targeting at users with device OS lower than 7.1, please use fundamental SDK instead.
+
+# Adapter Download
+---
+|AdMob Adapter <br> (Version: 1.0.1)|
+|:-------------:|
+|[download][2]|
 
 # Sample Code Download
 ---
