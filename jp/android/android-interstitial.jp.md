@@ -43,29 +43,29 @@ public class MainActivity extends Activity implements VpadnAdListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-    // インタースティシャルのインスタンスを作成する
-    interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
+		// インタースティシャルのインスタンスを作成する
+		interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
 		//listener を追加する。
-    interstitialAd.setAdListener(this);
+		interstitialAd.setAdListener(this);
 		// 広告リクエストを作成する。
-    VpadnAdRequest request = new VpadnAdRequest();
-    //インタースティシャル広告の読み込みを開始する
+		VpadnAdRequest request = new VpadnAdRequest();
+		//インタースティシャル広告の読み込みを開始する
 		interstitialAd.loadAd(request);
   }
 
-        @Override
+	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		// インタースティシャルを表示する準備ができたら、 destroy を呼び出す。
 		if (interstitialAd != null) {
 			interstitialAd.destroy();
-                        interstitialAd = null;
+			interstitialAd = null;
 		}
 	}
 ```
 
 
-また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、AdListenerを実行する、もしくはブー ル属性 isReady を直接使用することです。 AdListenerの詳細については中級編ガイドをご参照ください。
+また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、AdListenerを実行する、もしくはブー ル属性 isReady を直接使用することです。
 
 広告のロードに成功すると、インタースティシャルを表示することができます。
 
@@ -79,7 +79,7 @@ public void onVpadnReceiveAd(VpadnAd ad) {
 }
 ```
 
-一度インタースティシャル広告が表示されると、ユーザが閉じるまでディスプレイ全体をカバーします。この時、制御権が アプリに渡されます。中級編ガイドの Vpadn Ad Listener の項目にて、いくつかのコ ールバック方式をご参照ください。
+一度インタースティシャル広告が表示されると、ユーザが閉じるまでディスプレイ全体をカバーします。この時、制御権が アプリに渡されます。
 
 # サンプルコードのダウンロード
 ---

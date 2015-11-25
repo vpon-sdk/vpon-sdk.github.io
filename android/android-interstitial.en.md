@@ -44,23 +44,23 @@ public class MainActivity extends Activity implements VpadnAdListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-    // Create interstitial instance
-    interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
+		// Create interstitial instance
+		interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
 		//Add listener
-    interstitialAd.setAdListener(this);
+		interstitialAd.setAdListener(this);
 		// Create ad request
-    VpadnAdRequest request = new VpadnAdRequest();
-    //Begin loading your interstitial
+		VpadnAdRequest request = new VpadnAdRequest();
+		//Begin loading your interstitial
 		interstitialAd.loadAd(request);
-        }
+	}
 
   @Override
 	protected void onDestroy() {
 		super.onDestroy();
 		// Remember to call the destory() when your app is destroying.
 		if (interstitialAd != null) {
-			interstitialAd.destroy();
-      interstitialAd = null;
+           interstitialAd.destroy();
+           interstitialAd = null;
 		}
 	}
 ```
