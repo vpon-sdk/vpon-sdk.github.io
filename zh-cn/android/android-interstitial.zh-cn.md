@@ -34,33 +34,33 @@ lang:         "zh-cn"
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-        //TODO: 您像VPON 申请的interstitial banner Id (提醒您 跟一般的横幅广告banner ID是不同的)
-      private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
-      private VpadnInterstitialAd interstitialAd;
+  //TODO: 您向Vpon申请的interstitial banner Id (提醒您 跟一般的横幅广告banner ID是不同的)
+  private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
+  private VpadnInterstitialAd interstitialAd;
 
-          @Override
-      protected void onCreate(Bundle savedInstanceState) {
-          super.onCreate(savedInstanceState);
-          setContentView(R.layout.activity_main);
-                  // Create interstitial instance
-                  interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
-          //加入listener
-                  interstitialAd.setAdListener(this);
-          // 建立广告请求
-                  VpadnAdRequest request = new VpadnAdRequest();
-                  //开始抓interstitial ad
-          interstitialAd.loadAd(request);
-          }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    // Create interstitial instance
+    interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
+    //加入listener
+    interstitialAd.setAdListener(this);
+    // 建立广告请求
+    VpadnAdRequest request = new VpadnAdRequest();
+    //开始抓interstitial ad
+    interstitialAd.loadAd(request);
+  }
 
-          @Override
-      protected void onDestroy() {
-          super.onDestroy();
-          // 千万记得离开时需要呼叫 destroy
-          if (interstitialAd != null) {
-              interstitialAd.destroy();
-                          interstitialAd = null;
-          }
-      }
+  @Override
+  protected void onDestroy() {
+    super.onDestroy();
+    // 千万记得离开时需要呼叫 destroy
+    if (interstitialAd != null) {
+      interstitialAd.destroy();
+      interstitialAd = null;
+    }
+  }
 ```
 
 不过，目前没有任何项目可加入检视阶层，而且您必须等到这个请求成功后才能尝试显示广告，这点请格外注意。最简单的做法是执行 AdListener (「InterstitialAd」也是一种广告)，或是直接使用布林属性 isReady。
@@ -68,13 +68,13 @@ public class MainActivity extends Activity implements VpadnAdListener {
 一旦 load Ad 成功，广告就可以显示了：
 
 ```java
-    @Override
-    public void onVpadnReceiveAd(VpadnAd ad) {
-        if (ad == this.interstitialAd) {
-                         //show interstitial ad 或可以延后在show
-             interstitialAd.show();
-        }
+  @Override
+  public void onVpadnReceiveAd(VpadnAd ad) {
+    if (ad == this.interstitialAd) {
+      //show interstitial ad 或可以延后在show
+      interstitialAd.show();
     }
+  }
 ```
 
 接着，插页式广告会佔据整个画面，直到使用者点击关闭；这时控制权才会交还给应用程式。[进阶设定]中 Vpadn AdListener 小节列出了多种实用的回呼方式，供您参考。

@@ -206,44 +206,44 @@
 
 <p>再次提醒您，最好在应用程式的 Activity 内执行上述步骤。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">VpadnAdListener</span> <span class="o">{</span>
-        <span class="c1">//TODO: 您像VPON 申请的interstitial banner Id (提醒您 跟一般的横幅广告banner ID是不同的)</span>
-      <span class="kd">private</span> <span class="n">String</span> <span class="n">interstitialBannerId</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxx&quot;</span><span class="o">;</span>
-      <span class="kd">private</span> <span class="n">VpadnInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
+  <span class="c1">//TODO: 您向Vpon申请的interstitial banner Id (提醒您 跟一般的横幅广告banner ID是不同的)</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">interstitialBannerId</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxx&quot;</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">VpadnInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
 
-          <span class="nd">@Override</span>
-      <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-          <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-          <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-                  <span class="c1">// Create interstitial instance</span>
-                  <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnInterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">interstitialBannerId</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
-          <span class="c1">//加入listener</span>
-                  <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-          <span class="c1">// 建立广告请求</span>
-                  <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-                  <span class="c1">//开始抓interstitial ad</span>
-          <span class="n">interstitialAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
-          <span class="o">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
+    <span class="c1">// Create interstitial instance</span>
+    <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnInterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">interstitialBannerId</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
+    <span class="c1">//加入listener</span>
+    <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="c1">// 建立广告请求</span>
+    <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+    <span class="c1">//开始抓interstitial ad</span>
+    <span class="n">interstitialAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+  <span class="o">}</span>
 
-          <span class="nd">@Override</span>
-      <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
-          <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-          <span class="c1">// 千万记得离开时需要呼叫 destroy</span>
-          <span class="k">if</span> <span class="o">(</span><span class="n">interstitialAd</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-              <span class="n">interstitialAd</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
-                          <span class="n">interstitialAd</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-          <span class="o">}</span>
-      <span class="o">}</span>
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
+    <span class="c1">// 千万记得离开时需要呼叫 destroy</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">interstitialAd</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">interstitialAd</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+      <span class="n">interstitialAd</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
 </code></pre></div>
 <p>不过，目前没有任何项目可加入检视阶层，而且您必须等到这个请求成功后才能尝试显示广告，这点请格外注意。最简单的做法是执行 AdListener (「InterstitialAd」也是一种广告)，或是直接使用布林属性 isReady。</p>
 
 <p>一旦 load Ad 成功，广告就可以显示了：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">ad</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">interstitialAd</span><span class="o">)</span> <span class="o">{</span>
-                         <span class="c1">//show interstitial ad 或可以延后在show</span>
-             <span class="n">interstitialAd</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-        <span class="o">}</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">ad</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">interstitialAd</span><span class="o">)</span> <span class="o">{</span>
+      <span class="c1">//show interstitial ad 或可以延后在show</span>
+      <span class="n">interstitialAd</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
     <span class="o">}</span>
+  <span class="o">}</span>
 </code></pre></div>
 <p>接着，插页式广告会佔据整个画面，直到使用者点击关闭；这时控制权才会交还给应用程式。<a href="/zh-cn/android/advanced">进阶设定</a>中 Vpadn AdListener 小节列出了多种实用的回呼方式，供您参考。</p>
 
