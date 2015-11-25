@@ -35,23 +35,23 @@ lang:            "jp"
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-         //TODO: 登録済みプロパティID （注意：バナー広告用のプロパティIDとは異なるものを使用）
+//TODO: 登録済みプロパティID （注意：バナー広告用のプロパティIDとは異なるものを使用）
 	private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
 	private VpadnInterstitialAd interstitialAd;
 
-        @Override
+  @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-                 // インタースティシャルのインスタンスを作成する
-                interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
+    // インタースティシャルのインスタンスを作成する
+    interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
 		//listener を追加する。
-                interstitialAd.setAdListener(this);
+    interstitialAd.setAdListener(this);
 		// 広告リクエストを作成する。
-                VpadnAdRequest request = new VpadnAdRequest();
-                //インタースティシャル広告の読み込みを開始する
+    VpadnAdRequest request = new VpadnAdRequest();
+    //インタースティシャル広告の読み込みを開始する
 		interstitialAd.loadAd(request);
-        }
+  }
 
         @Override
 	protected void onDestroy() {

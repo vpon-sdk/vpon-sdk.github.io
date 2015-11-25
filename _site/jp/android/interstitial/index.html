@@ -207,23 +207,23 @@
 
 <p>上記ステップをアプリのアクティビティ内で実行してください。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">VpadnAdListener</span> <span class="o">{</span>
-         <span class="c1">//TODO: 登録済みプロパティID （注意：バナー広告用のプロパティIDとは異なるものを使用）</span>
+<span class="c1">//TODO: 登録済みプロパティID （注意：バナー広告用のプロパティIDとは異なるものを使用）</span>
     <span class="kd">private</span> <span class="n">String</span> <span class="n">interstitialBannerId</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxx&quot;</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">VpadnInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
 
-        <span class="nd">@Override</span>
+  <span class="nd">@Override</span>
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
         <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
-                 <span class="c1">// インタースティシャルのインスタンスを作成する</span>
-                <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnInterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">interstitialBannerId</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
+    <span class="c1">// インタースティシャルのインスタンスを作成する</span>
+    <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnInterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">interstitialBannerId</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
         <span class="c1">//listener を追加する。</span>
-                <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
         <span class="c1">// 広告リクエストを作成する。</span>
-                <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-                <span class="c1">//インタースティシャル広告の読み込みを開始する</span>
+    <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+    <span class="c1">//インタースティシャル広告の読み込みを開始する</span>
         <span class="n">interstitialAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
-        <span class="o">}</span>
+  <span class="o">}</span>
 
         <span class="nd">@Override</span>
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>

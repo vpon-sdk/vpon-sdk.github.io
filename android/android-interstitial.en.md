@@ -32,42 +32,42 @@ Usage is nevertheless very similar to Vpadn banner:
 * Create the object and set Vpadn interstitial banner ID (do not use the same ID as banner)
 
 
-Once again, the best place to do this is in your app's UIViewController
+Be sure perform the above steps in the Activity of you Application.
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-        //TODO: The InterstitialBannerId which is you apply form Vpon.(Remind: This interstitial banner ID is different with normal banner ID).
+  //TODO: The InterstitialBannerId which is you apply form Vpon.(Remind: This interstitial banner ID is different with normal banner ID).
 	private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
 	private VpadnInterstitialAd interstitialAd;
 
-        @Override
+  @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-                // Create interstitial instance
-                interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
+    // Create interstitial instance
+    interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, "TW");
 		//Add listener
-                interstitialAd.setAdListener(this);
+    interstitialAd.setAdListener(this);
 		// Create ad request
-                VpadnAdRequest request = new VpadnAdRequest();
-                //Begin loading your interstitial
+    VpadnAdRequest request = new VpadnAdRequest();
+    //Begin loading your interstitial
 		interstitialAd.loadAd(request);
         }
 
-        @Override
+  @Override
 	protected void onDestroy() {
 		super.onDestroy();
 		// Remember to call the destory() when your app is destroying.
 		if (interstitialAd != null) {
 			interstitialAd.destroy();
-                        interstitialAd = null;
+      interstitialAd = null;
 		}
 	}
 ```
 
-There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad [vpadnInterstitial show] once onVpadnInterstitialAdReceived load succeeds.
-
-Once load succeeds the full-screen ad is ready for presentation:
+Alternatively, you can hold onto the interstitial until you are ready to display it.
+Here we implement AdListener and immediately show the interstitial upon callbacks to onReceiveAd(), or checking with isReady().
+See the Intermediate guide for further details on using AdListener.
 
 ```java
     @Override
