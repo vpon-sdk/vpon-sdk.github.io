@@ -15,7 +15,7 @@
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
         {% for item  in nav.items %}
-        <li{% if page.path==i tem.path %} class="active" {% endif %}>
+        <li{% if page.path==item.path %} class="active" {% endif %}>
           <a href="{{ item.path }}">{{ item.title }}</a>
           </li>
           {% endfor %}
