@@ -19,7 +19,7 @@ body {
     color: #ffb42c;
     background-color: transparent;
     border-color: #ffb42c;
-    border-radius: 25px ; 
+    border-radius: 25px ;
 }
 
 .btn-outline:hover,
@@ -126,7 +126,7 @@ body {
 .footer-links {
     margin-top: 20px;
     padding-left: 0;
-    
+
 }
 
 .footer-links li {
@@ -1719,10 +1719,15 @@ ul.nav-sidebar li:hover {
 }
 
 #vpon-logo {
-    width: 150px;
+    width: 50%;
+    height: 33px;
     margin-top: -5px
 }
 
 .language-menu {
     cursor: pointer
+}
+
+.navbar-header {
+  position: absolute;
 }
