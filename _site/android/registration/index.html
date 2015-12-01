@@ -52,68 +52,98 @@
 <body>
   <a class="sr-only" href="#content">Skip to main content</a>
   <!-- Docs master nav -->
-  <header class="navbar navbar-static-top bs-docs-nav" role="banner">
+  
+   
+   
+   
+   
+
+
+  <div class="hambg-list visible-xs go-off">
+    <div>
+      <img src="/assets/img/X.svg" alt="" class="close-btn hidden">
+    </div>
+    <ul class="hambg-list-list">
+      <li>Android</li>
+      <li>iOS</li>
+      <li>Web</li>
+          <a href="/android/registration/">
+            <li class="lang-color">English</li>
+          </a>
+          <a href="/zh-tw/android/registration/">
+            <li class="lang-color">繁體中文</li>
+          </a>
+          <a href="/zh-cn/android/registration/">
+            <li class="lang-color">简体中文</li>
+          </a>
+          <a href="/jp/android/registration/">
+            <li class="lang-color">日本語</li>
+          </a>
+      </li>
+    </ul>
+  </div>
+
+  <button type="button" class="open-button" id="open-button">
+    <svg id="burgericon" xmlns="http://www.w3.org/2000/svg" width="44" height="34">
+    <g class="icon">
+      <rect class="frstbar" x="2" y="9" width="22" height="2" rx="1" ry="2" fill="#FE830E" style"transform-origin: 0% 50%;" />
+      <rect class="scndbar" x="2" y="16" width="22" height="2" rx="1" ry="2" fill="#FE830E" />
+      <rect class="thrdbar" x="2" y="23" width="22" height="2" rx="1" ry="2" fill="#FE830E" style"transform-origin: 0% 50%;"/>
+    </g>
+  </svg>
+    <!-- <div class="icon-bar-div">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div> -->
+  </button>
+<header class="navbar navbar-static-top bs-docs-nav" role="banner">
   <div class="container">
     
     <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <a href="/" class="navbar-brand">
         <img src="/assets/img/vpon-logo.png" id="vpon-logo" />
       </a>
     </div>
-    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
-      <ul class="nav navbar-nav">
-        
-      </ul>
 
-      <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right hidden-xs">
+      <!-- <ul class="nav navbar-nav navbar-right hidden-xs"> -->
+      
+      <li class="dropdown">
         
-        <li class="dropdown">
           
-            
-          
-          <a href="/android/" class="right-android">Android</a>
-        </li>
         
-        <li class="dropdown">
-          
-            
-          
-          <a href="/ios/" class="right-ios">iOS</a>
-        </li>
+        <a href="/android/" class="right-android">Android</a>
+      </li>
+      
+      <li class="dropdown">
         
-        <li class="dropdown">
           
-            
-          
-          <a href="/web/" class="right-web">Web</a>
-        </li>
         
-        <li class="dropdown">
-          <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
-          <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Language
-            <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu language-dropdown">
-            
-               
-               
-               
-               
-            
+        <a href="/ios/" class="right-ios">iOS</a>
+      </li>
+      
+      <li class="dropdown">
+        
+          
+        
+        <a href="/web/" class="right-web">Web</a>
+      </li>
+      
+      <li class="dropdown">
+        <!-- <a class="dropdown-toggle language-menu" data-toggle="dropdown">Language</a> -->
+        <button class="btn btn-default dropdown-toggle language-menu .dropdown-menu-left" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Language
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu language-dropdown">
           <li><a class="en" href="/android/registration/">English</a></li>
           <li><a class="zh-tw" href="/zh-tw/android/registration/">繁體中文</a></li>
           <li><a class="zh-cn" href="/zh-cn/android/registration/">简体中文</a></li>
           <li><a class="jp" href="/jp/android/registration/">日本語</a></li>
-          </ul>
-        </li>
-      </ul>
+        </ul>
+      </li>
+    </ul>
     </nav>
   </div>
 </header>
@@ -261,6 +291,7 @@ Create Position Page：
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="/dist/js/bootstrap.min.js"></script>
 <script src="/assets/js/docs.min.js"></script>
+<script src="/assets/js/main.js" ></script>
 
 </body>
 

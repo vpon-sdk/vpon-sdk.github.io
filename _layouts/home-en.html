@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Meta, title, CSS, favicons, etc. -->
   {% include header.html %}
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 </head>
+
 <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+  <!-- Navigation for mobile users -->
+  {% include nav-mini.html %}
+  <!-- End of Navigation for mobile users -->
+
   <!-- Docs master nav -->
   {% include nav-new.html %}
 
@@ -37,29 +43,31 @@
         <!-- INTRO INFORMATIO-->
         <div class="jumbo-list-item row row-spaced" style="list-style-type: none">
           <div class="col-md-6">
-            <img src="{{site.imgurl}}/publisher-img1.jpg"  alt="" />
+            <img src="{{site.imgurl}}/publisher-img1.jpg" alt="" />
           </div>
-          <div class="col-md-5 col-md-offset-1">
-            <h3><br>
+          <div class="col-md-6">
+            <h3>
+              <br>
               <strong>Superior brand advertising resources</strong>
             </h3>
-              <p>As we have has been working closely with major 4A companies and chain store associations in Taiwan and China for an extended period of time, we can supply more and better brand marketing resources. 90+% brand advertising ratio on our platform
-                  effectively maintains and enhances app image.</p>
+            <p>As we have has been working closely with major 4A companies and chain store associations in Taiwan and China for an extended period of time, we can supply more and better brand marketing resources. 90+% brand advertising ratio on our platform
+              effectively maintains and enhances app image.</p>
           </div>
         </div>
-<hr>
+        <hr>
         <div class="jumbo-list-item row row-spaced" style="list-style-type: none">
-          <div class="col-md-5 col-md-offset-1">
+          <div class="col-md-6">
             <h3>
               <strong>Fair developer fee</strong>
-            </h3><br>
+            </h3>
+            <br>
             <p>Based on both CPC and CPM model, we calculate daily revenue dynamically using parameters including impressions, clicks, CTR and unique users. The fair and sensible method ensures ad revenue for quality apps and meets advertiser needs</p>
           </div>
           <div class="col-md-6">
             <img src="{{site.imgurl}}/publisher-img2.png" alt="" />
           </div>
         </div>
-<hr>
+        <hr>
         <div class="jumbo-list-item row row-spaced" style="list-style-type: none">
           <div class="col-md-7">
             <img src="{{site.imgurl}}/publisher-img3.png" alt="" />
@@ -74,12 +82,14 @@
             </p>
           </div>
         </div>
-<hr>
+        <hr>
         <div class="jumbo-list-item row row-spaced" style="list-style-type: none">
-          <div class="col-md-5 col-md-offset-1">
-            <br><h3>
+          <div class="col-md-6">
+            <br>
+            <h3>
               <strong>Rich statistics</strong>
-            </h3><br>
+            </h3>
+            <br>
             <p>To help partners understand app user behaviors, habits and demography, we added rich drill-down data mining tools to basic statistics.</p>
 
           </div>
@@ -87,15 +97,24 @@
             <img src="{{site.imgurl}}/publisher-img4.png" style="float: right" alt="" />
           </div>
         </div>
-<hr>
-      <div  style="text-align: center;font-size:24px">
-        <br><span>No more time to waste on hesitation. Click the button</span><br>
-        <br><span> <a href="http://tw.pub.vpon.com/register.action" class="btn btn-lg btn-outline" role="button">Register Now</a></span>
-        <br><br><br><br>
-       </div>
-     </div> <!--/clss row -->
-   </div><!-- /container -->
-  </div><!-- /f -->
+        <hr>
+        <div style="text-align: center;font-size:24px">
+          <br>
+          <span>No more time to waste on hesitation. Click the button</span>
+          <br>
+          <br>
+          <span> <a href="http://tw.pub.vpon.com/register.action" class="btn btn-lg btn-outline" role="button">Register Now</a></span>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+      <!--/clss row -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /f -->
 
   <!-- ========== CAROUSEL SECTION ========== -->
   <section id="examples" name="examples"></section>
@@ -104,7 +123,7 @@
       <div class="row centered">
         <h3>SOME EXAMPLES</h3>
         <div class="col-lg-6 col-md-10 col-lg-offset-3 col-md-offset-2 col-sm-offset-1">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
@@ -120,7 +139,8 @@
                 <img class="img-example" src="{{site.imgurl}}/c4.jpg" alt="">
               </div>
             </div>
-            <br><br>
+            <br>
+            <br>
             <br>
             <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left"></span>
@@ -134,48 +154,55 @@
               <li data-target="#carousel-example-generic" data-slide-to="2" class="icon icon-circle"></li>
               <li data-target="#carousel-example-generic" data-slide-to="3" class="icon icon-circle"></li>
             </ol>
-        </div>
+          </div>
         </div>
         <!-- col-lg-8 -->
       </div>
       <!-- row -->
     </div>
     <!-- container -->
-  </div><!-- ff -->
+  </div>
+  <!-- ff -->
 
   <section id="download" name="download"></section>
-  <div id="f" >
+  <div id="f">
     <div class="container">
       <div class="row" id="download-row">
         <h3 style="text-align:center;margin-bottom:60px">Download/Quick-start</h3>
         <div class="row">
-         <div class="col-md-4">
-          <span style="width:100%;float:left;text-align:center"><img src="{{site.imgurl}}/logo-android.png" class="download-icon" alt=""></span>
-          <span style="width:100%;float:left;text-align:center;margin-top:20px"><a href="android/index.html" class="btn btn-lg btn-outline" role="button">Android</a></span>
-         </div>
-         <div class="col-md-4">
-        <span style="width:100%;float:left;text-align:center"><img src="{{site.imgurl}}/logo-apple.png" class="download-icon" alt=""></span>
-          <span style="width:100%;float:left;text-align:center;margin-top:20px"><a href="ios/index.html" class="btn btn-lg btn-outline" role="button">iOS</a></span>
-         </div>
-         <div class="col-md-4">
-         <span style="width:100%;float:left;text-align:center"><img src="{{site.imgurl}}/logo-web.png" class="download-icon" alt=""></span>
-          <span style="width:100%;float:left;text-align:center;margin-top:20px"><a href="web/index.html" class="btn btn-lg btn-outline" role="button">Web</a></span>
-         </div>
-    </div>
+          <div class="col-md-4">
+            <span style="width:100%;float:left;text-align:center">
+              <img src="{{site.imgurl}}/logo-android.png" class="download-icon" alt="">
+            </span>
+            <span style="width:100%;float:left;text-align:center;margin-top:20px"><a href="android/index.html" class="btn btn-lg btn-outline" role="button">Android</a></span>
+          </div>
+          <div class="col-md-4">
+            <span style="width:100%;float:left;text-align:center">
+              <img src="{{site.imgurl}}/logo-apple.png" class="download-icon" alt="">
+            </span>
+            <span style="width:100%;float:left;text-align:center;margin-top:20px"><a href="ios/index.html" class="btn btn-lg btn-outline" role="button">iOS</a></span>
+          </div>
+          <div class="col-md-4">
+            <span style="width:100%;float:left;text-align:center">
+              <img src="{{site.imgurl}}/logo-web.png" class="download-icon" alt="">
+            </span>
+            <span style="width:100%;float:left;text-align:center;margin-top:20px"><a href="web/index.html" class="btn btn-lg btn-outline" role="button">Web</a></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- f -->
-  <section id="contact" name="contact" ></section>
+  <section id="contact" name="contact"></section>
   <div id="f" style="background:#333;border-top:solid 5px #ff8d16;padding-bottom:40px">
-    <div class="container" >
+    <div class="container">
       <div class="row">
-        <h3  style="color:#fff;text-align:center;margin-top:40px;margin-bottom:30px">CONTACT US</h3>
+        <h3 style="color:#fff;text-align:center;margin-top:40px;margin-bottom:30px">CONTACT US</h3>
         <div>
           <span style="color:#fff;text-align:center;width:50%;float:left">Any monetization question?
             <a href="mailto:bd@vpon.com" class="btn btn-lg btn-outline" role="button">E-mail BD</a>
-          </span >
+          </span>
           <span style="color:#fff;text-align:center;width:50%;float:left">Any technical question?
             <a href="mailto:fae@vpon.com" class="btn btn-lg btn-outline" role="button">E-mail FAE</a>
           </span>
