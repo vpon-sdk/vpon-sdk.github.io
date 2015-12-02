@@ -219,7 +219,6 @@ button {
     z-index: 1000;
     width: 30px;
     height: 30px;
-
   }
   .hambg-list {
     width: 100%;
@@ -229,7 +228,6 @@ button {
     background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
     z-index: 100000;
-
   }
   .hambg-list-list {
     margin: 50px;
@@ -359,7 +357,6 @@ button {
     -ms-transition: rotate(40deg);
     -o-transition: rotate(40deg);
     transform: rotate(40deg);
-
   }
   #burgericon.open .thrdbar {
     -webkit-transition: rotate(-40deg);
@@ -377,5 +374,6 @@ button {
   margin-top: 2px;
   margin-right: 8px;
 }
-
-button:focus {outline:0;}
+button:focus {
+  outline: 0;
+}
