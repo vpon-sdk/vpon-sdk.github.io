@@ -23,10 +23,18 @@
 
 {% assign nav = site.left_nav[page.lang] %}
   <div class="hambg-list visible-xs go-off">
+      <ul class="hambg-list-list">
       {% for item in site.right_nav_new %}
-      <li class="dropdown">
-        <a href="{{ links }}" class="{{ item.cls }}">{{ item.title }}</a>
-      </li>
+        {% if page.lang == "zh-tw" %}
+          {% capture links %}{{ item.url2 }}{% endcapture %}
+        {% elsif page.lang == "zh-cn" %}
+          {% capture links %}{{ item.url3 }}{% endcapture %}
+        {% elsif page.lang == "jp"%}
+          {% capture links %}{{ item.url4 }}{% endcapture %}
+        {% else %}
+          {% capture links %}{{ item.url1 }}{% endcapture %}
+        {% endif %}
+        <a href="{{ links }}" class="{{ item.cls }}"><li class="dropdown">{{ item.title }}</li></a>
       {% endfor %}
           <a href="{{ link1 }}">
             <li class="lang-color">English</li>
@@ -65,15 +73,6 @@
       <!-- <ul class="nav navbar-nav navbar-right hidden-xs"> -->
       {% for item in site.right_nav_new %}
       <li class="dropdown">
-        {% if page.lang == "zh-tw" %}
-          {% capture links %}{{ item.url2 }}{% endcapture %}
-        {% elsif page.lang == "zh-cn" %}
-          {% capture links %}{{ item.url3 }}{% endcapture %}
-        {% elsif page.lang == "jp"%}
-          {% capture links %}{{ item.url4 }}{% endcapture %}
-        {% else %}
-          {% capture links %}{{ item.url1 }}{% endcapture %}
-        {% endif %}
         <a href="{{ links }}" class="{{ item.cls }}">{{ item.title }}</a>
       </li>
       {% endfor %}
