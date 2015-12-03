@@ -1,6 +1,7 @@
 {% assign v = {{site.baseurl}} %}
 {% assign langs = {{page.lang}}%}
-{% if page.lang == "en" %}
+{% case langs %}
+{% when "en" %}
   {% assign urlGettingStarted = site.baseurl | append:"/ios" %}
   {% assign urlIntegrationGuide = v | append:"/ios/integration-guide" %}
   {% assign urlBanner = v | append:"/ios/banner" %}
@@ -32,9 +33,9 @@
   {% assign urlLatestNews = v | append:"/" | append: langs | append: "/ios/latest-news" %}
   {% assign urlDownload = v | append:"/" | append: langs | append: "/ios/download" %}
   {% assign urlSupport = v | append:"/" | append: langs | append: "/ios/support" %}
-{% endif %}
-
-{% if page.lang == "zh-tw" %}
+{% endcase %}
+{% case langs %}
+{% when "zh-tw" %}
   {% assign sidebar-title1 = "iOS 串接" %}
   {% assign getting-started = "開始使用" %}
   {% assign integration-guide = "串接說明" %}
@@ -47,7 +48,7 @@
   {% assign download = "下載 SDK" %}
   {% assign latest-news = "最新消息" %}
   {% assign support = "其他協助" %}
-{% elsif page.lang == "zh-cn" %}
+{% when "zh-cn" %}
   {% assign sidebar-title1 = "iOS 串接" %}
   {% assign getting-started = "开始使用" %}
   {% assign integration-guide = "串接说明" %}
@@ -60,7 +61,7 @@
   {% assign download = "下载 SDK" %}
   {% assign latest-news = "最新消息" %}
   {% assign support = "其他协助" %}
-{% elsif page.lang == "jp" %}
+{% when "jp" %}
   {% assign sidebar-title1 = "iOS 串接" %}
   {% assign getting-started = "スタートガイド" %}
   {% assign integration-guide = "インテグレーションガ" %}
@@ -73,19 +74,39 @@
   {% assign download = "最新ニュース" %}
   {% assign latest-news = "ダウンロード" %}
   {% assign support = "サポート" %}
-{% endif %}
+{% endcase %}
+<ul class= "nav nav-sidebar nav-left hidden-xs">
+  <span id= "sidebar-title1">{{sidebar-title1}}</span>
+  <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+  <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
+  <span id= "sidebar-title2">{{sidebar-title2}}</span>
+  <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
+  <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
+  <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
+  <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
+  <span id= "sidebar-title3">{{sidebar-title2}}</span>
+  <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
+  <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
+  <li><a id= "support" href="{{urlSupport}}">{{support}}</a></li>
+</ul>
 
-  <ul class= "nav nav-sidebar nav-left">
-    <span id= "sidebar-title1">{{sidebar-title1}}</span>
-    <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
-    <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
-    <span id= "sidebar-title2">{{sidebar-title2}}</span>
-    <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
-    <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
-    <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
-    <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
-    <span id= "sidebar-title3">{{sidebar-title2}}</span>
-    <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
-    <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
-    <li><a id= "support" href="{{urlSupport}}">{{support}}</a></li>
-  </ul>
+<div class="visible-xs" style="width:100%">
+  <div class="nav nav-sidebar" style="float:left">
+      <span id= "sidebar-title1">{{sidebar-title1}}</span>
+      <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+      <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
+  </div>
+  <div class="nav nav-sidebar">
+      <span id="sidebar-title2">{{sidebar-title2}}</span>
+        <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
+        <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
+        <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
+        <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
+  </div>
+  <div class="nav nav-sidebar" style="float: right">
+      <span id="sidebar-title3">{{sidebar-title3}}</span>
+        <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
+        <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
+        <li><a id= "support" href="{{urlSupport}}">{{support}}</a></li>
+  </div>
+</div>

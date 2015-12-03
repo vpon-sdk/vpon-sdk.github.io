@@ -377,12 +377,22 @@ button {
 button:focus {
   outline: 0;
 }
-
 .sidebar-wrap {
   padding: 0px;
 }
-
 .bs-sidebar-left div div {
-  width:33%;
-  display:inline-block;  
+  width: 33.33%;
+  display: inline-block;
+}
+
+@media (max-width: 767px){
+  .sidebar-wrap .bs-sidebar-left {
+    padding-right: 0px;
+  }
+  h1{
+    font-size:28px;
+  }
+  h2 {
+    font-size: 25px;
+  }
 }
