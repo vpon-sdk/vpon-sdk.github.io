@@ -191,20 +191,7 @@ button {
   margin-right: -8px;
   z-index: 1000000;
 }
-.toggle-rotate-on .icon-bar {
-  -ms-transform: rotate(9deg);
-  /* IE 9 */
-  -webkit-transform: rotate(9deg);
-  /* Chrome, Safari, Opera */
-  transform: rotate(9deg);
-}
-.toggle-rotate-off .icon-bar {
-  -ms-transform: rotate(-9deg);
-  /* IE 9 */
-  -webkit-transform: rotate(-9deg);
-  /* Chrome, Safari, Opera */
-  transform: rotate(-9deg);
-}
+
 @media (max-width:767px) {
   .navbar-ul {
     display: inline-block;
@@ -260,11 +247,27 @@ button {
   .go-off {
     transform: translateY(-100%);
     transition: 0.3s ease-in-out;
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    /*display: none!important;*/
   }
   .come-on {
-    transform: scale3d(0);
+    transform: tranlateY(0);
     transition: 0.3s;
-    windo
+    -webkit-transform: tranlateY(0);
+    -moz-transform: tranlateY(0);
+    -ms-transform: tranlateY(0);
+    -o-transform: tranlateY(0);
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
   }
 }
 @media (min-width: 768px) {
@@ -342,28 +345,28 @@ button {
 
   .frstbar, .scndbar, .thrdbar {
     transition: all 0.35s linear;
+    transform: rotate(0deg);
+    transform-origin: 0% 50%;
     -moz-transition: rotate(0deg);
     -ms-transition: rotate(0deg);
     -o-transition: rotate(0deg);
-    transform: rotate(0deg);
     -moz-transition-origin: 0% 50%;
     -ms-transition-origin: 0% 50%;
     -o-transition-origin: 0% 50%;
-    transform-origin: 0% 50%;
   }
   #burgericon.open .frstbar {
+    transform: rotate(40deg);
     -webkit-transition: rotate(40deg);
     -moz-transition: rotate(40deg);
     -ms-transition: rotate(40deg);
     -o-transition: rotate(40deg);
-    transform: rotate(40deg);
   }
   #burgericon.open .thrdbar {
+    transform: rotate(-40deg);
     -webkit-transition: rotate(-40deg);
     -moz-transition: rotate(-40deg);
     -ms-transition: rotate(-40deg);
     -o-transition: rotate(-40deg);
-    transform: rotate(-40deg);
   }
   #burgericon.open .scndbar {
     width: 0;
