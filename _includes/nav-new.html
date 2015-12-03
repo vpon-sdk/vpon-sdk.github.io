@@ -21,14 +21,13 @@
    {% capture link4 %}{{ site.baseurl }}/jp{{page.url}}{% endcapture %}
 {% endcase %}
 
+{% assign nav = site.left_nav[page.lang] %}
   <div class="hambg-list visible-xs go-off">
-    <div>
-      <img src="{{site.imgurl}}/X.svg" alt="" class="close-btn hidden">
-    </div>
-    <ul class="hambg-list-list">
-      <li>Android</li>
-      <li>iOS</li>
-      <li>Web</li>
+      {% for item in site.right_nav_new %}
+      <li class="dropdown">
+        <a href="{{ links }}" class="{{ item.cls }}">{{ item.title }}</a>
+      </li>
+      {% endfor %}
           <a href="{{ link1 }}">
             <li class="lang-color">English</li>
           </a>
@@ -56,7 +55,6 @@
   </button>
 <header class="navbar navbar-static-top bs-docs-nav" role="banner">
   <div class="container">
-    {% assign nav = site.left_nav[page.lang] %}
     <div class="navbar-header">
       <a href="{{nav.path}}" class="navbar-brand">
         <img src="{{site.imgurl}}/vpon-logo.png" id="vpon-logo" />
