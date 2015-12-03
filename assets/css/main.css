@@ -377,3 +377,12 @@ button {
 button:focus {
   outline: 0;
 }
+
+.sidebar-wrap {
+  padding: 0px;
+}
+
+.bs-sidebar-left div div {
+  width:33%;
+  display:inline-block;  
+}
