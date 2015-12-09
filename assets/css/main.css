@@ -399,3 +399,7 @@ button:focus {
     font-size: 25px;
   }
 }
+
+.width-0.5 {
+  width: 50%;
+}
