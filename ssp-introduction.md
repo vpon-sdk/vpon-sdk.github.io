@@ -49,9 +49,9 @@ Method Name	| Description	| Usage
 :-------------: | :------------:|:-------------: |
 addPlacement |	Add Placement (Ready for Request)	| vat.addPlacement(placement_id)
 load |	Invoke the ad request and display all ads.(Executing fetchAds and showPlacement) |	vat.load()
-fetchAds|Ad request for specific ad|	vat.fetchAds(placement_id)
+fetchAds|Perform an asynchronous ad request for specific ad|	vat.fetchAds(placement_id)
 showPlacement|	Display specified ads in the anchor locations.|	vat.showPlacement(placement_id)
-addCallback	| Callback depends on the type (impression, click, load) | vat.addCallback(placement_id, "load", fn(empty))
+addCallback	| Callback depends on the type (load) | vat.addCallback(placement_id, "load", fn(empty))
 addVariable	| A key-value pair to add to ad requests for the ad tag |	vat.addVariable('gender', 'male')
 
 # Result
