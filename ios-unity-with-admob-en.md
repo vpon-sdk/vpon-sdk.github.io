@@ -107,3 +107,9 @@ To build and run on iOS, click `File` -> `Build Settings`, select the iOS platfo
 
 ###A1: Relink the libiPhone-lib.a
 Wher to relink: `Build Phases` -> `Link Binary with Libraries`. The original lib `libiPhone-lib.a` lies in /project_name/Libraries/.
+
+
+# Reference
+---
+* [Google's GitHub] (https://github.com/googleads/googleads-mobile-unity/tree/master/unity#run-the-project)
+* [AdMob iOS Game](https://developers.google.com/admob/ios/games#unity)
