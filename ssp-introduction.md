@@ -26,6 +26,9 @@ Please insert the code below into your websites.
 <script>vat.addPlacement('your_placement_tag');vat.load();</script>
 ```
 
+> **Note:**
+vat.load() should has only 1 in a page.
+
 ## Test ads
 ### test attribute
 To fetch test ads, please add `test` attribute into your `<div>`. For example:<br>
@@ -34,7 +37,7 @@ To fetch test ads, please add `test` attribute into your `<div>`. For example:<b
 <div id="your_placement_tag" type="int" test="1"></div>
 ```
 
-* Normal ads when `test='0'`.(Default: test="0")
+* Normal ads when `test='0'`. (Default: test="0")
 * Test ads when `test='1'`.
 
 
@@ -48,5 +51,9 @@ addPlacement |	Add Placement (Ready for Request)	| vat.addPlacement(placement_id
 load |	Invoke the ad request and display all ads.(Executing fetchAds and showPlacement) |	vat.load()
 fetchAds|Ad request for specific ad|	vat.fetchAds(placement_id)
 showPlacement|	Display specified ads in the anchor locations.|	vat.showPlacement(placement_id)
-addCallback	| Callback depends on the type (impCallback, clkCallback, loadCallback) impCallback \& clkCallback NOT SUPPORT AT CURRENT VERSION | vat.addCallback(placement_id, "loadCallback", fn(empty))
+addCallback	| Callback depends on the type (impression, click, load) | vat.addCallback(placement_id, "load", fn(empty))
 addVariable	| A key-value pair to add to ad requests for the ad tag |	vat.addVariable('gender', 'male')
+
+# Result
+---
+![Here should be a image]

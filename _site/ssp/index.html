@@ -176,6 +176,11 @@
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//m.vpadn.com/ssp/vat.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span><span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">);</span><span class="nx">vat</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span><span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
+<blockquote>
+<p><strong>Note:</strong>
+vat.load() should has only 1 in a page.</p>
+</blockquote>
+
 <h2 id="test-ads">Test ads</h2>
 
 <h3 id="test-attribute">test attribute</h3>
@@ -184,7 +189,7 @@
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_tag&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span> <span class="na">test=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre></div>
 <ul>
-<li>Normal ads when <code>test=&#39;0&#39;</code>.(Default: test=&quot;0&quot;)</li>
+<li>Normal ads when <code>test=&#39;0&#39;</code>. (Default: test=&quot;0&quot;)</li>
 <li>Test ads when <code>test=&#39;1&#39;</code>.</li>
 </ul>
 
@@ -221,8 +226,8 @@
 </tr>
 <tr>
 <td style="text-align: center">addCallback</td>
-<td style="text-align: center">Callback depends on the type (impCallback, clkCallback, loadCallback) impCallback &amp; clkCallback NOT SUPPORT AT CURRENT VERSION</td>
-<td style="text-align: center">vat.addCallback(placement_id, &quot;loadCallback&quot;, fn(empty))</td>
+<td style="text-align: center">Callback depends on the type (impression, click, load)</td>
+<td style="text-align: center">vat.addCallback(placement_id, &quot;load&quot;, fn(empty))</td>
 </tr>
 <tr>
 <td style="text-align: center">addVariable</td>
@@ -230,6 +235,12 @@
 <td style="text-align: center">vat.addVariable(&#39;gender&#39;, &#39;male&#39;)</td>
 </tr>
 </tbody></table>
+
+<h1 id="result">Result</h1>
+
+<hr>
+
+<p>![Here should be a image]</p>
 
       </div>
       <div class="col-md-3">
