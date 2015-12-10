@@ -172,7 +172,7 @@ You need to use the following sample code to enable auto refresh banner.
 # Result
 ---
 The outcome should be a banner at the top of your app:
-![IOS-Banner_result]
+<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="img-300"/>
 
 
 # App Transport Security
@@ -184,6 +184,5 @@ Apple recently brought a new security feature, App Transport Security (ATS), to 
 Please refer to [Interstitial Ad](../Interstitial)、[Mediation](../mediation) for more information.
 
 
-[IOS-Banner_result]: {{site.imgurl}}/IOS-Banner_result.png
 [Go to download page]: ../download/
 [this link]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

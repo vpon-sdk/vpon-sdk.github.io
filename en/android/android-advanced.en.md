@@ -89,7 +89,7 @@ and then passed to the `VponBanner`:
 # Crazy Ad
 ---
 Banner expands to take over the whole screen and automatically closes after 5-7 seconds.
-![海尼根廣告]
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300" />
 
 
 ## Setting
@@ -122,14 +122,13 @@ If your app need obfuscateed before release, please add settings below：<br>
 This guid shows how to use Corona SDK and display Vpon ads. We suggest you use Web SDK method. To use ad services:
 You can load local html files using this API like webView:request( "localfile.html", system.ResourceDirectory ).
 
-You can see the contents of html from Vpon wiki: [Web SDK]  
-See more Corona SDK Document: [Corona Document]  
+You can see the contents of html from Vpon wiki: [Web SDK]
+See more Corona SDK Document: [Corona Document]
 
 
 
 
 
-[海尼根廣告]:      {{site.imgurl}}/Crazyad.png
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting_En.png
 [Web SDK]: {{site.baseurl}}/web/
 [Corona Document]: http://docs.coronalabs.com/api/library/native/newWebView.html

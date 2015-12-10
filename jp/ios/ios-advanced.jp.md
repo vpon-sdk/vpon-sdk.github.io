@@ -102,7 +102,7 @@ vpadnAd.delegate = self;
 
 ```objective-c
 - (void)onVpadnPresent:(UIView *)bannerView{}
-```  
+```
 ユーザーが onPresentScreen と一緒に表示されるフルスクリーンアクティビティを閉じ、制御権がアプリに返された時に呼び出す。
 
 ```objective-c
@@ -117,7 +117,7 @@ vpadnAd.delegate = self;
 # Crazy Ad
 ---
 バナーがディスプレイ全体にエキスパンドし、5-7秒後に自動的に閉じます。
-![海尼根廣告]
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300" />
 
 
 ## Setting
@@ -145,7 +145,6 @@ html コンテンツは、vpon wiki の web SDK 操作マニュアル: [Web SDK 
 
 
 
-[海尼根廣告]:      {{site.imgurl}}/Crazyad.png
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting_JP.png
 [Web SDK をご覧ください]: {{site.baseurl}}/jp/web/
 [をご覧ください]: http://docs.coronalabs.com/api/library/native/newWebView.html

@@ -1,9 +1,9 @@
 ---
 layout:         "ios"
 title:          "註冊開發商"
-lead:           ""
-description:    ""
-keywords:       "Keywords for this page, in the meta data"
+lead:           "Vpon SDK 註冊教學頁面"
+description:    "Vpon SDK 註冊教學頁面"
+keywords:       "vpon sdk ios 註冊"
 permalink:       zh-tw/ios/registration/
 lang:           "zh-tw"
 ---

@@ -180,7 +180,7 @@ device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandsca
 # 结果
 ---
 现在只要执行这个应用程式，您应该就会在画面上看到横幅广告：
-![IOS-Banner_result]
+<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="img-300"/>
 
 
 # App Transport Security
@@ -192,6 +192,5 @@ iOS9 多了安全条款 App Transport Security (ATS)，若您使用 Xcode 7 建�
 
 
 [串接说明]: ../integration-guide/
-[IOS-Banner_result]: {{site.imgurl}}/IOS-Banner_result.png
 [Go to download page]: ../download/
 [这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

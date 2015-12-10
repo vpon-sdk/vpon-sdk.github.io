@@ -2,7 +2,7 @@
 layout: "ios"
 title: "iOS - 進階設定"
 lead: "幫助您取得更多廣告功能與資料收集"
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/advanced/
 lang: "zh-tw"
@@ -32,7 +32,7 @@ lang: "zh-tw"
    [vpadnAd setUserInfoKeyword:@"Game,RPG"];
 
    [vpadnAd setUserInfoGender:female];
-   
+
    [vpadnAd setUserInfoBirthdayWithYear:1988 Month:6 andDay:9];
 
 
@@ -108,7 +108,7 @@ vpadnAd.delegate = self;
 
 ```objective-c
   - (void)onVpadnPresent:(UIView *)bannerView{}
-```  
+```
 當使用者關閉與 onVpadnDismiss 一同顯示的webView，控制權也交還給應用程式時呼叫。
 
 ```objective-c
@@ -123,7 +123,7 @@ vpadnAd.delegate = self;
 # Crazy Ad
 ---
 會從banner自動展開成 Crazy Ad，全螢幕富媒體廣告的 Crazy Ad 呈現約 5~7 秒會自動關閉。
-![海尼根廣告]
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300"/>
 
 
 ## 設定
@@ -135,7 +135,7 @@ vpadnAd.delegate = self;
 ![CrazyadSetting]
 
 
-[海尼根廣告]:      {{site.imgurl}}/Crazyad.png
+
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 
 

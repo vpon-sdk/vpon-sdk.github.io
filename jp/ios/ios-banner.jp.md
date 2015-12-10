@@ -172,7 +172,7 @@ VPONアカウントで更新頻度を指定し、以下のサンプルコード�
 # 結果
 ---
 実行すると、ディスプレイの上方にバナー広告が表示されます。
-![IOS-Banner_result]
+<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="img-300"/>
 
 
 # App Transport Security
@@ -184,6 +184,6 @@ Apple recently brought a new security feature, App Transport Security (ATS), to 
 より詳細な情報は[ンタースティシャル広告](../interstitial)、[メディエーション](../mediation)、[詳細設定](../advanced)をご確認 ください。
 
 
-[IOS-Banner_result]: {{site.imgurl}}/IOS-Banner_result.png
+
 [Go to download page]: ../download/
 [this link]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/

@@ -400,6 +400,18 @@ button:focus {
   }
 }
 
-.width-0.5 {
-  width: 50%;
+.img-300 {
+  width: 300px;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+img {
+  width: 100%;
 }

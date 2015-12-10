@@ -104,7 +104,7 @@ public void onVpadnLeaveApplication(VpadnAd ad)
 # Crazy Ad
 ---
 会从 banner 自动展开成 Crazy Ad，全萤幕富媒体广告的 Crazy Ad 呈现约 5~7 秒会自动关闭。
-![海尼根广告]
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300"/>
 
 
 ## 设定
@@ -131,18 +131,16 @@ public void onVpadnLeaveApplication(VpadnAd ad)
 
 # Corona User
 ---
-如果您 App 使用 Corona 欲串接 Vpon 广告，我们建议您用 web SDK 的方式串接，使用方法如下:  
+如果您 App 使用 Corona 欲串接 Vpon 广告，我们建议您用 web SDK 的方式串接，使用方法如下:
 
-将 web SDK 裡的 html 写进 local file 再让 webview 去 load 这个 file (例如: webView:request( “localfile.html”, system.ResourceDirectory ))。  
+将 web SDK 裡的 html 写进 local file 再让 webview 去 load 这个 file (例如: webView:request( “localfile.html”, system.ResourceDirectory ))。
 
-HTML 内容可参考 Vpon wiki的web SDK 操作手册: [Web SDK]  
-更多 Corona SDK 文件可参考: [Corona Document]  
-
-
+HTML 内容可参考 Vpon wiki的web SDK 操作手册: [Web SDK]
+更多 Corona SDK 文件可参考: [Corona Document]
 
 
 
-[海尼根广告]:      {{site.imgurl}}/Crazyad.png
+
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 [Web SDK]: {{site.baseurl}}/zh-cn/web/
 [Corona Document]: http://docs.coronalabs.com/api/library/native/newWebView.html

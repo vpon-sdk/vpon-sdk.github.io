@@ -95,7 +95,7 @@ Sent immediately before the user is presented with a full-screen ad UI in respon
 
 ```objective-c
 - (void)onVpadnPresent:(UIView *)bannerView{}
-```  
+```
 Sent when the user has exited
 
 ```objective-c
@@ -110,7 +110,7 @@ Sent just before the application gets backgrounded or terminated
 # Crazy Ad
 ---
 Banner expands to take over the whole screen and automatically closes after 5-7 seconds.
-![海尼根廣告]
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300"/>
 
 
 ## Setting
@@ -125,7 +125,6 @@ Example:
 ![CrazyadSetting]
 
 
-[海尼根廣告]:      {{site.imgurl}}/Crazyad.png
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 
 
