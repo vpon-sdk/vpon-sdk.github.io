@@ -260,8 +260,13 @@
     <span class="n">VpadnInterstitial</span><span class="o">*</span>    <span class="n">vpadnInterstitial</span><span class="p">;</span> <span class="c1">// Declare the instance of Vpadn&#39;s interstitial Ads</span>
 <span class="p">}</span>
 <span class="k">@end</span>
-</code></pre></div><div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="n">The</span> <span class="n">following</span> <span class="n">performs</span> <span class="n">setup</span> <span class="k">in</span> <span class="n">the</span> <span class="n">view</span> <span class="n">controller</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">viewDidLoad</span> <span class="n">initialization</span> <span class="n">hook</span><span class="p">.</span>
-<span class="k">@implementation</span> <span class="nc">ViewController</span>
+</code></pre></div>
+<h2 id="viewdidload-setup">viewDidLoad setup</h2>
+
+<hr>
+
+<p>The following performs setup in the view controller&#39;s viewDidLoad initialization hook.</p>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
 
 <span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span>
 <span class="p">{</span>
@@ -297,14 +302,6 @@
     <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:[</span><span class="n">vpadnAd</span> <span class="n">getVpadnAdView</span><span class="p">]];</span> <span class="c1">// Add the VpadnBanner&#39;s view in this ViewController</span>
     <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">startGetAd</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span> <span class="c1">// start to get banner Ads</span>
 
-<span class="p">}</span>
-
-<span class="c1">//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-            <span class="c1">// add your test UUID</span>
-            <span class="nb">nil</span><span class="p">];</span>
 <span class="p">}</span>
 
 <span class="cp">#pragma mark VpadAdDelegate method. Add this when use banner Ads</span>
@@ -349,6 +346,16 @@
 <span class="p">}</span>
 
 <span class="k">@end</span>
+</code></pre></div>
+<h2 id="test-ads">Test Ads</h2>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:</span>
+<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
+      <span class="c1">// add your test UUID</span>
+      <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
+      <span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
 </code></pre></div>
 <h1 id="banner-sizes">Banner Sizes</h1>
 

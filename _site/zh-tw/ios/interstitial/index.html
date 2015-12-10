@@ -247,7 +247,7 @@
 不過，它的用法與 Vpadn Banner 非常類似：</p>
 
 <ol>
-<li>匯入 lib檔與標頭檔</li>
+<li>匯入 lib 檔與標頭檔</li>
 <li>宣告物件</li>
 <li>建立物件，並指定 Vpon interstitial banner Id (不能與橫幅廣告所用 banner Id 重複)</li>
 </ol>
@@ -272,6 +272,18 @@
 
 <p>若想進一步瞭解 protocol 相關詳情，請參閱<a href="../advanced/">進階設定</a>。</p>
 
+<h1 id="測試廣告">測試廣告</h1>
+
+<hr>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。</span>
+<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
+    <span class="c1">// add your test UUID</span>
+    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
+    <span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
       </div>
       <div class="col-md-3">
         <div class="bs-sidebar hidden-print" role="complementary">

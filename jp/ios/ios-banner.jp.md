@@ -42,6 +42,10 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 @end
 ```
 
+
+## viewDidLoad 設定
+---
+
 以下のコードは viewControllerのviewDidLoad初期段階でバナー広告を設定します。
 
 ```Objective-C
@@ -81,14 +85,6 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
     [self.view addSubview:[vpadnAd getVpadnAdView]]; // VpadnBanner の View をこの ViewController 内に追加する
     [vpadnAd startGetAd:[self getTestIdentifiers]]; //Banner 広告を取得開始する
 
-}
-
-//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
--(NSArray*)getTestIdentifiers
-{
-    return [NSArray arrayWithObjects:
-            // テスト端末のUUIDを追加
-            nil];
 }
 
 #pragma mark VpadnAdDelegateメソッドでバナー広告を取得する場合、追加してください。
@@ -132,6 +128,19 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
     NSLog(@"vpadn スプラッシュ広告ページを閉じる");
 }
 @end
+```
+
+## Test Ads
+
+```objective-c
+//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // テスト端末のUUIDを追加
+    @"your_UUID",
+    nil];
+}
 ```
 
 # バナー広告のサイズ

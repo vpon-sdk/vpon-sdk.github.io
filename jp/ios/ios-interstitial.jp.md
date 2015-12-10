@@ -61,17 +61,26 @@ lang:            "jp"
 
 一度インタースティシャル広告が表示されると、ユーザが閉じるまでディスプレイ全体をカバーします。この時、制御権が アプリに渡されます。
 
+# Test Ads
+---
+
+```objective-c
+//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // テスト端末のUUIDを追加
+    @"your_UUID",
+    nil];
+}
+```
+
+
+
 # サンプルコードのダウンロード
 ---
 [Go to Download Page]
 
-<!-- # **Note**:
- ---
- > 1. <span style="line-height:2.5em">**我們不建議您在程式開啓時直接拉取 interstitial ad 並立即顯示**<br></span>
- 如此將會拖慢程式開啓時的執行速度。因此我們建議您可以先 load interstitial 但不顯示，等待特定事件(e.g. 使用者過關、停留在某個畫面超過特定時間、按下某個 button 或離開 app 之前...)發生再顯示。
- > 2. <span style="line-height:2em"> **請避免沒有 load 就要求顯示廣告** <br> </span>
- `android:configChanges=“orientation|screenSize”`若您沒在 activity 裡沒有加上這句，請避免在 onCreate 時做 load interstitial 並立即顯示插頁廣告。
- -->
 
 
 

@@ -22,11 +22,12 @@ lang: "zh-tw"
 Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。
 不過，它的用法與 Vpadn Banner 非常類似：
 
-1. 匯入 lib檔與標頭檔
+1. 匯入 lib 檔與標頭檔
 2. 宣告物件
 3. 建立物件，並指定 Vpon interstitial banner Id (不能與橫幅廣告所用 banner Id 重複)
 
 > **Note**: 再次提醒您，最好在應用程式的 ViewController 內執行上述步驟。
+
 
 ```Objective-C
 @implementation ViewController
@@ -46,6 +47,20 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 這點請格外注意。最簡單的做法是當 onVpadnInterstitialAdReceived 收到通知時 則執行 [vpadnInterstitial show]
 
 若想進一步瞭解 protocol 相關詳情，請參閱[進階設定]。
+
+# 測試廣告
+---
+
+```objective-c
+// 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
+```
 
 
 [串接說明]: ../integration-guide/

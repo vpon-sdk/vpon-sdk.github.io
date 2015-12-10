@@ -272,6 +272,18 @@
 
 <p>若想进一步瞭解 protocol 相关详情，请参阅<a href="../advanced/">进阶设定</a>。</p>
 
+<h1 id="测试广告">测试广告</h1>
+
+<hr>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。</span>
+<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
+    <span class="c1">// add your test UUID</span>
+    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
+    <span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
       </div>
       <div class="col-md-3">
         <div class="bs-sidebar hidden-print" role="complementary">

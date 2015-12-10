@@ -46,6 +46,8 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 @end
 ```
 
+## 初始化設定
+
 以下程式碼會在 viewController的 viewDidLoad 初始化步驟中設定橫幅廣告。
 
 ```Objective-C
@@ -68,31 +70,23 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    BOOL bStatusBarHide = [UIApplication sharedApplication].statusBarHidden;
-    float screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if(!bStatusBarHide)
-        screenHeight -= 20;
-    // 設定廣告位置
-    CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
-    vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];  // 初始化Banner物件
-    vpadnAd.strBannerId = @"";   // 填入您的BannerId
-    vpadnAd.delegate = self;       // 設定delegate接收protocol回傳訊息
-    vpadnAd.platform = @"TW";       // 台灣地區請填TW 大陸則填CN
-    [vpadnAd setAdAutoRefresh:YES]; //如果為mediation則set NO
-    [vpadnAd setRootViewController:self]; //請將window的rootViewController設定在此 以便廣告順利執行
-    [self.view addSubview:[vpadnAd getVpadnAdView]]; // 將VpadnBanner的View加入此ViewController中
-    [vpadnAd startGetAd:[self getTestIdentifiers]]; // 開始抓取Banner廣告
+  BOOL bStatusBarHide = [UIApplication sharedApplication].statusBarHidden;
+  float screenHeight = [[UIScreen mainScreen] bounds].size.height;
+  if(!bStatusBarHide)
+      screenHeight -= 20;
+  // 設定廣告位置
+  CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
+  vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];  // 初始化Banner物件
+  vpadnAd.strBannerId = @"";   // 填入您的BannerId
+  vpadnAd.delegate = self;       // 設定delegate接收protocol回傳訊息
+  vpadnAd.platform = @"TW";       // 台灣地區請填TW 大陸則填CN
+  [vpadnAd setAdAutoRefresh:YES]; //如果為mediation則set NO
+  [vpadnAd setRootViewController:self]; //請將window的rootViewController設定在此 以便廣告順利執行
+  [self.view addSubview:[vpadnAd getVpadnAdView]]; // 將VpadnBanner的View加入此ViewController中
+  [vpadnAd startGetAd:[self getTestIdentifiers]]; // 開始抓取Banner廣告
 
-}
-
-// 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。
--(NSArray*)getTestIdentifiers
-{
-    return [NSArray arrayWithObjects:
-            // add your test UUID
-            nil];
 }
 ```
 
@@ -141,6 +135,21 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 
 @end
 ```
+
+## 測試廣告
+
+```objective-c
+// 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
+```
+
+
 
 # 橫幅廣告大小
 ---

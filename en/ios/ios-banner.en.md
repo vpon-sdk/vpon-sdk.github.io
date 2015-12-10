@@ -43,8 +43,11 @@ The best place to do all this is in your app's UIViewController.
 @end
 ```
 
-```Objective-C
+## viewDidLoad setup
+---
 The following performs setup in the view controller's viewDidLoad initialization hook.
+
+```Objective-C
 @implementation ViewController
 
 - (void)dealloc
@@ -81,14 +84,6 @@ The following performs setup in the view controller's viewDidLoad initialization
     [self.view addSubview:[vpadnAd getVpadnAdView]]; // Add the VpadnBanner's view in this ViewController
     [vpadnAd startGetAd:[self getTestIdentifiers]]; // start to get banner Ads
 
-}
-
-//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
--(NSArray*)getTestIdentifiers
-{
-    return [NSArray arrayWithObjects:
-            // add your test UUID
-            nil];
 }
 
 #pragma mark VpadAdDelegate method. Add this when use banner Ads
@@ -134,6 +129,20 @@ The following performs setup in the view controller's viewDidLoad initialization
 
 @end
 ```
+
+## Test Ads
+
+```objective-c
+//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+      // add your test UUID
+      @"your_UUID",
+      nil];
+}
+```
+
 
 # Banner Sizes
 ---

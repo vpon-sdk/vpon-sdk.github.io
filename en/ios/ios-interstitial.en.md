@@ -63,19 +63,27 @@ Once load succeeds the full-screen ad is ready for presentation:
 The interstitial then takes over the screen until the user dismisses it, at which point control returns to your app and the view controller passes to this method.
 Vpadn Interstitial Delegate [advanced setting] provides many callback methods for you.
 
+
+# Test Ads
+---
+
+```objective-c
+//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+      // add your test UUID
+      @"your_UUID",
+      nil];
+}
+```
+
 # Download Sample Code
 ---
 You can download an example project containing SDK 4 lib file in VpadnAd folder:
 
 [Go to Download Page]
 
-<!-- # **Note**:
- ---
- > 1. <span style="line-height:2.5em">**我們不建議您在程式開啓時直接拉取 interstitial ad 並立即顯示**<br></span>
- 如此將會拖慢程式開啓時的執行速度。因此我們建議您可以先 load interstitial 但不顯示，等待特定事件(e.g. 使用者過關、停留在某個畫面超過特定時間、按下某個 button 或離開 app 之前...)發生再顯示。
- > 2. <span style="line-height:2em"> **請避免沒有 load 就要求顯示廣告** <br> </span>
- `android:configChanges=“orientation|screenSize”`若您沒在 activity 裡沒有加上這句，請避免在 onCreate 時做 load interstitial 並立即顯示插頁廣告。
- -->
 
 
 

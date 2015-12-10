@@ -47,5 +47,20 @@ Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实�
 
 若想进一步瞭解 protocol 相关详情，请参阅[进阶设定]。
 
+# 测试广告
+---
+
+```objective-c
+// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
+```
+
+
 [串接说明]: ../integration-guide/
 [进阶设定]: ../advanced/

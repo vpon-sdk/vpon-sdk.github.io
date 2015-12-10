@@ -280,19 +280,23 @@
 </code></pre></div>
 <p>一度インタースティシャル広告が表示されると、ユーザが閉じるまでディスプレイ全体をカバーします。この時、制御権が アプリに渡されます。</p>
 
+<h1 id="test-ads">Test Ads</h1>
+
+<hr>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。</span>
+<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
+    <span class="c1">// テスト端末のUUIDを追加</span>
+    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
+    <span class="nb">nil</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
 <h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1>
 
 <hr>
 
 <p><a href="/jp/ios/download">Go to Download Page</a></p>
-
-<!-- # **Note**:
- ---
- > 1. <span style="line-height:2.5em">**我們不建議您在程式開啓時直接拉取 interstitial ad 並立即顯示**<br></span>
- 如此將會拖慢程式開啓時的執行速度。因此我們建議您可以先 load interstitial 但不顯示，等待特定事件(e.g. 使用者過關、停留在某個畫面超過特定時間、按下某個 button 或離開 app 之前...)發生再顯示。
- > 2. <span style="line-height:2em"> **請避免沒有 load 就要求顯示廣告** <br> </span>
- `android:configChanges=“orientation|screenSize”`若您沒在 activity 裡沒有加上這句，請避免在 onCreate 時做 load interstitial 並立即顯示插頁廣告。
- -->
 
       </div>
       <div class="col-md-3">

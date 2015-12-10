@@ -46,6 +46,9 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
 @end
 ```
 
+
+## 初始化设定
+
 以下程式码会在 viewController的 viewDidLoad 初始化步骤中设定横幅广告。
 
 ```Objective-C
@@ -85,14 +88,6 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
     [self.view addSubview:[vpadnAd getVpadnAdView]]; // 将VpadnBanner的View加入此ViewController中
     [vpadnAd startGetAd:[self getTestIdentifiers]]; // 开始抓取Banner广告
 
-}
-
-// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。
--(NSArray*)getTestIdentifiers
-{
-    return [NSArray arrayWithObjects:
-            // add your test UUID
-            nil];
 }
 ```
 
@@ -140,6 +135,19 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
 }
 
 @end
+```
+
+## 测试广告
+
+```objective-c
+// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
 ```
 
 # 横幅广告大小
