@@ -123,7 +123,7 @@ vpadnAd.delegate = self;
 # Crazy Ad
 ---
 会从banner自动展开成 Crazy Ad，全萤幕富媒体广告的 Crazy Ad 呈现约 5~7 秒会自动关闭。
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300"/>
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300"/>
 
 
 ## 设定

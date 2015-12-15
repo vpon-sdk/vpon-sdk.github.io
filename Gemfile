@@ -1,6 +1,7 @@
 #
 source "https://rubygems.org"
 gem "jekyll", "~> 2.4.0"
+gem "psych", "2.0.16"
 
 # github page
 require 'json'

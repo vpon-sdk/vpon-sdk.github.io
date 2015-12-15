@@ -172,7 +172,7 @@ VPONアカウントで更新頻度を指定し、以下のサンプルコード�
 # 結果
 ---
 実行すると、ディスプレイの上方にバナー広告が表示されます。
-<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="img-300"/>
+<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="width-300"/>
 
 
 # App Transport Security

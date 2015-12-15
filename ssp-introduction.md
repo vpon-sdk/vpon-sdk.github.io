@@ -40,6 +40,8 @@ To fetch test ads, please add `test` attribute into your `<div>`. For example:<b
 * Normal ads when `test='0'`. (Default: test="0")
 * Test ads when `test='1'`.
 
+<img src="{{site.imgurl}}/SSP_Test_AD1.jpg" class="width-300">
+
 
 
 
@@ -56,4 +58,5 @@ addVariable	| A key-value pair to add to ad requests for the ad tag |	vat.addVar
 
 # Result
 ---
-![Here should be a image]
+You will see the integration result as below:
+<img src="{{site.imgurl}}/SSP_Test_AD2.jpg" class="width-300">

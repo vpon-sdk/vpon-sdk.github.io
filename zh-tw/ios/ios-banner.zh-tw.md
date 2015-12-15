@@ -181,7 +181,7 @@ device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandsca
 # 結果
 ---
 現在只要執行這個應用程式，您應該就會在畫面上看到橫幅廣告：
-<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="img-300"/>
+<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="width-300"/>
 
 
 # App Transport Security

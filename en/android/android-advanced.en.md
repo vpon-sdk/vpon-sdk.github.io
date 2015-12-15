@@ -89,7 +89,7 @@ and then passed to the `VponBanner`:
 # Crazy Ad
 ---
 Banner expands to take over the whole screen and automatically closes after 5-7 seconds.
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300" />
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300" />
 
 
 ## Setting

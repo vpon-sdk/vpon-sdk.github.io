@@ -87,7 +87,7 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
 # Crazy Ad
 ---
 バナーがディスプレイ全体にエキスパンドし、5-7秒後に自動的に閉じます。
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="img-300" />
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300" />
 
 
 ## Setting

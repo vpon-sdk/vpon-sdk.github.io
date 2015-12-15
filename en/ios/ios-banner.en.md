@@ -172,7 +172,7 @@ You need to use the following sample code to enable auto refresh banner.
 # Result
 ---
 The outcome should be a banner at the top of your app:
-<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="img-300"/>
+<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="width-300"/>
 
 
 # App Transport Security
