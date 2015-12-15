@@ -10,6 +10,10 @@ $(document).ready(function() {
     $('body').toggleClass('scroll-locked');
   })
 
+  $('.open-button').on('click', function(event) {
+    $(this).toggleClass('be-fixed');
+  })
+
   document.getElementById("open-button").addEventListener('click', function(e) {
     document.getElementById('burgericon').classList.toggle('open');
   });
