@@ -208,9 +208,10 @@ button {
     height: 30px;
   }
   .hambg-list {
+    min-height: 500px;  /* make sure black vein would cover all lists */
     width: 100%;
     height: 100%;
-    top: 0;
+    /*top: 0;*/
     left: 0;
     background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
@@ -218,8 +219,8 @@ button {
   }
   .hambg-list-list {
     margin: 50px;
-    padding-right: 40px;
-    /*to offset the effect from user agent style sheet*/
+    padding-right: 40px;    /*to offset the effect from user agent style sheet*/
+
   }
   .hambg-list-list li {
     border-bottom: 1px white solid;
@@ -241,9 +242,7 @@ button {
     margin-right: 19px;
     cursor: pointer;
   }
-  div.icon-bar-div {
-    /*margin-right: 0px;*/
-  }
+
   .go-off {
     transform: translateY(-100%);
     transition: 0.3s ease-in-out;
@@ -255,7 +254,6 @@ button {
     -moz-transition: 0.3s ease-in-out;
     -ms-transition: 0.3s ease-in-out;
     -o-transition: 0.3s ease-in-out;
-    /*display: none!important;*/
   }
   .come-on {
     transform: tranlateY(0);
@@ -269,11 +267,16 @@ button {
     -ms-transition: 0.3s;
     -o-transition: 0.3s;
   }
+  .scroll-locked {
+    overflow: hidden;
+    position: fixed;
+  }
 }
+
 @media (min-width: 768px) {
   .open-button {
-    position: relative;
-    float: right;
+    position: absolute;
+    right:0px;
     padding: 9px 10px;
     margin-top: 8px;
     margin-right: 15px;
@@ -308,8 +311,8 @@ button {
   .open-button {
     width: 44px;
     height: 34px;
-    position: relative;
-    float: right;
+    position: fixed;
+    right: 0px;
     padding: 9px 10px;
     margin-top: 10px;
     margin-right: 14px;
@@ -347,26 +350,28 @@ button {
     transition: all 0.35s linear;
     transform: rotate(0deg);
     transform-origin: 0% 50%;
+    -webkit-transition: rotate(0deg);
     -moz-transition: rotate(0deg);
     -ms-transition: rotate(0deg);
     -o-transition: rotate(0deg);
-    -moz-transition-origin: 0% 50%;
-    -ms-transition-origin: 0% 50%;
-    -o-transition-origin: 0% 50%;
+    -webkit-transform-origin: 0% 50%;
+    -moz-transform-origin: 0% 50%;
+    -ms-transform-origin: 0% 50%;
+    -o-transform-origin: 0% 50%;
   }
   #burgericon.open .frstbar {
     transform: rotate(40deg);
-    -webkit-transition: rotate(40deg);
-    -moz-transition: rotate(40deg);
-    -ms-transition: rotate(40deg);
-    -o-transition: rotate(40deg);
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    -ms-transform: rotate(40deg);
+    -o-transform: rotate(40deg);
   }
   #burgericon.open .thrdbar {
     transform: rotate(-40deg);
-    -webkit-transition: rotate(-40deg);
-    -moz-transition: rotate(-40deg);
-    -ms-transition: rotate(-40deg);
-    -o-transition: rotate(-40deg);
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    -o-transform: rotate(-40deg);
   }
   #burgericon.open .scndbar {
     width: 0;
