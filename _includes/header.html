@@ -33,10 +33,8 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
-<!-- Favicons -->
+<script src="{{ site.baseurl }}/assets/js/fastclick.js"></script>
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/custom_icon.png">
-<!-- <link rel="shortcut icon" href="/assets/ico/favicon.ico"> -->
 {% if site.analytics.google %}
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -45,7 +43,5 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', '{{ site.analytics.google.account }}', 'auto');
   ga('send', 'pageview');
-
 </script>
-
 {% endif %}

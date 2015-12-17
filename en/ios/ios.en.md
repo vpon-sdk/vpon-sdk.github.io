@@ -32,7 +32,7 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 Still have problems? Please send us,[Vpon FAE](mailto:fae@vpon.com). We will render the best service for you.
 
 
-> **Note**: Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to [this link](http://wiki.vpon.com/index.php?title=English_iOS_App_Transport_Security) for some modification.
+> **Note**: Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to [this link](latest-news/ios9ats/) for some modification.
 
 
 

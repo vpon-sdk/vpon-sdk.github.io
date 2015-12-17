@@ -16,7 +16,7 @@ p {
   line-height: 28px;
   margin-bottom: 25px
 }
-.centered {
+.center {
   text-align: center
 }
 a {
@@ -191,8 +191,7 @@ button {
   margin-right: -8px;
   z-index: 1000000;
 }
-
-@media (max-width:767px) {
+@media (max-width:768px) {
   .navbar-ul {
     display: inline-block;
   }
@@ -208,7 +207,8 @@ button {
     height: 30px;
   }
   .hambg-list {
-    min-height: 500px;  /* make sure black vein would cover all lists */
+    min-height: 500px;
+    /* make sure black vein would cover all lists */
     width: 100%;
     height: 100%;
     /*top: 0;*/
@@ -219,8 +219,8 @@ button {
   }
   .hambg-list-list {
     margin: 50px;
-    padding-right: 40px;    /*to offset the effect from user agent style sheet*/
-
+    padding-right: 40px;
+    /*to offset the effect from user agent style sheet*/
   }
   .hambg-list-list li {
     border-bottom: 1px white solid;
@@ -242,7 +242,6 @@ button {
     margin-right: 19px;
     cursor: pointer;
   }
-
   .go-off {
     transform: translateY(-100%);
     transition: 0.3s ease-in-out;
@@ -272,11 +271,10 @@ button {
     position: fixed;
   }
 }
-
 @media (min-width: 768px) {
   .open-button {
     position: absolute;
-    right:0px;
+    right: 0px;
     padding: 9px 10px;
     margin-top: 8px;
     margin-right: 15px;
@@ -344,8 +342,8 @@ button {
     margin-top: -10px;
     margin-left: -2px;
   }
-  /*hamburger icon rotate animations*/
 
+  /*hamburger icon rotate animations*/
   .frstbar, .scndbar, .thrdbar {
     transition: all 0.35s linear;
     transform: rotate(0deg);
@@ -377,7 +375,17 @@ button {
     width: 0;
     opacity: 0;
   }
+  .sidebar-wrap .bs-sidebar-left {
+    padding-right: 0px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 25px;
+  }
 }
+
 .language-dropdown {
   margin-top: 2px;
   margin-right: 8px;
@@ -392,35 +400,22 @@ button:focus {
   width: 33.33%;
   display: inline-block;
 }
-
-@media (max-width: 767px){
-  .sidebar-wrap .bs-sidebar-left {
-    padding-right: 0px;
-  }
-  h1{
-    font-size:28px;
-  }
-  h2 {
-    font-size: 25px;
-  }
-}
-
 .width-300 {
   width: 300px;
 }
-
 .f-left {
   float: left;
 }
-
 .f-right {
   float: right;
 }
-
 img {
   width: 100%;
 }
-
 .be-fixed {
   position: fixed;
+}
+
+table {
+  /*width: 100%;  */
 }

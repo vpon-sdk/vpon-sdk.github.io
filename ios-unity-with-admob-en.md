@@ -26,9 +26,9 @@ Unity app integrating Vpon ads is easy with AdMob. All you need to do are:
 ---
 To integrate with Vpon ads on iOS, it's better for you to read the [integration guide](../../../integration-guide/) first.
 
-1. Unity version > 4.5
-2. XCode version > 5.1
-3. Google Mobile Ads SDK > 7.0.0
+1. Unity version 4.5+
+2. XCode version 5.1+
+3. Google Mobile Ads SDK 7.0.0+
 4. Latest Vpon SDK and Vpon AdMob Adapter ([Download page](../../../download/ ))
 5. Vpon ad IDs/Google AdMob account
 

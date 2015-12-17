@@ -45,7 +45,7 @@ Framework SDK 是一包 dynamic library，它會動態抓取 framework reference
 ### 導入 Framework SDK
 
 首先，對專案按下右鍵，選擇 `Add Files to your_project`
-![]({{site.imgurl}}/ios_framework_1.png)
+<img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
 
 接著，加入 `VpadnSDKAdKit.framework` 至專案中
 ![]({{site.imgurl}}/ios_framework_2.png)
@@ -82,7 +82,7 @@ Framework SDK 是一包 dynamic library，它會動態抓取 framework reference
 1. 解壓縮後的 SDK 包含一個 lib 檔、及兩個標頭檔。 對 Xcode 中的專案按一下滑鼠右鍵，然後選取 [Add Files to "Vpadn_BannerInter_x5"...] (在 "Vpadn_BannerInter_x5" 中新增檔案)。
 ![IOS-add-file_vpadn.png]
 2. 接著在 SDK 中選取 `libAdOn.a`, `VpadnBanner.h` 與 `VpadnInterstitial.h`
-![IOS-add-lib&header_vpadn]
+<img src="{{site.imgurl}}/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/>
 
 ## 新增 Framework
 SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework。<br>
@@ -122,8 +122,6 @@ iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建�
 請參閱[橫幅廣告](../banner)、[插頁廣告](../Interstitial)、[中介服務](../mediation)中獲取更多簡介。
 
 
-
-[IOS-add-lib&header_vpadn]: {{site.imgurl}}/IOS-add-lib&header_vpadn.png
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
 [這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

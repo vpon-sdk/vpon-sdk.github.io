@@ -31,10 +31,8 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-
-<!-- Favicons -->
+<script src="/assets/js/fastclick.js"></script>
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/ico/custom_icon.png">
-<!-- <link rel="shortcut icon" href="/assets/ico/favicon.ico"> -->
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -43,9 +41,7 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-66722167-2', 'auto');
   ga('send', 'pageview');
-
 </script>
-
 
 
 </head>
@@ -271,7 +267,7 @@ China is: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p><
 <p>However, this convenient way is only for apps designed for iOS version higher than 7.0. If you are targeting at users with devices OS version lower than 7.0, you should definitely choose the <a href="#fundamental-sdk">fundamental SDK</a> instead.</p>
 
 <p>First, right-click your project and choose <code>Add Files to your_project</code>
-<img src="/assets/img/ios_framework_1.png" alt=""></p>
+<img src="/assets/img/ios_framework_1.png" alt="" class="width-300" /></p>
 
 <p>Second, add <code>VpadnSDKAdKit.framework</code> into your project.
 <img src="/assets/img/ios_framework_2.png" alt=""></p>
@@ -279,7 +275,7 @@ China is: <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a><br></p><
 <p>Third, find <code>Embedded Binaries</code> under <code>General</code> and click <code>+</code> to add <code>VpadnSDKAdKit.framework</code>
 <img src="/assets/img/ios_framework_3.png" alt=""></p>
 
-<p>Remember you have added the framework in <code>Embedded Binaries</code>.
+<p>Remember to check whether the framework in <code>Embedded Binaries</code> has been added.
 <img src="/assets/img/ios_framework_4.png" alt=""></p>
 
 <p>Finally, import the framework:</p>
@@ -313,7 +309,7 @@ Remind again that Framework SDK only support devices in iOS version higher than 
 <li>Right-click on your project in Xcode, choose Add Files to &quot;Vpadn_BannerInter_x5&quot;
 <img src="/assets/img/IOS-add-file_vpadn.png" alt="IOS-add-file_vpadn.png"></li>
 <li>Choose <code>libAdOn.a</code>, <code>VpadnBanner.h</code> and <code>VpadnInterstitial.h</code> in SDK
-<img src="/assets/img/IOS-add-lib&amp;header_vpadn.png" alt="IOS-add-lib&amp;header_vpadn"></li>
+<img src="/assets/img/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/></li>
 </ol>
 
 <h3 id="add-framework">Add Framework</h3>
@@ -389,6 +385,7 @@ Remind again that Framework SDK only support devices in iOS version higher than 
 <!-- JavaScript ================================================== -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="/dist/js/bootstrap.min.js"></script>
+<script src="/assets/js/fastclick.js"></script>
 <script src="/assets/js/docs.min.js"></script>
 <script src="/assets/js/main.js" ></script>
 

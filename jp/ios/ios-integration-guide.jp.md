@@ -49,7 +49,7 @@ Framework SDK is a dynamic library, our latest SDK within any necessary referenc
 However, this convenient way is only for apps designed for iOS version higher than 7.0. If you are targeting at users with devices OS version lower than 7.0, you should definitely choose the [fundamental SDK](#fundamental-sdk) instead.
 
 First, right-click your project and choose `Add Files to your_project`
-![]({{site.imgurl}}/ios_framework_1.png)
+<img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
 
 Second, add `VpadnSDKAdKit.framework` into your project.
 ![]({{site.imgurl}}/ios_framework_2.png)
@@ -87,7 +87,7 @@ Finally, import the framework:
 ![IOS-add-file_vpadn.png]
 
 2. 次に、 SDK 内で `libAdOn.a` , `VpadnBanner.h` および `VpadnInterstitial.h` を選択します。
-![IOS-add-lib&header_vpadn]
+<img src="{{site.imgurl}}/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/>
 
 
 ### Framework の追加
@@ -134,7 +134,6 @@ SDK 4 lib ファイルは、Sample codeフォルダ内にあります。
 より詳細な情報は、[バナー広告](../banner)、[ンタースティシャル広告](../interstitial)、[メディエーション](../mediation)をご確認 ください。
 
 
-[IOS-add-lib&header_vpadn]: {{site.imgurl}}/IOS-add-lib&header_vpadn.png
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
 [このリンク]: {{site.baseurl}}/ios/latest-news/ios9ats/

@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  // remove 300ms delay
+  FastClick.attach(document.body);
 
   // Click hamburger icon to toggle hidden list for mobile users
   $('.open-button').on('click', function(event) {

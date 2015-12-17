@@ -44,7 +44,7 @@ Framework SDK is a dynamic library, our latest SDK within any necessary referenc
 However, this convenient way is only for apps designed for iOS version higher than 7.0. If you are targeting at users with devices OS version lower than 7.0, you should definitely choose the [fundamental SDK](#fundamental-sdk) instead.
 
 First, right-click your project and choose `Add Files to your_project`
-![]({{site.imgurl}}/ios_framework_1.png)
+<img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
 
 Second, add `VpadnSDKAdKit.framework` into your project.
 ![]({{site.imgurl}}/ios_framework_2.png)
@@ -52,7 +52,7 @@ Second, add `VpadnSDKAdKit.framework` into your project.
 Third, find `Embedded Binaries` under `General` and click `+` to add `VpadnSDKAdKit.framework`
 ![]({{site.imgurl}}/ios_framework_3.png)
 
-Remember you have added the framework in `Embedded Binaries`.
+Remember to check whether the framework in `Embedded Binaries` has been added.
 ![]({{site.imgurl}}/ios_framework_4.png)
 
 Finally, import the framework:
@@ -82,7 +82,7 @@ The decompressed SDK consists of a lib file and two header files.
 1. Right-click on your project in Xcode, choose Add Files to "Vpadn_BannerInter_x5"
 ![IOS-add-file_vpadn.png]
 2. Choose `libAdOn.a`, `VpadnBanner.h` and `VpadnInterstitial.h` in SDK
-![IOS-add-lib&header_vpadn]
+<img src="{{site.imgurl}}/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/>
 
 ### Add Framework
 The SDK library references the a few iOS development frameworks.<br>
@@ -128,7 +128,6 @@ Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[M
 
 
 
-[IOS-add-lib&header_vpadn]: {{site.imgurl}}/IOS-add-lib&header_vpadn.png
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
 [this link]: {{site.baseurl}}/ios/latest-news/ios9ats/
