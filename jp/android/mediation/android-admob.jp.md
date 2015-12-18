@@ -16,33 +16,33 @@ Google AdMob mediation は[こちら]をご覧ください。
 
 1. 番号付きのリストアイテム。
 ログイン - [AdMob account][0]
-![1]  
+![1]
 
 
 2. `収益` ->`新アプリケーションによる収益化 `
-![][2]  
+![][2]
 
 3. アプリケーションの選択: <br>
 (1) app name の記入。<br>
 (2) プラットフォームの選択。<br>
 (3)「アプリケーションの追加」をクリック。 <br>
-![][3]  
+![][3]
 
 4. 広告フォームの選択と広告ユニットの命名: <br>
 (1) バナー広告またはインターステイシャル広告の選択。 <br>
 (2) 設定。 <br>
 (3) 広告ユニット名(例:Vpon_Banner)。 <br>
 (4) 保存<br>
-![][4]  
+![][4]
 
 5. 一組の広告ユニット番号を取得し、選択が完了。
-![][5]  
+![][5]
 
 6. 仲介サービスの編集
-![][6]  
+![][6]
 
 7. 広告放送ネットワークの追加
-![][7]  
+![][7]
 
 8. Vponをメディエーションリストに設定する：    <br>
 (1) Vponネットワークタグを利用可能な広告ネットワークで検索  <br>
@@ -51,12 +51,12 @@ Google AdMob mediation は[こちら]をご覧ください。
 
 (あなたのアプリのユーザーが中国から利用している場合は、この列に`cn`と入力し、それ以外は`tw`と入力します)
 
-![][8]  
+![][8]
 
 
 # Vpon広告ネットワークをあなたのプロジェクトに統合する
 You just need to import two jars into lib folder of your project, which are `admob-adapter-****.jar` and `vpadn-sdk-***-***-***.jar`.
-![][9]  
+![][9]
 
 
 
@@ -82,15 +82,15 @@ You just need to import two jars into lib folder of your project, which are `adm
 ---
 a. アプリケーションプログラムプロジェクト内で右ボタンを押して`プロパティ`を選びます。
 
-![][10]  
+![][10]
 
 b. Android を選択し-> Add..google-play-services_lib 内容を検索した後、OK を押して Google Play services library を追加し ます。
 
-![][11]  
+![][11]
 
-c. 図に示されるように、プロジェクトに Google Play services library が refernce されたことがわかります。  
+c. 図に示されるように、プロジェクトに Google Play services library が refernce されたことがわかります。
 
-![][12]  
+![][12]
 
 ### Android Studio
 ---
@@ -116,18 +116,18 @@ Google Play Service は、AndroidManifest.xml に以下の設定を追加する�
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.company"
-          android:versionCode="1" android:versionName="1.0">  
+          android:versionCode="1" android:versionName="1.0">
  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">  
+               android:debuggable="true">
   <span style="color:#ff0000"><meta-data android:name="com.google.android.gms.version"
-             android:value="@integer/google_play_services_version"/></span>  
-   <activity android:label="@string/app_name" android:name="BannerExample">  
-     <intent-filter>  
-       <action android:name="android.intent.action.MAIN"/>  
-       <category android:name="android.intent.category.LAUNCHER"/>  
-     </intent-filter>  
-   </activity>  
- </application>  
+             android:value="@integer/google_play_services_version"/></span>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN"/>
+       <category android:name="android.intent.category.LAUNCHER"/>
+     </intent-filter>
+   </activity>
+ </application>
 </manifest>
 ```
 
@@ -138,17 +138,17 @@ Mobile Ads SDK は、AndroidManifest.xml で com.google.android.gms.ads.AdActivi
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.company"
-          android:versionCode="1" android:versionName="1.0">  
+          android:versionCode="1" android:versionName="1.0">
  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">  
+               android:debuggable="true">
    <meta-data android:name="com.google.android.gms.version"
-               android:value="@integer/google_play_services_version"/>  
-   <activity android:label="@string/app_name" android:name="BannerExample">  
-     <intent-filter>  
-       <action android:name="android.intent.action.MAIN"/>  
-       <category android:name="android.intent.category.LAUNCHER"/>  
-     </intent-filter>  
-   </activity>  
+               android:value="@integer/google_play_services_version"/>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN"/>
+       <category android:name="android.intent.category.LAUNCHER"/>
+     </intent-filter>
+   </activity>
    <span style="color:#ff0000">
      <activity android:name="om.google.android.gms.ads.AdActivity"
        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/></span>
@@ -293,8 +293,8 @@ AdViewの使用方法との類似点
 ---
 [Download Sample Code]
 
-  [こちら]: https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android
-  [0]: http://www.google.com.tw/ads/admob/
+  [こちら]: https://developers.google.com/admob/android/quick-start
+  [0]: http://www.google.com/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotSiJP1.PNG
   [2]:  {{site.imgurl}}/AdMobScreenshotSiJP2.png
   [3]:  {{site.imgurl}}/AdMobScreenshotSiJP3.png
@@ -310,4 +310,4 @@ AdViewの使用方法との類似点
   [Download Sample Code]: {{site.baseurl}}/jp/android/download/#admob
   [Android SDK]: https://developer.android.com/sdk/index.html
   [instructions]: https://developer.android.com/google/play-services/setup.html
-  [13]: https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate#play
+  [13]: https://developers.google.com/admob/android/banner

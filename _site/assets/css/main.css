@@ -401,8 +401,15 @@ button:focus {
   display: inline-block;
 }
 .width-300 {
-  width: 300px;
+  max-width: 300px;
 }
+.width-400 {
+  max-width:400px;
+}
+.width-500 {
+  max-width: 500px;
+}
+
 .f-left {
   float: left;
 }

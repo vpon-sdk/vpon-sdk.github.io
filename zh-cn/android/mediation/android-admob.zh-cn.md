@@ -15,80 +15,80 @@ Google AdMob mediation 请看[这裡]
 # Admob Mediation 操作图示
 -----
 
-1. 请登入到 [这裡][]  
-![1]  
+1. 请登入到 [这裡][]
+![1]
 
-2. 盈利 -&gt; 透过新应用程式盈利  
-![][2]  
+2. 盈利 -&gt; 透过新应用程式盈利
+![][2]
 
 3. 选取应用程式:<br>
   (1) 填入 app name <br>
   (2) 选取平台 <br>
   (3) 点选 “新增应用程式" <br>
-![][3]  
+![][3]
 
 4. 选取广告格式并对广告单元命名:<br>
  (1) 选择横幅广告或者插页广告 <br>
  (2) 设定  <br>
  (3) 广告单元名称(ex. Vpon\_Banner) <br>
- (4) 储存  
-![][4]  
+ (4) 储存
+![][4]
 
-5. 得到一组广告单元编号，选取完成  
-![][5]  
+5. 得到一组广告单元编号，选取完成
+![][5]
 
-6. 编辑中介服务  
-![][6]  
+6. 编辑中介服务
+![][6]
 
-7. 新增广告连播网  
-![][7]  
+7. 新增广告连播网
+![][7]
 
-8. 设定Vpon进入您的聚合列表：  
-(1) 在可用的广告联播网中找到 Vpon  
-(2) Vpon Ad Id: 填入您在 Vpon 后台申请的版位ID  
-(3) Zone: 选择您欲请求的广告平台的地区  
-(例：如果您的 App 是欲给大陆平台使用者使用，则您需在此栏位中填入`cn`，若您 app 是给除了大陆平台以外地区使用者使用则填入`tw`)  
+8. 设定Vpon进入您的聚合列表：
+(1) 在可用的广告联播网中找到 Vpon
+(2) Vpon Ad Id: 填入您在 Vpon 后台申请的版位ID
+(3) Zone: 选择您欲请求的广告平台的地区
+(例：如果您的 App 是欲给大陆平台使用者使用，则您需在此栏位中填入`cn`，若您 app 是给除了大陆平台以外地区使用者使用则填入`tw`)
 
-![][8]  
+![][8]
 
 
 # 串接 Vpon 进专案
-您需将载入两个 Jar 档进入您专案中的 libs 资料夹，分别是：admob-adapter-\*\*\*\*.jar 和 vpadn-sdk-\*\*\*-\*\*\*-\*\*\*.jar.  
-![][9]  
+您需将载入两个 Jar 档进入您专案中的 libs 资料夹，分别是：admob-adapter-\*\*\*\*.jar 和 vpadn-sdk-\*\*\*-\*\*\*-\*\*\*.jar.
+![][9]
 
 
 
 # 需求条件
 -----
-1. 请确认您已安装最新版的[Android SDK]，并至少在 Android v3.2 (target in project.properties to android-13)下编译。  
-2. Google Mobile Ads SDK可在Android 2.3以上的版本(在 AndroidManifest.xml 设定 android:minSdkVersion 为至少 9)执行。  
+1. 请确认您已安装最新版的[Android SDK]，并至少在 Android v3.2 (target in project.properties to android-13)下编译。
+2. Google Mobile Ads SDK可在Android 2.3以上的版本(在 AndroidManifest.xml 设定 android:minSdkVersion 为至少 9)执行。
 
 # 导入SDK
 ---
-以下的步骤为将Google Mobile Ads SDK 导入您的 App 中:  
+以下的步骤为将Google Mobile Ads SDK 导入您的 App 中:
 
-1. 新增并 reference Google Play Services library到您的 Eclipse/Android Studio workspace.  
-2. 在 AndroidManifest.xml中新增 meta-data tag.  
-3. 在 AndroidManifest 中宣告 com.google.android.gms.ads.AdActivity.  
-4. 在 manifest 中加入 permissions  
+1. 新增并 reference Google Play Services library到您的 Eclipse/Android Studio workspace.
+2. 在 AndroidManifest.xml中新增 meta-data tag.
+3. 在 AndroidManifest 中宣告 com.google.android.gms.ads.AdActivity.
+4. 在 manifest 中加入 permissions
 
 ## Google Play Services library
 请先安装设定 Google Play Service SDK: [Android instructions]
 
 ### Eclipse
 ---
-a.在您的应用程式专案中按右键并选择 `properties`  
+a.在您的应用程式专案中按右键并选择 `properties`
 
-![][10]  
+![][10]
 
 b.选择 Android -&gt;
-`Add...` 寻找 google-play-services\_lib 内容后按下 OK 新增 Google Play Services library.  
+`Add...` 寻找 google-play-services\_lib 内容后按下 OK 新增 Google Play Services library.
 
-![][11]  
+![][11]
 
-如图示，您的专案已经 reference Google Play Services library.  
+如图示，您的专案已经 reference Google Play Services library.
 
-![][12]  
+![][12]
 
 ### Android Studio
 ---
@@ -108,46 +108,46 @@ apply plugin: 'com.android.application'
 接着，存挡并至 toolbar 点选 **Sync Project with Gradle Files**
 
 ## 新增 meta-data tag
-Google Play Service 需要在 AndroidManifest.xml 中加入以下设定:  
+Google Play Service 需要在 AndroidManifest.xml 中加入以下设定:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.company"
-          android:versionCode="1" android:versionName="1.0">  
+          android:versionCode="1" android:versionName="1.0">
  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">  
+               android:debuggable="true">
   <span style="color:#ff0000"><meta-data android:name="com.google.android.gms.version"
-             android:value="@integer/google_play_services_version"/></span>  
-   <activity android:label="@string/app_name" android:name="BannerExample">  
-     <intent-filter>  
-       <action android:name="android.intent.action.MAIN"/>  
-       <category android:name="android.intent.category.LAUNCHER"/>  
-     </intent-filter>  
-   </activity>  
- </application>  
+             android:value="@integer/google_play_services_version"/></span>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN"/>
+       <category android:name="android.intent.category.LAUNCHER"/>
+     </intent-filter>
+   </activity>
+ </application>
 </manifest>
 ```
 
 ## 宣告 AdActivity
 ---
-Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ads.AdActivity  
+Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ads.AdActivity
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.company"
-          android:versionCode="1" android:versionName="1.0">  
+          android:versionCode="1" android:versionName="1.0">
  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">  
+               android:debuggable="true">
    <meta-data android:name="com.google.android.gms.version"
-               android:value="@integer/google_play_services_version"/>  
-   <activity android:label="@string/app_name" android:name="BannerExample">  
-     <intent-filter>  
-       <action android:name="android.intent.action.MAIN"/>  
-       <category android:name="android.intent.category.LAUNCHER"/>  
-     </intent-filter>  
-   </activity>  
+               android:value="@integer/google_play_services_version"/>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN"/>
+       <category android:name="android.intent.category.LAUNCHER"/>
+     </intent-filter>
+   </activity>
    <span style="color:#ff0000">
      <activity android:name="om.google.android.gms.ads.AdActivity"
        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/></span>
@@ -294,8 +294,8 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
 --------------------
 [Download Sample Code]
 
-  [这裡]: https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android
-  []: http://www.google.com.cn/admob/
+  [这裡]: https://developers.google.com/admob/android/quick-start
+  []: http://www.google.com/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
   [2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
   [3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png
@@ -311,4 +311,4 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
   [Download Sample Code]: {{site.baseurl}}/zh-cn/android/download/#admob
   [Android SDK]: https://developer.android.com/sdk/index.html
   [Android instructions]: https://developer.android.com/google/play-services/setup.html
-  [13]: https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate#play
+  [13]: https://developers.google.com/admob/android/banner

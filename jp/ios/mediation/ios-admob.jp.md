@@ -16,32 +16,32 @@ Google AdMob mediation は[こちら]をご覧ください。
 
 1. 番号付きのリストアイテム。
 ログイン - [AdMob account][0]
-![1]  
+![1]
 
 2. `収益` ->`新アプリケーションによる収益化 `
-![][2]  
+![][2]
 
 3. アプリケーションの選択: <br>
 (1) app name の記入。<br>
 (2) プラットフォームの選択。<br>
 (3)「アプリケーションの追加」をクリック。 <br>
-![][3]  
+![][3]
 
 4. 広告フォームの選択と広告ユニットの命名: <br>
 (1) バナー広告またはインターステイシャル広告の選択。 <br>
 (2) 設定。 <br>
 (3) 広告ユニット名(例:Vpon_Banner)。 <br>
 (4) 保存<br>
-![][4]  
+![][4]
 
 5. 一組の広告ユニット番号を取得し、選択が完了。
-![][5]  
+![][5]
 
 6. 仲介サービスの編集
-![][6]  
+![][6]
 
 7. 広告放送ネットワークの追加
-![][7]  
+![][7]
 
 8. Vponをメディエーションリストに設定する：    <br>
 (1) Vponネットワークタグを利用可能な広告ネットワークで検索  <br>
@@ -50,7 +50,7 @@ Google AdMob mediation は[こちら]をご覧ください。
 
 (あなたのアプリのユーザーが中国から利用している場合は、この列に`cn`と入力し、それ以外は`tw`と入力します)
 
-![][8]  
+![][8]
 
 
 
@@ -58,8 +58,8 @@ Google AdMob mediation は[こちら]をご覧ください。
 --------------------
 [Download Sample Code]
 
-[こちら]: https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android
-[0]: http://www.google.com.tw/ads/admob/
+[こちら]: https://developers.google.com/admob/ios/quick-start
+[0]: http://www.google.com/admob/
 [1]:  {{site.imgurl}}/AdMobScreenshotSiJP1.PNG
 [2]:  {{site.imgurl}}/AdMobScreenshotSiJP2.png
 [3]:  {{site.imgurl}}/AdMobScreenshotSiJP3.png

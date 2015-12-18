@@ -224,7 +224,7 @@
 
 <hr>
 
-<p>Google AdMob mediation は<a href="https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android">こちら</a>をご覧ください。</p>
+<p>Google AdMob mediation は<a href="https://developers.google.com/admob/android/quick-start">こちら</a>をご覧ください。</p>
 
 <h1 id="google-ad-network-mediation">Google Ad Network Mediation</h1>
 
@@ -232,27 +232,27 @@
 
 <ol>
 <li><p>番号付きのリストアイテム。
-ログイン - <a href="http://www.google.com.tw/ads/admob/">AdMob account</a>
-<img src="/assets/img/AdMobScreenshotSiJP1.PNG" alt="1">  </p></li>
+ログイン - <a href="http://www.google.com/admob/">AdMob account</a>
+<img src="/assets/img/AdMobScreenshotSiJP1.PNG" alt="1"></p></li>
 <li><p><code>収益</code> -&gt;<code>新アプリケーションによる収益化</code>
-<img src="/assets/img/AdMobScreenshotSiJP2.png" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotSiJP2.png" alt=""></p></li>
 <li><p>アプリケーションの選択: <br>
 (1) app name の記入。<br>
 (2) プラットフォームの選択。<br>
 (3)「アプリケーションの追加」をクリック。 <br>
-<img src="/assets/img/AdMobScreenshotSiJP3.png" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotSiJP3.png" alt=""></p></li>
 <li><p>広告フォームの選択と広告ユニットの命名: <br>
 (1) バナー広告またはインターステイシャル広告の選択。 <br>
 (2) 設定。 <br>
 (3) 広告ユニット名(例:Vpon_Banner)。 <br>
 (4) 保存<br>
-<img src="/assets/img/AdMobScreenshotSiJP4.png" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotSiJP4.png" alt=""></p></li>
 <li><p>一組の広告ユニット番号を取得し、選択が完了。
-<img src="/assets/img/AdMobScreenshotSiJP5.png" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotSiJP5.png" alt=""></p></li>
 <li><p>仲介サービスの編集
-<img src="/assets/img/AdMobScreenshotSiJP6.PNG" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotSiJP6.PNG" alt=""></p></li>
 <li><p>広告放送ネットワークの追加
-<img src="/assets/img/AdMobScreenshotSiJP7.png" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotSiJP7.png" alt=""></p></li>
 <li><p>Vponをメディエーションリストに設定する：    <br>
 (1) Vponネットワークタグを利用可能な広告ネットワークで検索  <br>
 (2) Vpon広告ID：Vponのバックオフィスから取得したVponバナーIDを入力  <br>
@@ -261,12 +261,12 @@
 
 <p>(あなたのアプリのユーザーが中国から利用している場合は、この列に<code>cn</code>と入力し、それ以外は<code>tw</code>と入力します)</p>
 
-<p><img src="/assets/img/AdMobScreenshotSiJP8.png" alt="">  </p>
+<p><img src="/assets/img/AdMobScreenshotSiJP8.png" alt=""></p>
 
 <h1 id="vpon広告ネットワークをあなたのプロジェクトに統合する">Vpon広告ネットワークをあなたのプロジェクトに統合する</h1>
 
 <p>You just need to import two jars into lib folder of your project, which are <code>admob-adapter-****.jar</code> and <code>vpadn-sdk-***-***-***.jar</code>.
-<img src="/assets/img/AdMobLibJarFiles.jpg" alt="">  </p>
+<img src="/assets/img/AdMobLibJarFiles.jpg" alt=""></p>
 
 <h1 id="requirement">Requirement</h1>
 
@@ -300,15 +300,15 @@
 
 <p>a. アプリケーションプログラムプロジェクト内で右ボタンを押して<code>プロパティ</code>を選びます。</p>
 
-<p><img src="/assets/img/GooglePlay_Properties.png" alt="">  </p>
+<p><img src="/assets/img/GooglePlay_Properties.png" alt=""></p>
 
 <p>b. Android を選択し-&gt; Add..google-play-services_lib 内容を検索した後、OK を押して Google Play services library を追加し ます。</p>
 
-<p><img src="/assets/img/GooglePlay_Addlib.png" alt="">  </p>
+<p><img src="/assets/img/GooglePlay_Addlib.png" alt=""></p>
 
-<p>c. 図に示されるように、プロジェクトに Google Play services library が refernce されたことがわかります。  </p>
+<p>c. 図に示されるように、プロジェクトに Google Play services library が refernce されたことがわかります。</p>
 
-<p><img src="/assets/img/GooglePlay_Addlib2.png" alt="">  </p>
+<p><img src="/assets/img/GooglePlay_Addlib2.png" alt=""></p>
 
 <h3 id="android-studio">Android Studio</h3>
 
@@ -337,18 +337,18 @@
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
           <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
-          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>  
+          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
  <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>  
+               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
-             <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>  
-   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>  
-     <span class="nt">&lt;intent-filter&gt;</span>  
-       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>  
-       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>  
-     <span class="nt">&lt;/intent-filter&gt;</span>  
-   <span class="nt">&lt;/activity&gt;</span>  
- <span class="nt">&lt;/application&gt;</span>  
+             <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;intent-filter&gt;</span>
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;/intent-filter&gt;</span>
+   <span class="nt">&lt;/activity&gt;</span>
+ <span class="nt">&lt;/application&gt;</span>
 <span class="nt">&lt;/manifest&gt;</span>
 </code></pre></div>
 <h2 id="adactivity-を宣言">AdActivity を宣言</h2>
@@ -360,17 +360,17 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
           package=&quot;com.company&quot;
-          android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot;&gt;  
+          android:versionCode=&quot;1&quot; android:versionName=&quot;1.0&quot;&gt;
  &lt;application android:icon=&quot;@drawable/icon&quot; android:label=&quot;@string/app_name&quot;
-               android:debuggable=&quot;true&quot;&gt;  
+               android:debuggable=&quot;true&quot;&gt;
    &lt;meta-data android:name=&quot;com.google.android.gms.version&quot;
-               android:value=&quot;@integer/google_play_services_version&quot;/&gt;  
-   &lt;activity android:label=&quot;@string/app_name&quot; android:name=&quot;BannerExample&quot;&gt;  
-     &lt;intent-filter&gt;  
-       &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;  
-       &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;  
-     &lt;/intent-filter&gt;  
-   &lt;/activity&gt;  
+               android:value=&quot;@integer/google_play_services_version&quot;/&gt;
+   &lt;activity android:label=&quot;@string/app_name&quot; android:name=&quot;BannerExample&quot;&gt;
+     &lt;intent-filter&gt;
+       &lt;action android:name=&quot;android.intent.action.MAIN&quot;/&gt;
+       &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot;/&gt;
+     &lt;/intent-filter&gt;
+   &lt;/activity&gt;
    &lt;span style=&quot;color:#ff0000&quot;&gt;
      &lt;activity android:name=&quot;om.google.android.gms.ads.AdActivity&quot;
        android:configChanges=&quot;keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize&quot;/&gt;&lt;/span&gt;
@@ -470,7 +470,7 @@
    <span class="o">}</span>
  <span class="o">}</span>
 </code></pre></div>
-<p>For more about banner: <a href="https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate#play">here</a></p>
+<p>For more about banner: <a href="https://developers.google.com/admob/android/banner">here</a></p>
 
 <h1 id="インターステイシャル広告">インターステイシャル広告</h1>
 

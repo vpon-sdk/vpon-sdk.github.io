@@ -223,7 +223,7 @@
 
 <hr>
 
-<p>Google Admob Mediation document, please refer to <a href="https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android">here</a>.</p>
+<p>Google Admob Mediation document, please refer to <a href="https://developers.google.com/admob/android/quick-start">here</a>.</p>
 
 <h1 id="google-ad-network-mediation">Google Ad Network Mediation</h1>
 
@@ -232,26 +232,26 @@
 <ol>
 <li><p>Log in Google AdMob.
 Please log in to your [AdMob account]<a href="http://www.google.com.tw/ads/admob/"></a>
-<img src="/assets/img/AdMobScreenshotEnglishAndroid1.jpg" alt="1">  </p></li>
-<li><p><code>Monetise</code> -&gt; <code>+ Monetise new app</code><br>
-<img src="/assets/img/Admob2_eng.png" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotEnglishAndroid1.jpg" alt="1"></p></li>
+<li><p><code>Monetise</code> -&gt; <code>+ Monetise new app</code>
+<img src="/assets/img/Admob2_eng.png" alt=""></p></li>
 <li><p>Select an app: <br>
 (1) Put your app name.<br>
 (2) Select <code>platform</code>. <br>
 (3) Click <code>Add app</code>. <br>
-<img src="/assets/img/Admob3_eng.png" alt="">  </p></li>
+<img src="/assets/img/Admob3_eng.png" alt=""></p></li>
 <li><p>Select ad format and name ad unit: <br>
 (1) Choose &quot;banner&quot; or &quot;interstitial&quot; ad type. <br>
 (2) Setting. <br>
 (3) Ad unit name (ex. Vpon_Banner).  <br>
 (4) Save it. <br>
-<img src="/assets/img/Admob4-Android_eng.png" alt="">  </p></li>
+<img src="/assets/img/Admob4-Android_eng.png" alt=""></p></li>
 <li><p>Get an Ad unit ID, then click Done.
-<img src="/assets/img/Admob5-Android_eng.png" alt="">  </p></li>
+<img src="/assets/img/Admob5-Android_eng.png" alt=""></p></li>
 <li><p>Edit mediation
-<img src="/assets/img/AdMobScreenshotEnglishAndroid6.jpg" alt="">  </p></li>
+<img src="/assets/img/AdMobScreenshotEnglishAndroid6.jpg" alt=""></p></li>
 <li><p>New ad network
-<img src="/assets/img/Admob7-Android_eng.png" alt="">  </p></li>
+<img src="/assets/img/Admob7-Android_eng.png" alt=""></p></li>
 <li><p>Set Vpon into mediation list：    <br>
 (1) Find the VPON Network tag in Available ad netwroks <br>
 (2) Vpon Ad ID: put the Vpon’s Banner ID that you get from vpon’s back office.  <br>
@@ -260,12 +260,12 @@ Please log in to your [AdMob account]<a href="http://www.google.com.tw/ads/admob
 
 <p>(If the user of your app is from China, you need to fill with <code>cn</code> in this column; otherwise, you need to fill with <code>tw</code>.)</p>
 
-<p><img src="/assets/img/AdMobDefaultAdNetWork.jpg" alt="">  </p>
+<p><img src="/assets/img/AdMobDefaultAdNetWork.jpg" alt=""></p>
 
 <h1 id="integrate-vpon-adnetwork">Integrate Vpon AdNetwork</h1>
 
 <p>You just need to import two jars into lib folder of your project, which are <code>admob-adapter-****.jar</code> and <code>vpadn-sdk-***-***-***.jar</code>.
-<img src="/assets/img/AdMobLibJarFiles.jpg" alt="">  </p>
+<img src="/assets/img/AdMobLibJarFiles.jpg" alt=""></p>
 
 <h1 id="requirement">Requirement</h1>
 
@@ -299,15 +299,15 @@ Please log in to your [AdMob account]<a href="http://www.google.com.tw/ads/admob
 
 <p>a. Right click on your app project in Eclipse and select <code>Properties</code>.</p>
 
-<p><img src="/assets/img/GooglePlay_Properties.png" alt="">  </p>
+<p><img src="/assets/img/GooglePlay_Properties.png" alt=""></p>
 
 <p>b.Select Android and then click <code>Add....</code> Find the google-play-services_lib project and select OK to add the Google Play services library.</p>
 
-<p><img src="/assets/img/GooglePlay_Addlib.png" alt="">  </p>
+<p><img src="/assets/img/GooglePlay_Addlib.png" alt=""></p>
 
-<p>c. The project now references the Google Play services library.  </p>
+<p>c. The project now references the Google Play services library.</p>
 
-<p><img src="/assets/img/GooglePlay_Addlib2.png" alt="">  </p>
+<p><img src="/assets/img/GooglePlay_Addlib2.png" alt=""></p>
 
 <h3 id="android-studio">Android Studio</h3>
 
@@ -336,18 +336,18 @@ Please log in to your [AdMob account]<a href="http://www.google.com.tw/ads/admob
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
           <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
-          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>  
+          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
  <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>  
+               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
   <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
-             <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>  
-   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>  
-     <span class="nt">&lt;intent-filter&gt;</span>  
-       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>  
-       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>  
-     <span class="nt">&lt;/intent-filter&gt;</span>  
-   <span class="nt">&lt;/activity&gt;</span>  
- <span class="nt">&lt;/application&gt;</span>  
+             <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;intent-filter&gt;</span>
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;/intent-filter&gt;</span>
+   <span class="nt">&lt;/activity&gt;</span>
+ <span class="nt">&lt;/application&gt;</span>
 <span class="nt">&lt;/manifest&gt;</span>
 </code></pre></div>
 <h2 id="declare-adactivity">Declare AdActivity</h2>
@@ -358,17 +358,17 @@ Please log in to your [AdMob account]<a href="http://www.google.com.tw/ads/admob
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
           <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
-          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>  
+          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
  <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>  
+               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
    <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
-               <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;</span>  
-   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>  
-     <span class="nt">&lt;intent-filter&gt;</span>  
-       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>  
-       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>  
-     <span class="nt">&lt;/intent-filter&gt;</span>  
-   <span class="nt">&lt;/activity&gt;</span>  
+               <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;intent-filter&gt;</span>
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+     <span class="nt">&lt;/intent-filter&gt;</span>
+   <span class="nt">&lt;/activity&gt;</span>
    <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;</span>
      <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;om.google.android.gms.ads.AdActivity&quot;</span>
        <span class="na">android:configChanges=</span><span class="s">&quot;keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
@@ -468,7 +468,7 @@ Please log in to your [AdMob account]<a href="http://www.google.com.tw/ads/admob
    <span class="o">}</span>
  <span class="o">}</span>
 </code></pre></div>
-<p>For more about banner: <a href="https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate#play">here</a></p>
+<p>For more about banner: <a href="https://developers.google.com/admob/android/banner">here</a></p>
 
 <h1 id="interstitial-ad">Interstitial Ad</h1>
 

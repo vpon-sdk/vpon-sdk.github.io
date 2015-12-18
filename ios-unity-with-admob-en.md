@@ -106,7 +106,7 @@ To build and run on iOS, click `File` -> `Build Settings`, select the iOS platfo
 ![]({{site.imgurl}}/unity-linker-problem.jpg)
 
 ###A1: Relink the libiPhone-lib.a
-Wher to relink: `Build Phases` -> `Link Binary with Libraries`. The original lib `libiPhone-lib.a` lies in /project_name/Libraries/.
+Where to relink:`Build Phases` -> `Link Binary with Libraries`. The original lib `libiPhone-lib.a` lies in /project_name/Libraries/.
 
 
 # Reference

@@ -16,32 +16,32 @@ Google Admob Mediation document, please refer to [here].
 
 1. Log in Google AdMob.
  Please log in to your [AdMob account][]
-![1]  
+![1]
 
-2. `Monetise` -> `+ Monetise new app`  
-![][2]  
+2. `Monetise` -> `+ Monetise new app`
+![][2]
 
 3. Select an app: <br>
   (1) Put your app name.<br>
   (2) Select `platform`. <br>
   (3) Click `Add app`. <br>
-![][3]  
+![][3]
 
 4. Select ad format and name ad unit: <br>
 (1) Choose "banner" or "interstitial" ad type. <br>
 (2) Setting. <br>
 (3) Ad unit name (ex. Vpon_Banner).  <br>
 (4) Save it. <br>
-![][4]  
+![][4]
 
 5. Get an Ad unit ID, then click Done.
-![][5]  
+![][5]
 
 6. Edit mediation
-![][6]  
+![][6]
 
 7. New ad network
-![][7]  
+![][7]
 
 8. Set Vpon into mediation list：    <br>
 (1) Find the VPON Network tag in Available ad netwroks <br>
@@ -50,12 +50,12 @@ Google Admob Mediation document, please refer to [here].
 
 (If the user of your app is from China, you need to fill with `cn` in this column; otherwise, you need to fill with `tw`.)
 
-![][8]  
+![][8]
 
 
 # Integrate Vpon AdNetwork
 You just need to import two jars into lib folder of your project, which are `admob-adapter-****.jar` and `vpadn-sdk-***-***-***.jar`.
-![][9]  
+![][9]
 
 
 
@@ -81,15 +81,15 @@ See the [Android instructions] for how to set up the Google Play services SDK.
 ---
 a. Right click on your app project in Eclipse and select `Properties`.
 
-![][10]  
+![][10]
 
 b.Select Android and then click `Add....` Find the google-play-services_lib project and select OK to add the Google Play services library.
 
-![][11]  
+![][11]
 
-c. The project now references the Google Play services library.  
+c. The project now references the Google Play services library.
 
-![][12]  
+![][12]
 
 ### Android Studio
 ---
@@ -115,18 +115,18 @@ Google Play services requires you to add the following meta-data tag within the 
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.company"
-          android:versionCode="1" android:versionName="1.0">  
+          android:versionCode="1" android:versionName="1.0">
  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">  
+               android:debuggable="true">
   <span style="color:#ff0000"><meta-data android:name="com.google.android.gms.version"
-             android:value="@integer/google_play_services_version"/></span>  
-   <activity android:label="@string/app_name" android:name="BannerExample">  
-     <intent-filter>  
-       <action android:name="android.intent.action.MAIN"/>  
-       <category android:name="android.intent.category.LAUNCHER"/>  
-     </intent-filter>  
-   </activity>  
- </application>  
+             android:value="@integer/google_play_services_version"/></span>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN"/>
+       <category android:name="android.intent.category.LAUNCHER"/>
+     </intent-filter>
+   </activity>
+ </application>
 </manifest>
 ```
 
@@ -138,17 +138,17 @@ The Mobile Ads SDK requires that com.google.android.gms.ads.AdActivity be declar
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.company"
-          android:versionCode="1" android:versionName="1.0">  
+          android:versionCode="1" android:versionName="1.0">
  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">  
+               android:debuggable="true">
    <meta-data android:name="com.google.android.gms.version"
-               android:value="@integer/google_play_services_version"/>  
-   <activity android:label="@string/app_name" android:name="BannerExample">  
-     <intent-filter>  
-       <action android:name="android.intent.action.MAIN"/>  
-       <category android:name="android.intent.category.LAUNCHER"/>  
-     </intent-filter>  
-   </activity>  
+               android:value="@integer/google_play_services_version"/>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN"/>
+       <category android:name="android.intent.category.LAUNCHER"/>
+     </intent-filter>
+   </activity>
    <span style="color:#ff0000">
      <activity android:name="om.google.android.gms.ads.AdActivity"
        android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/></span>
@@ -295,7 +295,7 @@ Once again, the easiest place to do this is somewhere in your app's Activity.
 --------------------
 [Download Sample Code]
 
-  [here]: https://developers.google.com/mobile-ads-sdk/docs/admob/mediation#android
+  [here]: https://developers.google.com/admob/android/quick-start
   []: http://www.google.com.tw/ads/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotEnglishAndroid1.jpg
   [2]:  {{site.imgurl}}/Admob2_eng.png
@@ -312,4 +312,4 @@ Once again, the easiest place to do this is somewhere in your app's Activity.
   [Download Sample Code]: {{site.baseurl}}/android/download/#admob
   [Android SDK]: https://developer.android.com/sdk/index.html
   [Android instructions]: https://developer.android.com/google/play-services/setup.html
-  [13]: https://developers.google.com/mobile-ads-sdk/docs/admob/intermediate#play
+  [13]: https://developers.google.com/admob/android/banner

@@ -28,8 +28,8 @@ Vpon Mobile Web SDK supports the following formats:<br><br>
 
 | Name              |    Size(WxH)  |
 | :---------------- | :------------:|
-| Banner            |    320x50     |  
-| Medium Rectangle  |    300x250    |  
+| Banner            |    320x50     |
+| Medium Rectangle  |    300x250    |
 
 
 <br>
@@ -162,9 +162,7 @@ To create a line item:
 You can target at ad units, placements, or both. To find inventory to target at, you can either browse through your network’s inventory or perform a search.
 
 The ad unit named after your network represents all of the ad units in your network. If you target the line item to this network-level ad unit, the line item will target any ad unit in your network.
-
-Example：
-![AppType.png]
+![]({{ site.imgurl }}/AddTargeting.png)
 
 10.Enter additional targeting criteria to target a specific audience (optional). If you don’t target the line item to any ad units or placements, then the line item will be set to serve as run-of-network. This means the line item can serve to any ad unit on your website.
 
@@ -178,7 +176,7 @@ Example：
 
 ### Add only one creative
 Click New creative and select the creative's dimensions. (Choose All → Third party)
-![Moblie_DFP_creative]
+<img src="{{site.imgurl}}/Moblie_DFP_creative.png" alt="" class="width-500" />
 
 ### Creative settings
 Input the snippet of code:
@@ -266,6 +264,5 @@ Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
 [Vpon FAE]: mailto:fae@vpon.com
 [MobileDPF_Eng]: {{site.imgurl}}/MobileDPF_Eng.png
 [AppType.png]: {{site.imgurl}}/AppType.png
-[Moblie_DFP_creative]: {{site.imgurl}}/Moblie_DFP_creative.png
 [MobileDFP_creativeSetting]: {{site.imgurl}}/MobileDFP_creativeSetting.png
 [DFP_WEB_CALLBACK]: {{site.imgurl}}/DFP_WEB_CALLBACK.png
