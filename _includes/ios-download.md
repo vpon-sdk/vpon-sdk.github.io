@@ -15,20 +15,20 @@ Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |
 
 # Adapter Download
 ---
-|AdMob Adapter <br> (Version: 1.0.1)|
-|:-------------:|
-|[download][2]|
+AdMob Adapter <br> (Version: 1.0.1)|MoPub Adapter
+:---------------------------------:|:-----------:|
+[download][2]                      |[download][6]
 
 # Sample Code Download
 ---
-Fundamental     | AdMob        |    DFP       |   MoPub     | Mogo
-:-------------: | :-----------:|:------------:|:-----------:|:--------:
-[download][3]   | [download][4]|[download][5] |[download][6]|[download][7]
+Fundamental     | AdMob        |    DFP       | Mogo
+:-------------: | :-----------:|:------------:|:--------:|
+[download][3]   | [download][4]|[download][5] |[download][7]
 
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-4218-71115102-1511171703-738b409.a
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-4219-32215102-1512231500-31dacda.a
 [2]: http://m.vpadn.com/sdk/VponAdapter_iOS_eff8d70_v1.0.1.a
 [3]: {{site.dnldurl}}/sample-code/BannerInterstitialSample_42x.zip
 [4]: {{site.dnldurl}}/sample-code/iosAdmobSampleCode.zip
