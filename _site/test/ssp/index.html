@@ -6,16 +6,25 @@
   <title>
 
   </title>
+  <script type="text/javascript">
+    function vponCallback(adEmpty) {
+      if (adEmpty) {
+        alert('Enter into callback but with no ads :(');
+      }
+    }
+  </script>
 </head>
 
 <body>
-  <div id="6_9" type="int"></div>
+  <div id="6_9" type="int" test="1"></div>
   <script type="text/javascript" src="http://m.vpadn.com/ssp/vat.js"></script>
   <script>
     vat.addPlacement('6_9');
+    vat.addCallback('6_9', 'load', vponCallback);
     vat.load();
   </script>
-
+  <div id="6_12" type="int" test="1"></div>
+  <script type="text/javascript" src="//m.vpadn.com/ssp/vat.js"></script>
 </body>
 
 </html>

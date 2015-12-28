@@ -234,6 +234,24 @@ vat.load() should has only 1 in a page.</p>
 </tr>
 </tbody></table>
 
+<h2 id="callback">Callback</h2>
+
+<p>You can add callbacks to ad displays by using <code>addCallback</code>. For example:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_tag&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span> <span class="na">test=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//m.vpadn.com/ssp/vat.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">function</span> <span class="nx">vponCallback</span><span class="p">(</span><span class="nx">adEmpty</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">adEmpty</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// do something</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">);</span>
+  <span class="nx">vat</span><span class="p">.</span><span class="nx">addCallback</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">vponCallback</span><span class="p">);</span>
+  <span class="nx">vat</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
+<p>As the name implies, the method <code>addCallback</code> takes three parameters to add a callback to specific actions, placement tag, method name, and your callback. This generatea a callback calling function <code>vponCallback</code> after <code>load</code>. In such </p>
+
 <h1 id="result">Result</h1>
 
 <hr>

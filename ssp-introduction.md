@@ -56,6 +56,26 @@ showPlacement|	Display specified ads in the anchor locations.|	vat.showPlacement
 addCallback	| Callback depends on the type (load) | vat.addCallback(placement_id, "load", fn(empty))
 addVariable	| A key-value pair to add to ad requests for the ad tag |	vat.addVariable('gender', 'male')
 
+## Callback
+You can add callbacks to ad displays by using `addCallback`. For example:
+
+```html
+<div id="your_placement_tag" type="int" test="1"></div>
+<script type="text/javascript" src="//m.vpadn.com/ssp/vat.js"></script>
+<script>
+  function vponCallback(adEmpty) {
+    if (adEmpty) {
+      // do something
+    }
+  }
+  vat.addPlacement('your_placement_tag');
+  vat.addCallback('your_placement_tag', 'load', vponCallback);
+  vat.load();
+</script>
+```
+
+As the name implies, the method `addCallback` takes three parameters to add a callback to specific actions, placement tag, method name, and your callback. This generatea a callback calling function `vponCallback` after `load`. In such 
+
 # Result
 ---
 You will see the integration result as below:
