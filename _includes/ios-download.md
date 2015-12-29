@@ -1,4 +1,4 @@
-# SDK Download (Version: 4.2.18)
+# SDK Download (Version: 4.2.19)
 ---
 Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |
 :-------------: | :------------:|
@@ -24,7 +24,6 @@ AdMob Adapter <br> (Version: 1.0.1)|MoPub Adapter
 Fundamental     | AdMob        |    DFP       | Mogo
 :-------------: | :-----------:|:------------:|:--------:|
 [download][3]   | [download][4]|[download][5] |[download][7]
-
 
 
 
