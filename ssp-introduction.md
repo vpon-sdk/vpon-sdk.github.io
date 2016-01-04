@@ -26,10 +26,19 @@ Please insert the code below into your websites.
 <script>vat.addPlacement('your_placement_tag');vat.load();</script>
 ```
 
-> **Note:**
-1. vat.load() should has only 1 in a page.
-2. `<div>` with `id="your_placement_tag"` must put earlier than Vpon scripts.
-3. Usage of `vat` must go after reading `vat.js`.
+<!-- >**Note:**
+> 1. vat.load() should has only 1 in a page.
+> 2. `<div>` with `id="your_placement_tag"` must put earlier than Vpon scripts.
+> 3. Usage of `vat` must go after reading `vat.js`. -->
+<blockquote>
+<strong>Note:</strong>
+<ol>
+<li>vat.load() should has only 1 in a page.</li>
+<li><code>&lt;div&gt;</code> with <code>id="your_placement_tag"</code> must put earlier than Vpon scripts.</li>
+<li>Usage of <code>vat</code> must go after reading <code>vat.js</code>.</li>
+<li>To customize ad layout, you are allow to use another <code>&lt;block&gt;</code> <code>&lt;/block&gt;</code> to wrap the tag, and given the block css style.</li>
+</ol>
+</blockquote>
 
 ## Test ads
 ### test attribute

@@ -29,8 +29,8 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 
 | 名称             |    Size(WxH)  |
 | :---------------- | :------------:|
-| Banner            |    320x50     |  
-| Medium Rectangle  |    300x250    |  
+| Banner            |    320x50     |
+| Medium Rectangle  |    300x250    |
 
 
 <br>
@@ -126,8 +126,8 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 2. 在广告单元中设定名称、 大小、目标视窗后储存
 3. 产生广告代码 (选取Google发佈商广告代码)
 
-![UnitAdSetting_DFP1]
-![UnitAdSetting_DFP2]
+<img src="{{site.imgurl}}/UnitAdSetting_DFP1.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/UnitAdSetting_DFP2.png" alt="" class="width-600" />
 
 ## 设定委刊单、委刊项及广告素材
 如要透过「DFP 广告管理系统标准版」放送新的广告活动，请先建立新委刊单。建好委刊单后，您还必须建立委刊项、新增广告素材以及核准委刊单，委刊单广告才能放送。针对保留的委刊项类型 (贊助和标准)，在委刊单获得核准以前，DFP 不会保留广告空间。
@@ -174,7 +174,8 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 
 #### 只加入一个广告素材
 选取广告素材类型: 选取『所有』中的『 第三方』
-![广告素材类型_DFP]
+<img src="{{site.imgurl}}/廣告素材類型_DFP.png" alt="" class="width-600" />
+
 
 #### 基本广告素材设定
 程式码片段请填入:
@@ -196,40 +197,36 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 程式码片段请填入:
 
 ```html
-    <div id="Vpadn_tag"></div>
-    <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
-    <script type='text/javascript'>
-    googletag.cmd.push(function() {
-    googletag.defineSlot('write_your_ad_unit', [320, 50], 'Vpadn_tag').addService(googletag.pubads());
+<div id="Vpadn_tag"></div>
+<script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('your_ad_unit', [320, 50], 'Vpadn_tag').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
-    });
-    </script>
-
-    <script>
-    function vponCallBackMethod(adStatus){
+  });
+</script>
+<script>
+  function vponCallBackMethod(adStatus) {
     if (adStatus != 0) {
-    googletag.cmd.push(function() { googletag.display('Vpadn_tag');});
+      googletag.cmd.push(function() {
+        googletag.display('Vpadn_tag');
+      });
     }
-    }
-    </script>
+  }
+</script>
 
-           <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="write_your_license_key"
-            vpon_ad_format="320x50_mb"
-            debug="true"
-            ad_request_callback="vponCallBackMethod"
-            is_rotate="false"></vpon>
+<vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+</script>
 ```
 > **Note**：
 
 >1. write_your_ad_unit：放入另一组广告空间产生的广告代码，此广告代码的格式会例如这样: /78213298/WebMediation，且此代码被指向到欲轮播的下一家广告的广告订单项，在此订单项裡上传欲轮播的素材，如: Adsense script。请避免再将无广告投递的素材包含进来，以防造成无穷迴圈。
 >2. [320, 50]： 请替换成欲展示的广告大小。
->3. vpon vpon_ad_test="1" 爲开啓测试广告， vpon vpon_ad_test="0"爲拉取正式广告。
 >4. write_your_license_key：请填入vpon申请的Banner ID。
->5. 320x50_mb：请替换成欲展示的广告大小。
+
 
 范例：
 ![DFP_WEB_CALLBACK]

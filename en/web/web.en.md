@@ -44,17 +44,17 @@ Vpon Mobile Web SDK supports the following formats:<br><br>
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_first_vpon_banner_id_here"
+        vpon_ad_licensy_key="your_first_vpon_banner_id"
         vpon_ad_format="320x50_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_second_vpon_banner_id_here"
+        vpon_ad_licensy_key="your_second_vpon_banner_id"
         vpon_ad_format="320x50_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_third_vpon_banner_id_here"
+        vpon_ad_licensy_key="your_third_vpon_banner_id"
         vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
@@ -139,11 +139,12 @@ To create an order before running an inventory forecast:
 1. In your DFP Small Business account, click the `Orders` tab.
 2. Click `New order`.
 3. Enter your order information in the appropriate fields.
-> Order names must be unique within your network.
 4. Enter your line item information.
 5. Click Check inventory to ensure the order will have enough available impressions.
-![Warning]
 6. Click `Save`。Once you've created an order, you'll need to approve it before the line items are eligible to serve. See Approve an order to learn how.
+
+> Order names must be unique within your network.
+
 
 ### Create a Line Item
 
@@ -188,7 +189,7 @@ Input the snippet of code:
        debug="true"></vpon>
       <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
-> **Note**: vpon vpon_ad_test="1" 爲開啓測試廣告， vpon vpon_ad_test="0"爲拉取正式廣告。
+> **Note**: vpon_ad_test="1" for test ads，vpon_ad_test="0" for normal ads。
 
 Example：
 ![MobileDFP_creativeSetting]
@@ -198,40 +199,35 @@ Example：
 snippet of code is provided below:
 
 ```html
-    <div id="Vpadn_tag"></div>
-    <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
-    <script type='text/javascript'>
-    googletag.cmd.push(function() {
-    googletag.defineSlot('write_your_ad_unit', [320, 50], 'Vpadn_tag').addService(googletag.pubads());
+<div id="Vpadn_tag"></div>
+<script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('your_ad_unit', [320, 50], 'Vpadn_tag').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
-    });
-    </script>
-
-    <script>
-    function vponCallBackMethod(adStatus){
+  });
+</script>
+<script>
+  function vponCallBackMethod(adStatus) {
     if (adStatus != 0) {
-    googletag.cmd.push(function() { googletag.display('Vpadn_tag');});
+      googletag.cmd.push(function() {
+        googletag.display('Vpadn_tag');
+      });
     }
-    }
-    </script>
+  }
+</script>
 
-           <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="write_your_license_key"
-            vpon_ad_format="320x50_mb"
-            debug="true"
-            ad_request_callback="vponCallBackMethod"
-            is_rotate="false"></vpon>
+<vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+</script>
 ```
 > **Note**：
 
-> 1. write_your_ad_unit: put the other ad unit, which got from inventory. This ad unit formate is like: `/network_ID/ad_unit` And this ad unit is target by the line item, which is the next ads you want to show when vpon lack of ads. For example, in this line item it includes Adsense script. Make sure that the subsequent ad requests that are passed-back from the third-party ad server to DFP are unique and therefore do not call that same third party for an ad.
-> 2. [320, 50]： change it to the ad size you want.
-> 3. vpon vpon_ad_test="1" is for test ad， vpon vpon_ad_test="0" is to get official ad
-> 4. write_your_license_key：please put the vpon's Banner ID here
-> 5. 320x50_mb：change it to the ad size you want: 320x50_mb or 300x250_mb
+> 1. your_ad_unit: put the other ad unit received from inventory, e.g. `/network_ID/ad_unit`. This ad unit is targeted by the line item, which is the next ads you want to show when lack of Vpon ads. In the example above, it includes an AdSense script, and make sure that the subsequent ad requests passed-back from the third-party ad server to DFP are unique; therefore, do not call the same third party for ads.
+> 2. [320, 50]： you can change the ad size
+> 3. your_license_key：please put the vpon's Banner ID here
 
 Example：
 ![DFP_WEB_CALLBACK]

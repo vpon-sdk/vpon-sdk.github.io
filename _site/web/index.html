@@ -209,17 +209,17 @@
 <div class="highlight"><pre><code class="language-HTML" data-lang="HTML"><span class="nt">&lt;body&gt;</span>
 ...
   <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_first_vpon_banner_id_here&quot;</span>
+        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_first_vpon_banner_id&quot;</span>
         <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
         <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
 ...
   <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_second_vpon_banner_id_here&quot;</span>
+        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_second_vpon_banner_id&quot;</span>
         <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
         <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
 ...
   <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_third_vpon_banner_id_here&quot;</span>
+        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_third_vpon_banner_id&quot;</span>
         <span class="na">vpon_ad_format=</span><span class="s">&quot;300x250_mb&quot;</span>
         <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
 ...
@@ -346,13 +346,15 @@ If you use iframe for embedding vpon&#39;s ad, please remember to modify the siz
 <ol>
 <li>In your DFP Small Business account, click the <code>Orders</code> tab.</li>
 <li>Click <code>New order</code>.</li>
-<li>Enter your order information in the appropriate fields.
-&gt; Order names must be unique within your network.</li>
+<li>Enter your order information in the appropriate fields.</li>
 <li>Enter your line item information.</li>
-<li>Click Check inventory to ensure the order will have enough available impressions.
-![Warning]</li>
+<li>Click Check inventory to ensure the order will have enough available impressions.</li>
 <li>Click <code>Save</code>。Once you&#39;ve created an order, you&#39;ll need to approve it before the line items are eligible to serve. See Approve an order to learn how.</li>
 </ol>
+
+<blockquote>
+<p>Order names must be unique within your network.</p>
+</blockquote>
 
 <h3 id="create-a-line-item">Create a Line Item</h3>
 
@@ -402,7 +404,7 @@ If you use iframe for embedding vpon&#39;s ad, please remember to modify the siz
       <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>  <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <blockquote>
-<p><strong>Note</strong>: vpon vpon_ad_test=&quot;1&quot; 爲開啓測試廣告， vpon vpon_ad_test=&quot;0&quot;爲拉取正式廣告。</p>
+<p><strong>Note</strong>: vpon_ad_test=&quot;1&quot; for test ads，vpon_ad_test=&quot;0&quot; for normal ads。</p>
 </blockquote>
 
 <p>Example：
@@ -411,42 +413,37 @@ If you use iframe for embedding vpon&#39;s ad, please remember to modify the siz
 <h3 id="callback-for-traffic-remnant-ads">Callback for traffic remnant ads</h3>
 
 <p>snippet of code is provided below:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Vpadn_tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.googletagservices.com/tag/js/gpt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">&#39;write_your_ad_unit&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Vpadn_tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.googletagservices.com/tag/js/gpt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">&#39;your_ad_unit&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
     <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">enableSingleRequest</span><span class="p">();</span>
     <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">();</span>
-    <span class="p">});</span>
-    <span class="nt">&lt;/script&gt;</span>
-
-    <span class="nt">&lt;script&gt;</span>
-    <span class="kd">function</span> <span class="nx">vponCallBackMethod</span><span class="p">(</span><span class="nx">adStatus</span><span class="p">){</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">function</span> <span class="nx">vponCallBackMethod</span><span class="p">(</span><span class="nx">adStatus</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">adStatus</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">);});</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">);</span>
+      <span class="p">});</span>
     <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nt">&lt;/script&gt;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
 
-           <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;write_your_license_key&quot;</span>
-            <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
-            <span class="na">debug=</span><span class="s">&quot;true&quot;</span>
-            <span class="na">ad_request_callback=</span><span class="s">&quot;vponCallBackMethod&quot;</span>
-            <span class="na">is_rotate=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+<span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span> <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_license_key&quot;</span> <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span> <span class="na">debug=</span><span class="s">&quot;true&quot;</span> <span class="na">ad_request_callback=</span><span class="s">&quot;vponCallBackMethod&quot;</span> <span class="na">is_rotate=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
 
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>：</p>
 
 <ol>
-<li>write_your_ad_unit: put the other ad unit, which got from inventory. This ad unit formate is like: <code>/network_ID/ad_unit</code> And this ad unit is target by the line item, which is the next ads you want to show when vpon lack of ads. For example, in this line item it includes Adsense script. Make sure that the subsequent ad requests that are passed-back from the third-party ad server to DFP are unique and therefore do not call that same third party for an ad.</li>
-<li>[320, 50]： change it to the ad size you want.</li>
-<li>vpon vpon_ad_test=&quot;1&quot; is for test ad， vpon vpon_ad_test=&quot;0&quot; is to get official ad</li>
-<li>write_your_license_key：please put the vpon&#39;s Banner ID here</li>
-<li>320x50_mb：change it to the ad size you want: 320x50_mb or 300x250_mb</li>
+<li>your_ad_unit: put the other ad unit received from inventory, e.g. <code>/network_ID/ad_unit</code>. This ad unit is targeted by the line item, which is the next ads you want to show when lack of Vpon ads. In the example above, it includes an AdSense script, and make sure that the subsequent ad requests passed-back from the third-party ad server to DFP are unique; therefore, do not call the same third party for ads.</li>
+<li>[320, 50]： you can change the ad size</li>
+<li>your_license_key：please put the vpon&#39;s Banner ID here</li>
 </ol>
 </blockquote>
 

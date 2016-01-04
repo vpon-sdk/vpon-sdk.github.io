@@ -400,9 +400,9 @@
 <h3 id="クリエイティブを-1-つだけ追加">クリエイティブを 1 つだけ追加</h3>
 
 <p>クリエイティブタイプの選択: [所有] 内の [第三者] を選択します。
-<img src="/assets/img/Moblie_DFP_creative_jp.png" alt="Moblie_DFP_creative_jp"></p>
+<img src="/assets/img/Moblie_DFP_creative_jp.png" alt="" class="width-600" /></p>
 
-<h3 id="クリエイティブの設定">クリエイティブの設定</h3>
+<h4 id="クリエイティブの設定">クリエイティブの設定</h4>
 
 <p>[コード] フィールドには以下の通り記入してください。
 例:</p>
@@ -421,42 +421,37 @@
 <h4 id="空き枠に対するコールバック">空き枠に対するコールバック</h4>
 
 <p>コードスニペットは以下の通りです。:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html">    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Vpadn_tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.googletagservices.com/tag/js/gpt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">&#39;write_your_ad_unit&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Vpadn_tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.googletagservices.com/tag/js/gpt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;</span>
+  <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">&#39;your_ad_unit&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
     <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">enableSingleRequest</span><span class="p">();</span>
     <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">();</span>
-    <span class="p">});</span>
-    <span class="nt">&lt;/script&gt;</span>
-
-    <span class="nt">&lt;script&gt;</span>
-    <span class="kd">function</span> <span class="nx">vponCallBackMethod</span><span class="p">(</span><span class="nx">adStatus</span><span class="p">){</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">function</span> <span class="nx">vponCallBackMethod</span><span class="p">(</span><span class="nx">adStatus</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">adStatus</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">);});</span>
+      <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">);</span>
+      <span class="p">});</span>
     <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nt">&lt;/script&gt;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
 
-           <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;write_your_license_key&quot;</span>
-            <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
-            <span class="na">debug=</span><span class="s">&quot;true&quot;</span>
-            <span class="na">ad_request_callback=</span><span class="s">&quot;vponCallBackMethod&quot;</span>
-            <span class="na">is_rotate=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+<span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span> <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_license_key&quot;</span> <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span> <span class="na">debug=</span><span class="s">&quot;true&quot;</span> <span class="na">ad_request_callback=</span><span class="s">&quot;vponCallBackMethod&quot;</span> <span class="na">is_rotate=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
 
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>：</p>
 
 <ol>
-<li>write_your_ad_unit: [在庫]から取得した広告ユニットに差し替えてください。ここでの広告ユニットフォーマットは次のようになります：&#39;/network_ID/ad_unit.&#39;　また、この広告ユニットは、Vponの広告在庫が不足している場合に次に呼び出す広告申込情報の対象となっています。 例えば、ここでの広告申込情報はAdsenseのスクリプトを含んでいます。第三者広告配信サーバーからDFPに返された後続の広告リクエストは必ず固有である必要があります。したがって、1広告に対して同じ第三者ネットワークは呼び出すことはしないでください。</li>
+<li>your_ad_unit: [在庫]から取得した広告ユニットに差し替えてください。ここでの広告ユニットフォーマットは次のようになります：&#39;/network_ID/ad_unit.&#39;　また、この広告ユニットは、Vponの広告在庫が不足している場合に次に呼び出す広告申込情報の対象となっています。 例えば、ここでの広告申込情報はAdsenseのスクリプトを含んでいます。第三者広告配信サーバーからDFPに返された後続の広告リクエストは必ず固有である必要があります。したがって、1広告に対して同じ第三者ネットワークは呼び出すことはしないでください。</li>
 <li>[320, 50]： 必要な広告サイズに変更してください。</li>
-<li>vpon vpon_ad_test=&quot;1&quot; はテスト広告を取得、 vpon vpon_ad_test=&quot;0&quot;は本番用広告を取得します。</li>
-<li>write_your_license_key：VponのバナーIDを記載してください。</li>
-<li>320x50_mb：必要な広告サイズに変更してください（320x50_mb もしくは 300x250_mb）</li>
+<li>your_license_key：VponのバナーIDを記載してください。</li>
 </ol>
 </blockquote>
 

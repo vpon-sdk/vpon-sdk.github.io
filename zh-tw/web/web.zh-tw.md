@@ -29,8 +29,8 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 
 | 名稱             |    Size(WxH)  |
 | :---------------- | :------------:|
-| Banner            |    320x50     |  
-| Medium Rectangle  |    300x250    |  
+| Banner            |    320x50     |
+| Medium Rectangle  |    300x250    |
 
 
 <br>
@@ -44,17 +44,17 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_first_vpon_banner_id_here"
+        vpon_ad_licensy_key="your_first_vpon_banner_id"
         vpon_ad_format="320x50_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_second_vpon_banner_id_here"
+        vpon_ad_licensy_key="your_second_vpon_banner_id"
         vpon_ad_format="320x50_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_third_vpon_banner_id_here"
+        vpon_ad_licensy_key="your_third_vpon_banner_id"
         vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
@@ -126,8 +126,8 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 2. 在廣告單元中設定名稱、 大小、目標視窗後儲存
 3. 產生廣告代碼 (選取Google發佈商廣告代碼)
 
-![UnitAdSetting_DFP1]
-![UnitAdSetting_DFP2]
+<img src="{{site.imgurl}}/UnitAdSetting_DFP1.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/UnitAdSetting_DFP2.png" alt="" class="width-600" />
 
 ## 設定委刊單、委刊項及廣告素材
 如要透過「DFP 廣告管理系統標準版」放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。針對保留的委刊項類型 (贊助和標準)，在委刊單獲得核准以前，DFP 不會保留廣告空間。
@@ -140,7 +140,6 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 3. 在適當欄位中輸入您的委刊單資訊。不可與聯播網中其他的委刊單名稱重複。
 4. 輸入委刊項資訊。
 5. 按一下 `檢查廣告空間`，確認委刊單擁有足夠的曝光供應量。
-![Warning]
 6. 按一下 `儲存`。建好委刊單之後，您必須先予以核准，委刊項才能放送。
 
 ### 委刊項資訊
@@ -173,8 +172,8 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 3. 您可以將多個廣告素材拖曳到委刊項，或一次只加入一個廣告素材
 
 #### 只加入一個廣告素材
-選取廣告素材類型: 選取『所有』中的『 第三方』
-![廣告素材類型_DFP]
+選取廣告素材類型: 選取`所有`中的`第三方`
+<img src="{{site.imgurl}}/廣告素材類型_DFP.png" alt="" class="width-600" />
 
 #### 基本廣告素材設定
 程式碼片段請填入:
@@ -196,40 +195,35 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 程式碼片段請填入:
 
 ```html
-    <div id="Vpadn_tag"></div>
-    <script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
-    <script type='text/javascript'>
-    googletag.cmd.push(function() {
-    googletag.defineSlot('write_your_ad_unit', [320, 50], 'Vpadn_tag').addService(googletag.pubads());
+<div id="Vpadn_tag"></div>
+<script src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+<script type='text/javascript'>
+  googletag.cmd.push(function() {
+    googletag.defineSlot('your_ad_unit', [320, 50], 'Vpadn_tag').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
-    });
-    </script>
-
-    <script>
-    function vponCallBackMethod(adStatus){
+  });
+</script>
+<script>
+  function vponCallBackMethod(adStatus) {
     if (adStatus != 0) {
-    googletag.cmd.push(function() { googletag.display('Vpadn_tag');});
+      googletag.cmd.push(function() {
+        googletag.display('Vpadn_tag');
+      });
     }
-    }
-    </script>
+  }
+</script>
 
-           <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="write_your_license_key"
-            vpon_ad_format="320x50_mb"
-            debug="true"
-            ad_request_callback="vponCallBackMethod"
-            is_rotate="false"></vpon>
+<vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+</script>
 ```
 > **Note**：
 
->1. write_your_ad_unit：放入另一組廣告空間產生的廣告代碼，此廣告代碼的格式會例如這樣: /78213298/WebMediation，且此代碼被指向到欲輪播的下一家廣告的廣告訂單項，在此訂單項裡上傳欲輪播的素材，如: Adsense script。請避免再將無廣告投遞的素材包含進來，以防造成無窮迴圈。
+>1. your_ad_unit：放入另一組廣告空間產生的廣告代碼，此廣告代碼的格式會例如這樣: /78213298/WebMediation，且此代碼被指向到欲輪播的下一家廣告的廣告訂單項，在此訂單項裡上傳欲輪播的素材，如: Adsense script。請避免再將無廣告投遞的素材包含進來，以防造成無窮迴圈。
 >2. [320, 50]： 請替換成欲展示的廣告大小。
->3. vpon vpon_ad_test="1" 爲開啓測試廣告， vpon vpon_ad_test="0"爲拉取正式廣告。
->4. write_your_license_key：請填入vpon申請的Banner ID。
->5. 320x50_mb：請替換成欲展示的廣告大小。
+>3. your_license_key：請填入vpon申請的Banner ID。
 
 範例：
 ![DFP_WEB_CALLBACK]

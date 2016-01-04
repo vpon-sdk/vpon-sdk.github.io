@@ -409,6 +409,9 @@ button:focus {
 .width-500 {
   max-width: 500px;
 }
+.width-600 {
+  max-width: 600px;
+}
 
 .f-left {
   float: left;

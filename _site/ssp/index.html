@@ -172,11 +172,19 @@
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//m.vpadn.com/ssp/vat.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span><span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">);</span><span class="nx">vat</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span><span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
+<!-- >**Note:**
+> 1. vat.load() should has only 1 in a page.
+> 2. `<div>` with `id="your_placement_tag"` must put earlier than Vpon scripts.
+> 3. Usage of `vat` must go after reading `vat.js`. -->
+
 <blockquote>
-<p><strong>Note:</strong>
-1. vat.load() should has only 1 in a page.
-2. <code>&lt;div&gt;</code> with <code>id=&quot;your_placement_tag&quot;</code> must put earlier than Vpon scripts.
-3. Usage of <code>vat</code> must go after reading <code>vat.js</code>.</p>
+<strong>Note:</strong>
+<ol>
+<li>vat.load() should has only 1 in a page.</li>
+<li><code>&lt;div&gt;</code> with <code>id="your_placement_tag"</code> must put earlier than Vpon scripts.</li>
+<li>Usage of <code>vat</code> must go after reading <code>vat.js</code>.</li>
+<li>To customize ad layout, you are allow to use another <code>&lt;block&gt;</code> <code>&lt;/block&gt;</code> to wrap the tag, and given the block css style.</li>
+</ol>
 </blockquote>
 
 <h2 id="test-ads">Test ads</h2>
