@@ -168,20 +168,20 @@
 <h2 id="placement-tag">Placement Tag</h2>
 
 <p>Please insert the code below into your websites.</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_tag&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_id&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//m.vpadn.com/ssp/vat.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script&gt;</span><span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">);</span><span class="nx">vat</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span><span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_id&#39;</span><span class="p">);</span><span class="nx">vat</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span><span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <!-- >**Note:**
 > 1. vat.load() should has only 1 in a page.
-> 2. `<div>` with `id="your_placement_tag"` must put earlier than Vpon scripts.
+> 2. `<div>` with `id="your_placement_id"` must put earlier than Vpon scripts.
 > 3. Usage of `vat` must go after reading `vat.js`. -->
 
 <blockquote>
 <strong>Note:</strong>
 <ol>
 <li>vat.load() should has only 1 in a page.</li>
-<li><code>&lt;div&gt;</code> with <code>id="your_placement_tag"</code> must put earlier than Vpon scripts.</li>
+<li><code>&lt;div&gt;</code> with <code>id="your_placement_id"</code> must put earlier than Vpon scripts.</li>
 <li>Usage of <code>vat</code> must go after reading <code>vat.js</code>.</li>
 <li>To customize ad layout, you are allow to use another <code>&lt;block&gt;</code> <code>&lt;/block&gt;</code> to wrap the tag, and given the block css style.</li>
 </ol>
@@ -192,10 +192,10 @@
 <h3 id="test-attribute">test attribute</h3>
 
 <p>To fetch test ads, please add <code>test</code> attribute into your <code>&lt;div&gt;</code>. For example:<br></p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_tag&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span> <span class="na">test=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_id&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span> <span class="na">test=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre></div>
 <ul>
-<li>Normal ads when <code>test=&#39;0&#39;</code>. (Default: test=&quot;0&quot;)</li>
+<li>Real ads when <code>test=&#39;0&#39;</code>. (Default: test=&quot;0&quot;)</li>
 <li>Test ads when <code>test=&#39;1&#39;</code>.</li>
 </ul>
 
@@ -247,7 +247,7 @@
 <h2 id="callback">Callback</h2>
 
 <p>You can add callbacks to ad displays by using <code>addCallback</code>. For example:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_tag&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;your_placement_id&quot;</span> <span class="na">type=</span><span class="s">&quot;int&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;//m.vpadn.com/ssp/vat.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="kd">function</span> <span class="nx">vponCallback</span><span class="p">(</span><span class="nx">adEmpty</span><span class="p">)</span> <span class="p">{</span>
@@ -255,8 +255,8 @@
       <span class="c1">// do something</span>
     <span class="p">}</span>
   <span class="p">}</span>
-  <span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">);</span>
-  <span class="nx">vat</span><span class="p">.</span><span class="nx">addCallback</span><span class="p">(</span><span class="s1">&#39;your_placement_tag&#39;</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">vponCallback</span><span class="p">);</span>
+  <span class="nx">vat</span><span class="p">.</span><span class="nx">addPlacement</span><span class="p">(</span><span class="s1">&#39;your_placement_id&#39;</span><span class="p">);</span>
+  <span class="nx">vat</span><span class="p">.</span><span class="nx">addCallback</span><span class="p">(</span><span class="s1">&#39;your_placement_id&#39;</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="nx">vponCallback</span><span class="p">);</span>
   <span class="nx">vat</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>

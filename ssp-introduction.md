@@ -21,20 +21,20 @@ If you have recieved the SSP Mobile Web interstitial placement tag, please follo
 Please insert the code below into your websites.
 
 ``` html
-<div id="your_placement_tag" type="int"></div>
+<div id="your_placement_id" type="int"></div>
 <script type="text/javascript" src="//m.vpadn.com/ssp/vat.js"></script>
-<script>vat.addPlacement('your_placement_tag');vat.load();</script>
+<script>vat.addPlacement('your_placement_id');vat.load();</script>
 ```
 
 <!-- >**Note:**
 > 1. vat.load() should has only 1 in a page.
-> 2. `<div>` with `id="your_placement_tag"` must put earlier than Vpon scripts.
+> 2. `<div>` with `id="your_placement_id"` must put earlier than Vpon scripts.
 > 3. Usage of `vat` must go after reading `vat.js`. -->
 <blockquote>
 <strong>Note:</strong>
 <ol>
 <li>vat.load() should has only 1 in a page.</li>
-<li><code>&lt;div&gt;</code> with <code>id="your_placement_tag"</code> must put earlier than Vpon scripts.</li>
+<li><code>&lt;div&gt;</code> with <code>id="your_placement_id"</code> must put earlier than Vpon scripts.</li>
 <li>Usage of <code>vat</code> must go after reading <code>vat.js</code>.</li>
 <li>To customize ad layout, you are allow to use another <code>&lt;block&gt;</code> <code>&lt;/block&gt;</code> to wrap the tag, and given the block css style.</li>
 </ol>
@@ -45,10 +45,10 @@ Please insert the code below into your websites.
 To fetch test ads, please add `test` attribute into your `<div>`. For example:<br>
 
 ```html
-<div id="your_placement_tag" type="int" test="1"></div>
+<div id="your_placement_id" type="int" test="1"></div>
 ```
 
-* Normal ads when `test='0'`. (Default: test="0")
+* Real ads when `test='0'`. (Default: test="0")
 * Test ads when `test='1'`.
 
 <img src="{{site.imgurl}}/SSP_Test_AD1.jpg" class="width-300">
@@ -71,7 +71,7 @@ addVariable	| A key-value pair to add to ad requests for the ad tag |	vat.addVar
 You can add callbacks to ad displays by using `addCallback`. For example:
 
 ```html
-<div id="your_placement_tag" type="int"></div>
+<div id="your_placement_id" type="int"></div>
 <script type="text/javascript" src="//m.vpadn.com/ssp/vat.js"></script>
 <script>
   function vponCallback(adEmpty) {
@@ -79,8 +79,8 @@ You can add callbacks to ad displays by using `addCallback`. For example:
       // do something
     }
   }
-  vat.addPlacement('your_placement_tag');
-  vat.addCallback('your_placement_tag', 'load', vponCallback);
+  vat.addPlacement('your_placement_id');
+  vat.addCallback('your_placement_id', 'load', vponCallback);
   vat.load();
 </script>
 ```
