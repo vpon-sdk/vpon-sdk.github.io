@@ -2,6 +2,12 @@
 <html>
 
 <head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+</style>
   <script type='text/javascript'>
     var googletag = googletag || {};
     googletag.cmd = googletag.cmd || [];
@@ -10,8 +16,8 @@
       gads.async = true;
       gads.type = 'text/javascript';
       var useSSL = 'https:' == document.location.protocol;
-      // gads.src = (useSSL ? 'https:' : 'http:') +
-      gads.src ='http://www.googletagservices.com/tag/js/gpt.js';
+      gads.src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt.js';
       var node = document.getElementsByTagName('script')[0];
       node.parentNode.insertBefore(gads, node);
     })();
@@ -19,8 +25,13 @@
 
   <script type='text/javascript'>
     googletag.cmd.push(function() {
-      googletag.defineSlot('/110569172/Web_IS', [100, 100], 'div-gpt-ad-1452150010973-0').addService(googletag.pubads());
+      googletag.defineOutOfPageSlot('/110569172/test_IS', 'div-gpt-ad-1452155049496-0').addService(googletag.pubads());
+      // googletag.defineSlot('/110569172/test_IS',[screen.width,screen.height], 'div-gpt-ad-1452155049496-0').addService(googletag.pubads());
       googletag.pubads().enableSingleRequest();
+      googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+          document.getElementById('google_ads_iframe_' + event.slot.l.l ).setAttribute('style', 'width:100%;height:100%;position:fixed;top:0px;left:0px;z-index:999999;');
+          console.log(event.slot);
+      });
       googletag.enableServices();
     });
   </script>
@@ -28,11 +39,11 @@
 
 
 <body>
-  <!-- /110569172/Web_IS -->
-  <div id='div-gpt-ad-1452150010973-0' style='height:100px; width:100px;'>
+  <!-- /110569172/test_IS -->
+  <div id='div-gpt-ad-1452155049496-0'>
     <script type='text/javascript'>
       googletag.cmd.push(function() {
-        googletag.display('div-gpt-ad-1452150010973-0');
+        googletag.display('div-gpt-ad-1452155049496-0');
       });
     </script>
   </div>
@@ -40,7 +51,19 @@
   {{ content }}
 
 
+<script type="text/javascript">
 
+// window.setInterval(function () {
+//   var a = 'google_ads_iframe_/110569172/test_IS_0';
+//   var temp = document.getElementById(a);
+//   console.log(googletag.pubadsReady);
+//   console.log(temp);
+// },1000);
+  // var a = 'google_ads_iframe_/110569172/test_IS_0';
+  // temp = document.getElementById(a);
+  // temp.style.width='100dw';
+  // temp.style.height='100dh';
+</script>
 </body>
 
 </html>
