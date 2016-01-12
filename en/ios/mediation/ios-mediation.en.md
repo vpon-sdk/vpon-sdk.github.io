@@ -14,13 +14,13 @@ If you haven't finished the previous integration guide, please check all the [se
 
 # Overview
 ---
-AdMob Mediation is a feature that lets you serve ads to your apps from multiple sources, including the AdMob Network, Mopub Network, third-party ad networks and house ad campaigns.
+AdMob Mediation is a feature that lets you serve ads to your apps from multiple sources, including AdMob Network, Mopub Network, third-party ad networks and house ad campaigns.
 
 
 # Mediation Platforms
 ---
 ---
-Google AdMob    |  Google DFP |      MoPub   |  
+Google AdMob    |  Google DFP |      MoPub   |
 --------------: | :----------:| :-----------:|
 [![admob]][1]   | [![dfp]][2] | [![mopub]][3]|
 

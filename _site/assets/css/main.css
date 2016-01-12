@@ -171,7 +171,7 @@ hr {
   color: #1a1a1a
 }
 li {
-  color: black
+  color: #444;
 }
 .jumbo-list-item {
   padding-top: 30px
@@ -384,6 +384,9 @@ button {
   }
   h2 {
     font-size: 25px;
+  }
+  body {
+    font-size: 1.2em;
   }
 }
 

@@ -153,7 +153,7 @@
 
     <div class="row">
       <div class="col-md-9" role="main">
-        <h1 id="緣起">緣起</h1>
+        <h1 id="origin">Origin</h1>
 
 <hr>
 
@@ -163,17 +163,44 @@
 再加上 MI 希望可以更有效地管理該網站的前後台，
 因此勢必須要有一個可以滿足以上幾點的解決方法。</p>
 
-<h1 id="requirement">Requirement</h1>
-
-<hr>
-
 <h1 id="what-is-jekyll">What is Jekyll?</h1>
 
 <hr>
 
 <p>Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.</p>
 
+<h1 id="how-it-works">How it works?</h1>
+
+<hr>
+
+<p>After you key the &#39;serve&#39; command of jekyll, the process will go check the <code>_config.yml</code> and <code>Gemfile</code> first, for global settings and dependency settings. Then it runs liquid renderer to change all the liquid tags into corresponding results.</p>
+
+<p>Then it looks for all the mrakdown documnets and transforms them into html pages. For more details in transforming markdowns to htmls, please go to</p>
+
+<h1 id="installation">Installation</h1>
+
+<hr>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>Installing Jekyll is easy and straight-forward, but there are a few requirements you’ll need to make sure your system has before you start.</p>
+
+<ul>
+<li><a href="http://www.ruby-lang.org/en/downloads/">Ruby</a> (including development headers, v1.9.3 or above for Jekyll 2 and v2 or above for Jekyll 3)</li>
+<li><a href="http://rubygems.org/pages/download">RubyGems</a></li>
+<li>Linux, Unix, or Mac OS X</li>
+<li><a href="http://nodejs.org/">NodeJS</a>, or another JavaScript runtime (Jekyll 2 and earlier, for CoffeeScript support).</li>
+<li><a href="https://www.python.org/downloads/">Python 2.7</a> (for Jekyll 2 and earlier)</li>
+</ul>
+
+<h2 id="install-gem">Install Gem</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gem install jekyll
+</code></pre></div>
+<p>All of Jekyll’s gem dependencies are automatically installed by the above command, so you won’t have to worry about them at all.</p>
+
 <h1 id="generate-a-website">Generate a website</h1>
+
+<hr>
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ jekyll build
 # =&gt; The current folder will be generated into ./_site
 </code></pre></div>
@@ -184,27 +211,34 @@
 </code></pre></div>
 <p>As of version 2.4, the serve command will watch for changes automatically.</p>
 
-<h1 id="configuration">Configuration</h1>
+<h1 id="basic-usage">Basic Usage</h1>
 
-<p>Jekyll allows you to concoct your sites in any way you can dream up. These options can either be specified in a <code>_config.yml</code> file placed in your site’s root directory, or can be specified as flags for the <code>jekyll</code> executable in the terminal.</p>
+<hr>
 
-<h1 id="front-matter-defaults">Front Matter defaults</h1>
+<h2 id="configuration">Configuration</h2>
 
-<p>當你遇到以下狀況的時候，最好在 <code>_confing.yml</code> 增加內容以增進撰寫效能：
-- 重複的設定
-- 全域變數
-- 套件設定
-- 其他設定</p>
+<p>You had better include some settings under such situations, into the <code>_confing.yml</code> for website performance.</p>
 
-<h1 id="jekyll-process">Jekyll process</h1>
+<ul>
+<li>重複的設定</li>
+<li>全域變數</li>
+<li>套件設定</li>
+<li>其他設定</li>
+</ul>
 
-<p>在 build 靜態網頁時 ($ jekyll build)，Jekyll 會先去看 <code>_confing.yml</code>，
-查閱裡面的設定，接著 run liquid renderer 把 project 裡所有的 liquid tags 改成設定的文字，
-再去跑 markdown converter 轉成靜態網頁</p>
+<p>For example:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Dependencies</span>
+<span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span>           <span class="l-Scalar-Plain">redcarpet</span>
+<span class="l-Scalar-Plain">redcarpet</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span>       <span class="p-Indicator">[</span><span class="s">&quot;no_intra_emphasis&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;fenced_code_blocks&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;autolink&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;tables&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;with_toc_data&quot;</span><span class="p-Indicator">]</span>
+<span class="l-Scalar-Plain">highlighter</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">pygments</span>
 
-<h1 id="front-matter">Front Matter</h1>
+<span class="c1"># Permalinks</span>
+<span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">pretty</span>
+</code></pre></div>
+<h2 id="front-matter">Front Matter</h2>
 
-<p>The front matter is where Jekyll starts to get really cool. Any file that contains a YAML front matter block will be processed by Jekyll as a special file. The front matter must be the first thing in the file and must take the form of valid YAML set between triple-dashed lines. Here is a basic example:</p>
+<p>Any file that contains a YAML front matter block will be processed by Jekyll as a special file. The front matter must be the first thing in the file and must take the form of valid YAML set between triple-dashed lines. Here is a basic example:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">---
 layout: post
 title: Blogging Like a Hacker

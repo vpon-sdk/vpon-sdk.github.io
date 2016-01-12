@@ -30,7 +30,7 @@ body {
       googletag.pubads().enableSingleRequest();
       googletag.pubads().addEventListener('slotRenderEnded', function (event) {
           document.getElementById('google_ads_iframe_' + event.slot.l.l ).setAttribute('style', 'width:100%;height:100%;position:fixed;top:0px;left:0px;z-index:999999;');
-          console.log(event.slot);
+          // console.log(event.slot);
       });
       googletag.enableServices();
     });
@@ -50,20 +50,6 @@ body {
 
   {{ content }}
 
-
-<script type="text/javascript">
-
-// window.setInterval(function () {
-//   var a = 'google_ads_iframe_/110569172/test_IS_0';
-//   var temp = document.getElementById(a);
-//   console.log(googletag.pubadsReady);
-//   console.log(temp);
-// },1000);
-  // var a = 'google_ads_iframe_/110569172/test_IS_0';
-  // temp = document.getElementById(a);
-  // temp.style.width='100dw';
-  // temp.style.height='100dh';
-</script>
 </body>
 
 </html>

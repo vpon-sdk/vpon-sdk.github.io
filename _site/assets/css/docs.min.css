@@ -632,7 +632,7 @@ body {
 
 h1[id] {
     margin-top: 0;
-    padding-top: 25px
+    /*padding-top: 25px*/
 }
 
 .bs-callout {
