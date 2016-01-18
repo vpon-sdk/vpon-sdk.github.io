@@ -8,17 +8,21 @@
   </title>
   <script type="text/javascript">
     function vponCallback(adEmpty) {
-      alert('Enter into load callback!');
+      if(adEmpty){
+        alert('No ads!');
+      }else{
+        alert('Ads here!');
+      }
     }
   </script>
 </head>
 
 <body>
-  <div id="6_9" type="int" test="1"></div>
-  <script type="text/javascript" src="http://m.vpadn.com/ssp/vat.js"></script>
+  <div id="6_4" type="int" test="1"></div>
+  <script type="text/javascript" src="//m.vpadn.com/ssp/vat.js"></script>
   <script>
-    vat.addPlacement('6_9');
-    vat.addCallback('6_9', 'load', vponCallback);
+    vat.addPlacement('6_4');
+    vat.addCallback('6_4', 'load', vponCallback);
     vat.load();
   </script>
 </body>

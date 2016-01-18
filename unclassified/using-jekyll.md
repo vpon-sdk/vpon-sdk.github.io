@@ -137,7 +137,7 @@ The files included by layouts should be placed in `_includes` at root. By so doi
 Remember that Jekyll will transform all markdown files into HTML files. When layouts are about to gather specific markdowns, markdowns are ready for includes.
 
 ### include content
-Most of the time people use Jekyll to build blog-aware websites. Therefore articles are the core for it! Jekyll has set the markdowns with fron matter requireing for a layout to be included into {%raw%}`{{content}}`{%endraw%}. So just type the content, choose a layout and check whether any errors in your terminal.
+Most of the time people use Jekyll to build blog-aware websites. Therefore articles are the core for it! Jekyll has set the markdowns with front matter requiring for a layout to be included into {%raw%}`{{content}}`{%endraw%}. So just type the content, choose a layout and check whether any errors in your terminal.
 
 
 
