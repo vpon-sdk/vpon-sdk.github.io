@@ -429,3 +429,6 @@ img {
 .be-fixed {
   position: fixed;
 }
+ol, ul {
+  margin-bottom: 25px;
+}

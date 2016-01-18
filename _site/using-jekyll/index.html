@@ -73,16 +73,16 @@
         
         <a href="/zh-tw/web/" class="right-web"><li class="dropdown">Web</li></a>
       
-          <a href="/why-jekyll/">
+          <a href="/using-jekyll/">
             <li class="lang-color">English</li>
           </a>
-          <a href="/why-jekyll/">
+          <a href="/using-jekyll/">
             <li class="lang-color">繁體中文</li>
           </a>
-          <a href="/why-jekyll/">
+          <a href="/using-jekyll/">
             <li class="lang-color">简体中文</li>
           </a>
-          <a href="/why-jekyll/">
+          <a href="/using-jekyll/">
             <li class="lang-color">日本語</li>
           </a>
       </li>
@@ -131,10 +131,10 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu language-dropdown">
-          <li><a class="en" href="/why-jekyll/">English</a></li>
-          <li><a class="zh-tw" href="/why-jekyll/">繁體中文</a></li>
-          <li><a class="zh-cn" href="/why-jekyll/">简体中文</a></li>
-          <li><a class="jp" href="/why-jekyll/">日本語</a></li>
+          <li><a class="en" href="/using-jekyll/">English</a></li>
+          <li><a class="zh-tw" href="/using-jekyll/">繁體中文</a></li>
+          <li><a class="zh-cn" href="/using-jekyll/">简体中文</a></li>
+          <li><a class="jp" href="/using-jekyll/">日本語</a></li>
         </ul>
       </li>
     </ul>
@@ -157,11 +157,7 @@
 
 <hr>
 
-<p>SDK Document 負責提供 Vpon 開發者文字上之技術支援。
-舊版 SDK Document (Vpon Wiki) 的 Wiki 網站結構允許 Vpon MI 團隊快速建立、編輯、上傳技術文件，
-但由於近來愈來愈多開發者建議 SDK Document 使用上可以有更好的 UX，
-再加上 MI 希望可以更有效地管理該網站的前後台，
-因此勢必須要有一個可以滿足以上幾點的解決方法。</p>
+<p>Anyway, we just built a new website for Vpon SDK Document, using Jekyll!</p>
 
 <h1 id="what-is-jekyll">What is Jekyll?</h1>
 
@@ -169,13 +165,15 @@
 
 <p>Jekyll is a simple, blog-aware, static site generator. It takes a template directory containing raw text files in various formats, runs it through a converter (like Markdown) and our Liquid renderer, and spits out a complete, ready-to-publish static website suitable for serving with your favorite web server. Jekyll also happens to be the engine behind GitHub Pages, which means you can use Jekyll to host your project’s page, blog, or website from GitHub’s servers for free.</p>
 
+<p>Take a visit to <a href="www.jekyllrb.com">Jekyll</a>.</p>
+
 <h1 id="how-it-works">How it works?</h1>
 
 <hr>
 
 <p>After you key the &#39;serve&#39; command of jekyll, the process will go check the <code>_config.yml</code> and <code>Gemfile</code> first, for global settings and dependency settings. Then it runs liquid renderer to change all the liquid tags into corresponding results.</p>
 
-<p>Then it looks for all the mrakdown documnets and transforms them into html pages. For more details in transforming markdowns to htmls, please go to</p>
+<p>Then it looks for all the mrakdown documnets and transforms them into HTML pages. For more details in transforming markdowns to HTMLs, please directly slide to <a href="#basic-usage">Basic Usage</a>.</p>
 
 <h1 id="installation">Installation</h1>
 
@@ -197,6 +195,14 @@
 <div class="highlight"><pre><code class="language-text" data-lang="text">$ gem install jekyll
 </code></pre></div>
 <p>All of Jekyll’s gem dependencies are automatically installed by the above command, so you won’t have to worry about them at all.</p>
+
+<h2 id="install-bundler">Install Bundler</h2>
+
+<p><a href="http://bundler.io/">Bundler</a> provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed.
+Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. Starting work on a project is as simple as:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ bundle install
+</code></pre></div>
+<p>For more information, visit <a href="http://bundler.io/">Bundler</a>.</p>
 
 <h1 id="generate-a-website">Generate a website</h1>
 
@@ -220,11 +226,16 @@
 <p>You had better include some settings under such situations, into the <code>_confing.yml</code> for website performance.</p>
 
 <ul>
-<li>重複的設定</li>
-<li>全域變數</li>
-<li>套件設定</li>
-<li>其他設定</li>
+<li>Repetitive settings</li>
+<li>&#39;Global&#39; variables</li>
+<li>Plugin settings</li>
+<li>Other settings</li>
 </ul>
+
+<blockquote>
+<p><strong>Note:</strong>
+What I mean &#39;Global&#39; variable, is, for example, the img access path.</p>
+</blockquote>
 
 <p>For example:</p>
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Dependencies</span>
@@ -235,7 +246,13 @@
 
 <span class="c1"># Permalinks</span>
 <span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">pretty</span>
+
+<span class="c1"># urls</span>
+<span class="l-Scalar-Plain">imgurl</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">/assets/img</span>
 </code></pre></div>
+<p>Then you can use it when loading a image:
+<code>&lt;img src=&quot;{{site.imgurl}}/img_example.png&quot; /&gt;</code></p>
+
 <h2 id="front-matter">Front Matter</h2>
 
 <p>Any file that contains a YAML front matter block will be processed by Jekyll as a special file. The front matter must be the first thing in the file and must take the form of valid YAML set between triple-dashed lines. Here is a basic example:</p>
@@ -245,6 +262,31 @@ title: Blogging Like a Hacker
 ---
 </code></pre></div>
 <p>Between these triple-dashed lines, you can set predefined variables (see below for a reference) or even create custom ones of your own. These variables will then be available to you to access using Liquid tags both further down in the file and also in any layouts or includes that the page or post in question relies on.</p>
+
+<h2 id="layouts">Layouts</h2>
+
+<p>Layout, as it implies, is the general appearace of a web page. You can create a layout in HTML, and use it for web pages. You may see a folder named <code>_layouts</code> at root; that is where we put layouts in.</p>
+
+<p>Thanks to Liquid renderer, layouts can take HTML and markdown as well! For example, the layout below takes a markdown named <code>something.md</code> and build to an HTML.</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">...
+<span class="nt">&lt;body&gt;</span>
+    {% include header.html %}
+    {% include something.md %}
+    <span class="nt">&lt;div&gt;</span> <span class="nt">&lt;/div&gt;</span>
+    {{ content}}
+...
+</code></pre></div>
+<h3 id="include-html">include .html</h3>
+
+<p>The files included by layouts should be placed in <code>_includes</code> at root. By so doing layouts can read such includes by Liquid renderer and make HTML combimation.</p>
+
+<h3 id="include-md">include .md</h3>
+
+<p>Remember that Jekyll will transform all markdown files into HTML files. When layouts are about to gather specific markdowns, markdowns are ready for includes.</p>
+
+<h3 id="include-content">include content</h3>
+
+<p>Most of the time people use Jekyll to build blog-aware websites. Therefore articles are the core for it! Jekyll has set the markdowns with fron matter requireing for a layout to be included into <code>{{content}}</code>. So just type the content, choose a layout and check whether any errors in your terminal.</p>
 
       </div>
       <div class="col-md-3">
