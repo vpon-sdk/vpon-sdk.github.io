@@ -606,6 +606,10 @@ body {
         margin-top: 0;
         margin-bottom: 0
     }
+    /* Let first h1 in .main-content be no padding-top */
+    .main-content > h1:nth-child(1) {
+    padding-top: 0;
+    }
 }
 
 @media(min-width:1200px) {
