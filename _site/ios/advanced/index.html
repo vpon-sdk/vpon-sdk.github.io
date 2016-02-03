@@ -190,14 +190,14 @@
 <h2 id="adding-test-id">Adding Test ID</h2>
 
 <p>It will receive test ads when you use this property to specify a device. To verify that you&#39;ve integrated the SDK correctly, add your test device, run your application, and click on the displayed test ad.</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// Add this function and test ID in your project to enable test ads.</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-          <span class="c1">// add your test Id</span>
-          <span class="s">@&quot;XXXXXXXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
-          <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">// Add this function and test ID in your project to enable test ads.
+-(NSArray*)getTestIdentifiers
+{
+    return [NSArray arrayWithObjects:
+          // add your test Id
+          @"XXXXXXXXXXXXXXXXXXXXX",
+          nil];
+}
 </code></pre></div>
 <h2 id="targeting">Targeting</h2>
 
@@ -212,53 +212,53 @@
 <hr>
 
 <p>You can add these two protocol when you declare ViewController to help you track ad events like request failures or click-through. (VpadnBannerDelegate || VpadnInterstitialDelegate)</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#pragma mark VpadnBannerDelegate  general banner protocol</span>
-<span class="k">@protocol</span> <span class="nc">VpadnBannerDelegate</span> <span class="o">&lt;</span><span class="bp">NSObject</span><span class="o">&gt;</span>
-<span class="k">@optional</span>
-<span class="cp">#pragma mark sent when ads has succeeded</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnAdReceived</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">;</span>
-<span class="cp">#pragma mark sent when ads has failed</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span> <span class="nf">didFailToReceiveAdWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span> <span class="c1">// alan todo code need to add</span>
-<span class="cp">#pragma mark sent immediately before the user is presented with Vpadn ad</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnPresent:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="cp">#pragma mark sent when the Vpadn ad is dismissed</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="cp">#pragma mark sent just before the application gets backgrounded or terminated</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnLeaveApplication:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="k">@end</span>
-</code></pre></div><div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#pragma mark VpadnInterstitialDelegate Interstitial Ad protocol</span>
-<span class="k">@protocol</span> <span class="nc">VpadnInterstitialDelegate</span> <span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="o">&gt;</span>
-<span class="k">@optional</span>
-<span class="cp">#pragma mark sent when interstitial ads has succeeded</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnInterstitialAdReceived</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">;</span>
-<span class="cp">#pragma mark sent when interstitial ads has failed</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="cp">#pragma mark sent when the Vpadn ad is dismissed</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="k">@end</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#pragma mark VpadnBannerDelegate  general banner protocol
+@protocol VpadnBannerDelegate &lt;NSObject&gt;
+@optional
+#pragma mark sent when ads has succeeded
+- (void)onVpadnAdReceived:(UIView *)bannerView;
+#pragma mark sent when ads has failed
+- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error; // alan todo code need to add
+#pragma mark sent immediately before the user is presented with Vpadn ad
+- (void)onVpadnPresent:(UIView *)bannerView;
+#pragma mark sent when the Vpadn ad is dismissed
+- (void)onVpadnDismiss:(UIView *)bannerView;
+#pragma mark sent just before the application gets backgrounded or terminated
+- (void)onVpadnLeaveApplication:(UIView *)bannerView;
+@end
+</code></pre></div><div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
+@protocol VpadnInterstitialDelegate &lt;VpadnBannerDelegate&gt;
+@optional
+#pragma mark sent when interstitial ads has succeeded
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView;
+#pragma mark sent when interstitial ads has failed
+- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView;
+#pragma mark sent when the Vpadn ad is dismissed
+- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView;
+@end
 </code></pre></div>
 <p>These methods can be used for specific object like a ViewController:</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &quot;VpadnBanner.h&quot;</span>
-<span class="cp">#import &quot;VpadnInterstitial.h&quot;</span>
-<span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span><span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="p">,</span> <span class="n">VpadnInterstitialDelegate</span><span class="o">&gt;</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#import "VpadnBanner.h"
+#import "VpadnInterstitial.h"
+@interface ViewController : UIViewController&lt;VpadnBannerDelegate, VpadnInterstitialDelegate&gt;
 </code></pre></div>
 <p>Received objects and pass to VpadnBanner：</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="n">vpadnAd</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">vpadnAd.delegate = self;
 </code></pre></div>
 <p>sent when VpadnBanner ads has succeeded</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">- (void)onVpadnAdReceived:(UIView *)bannerView{}
 </code></pre></div>
 <p>sent when VpadnBanner has failed, typically because of network failure, an application configuration error, or a lack of ad inventory. You may wish to log these events for debugging:</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span> <span class="nf">didFailToReceiveAdWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
 </code></pre></div>
 <p>Sent immediately before the user is presented with a full-screen ad UI in response to their touching the sender.</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnPresent:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">- (void)onVpadnPresent:(UIView *)bannerView{}
 </code></pre></div>
 <p>Sent when the user has exited</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">- (void)onVpadnDismiss:(UIView *)bannerView;
 </code></pre></div>
 <p>Sent just before the application gets backgrounded or terminated</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnLeaveApplication:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">- (void)onVpadnLeaveApplication:(UIView *)bannerView{}
 </code></pre></div>
 <h1 id="crazy-ad">Crazy Ad</h1>
 

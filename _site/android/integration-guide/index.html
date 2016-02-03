@@ -192,12 +192,12 @@ Taiwan is <a href="http://tw.pub.vpon.com/">http://tw.pub.vpon.com/</a><br>
 China  is <a href="http://cn.pub.vpon.com/">http://cn.pub.vpon.com/</a>  </p></li>
 <li><p>If you register Taiwan platform, please use:</p></li>
 </ol>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java"><span class="n">vponBanner</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnBanner</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">bannerId</span><span class="o">,</span> <span class="n">VpadnAdSize</span><span class="o">.</span><span class="na">SMART_BANNER</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
 </code></pre></div>
 <ol>
 <li>If you register China platform, please use:</li>
 </ol>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">vponBanner</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnBanner</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">bannerId</span><span class="o">,</span> <span class="n">VpadnAdSize</span><span class="o">.</span><span class="na">SMART_BANNER</span><span class="o">,</span> <span class="s">&quot;CN&quot;</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">vponBanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VpadnBanner</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">bannerId</span><span class="o">,</span> <span class="n">VpadnAdSize</span><span class="o">.</span><span class="na">SMART_BANNER</span><span class="o">,</span> <span class="s">"CN"</span><span class="o">);</span>
 </code></pre></div>
 <p><br></p>
 
@@ -267,10 +267,10 @@ libs folder)<br>
 
 <p>Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java">      <span class="o">&lt;</span><span class="n">activity</span>
-            <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;com.vpadn.widget.VpadnActivity&quot;</span>
-            <span class="nl">android:</span><span class="n">configChanges</span><span class="o">=</span><span class="s">&quot;orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span>
-            <span class="nl">android:</span><span class="n">theme</span><span class="o">=</span><span class="s">&quot;@android:style/Theme.Translucent&quot;</span>
-            <span class="nl">android:</span><span class="n">hardwareAccelerated</span><span class="o">=</span><span class="s">&quot;true&quot;</span> <span class="o">&gt;</span>
+            <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"com.vpadn.widget.VpadnActivity"</span>
+            <span class="nl">android:</span><span class="n">configChanges</span><span class="o">=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
+            <span class="nl">android:</span><span class="n">theme</span><span class="o">=</span><span class="s">"@android:style/Theme.Translucent"</span>
+            <span class="nl">android:</span><span class="n">hardwareAccelerated</span><span class="o">=</span><span class="s">"true"</span> <span class="o">&gt;</span>
       <span class="o">&lt;/</span><span class="n">activity</span><span class="o">&gt;</span>
 </code></pre></div>
 <blockquote>
@@ -284,30 +284,30 @@ libs folder)<br>
 <hr>
 
 <p>Add following permissions in AndroidManifest.xml</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.READ_PHONE_STATE&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.ACCESS_COARSE_LOCATION&quot;</span><span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> <span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.ACCESS_WIFI_STATE&quot;</span> <span class="o">/&gt;</span>
-  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span><span class="o">/&gt;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.INTERNET"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.READ_PHONE_STATE"</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.ACCESS_COARSE_LOCATION"</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.WRITE_EXTERNAL_STORAGE"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.ACCESS_WIFI_STATE"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span><span class="o">/&gt;</span>
 </code></pre></div>
 <p>The six permissions above are necessary. In addition, we recommend that you can add the following permission for being able to obtain more accurate banner related location.  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span><span class="o">/&gt;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.ACCESS_FINE_LOCATION"</span><span class="o">/&gt;</span>
 </code></pre></div>
 <p>Use following permission could make ads to be more accurate delivery,
 and bring more revenue.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.GET_ACCOUNTS&quot;</span><span class="o">/&gt;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.GET_ACCOUNTS"</span><span class="o">/&gt;</span>
 </code></pre></div>
 <p>Since there would be plenty of Video ads displayed on devices, we
 recommend you to add hardware acceleration in your main Activity.</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;activity</span>
-       <span class="na">android:name=</span><span class="s">&quot;com.vpadn.example.MainActivity&quot;</span>
-       <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-       <span class="na">android:configChanges=</span><span class="s">&quot;keyboardHidden|orientation&quot;</span>
-       <span class="na">android:hardwareAccelerated=</span><span class="s">&quot;true&quot;</span> <span class="nt">&gt;</span>
+       <span class="na">android:name=</span><span class="s">"com.vpadn.example.MainActivity"</span>
+       <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+       <span class="na">android:configChanges=</span><span class="s">"keyboardHidden|orientation"</span>
+       <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
        <span class="nt">&lt;intent-filter&gt;</span>
-           <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span> <span class="nt">/&gt;</span>
-           <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span> <span class="nt">/&gt;</span>
+           <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
+           <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
        <span class="nt">&lt;/intent-filter&gt;</span>
    <span class="nt">&lt;/activity&gt;</span>
 </code></pre></div>

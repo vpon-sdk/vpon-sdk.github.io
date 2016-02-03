@@ -206,113 +206,113 @@
 </ol>
 
 <p>これらすべての処理を最も簡単に実行できるのはアプリの UIViewController 内です。</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
-<span class="c1">//ヘッダーファイルを読み込む</span>
-<span class="cp">#import &quot;VpadnBanner.h&quot;</span>
-<span class="cp">#import &quot;VpadnInterstitial.h&quot;</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">#import &lt;UIKit/UIKit.h&gt;
+//ヘッダーファイルを読み込む
+#import "VpadnBanner.h"
+#import "VpadnInterstitial.h"
 
-<span class="c1">//2つのプロトコルを追加して広告のステータスを受けとる</span>
-<span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span><span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="p">,</span> <span class="n">VpadnInterstitialDelegate</span><span class="o">&gt;</span>
-<span class="p">{</span>
-    <span class="n">VpadnBanner</span><span class="o">*</span>    <span class="n">vpadnAd</span><span class="p">;</span> <span class="c1">// VpadnBanner 広告のインスタンスを宣言する</span>
-    <span class="n">VpadnInterstitial</span><span class="o">*</span>    <span class="n">vpadnInterstitial</span><span class="p">;</span> <span class="c1">//Vpadn インタースティシャル広告のインスタンスを宣言する</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+//2つのプロトコルを追加して広告のステータスを受けとる
+@interface ViewController : UIViewController&lt;VpadnBannerDelegate, VpadnInterstitialDelegate&gt;
+{
+    VpadnBanner*    vpadnAd; // VpadnBanner 広告のインスタンスを宣言する
+    VpadnInterstitial*    vpadnInterstitial; //Vpadn インタースティシャル広告のインスタンスを宣言する
+}
+@end
 </code></pre></div>
 <h2 id="viewdidload-設定">viewDidLoad 設定</h2>
 
 <hr>
 
 <p>以下のコードは viewControllerのviewDidLoad初期段階でバナー広告を設定します。</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">@implementation ViewController
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span>
-<span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">nil</span> <span class="o">!=</span> <span class="n">vpadnAd</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="n">vpadnAd</span> <span class="k">release</span><span class="p">];</span>
-        <span class="n">vpadnAd</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">nil</span> <span class="o">!=</span> <span class="n">vpadnInterstitial</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="k">release</span><span class="p">];</span>
-        <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">dealloc</span><span class="p">];</span>
-<span class="p">}</span>
+- (void)dealloc
+{
+    if(nil != vpadnAd)
+    {
+        [vpadnAd release];
+        vpadnAd = nil;
+    }
+    if(nil != vpadnInterstitial)
+    {
+        [vpadnInterstitial release];
+        vpadnInterstitial = nil;
+    }
+    [super dealloc];
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
-<span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-    <span class="c1">// 通常、nibからビューをロードした後に追加の設定を行います。</span>
-    <span class="kt">BOOL</span> <span class="n">bStatusBarHide</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIApplication</span> <span class="n">sharedApplication</span><span class="p">].</span><span class="n">statusBarHidden</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">screenHeight</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIScreen</span> <span class="n">mainScreen</span><span class="p">]</span> <span class="n">bounds</span><span class="p">].</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">bStatusBarHide</span><span class="p">)</span>
-        <span class="n">screenHeight</span> <span class="o">-=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="c1">// 広告位置を設定する</span>
-    <span class="bp">CGPoint</span> <span class="n">origin</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">screenHeight</span> <span class="o">-</span> <span class="n">CGSizeFromVpadnAdSize</span><span class="p">(</span><span class="n">VpadnAdSizeSmartBannerPortrait</span><span class="p">).</span><span class="n">height</span><span class="p">);</span>
-    <span class="n">vpadnAd</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnBanner</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithAdSize</span><span class="p">:</span><span class="n">VpadnAdSizeSmartBannerPortrait</span> <span class="nl">origin</span><span class="p">:</span><span class="n">origin</span><span class="p">];</span>   <span class="c1">// バナーのインスタンスを初期化する</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>   <span class="c1">//BannerId（=プロパティID） を記入する</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>       <span class="c1">// delegate がプロトコルで返されるメッセージを受信するよう設定する</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>       <span class="c1">//台湾エリアはTW 、中国エリアはCNを入力</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">setAdAutoRefresh</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span> <span class="c1">//mediation の場合、NOと入力</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">setRootViewController</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span>  <span class="c1">//広告をスムーズに実行するため、window の rootViewController をここに設定する</span>
-    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:[</span><span class="n">vpadnAd</span> <span class="n">getVpadnAdView</span><span class="p">]];</span> <span class="c1">// VpadnBanner の View をこの ViewController 内に追加する</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">startGetAd</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span> <span class="c1">//Banner 広告を取得開始する</span>
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // 通常、nibからビューをロードした後に追加の設定を行います。
+    BOOL bStatusBarHide = [UIApplication sharedApplication].statusBarHidden;
+    float screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if(!bStatusBarHide)
+        screenHeight -= 20;
+    // 広告位置を設定する
+    CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
+    vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];   // バナーのインスタンスを初期化する
+    vpadnAd.strBannerId = @"";   //BannerId（=プロパティID） を記入する
+    vpadnAd.delegate = self;       // delegate がプロトコルで返されるメッセージを受信するよう設定する
+    vpadnAd.platform = @"TW";       //台湾エリアはTW 、中国エリアはCNを入力
+    [vpadnAd setAdAutoRefresh:YES]; //mediation の場合、NOと入力
+    [vpadnAd setRootViewController:self];  //広告をスムーズに実行するため、window の rootViewController をここに設定する
+    [self.view addSubview:[vpadnAd getVpadnAdView]]; // VpadnBanner の View をこの ViewController 内に追加する
+    [vpadnAd startGetAd:[self getTestIdentifiers]]; //Banner 広告を取得開始する
 
-<span class="p">}</span>
+}
 
-<span class="cp">#pragma mark VpadnAdDelegateメソッドでバナー広告を取得する場合、追加してください。</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;広告のフェッチに成功&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+#pragma mark VpadnAdDelegateメソッドでバナー広告を取得する場合、追加してください。
+- (void)onVpadnAdReceived:(UIView *)bannerView{
+    NSLog(@"広告のフェッチに成功");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span> <span class="nf">didFailToReceiveAdWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;広告の取得に失敗&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"広告の取得に失敗");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnPresent:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;vpadn 広告ページ %を開く%@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnPresent:(UIView *)bannerView{
+    NSLog(@"vpadn 広告ページ %を開く%@",bannerView);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;vpadn 広告ページ %を閉じる %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnDismiss:(UIView *)bannerView{
+    NSLog(@"vpadn 広告ページ %を閉じる %@",bannerView);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnLeaveApplication:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;publisher application を終了する&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnLeaveApplication:(UIView *)bannerView{
+    NSLog(@"publisher application を終了する");
+}
 
-<span class="cp">#pragma mark VpadnInterstitial Delegate が Interstitial 広告を受信する場合、追加する</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnInterstitialAdReceived&quot;</span><span class="p">);</span>
-  <span class="c1">//インタースティシャル広告を表示する</span>
-    <span class="p">[</span><span class="n">vpadInterstitial</span> <span class="n">show</span><span class="p">];</span>
-<span class="p">}</span>
+#pragma mark VpadnInterstitial Delegate が Interstitial 広告を受信する場合、追加する
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
+    NSLog(@"VpadnInterstitialAdReceived");
+  //インタースティシャル広告を表示する
+    [vpadInterstitial show];
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;インタースティシャル広告の取得に失敗&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView{
+    NSLog(@"インタースティシャル広告の取得に失敗");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;インタースティシャル広告ページ %を閉じる%@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView{
+    NSLog(@"インタースティシャル広告ページ %を閉じる%@",bannerView);
+}
 
-<span class="cp">#pragma mark vpadn スプラッシュ広告を閉じた際に通知される</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnSplashAdDismiss</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;vpadn スプラッシュ広告ページを閉じる&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+#pragma mark vpadn スプラッシュ広告を閉じた際に通知される
+- (void)onVpadnSplashAdDismiss{
+    NSLog(@"vpadn スプラッシュ広告ページを閉じる");
+}
+@end
 </code></pre></div>
 <h2 id="test-ads">Test Ads</h2>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-    <span class="c1">// テスト端末のUUIDを追加</span>
-    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
-    <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // テスト端末のUUIDを追加
+    @"your_UUID",
+    nil];
+}
 </code></pre></div>
 <h1 id="バナー広告のサイズ">バナー広告のサイズ</h1>
 

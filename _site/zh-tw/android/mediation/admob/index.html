@@ -281,11 +281,11 @@
 </blockquote></li>
 <li><p>增加 build rule 在 dependencies 底下，已取得最新版 <code>play-services</code></p></li>
 </ol>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">&#39;com.android.application&#39;</span>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'com.android.application'</span>
     <span class="o">...</span>
 
     <span class="n">dependencies</span> <span class="o">{</span>
-      <span class="n">compile</span> <span class="s1">&#39;com.google.android.gms:play-services:+&#39;</span>
+      <span class="n">compile</span> <span class="s1">'com.google.android.gms:play-services:+'</span>
     <span class="o">}</span>
 </code></pre></div>
 <p>接著，存擋並至 toolbar 點選 <strong>Sync Project with Gradle Files</strong></p>
@@ -293,18 +293,18 @@
 <h2 id="新增-meta-data-tag">新增 meta-data tag</h2>
 
 <p>Google Play Service 需要在 AndroidManifest.xml 中加入以下設定:</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-          <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
-          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
-             <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
-   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+          <span class="na">package=</span><span class="s">"com.company"</span>
+          <span class="na">android:versionCode=</span><span class="s">"1"</span> <span class="na">android:versionName=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">"@drawable/icon"</span> <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+               <span class="na">android:debuggable=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"color:#ff0000"</span><span class="nt">&gt;&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"com.google.android.gms.version"</span>
+             <span class="na">android:value=</span><span class="s">"@integer/google_play_services_version"</span><span class="nt">/&gt;&lt;/span&gt;</span>
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">"@string/app_name"</span> <span class="na">android:name=</span><span class="s">"BannerExample"</span><span class="nt">&gt;</span>
      <span class="nt">&lt;intent-filter&gt;</span>
-       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
-       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span><span class="nt">/&gt;</span>
      <span class="nt">&lt;/intent-filter&gt;</span>
    <span class="nt">&lt;/activity&gt;</span>
  <span class="nt">&lt;/application&gt;</span>
@@ -315,23 +315,23 @@
 <hr>
 
 <p>Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ads.AdActivity</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-          <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
-          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
- <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
-               <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;</span>
-   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+          <span class="na">package=</span><span class="s">"com.company"</span>
+          <span class="na">android:versionCode=</span><span class="s">"1"</span> <span class="na">android:versionName=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">"@drawable/icon"</span> <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+               <span class="na">android:debuggable=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"com.google.android.gms.version"</span>
+               <span class="na">android:value=</span><span class="s">"@integer/google_play_services_version"</span><span class="nt">/&gt;</span>
+   <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">"@string/app_name"</span> <span class="na">android:name=</span><span class="s">"BannerExample"</span><span class="nt">&gt;</span>
      <span class="nt">&lt;intent-filter&gt;</span>
-       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
-       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span><span class="nt">/&gt;</span>
+       <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span><span class="nt">/&gt;</span>
      <span class="nt">&lt;/intent-filter&gt;</span>
    <span class="nt">&lt;/activity&gt;</span>
-   <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;om.google.android.gms.ads.AdActivity&quot;</span>
-       <span class="na">android:configChanges=</span><span class="s">&quot;keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+   <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"color:#ff0000"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">"om.google.android.gms.ads.AdActivity"</span>
+       <span class="na">android:configChanges=</span><span class="s">"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"</span><span class="nt">/&gt;&lt;/span&gt;</span>
  <span class="nt">&lt;/application&gt;</span>
 <span class="nt">&lt;/manifest&gt;</span>
 </code></pre></div>
@@ -342,25 +342,25 @@
 <p>加入以下 permission 在您的 AndroidManifest.xml<br>
 <code>&#39;INTERNET&quot;</code> 此為必要，以開啓網路功能進行傳輸。<br>
 <code>&#39;ACCESS_NETWORK_STATE&quot;</code> 此為選擇，用來讀取使用者當前的網路狀態。<br></p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"> <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
- <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-          <span class="na">package=</span><span class="s">&quot;com.company&quot;</span>
-          <span class="na">android:versionCode=</span><span class="s">&quot;1&quot;</span> <span class="na">android:versionName=</span><span class="s">&quot;1.0&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">&quot;@drawable/icon&quot;</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
-               <span class="na">android:debuggable=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.version&quot;</span>
-               <span class="na">android:value=</span><span class="s">&quot;@integer/google_play_services_version&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span> <span class="na">android:name=</span><span class="s">&quot;BannerExample&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"> <span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+ <span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+          <span class="na">package=</span><span class="s">"com.company"</span>
+          <span class="na">android:versionCode=</span><span class="s">"1"</span> <span class="na">android:versionName=</span><span class="s">"1.0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;application</span> <span class="na">android:icon=</span><span class="s">"@drawable/icon"</span> <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+               <span class="na">android:debuggable=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta-data</span> <span class="na">android:name=</span><span class="s">"com.google.android.gms.version"</span>
+               <span class="na">android:value=</span><span class="s">"@integer/google_play_services_version"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;activity</span> <span class="na">android:label=</span><span class="s">"@string/app_name"</span> <span class="na">android:name=</span><span class="s">"BannerExample"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;intent-filter&gt;</span>
-        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span><span class="nt">/&gt;</span>
-        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span><span class="nt">/&gt;</span>
       <span class="nt">&lt;/intent-filter&gt;</span>
     <span class="nt">&lt;/activity&gt;</span>
-    <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;com.google.android.gms.ads.AdActivity&quot;</span>
-              <span class="na">android:configChanges=</span><span class="s">&quot;keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">"com.google.android.gms.ads.AdActivity"</span>
+              <span class="na">android:configChanges=</span><span class="s">"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"</span><span class="nt">/&gt;</span>
   <span class="nt">&lt;/application&gt;</span>
-  <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">&quot;color:#ff0000&quot;</span><span class="nt">&gt;&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span><span class="nt">/&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">style=</span><span class="s">"color:#ff0000"</span><span class="nt">&gt;&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span><span class="nt">/&gt;&lt;/span&gt;</span>
  <span class="nt">&lt;/manifest&gt;</span>
 </code></pre></div>
 <h1 id="banner-橫幅廣告">Banner 橫幅廣告</h1>
@@ -378,53 +378,53 @@
 • 取得banner</p>
 
 <p>最簡易的方法為在您的 Activity 中做出所有的步驟.</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java">  <span class="kn">import</span> <span class="nn">com.google.android.gms.ads.*</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">  import com.google.android.gms.ads.*;
 
-  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BannerExample</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="n">AdView</span> <span class="n">adView</span><span class="o">;</span>
+  public class BannerExample extends Activity {
+  private AdView adView;
 
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
 
-    <span class="c1">// Create the adView.</span>
-    <span class="n">adView</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">AdView</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="n">adView</span><span class="o">.</span><span class="na">setAdUnitId</span><span class="o">(</span><span class="n">MY_AD_UNIT_ID</span><span class="o">);</span>
-    <span class="n">adView</span><span class="o">.</span><span class="na">setAdSize</span><span class="o">(</span><span class="n">AdSize</span><span class="o">.</span><span class="na">BANNER</span><span class="o">);</span>
+    // Create the adView.
+    adView = new AdView(this);
+    adView.setAdUnitId(MY_AD_UNIT_ID);
+    adView.setAdSize(AdSize.BANNER);
 
-    <span class="c1">// Lookup your LinearLayout assuming it&#39;s been given</span>
-    <span class="c1">// the attribute android:id=&quot;@+id/mainLayout&quot;.</span>
-    <span class="n">LinearLayout</span> <span class="n">layout</span> <span class="o">=</span> <span class="o">(</span><span class="n">LinearLayout</span><span class="o">)</span><span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">mainLayout</span><span class="o">);</span>
+    // Lookup your LinearLayout assuming it's been given
+    // the attribute android:id="@+id/mainLayout".
+    LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayout);
 
-    <span class="c1">// Add the adView to it.</span>
-    <span class="n">layout</span><span class="o">.</span><span class="na">addView</span><span class="o">(</span><span class="n">adView</span><span class="o">);</span>
+    // Add the adView to it.
+    layout.addView(adView);
 
-    <span class="c1">// Initiate a generic request.</span>
-    <span class="n">AdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+    // Initiate a generic request.
+    AdRequest adRequest = new AdRequest.Builder().build();
 
-    <span class="c1">// Load the adView with the ad request.</span>
-    <span class="n">adView</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
-  <span class="o">}</span>
+    // Load the adView with the ad request.
+    adView.loadAd(adRequest);
+  }
 
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onPause</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">adView</span><span class="o">.</span><span class="na">pause</span><span class="o">();</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onPause</span><span class="o">();</span>
-  <span class="o">}</span>
+  @Override
+  public void onPause() {
+    adView.pause();
+    super.onPause();
+  }
 
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onResume</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onResume</span><span class="o">();</span>
-    <span class="n">adView</span><span class="o">.</span><span class="na">resume</span><span class="o">();</span>
-  <span class="o">}</span>
+  @Override
+  public void onResume() {
+    super.onResume();
+    adView.resume();
+  }
 
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">adView</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
-   <span class="o">}</span>
- <span class="o">}</span>
+  @Override
+  public void onDestroy() {
+    adView.destroy();
+    super.onDestroy();
+   }
+ }
 </code></pre></div>
 <p>參考更多的 banner 設定: <a href="https://developers.google.com/admob/android/banner">here</a></p>
 
@@ -438,35 +438,35 @@
 • 建立並指定一個和banner不同的 AdMob Ad Unit ID。</p>
 
 <p>同樣的，最方便的方式為在您的 Activity 中做以下的步驟。</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java"> <span class="kn">import</span> <span class="nn">com.google.android.gms.ads.*</span><span class="o">;</span>
- <span class="kd">public</span> <span class="kd">class</span> <span class="nc">BannerExample</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java"> import com.google.android.gms.ads.*;
+ public class BannerExample extends Activity {
 
-  <span class="kd">private</span> <span class="n">InterstitialAd</span> <span class="n">interstitial</span><span class="o">;</span>
+  private InterstitialAd interstitial;
 
-  <span class="nd">@Override</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);
 
-    <span class="c1">// Create the interstitial.</span>
-    <span class="n">interstitial</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">InterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="n">interstitial</span><span class="o">.</span><span class="na">setAdUnitId</span><span class="o">(</span><span class="n">MY_AD_UNIT_ID</span><span class="o">);</span>
+    // Create the interstitial.
+    interstitial = new InterstitialAd(this);
+    interstitial.setAdUnitId(MY_AD_UNIT_ID);
 
-    <span class="c1">// Create ad request.</span>
-    <span class="n">AdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="o">.</span><span class="na">Builder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+    // Create ad request.
+    AdRequest adRequest = new AdRequest.Builder().build();
 
-    <span class="c1">// Begin loading your interstitial.</span>
-    <span class="n">interstitial</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
+    // Begin loading your interstitial.
+    interstitial.loadAd(adRequest);
 
-  <span class="o">}</span>
+  }
 
-  <span class="c1">// Invoke displayInterstitial() when you are ready to display an interstitial.</span>
-  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">displayInterstitial</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">interstitial</span><span class="o">.</span><span class="na">isLoaded</span><span class="o">())</span> <span class="o">{</span>
-      <span class="n">interstitial</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
-     <span class="o">}</span>
-   <span class="o">}</span>
- <span class="o">}</span>
+  // Invoke displayInterstitial() when you are ready to display an interstitial.
+  public void displayInterstitial() {
+    if (interstitial.isLoaded()) {
+      interstitial.show();
+     }
+   }
+ }
 </code></pre></div>
 <h1 id="下載-sample-code">下載 Sample Code</h1>
 

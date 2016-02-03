@@ -175,7 +175,7 @@
 </ul>
 
 <h2 id="install-gem">Install Gem</h2>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ gem install jekyll
+<div class="highlight"><pre><code class="language-" data-lang="">$ gem install jekyll
 </code></pre></div>
 <p>All of Jekyll’s gem dependencies are automatically installed by the above command, so you won’t have to worry about them at all.</p>
 
@@ -183,18 +183,18 @@
 
 <p><a href="http://bundler.io/">Bundler</a> provides a consistent environment for Ruby projects by tracking and installing the exact gems and versions that are needed.
 Bundler is an exit from dependency hell, and ensures that the gems you need are present in development, staging, and production. Starting work on a project is as simple as:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ bundle install
+<div class="highlight"><pre><code class="language-" data-lang="">$ bundle install
 </code></pre></div>
 <p>For more information, visit <a href="http://bundler.io/">Bundler</a>.</p>
 
 <h1 id="generate-a-website">Generate a website</h1>
 
 <hr>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ jekyll build
+<div class="highlight"><pre><code class="language-" data-lang="">$ jekyll build
 # =&gt; The current folder will be generated into ./_site
 </code></pre></div>
 <p>Jekyll also comes with a built-in development server that will allow you to preview what the generated site will look like in your browser locally.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">$ jekyll serve
+<div class="highlight"><pre><code class="language-" data-lang="">$ jekyll serve
 # =&gt; A development server will run at http://localhost:4000/
 # Auto-regeneration: enabled. Use `--no-watch` to disable.
 </code></pre></div>
@@ -222,16 +222,16 @@ What I mean &#39;Global&#39; variable, is, for example, the img access path.</p>
 
 <p>For example:</p>
 <div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="c1"># Dependencies</span>
-<span class="l-Scalar-Plain">markdown</span><span class="p-Indicator">:</span>           <span class="l-Scalar-Plain">redcarpet</span>
-<span class="l-Scalar-Plain">redcarpet</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">extensions</span><span class="p-Indicator">:</span>       <span class="p-Indicator">[</span><span class="s">&quot;no_intra_emphasis&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;fenced_code_blocks&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;autolink&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;tables&quot;</span><span class="p-Indicator">,</span> <span class="s">&quot;with_toc_data&quot;</span><span class="p-Indicator">]</span>
-<span class="l-Scalar-Plain">highlighter</span><span class="p-Indicator">:</span>        <span class="l-Scalar-Plain">pygments</span>
+<span class="s">markdown</span><span class="pi">:</span>           <span class="s">redcarpet</span>
+<span class="s">redcarpet</span><span class="pi">:</span>
+  <span class="s">extensions</span><span class="pi">:</span>       <span class="pi">[</span><span class="s2">"</span><span class="s">no_intra_emphasis"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">fenced_code_blocks"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">autolink"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">tables"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">with_toc_data"</span><span class="pi">]</span>
+<span class="s">highlighter</span><span class="pi">:</span>        <span class="s">pygments</span>
 
 <span class="c1"># Permalinks</span>
-<span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span>          <span class="l-Scalar-Plain">pretty</span>
+<span class="s">permalink</span><span class="pi">:</span>          <span class="s">pretty</span>
 
 <span class="c1"># urls</span>
-<span class="l-Scalar-Plain">imgurl</span><span class="p-Indicator">:</span>             <span class="l-Scalar-Plain">/assets/img</span>
+<span class="s">imgurl</span><span class="pi">:</span>             <span class="s">/assets/img</span>
 </code></pre></div>
 <p>Then you can use it when loading a image:
 <code>&lt;img src=&quot;{{site.imgurl}}/img_example.png&quot; /&gt;</code></p>
@@ -239,7 +239,7 @@ What I mean &#39;Global&#39; variable, is, for example, the img access path.</p>
 <h2 id="front-matter">Front Matter</h2>
 
 <p>Any file that contains a YAML front matter block will be processed by Jekyll as a special file. The front matter must be the first thing in the file and must take the form of valid YAML set between triple-dashed lines. Here is a basic example:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">---
+<div class="highlight"><pre><code class="language-" data-lang="">---
 layout: post
 title: Blogging Like a Hacker
 ---

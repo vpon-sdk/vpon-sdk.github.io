@@ -199,28 +199,28 @@
 </code></pre></div>
 <p>3.VpadnBanner と VpadnInterstitialAd の constructor の最終パラメータ VponPlatform.TW を文字列 <code>TW</code>に変更します。)
 original version：</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">`new VponBanner(this, bannerId1,VponAdSize.SMART_BANNER , VponPlatform.TW);`
+<div class="highlight"><pre><code class="language-" data-lang="">`new VponBanner(this, bannerId1,VponAdSize.SMART_BANNER , VponPlatform.TW);`
 
 から:
 
-`new VpadnBanner(this, bannerId1,VpadnAdSize.SMART_BANNER ,&quot;TW&quot;);`
+`new VpadnBanner(this, bannerId1,VpadnAdSize.SMART_BANNER ,"TW");`
 </code></pre></div>
 <p>4.Android manifest.xml 内の activity tag を:
 original version:</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"> <span class="nt">&lt;activity</span>
-            <span class="na">android:name=</span><span class="s">&quot;com.vpon.widget.VponActivity&quot;</span>
-            <span class="na">android:configChanges=</span><span class="s">&quot;orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span>
-            <span class="na">android:theme=</span><span class="s">&quot;@android:style/Theme.Translucent&quot;</span>
-            <span class="na">android:hardwareAccelerated=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">android:name=</span><span class="s">"com.vpon.widget.VponActivity"</span>
+            <span class="na">android:configChanges=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
+            <span class="na">android:theme=</span><span class="s">"@android:style/Theme.Translucent"</span>
+            <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span>
             <span class="nt">&gt;</span>
            <span class="nt">&lt;/activity&gt;</span>
 </code></pre></div>
 <p>から:</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml">        <span class="nt">&lt;activity</span>
-            <span class="na">android:name=</span><span class="s">&quot;com.vpadn.widget.VpadnActivity&quot;</span>
-            <span class="na">android:configChanges=</span><span class="s">&quot;orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize&quot;</span>
-            <span class="na">android:theme=</span><span class="s">&quot;@android:style/Theme.Translucent&quot;</span>
-            <span class="na">android:hardwareAccelerated=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">android:name=</span><span class="s">"com.vpadn.widget.VpadnActivity"</span>
+            <span class="na">android:configChanges=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
+            <span class="na">android:theme=</span><span class="s">"@android:style/Theme.Translucent"</span>
+            <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span>
             <span class="nt">&gt;</span>  
         <span class="nt">&lt;/activity&gt;</span>
 </code></pre></div>
@@ -239,36 +239,36 @@ original version:</p>
 <p><code>onVponLeaveApplication</code> -&gt; <code>onVpadnLeaveApplication</code></p>
 
 <p>6.layout.xml を使って Vpon Banner を生成した場合、その中の全ての vpon を vpadn に変更するだけで結構です。</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-    <span class="na">xmlns:vpadn=</span><span class="s">&quot;http://schemas.android.com/apk/lib/com.vpadn.ads&quot;</span>
-    <span class="na">android:id=</span><span class="s">&quot;@+id/mainLayout&quot;</span>
-    <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-    <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span> <span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">xmlns:vpadn=</span><span class="s">"http://schemas.android.com/apk/lib/com.vpadn.ads"</span>
+    <span class="na">android:id=</span><span class="s">"@+id/mainLayout"</span>
+    <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"fill_parent"</span>
+    <span class="na">android:orientation=</span><span class="s">"vertical"</span> <span class="nt">&gt;</span>
 
 <span class="nt">&lt;RelativeLayout</span>
-        <span class="na">android:id=</span><span class="s">&quot;@+id/adLayout&quot;</span>
-        <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-        <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> <span class="nt">&gt;</span>
+        <span class="na">android:id=</span><span class="s">"@+id/adLayout"</span>
+        <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span> <span class="nt">&gt;</span>
 
         <span class="nt">&lt;com.vpadn.ads.VpadnBanner</span>
-            <span class="na">android:id=</span><span class="s">&quot;@+id/vpadnBannerXML&quot;</span>
-            <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
-            <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-            <span class="na">vpadn:adSize=</span><span class="s">&quot;SMART_BANNER&quot;</span>
-            <span class="na">vpadn:autoFresh=</span><span class="s">&quot;true&quot;</span>
+            <span class="na">android:id=</span><span class="s">"@+id/vpadnBannerXML"</span>
+            <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+            <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+            <span class="na">vpadn:adSize=</span><span class="s">"SMART_BANNER"</span>
+            <span class="na">vpadn:autoFresh=</span><span class="s">"true"</span>
             <span class="na">vpadn:bannerId=</span> <span class="s">CHANGE</span> <span class="err">ME</span>
-            <span class="na">vpadn:loadAdOnCreate=</span><span class="s">&quot;true&quot;</span>
-            <span class="na">vpadn:platform=</span><span class="s">&quot;TW&quot;</span> <span class="nt">/&gt;</span>
+            <span class="na">vpadn:loadAdOnCreate=</span><span class="s">"true"</span>
+            <span class="na">vpadn:platform=</span><span class="s">"TW"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/RelativeLayout&gt;</span>
 <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
 <p>As usual you must replace CHANGE ME with your Vpon Banner ID.
 You can use the following code to get the Test Banner If your banner ID has not been vetted</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span>  <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">VpadnAdRequest</span><span class="o">();</span>
     <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">testDeviceImeiSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
-    <span class="n">testDeviceImeiSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Advertising ID&quot;</span><span class="o">);</span> <span class="c1">//TODO: put Android Advertising ID</span>
+    <span class="n">testDeviceImeiSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"Advertising ID"</span><span class="o">);</span> <span class="c1">//TODO: put Android Advertising ID</span>
     <span class="n">adRequest</span><span class="o">.</span><span class="na">setTestDevices</span><span class="o">(</span><span class="n">testDeviceImeiSet</span><span class="o">);</span>
     <span class="n">vponBanner</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
 </code></pre></div>

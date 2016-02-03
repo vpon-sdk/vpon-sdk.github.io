@@ -241,25 +241,25 @@
 <h2 id="3-串接-ats-sdk">3. 串接 ATS SDK</h2>
 
 <p>在 AppDelegate 中加入必要的头文件( #import &quot;VponAts.h&quot; ) 及 Delegate (VponAtsDelegate)</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
-<span class="cp">#import &quot;VponAts.h&quot;</span>
-<span class="k">@interface</span> <span class="nc">AppDelegate</span> : <span class="bp">UIResponder</span> <span class="o">&lt;</span><span class="bp">UIApplicationDelegate</span><span class="p">,</span><span class="n">VponAtsDelegate</span><span class="o">&gt;</span><span class="p">{</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#import &lt;UIKit/UIKit.h&gt;
+#import "VponAts.h"
+@interface AppDelegate : UIResponder &lt;UIApplicationDelegate,VponAtsDelegate&gt;{
 </code></pre></div>
 <h2 id="4-实作-tracking-code">4. 实作 tracking code</h2>
 
 <p>对应窗口的 <code>.m</code> 文件中实现 ATS SDK 的接口, 设定 Inside code</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="n">goalID</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSString</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithString</span><span class="p">:</span><span class="s">@&quot; Change here to your Goal ID &quot;</span><span class="p">];</span>
-<span class="n">ats</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VponAts</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithGoalId</span><span class="p">:</span><span class="n">goalID</span> <span class="nl">andDelegate</span><span class="p">:</span><span class="nb">self</span> <span class="nl">setLocationOnOff</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">goalID = [[NSString alloc] initWithString:@" Change here to your Goal ID "];
+ats = [[VponAts alloc] initWithGoalId:goalID andDelegate:self setLocationOnOff:YES];
 </code></pre></div>
 <h2 id="5-送出-tracker">5. 送出 tracker</h2>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">applicationDidBecomeActive</span><span class="p">:(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="n">application</span>
-  <span class="p">{</span>
-      <span class="c1">// Restart any tasks that were paused (or not yet started) while the application</span>
-     <span class="c1">// was inactive. If the application was previously in the background,</span>
-     <span class="c1">// optionally refresh the user interface.</span>
-  <span class="cp">#pragma mark send tracker when active</span>
-      <span class="p">[</span><span class="n">ats</span> <span class="n">tracker</span><span class="p">];</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  - (void)applicationDidBecomeActive:(UIApplication *)application
+  {
+      // Restart any tasks that were paused (or not yet started) while the application
+     // was inactive. If the application was previously in the background,
+     // optionally refresh the user interface.
+  #pragma mark send tracker when active
+      [ats tracker];
+  }
 </code></pre></div>
       </div>
       <div class="col-md-3">

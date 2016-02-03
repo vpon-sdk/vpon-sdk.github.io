@@ -190,14 +190,14 @@
 <h2 id="增加测试手机的识别码">增加测试手机的识别码</h2>
 
 <p>您可以使用这些属性来指定要接收测试广告的装置或装置 Set。若要确认 SDK 是否已顺利整合，请加入您的测试装置并执行应用程式，然后按一下所显示的测试广告。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="c1">// 请新增此function到您的程式内 如果为测试用 则在下方填入识别码</span>
-  <span class="o">-</span><span class="p">(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="n">getTestIdentifiers</span>
-  <span class="p">{</span>
-      <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-              <span class="c1">// add your test Id</span>
-              <span class="s">@&quot;XXXXXXXXXXXXXXXXXXXXX&quot;</span><span class="p">,</span>
-              <span class="nb">nil</span><span class="p">];</span>
-  <span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  // 请新增此function到您的程式内 如果为测试用 则在下方填入识别码
+  -(NSArray*)getTestIdentifiers
+  {
+      return [NSArray arrayWithObjects:
+              // add your test Id
+              @"XXXXXXXXXXXXXXXXXXXXX",
+              nil];
+  }
 </code></pre></div>
 <h2 id="指定目标">指定目标</h2>
 
@@ -216,61 +216,61 @@
 <hr>
 
 <p>您可以在 ViewController 宣告时加入 VpadnBannerDelegate || VpadnInterstitialDelegate 此两个 protocol，藉此追踪请求失败或「点击」等广告事件。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#pragma mark VpadnBannerDelegate  一般 Banner protocol</span>
-<span class="k">@protocol</span> <span class="nc">VpadnBannerDelegate</span> <span class="o">&lt;</span><span class="bp">NSObject</span><span class="o">&gt;</span>
-<span class="k">@optional</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#pragma mark VpadnBannerDelegate  一般 Banner protocol
+@protocol VpadnBannerDelegate &lt;NSObject&gt;
+@optional
 
-<span class="cp">#pragma mark 通知拉取广告成功 pre-fetch 完成</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnAdReceived</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">;</span>
+#pragma mark 通知拉取广告成功 pre-fetch 完成
+- (void)onVpadnAdReceived:(UIView *)bannerView;
 
-<span class="cp">#pragma mark 通知拉取广告失败</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span> <span class="nf">didFailToReceiveAdWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span> <span class="c1">// alan todo code need to add</span>
+#pragma mark 通知拉取广告失败
+- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error; // alan todo code need to add
 
-<span class="cp">#pragma mark 通知开启 vpadn 广告页面</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnPresent:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
+#pragma mark 通知开启 vpadn 广告页面
+- (void)onVpadnPresent:(UIView *)bannerView;
 
-<span class="cp">#pragma mark 通知关闭vpadn广告页面</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
+#pragma mark 通知关闭vpadn广告页面
+- (void)onVpadnDismiss:(UIView *)bannerView;
 
-<span class="cp">#pragma mark 通知离开 publisher application</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnLeaveApplication:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="k">@end</span>
-</code></pre></div><div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="n">pragma</span> <span class="n">mark</span> <span class="n">VpadnInterstitialDelegate</span> <span class="n">Interstitial</span> <span class="n">Ad</span> <span class="n">protocol</span>
-<span class="k">@protocol</span> <span class="nc">VpadnInterstitialDelegate</span> <span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="o">&gt;</span>
-<span class="k">@optional</span>
+#pragma mark 通知离开 publisher application
+- (void)onVpadnLeaveApplication:(UIView *)bannerView;
+@end
+</code></pre></div><div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
+@protocol VpadnInterstitialDelegate &lt;VpadnBannerDelegate&gt;
+@optional
 
-<span class="cp">#pragma mark 通知取得插屏广告成功pre-fetch完成</span>
-<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnInterstitialAdReceived</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">;</span>
+#pragma mark 通知取得插屏广告成功pre-fetch完成
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView;
 
-<span class="cp">#pragma mark 通知取得插屏广告失败</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
+#pragma mark 通知取得插屏广告失败
+- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView;
 
-<span class="cp">#pragma mark 通知关闭vpadn广告页面</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">;</span>
-<span class="k">@end</span>
+#pragma mark 通知关闭vpadn广告页面
+- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView;
+@end
 </code></pre></div>
 <p>这些方法可用于个别的物件，例如</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="cp">#import &quot;VpadnBanner.h&quot;</span>
-  <span class="cp">#import &quot;VpadnInterstitial.h&quot;</span>
-  <span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span><span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="p">,</span> <span class="n">VpadnInterstitialDelegate</span><span class="o">&gt;</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  #import "VpadnBanner.h"
+  #import "VpadnInterstitial.h"
+  @interface ViewController : UIViewController&lt;VpadnBannerDelegate, VpadnInterstitialDelegate&gt;
 </code></pre></div>
 <p>将要接收的物件传给 VpadnBanner：</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="n">vpadnAd</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">vpadnAd.delegate = self;
 </code></pre></div>
 <p>当 VpadnBanner 广告抓取成功时传送。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnAdReceived</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  - (void)onVpadnAdReceived:(UIView *)bannerView{}
 </code></pre></div>
 <p>当 VpadnBanner 失败时传送；失败原因通常是网路连线失败、应用程式设定错误或广告空间不足。建议您将这些事件记录下来以便侦错：</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnAdFailed</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span> <span class="nl">didFailToReceiveAdWithError</span><span class="p">:(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="n">error</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
 </code></pre></div>
 <p>当广告因获得使用者点击，在您的应用程式之前webView 并呈现出全萤幕广告使用者介面时呼叫。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnPresent</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  - (void)onVpadnPresent:(UIView *)bannerView{}
 </code></pre></div>
 <p>当使用者关闭与 onVpadnDismiss 一同显示的webView，控制权也交还给应用程式时呼叫。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnDismiss</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  - (void)onVpadnDismiss:(UIView *)bannerView;
 </code></pre></div>
 <p>当 Ad 点击会启动新的应用程式(out app)时呼叫。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  <span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nl">onVpadnLeaveApplication</span><span class="p">:(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="n">bannerView</span><span class="p">{}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">  - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
 </code></pre></div>
 <h1 id="crazy-ad">Crazy Ad</h1>
 

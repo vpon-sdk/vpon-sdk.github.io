@@ -212,111 +212,111 @@
 </ol>
 
 <p>建议您最好在应用程式的 UIViewController 内执行上述所有步骤。</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
-<span class="c1">// 载入标头档</span>
-<span class="cp">#import &quot;VpadnBanner.h&quot;</span>
-<span class="cp">#import &quot;VpadnInterstitial.h&quot;</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">#import &lt;UIKit/UIKit.h&gt;
+// 载入标头档
+#import "VpadnBanner.h"
+#import "VpadnInterstitial.h"
 
-<span class="c1">// 增加两个protocol接收广告状态</span>
-<span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span><span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="p">,</span> <span class="n">VpadnInterstitialDelegate</span><span class="o">&gt;</span>
-<span class="p">{</span>
-    <span class="n">VpadnBanner</span><span class="o">*</span>    <span class="n">vpadnAd</span><span class="p">;</span> <span class="c1">// 宣告使用VpadnBanner广告</span>
-    <span class="n">VpadnInterstitial</span><span class="o">*</span>    <span class="n">vpadnInterstitial</span><span class="p">;</span> <span class="c1">// 宣告使用Vpadn插屏广告</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+// 增加两个protocol接收广告状态
+@interface ViewController : UIViewController&lt;VpadnBannerDelegate, VpadnInterstitialDelegate&gt;
+{
+    VpadnBanner*    vpadnAd; // 宣告使用VpadnBanner广告
+    VpadnInterstitial*    vpadnInterstitial; // 宣告使用Vpadn插屏广告
+}
+@end
 </code></pre></div>
 <h2 id="初始化设定">初始化设定</h2>
 
 <p>以下程式码会在 viewController的 viewDidLoad 初始化步骤中设定横幅广告。</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">@implementation ViewController
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span>
-<span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">nil</span> <span class="o">!=</span> <span class="n">vpadnAd</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="n">vpadnAd</span> <span class="k">release</span><span class="p">];</span>
-        <span class="n">vpadnAd</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">nil</span> <span class="o">!=</span> <span class="n">vpadnInterstitial</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="k">release</span><span class="p">];</span>
-        <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">dealloc</span><span class="p">];</span>
-<span class="p">}</span>
+- (void)dealloc
+{
+    if(nil != vpadnAd)
+    {
+        [vpadnAd release];
+        vpadnAd = nil;
+    }
+    if(nil != vpadnInterstitial)
+    {
+        [vpadnInterstitial release];
+        vpadnInterstitial = nil;
+    }
+    [super dealloc];
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
-<span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-    <span class="c1">// Do any additional setup after loading the view, typically from a nib.</span>
-    <span class="kt">BOOL</span> <span class="n">bStatusBarHide</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIApplication</span> <span class="n">sharedApplication</span><span class="p">].</span><span class="n">statusBarHidden</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">screenHeight</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIScreen</span> <span class="n">mainScreen</span><span class="p">]</span> <span class="n">bounds</span><span class="p">].</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">bStatusBarHide</span><span class="p">)</span>
-        <span class="n">screenHeight</span> <span class="o">-=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="c1">// 设定广告位置</span>
-    <span class="bp">CGPoint</span> <span class="n">origin</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">screenHeight</span> <span class="o">-</span> <span class="n">CGSizeFromVpadnAdSize</span><span class="p">(</span><span class="n">VpadnAdSizeSmartBannerPortrait</span><span class="p">).</span><span class="n">height</span><span class="p">);</span>
-    <span class="n">vpadnAd</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnBanner</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithAdSize</span><span class="p">:</span><span class="n">VpadnAdSizeSmartBannerPortrait</span> <span class="nl">origin</span><span class="p">:</span><span class="n">origin</span><span class="p">];</span>  <span class="c1">// 初始化Banner物件</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>   <span class="c1">// 填入您的BannerId</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>       <span class="c1">// 设定delegate接收protocol回传讯息</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>       <span class="c1">// 台湾地区请填TW 大陆则填CN</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">setAdAutoRefresh</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span> <span class="c1">//如果为mediation则set NO</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">setRootViewController</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span> <span class="c1">//请将window的rootViewController设定在此 以便广告顺利执行</span>
-    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:[</span><span class="n">vpadnAd</span> <span class="n">getVpadnAdView</span><span class="p">]];</span> <span class="c1">// 将VpadnBanner的View加入此ViewController中</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">startGetAd</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span> <span class="c1">// 开始抓取Banner广告</span>
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    BOOL bStatusBarHide = [UIApplication sharedApplication].statusBarHidden;
+    float screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if(!bStatusBarHide)
+        screenHeight -= 20;
+    // 设定广告位置
+    CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
+    vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];  // 初始化Banner物件
+    vpadnAd.strBannerId = @"";   // 填入您的BannerId
+    vpadnAd.delegate = self;       // 设定delegate接收protocol回传讯息
+    vpadnAd.platform = @"TW";       // 台湾地区请填TW 大陆则填CN
+    [vpadnAd setAdAutoRefresh:YES]; //如果为mediation则set NO
+    [vpadnAd setRootViewController:self]; //请将window的rootViewController设定在此 以便广告顺利执行
+    [self.view addSubview:[vpadnAd getVpadnAdView]]; // 将VpadnBanner的View加入此ViewController中
+    [vpadnAd startGetAd:[self getTestIdentifiers]]; // 开始抓取Banner广告
 
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="cp">#pragma mark VpadnAdDelegate method 接一般Banner广告就需要新增</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;广告抓取成功&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+}
+</code></pre></div><div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">#pragma mark VpadnAdDelegate method 接一般Banner广告就需要新增
+- (void)onVpadnAdReceived:(UIView *)bannerView{
+    NSLog(@"广告抓取成功");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span> <span class="nf">didFailToReceiveAdWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;广告抓取失败&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"广告抓取失败");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnPresent:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;开启vpadn广告页面 %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnPresent:(UIView *)bannerView{
+    NSLog(@"开启vpadn广告页面 %@",bannerView);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;关闭vpadn广告页面 %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnDismiss:(UIView *)bannerView{
+    NSLog(@"关闭vpadn广告页面 %@",bannerView);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnLeaveApplication:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;离开publisher application&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnLeaveApplication:(UIView *)bannerView{
+    NSLog(@"离开publisher application");
+}
 
-<span class="cp">#pragma mark VpadnInterstitial Delegate 有接Interstitial的广告才需要新增</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;插屏广告抓取成功&quot;</span><span class="p">);</span>
-    <span class="c1">// 显示插屏广告</span>
-    <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="n">show</span><span class="p">];</span>
-<span class="p">}</span>
+#pragma mark VpadnInterstitial Delegate 有接Interstitial的广告才需要新增
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
+    NSLog(@"插屏广告抓取成功");
+    // 显示插屏广告
+    [vpadnInterstitial show];
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;插屏广告抓取失败&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView{
+    NSLog(@"插屏广告抓取失败");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;关闭插屏广告页面 %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView{
+    NSLog(@"关闭插屏广告页面 %@",bannerView);
+}
 
-<span class="cp">#pragma mark 通知关闭vpadn开屏广告</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnSplashAdDismiss</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;关闭vpadn开屏广告页面&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+#pragma mark 通知关闭vpadn开屏广告
+- (void)onVpadnSplashAdDismiss{
+    NSLog(@"关闭vpadn开屏广告页面");
+}
 
-<span class="k">@end</span>
+@end
 </code></pre></div>
 <h2 id="测试广告">测试广告</h2>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-    <span class="c1">// add your test UUID</span>
-    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
-    <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
 </code></pre></div>
 <h1 id="横幅广告大小">横幅广告大小</h1>
 

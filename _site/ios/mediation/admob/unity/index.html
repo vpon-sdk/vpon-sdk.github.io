@@ -236,13 +236,13 @@ Part of the content below is from Google&#39;s GitHub <a href="https://github.co
 <p>Here is the minimal code needed to create a banner.</p>
 <div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">GoogleMobileAds.Api</span><span class="p">;</span>
 <span class="p">...</span>
-<span class="c1">// Create a 320x50 banner at the top of the screen.</span>
-<span class="n">BannerView</span> <span class="n">bannerView</span> <span class="p">=</span> <span class="k">new</span> <span class="n">BannerView</span><span class="p">(</span>
-        <span class="s">&quot;YOUR_AD_UNIT_ID&quot;</span><span class="p">,</span> <span class="n">AdSize</span><span class="p">.</span><span class="n">Banner</span><span class="p">,</span> <span class="n">AdPosition</span><span class="p">.</span><span class="n">Top</span><span class="p">);</span>
-<span class="c1">// Create an empty ad request.</span>
-<span class="n">AdRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="p">.</span><span class="n">Builder</span><span class="p">().</span><span class="n">Build</span><span class="p">();</span>
-<span class="c1">// Load the banner with the request.</span>
-<span class="n">bannerView</span><span class="p">.</span><span class="n">LoadAd</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="c1">// Create a 320x50 banner at the top of the screen.
+</span><span class="n">BannerView</span> <span class="n">bannerView</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BannerView</span><span class="p">(</span>
+        <span class="s">"YOUR_AD_UNIT_ID"</span><span class="p">,</span> <span class="n">AdSize</span><span class="p">.</span><span class="n">Banner</span><span class="p">,</span> <span class="n">AdPosition</span><span class="p">.</span><span class="n">Top</span><span class="p">);</span>
+<span class="c1">// Create an empty ad request.
+</span><span class="n">AdRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="p">.</span><span class="nf">Builder</span><span class="p">().</span><span class="nf">Build</span><span class="p">();</span>
+<span class="c1">// Load the banner with the request.
+</span><span class="n">bannerView</span><span class="p">.</span><span class="nf">LoadAd</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 </code></pre></div>
 <p>The <em>AdPosition</em> enum specifies where to place the banner.</p>
 
@@ -251,16 +251,16 @@ Part of the content below is from Google&#39;s GitHub <a href="https://github.co
 <p>Here is the minimal banner code to create an interstitial.</p>
 <div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">GoogleMobileAds.Api</span><span class="p">;</span>
 <span class="p">...</span>
-<span class="c1">// Initialize an InterstitialAd.</span>
-<span class="n">InterstitialAd</span> <span class="n">interstitial</span> <span class="p">=</span> <span class="k">new</span> <span class="n">InterstitialAd</span><span class="p">(</span><span class="s">&quot;MY_AD_UNIT_ID&quot;</span><span class="p">);</span>
-<span class="c1">// Create an empty ad request.</span>
-<span class="n">AdRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="p">.</span><span class="n">Builder</span><span class="p">().</span><span class="n">Build</span><span class="p">();</span>
-<span class="c1">// Load the interstitial with the request.</span>
-<span class="n">interstitial</span><span class="p">.</span><span class="n">LoadAd</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+<span class="c1">// Initialize an InterstitialAd.
+</span><span class="n">InterstitialAd</span> <span class="n">interstitial</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">InterstitialAd</span><span class="p">(</span><span class="s">"MY_AD_UNIT_ID"</span><span class="p">);</span>
+<span class="c1">// Create an empty ad request.
+</span><span class="n">AdRequest</span> <span class="n">request</span> <span class="p">=</span> <span class="k">new</span> <span class="n">AdRequest</span><span class="p">.</span><span class="nf">Builder</span><span class="p">().</span><span class="nf">Build</span><span class="p">();</span>
+<span class="c1">// Load the interstitial with the request.
+</span><span class="n">interstitial</span><span class="p">.</span><span class="nf">LoadAd</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 </code></pre></div>
 <p>Unlike banners, interstitials need to be explicitly shown. At an appropriate stopping point in your app, check that the interstitail is ready before showing it:</p>
-<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">if</span> <span class="p">(</span><span class="n">interstitial</span><span class="p">.</span><span class="n">IsLoaded</span><span class="p">())</span> <span class="p">{</span>
-  <span class="n">interstitial</span><span class="p">.</span><span class="n">Show</span><span class="p">();</span>
+<div class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">if</span> <span class="p">(</span><span class="n">interstitial</span><span class="p">.</span><span class="nf">IsLoaded</span><span class="p">())</span> <span class="p">{</span>
+  <span class="n">interstitial</span><span class="p">.</span><span class="nf">Show</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
 <h1 id="run-the-project">Run the Project</h1>

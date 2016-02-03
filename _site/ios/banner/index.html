@@ -205,114 +205,114 @@
 </ol>
 
 <p>The best place to do all this is in your app&#39;s UIViewController.</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="cp">#import &lt;UIKit/UIKit.h&gt;</span>
-<span class="c1">// Import header files from the SDK</span>
-<span class="cp">#import &quot;VpadnBanner.h&quot;</span>
-<span class="cp">#import &quot;VpadnInterstitial.h&quot;</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">#import &lt;UIKit/UIKit.h&gt;
+// Import header files from the SDK
+#import "VpadnBanner.h"
+#import "VpadnInterstitial.h"
 
-<span class="c1">// Add two protocol to receive the status of Ads</span>
-<span class="k">@interface</span> <span class="nc">ViewController</span> : <span class="bp">UIViewController</span><span class="o">&lt;</span><span class="n">VpadnBannerDelegate</span><span class="p">,</span> <span class="n">VpadnInterstitialDelegate</span><span class="o">&gt;</span>
-<span class="p">{</span>
-    <span class="n">VpadnBanner</span><span class="o">*</span>    <span class="n">vpadnAd</span><span class="p">;</span> <span class="c1">// Declare the instance of Vpadn&#39;s banner Ads</span>
-    <span class="n">VpadnInterstitial</span><span class="o">*</span>    <span class="n">vpadnInterstitial</span><span class="p">;</span> <span class="c1">// Declare the instance of Vpadn&#39;s interstitial Ads</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+// Add two protocol to receive the status of Ads
+@interface ViewController : UIViewController&lt;VpadnBannerDelegate, VpadnInterstitialDelegate&gt;
+{
+    VpadnBanner*    vpadnAd; // Declare the instance of Vpadn's banner Ads
+    VpadnInterstitial*    vpadnInterstitial; // Declare the instance of Vpadn's interstitial Ads
+}
+@end
 </code></pre></div>
 <h2 id="viewdidload-setup">viewDidLoad setup</h2>
 
 <hr>
 
 <p>The following performs setup in the view controller&#39;s viewDidLoad initialization hook.</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">@implementation ViewController
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span>
-<span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">nil</span> <span class="o">!=</span> <span class="n">vpadnAd</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="n">vpadnAd</span> <span class="k">release</span><span class="p">];</span>
-        <span class="n">vpadnAd</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="nb">nil</span> <span class="o">!=</span> <span class="n">vpadnInterstitial</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="k">release</span><span class="p">];</span>
-        <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">dealloc</span><span class="p">];</span>
-<span class="p">}</span>
+- (void)dealloc
+{
+    if(nil != vpadnAd)
+    {
+        [vpadnAd release];
+        vpadnAd = nil;
+    }
+    if(nil != vpadnInterstitial)
+    {
+        [vpadnInterstitial release];
+        vpadnInterstitial = nil;
+    }
+    [super dealloc];
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
-<span class="p">{</span>
-    <span class="p">[</span><span class="nb">super</span> <span class="n">viewDidLoad</span><span class="p">];</span>
-    <span class="c1">// Do any additional setup after loading the view, typically from a nib.</span>
-    <span class="kt">BOOL</span> <span class="n">bStatusBarHide</span> <span class="o">=</span> <span class="p">[</span><span class="bp">UIApplication</span> <span class="n">sharedApplication</span><span class="p">].</span><span class="n">statusBarHidden</span><span class="p">;</span>
-    <span class="kt">float</span> <span class="n">screenHeight</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">UIScreen</span> <span class="n">mainScreen</span><span class="p">]</span> <span class="n">bounds</span><span class="p">].</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">bStatusBarHide</span><span class="p">)</span>
-        <span class="n">screenHeight</span> <span class="o">-=</span> <span class="mi">20</span><span class="p">;</span>
-    <span class="c1">// Set the coordinate</span>
-    <span class="bp">CGPoint</span> <span class="n">origin</span> <span class="o">=</span> <span class="n">CGPointMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">screenHeight</span> <span class="o">-</span> <span class="n">CGSizeFromVpadnAdSize</span><span class="p">(</span><span class="n">VpadnAdSizeSmartBannerPortrait</span><span class="p">).</span><span class="n">height</span><span class="p">);</span>
-    <span class="n">vpadnAd</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnBanner</span> <span class="n">alloc</span><span class="p">]</span> <span class="nl">initWithAdSize</span><span class="p">:</span><span class="n">VpadnAdSizeSmartBannerPortrait</span> <span class="nl">origin</span><span class="p">:</span><span class="n">origin</span><span class="p">];</span>  <span class="c1">//initialize the instance of banner</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>   <span class="c1">// Specify the Banner ID</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>       <span class="c1">// Set delegate to receive messages from protocol</span>
-    <span class="n">vpadnAd</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>       <span class="c1">// Taiwan: TW, China: CN</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">setAdAutoRefresh</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span> <span class="c1">//if it is mediation then set NO</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">setRootViewController</span><span class="p">:</span><span class="nb">self</span><span class="p">];</span> <span class="c1">//Set the window&#39;s rootViewController here so that the Ads can execute successfully</span>
-    <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="nl">addSubview</span><span class="p">:[</span><span class="n">vpadnAd</span> <span class="n">getVpadnAdView</span><span class="p">]];</span> <span class="c1">// Add the VpadnBanner&#39;s view in this ViewController</span>
-    <span class="p">[</span><span class="n">vpadnAd</span> <span class="nl">startGetAd</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span> <span class="c1">// start to get banner Ads</span>
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    BOOL bStatusBarHide = [UIApplication sharedApplication].statusBarHidden;
+    float screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    if(!bStatusBarHide)
+        screenHeight -= 20;
+    // Set the coordinate
+    CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
+    vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];  //initialize the instance of banner
+    vpadnAd.strBannerId = @"";   // Specify the Banner ID
+    vpadnAd.delegate = self;       // Set delegate to receive messages from protocol
+    vpadnAd.platform = @"TW";       // Taiwan: TW, China: CN
+    [vpadnAd setAdAutoRefresh:YES]; //if it is mediation then set NO
+    [vpadnAd setRootViewController:self]; //Set the window's rootViewController here so that the Ads can execute successfully
+    [self.view addSubview:[vpadnAd getVpadnAdView]]; // Add the VpadnBanner's view in this ViewController
+    [vpadnAd startGetAd:[self getTestIdentifiers]]; // start to get banner Ads
 
-<span class="p">}</span>
+}
 
-<span class="cp">#pragma mark VpadAdDelegate method. Add this when use banner Ads</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnAdReceived&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+#pragma mark VpadAdDelegate method. Add this when use banner Ads
+- (void)onVpadnAdReceived:(UIView *)bannerView{
+    NSLog(@"VpadnAdReceived");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span> <span class="nf">didFailToReceiveAdWithError:</span><span class="p">(</span><span class="bp">NSError</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnAdFailed&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"VpadnAdFailed");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnPresent:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnPresent %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnPresent:(UIView *)bannerView{
+    NSLog(@"VpadnPresent %@",bannerView);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnDismiss %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnDismiss:(UIView *)bannerView{
+    NSLog(@"VpadnDismiss %@",bannerView);
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnLeaveApplication:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;Leave publisher application&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnLeaveApplication:(UIView *)bannerView{
+    NSLog(@"Leave publisher application");
+}
 
-<span class="cp">#pragma mark VpadnInterstitial Delegate. Add this when use interstitial Ads</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnInterstitialAdReceived&quot;</span><span class="p">);</span>
-    <span class="c1">// Show interstitial Ads</span>
-    <span class="p">[</span><span class="n">vpadInterstitial</span> <span class="n">show</span><span class="p">];</span>
-<span class="p">}</span>
+#pragma mark VpadnInterstitial Delegate. Add this when use interstitial Ads
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
+    NSLog(@"VpadnInterstitialAdReceived");
+    // Show interstitial Ads
+    [vpadInterstitial show];
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdFailed:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnInterstitialAdFailed&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView{
+    NSLog(@"VpadnInterstitialAdFailed");
+}
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdDismiss:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnintersittialAdDismiss %@&quot;</span><span class="p">,</span><span class="n">bannerView</span><span class="p">);</span>
-<span class="p">}</span>
+- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView{
+    NSLog(@"VpadnintersittialAdDismiss %@",bannerView);
+}
 
-<span class="cp">#pragma mark inform close the Vpadn Ads</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnSplashAdDismiss</span><span class="p">{</span>
-    <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;VpadnSplashAdDismiss&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+#pragma mark inform close the Vpadn Ads
+- (void)onVpadnSplashAdDismiss{
+    NSLog(@"VpadnSplashAdDismiss");
+}
 
-<span class="k">@end</span>
+@end
 </code></pre></div>
 <h2 id="test-ads">Test Ads</h2>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-      <span class="c1">// add your test UUID</span>
-      <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
-      <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+      // add your test UUID
+      @"your_UUID",
+      nil];
+}
 </code></pre></div>
 <h1 id="banner-sizes">Banner Sizes</h1>
 

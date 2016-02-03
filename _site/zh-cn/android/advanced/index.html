@@ -189,16 +189,16 @@
 <h2 id="指定接收广告">指定接收广告</h2>
 
 <p>您可以使用这些属性来指定要接收测试广告的装置或装置 Set。若要确认 SDK 是否已顺利整合，请加入您的测试装置并执行应用程式，然后按一下所显示的测试广告。</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java">  <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-  <span class="n">request</span><span class="o">.</span><span class="na">addTestDevice</span><span class="o">(</span><span class="s">&quot;your test device advertising id&quot;</span><span class="o">);</span>
-  <span class="c1">//TODO 需要填入您测试机的advertising id</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">  VpadnAdRequest request = new VpadnAdRequest();
+  request.addTestDevice("your test device advertising id");
+  //TODO 需要填入您测试机的advertising id
 </code></pre></div>
 <h2 id="指定目标">指定目标</h2>
 
 <p>您也可以指定位置和客层相关资讯。不过，为了保护使用者隐私，请只指定您的应用程式中现有的位置和客层资料。</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java"><span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setGender</span><span class="o">(</span><span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">Gender</span><span class="o">.</span><span class="na">FEMALE</span><span class="o">);</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setBirthday</span><span class="o">(</span><span class="s">&quot;1977-08-23&quot;</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">VpadnAdRequest request = new VpadnAdRequest();
+request.setGender(VpadnAdRequest.Gender.FEMALE);
+request.setBirthday("1977-08-23");
 </code></pre></div>
 <p>系统会以适当的方法取得使用者的位置</p>
 
@@ -208,11 +208,11 @@
 
 <p>您可以选择在传送给 <code>VpadnBanner.setAdListener</code> 的物件中执行 <code>com.adshow.ads.VpadnAdListener</code>，藉此追踪请求失败或「点阅」等广告生命週期事件。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java">   <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">VpadnAdListener</span> <span class="o">{</span>
-     <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
    <span class="o">}</span>
 </code></pre></div>
 <p>这个介面可由您的活动或任何其他物件执行：</p>
@@ -225,22 +225,22 @@
 <div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="n">vponBanner</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 </code></pre></div>
 <hr>
-<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="p">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
 </code></pre></div>
 <p>当 VpadnBanner.loadAd 成功时传送。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">error</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailedToReceiveAd</span><span class="p">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">error</span><span class="o">)</span>
 </code></pre></div>
 <p>当 loadAd 失败时传送；失败原因通常是网路连线失败、应用程式设定错误或广告空间不足。</p>
 
 <p>建议您将这些事件记录下来以便侦错：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span> <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">MY_LOG_TAG</span><span class="o">,</span> <span class="s">&quot;failed to receive ad (&quot;</span> <span class="o">+</span> <span class="n">errorCode</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span> <span class="o">}</span>
-</code></pre></div><div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span> <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">MY_LOG_TAG</span><span class="o">,</span> <span class="s">"failed to receive ad ("</span> <span class="o">+</span> <span class="n">errorCode</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span> <span class="o">}</span>
+</code></pre></div><div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnPresentScreen</span><span class="p">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
 </code></pre></div>
 <p>当广告因获得使用者点击，在您的应用程式之前建立了 Activity 并呈现出全萤幕广告使用者介面时呼叫。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnDismissScreen</span><span class="p">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
 </code></pre></div>
 <p>当使用者关闭与 onVponPresentScreen 一同显示的全萤幕 Activity，控制权也交还给应用程式时呼叫。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnLeaveApplication</span><span class="p">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span>
 </code></pre></div>
 <p>当 Ad 点击会启动新的应用程式时呼叫。</p>
 

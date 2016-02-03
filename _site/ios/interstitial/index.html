@@ -214,26 +214,26 @@ We suggest that the interstitial ads running in portrait mode for the best visua
 </ul>
 
 <p>Once again, the best place to do this is in your app&#39;s UIViewController</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">@implementation ViewController
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
-<span class="p">{</span>
-    <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnInterstitial</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>   <span class="c1">// Write your Interstitial BannerId</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>       <span class="c1">// Taiwan: TW China: CN</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="nl">getInterstitial</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+- (void)viewDidLoad
+{
+    vpadnInterstitial = [[VpadnInterstitial alloc] init];
+    vpadnInterstitial.strBannerId = @"";   // Write your Interstitial BannerId
+    vpadnInterstitial.platform = @"TW";       // Taiwan: TW China: CN
+    vpadnInterstitial.delegate = self;
+    [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
+}
+@end
 </code></pre></div>
 <p>There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad [vpadnInterstitial show] once onVpadnInterstitialAdReceived load succeeds.</p>
 
 <p>Once load succeeds the full-screen ad is ready for presentation:</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#pragma mark VpadnInterstitial Delegate Only when you want to show interstitial ad can add this one</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-   <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;interstitial ad received&quot;</span><span class="p">);</span>
-   <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="n">show</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#pragma mark VpadnInterstitial Delegate Only when you want to show interstitial ad can add this one
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
+   NSLog(@"interstitial ad received");
+   [vpadnInterstitial show];
+}
 </code></pre></div>
 <p>The interstitial then takes over the screen until the user dismisses it, at which point control returns to your app and the view controller passes to this method.
 Vpadn Interstitial Delegate <a href="../advanced/">advanced setting</a> provides many callback methods for you.</p>
@@ -241,14 +241,14 @@ Vpadn Interstitial Delegate <a href="../advanced/">advanced setting</a> provides
 <h1 id="test-ads">Test Ads</h1>
 
 <hr>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-      <span class="c1">// add your test UUID</span>
-      <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
-      <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+      // add your test UUID
+      @"your_UUID",
+      nil];
+}
 </code></pre></div>
 <h1 id="download-sample-code">Download Sample Code</h1>
 

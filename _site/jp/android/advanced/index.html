@@ -191,16 +191,16 @@
 <p>これらのプロパティでテスト広告を表示させる端末、もしくは端末セットを指定することができます。
 開発中に不要な広告を表示させないためにこのプロパティをご利用ください。
 SDKが正しく実装されていることを確認するには、テスト用端末を追加し、アプリを起動させ、表示されたテスト広告をクリックします。</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java">  <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-  <span class="n">request</span><span class="o">.</span><span class="na">addTestDevice</span><span class="o">(</span><span class="s">&quot;your test device advertising id&quot;</span><span class="o">);</span>
-  <span class="c1">//TODO テスト用端末のAdvertising IDを記入する。</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">  VpadnAdRequest request = new VpadnAdRequest();
+  request.addTestDevice("your test device advertising id");
+  //TODO テスト用端末のAdvertising IDを記入する。
 </code></pre></div>
 <h2 id="ターゲティング">ターゲティング</h2>
 
 <p>位置情報とユーザー属性情報を指定することができます。ユーザーのプライバシー情報保護の観点から、アプリ内の既存情報としての位置情報とユーザー属性情報を指定してください。</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java"><span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setGender</span><span class="o">(</span><span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">Gender</span><span class="o">.</span><span class="na">FEMALE</span><span class="o">);</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setBirthday</span><span class="o">(</span><span class="s">&quot;1977-08-23&quot;</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">VpadnAdRequest request = new VpadnAdRequest();
+request.setGender(VpadnAdRequest.Gender.FEMALE);
+request.setBirthday("1977-08-23");
 </code></pre></div>
 <p>ユーザーの<a href="http://developer.android.com/reference/android/location/Location.html">位置情報</a>は適切な情報で<a href="http://developer.android.com/guide/topics/location/strategies.html">取得可能</a>です。 システムは、適切な方法でユーザの位置を入手できます。</p>
 
@@ -210,11 +210,11 @@ SDKが正しく実装されていることを確認するには、テスト用�
 
 <p><code>VpadnBanner.setAdListener</code> に渡すオブジェクト内に <code>com.vpadn.ads.VpadnAdListener</code> をオプションで実装することで、広告リクエストの失敗やクリックスルーなどのライフサイクルイベントをトラッキングすることができます。</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java">   <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">VpadnAdListener</span> <span class="o">{</span>
-     <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
    <span class="o">}</span>
 </code></pre></div>
 <p>このインターフェースは、アクティビティー或いはその他のオブジェクトが実行できます。</p>
@@ -230,7 +230,7 @@ SDKが正しく実装されていることを確認するには、テスト用�
   VpadnBanner.loadAd が成功した場合に渡します。
 <code>public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)</code>
   loadAd が失敗した場合に渡します。一般的には、ネットワーク・アプリの設定ミス・広告在庫の不足が考えられます。デバッグ用にこれらのイベントを記録しておくことをお奨めします。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span> <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">MY_LOG_TAG</span><span class="o">,</span> <span class="s">&quot;failed to receive ad (&quot;</span> <span class="o">+</span> <span class="n">errorCode</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span> <span class="o">}</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span> <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">MY_LOG_TAG</span><span class="o">,</span> <span class="s">"failed to receive ad ("</span> <span class="o">+</span> <span class="n">errorCode</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span> <span class="o">}</span>
 </code></pre></div>
 <p><code>public void onVpadnPresentScreen(VpadnAd ad)</code>
 ユーザーが広告をクリックし、アプリ上でフルスクリーン広告のユーザーインターフェースが表示される時に呼び出されます。</p>

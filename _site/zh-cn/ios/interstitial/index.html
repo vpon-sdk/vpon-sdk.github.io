@@ -211,17 +211,17 @@
 <blockquote>
 <p><strong>Note</strong>: 再次提醒您，最好在应用程式的 ViewController 内执行上述步骤。</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">@implementation ViewController
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
-<span class="p">{</span>
-    <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnInterstitial</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>    <span class="c1">// 填入您的Interstitial BannerId</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>     <span class="c1">// 台湾地区请填TW 大陆则填CN</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="nl">getInterstitial</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+- (void)viewDidLoad
+{
+    vpadnInterstitial = [[VpadnInterstitial alloc] init];
+    vpadnInterstitial.strBannerId = @"";    // 填入您的Interstitial BannerId
+    vpadnInterstitial.platform = @"TW";     // 台湾地区请填TW 大陆则填CN
+    vpadnInterstitial.delegate = self;
+    [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
+}
+@end
 </code></pre></div>
 <p>不过，目前没有任何项目可加入 ViewController，而且您必须等到这个请求成功后才能尝试显示广告，
 这点请格外注意。最简单的做法是当 onVpadnInterstitialAdReceived 收到通知时 则执行 [vpadnInterstitial show]</p>
@@ -231,14 +231,14 @@
 <h1 id="测试广告">测试广告</h1>
 
 <hr>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-    <span class="c1">// add your test UUID</span>
-    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
-    <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">// 请新增此function到您的程式内 如果为测试用 则在下方填入UUID，即可看到测试广告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
 </code></pre></div>
       </div>
       <div class="col-md-3">

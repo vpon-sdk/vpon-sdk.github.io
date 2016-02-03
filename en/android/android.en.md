@@ -19,7 +19,7 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 ## Step3: Ad Integration
 ---
 | [Banner Ad][4]  |[Interstitial Ad][5] |[Mediation][6]|
-| :------------:|:-----------:| :--------: |
+| :------------:  | :-----------: | :--------: |
 <br><br>
 
 ## Tips

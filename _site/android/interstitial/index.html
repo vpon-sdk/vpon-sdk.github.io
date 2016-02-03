@@ -215,25 +215,25 @@ We suggest that the interstitial ads running in portrait mode for the best visua
 <p>Be sure perform the above steps in the Activity of you Application.</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="kd">extends</span> <span class="n">Activity</span> <span class="kd">implements</span> <span class="n">VpadnAdListener</span> <span class="o">{</span>
   <span class="c1">//TODO: The InterstitialBannerId which is you apply form Vpon.(Remind: This interstitial banner ID is different with normal banner ID).</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">interstitialBannerId</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxx&quot;</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">interstitialBannerId</span> <span class="o">=</span> <span class="s">"xxxxxxxxxxxxxxxx"</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">VpadnInterstitialAd</span> <span class="n">interstitialAd</span><span class="o">;</span>
 
   <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
         <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
         <span class="c1">// Create interstitial instance</span>
-        <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnInterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">interstitialBannerId</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
+        <span class="n">interstitialAd</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VpadnInterstitialAd</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">interstitialBannerId</span><span class="o">,</span> <span class="s">"TW"</span><span class="o">);</span>
         <span class="c1">//Add listener</span>
         <span class="n">interstitialAd</span><span class="o">.</span><span class="na">setAdListener</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
         <span class="c1">// Create ad request</span>
-        <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+        <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VpadnAdRequest</span><span class="o">();</span>
         <span class="c1">//Begin loading your interstitial</span>
         <span class="n">interstitialAd</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
     <span class="o">}</span>
 
   <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onDestroy</span><span class="o">()</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
         <span class="c1">// Remember to call the destory() when your app is destroying.</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">interstitialAd</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -246,9 +246,9 @@ We suggest that the interstitial ads running in portrait mode for the best visua
 Here we implement AdListener and immediately show the interstitial upon callbacks to onReceiveAd(), or checking with isReady().
 See the Intermediate guide for further details on using AdListener.</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">ad</span> <span class="o">==</span> <span class="k">this</span><span class="o">.</span><span class="na">interstitialAd</span><span class="o">)</span> <span class="o">{</span>
-    <span class="c1">//show interstitial ad or hold onto the interstitial untill you&#39;re ready to display it.</span>
+    <span class="c1">//show interstitial ad or hold onto the interstitial untill you're ready to display it.</span>
              <span class="n">interstitialAd</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>
         <span class="o">}</span>
     <span class="o">}</span>

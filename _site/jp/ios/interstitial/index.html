@@ -213,40 +213,40 @@
 </ul>
 
 <p>この場合も、これらの処理に最も適しているのはアプリの ViewController 内です。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="k">@implementation</span> <span class="nc">ViewController</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">@implementation ViewController
 
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span>
-<span class="p">{</span>
-    <span class="n">vpadnInterstitial</span> <span class="o">=</span> <span class="p">[[</span><span class="n">VpadnInterstitial</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">strBannerId</span> <span class="o">=</span> <span class="s">@&quot;&quot;</span><span class="p">;</span>   <span class="c1">//インタースティシャル広告用 BannerID を記入する</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">platform</span> <span class="o">=</span> <span class="s">@&quot;TW&quot;</span><span class="p">;</span>       <span class="c1">//台湾エリアはTW、中国エリアは CN を入力</span>
-    <span class="n">vpadnInterstitial</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="nb">self</span><span class="p">;</span>
-    <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="nl">getInterstitial</span><span class="p">:[</span><span class="nb">self</span> <span class="n">getTestIdentifiers</span><span class="p">]];</span>
-<span class="p">}</span>
-<span class="k">@end</span>
+- (void)viewDidLoad
+{
+    vpadnInterstitial = [[VpadnInterstitial alloc] init];
+    vpadnInterstitial.strBannerId = @"";   //インタースティシャル広告用 BannerID を記入する
+    vpadnInterstitial.platform = @"TW";       //台湾エリアはTW、中国エリアは CN を入力
+    vpadnInterstitial.delegate = self;
+    [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
+}
+@end
 </code></pre></div>
 <p>また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、onVpadnInterstitialAdReceived が通知を受信した時に [vpadnInterstitial show]を実行することです。 protocol に関する詳細な情報につきましては、中級編ガイドをご参照ください。 また、初級編ガイドにの更新項目についても併せてご確認ください。 初級編ガイドはこちら。</p>
 
 <p>広告のロードに成功すると、インタースティシャルを表示することができます。</p>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="cp">#pragma mark VpadnInterstitial Delegate が インタースティシャル広告を取得する場合、追加する必要があります。</span>
-<span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">onVpadnInterstitialAdReceived:</span><span class="p">(</span><span class="bp">UIView</span> <span class="o">*</span><span class="p">)</span><span class="nv">bannerView</span><span class="p">{</span>
-     <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;インタースティシャル広告の取得に成功&quot;</span><span class="p">);</span>
-    <span class="p">[</span><span class="n">vpadnInterstitial</span> <span class="n">show</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">#pragma mark VpadnInterstitial Delegate が インタースティシャル広告を取得する場合、追加する必要があります。
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
+     NSLog(@"インタースティシャル広告の取得に成功");
+    [vpadnInterstitial show];
+}
 </code></pre></div>
 <p>一度インタースティシャル広告が表示されると、ユーザが閉じるまでディスプレイ全体をカバーします。この時、制御権が アプリに渡されます。</p>
 
 <h1 id="test-ads">Test Ads</h1>
 
 <hr>
-<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c"><span class="c1">//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。</span>
-<span class="p">-(</span><span class="bp">NSArray</span><span class="o">*</span><span class="p">)</span><span class="nf">getTestIdentifiers</span>
-<span class="p">{</span>
-  <span class="k">return</span> <span class="p">[</span><span class="bp">NSArray</span> <span class="nl">arrayWithObjects</span><span class="p">:</span>
-    <span class="c1">// テスト端末のUUIDを追加</span>
-    <span class="s">@&quot;your_UUID&quot;</span><span class="p">,</span>
-    <span class="nb">nil</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-objective-c" data-lang="objective-c">//テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // テスト端末のUUIDを追加
+    @"your_UUID",
+    nil];
+}
 </code></pre></div>
 <h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1>
 

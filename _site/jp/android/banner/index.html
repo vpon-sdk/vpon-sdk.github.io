@@ -207,17 +207,17 @@
     <span class="kd">private</span> <span class="n">RelativeLayout</span> <span class="n">adBannerLayout</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">VpadnBanner</span> <span class="n">vponBanner</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
     <span class="c1">//TODO: VPONプロパティID</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">bannerId</span> <span class="o">=</span> <span class="s">&quot;xxxxxxxxxxxxxxxx&quot;</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">bannerId</span> <span class="o">=</span> <span class="s">"xxxxxxxxxxxxxxxx"</span><span class="o">;</span>
 
          <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
         <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_main</span><span class="o">);</span>
         <span class="c1">//バナーのレイアウトを設定</span>
         <span class="n">adBannerLayout</span> <span class="o">=</span> <span class="o">(</span><span class="n">RelativeLayout</span><span class="o">)</span> <span class="n">findViewById</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">adLayout</span><span class="o">);</span>
         <span class="c1">//VpadnBannerインスタンスの作成</span>
-                  <span class="n">vponBanner</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnBanner</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">bannerId</span><span class="o">,</span> <span class="n">VpadnAdSize</span><span class="o">.</span><span class="na">SMART_BANNER</span><span class="o">,</span> <span class="s">&quot;TW&quot;</span><span class="o">);</span>
-        <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+                  <span class="n">vponBanner</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VpadnBanner</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">bannerId</span><span class="o">,</span> <span class="n">VpadnAdSize</span><span class="o">.</span><span class="na">SMART_BANNER</span><span class="o">,</span> <span class="s">"TW"</span><span class="o">);</span>
+        <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VpadnAdRequest</span><span class="o">();</span>
         <span class="c1">//自動リフレッシュでバナーをリクエストできるよう設定する</span>
         <span class="n">adRequest</span><span class="o">.</span><span class="na">setEnableAutoRefresh</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
                    <span class="c1">//バナーを取得開始する</span>
@@ -227,10 +227,10 @@
     <span class="o">}</span>
 
     <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onDestroy</span><span class="o">()</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onDestroy</span><span class="o">();</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">vponBanner</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="o">/</span><span class="n">バナーを表示する準備ができたら</span><span class="err">、</span><span class="n">必ずdestroy</span> <span class="n">を呼び出す</span>
+            <span class="o">/</span><span class="err">バナーを表示する準備ができたら、必ず</span><span class="n">destroy</span> <span class="err">を呼び出す</span>
             <span class="n">vponBanner</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
             <span class="n">vponBanner</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
         <span class="o">}</span>
@@ -242,27 +242,27 @@
 <h1 id="xmlでバナーを表示する">XMLでバナーを表示する</h1>
 
 <h2 id="直接xmlでバナーを定義することができます。この場合、java-codeを作成する必要はありません。">直接XMLでバナーを定義することができます。この場合、Java codeを作成する必要はありません。</h2>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml">  <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-      <span class="na">xmlns:vpadn=</span><span class="s">&quot;http://schemas.android.com/apk/lib/com.vpadn.ads&quot;</span>
-      <span class="na">android:id=</span><span class="s">&quot;@+id/mainLayout&quot;</span>
-      <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-      <span class="na">android:layout_height=</span><span class="s">&quot;fill_parent&quot;</span>
-      <span class="na">android:orientation=</span><span class="s">&quot;vertical&quot;</span> <span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml">  <span class="nt">&lt;LinearLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+      <span class="na">xmlns:vpadn=</span><span class="s">"http://schemas.android.com/apk/lib/com.vpadn.ads"</span>
+      <span class="na">android:id=</span><span class="s">"@+id/mainLayout"</span>
+      <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+      <span class="na">android:layout_height=</span><span class="s">"fill_parent"</span>
+      <span class="na">android:orientation=</span><span class="s">"vertical"</span> <span class="nt">&gt;</span>
 
   <span class="nt">&lt;RelativeLayout</span>
-          <span class="na">android:id=</span><span class="s">&quot;@+id/adLayout&quot;</span>
-          <span class="na">android:layout_width=</span><span class="s">&quot;fill_parent&quot;</span>
-          <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span> <span class="nt">&gt;</span>
+          <span class="na">android:id=</span><span class="s">"@+id/adLayout"</span>
+          <span class="na">android:layout_width=</span><span class="s">"fill_parent"</span>
+          <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span> <span class="nt">&gt;</span>
 
           <span class="nt">&lt;com.vpadn.ads.VpadnBanner</span>
-              <span class="na">android:id=</span><span class="s">&quot;@+id/vpadnBannerXML&quot;</span>
-              <span class="na">android:layout_width=</span><span class="s">&quot;wrap_content&quot;</span>
-              <span class="na">android:layout_height=</span><span class="s">&quot;wrap_content&quot;</span>
-              <span class="na">vpadn:adSize=</span><span class="s">&quot;SMART_BANNER&quot;</span>
-              <span class="na">vpadn:autoFresh=</span><span class="s">&quot;true&quot;</span>
+              <span class="na">android:id=</span><span class="s">"@+id/vpadnBannerXML"</span>
+              <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+              <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+              <span class="na">vpadn:adSize=</span><span class="s">"SMART_BANNER"</span>
+              <span class="na">vpadn:autoFresh=</span><span class="s">"true"</span>
               <span class="na">vpadn:bannerId=</span> <span class="s">CHANGE_ME</span>
-              <span class="na">vpadn:loadAdOnCreate=</span><span class="s">&quot;true&quot;</span>
-              <span class="na">vpadn:platform=</span><span class="s">&quot;TW&quot;</span> <span class="nt">/&gt;</span>
+              <span class="na">vpadn:loadAdOnCreate=</span><span class="s">"true"</span>
+              <span class="na">vpadn:platform=</span><span class="s">"TW"</span> <span class="nt">/&gt;</span>
       <span class="nt">&lt;/RelativeLayout&gt;</span>
   <span class="nt">&lt;/LinearLayout&gt;</span>
 </code></pre></div>
@@ -271,9 +271,9 @@
 プロパティID がまだ審査を完了していない場合、以下の方法でテスト広告を取得することができます。</p>
 
 <p><br></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">      <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span>  <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">      <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">VpadnAdRequest</span><span class="o">();</span>
       <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">testDeviceImeiSet</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
-      <span class="n">testDeviceImeiSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;your device advertising id&quot;</span><span class="o">);</span>
+      <span class="n">testDeviceImeiSet</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"your device advertising id"</span><span class="o">);</span>
       <span class="c1">//TODO: テスト用端末のAdvertising IDを入力</span>
       <span class="n">adRequest</span><span class="o">.</span><span class="na">setTestDevices</span><span class="o">(</span><span class="n">testDeviceImeiSet</span><span class="o">);</span>
       <span class="n">vponBanner</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>
@@ -327,7 +327,7 @@
 <hr>
 
 <p>以下のサンプルコードを使用するとバナーの自動リフレッシュがオンとなります。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">   <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">   <span class="n">VpadnAdRequest</span> <span class="n">adRequest</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VpadnAdRequest</span><span class="o">();</span>
    <span class="c1">//true に設定すると、自動リフレッシュが可能</span>
    <span class="n">adRequest</span><span class="o">.</span><span class="na">setEnableAutoRefresh</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
    <span class="n">adShowBanner</span><span class="o">.</span><span class="na">loadAd</span><span class="o">(</span><span class="n">adRequest</span><span class="o">);</span>

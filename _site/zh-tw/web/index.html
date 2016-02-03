@@ -190,25 +190,25 @@
 <ol>
 <li>在網頁 <body> 內預放廣告的位置加上以下程式碼：</li>
 </ol>
-<div class="highlight"><pre><code class="language-HTML" data-lang="HTML"><span class="nt">&lt;body&gt;</span>
+<div class="highlight"><pre><code class="language-HTML" data-lang="HTML">&lt;body&gt;
 ...
-  <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_first_vpon_banner_id&quot;</span>
-        <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
-        <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+  &lt;vpon vpon_ad_test="1"
+        vpon_ad_licensy_key="your_first_vpon_banner_id"
+        vpon_ad_format="320x50_mb"
+        debug="true"&gt;&lt;/vpon&gt;
 ...
-  <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_second_vpon_banner_id&quot;</span>
-        <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
-        <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+  &lt;vpon vpon_ad_test="1"
+        vpon_ad_licensy_key="your_second_vpon_banner_id"
+        vpon_ad_format="320x50_mb"
+        debug="true"&gt;&lt;/vpon&gt;
 ...
-  <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-        <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_third_vpon_banner_id&quot;</span>
-        <span class="na">vpon_ad_format=</span><span class="s">&quot;300x250_mb&quot;</span>
-        <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+  &lt;vpon vpon_ad_test="1"
+        vpon_ad_licensy_key="your_third_vpon_banner_id"
+        vpon_ad_format="300x250_mb"
+        debug="true"&gt;&lt;/vpon&gt;
 ...
-  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>  <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+  &lt;script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"&gt; &lt;/script&gt;
+&lt;/body&gt;
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>:</p>
@@ -268,27 +268,27 @@
 <h1 id="範例網頁">範例網頁</h1>
 
 <hr>
-<div class="highlight"><pre><code class="language-HTML" data-lang="HTML"><span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>The Test Page<span class="nt">&lt;/h1&gt;</span>
+<div class="highlight"><pre><code class="language-HTML" data-lang="HTML">&lt;html&gt;
+  &lt;head&gt;&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;The Test Page&lt;/h1&gt;
 
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;Your Banner ID&quot;</span>
-            <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
-            <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/br&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-      <span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span>
-            <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;Your Banner ID&quot;</span>
-            <span class="na">vpon_ad_format=</span><span class="s">&quot;300x250_mb&quot;</span>
-            <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
+    &lt;div&gt;
+      &lt;vpon vpon_ad_test="1"
+            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_format="320x50_mb"
+            debug="true"&gt;&lt;/vpon&gt;
+    &lt;/div&gt;
+    &lt;/br&gt;
+    &lt;div&gt;
+      &lt;vpon vpon_ad_test="1"
+            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_format="300x250_mb"
+            debug="true"&gt;&lt;/vpon&gt;
+    &lt;/div&gt;
+    &lt;script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"&gt; &lt;/script&gt;
+  &lt;/body&gt;
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>:</p>
@@ -384,11 +384,11 @@
 <h4 id="基本廣告素材設定">基本廣告素材設定</h4>
 
 <p>程式碼片段請填入:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;0&quot;</span>
-       <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;Your license Key&quot;</span>
-       <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span>
-       <span class="na">debug=</span><span class="s">&quot;true&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
-      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>  <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">"0"</span>
+       <span class="na">vpon_ad_licensy_key=</span><span class="s">"Your license Key"</span>
+       <span class="na">vpon_ad_format=</span><span class="s">"320x50_mb"</span>
+       <span class="na">debug=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span>  <span class="na">src=</span><span class="s">"http://m.vpon.com/sdk/vpadn-sdk.js"</span><span class="nt">&gt;</span> <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>: vpon vpon_ad_test=&quot;1&quot; 爲開啓測試廣告， vpon vpon_ad_test=&quot;0&quot;爲拉取正式廣告。</p>
@@ -400,11 +400,11 @@
 <h4 id="輪播型素材設定">輪播型素材設定</h4>
 
 <p>程式碼片段請填入:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;Vpadn_tag&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;https://www.googletagservices.com/tag/js/gpt.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&#39;text/javascript&#39;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"Vpadn_tag"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://www.googletagservices.com/tag/js/gpt.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">'text/javascript'</span><span class="nt">&gt;</span>
   <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">&#39;your_ad_unit&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
+    <span class="nx">googletag</span><span class="p">.</span><span class="nx">defineSlot</span><span class="p">(</span><span class="s1">'your_ad_unit'</span><span class="p">,</span> <span class="p">[</span><span class="mi">320</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="s1">'Vpadn_tag'</span><span class="p">).</span><span class="nx">addService</span><span class="p">(</span><span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">());</span>
     <span class="nx">googletag</span><span class="p">.</span><span class="nx">pubads</span><span class="p">().</span><span class="nx">enableSingleRequest</span><span class="p">();</span>
     <span class="nx">googletag</span><span class="p">.</span><span class="nx">enableServices</span><span class="p">();</span>
   <span class="p">});</span>
@@ -413,15 +413,15 @@
   <span class="kd">function</span> <span class="nx">vponCallBackMethod</span><span class="p">(</span><span class="nx">adStatus</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">adStatus</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
       <span class="nx">googletag</span><span class="p">.</span><span class="nx">cmd</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">&#39;Vpadn_tag&#39;</span><span class="p">);</span>
+        <span class="nx">googletag</span><span class="p">.</span><span class="nx">display</span><span class="p">(</span><span class="s1">'Vpadn_tag'</span><span class="p">);</span>
       <span class="p">});</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="nt">&lt;/script&gt;</span>
 
-<span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">&quot;1&quot;</span> <span class="na">vpon_ad_licensy_key=</span><span class="s">&quot;your_license_key&quot;</span> <span class="na">vpon_ad_format=</span><span class="s">&quot;320x50_mb&quot;</span> <span class="na">debug=</span><span class="s">&quot;true&quot;</span> <span class="na">ad_request_callback=</span><span class="s">&quot;vponCallBackMethod&quot;</span> <span class="na">is_rotate=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;&lt;/vpon&gt;</span>
+<span class="nt">&lt;vpon</span> <span class="na">vpon_ad_test=</span><span class="s">"1"</span> <span class="na">vpon_ad_licensy_key=</span><span class="s">"your_license_key"</span> <span class="na">vpon_ad_format=</span><span class="s">"320x50_mb"</span> <span class="na">debug=</span><span class="s">"true"</span> <span class="na">ad_request_callback=</span><span class="s">"vponCallBackMethod"</span> <span class="na">is_rotate=</span><span class="s">"false"</span><span class="nt">&gt;&lt;/vpon&gt;</span>
 
-<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://m.vpon.com/sdk/vpadn-sdk.js&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"http://m.vpon.com/sdk/vpadn-sdk.js"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div>
 <blockquote>

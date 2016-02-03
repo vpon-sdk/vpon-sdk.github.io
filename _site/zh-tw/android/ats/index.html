@@ -208,11 +208,11 @@
 <h2 id="2-授權">2. 授權</h2>
 
 <p>在 Vpon ATS SDK 中，需要存取「網路」、「位置」、「手機狀態」，因此需要新增下列的程式碼至 <code>AndroidManifest.xml</code></p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"> <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.READ_PHONE_STATE&quot;</span> <span class="nt">/&gt;</span>
- <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_WIFI_STATE&quot;</span> <span class="nt">/&gt;</span>
- <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="nt">/&gt;</span>
- <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span><span class="nt">/&gt;</span>
- <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_FINE_LOCATION&quot;</span><span class="nt">/&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"> <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.READ_PHONE_STATE"</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_WIFI_STATE"</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.INTERNET"</span> <span class="nt">/&gt;</span>
+ <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_NETWORK_STATE"</span><span class="nt">/&gt;</span>
+ <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">"android.permission.ACCESS_FINE_LOCATION"</span><span class="nt">/&gt;</span>
 </code></pre></div>
 <h2 id="3-新增-vponats-至您程式碼">3. 新增 VponATS 至您程式碼</h2>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ats</span><span class="o">;</span>
@@ -230,25 +230,25 @@
     <span class="cm">/* Called when the activity is first created. */</span>
     <span class="n">VponAts</span> <span class="n">vponAts</span><span class="o">;</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span>
     <span class="o">{</span>
       <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
       <span class="n">setContentView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">main</span><span class="o">);</span>
-      <span class="n">vponAts</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VponAts</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot; change here to your goal ID &quot;</span><span class="o">,</span> <span class="n">vponAtsListener</span><span class="o">);</span>
+      <span class="n">vponAts</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VponAts</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">" change here to your goal ID "</span><span class="o">,</span> <span class="n">vponAtsListener</span><span class="o">);</span>
       <span class="k">if</span><span class="o">(</span><span class="n">vponAts</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
       <span class="n">vponAts</span><span class="o">.</span><span class="na">tracker</span><span class="o">();</span>
     <span class="o">}</span>
-    <span class="n">VponAtsListener</span> <span class="n">vponAtsListener</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VponAtsListener</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">VponAtsListener</span> <span class="n">vponAtsListener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VponAtsListener</span><span class="o">()</span> <span class="o">{</span>
        <span class="nd">@Override</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVponAtsSuccess</span><span class="o">(</span><span class="n">String</span> <span class="n">successMessage</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kd">public</span> <span class="kt">void</span> <span class="n">onVponAtsSuccess</span><span class="o">(</span><span class="n">String</span> <span class="n">successMessage</span><span class="o">)</span> <span class="o">{</span>
            <span class="cm">/* handle success */</span>
        <span class="o">}</span>
        <span class="nd">@Override</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVponAtsFail</span><span class="o">(</span><span class="n">String</span> <span class="n">errorMessage</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kd">public</span> <span class="kt">void</span> <span class="n">onVponAtsFail</span><span class="o">(</span><span class="n">String</span> <span class="n">errorMessage</span><span class="o">)</span> <span class="o">{</span>
           <span class="cm">/* handle fail */</span>
        <span class="o">}</span>
        <span class="nd">@Override</span>
-       <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVponAtsWarning</span><span class="o">(</span><span class="n">String</span> <span class="n">warningMessage</span><span class="o">)</span> <span class="o">{</span>
+       <span class="kd">public</span> <span class="kt">void</span> <span class="n">onVponAtsWarning</span><span class="o">(</span><span class="n">String</span> <span class="n">warningMessage</span><span class="o">)</span> <span class="o">{</span>
            <span class="cm">/* handle warning */</span>
        <span class="o">}</span>
      <span class="o">};</span>

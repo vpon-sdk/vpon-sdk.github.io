@@ -15,8 +15,8 @@ Google Admob Mediation document, please refer to [here].
 -----
 
 1. Log in Google AdMob.
- Please log in to your [AdMob account][]
-![1]
+ Please log in to your [AdMob account][a]
+![][1]
 
 2. `Monetise` -> `+ Monetise new app`
 ![][2]
@@ -55,7 +55,7 @@ Google Admob Mediation document, please refer to [here].
 
 # Integrate Vpon AdNetwork
 You just need to import two jars into lib folder of your project, which are `admob-adapter-****.jar` and `vpadn-sdk-***-***-***.jar`.
-![][9]
+<img src = "{{site.imgurl}}/AdMobLibJarFiles.jpg" class="width-300">
 
 
 
@@ -81,7 +81,7 @@ See the [Android instructions] for how to set up the Google Play services SDK.
 ---
 a. Right click on your app project in Eclipse and select `Properties`.
 
-![][10]
+<img class="width-400" src="{{site.imgurl}}/GooglePlay_Properties.png">
 
 b.Select Android and then click `Add....` Find the google-play-services_lib project and select OK to add the Google Play services library.
 
@@ -296,7 +296,7 @@ Once again, the easiest place to do this is somewhere in your app's Activity.
 [Download Sample Code]
 
   [here]: https://developers.google.com/admob/android/quick-start
-  []: https://www.google.com.tw/admob/
+  [a]: https://www.google.com/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotEnglishAndroid1.jpg
   [2]:  {{site.imgurl}}/Admob2_eng.png
   [3]:  {{site.imgurl}}/Admob3_eng.png

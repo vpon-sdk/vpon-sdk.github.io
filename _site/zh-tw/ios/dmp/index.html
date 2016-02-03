@@ -206,7 +206,7 @@
 <h2 id="填入-license-key">填入 License Key</h2>
 
 <p>在第一次呼叫 [VpadnAnalytics sharedInstance] 時需要先填入跟我們申請的 License Key, 而填入的方式如下</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">]</span> <span class="nl">setLicenseKey</span><span class="p">:@</span> <span class="s">&quot;License Key&quot;</span><span class="p">];</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">[[VpadnAnalytics sharedInstance] setLicenseKey:@ "License Key"];
 </code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> License Key 請替換成跟我們申請的 License Key</p>
@@ -215,37 +215,37 @@
 <h2 id="launch-event">launch Event</h2>
 
 <p>launch Event 的傳送會建議在一開始 AppDelegate 中的 didFinishLaunchingWithOptions 這個 callback 內去送, 程式碼如下:</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">-</span> <span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nf">application:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="nf">didFinishLaunchingWithOptions:</span><span class="p">(</span><span class="bp">NSDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nv">launchOptions</span><span class="p">{</span>
-    <span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">]</span> <span class="nl">setLicenseKey</span><span class="p">:</span><span class="s">@&quot;&quot;</span><span class="p">];</span>
-    <span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">].</span><span class="n">defaultTracker</span> <span class="nl">sendLaunchEvent</span><span class="p">:</span><span class="s">@&quot;customID&quot;</span><span class="p">];</span>
-    <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    [[VpadnAnalytics sharedInstance] setLicenseKey:@""];
+    [[VpadnAnalytics sharedInstance].defaultTracker sendLaunchEvent:@"customID"];
+    return YES;
+}
 </code></pre></div>
 <h2 id="sendlaunchevent">sendLaunchEvent</h2>
 
 <p>請在 applicationDidBecomeActive 內插入 sendLaunchEvent, 程式碼如下:</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">applicationDidBecomeActive:</span><span class="p">(</span><span class="bp">UIApplication</span> <span class="o">*</span><span class="p">)</span><span class="nv">application</span> <span class="p">{</span>
-    <span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">].</span><span class="n">defaultTracker</span> <span class="nl">sendLaunchEvent</span><span class="p">:</span><span class="s">@&quot;customID&quot;</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[VpadnAnalytics sharedInstance].defaultTracker sendLaunchEvent:@"customID"];
+}
 </code></pre></div>
 <h2 id="other-event">Other event</h2>
 
 <p>其他event的呼叫方式分為下列幾種，單純的event無任何payload則使用下列方式呼叫</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">].</span><span class="n">defaultTracker</span> <span class="nl">send</span><span class="p">:[[</span><span class="n">VpadnDictionaryBuilder</span> <span class="nl">createEventWithEventType</span><span class="p">:</span> <span class="n">Event_Custom</span> <span class="nl">customID</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">extraData</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span><span class="n">build</span><span class="p">]];</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">[[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventType: Event_Custom customID:nil extraData:nil]build]];
 </code></pre></div>
 <p>帶有payload則使用下列方式呼叫</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="bp">NSMutableDictionary</span><span class="o">*</span> <span class="n">dicExtraData</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSMutableDictionary</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithCapacity</span><span class="p">:</span><span class="mi">1</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">dicExtraData</span> <span class="nl">setObject</span><span class="p">:</span><span class="s">@&quot;just for test&quot;</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&quot;testInfo&quot;</span><span class="p">];</span>
-    <span class="bp">NSDictionary</span><span class="o">*</span> <span class="n">dicJSONData</span> <span class="o">=</span> <span class="p">[[</span><span class="bp">NSDictionary</span> <span class="n">alloc</span><span class="p">]</span><span class="nl">initWithObjectsAndKeys</span><span class="p">:</span><span class="s">@&quot;VponInc&quot;</span><span class="p">,</span> <span class="s">@&quot;facebook&quot;</span><span class="p">,</span> <span class="s">@&quot;testValue&quot;</span><span class="p">,</span> <span class="s">@&quot;custom&quot;</span><span class="p">,</span><span class="nb">nil</span><span class="p">];</span>
-    <span class="p">[</span><span class="n">dicExtraData</span> <span class="nl">setObject</span><span class="p">:</span><span class="n">dicJSONData</span> <span class="nl">forKey</span><span class="p">:</span><span class="s">@&quot;member_id&quot;</span><span class="p">];</span>
-    <span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">].</span><span class="n">defaultTracker</span> <span class="nl">send</span><span class="p">:[[</span><span class="n">VpadnDictionaryBuilder</span> <span class="nl">createEventWithEventType</span><span class="p">:</span><span class="n">Event_Login</span> <span class="nl">customID</span><span class="p">:</span><span class="s">@&quot;testKey&quot;</span> <span class="nl">extraData</span><span class="p">:</span><span class="n">dicExtraData</span><span class="p">]</span><span class="n">build</span><span class="p">]];</span>
-    <span class="n">dicJSONData</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-    <span class="n">dicExtraData</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity:1];
+    [dicExtraData setObject:@"just for test" forKey:@"testInfo"];
+    NSDictionary* dicJSONData = [[NSDictionary alloc]initWithObjectsAndKeys:@"VponInc", @"facebook", @"testValue", @"custom",nil];
+    [dicExtraData setObject:dicJSONData forKey:@"member_id"];
+    [[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventType:Event_Login customID:@"testKey" extraData:dicExtraData]build]];
+    dicJSONData = nil;
+    dicExtraData = nil;
 </code></pre></div>
 <p>此方式適用於常用的事件傳送</p>
 
 <p>如有特殊的event則使用下列方式呼叫</p>
-<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C"><span class="p">[[</span><span class="n">VpadnAnalytics</span> <span class="n">sharedInstance</span><span class="p">].</span><span class="n">defaultTracker</span> <span class="nl">send</span><span class="p">:[[</span><span class="n">VpadnDictionaryBuilder</span> <span class="nl">createEventWithEventName</span><span class="p">:</span><span class="s">@&quot;testEvent&quot;</span> <span class="nl">customID</span><span class="p">:</span><span class="nb">nil</span> <span class="nl">extraData</span><span class="p">:</span><span class="nb">nil</span><span class="p">]</span><span class="n">build</span><span class="p">]];</span>
+<div class="highlight"><pre><code class="language-Objective-C" data-lang="Objective-C">[[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventName:@"testEvent" customID:nil extraData:nil]build]];
 </code></pre></div>
 <p>此方式適用於所有事件的傳送</p>
 

@@ -187,7 +187,7 @@
 <h2 id="permission">Permission</h2>
 
 <p>請先加入以下 permission 在您的 <code>AndroidManifest.xml</code></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;android.permission.INTERNET&quot;</span><span class="o">/&gt;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">uses</span><span class="o">-</span><span class="n">permission</span> <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"android.permission.INTERNET"</span><span class="o">/&gt;</span>
 </code></pre></div>
 <h1 id="加入實作">加入實作</h1>
 
@@ -201,11 +201,11 @@
 <h2 id="設定-license-key">設定 License Key</h2>
 
 <p>接下來，再將以下 code加入 MainActivity</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">licenseKey</span> <span class="o">=</span> <span class="s">&quot;申請之licenseKey&quot;</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">licenseKey</span> <span class="o">=</span> <span class="s">"申請之licenseKey"</span><span class="o">;</span>
 <span class="kd">private</span> <span class="kd">static</span> <span class="n">VpadnAnalytics</span> <span class="n">analytics</span><span class="o">;</span>
 <span class="n">VpadnAnalytics</span><span class="o">.</span><span class="na">Tracker</span> <span class="n">tracker</span><span class="o">;</span>
 </code></pre></div><div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
- <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+ <span class="kd">protected</span> <span class="kt">void</span> <span class="n">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">analytics</span> <span class="o">=</span> <span class="n">VpadnAnalytics</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="n">MainActivity</span><span class="o">.</span><span class="na">this</span><span class="o">,</span> <span class="n">licenseKey</span><span class="o">);</span>
     <span class="n">tracker</span> <span class="o">=</span> <span class="n">analytics</span><span class="o">.</span><span class="na">newTracker</span><span class="o">();</span>
 <span class="o">}</span>
@@ -223,20 +223,20 @@
 <h4 id="tracker-sendevent">tracker.sendEvent()</h4>
 
 <p>此段功能可讓您回傳相關資料以利分析，請看以下例子，按下按鈕後觸發：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">JSONObject</span> <span class="n">payloadJsonObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">JSONObject</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">JSONObject</span> <span class="n">payloadJsonObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">();</span>
     <span class="k">try</span> <span class="o">{</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;id&quot;</span><span class="o">,</span> <span class="s">&quot;payloadJsonObj&quot;</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;V領布蕾絲拼接針織外套&quot;</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;price&quot;</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;color&quot;</span><span class="o">,</span> <span class="s">&quot;牛藍&quot;</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;size&quot;</span><span class="o">,</span> <span class="s">&quot;XL&quot;</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;tags&quot;</span><span class="o">,</span> <span class="s">&quot;OrangeBear,上衣類,針織衫,人造絲纖維&quot;</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;currency&quot;</span><span class="o">,</span> <span class="s">&quot;NTD&quot;</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"id"</span><span class="o">,</span> <span class="s">"payloadJsonObj"</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"name"</span><span class="o">,</span> <span class="s">"V領布蕾絲拼接針織外套"</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"price"</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"color"</span><span class="o">,</span> <span class="s">"牛藍"</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"size"</span><span class="o">,</span> <span class="s">"XL"</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"tags"</span><span class="o">,</span> <span class="s">"OrangeBear,上衣類,針織衫,人造絲纖維"</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"currency"</span><span class="o">,</span> <span class="s">"NTD"</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
             <span class="o">}</span>
-    <span class="n">tracker</span><span class="o">.</span><span class="na">sendEvent</span><span class="o">(</span><span class="s">&quot;item_view&quot;</span><span class="o">,</span> <span class="n">payloadJsonObj</span><span class="o">);</span>
+    <span class="n">tracker</span><span class="o">.</span><span class="na">sendEvent</span><span class="o">(</span><span class="s">"item_view"</span><span class="o">,</span> <span class="n">payloadJsonObj</span><span class="o">);</span>
         <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -244,15 +244,15 @@
 
 <p>同樣的，sendEvent 也可以回傳 app 使用者當下的頁面為何
 例如，先建立一個物件，儲存使用者當下以及前一個頁面，請參考以下:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="o">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">JSONObject</span> <span class="n">payloadJsonObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">JSONObject</span><span class="o">();</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onClick</span><span class="p">(</span><span class="n">View</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">JSONObject</span> <span class="n">payloadJsonObj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">();</span>
     <span class="k">try</span> <span class="o">{</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;current&quot;</span><span class="o">,</span> <span class="s">&quot;前一頁面網址&quot;</span><span class="o">);</span>
-        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;pervious&quot;</span><span class="o">,</span> <span class="s">&quot;當前頁面網址&quot;</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"current"</span><span class="o">,</span> <span class="s">"前一頁面網址"</span><span class="o">);</span>
+        <span class="n">payloadJsonObj</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"pervious"</span><span class="o">,</span> <span class="s">"當前頁面網址"</span><span class="o">);</span>
     <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
     <span class="o">}</span>
-    <span class="n">tracker</span><span class="o">.</span><span class="na">sendEvent</span><span class="o">(</span><span class="s">&quot;page_view&quot;</span><span class="o">,</span> <span class="n">payloadJsonObj</span><span class="o">,</span> <span class="s">&quot;yourCustomName&quot;</span><span class="o">);</span>
+    <span class="n">tracker</span><span class="o">.</span><span class="na">sendEvent</span><span class="o">(</span><span class="s">"page_view"</span><span class="o">,</span> <span class="n">payloadJsonObj</span><span class="o">,</span> <span class="s">"yourCustomName"</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div>
 <p>一樣利用 sendEvent() 回傳</p>

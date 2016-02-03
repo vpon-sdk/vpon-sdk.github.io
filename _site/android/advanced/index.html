@@ -191,16 +191,16 @@
 <p>You can use these properties to specify a device or set of devices that will receive test banner.
 You should utilize this property during development to avoid generating false impressions.
 To verify that you&#39;ve integrated the SDK correctly, add your test device, run your application, and click on the displayed test banner.</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java">  <span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-  <span class="n">request</span><span class="o">.</span><span class="na">addTestDevice</span><span class="o">(</span><span class="s">&quot;your test device advertising id&quot;</span><span class="o">);</span>
-  <span class="c1">//TODO: fill in your device advertising id</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">  VpadnAdRequest request = new VpadnAdRequest();
+  request.addTestDevice("your test device advertising id");
+  //TODO: fill in your device advertising id
 </code></pre></div>
 <h2 id="targeting">Targeting</h2>
 
 <p>Location and demographic targeting information may also be specified. Out of respect for user privacy, please only specify location and demographic data if the information is already required by your app.</p>
-<div class="highlight"><pre><code class="language-Java" data-lang="Java"><span class="n">VpadnAdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">VpadnAdRequest</span><span class="o">();</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setGender</span><span class="o">(</span><span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">Gender</span><span class="o">.</span><span class="na">FEMALE</span><span class="o">);</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setBirthday</span><span class="o">(</span><span class="s">&quot;1977-08-23&quot;</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">VpadnAdRequest request = new VpadnAdRequest();
+request.setGender(VpadnAdRequest.Gender.FEMALE);
+request.setBirthday("1977-08-23");
 </code></pre></div>
 <p>where the user&#39;s location is obtained by a suitable method.</p>
 
@@ -210,11 +210,11 @@ To verify that you&#39;ve integrated the SDK correctly, add your test device, ru
 
 <p>You may optionally track ad lifecycle events like request failures or &quot;click-through&quot; by implementing <code>com.vpadn.ads.VpadnAdListener</code> in an object you pass to <code>VpadnBanner.setAdListener</code>.</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java">   <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">VpadnAdListener</span> <span class="o">{</span>
-     <span class="kt">void</span> <span class="nf">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
-     <span class="kt">void</span> <span class="nf">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnPresentScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnDismissScreen</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
+     <span class="kt">void</span> <span class="n">onVpadnLeaveApplication</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">);</span>
    <span class="o">}</span>
 </code></pre></div>
 <p>This interface may be implemented by your activity or any other object:</p>
@@ -232,7 +232,7 @@ To verify that you&#39;ve integrated the SDK correctly, add your test device, ru
   Sent when loadAd has failed, typically because of network failure, an application configuration error, or a lack of ad inventory.</p>
 
 <p>You may wish to log these events for debugging:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span> <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">MY_LOG_TAG</span><span class="o">,</span> <span class="s">&quot;failed to receive ad (&quot;</span> <span class="o">+</span> <span class="n">errorCode</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">);</span> <span class="o">}</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Override</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">onFailedToReceiveAd</span><span class="o">(</span><span class="n">VpadnAd</span> <span class="n">ad</span><span class="o">,</span> <span class="n">VpadnAdRequest</span><span class="o">.</span><span class="na">VpadnErrorCode</span> <span class="n">errorCode</span><span class="o">)</span> <span class="o">{</span> <span class="n">Log</span><span class="o">.</span><span class="na">d</span><span class="o">(</span><span class="n">MY_LOG_TAG</span><span class="o">,</span> <span class="s">"failed to receive ad ("</span> <span class="o">+</span> <span class="n">errorCode</span> <span class="o">+</span> <span class="s">")"</span><span class="o">);</span> <span class="o">}</span>
 </code></pre></div>
 <p><code>public void onVpadnPresentScreen(VpadnAd ad)</code>
    Called when an Activity is created in front of your app, presenting the user with a full-screen ad UI in response to their touching banner.
