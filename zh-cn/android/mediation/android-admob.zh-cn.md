@@ -15,7 +15,7 @@ Google AdMob mediation 请看[这裡]
 # Admob Mediation 操作图示
 -----
 
-1. 请登入到 [这裡][]
+1. 请[登入]
 ![1]
 
 2. 盈利 -&gt; 透过新应用程式盈利
@@ -295,7 +295,7 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
 [Download Sample Code]
 
   [这裡]: https://developers.google.com/admob/android/quick-start
-  []: http://www.google.com/admob/
+  [登入]: http://www.google.com/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
   [2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
   [3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png

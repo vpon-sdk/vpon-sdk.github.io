@@ -1,13 +1,3 @@
-<script type="text/javascript"> vat.js </script>
-<div id="placement_id">   </div>
-<script type="text/javascript">
-  vat.addPlacement('');
-  vat.load();
-</script>
-
-
-
-
 ---
 layout:         "default"
 title:          "How we made this website?"

@@ -296,7 +296,7 @@ Once again, the easiest place to do this is somewhere in your app's Activity.
 [Download Sample Code]
 
   [here]: https://developers.google.com/admob/android/quick-start
-  []: http://www.google.com.tw/ads/admob/
+  []: https://www.google.com.tw/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotEnglishAndroid1.jpg
   [2]:  {{site.imgurl}}/Admob2_eng.png
   [3]:  {{site.imgurl}}/Admob3_eng.png
