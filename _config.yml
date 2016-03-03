@@ -1,6 +1,5 @@
 # Dependencies
-# redcarpet should be changed to kramdown since May.1st 2016
-# or it would not work
+# !!! or it would not work
 markdown:           redcarpet
 redcarpet:
   extensions:       ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
@@ -35,7 +34,7 @@ info:
 
 meta:
   description:      "Here presents the latest Vpon SDK documentation."
-  keywords:         ["Vpon", 'SDK']
+  keywords:         ["Vpon", 'SDK', 'wiki', 'documentation', 'document', 'banner', 'interstitial', 'ad', 'mobile', 'integration']
   author:           "Finn Yeh"
 
 # multiple language
