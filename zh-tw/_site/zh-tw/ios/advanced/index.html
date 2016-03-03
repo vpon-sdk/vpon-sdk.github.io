@@ -1,0 +1,147 @@
+<h1 id="section">自定參數</h1>
+<hr />
+<p>您可以在固定需要新增的 function(getTestIdentifiers) 中設定測試手機的識別碼 (在第一次發出 request 時會提示開發者要新增什麼識別碼)，讓 Vpon 以更精確的方式指定廣告。 在開發期間 建議將自己的手機識別碼加在 getTestIdentifiers 函式中以免產生不實曝光，造成您收益上的損失，並請在上架前將識別碼刪除，否則之後填入識別碼的手機將無法抓到正常廣告</p>
+
+<h2 id="section-1">增加測試手機的識別碼</h2>
+<p>您可以使用這些屬性來指定要接收測試廣告的裝置或裝置 Set。若要確認 SDK 是否已順利整合，請加入您的測試裝置並執行應用程式，然後按一下所顯示的測試廣告。</p>
+
+<p><code class="highlighter-rouge">objective-c
+  // 請新增此function到您的程式內 如果為測試用 則在下方填入識別碼
+  -(NSArray*)getTestIdentifiers
+  {
+      return [NSArray arrayWithObjects:
+              // add your test Id
+              @"XXXXXXXXXXXXXXXXXXXXX",
+              nil];
+  }
+</code>
+## 指定目標
+您也可以指定位置和客層相關資訊。不過，為了保護使用者隱私，請只指定您的應用程式中現有的位置和客層資料。</p>
+
+<p>[vpadnAd setUserInfoAge:25];</p>
+
+<p>[vpadnAd setUserInfoKeyword:@”Game,RPG”];</p>
+
+<p>[vpadnAd setUserInfoGender:female];</p>
+
+<p>[vpadnAd setUserInfoBirthdayWithYear:1988 Month:6 andDay:9];</p>
+
+<h1 id="protocol">Protocol</h1>
+<hr />
+<p>您可以在 ViewController 宣告時加入 VpadnBannerDelegate || VpadnInterstitialDelegate 此兩個 protocol，藉此追蹤請求失敗或「點擊」等廣告事件。</p>
+
+<p>```objective-c
+#pragma mark VpadnBannerDelegate  一般 Banner protocol
+@protocol VpadnBannerDelegate <nsobject>
+@optional</nsobject></p>
+
+<h1 id="pragma-mark--pre-fetch-">pragma mark 通知拉取廣告成功 pre-fetch 完成</h1>
+<ul>
+  <li>(void)onVpadnAdReceived:(UIView *)bannerView;</li>
+</ul>
+
+<h1 id="pragma-mark-">pragma mark 通知拉取廣告失敗</h1>
+<ul>
+  <li>(void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error; // alan todo code need to add</li>
+</ul>
+
+<h1 id="pragma-mark--vpadn-">pragma mark 通知開啟 vpadn 廣告頁面</h1>
+<ul>
+  <li>(void)onVpadnPresent:(UIView *)bannerView;</li>
+</ul>
+
+<h1 id="pragma-mark-vpadn">pragma mark 通知關閉vpadn廣告頁面</h1>
+<ul>
+  <li>(void)onVpadnDismiss:(UIView *)bannerView;</li>
+</ul>
+
+<h1 id="pragma-mark--publisher-application">pragma mark 通知離開 publisher application</h1>
+<ul>
+  <li>(void)onVpadnLeaveApplication:(UIView *)bannerView;
+@end
+```</li>
+</ul>
+
+<p>```objective-c
+pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
+@protocol VpadnInterstitialDelegate <vpadnbannerdelegate>
+@optional</vpadnbannerdelegate></p>
+
+<h1 id="pragma-mark-pre-fetch">pragma mark 通知取得插屏廣告成功pre-fetch完成</h1>
+<ul>
+  <li>(void)onVpadnInterstitialAdReceived:(UIView *)bannerView;</li>
+</ul>
+
+<h1 id="pragma-mark--1">pragma mark 通知取得插屏廣告失敗</h1>
+<ul>
+  <li>(void)onVpadnInterstitialAdFailed:(UIView *)bannerView;</li>
+</ul>
+
+<h1 id="pragma-mark-vpadn-1">pragma mark 通知關閉vpadn廣告頁面</h1>
+<ul>
+  <li>(void)onVpadnInterstitialAdDismiss:(UIView *)bannerView;
+@end
+```</li>
+</ul>
+
+<p>這些方法可用於個別的物件，例如</p>
+
+<p><code class="highlighter-rouge">objective-c
+  #import "VpadnBanner.h"
+  #import "VpadnInterstitial.h"
+  @interface ViewController : UIViewController&lt;VpadnBannerDelegate, VpadnInterstitialDelegate&gt;
+</code></p>
+
+<p>將要接收的物件傳給 VpadnBanner：</p>
+
+<p><code class="highlighter-rouge">objective-c
+vpadnAd.delegate = self;
+</code>
+當 VpadnBanner 廣告抓取成功時傳送。</p>
+
+<p><code class="highlighter-rouge">objective-c
+  - (void)onVpadnAdReceived:(UIView *)bannerView{}
+</code>
+當 VpadnBanner 失敗時傳送；失敗原因通常是網路連線失敗、應用程式設定錯誤或廣告空間不足。建議您將這些事件記錄下來以便偵錯：</p>
+
+<p><code class="highlighter-rouge">objective-c
+  - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
+</code></p>
+
+<p>當廣告因獲得使用者點擊，在您的應用程式之前webView 並呈現出全螢幕廣告使用者介面時呼叫。</p>
+
+<p><code class="highlighter-rouge">objective-c
+  - (void)onVpadnPresent:(UIView *)bannerView{}
+</code>
+當使用者關閉與 onVpadnDismiss 一同顯示的webView，控制權也交還給應用程式時呼叫。</p>
+
+<p><code class="highlighter-rouge">objective-c
+  - (void)onVpadnDismiss:(UIView *)bannerView;
+</code>
+當 Ad 點擊會啟動新的應用程式(out app)時呼叫。</p>
+
+<p><code class="highlighter-rouge">objective-c
+  - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
+</code></p>
+
+<h1 id="crazy-ad">Crazy Ad</h1>
+<hr />
+<p>會從banner自動展開成 Crazy Ad，全螢幕富媒體廣告的 Crazy Ad 呈現約 5~7 秒會自動關閉。
+<img src="/Crazyad.png" alt="" class="width-300" /></p>
+
+<h2 id="section-2">設定</h2>
+<hr />
+<p>在後台註冊申請流程中可選擇是否播放 Crazy Ad。<br />
+進入 http://cn.adon.vpon.com/ 註冊中國區 License Key。<br />
+進入 http://tw.adon.vpon.com/ 註冊台灣區 License Key。<br />
+如圖:
+<img src="/CrazyadSetting.png" alt="CrazyadSetting" /></p>
+
+<h1 id="corona-user">Corona User</h1>
+<hr />
+<p>如果您 App 使用 Corona 欲串接 Vpon 廣告，我們建議您用 web SDK 的方式串接，使用方法如下:
+將 web SDK 裡的 html 寫進 local file 再讓 webview 去 load 這個 file (例如: webView:request( “localfile.html”, system.ResourceDirectory ))。</p>
+
+<p>HTML 內容可參考 Vpon SDK 的 web SDK 操作手冊: <a href="/zh-tw/web/">Web SDK</a></p>
+
+<p>更多 Corona SDK 文件可參考: <a href="http://docs.coronalabs.com/api/library/native/newWebView.html">Corona Document</a></p>

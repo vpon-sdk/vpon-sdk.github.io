@@ -1,0 +1,60 @@
+<h2 id="section">完成串接指示</h2>
+<hr />
+<p>若您尚未完成串接廣告形式前的串接說明，請先前往<a href="../integration-guide/">串接說明</a>完成相關設定</p>
+
+<h1 id="section-1">總覽</h1>
+<hr />
+<p>插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。這類廣告由於內容更豐富、更吸引人，因此製作起來更昂貴，而曝光機會卻有限。</p>
+
+<p><img src="/Interstitial.png" alt="" /></p>
+
+<h1 id="vpadn-interstitial-ad">Vpadn Interstitial Ad</h1>
+<hr />
+<p>Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。
+不過，它的用法與 Vpadn Banner 非常類似：</p>
+
+<ol>
+  <li>匯入 lib 檔與標頭檔</li>
+  <li>宣告物件</li>
+  <li>建立物件，並指定 Vpon interstitial banner Id (不能與橫幅廣告所用 banner Id 重複)</li>
+</ol>
+
+<blockquote>
+  <p><strong>Note</strong>: 再次提醒您，最好在應用程式的 ViewController 內執行上述步驟。</p>
+</blockquote>
+
+<p>```Objective-C
+@implementation ViewController</p>
+
+<ul>
+  <li>(void)viewDidLoad
+{
+  vpadnInterstitial = [[VpadnInterstitial alloc] init];
+  vpadnInterstitial.strBannerId = @””;    // 填入您的Interstitial BannerId
+  vpadnInterstitial.platform = @”TW”;     // 台灣地區請填TW 大陸則填CN
+  vpadnInterstitial.delegate = self;
+  [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
+}
+@end
+```</li>
+</ul>
+
+<p>不過，目前沒有任何項目可加入 ViewController，而且您必須等到這個請求成功後才能嘗試顯示廣告，
+這點請格外注意。最簡單的做法是當 onVpadnInterstitialAdReceived 收到通知時 則執行 [vpadnInterstitial show]</p>
+
+<p>若想進一步瞭解 protocol 相關詳情，請參閱<a href="../advanced/">進階設定</a>。</p>
+
+<h1 id="section-2">測試廣告</h1>
+<hr />
+
+<p><code class="highlighter-rouge">objective-c
+// 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。
+-(NSArray*)getTestIdentifiers
+{
+  return [NSArray arrayWithObjects:
+    // add your test UUID
+    @"your_UUID",
+    nil];
+}
+</code></p>
+

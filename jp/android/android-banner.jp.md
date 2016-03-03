@@ -30,7 +30,7 @@ import com.vpadn.ads.*
 public class MainActivity extends Activity {
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
-  	//TODO: VPONプロパティID
+  	//TODO: Vpon プロパティID
   	private String bannerId = "xxxxxxxxxxxxxxxx";
 
          @Override
@@ -145,7 +145,7 @@ public class MainActivity extends Activity {
 # 結果
 ---
 実行すると、ディスプレイ上部にバナーが表示されます。
-![gogo]({{site.imgurl}}/A-sdk330-03.png)
+<img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
 
 # ヒント
 ---

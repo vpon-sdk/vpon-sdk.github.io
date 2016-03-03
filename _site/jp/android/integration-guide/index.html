@@ -180,7 +180,7 @@
       </div>
       </div>
       <div class="col-md-7 main-content" role="main">
-        <h1 id="vpon-sdk-4-基本編">VPON SDK 4 基本編</h1>
+        <h1 id="vpon-sdk-4-基本編">Vpon SDK 4 基本編</h1>
 
 <hr>
 
@@ -205,7 +205,7 @@
 
 <hr>
 
-<p>VPONバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。</p>
+<p>Vpon バナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。</p>
 
 <p>Android アプリでバナー広告を表示させるためには、Eclipse プロジェクトにSDKを導入し、ユーザインターフ ェースに com.vpadn.ads.VpadnBanner を追加するだけです。</p>
 
@@ -213,16 +213,16 @@
 
 <hr>
 
-<p>VPON広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上のバージョンを使用する必要があ ります。現在ご使用のSDKが最新版のAndroidSDK(<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>) であることをご確認くださ い。また Android v4.X 以降のバージョンに基づいてコンパイル(default.properties 内の target を android-17 に設定)します</p>
+<p>Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上のバージョンを使用する必要があ ります。現在ご使用のSDKが最新版のAndroidSDK(<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>) であることをご確認くださ い。また Android v4.X 以降のバージョンに基づいてコンパイル(default.properties 内の target を android-17 に設定)します</p>
 
 <h1 id="sdk-の導入">SDK の導入</h1>
 
 <hr>
 
-<p>アプリにVPON広告を導入するためには、次の3つのステップを完了させてください。</p>
+<p>アプリにVpon広告を導入するためには、次の3つのステップを完了させてください。</p>
 
 <ol>
-<li> Android Studio/Eclipse プロジェクトに VPON SDK 4 JAR を追加します。</li>
+<li> Android Studio/Eclipse プロジェクトに Vpon SDK 4 JAR を追加します。</li>
 <li> AndroidManifest.xml で com.vpadn.widget.VpadnActivity を宣言 します。</li>
 <li> 情報マニフェストで必要な permissions を設定します。</li>
 </ol>
@@ -234,7 +234,7 @@
 <ol>
 <li><p>Eclipse 内のアプリプロジェクト上でマウスの右ボタンをクリックし、[プロパティ]を選びます。
 <img src="/assets/img//A-sdk330-01.png" alt=""></p></li>
-<li><p><a href="Java%20%E6%A7%8B%E7%AF%89%E3%83%91%E3%82%B9">Java Build Path</a>と<a href="%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA">Libraries</a>のタブを選択してから<a href="%E5%A4%96%E9%83%A8%20JAR...%E3%82%92%E8%BF%BD%20%E5%8A%A0">Add External JARs...</a>をクリックして、VPON 広告の JAR を追加します。
+<li><p><a href="Java%20%E6%A7%8B%E7%AF%89%E3%83%91%E3%82%B9">Java Build Path</a>と<a href="%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA">Libraries</a>のタブを選択してから<a href="%E5%A4%96%E9%83%A8%20JAR...%E3%82%92%E8%BF%BD%20%E5%8A%A0">Add External JARs...</a>をクリックして、Vpon 広告の JAR を追加します。
 <img src="/assets/img/A-sdk330-02.png" alt="">
 <br></p></li>
 </ol>
@@ -260,12 +260,12 @@
 <hr>
 
 <p>以下の設定を AndroidManifest.xml に追加します。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">      <span class="o">&lt;</span><span class="n">activity</span>
-            <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"com.vpadn.widget.VpadnActivity"</span>
-            <span class="nl">android:</span><span class="n">configChanges</span><span class="o">=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
-            <span class="nl">android:</span><span class="n">theme</span><span class="o">=</span><span class="s">"@android:style/Theme.Translucent"</span>
-            <span class="nl">android:</span><span class="n">hardwareAccelerated</span><span class="o">=</span><span class="s">"true"</span> <span class="o">&gt;</span>
-      <span class="o">&lt;/</span><span class="n">activity</span><span class="o">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;activity</span>
+  <span class="na">android:name=</span><span class="s">"com.vpadn.widget.VpadnActivity"</span>
+  <span class="na">android:configChanges=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
+  <span class="na">android:theme=</span><span class="s">"@android:style/Theme.Translucent"</span>
+  <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>: 上記の各属性はいずれも必須で、その値は全て同じとなります。</p>
@@ -291,15 +291,15 @@
 </code></pre></div>
 <p>ビデオ広告をサポートするために、アクティビティにてハードウェアアクセラレータを有効にしていただくことをお奨めいたします。</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;activity</span>
-       <span class="na">android:name=</span><span class="s">"com.vpadn.example.MainActivity"</span>
-       <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
-       <span class="na">android:configChanges=</span><span class="s">"keyboardHidden|orientation"</span>
-       <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
-       <span class="nt">&lt;intent-filter&gt;</span>
-           <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
-           <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
-       <span class="nt">&lt;/intent-filter&gt;</span>
-   <span class="nt">&lt;/activity&gt;</span>
+  <span class="na">android:name=</span><span class="s">"com.vpadn.example.MainActivity"</span>
+  <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+  <span class="na">android:configChanges=</span><span class="s">"keyboardHidden|orientation"</span>
+  <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;intent-filter&gt;</span>
+    <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
 </code></pre></div>
 <h1 id="サンプルコードのダウンロード">サンプルコードのダウンロード</h1>
 

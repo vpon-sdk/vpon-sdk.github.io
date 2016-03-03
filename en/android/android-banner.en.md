@@ -29,7 +29,7 @@ If you haven't finished the previous integration guide, please check all the [se
   public class MainActivity extends Activity {
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
-  	//TODO: VPON Banner ID
+  	//Vpon TODO:  Banner ID
   	private String bannerId = CHANGE ME ;
 
          @Override
@@ -141,7 +141,7 @@ You need to use the following sample code to enable auto refresh banner.
 # Results
 ---
 Now run your demo app and you would see a banner at the top of the screen:
-![gogo]({{site.imgurl}}/A-sdk330-03.png)
+<img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
 
 # Other tips
 > Please refer to [Interstitial Ads](../Interstitial)、[Mediation](../mediation)、[Advanced Setting](../advanced) for more information.

@@ -7,7 +7,7 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/android/integration-guide/
 lang:            "jp"
 ---
-# VPON SDK 4 基本編
+# Vpon SDK 4 基本編
 ----
 旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.2.x の最新バージョンへのアップデート方法]({{site.baseurl}}/jp/latest-news/update-to-SDK4_2_x/)
 
@@ -30,20 +30,20 @@ vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "CN");
 
 # 概要
 --------
-VPONバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
+Vpon バナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
 
 Android アプリでバナー広告を表示させるためには、Eclipse プロジェクトにSDKを導入し、ユーザインターフ ェースに com.vpadn.ads.VpadnBanner を追加するだけです。
 
 # 要件
 -----------
-VPON広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上のバージョンを使用する必要があ ります。現在ご使用のSDKが最新版のAndroidSDK(http://developer.android.com/sdk/index.html) であることをご確認くださ い。また Android v4.X 以降のバージョンに基づいてコンパイル(default.properties 内の target を android-17 に設定)します
+Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上のバージョンを使用する必要があ ります。現在ご使用のSDKが最新版のAndroidSDK(http://developer.android.com/sdk/index.html) であることをご確認くださ い。また Android v4.X 以降のバージョンに基づいてコンパイル(default.properties 内の target を android-17 に設定)します
 
 # SDK の導入
 ----------
 
-アプリにVPON広告を導入するためには、次の3つのステップを完了させてください。
+アプリにVpon広告を導入するためには、次の3つのステップを完了させてください。
 
-1.  Android Studio/Eclipse プロジェクトに VPON SDK 4 JAR を追加します。
+1.  Android Studio/Eclipse プロジェクトに Vpon SDK 4 JAR を追加します。
 2.  AndroidManifest.xml で com.vpadn.widget.VpadnActivity を宣言 します。
 3.  情報マニフェストで必要な permissions を設定します。
 
@@ -52,7 +52,7 @@ VPON広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上の
 1. Eclipse 内のアプリプロジェクト上でマウスの右ボタンをクリックし、[プロパティ]を選びます。
 ![]({{site.imgurl}}//A-sdk330-01.png)
 
-2. [Java Build Path] (Java 構築パス)と[Libraries] (ライブラリ)のタブを選択してから[Add External JARs...] (外部 JAR...を追 加)をクリックして、VPON 広告の JAR を追加します。
+2. [Java Build Path] (Java 構築パス)と[Libraries] (ライブラリ)のタブを選択してから[Add External JARs...] (外部 JAR...を追 加)をクリックして、Vpon 広告の JAR を追加します。
 ![]({{site.imgurl}}/A-sdk330-02.png)
 <br>
 
@@ -80,14 +80,15 @@ VPON広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上の
 ---
 以下の設定を AndroidManifest.xml に追加します。
 
-``` java
-      <activity
-            android:name="com.vpadn.widget.VpadnActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent"
-            android:hardwareAccelerated="true" >
-      </activity>
+```xml
+<activity
+  android:name="com.vpadn.widget.VpadnActivity"
+  android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
+  android:theme="@android:style/Theme.Translucent"
+  android:hardwareAccelerated="true" >
+</activity>
 ```
+
 > **Note**: 上記の各属性はいずれも必須で、その値は全て同じとなります。
 
 <br>
@@ -116,15 +117,15 @@ VPON広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上の
 
 ```xml
 <activity
-       android:name="com.vpadn.example.MainActivity"
-       android:label="@string/app_name"
-       android:configChanges="keyboardHidden|orientation"
-       android:hardwareAccelerated="true" >
-       <intent-filter>
-           <action android:name="android.intent.action.MAIN" />
-           <category android:name="android.intent.category.LAUNCHER" />
-       </intent-filter>
-   </activity>
+  android:name="com.vpadn.example.MainActivity"
+  android:label="@string/app_name"
+  android:configChanges="keyboardHidden|orientation"
+  android:hardwareAccelerated="true" >
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+  </intent-filter>
+</activity>
 ```
   []: A-skd330-01.png "fig:A-skd330-01.png"
   [1]: A-sdk330-02.png "fig:A-sdk330-02.png"

@@ -7,7 +7,7 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/ios/integration-guide/
 lang:            "jp"
 ---
-# VPON SDK 4 基本編
+# Vpon SDK 4 基本編
 ---
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
 台湾: http://tw.pub.vpon.com/<br>
@@ -23,7 +23,7 @@ lang:            "jp"
 
 # 概要
 ---
-VPONバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
+Vponバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
 iOS アプリでバナー広告を表示させるためには、XcodeプロジェクトにSDKを導入し、ユーザインターフ ェースに VpadnBanner を追加するだけです。
 
 # 要件
@@ -72,7 +72,7 @@ Finally, import the framework:
 
 ## Fundamental SDK
 
-解凍した SDK には、Objective-C ヘッダー、実行期間のライブラリー、READMEテキストが含まれています。アプリにVPON広告を導入するためには、次の3つのステップを完了させてください。
+解凍した SDK には、Objective-C ヘッダー、実行期間のライブラリー、READMEテキストが含まれています。アプリにVpon広告を導入するためには、次の3つのステップを完了させてください。
 
 1. プロジェクトに `libAdOn.a` , `VpadnBanner.h` および `VpadnInterstitial.h` を追加します。
 2. 必要なフレームワークを追加します。

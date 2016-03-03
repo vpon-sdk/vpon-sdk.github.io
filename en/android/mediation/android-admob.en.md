@@ -44,7 +44,7 @@ Google Admob Mediation document, please refer to [here].
 ![][7]
 
 8. Set Vpon into mediation list：    <br>
-(1) Find the VPON Network tag in Available ad netwroks <br>
+(1) Find the Vpon Network tag in Available ad netwroks <br>
 (2) Vpon Ad ID: put the Vpon’s Banner ID that you get from vpon’s back office.  <br>
 (3) Zone: Choose the region, which you want to request ads from Vpon Platform.  <br>
 

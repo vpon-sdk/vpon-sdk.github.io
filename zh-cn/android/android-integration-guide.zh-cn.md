@@ -43,7 +43,7 @@ Vpon 广告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 1. 在 Eclipse 中的应用程式专案上按一下滑鼠右键，并选择 `Properties`。
 <img src="../../../assets/img/A-sdk330-01.png" >
 
-2. 选取 `Java Build Path` (Java 建构路径) 和 `Libraries` (程式库) 分页，然后按一下 `Add External JARs...` (新增外部 JAR...)，加入 VPON 广告 JAR。
+2. 选取 `Java Build Path` (Java 建构路径) 和 `Libraries` (程式库) 分页，然后按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon 广告 JAR。
 <img src="../../../assets/img/A-sdk330-02.png" >
 
 ## Android Studio
@@ -68,13 +68,13 @@ Vpon 广告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 ---
 加入以下设定在您的 AndroidManifest.xml
 
-``` java
-    <activity
-          android:name="com.vpadn.widget.VpadnActivity"
-          android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
-          android:theme="@android:style/Theme.Translucent"
-          android:hardwareAccelerated="true" >
-    </activity>
+```xml
+<activity
+  android:name="com.vpadn.widget.VpadnActivity"
+  android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
+  android:theme="@android:style/Theme.Translucent"
+  android:hardwareAccelerated="true" >
+</activity>
 ```
 > **注意**: 上面**每一个**属性都不能少,其值都需要相同！
 
@@ -105,20 +105,20 @@ Vpon 广告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
   <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 ```
 
-由于Vpon SDK 4 有大量的 Video 广告，建议您在你放 Banner 的 Activity 内加入硬体加速，如下
+由于 Vpon SDK 4 有大量的 Video 广告，建议您在你放 Banner 的 Activity 内加入硬体加速，如下
 
 
 ```xml
 <activity
-     android:name="com.vpadn.example.MainActivity"
-     android:label="@string/app_name"
-     android:configChanges="keyboardHidden|orientation"
-     android:hardwareAccelerated="true" >
-     <intent-filter>
-         <action android:name="android.intent.action.MAIN" />
-         <category android:name="android.intent.category.LAUNCHER" />
-     </intent-filter>
-   </activity>
+  android:name="com.vpadn.example.MainActivity"
+  android:label="@string/app_name"
+  android:configChanges="keyboardHidden|orientation"
+  android:hardwareAccelerated="true" >
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+  </intent-filter>
+</activity>
 ```
 
 

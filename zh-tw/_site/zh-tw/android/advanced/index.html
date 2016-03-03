@@ -1,0 +1,121 @@
+<h1 id="vpadnadrequest">VpadnAdRequest</h1>
+<hr />
+<p>您可以先自訂 <code class="highlighter-rouge">VpadnAdRequest</code>，再將它傳送給 <code class="highlighter-rouge">VpadnBanner.loadAd</code>，讓 Vpon 以更精確的方式指定廣告 (com.adshow.ads.VpadnAdRequest)</p>
+
+<h2 id="section">指定接收廣告</h2>
+
+<p>您可以使用這些屬性來指定要接收測試廣告的裝置或裝置 Set。若要確認 SDK 是否已順利整合，請加入您的測試裝置並執行應用程式，然後按一下所顯示的測試廣告。</p>
+
+<p><code class="highlighter-rouge">Java
+  VpadnAdRequest request = new VpadnAdRequest();
+  request.addTestDevice("your test device advertising id");
+  //TODO 需要填入您測試機的advertising id
+</code></p>
+
+<h2 id="section-1">指定目標</h2>
+
+<p>您也可以指定位置和客層相關資訊。不過，為了保護使用者隱私，請只指定您的應用程式中現有的位置和客層資料。</p>
+
+<p><code class="highlighter-rouge">Java
+VpadnAdRequest request = new VpadnAdRequest();
+request.setGender(VpadnAdRequest.Gender.FEMALE);
+request.setBirthday("1977-08-23");
+</code>
+  系統會以適當的方法取得使用者的位置</p>
+
+<h1 id="vpadnadlistener">VpadnAdListener</h1>
+<hr />
+
+<p>您可以選擇在傳送給 <code class="highlighter-rouge">VpadnBanner.setAdListener</code> 的物件中執行 <code class="highlighter-rouge">com.adshow.ads.VpadnAdListener</code>，藉此追蹤請求失敗或「點閱」等廣告生命週期事件。</p>
+
+<p><code class="highlighter-rouge">java
+   public interface VpadnAdListener {
+     void onVpadnReceiveAd(VpadnAd ad);
+     void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode);
+     void onVpadnPresentScreen(VpadnAd ad);
+     void onVpadnDismissScreen(VpadnAd ad);
+     void onVpadnLeaveApplication(VpadnAd ad);
+   }
+</code></p>
+
+<p>這個介面可由您的活動或任何其他物件執行：</p>
+
+<p><code class="highlighter-rouge">java
+import com.vpadn.ads.*;
+public class VpadnBannerExample extends Activity implements VpadnAdListener {
+  //TODO: Implements all interface methods }
+}
+</code></p>
+
+<p>然後傳給 <code class="highlighter-rouge">VpadnBanner</code>：</p>
+
+<p><code class="highlighter-rouge">java
+ vponBanner.setAdListener(this);
+</code></p>
+
+<hr />
+<p><code class="highlighter-rouge">java
+  public void onVpadnReceiveAd(VpadnAd ad)
+</code>
+當 VpadnBanner.loadAd 成功時傳送。</p>
+
+<p><code class="highlighter-rouge">java
+public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
+</code>
+當 loadAd 失敗時傳送；失敗原因通常是網路連線失敗、應用程式設定錯誤或廣告空間不足。</p>
+
+<p>建議您將這些事件記錄下來以便偵錯：</p>
+
+<p><code class="highlighter-rouge">java
+ @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
+</code></p>
+
+<p><code class="highlighter-rouge">java
+public void onVpadnPresentScreen(VpadnAd ad)
+</code>
+當廣告因獲得使用者點擊，在您的應用程式之前建立了 Activity 並呈現出全螢幕廣告使用者介面時呼叫。</p>
+
+<p><code class="highlighter-rouge">java
+public void onVpadnDismissScreen(VpadnAd ad)
+</code>
+當使用者關閉與 onVponPresentScreen 一同顯示的全螢幕 Activity，控制權也交還給應用程式時呼叫。</p>
+
+<p><code class="highlighter-rouge">java
+public void onVpadnLeaveApplication(VpadnAd ad)
+</code>
+當 Ad 點擊會啟動新的應用程式時呼叫。</p>
+
+<h1 id="crazy-ad">Crazy Ad</h1>
+<hr />
+<p>會從 banner 自動展開成 Crazy Ad，全螢幕富媒體廣告的 Crazy Ad 呈現約 5~7 秒會自動關閉。
+<img src="/Crazyad.png" alt="" class="width-300" /></p>
+
+<h2 id="section-2">設定</h2>
+<hr />
+<p>在後台註冊申請流程中可選擇是否播放 Crazy Ad。<br />
+進入 http://cn.adon.vpon.com/ 註冊中國區License Key。<br />
+進入 http://tw.adon.vpon.com/ 註冊台灣區License Key。<br />
+如圖:
+<img src="/CrazyadSetting.png" alt="CrazyadSetting" /></p>
+
+<h1 id="proguard-configuration">Proguard Configuration</h1>
+<hr />
+<p>如果您的 App 本身需要經過 proguard 混淆，請增加下面的設定：<br />
+-dontwarn c.** <br />
+-dontwarn com.vpon.** <br />
+-dontwarn vpadn.** <br />
+-keep class c.**{ *; } <br />
+-keep class com.vpon.** { *; } <br />
+-keep class vpon.** { *; } <br />
+-keep class com.vpadn.** { *; } <br />
+-keep class vpadn.** { *; } <br /></p>
+
+<h1 id="corona-user">Corona User</h1>
+<hr />
+<p>如果您 App 使用 Corona 欲串接 Vpon 廣告，我們建議您用 web SDK 的方式串接，使用方法如下:</p>
+
+<p>將 web SDK 裡的 html 寫進 local file 再讓 webview 去 load 這個 file (例如: webView:request( “localfile.html”, system.ResourceDirectory ))。</p>
+
+<p>HTML 內容可參考 Vpon wiki的web SDK 操作手冊: <a href="/zh-tw/web/">Web SDK</a>
+更多 Corona SDK 文件可參考: <a href="http://docs.coronalabs.com/api/library/native/newWebView.html">Corona Document</a></p>
+

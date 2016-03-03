@@ -180,7 +180,7 @@
       </div>
       </div>
       <div class="col-md-7 main-content" role="main">
-        <h1 id="vpon-sdk-4-fundamental">VPON SDK 4 Fundamental</h1>
+        <h1 id="vpon-sdk-4-fundamental">Vpon SDK 4 Fundamental</h1>
 
 <hr>
 
@@ -266,12 +266,12 @@ libs folder)<br>
 <hr>
 
 <p>Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">      <span class="o">&lt;</span><span class="n">activity</span>
-            <span class="nl">android:</span><span class="n">name</span><span class="o">=</span><span class="s">"com.vpadn.widget.VpadnActivity"</span>
-            <span class="nl">android:</span><span class="n">configChanges</span><span class="o">=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
-            <span class="nl">android:</span><span class="n">theme</span><span class="o">=</span><span class="s">"@android:style/Theme.Translucent"</span>
-            <span class="nl">android:</span><span class="n">hardwareAccelerated</span><span class="o">=</span><span class="s">"true"</span> <span class="o">&gt;</span>
-      <span class="o">&lt;/</span><span class="n">activity</span><span class="o">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;activity</span>
+  <span class="na">android:name=</span><span class="s">"com.vpadn.widget.VpadnActivity"</span>
+  <span class="na">android:configChanges=</span><span class="s">"orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"</span>
+  <span class="na">android:theme=</span><span class="s">"@android:style/Theme.Translucent"</span>
+  <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
 </code></pre></div>
 <blockquote>
 <p><strong>Note</strong>: <strong>EVERY</strong> attribute is required!</p>
@@ -301,16 +301,20 @@ and bring more revenue.</p>
 <p>Since there would be plenty of Video ads displayed on devices, we
 recommend you to add hardware acceleration in your main Activity.</p>
 <div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;activity</span>
-       <span class="na">android:name=</span><span class="s">"com.vpadn.example.MainActivity"</span>
-       <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
-       <span class="na">android:configChanges=</span><span class="s">"keyboardHidden|orientation"</span>
-       <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
-       <span class="nt">&lt;intent-filter&gt;</span>
-           <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
-           <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
-       <span class="nt">&lt;/intent-filter&gt;</span>
-   <span class="nt">&lt;/activity&gt;</span>
+  <span class="na">android:name=</span><span class="s">"com.vpadn.example.MainActivity"</span>
+  <span class="na">android:label=</span><span class="s">"@string/app_name"</span>
+  <span class="na">android:configChanges=</span><span class="s">"keyboardHidden|orientation"</span>
+  <span class="na">android:hardwareAccelerated=</span><span class="s">"true"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;intent-filter&gt;</span>
+    <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">"android.intent.action.MAIN"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">"android.intent.category.LAUNCHER"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/intent-filter&gt;</span>
+<span class="nt">&lt;/activity&gt;</span>
+```activity&gt;
 </code></pre></div>
+<p>[]: A-skd330-01.png &quot;fig:A-skd330-01.png&quot;
+  [1]: A-sdk330-02.png &quot;fig:A-sdk330-02.png&quot;</p>
+
 <h1 id="download">Download</h1>
 
 <hr>

@@ -3,7 +3,7 @@ layout:         "default"
 title:          "Web SDK"
 lead:           "fantastic HTML5 ads you should not miss"
 description:    ""
-keywords:       "Keywords for this page, in the meta data"
+keywords:       ""
 permalink:       web/
 lang:           "en"
 ---

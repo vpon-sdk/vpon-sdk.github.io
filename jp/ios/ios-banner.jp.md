@@ -160,7 +160,7 @@ device width x auto height |Smart Banner Landscape       |VpadnAdSizeSmartBanner
 
 # 広告の自動リフレッシュ
 ---
-VPONアカウントで更新頻度を指定し、以下のサンプルコードを使用するとバナーの自動リフレッシュがオンとなります。
+Vpon アカウントで更新頻度を指定し、以下のサンプルコードを使用するとバナーの自動リフレッシュがオンとなります。
 
   [vpadnAd setAdAutoRefresh:YES];
 

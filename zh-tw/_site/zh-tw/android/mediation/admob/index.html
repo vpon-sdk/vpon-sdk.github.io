@@ -1,0 +1,291 @@
+<h1 id="google-admob-mediation">Google AdMob mediation</h1>
+<hr />
+<p>Google AdMob mediation 請看<a href="https://developers.google.com/admob/android/quick-start">這裡</a></p>
+
+<h1 id="admob-mediation-">Admob Mediation 操作圖示</h1>
+<hr />
+
+<ol>
+  <li>
+    <p>請先<a href="https://www.google.com.tw/admob/">登入</a> AdMob
+<img src="/AdMobScreenshotTradChineseAndroid1.png" alt="1" /></p>
+  </li>
+  <li>
+    <p>盈利 -&gt; 透過新應用程式盈利
+<img src="/AdMobScreenshotTradChineseAndroid2.png" alt="" /></p>
+  </li>
+  <li>
+    <p>選取應用程式:<br />
+  (1) 填入 app name <br />
+  (2) 選取平台 <br />
+  (3) 點選 “新增應用程式” <br />
+<img src="/AdMobScreenshotTradChineseAndroid3.png" alt="" /></p>
+  </li>
+  <li>
+    <p>選取廣告格式並對廣告單元命名:<br />
+ (1) 選擇橫幅廣告或者插頁廣告 <br />
+ (2) 設定  <br />
+ (3) 廣告單元名稱(ex. Vpon_Banner) <br />
+ (4) 儲存
+<img src="/AdMobScreenshotTradChineseAndroid4.png" alt="" /></p>
+  </li>
+  <li>
+    <p>得到一組廣告單元編號，選取完成
+<img src="/AdMobScreenshotTradChineseAndroid5.png" alt="" /></p>
+  </li>
+  <li>
+    <p>編輯中介服務
+<img src="/AdMobScreenshotTradChineseAndroid6.png" alt="" /></p>
+  </li>
+  <li>
+    <p>新增廣告連播網
+<img src="/AdMobScreenshotTradChineseAndroid7.png" alt="" /></p>
+  </li>
+  <li>
+    <p>設定Vpon進入您的聚合列表：
+(1) 在可用的廣告聯播網中找到 Vpon
+(2) Vpon Ad Id: 填入您在 Vpon 後台申請的版位ID
+(3) Zone: 選擇您欲請求的廣告平台的地區
+(例：如果您的 App 是欲給大陸平台使用者使用，則您需在此欄位中填入<code class="highlighter-rouge">cn</code>，若您 app 是給除了大陸平台以外地區使用者使用則填入<code class="highlighter-rouge">tw</code>)</p>
+  </li>
+</ol>
+
+<p><img src="/AdMobScreenshotTradChineseAndroid8.png" alt="" /></p>
+
+<h1 id="vpon-">串接 Vpon 進專案</h1>
+<p>您需將載入兩個 Jar 檔進入您專案中的 libs 資料夾，分別是：admob-adapter-****.jar 和 vpadn-sdk-***-***-***.jar.
+<img src="/AdMobLibJarFiles.jpg" alt="" /></p>
+
+<h1 id="section">需求條件</h1>
+<hr />
+<ol>
+  <li>請確認您已安裝最新版的<a href="https://developer.android.com/sdk/index.html">Android SDK</a>，並至少在 Android v3.2 (target in project.properties to android-13)下編譯。</li>
+  <li>Google Mobile Ads SDK可在Android 2.3以上的版本(在 AndroidManifest.xml 設定 android:minSdkVersion 為至少 9)執行。</li>
+</ol>
+
+<h1 id="sdk">導入SDK</h1>
+<hr />
+<p>以下的步驟為將Google Mobile Ads SDK 導入您的 App 中:</p>
+
+<ol>
+  <li>新增並 reference Google Play Services library到您的 Eclipse/Android Studio workspace.</li>
+  <li>在 AndroidManifest.xml中新增 meta-data tag.</li>
+  <li>在 AndroidManifest 中宣告 com.google.android.gms.ads.AdActivity.</li>
+  <li>在 manifest 中加入 permissions</li>
+</ol>
+
+<h2 id="google-play-services-library">Google Play Services library</h2>
+<p>請先安裝設定 Google Play Service SDK: <a href="https://developer.android.com/google/play-services/setup.html">Android instructions</a></p>
+
+<h3 id="eclipse">Eclipse</h3>
+<hr />
+<p>a.在您的應用程式專案中按右鍵並選擇 <code class="highlighter-rouge">properties</code></p>
+
+<p><img src="/GooglePlay_Properties.png" alt="" /></p>
+
+<p>b.選擇 Android -&gt;
+<code class="highlighter-rouge">Add...</code> 尋找 google-play-services_lib 內容後按下 OK 新增 Google Play Services library.</p>
+
+<p><img src="/GooglePlay_Addlib.png" alt="" /></p>
+
+<p>如圖示，您的專案已經 reference Google Play Services library.</p>
+
+<p><img src="/GooglePlay_Addlib2.png" alt="" /></p>
+
+<h3 id="android-studio">Android Studio</h3>
+<hr />
+<ol>
+  <li>
+    <p>請打開 <code class="highlighter-rouge">app</code> 模組下的 <code class="highlighter-rouge">build.gradle</code>
+&gt; <strong>Note</strong>: Android Studio 專案下有兩個 <code class="highlighter-rouge">build.gradle</code>，請小心以免搞混</p>
+  </li>
+  <li>
+    <p>增加 build rule 在 dependencies 底下，已取得最新版 <code class="highlighter-rouge">play-services</code></p>
+  </li>
+</ol>
+
+<p>```groovy
+apply plugin: ‘com.android.application’
+    …</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dependencies {
+  compile 'com.google.android.gms:play-services:+'
+} ``` 接著，存擋並至 toolbar 點選 **Sync Project with Gradle Files**
+</code></pre>
+</div>
+
+<h2 id="meta-data-tag">新增 meta-data tag</h2>
+<p>Google Play Service 需要在 AndroidManifest.xml 中加入以下設定:</p>
+
+<p>```xml
+<?xml version="1.0" encoding="utf-8"?></p>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.company" android:versioncode="1" android:versionname="1.0">
+ <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
+  <span style="color:#ff0000"><meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" /></span>
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN" />
+       <category android:name="android.intent.category.LAUNCHER" />
+     </intent-filter>
+   </activity>
+ </application>
+</manifest>
+<p>```</p>
+
+<h2 id="adactivity">宣告 AdActivity</h2>
+<hr />
+<p>Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ads.AdActivity</p>
+
+<p>```xml
+<?xml version="1.0" encoding="utf-8"?></p>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.company" android:versioncode="1" android:versionname="1.0">
+ <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
+   <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+   <activity android:label="@string/app_name" android:name="BannerExample">
+     <intent-filter>
+       <action android:name="android.intent.action.MAIN" />
+       <category android:name="android.intent.category.LAUNCHER" />
+     </intent-filter>
+   </activity>
+   <span style="color:#ff0000">
+     <activity android:name="om.google.android.gms.ads.AdActivity" android:configchanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" /></span>
+ </application>
+</manifest>
+<p>```
+## Permissions
+—
+加入以下 permission 在您的 AndroidManifest.xml<br />
+<code class="highlighter-rouge">'INTERNET"</code> 此為必要，以開啓網路功能進行傳輸。<br />
+<code class="highlighter-rouge">'ACCESS_NETWORK_STATE"</code> 此為選擇，用來讀取使用者當前的網路狀態。<br /></p>
+
+<p>```xml
+ <?xml version="1.0" encoding="utf-8"?></p>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.company" android:versioncode="1" android:versionname="1.0">
+  <application android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
+    <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+    <activity android:label="@string/app_name" android:name="BannerExample">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity android:name="com.google.android.gms.ads.AdActivity" android:configchanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+  </application>
+  <span style="color:#ff0000"><uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /></span>
+ </manifest>
+<p>```</p>
+
+<h1 id="banner-">Banner 橫幅廣告</h1>
+<hr />
+<p>要在您的 Android app 中展示橫幅廣告，只需要簡單的新增 com.google.android.gms.ads.AdView 到您的使用者介面。
+新增 com.google.android.gms.ads.AdView</p>
+
+<p>利用以下五個步驟新增出一個橫幅廣告:
+• 匯入 com.google.android.gms.ads.*
+• 宣告一個 AdView物件
+• 建立並指定一個 ad unit ID
+• 在使用者介面中新增 view
+• 取得banner</p>
+
+<p>最簡易的方法為在您的 Activity 中做出所有的步驟.</p>
+
+<p>```Java
+  import com.google.android.gms.ads.*;</p>
+
+<p>public class BannerExample extends Activity {
+  private AdView adView;</p>
+
+<p>@Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Create the adView.
+adView = new AdView(this);
+adView.setAdUnitId(MY_AD_UNIT_ID);
+adView.setAdSize(AdSize.BANNER);
+
+// Lookup your LinearLayout assuming it's been given
+// the attribute android:id="@+id/mainLayout".
+LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayout);
+
+// Add the adView to it.
+layout.addView(adView);
+
+// Initiate a generic request.
+AdRequest adRequest = new AdRequest.Builder().build();
+
+// Load the adView with the ad request.
+adView.loadAd(adRequest);   }
+</code></pre>
+</div>
+
+<p>@Override
+  public void onPause() {
+    adView.pause();
+    super.onPause();
+  }</p>
+
+<p>@Override
+  public void onResume() {
+    super.onResume();
+    adView.resume();
+  }</p>
+
+<p>@Override
+  public void onDestroy() {
+    adView.destroy();
+    super.onDestroy();
+   }
+ }
+```
+參考更多的 banner 設定: <a href="https://developers.google.com/admob/android/banner">here</a></p>
+
+<h1 id="interstitial-">Interstitial 插頁廣告</h1>
+<hr />
+<p>和 AdView 的使用方式相似:
+• 匯入 <code class="highlighter-rouge">com.google.android.gms.ads.*</code>
+• 宣告物件
+• 建立並指定一個和banner不同的 AdMob Ad Unit ID。</p>
+
+<p>同樣的，最方便的方式為在您的 Activity 中做以下的步驟。</p>
+
+<p>```Java
+ import com.google.android.gms.ads.*;
+ public class BannerExample extends Activity {</p>
+
+<p>private InterstitialAd interstitial;</p>
+
+<p>@Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.main);</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>// Create the interstitial.
+interstitial = new InterstitialAd(this);
+interstitial.setAdUnitId(MY_AD_UNIT_ID);
+
+// Create ad request.
+AdRequest adRequest = new AdRequest.Builder().build();
+
+// Begin loading your interstitial.
+interstitial.loadAd(adRequest);
+</code></pre>
+</div>
+
+<p>}</p>
+
+<p>// Invoke displayInterstitial() when you are ready to display an interstitial.
+  public void displayInterstitial() {
+    if (interstitial.isLoaded()) {
+      interstitial.show();
+     }
+   }
+ }
+```</p>
+
+<h1 id="sample-code">下載 Sample Code</h1>
+<hr />
+<p><a href="/zh-tw/android/download/#admob">Download Sample Code</a></p>
+

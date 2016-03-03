@@ -1,6 +1,6 @@
 ---
 layout:         "default"
-title:          "中文web"
+title:          "Mobile Web SDK 串接說明"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
@@ -72,7 +72,7 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 ---
        名稱             |        描述                        |  必要 |  範例
 :----------------------:| :-------------------------------:|:---:|:------------------------------------------------:
-  vpon\_ad\_licensy\_key|   版位 ID                         |  Y   |  <font color="red">請輸入您的 Vpon License Key</font>
+  vpon\_ad\_licensy\_key|   版位 ID                         |  Y   |  <font color="red">輸入 Vpon License Key</font>
   vpon\_ad\_format      |   廣告版型：320x50\_mb, 300x250\_mb |   Y |     “320x50\_mb”
   vpon\_ad\_test        |   是否拉取測試廣告                   | N   |   1(是)/0(否)，預設為(是)
   debug                 |   是否在 console 顯示 debug 資訊    |  N   |   true/false，預設為false

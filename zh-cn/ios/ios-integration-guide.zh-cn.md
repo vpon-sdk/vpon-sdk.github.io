@@ -25,7 +25,7 @@ China平台为: http://cn.pub.vpon.com/<br>
 
 # 需求条件
 ---
-VPON 广告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 或更新版本。
+Vpon 广告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 或更新版本。
 
 # 导入 SDK
 ---

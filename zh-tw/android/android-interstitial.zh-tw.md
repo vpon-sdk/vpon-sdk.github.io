@@ -33,7 +33,7 @@ lang: zh-tw
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-  //TODO: 您向VPON申請的interstitial banner Id (提醒您 跟一般的橫幅廣告banner ID是不同的)
+  //TODO: 您向 Vpon 申請的 interstitial banner Id (提醒您: 跟一般的橫幅廣告 banner ID 是不同的)
   private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
   private VpadnInterstitialAd interstitialAd;
 

@@ -1,0 +1,88 @@
+<h2 id="section">完成串接指示</h2>
+<hr />
+<p>若您尚未完成串接廣告形式前的串接說明，請先前往<a href="/zh-tw/android/integration-guide/">串接說明</a>完成相關設定</p>
+
+<h1 id="section-1">總覽</h1>
+<hr />
+<p>插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。這類廣告由於內容更豐富、更吸引人，因此製作起來更昂貴，而曝光機會卻有限。</p>
+
+<p><img src="/Interstitial.png" alt="" /></p>
+
+<h1 id="vpon-">Vpon 插頁廣告</h1>
+<hr />
+<p>插頁廣告的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。</p>
+
+<p>不過，它的用法與 Banner 非常類似：</p>
+
+<ul>
+  <li>匯入 <code class="highlighter-rouge">com.vpadn.ads.*</code></li>
+  <li>宣告例項</li>
+  <li>建立例項，並指定 Vpon 發佈商編號 (bannerId)</li>
+</ul>
+
+<p>(不能與橫幅廣告所用發佈商編號重複)</p>
+
+<p>再次提醒您，最好在應用程式的 Activity 內執行上述步驟。</p>
+
+<p>```java
+public class MainActivity extends Activity implements VpadnAdListener {
+  //TODO: 您向申請的interstitial banner Id (提醒您 跟一般的橫幅廣告banner ID是不同的)
+  private String interstitialBannerId = “xxxxxxxxxxxxxxxx”;
+  private VpadnInterstitialAd interstitialAd;</p>
+
+<p>@Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    // Create interstitial instance
+    interstitialAd = new VpadnInterstitialAd(this, interstitialBannerId, “TW”);
+    // 加入listener
+    interstitialAd.setAdListener(this);
+    // 建立廣告請求
+    VpadnAdRequest request = new VpadnAdRequest();
+    // 開始抓interstitial ad
+    interstitialAd.loadAd(request);
+  }</p>
+
+<p>@Override
+  protected void onDestroy() {
+    super.onDestroy();
+    // 千萬記得離開時需要呼叫 destroy
+    if (interstitialAd != null) {
+      interstitialAd.destroy();
+      interstitialAd = null;
+    }
+  }
+```</p>
+
+<p>不過，目前沒有任何項目可加入檢視階層，而且您必須等到這個請求成功後才能嘗試顯示廣告，這點請格外注意。最簡單的做法是執行 AdListener (「InterstitialAd」也是一種廣告)，或是直接使用布林屬性 isReady。</p>
+
+<p>一旦 load Ad 成功，廣告就可以顯示了：</p>
+
+<p><code class="highlighter-rouge">java
+  @Override
+  public void onVpadnReceiveAd(VpadnAd ad) {
+    if (ad == this.interstitialAd) {
+      //show interstitial ad 或可以延後在show
+      interstitialAd.show();
+    }
+  }
+</code></p>
+
+<p>接著，插頁式廣告會佔據整個畫面，直到使用者點擊關閉；這時控制權才會交還給應用程式。<a href="/zh-tw/android/advanced">進階設定</a>中 Vpadn AdListener 小節列出了多種實用的回呼方式，供您參考。</p>
+
+<h1 id="download-sample-code">Download Sample Code</h1>
+<hr />
+<p><a href="/zh-tw/android/download">Go to Download Page</a></p>
+
+<h1 id="section-2">注意事項</h1>
+<hr />
+<blockquote>
+  <ol>
+    <li><span style="line-height:2.5em"><strong>我們不建議您在程式開啓時直接拉取 interstitial ad 並立即顯示</strong><br /></span>
+如此將會拖慢程式開啓時的執行速度。因此我們建議您可以先 load interstitial 但不顯示，等待特定事件(e.g. 使用者過關、停留在某個畫面超過特定時間、按下某個 button 或離開 app 之前…)發生再顯示。</li>
+    <li><span style="line-height:2em"> <strong>請避免沒有 load 就要求顯示廣告</strong> <br /> </span>
+<code class="highlighter-rouge">android:configChanges=“orientation|screenSize”</code>若您沒在 activity 裡沒有加上這句，請避免在 onCreate 時做 load interstitial 並立即顯示插頁廣告。</li>
+  </ol>
+</blockquote>
+

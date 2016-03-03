@@ -1,0 +1,39 @@
+<h1 id="ios9-ats">iOS9 ATS</h1>
+<hr />
+<p>## 概覽
+Apple 將在 iOS9 加上新的安全條款—[Transport Security
+(ATS)]，要求所有版本 iOS9 以上裝置的 app 只能使用 HTTPS
+傳輸。若您現在使用 Xcode 7 並企圖瞄準該客群，請將您的 info.plist
+做修改以符合規範。</p>
+
+<h2 id="infoplist">info.plist</h2>
+<p>您可以在 info.plist 中加入例外，允許 HTTPS 外的連結</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+&lt;dict&gt;
+    &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+</code></pre>
+</div>
+
+<h2 id="section">參考</h2>
+<p>相關資料請參考 ：</p>
+
+<ul>
+  <li>[Transport Security (ATS)]</li>
+  <li>[Ads Developer Blog]</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>[Transport Security (ATS)]: https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/</td>
+      <td>App</td>
+    </tr>
+    <tr>
+      <td>[Ads Developer Blog]: http://googleadsdeveloper.blogspot.tw/2015/08/handling-app-transport-security-in-ios-9.html</td>
+      <td>Google</td>
+    </tr>
+  </tbody>
+</table>

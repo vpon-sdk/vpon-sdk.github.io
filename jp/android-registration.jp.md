@@ -58,7 +58,7 @@ http://tw.pub.vpon.com/ 台湾エリアのプロパティIDを登録
 1. プロパティの審査ステータスbr>
 2. プロパティ ID
 
-アプリ・サイトリストページでは、審査ステータスとVPON license Keyをご確認いただけます。
+アプリ・サイトリストページでは、審査ステータスと Vpon license Keyをご確認いただけます。
 
 ![Trandationchinesefrontserver4_JP.png]
 

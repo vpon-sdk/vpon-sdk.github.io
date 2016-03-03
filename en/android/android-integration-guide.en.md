@@ -7,7 +7,7 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/integration-guide/
 lang:           "en"
 ---
-# VPON SDK 4 Fundamental
+# Vpon SDK 4 Fundamental
 ----
 If you are using the previous version of vpon SDK, please read this first: [How to update to SDK4.2.x]({{site.baseurl}}/latest-news/update-to-SDK4_2_x/)
 
@@ -87,14 +87,15 @@ libs folder)
 ---
 Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml
 
-``` java
-      <activity
-            android:name="com.vpadn.widget.VpadnActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent"
-            android:hardwareAccelerated="true" >
-      </activity>
+```xml
+<activity
+  android:name="com.vpadn.widget.VpadnActivity"
+  android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
+  android:theme="@android:style/Theme.Translucent"
+  android:hardwareAccelerated="true" >
+</activity>
 ```
+
 > **Note**: **EVERY** attribute is required!
 
 <br>
@@ -128,15 +129,16 @@ recommend you to add hardware acceleration in your main Activity.
 
 ```xml
 <activity
-       android:name="com.vpadn.example.MainActivity"
-       android:label="@string/app_name"
-       android:configChanges="keyboardHidden|orientation"
-       android:hardwareAccelerated="true" >
-       <intent-filter>
-           <action android:name="android.intent.action.MAIN" />
-           <category android:name="android.intent.category.LAUNCHER" />
-       </intent-filter>
-   </activity>
+  android:name="com.vpadn.example.MainActivity"
+  android:label="@string/app_name"
+  android:configChanges="keyboardHidden|orientation"
+  android:hardwareAccelerated="true" >
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+  </intent-filter>
+</activity>
+```activity>
 ```
   []: A-skd330-01.png "fig:A-skd330-01.png"
   [1]: A-sdk330-02.png "fig:A-sdk330-02.png"

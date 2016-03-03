@@ -36,7 +36,7 @@ Android 應用程式由 View 物件所組成，也就是以文字區域和按鈕
   public class MainActivity extends Activity {
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
-  	//TODO: VPON Banner ID
+  	//TODO: Vpon Banner ID
   	private String bannerId = CHANGE ME ;
 
          @Override
@@ -158,7 +158,7 @@ device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 # 結果
 ---
 現在只要執行這個應用程式，您應該就會在畫面上方看到橫幅廣告：
-![gogo]({{site.imgurl}}/A-sdk330-03.png)
+<img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
 
 # 其他訣竅
 > 請參閱[插頁廣告](../Interstitial)、[中介服務](../mediation)、[進階設定](../advanced)中獲取更多簡介。
