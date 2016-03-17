@@ -7,6 +7,8 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/
 lang:           "en"
 ---
+
+
 # A Quick Overview
 ## Step1: SDK Download
 ---
@@ -18,7 +20,7 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 
 ## Step3: Ad Integration
 ---
-| [Banner Ad][4]  |[Interstitial Ad][5] |[Mediation][6]|
+| [Banner Ad][4]  |[Interstitial Ad][5] | [Mediation][6]|
 | :------------:  | :-----------: | :--------: |
 <br><br>
 

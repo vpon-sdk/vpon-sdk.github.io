@@ -1,5 +1,5 @@
 ---
-layout:         "ssp_dfp_test"
+layout:         "ssp-dfp-test"
 title:          "SSP DFP Test"
 lead:           ""
 description:    ""
@@ -10,6 +10,9 @@ lang:           "en"
 
 
 下面會有一個廣告
+
+<br>
+
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- adsense_320_250 -->
 <ins class="adsbygoogle"
@@ -19,4 +22,7 @@ lang:           "en"
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
+<br>
+
 上面會有一個廣告

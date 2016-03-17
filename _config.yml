@@ -1,9 +1,16 @@
-# Dependencies
+# !!! redcarpet should be changed to kramdown since May.1st 2016
 # !!! or it would not work
+
+# Dependencies
+# markdown:           kramdown
+# kramdown:
+  # input: GFM
+  # hard_wrap: false
 markdown:           redcarpet
 redcarpet:
-  extensions:       ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-#highlighter:        rouge    # default highlighter would be changed to rouge
+ extensions:       ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+# default highlighter would be changed to rouge in 2016
+#highlighter:        rouge
 
 #github settings
 baseurl:
@@ -23,7 +30,6 @@ permalink:          pretty
 # baseurl:            /
 # url:                http://localhost:4000
 # encoding:           UTF-8
-
 
 # the excluded directoies
 exclude:            []

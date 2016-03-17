@@ -2,7 +2,7 @@
 {% assign langs = {{page.lang}}%}
 {% case langs %}
 {% when "en" %}
-  {% assign urlGettingStarted = site.baseurl | append:"/android" %}
+  {% assign urlGettingStarted = v | append:"/android" %}
   {% assign urlIntegrationGuide = v | append:"/android/integration-guide" %}
   {% assign urlBanner = v | append:"/android/banner" %}
   {% assign urlInterstitial = v | append:"/android/interstitial" %}
@@ -10,7 +10,7 @@
   {% assign urlAdvanced = v | append:"/android/advanced" %}
   {% assign urlLatestNews = v | append:"/android/latest-news" %}
   {% assign urlDownload = v | append:"/android/download" %}
-  {% assign urlSupport = v | append:"/android/support" %}
+  {% assign urlChangelog = v | append:"/android/changelog" %}
   {% assign sidebar-title1 = "Android Integration" %}
   {% assign getting-started = "Getting Started" %}
   {% assign integration-guide = "Integration Guide" %}
@@ -22,7 +22,7 @@
   {% assign sidebar-title3 = "Download/Other" %}
   {% assign download = "Download" %}
   {% assign latest-news = "Latest News" %}
-  {% assign support = "Support" %}
+  {% assign changelog = "Changelog" %}
 {% else %}
   {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/android" %}
   {% assign urlIntegrationGuide = v | append:"/" | append: langs | append: "/android/integration-guide" %}
@@ -32,7 +32,7 @@
   {% assign urlAdvanced = v | append:"/" | append: langs | append: "/android/advanced" %}
   {% assign urlLatestNews = v | append:"/" | append: langs | append: "/android/latest-news" %}
   {% assign urlDownload = v | append:"/" | append: langs | append: "/android/download" %}
-  {% assign urlSupport = v | append:"/" | append: langs | append: "/android/support" %}
+  {% assign urlChangelog = v | append:"/" | append: langs | append: "/android/changelog" %}
 {% endcase %}
 {% case langs %}
 {% when "zh-tw" %}
@@ -47,7 +47,7 @@
   {% assign sidebar-title3 = "下載/其他輔助" %}
   {% assign download = "下載 SDK" %}
   {% assign latest-news = "最新消息" %}
-  {% assign support = "其他協助" %}
+  {% assign changelog = "更新日誌" %}
 {% when "zh-cn" %}
   {% assign sidebar-title1 = "Android 串接" %}
   {% assign getting-started = "开始使用" %}
@@ -60,7 +60,7 @@
   {% assign sidebar-title3 = "下载/其他辅助" %}
   {% assign download = "下载 SDK" %}
   {% assign latest-news = "最新消息" %}
-  {% assign support = "其他协助" %}
+  {% assign changelog = "更新日志" %}
 {% when "jp" %}
   {% assign sidebar-title1 = "Android 串接" %}
   {% assign getting-started = "スタートガイド" %}
@@ -73,7 +73,7 @@
   {% assign sidebar-title3 = "ダウンロード/その他" %}
   {% assign download = "最新ニュース" %}
   {% assign latest-news = "ダウンロード" %}
-  {% assign support = "サポート" %}
+  {% assign changelog = "変更履歴" %}
 {% endcase %}
 <ul class= "nav nav-sidebar nav-left hidden-xs hidden-sm">
   <span id= "sidebar-title1">{{sidebar-title1}}</span>
@@ -87,7 +87,7 @@
   <span id= "sidebar-title3">{{sidebar-title3}}</span>
   <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
   <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
-  <li><a id= "support" href="{{urlSupport}}">{{support}}</a></li>
+  <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
 </ul>
 
 <div class="visible-xs visible-sm" style="width:100%">
@@ -107,6 +107,6 @@
       <span id="sidebar-title3">{{sidebar-title3}}</span>
         <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
         <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
-        <li><a id= "support" href="{{urlSupport}}">{{support}}</a></li>
+        <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
   </div>
 </div>

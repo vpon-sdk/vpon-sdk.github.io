@@ -1,9 +1,9 @@
 ---
 layout:         "web-test"
-title:          "Web ad test"
+title:          "Web SDK test"
 lead:           "test"
 description:    ""
-keywords:       "Keywords for this page, in the meta data"
+keywords:       ""
 permalink:       /test/web-test/
 lang:           "zh-tw"
 ---

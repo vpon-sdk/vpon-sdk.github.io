@@ -1,6 +1,6 @@
 ---
-layout:         "ssp_go"
-title:          "SSP_test"
+layout:         "ssp-go"
+title:          "SSP Interstitial Test"
 lead:           ""
 description:    ""
 keywords:       ""

@@ -343,8 +343,8 @@ button {
     margin-top: -10px;
     margin-left: -2px;
   }
-
   /*hamburger icon rotate animations*/
+
   .frstbar, .scndbar, .thrdbar {
     transition: all 0.35s linear;
     transform: rotate(0deg);
@@ -390,6 +390,7 @@ button {
   }
 }
 
+/*new start*/
 .language-dropdown {
   margin-top: 2px;
   margin-right: 8px;
@@ -408,7 +409,7 @@ button:focus {
   max-width: 300px;
 }
 .width-400 {
-  max-width:400px;
+  max-width: 400px;
 }
 .width-500 {
   max-width: 500px;
@@ -416,7 +417,6 @@ button:focus {
 .width-600 {
   max-width: 600px;
 }
-
 .f-left {
   float: left;
 }
@@ -431,4 +431,7 @@ img {
 }
 ol, ul {
   margin-bottom: 25px;
+}
+.dropdown .dropdown-menu {
+  outline: none;
 }
