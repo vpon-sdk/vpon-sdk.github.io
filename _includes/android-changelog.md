@@ -1,5 +1,12 @@
 # Android Changelog
 
+### 4.5.0
+* Release Date: 14 Mar. 2016
+* Build Number: 41306102
+* Fix minor ad type bug
+* Add vertical video to interstitial ads
+* Improve performance
+
 ### 4.3.2
 
 * Release Date: 22 Oct. 2015

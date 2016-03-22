@@ -1,16 +1,24 @@
-## 4.2.19
+### 4.5.0
+
+* Rlease Date: 14 Mar. 2016 
+* Build Number: 41306102
+* Decrease unecessary log
+* Fix pop-out video sound bug 
+* Add vertical video to interstitial ads
+
+### 4.2.19
 
 * Build Number: 32215102
 * Minor bug fixed.
 * Excessive log trimmed.
 
-## 4.2.18
+### 4.2.18
 
 * Build Number: 71115102
 * localStorage bug fixed.
 * PresentView bug fixed.
 
-## 4.2.17
+### 4.2.17
 
 * Build Num 62015102
 * Optimize for iOS9.
