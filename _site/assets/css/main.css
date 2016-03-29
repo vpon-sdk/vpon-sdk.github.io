@@ -435,3 +435,7 @@ ol, ul {
 .dropdown .dropdown-menu {
   outline: none;
 }
+.topic-focused {
+  /*color: #fe830e ;*/
+  background-color: #f9f9f9;
+}
