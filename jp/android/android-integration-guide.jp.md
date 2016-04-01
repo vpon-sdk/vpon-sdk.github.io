@@ -50,7 +50,7 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 ## Eclipse
 ---
 1. Eclipse 内のアプリプロジェクト上でマウスの右ボタンをクリックし、[プロパティ]を選びます。
-![]({{site.imgurl}}//A-sdk330-01.png)
+<img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
 2. [Java Build Path] (Java 構築パス)と[Libraries] (ライブラリ)のタブを選択してから[Add External JARs...] (外部 JAR...を追 加)をクリックして、Vpon 広告の JAR を追加します。
 ![]({{site.imgurl}}/A-sdk330-02.png)

@@ -55,7 +55,7 @@ Show Vpon banner on your Android App, you must complete three steps:
 ---
 1. Import Vpon SDK Jar file to your eclipse  project. (copy jar file to
 libs folder)  
-![]({{site.imgurl}}//A-sdk330-01.png)
+<img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
 2. Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
 ![]({{site.imgurl}}/A-sdk330-02.png)
@@ -138,10 +138,8 @@ recommend you to add hardware acceleration in your main Activity.
     <category android:name="android.intent.category.LAUNCHER" />
   </intent-filter>
 </activity>
-```activity>
 ```
-  []: A-skd330-01.png "fig:A-skd330-01.png"
-  [1]: A-sdk330-02.png "fig:A-sdk330-02.png"
+
 
 
 # Download

@@ -41,10 +41,10 @@ Vpon 廣告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 
 ## Eclipse
 1. 在 Eclipse 中的應用程式專案上按一下滑鼠右鍵，並選擇 `Properties`。
-<img src="../../../assets/img/A-sdk330-01.png" >
+<img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
 2. 選取 `Java Build Path` (Java 建構路徑) 和 `Libraries` (程式庫) 分頁，然後按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon 廣告 JAR。
-<img src="../../../assets/img/A-sdk330-02.png" >
+![]({{site.imgurl}}/A-sdk330-02.png)
 
 ## Android Studio
 1. 在 Android 中的應用程式專案找到 `libs` (途徑：`project_name` -> `app` -> `libs`)
@@ -122,6 +122,9 @@ Vpon 廣告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 </activity>
 ```
 
+# 下載
+---
+[前往下載]({{site.baseurl}}/android/download)
 
 
 # 其他訣竅

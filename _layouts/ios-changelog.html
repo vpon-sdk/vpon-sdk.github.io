@@ -23,7 +23,7 @@
         {% include ios-sidebar-left.html %}
       </div>
       </div>
-      <div class="col-md-7" role="main">
+      <div class="col-md-7 main-content" role="main">
         {% capture _includes %}{% include ios-changelog.md %}{% endcapture %}{{ _includes | markdownify }}
         {{ content }}
       </div>
