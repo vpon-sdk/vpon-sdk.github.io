@@ -1,6 +1,6 @@
 #
 source "https://rubygems.org"
-gem "jekyll", "~> 3.0.3"
+#gem "jekyll", "~> 3.0.3"
 #gem 'pygments.rb'
 #gem "kramdown", "~> 1.3.0"
 
