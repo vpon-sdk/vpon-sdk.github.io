@@ -18,6 +18,7 @@ If you haven't finished the previous integration guide, please check all the [se
   Like any view, an VpadnBanner may be created either purely in code or largely in XML.
 
   The five lines of code it takes to add a Vpon banner:
+
 1. Import com.vpadn.ads.*
 2. Declare an VpadnBanner instance
 3. Create it, specifying a unit ID—your VpadnBanner Banner ID
