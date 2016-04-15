@@ -1,6 +1,15 @@
 # Android Changelog
 
+### 4.5.1
+
+* Release Date: 15 Apr. 2016
+* Build Number: 51406102
+* Improve user experience
+* Fix a potential security problem
+* Fix few bugs
+
 ### 4.5.0
+
 * Release Date: 14 Mar. 2016
 * Build Number: 41306102
 * Fix minor ad type bug

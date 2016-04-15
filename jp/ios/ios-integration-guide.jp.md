@@ -38,7 +38,7 @@ iOS アプリでバナー広告を表示させるためには、Xcodeプロジ�
 
 Vpon provides two SDKs serving the same functions for our publishers. You should choose either of these 2 for integration.<br>
   1. **Fundamental SDK** (Require iOS 5.0+)<br>
-  2. **Framework SDK** (Require iOS 7.0+)
+  2. **Framework SDK** (Require iOS 8.0+)
 
 There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.
 
@@ -46,7 +46,7 @@ There is slight difference between these two SDKs, which we will explain in intr
 ---
 Framework SDK is a dynamic library, our latest SDK within any necessary references, headers and lib, needs fewer steps, and is lighter than Fundamental SDK.
 
-However, this convenient way is only for apps designed for iOS version higher than 7.0. If you are targeting at users with devices OS version lower than 7.0, you should definitely choose the [fundamental SDK](#fundamental-sdk) instead.
+However, this convenient way is only for apps designed for iOS version higher than 8.0. If you are targeting at users with devices OS version lower than 8.0, you should definitely choose the [fundamental SDK](#fundamental-sdk) instead.
 
 First, right-click your project and choose `Add Files to your_project`
 <img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
@@ -68,7 +68,7 @@ Finally, import the framework:
 ![]({{site.imgurl}}/ios_framework_5.png)
 
 > **Note:** <br>
-> Remind again that Framework SDK only support devices in iOS version higher than 7.0 and do not use this framework if you are targeting at users with devices OS version lower than 7.0.
+> Remind again that Framework SDK only support devices in iOS version higher than 8.0 and do not use this framework if you are targeting at users with devices OS version lower than 8.0.
 
 ## Fundamental SDK
 

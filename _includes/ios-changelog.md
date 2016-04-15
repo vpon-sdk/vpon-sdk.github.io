@@ -1,9 +1,19 @@
+# iOS Changelog
+
+### 4.5.1
+
+* Release Date: 15 Apr. 2016
+* Build Number: 51406102
+* Improve user experience
+* Fix build error for iOS 7.3+
+* Fix few bugs
+
 ### 4.5.0
 
-* Rlease Date: 14 Mar. 2016 
+* Rlease Date: 14 Mar. 2016
 * Build Number: 41306102
 * Decrease unecessary log
-* Fix pop-out video sound bug 
+* Fix pop-out video sound bug
 * Add vertical video to interstitial ads
 
 ### 4.2.19

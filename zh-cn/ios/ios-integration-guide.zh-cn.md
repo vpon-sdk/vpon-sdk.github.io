@@ -32,7 +32,7 @@ Vpon 广告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 �
 
 Vpon 提供以下两种串接广告的 SDK，择一即可:<br>
   1. Fundamental SDK (iOS 5.0+)<br>
-  2. Framework SDK (iOS 7.0+)
+  2. Framework SDK (iOS 8.0+)
 
 这两个 SDK 其实提供的功能一样，差别在于，iOS 版本需求较高的 Framework SDK 的串接较简单、轻便
 
@@ -64,8 +64,8 @@ Framework SDK 是一包 dynamic library，它会动态抓取 framework reference
 ![]({{site.imgurl}}/ios_framework_5.png)
 
 > **Note:** <br>
-> 再次提醒您 Framework SDK **只对 iOS 7.0 以上的装置有用**。
-> 若您的 app 还支援 7.0 以下的装置，请勿使用此 framework，而是使用 [Fundamental SDK](#fundamental-sdk)。
+> 再次提醒您 Framework SDK **只对 iOS 8.0 以上的装置有用**。
+> 若您的 app 还支援 8.0 以下的装置，请勿使用此 framework，而是使用 [Fundamental SDK](#fundamental-sdk)。
 
 
 
