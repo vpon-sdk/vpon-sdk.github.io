@@ -30,7 +30,7 @@ lang:            "jp"
 
 その他ご質問がございましたら、弊社、 [Vpon FAE](mailto:fae@vpon.com) までお問い合わせください。最高のサ ービスをお届けいたします。
 
-> **Note**: 旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。[SDK4.2.x の最新バージョンへのアップデート方法]({{site.baseurl}}/jp/android/latest-news/update-to-SDK4_2_x/)
+> **Note**: 旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。[SDK4.5.1+ の最新バージョンへのアップデート方法]({{site.baseurl}}/jp/android/latest-news/update-to-SDK4_5_1+/)
 
 
 

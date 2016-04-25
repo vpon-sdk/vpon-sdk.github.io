@@ -9,5 +9,5 @@ lang:           "en"
 ---
 >**Note:**
 
->1. If you used the previous version of vpon SDK, please read this first: [How to update to the SDK version higher than 4.2.0]({{site.baseurl}}/android/latest-news/update-to-SDK4_2_x/)<br>
+>1. If you used the previous version of vpon SDK, please read this first: [How to update to the SDK version higher than 4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)<br>
 >2. There's no SDK JAR in any Sample Code

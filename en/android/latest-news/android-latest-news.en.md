@@ -11,7 +11,8 @@ lang:            "en"
 
 #Update to SDK 4.5.1+
 ---
-This news is to show why we suggest you to update the SDK from version 4.5.0 to the latest one (4.5.1+). In here, developer can determine what version of SDK are used. By releasing the latest version, developer can update the SDK.[continue reading](update-to-SDK4_5_1+)
+This news is to show why we suggest you to update the SDK from the previous one to the latest one (4.5.1+). In here, developer can determine what version of SDK are used. By releasing the latest version, developer can update the SDK... [Continue reading](update-to-SDK4_5_1+)
+<p style="text-align:right"> 15 Apr. 2016 </p>
 
 # Update to SDK 4.2.x
 ---

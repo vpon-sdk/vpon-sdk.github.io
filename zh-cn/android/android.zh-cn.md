@@ -27,7 +27,7 @@ lang:           "zh-cn"
 所有 Android 相关资讯都在左排列表中，右排为文章的目录，若想跳转其他装置平台或语言，请点选网站右上角的目标语言与平台。若您有任何技术问题，请不吝联络 [FAE 团队](mailto:fae@vpon.com)
 
 
-> **Note**: 若您曾使用过旧版SDK，请先阅读: [升级最新 SDK 所需修改](../../zh-cn/android/latest-news/update-to-SDK4_2_x/)
+> **Note**: 若您曾使用过旧版SDK，请先阅读: [升级最新 SDK 所需修改](../../zh-cn/android/latest-news/update-to-SDK4_5_1+/)
 
 
 

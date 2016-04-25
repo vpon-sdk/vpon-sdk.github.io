@@ -33,7 +33,7 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 Still have problems? Please send us,[Vpon FAE](mailto:fae@vpon.com). We will render the best service for you.
 
 
-> **Note**: If you used the previous version of vpon SDK, please read this first: [How to update to the new version of SDK4.2.x]({{site.baseurl}}/android/latest-news/update-to-SDK4_2_x/)
+> **Note**: If you used the previous version of vpon SDK, please read this first: [How to update to the new version of SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)
 
 
 

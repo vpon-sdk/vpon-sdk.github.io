@@ -10,7 +10,7 @@ lang:           "zh-cn"
 
 # Vpon SDK 基本使用
 ----
-若您曾使用过旧版SDK，请先阅读: [升级最新 SDK 所需修改](../../latest-news/update-to-SDK4_2_x/)
+若您曾使用过旧版SDK，请先阅读: [升级最新 SDK 所需修改](../../latest-news/update-to-SDK4_5_1+/)
 
 1. 请先从注册网址检查您的 Ad Network 平台: <br>
 Taiwan 平台为 <http://tw.pub.vpon.com/> <br>

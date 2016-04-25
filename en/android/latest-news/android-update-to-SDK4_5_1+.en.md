@@ -10,7 +10,7 @@ lang:           "en"
 ---
 
 #Update to 4.5.1+
-This news is to show why we suggest you to update the SDK from version 4.5.0 to the latest one (4.5.1+). In here, developer can determine what version of SDK are used. By releasing the latest version, developer can update the SDK.
+This news is to show why we suggest you to update the SDK from the previous one to the latest one (4.5.1+). In here, developer can determine what version of SDK are used. By releasing the latest version, developer can update the SDK.
 
 #Why update to 4.5.1+?
 
@@ -30,7 +30,7 @@ There are two ways to detertmine the SDK version in the following:
 #How to update to SDK 4.5.1+?
 Publishers can download the SDK packages in the following link:
 [Android SDK4.5.1+][1] <br>
-Overwrite the current SDK with the latest one(4.5.1+), publishers can determine whether the SDK are updated or not by the ways list above. 
+Overwrite the current SDK with the latest one(4.5.1+), publishers can determine whether the SDK are updated or not by the ways list above.
 
 
 

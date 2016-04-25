@@ -14,4 +14,4 @@ lang:           "zh-tw"
 >1. 若您曾使用過舊版SDK，請閱讀: [升級最新SDK所需修改]<br>
 >2. Sample code 內不含jar檔
 
-[升級最新SDK所需修改]: {{site.baseurl}}/zh-tw/android/latest-news/update-to-SDK4_2_x/
+[升級最新SDK所需修改]: {{site.baseurl}}/zh-tw/android/latest-news/update-to-SDK4_5_1+/

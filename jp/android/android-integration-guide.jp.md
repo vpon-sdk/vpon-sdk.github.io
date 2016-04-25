@@ -9,7 +9,7 @@ lang:            "jp"
 ---
 # Vpon SDK 4 基本編
 ----
-旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.2.x の最新バージョンへのアップデート方法]({{site.baseurl}}/jp/latest-news/update-to-SDK4_2_x/)
+旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.5.1+ の最新バージョンへのアップデート方法]({{site.baseurl}}/jp/latest-news/update-to-SDK4_5_1+/)
 
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
 台湾: http://tw.pub.vpon.com/<br>

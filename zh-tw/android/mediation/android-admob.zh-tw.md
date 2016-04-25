@@ -105,7 +105,7 @@ apply plugin: 'com.android.application'
       compile 'com.google.android.gms:play-services:+'
     }
 ```
-接著，存擋並至 toolbar 點選 **Sync Project with Gradle Files**
+接著，存檔並至 toolbar 點選 **Sync Project with Gradle Files**
 
 ## 新增 meta-data tag
 Google Play Service 需要在 AndroidManifest.xml 中加入以下設定:
