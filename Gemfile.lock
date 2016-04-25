@@ -21,7 +21,11 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.10)
     gemoji (2.1.0)
+<<<<<<< HEAD
     github-pages (75)
+=======
+    github-pages (72)
+>>>>>>> origin/master
       RedCloth (= 4.2.9)
       github-pages-health-check (= 1.1.0)
       jekyll (= 3.0.4)
@@ -128,7 +132,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   github-pages (= 75)
+=======
+  github-pages (= 72)
+>>>>>>> origin/master
   json
 
 BUNDLED WITH

@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-}
-</style>
-  <script type='text/javascript'>
-    var googletag = googletag || {};
-    googletag.cmd = googletag.cmd || [];
-    (function() {
-      var gads = document.createElement('script');
-      gads.async = true;
-      gads.type = 'text/javascript';
-      var useSSL = 'https:' == document.location.protocol;
-      gads.src = (useSSL ? 'https:' : 'http:') +
-        '//www.googletagservices.com/tag/js/gpt.js';
-      var node = document.getElementsByTagName('script')[0];
-      node.parentNode.insertBefore(gads, node);
-    })();
-  </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script type='text/javascript'>
+        (function() {
+            var useSSL = 'https:' == document.location.protocol;
+            var src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+            document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+        })();
+    </script>
 
-  <script type='text/javascript'>
-    googletag.cmd.push(function() {
-      googletag.defineOutOfPageSlot('/110569172/test_IS', 'div-gpt-ad-1452155049496-0').addService(googletag.pubads());
-      // googletag.defineSlot('/110569172/test_IS',[screen.width,screen.height], 'div-gpt-ad-1452155049496-0').addService(googletag.pubads());
-      googletag.pubads().enableSingleRequest();
-      googletag.pubads().addEventListener('slotRenderEnded', function (event) {
-          document.getElementById('google_ads_iframe_' + event.slot.l.l ).setAttribute('style', 'width:100%;height:100%;position:fixed;top:0px;left:0px;z-index:999999;');
-          // console.log(event.slot);
-      });
-      googletag.enableServices();
-    });
-  </script>
+    <script type='text/javascript'>
+        googletag.cmd.push(function() {
+            googletag.defineOutOfPageSlot('/110569172/test_IS', 'div-gpt-ad-1461311548657-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().enableSyncRendering(); //sync rendering for full-window interstitial
+            googletag.enableServices();
+        });
+    </script>
+
+    <!-- <script type='text/javascript'>
+        googletag.cmd.push(function() {
+            googletag.defineOutOfPageSlot('/110569172/test_IS', 'div-gpt-ad-1452155049496-0').addService(googletag.pubads());
+            // googletag.defineSlot('/110569172/test_IS',[screen.width,screen.height], 'div-gpt-ad-1452155049496-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            // googletag.pubads().addEventListener('slotRenderEnded', function (event) {
+            //     document.getElementById('google_ads_iframe_' + event.slot.l.l ).setAttribute('style', 'width:100%;height:100%;position:fixed;top:0px;left:0px;z-index:999999;');
+            // });
+            googletag.enableServices();
+        });
+    </script> -->
 </head>
 
-
 <body>
-  <!-- /110569172/test_IS -->
-  <div id='div-gpt-ad-1452155049496-0'>
-    <script type='text/javascript'>
-      googletag.cmd.push(function() {
-        googletag.display('div-gpt-ad-1452155049496-0');
-      });
-    </script>
-  </div>
+    <!-- /110569172/test_IS -->
+    <div id='div-gpt-ad-1461311548657-0'>
+        <script type='text/javascript'>
+            googletag.cmd.push(function() {
+                googletag.display('div-gpt-ad-1461311548657-0');
+            });
+        </script>
+    </div>
 
-  {{ content }}
+    {{ content }}
 
 </body>
 
