@@ -27,16 +27,16 @@ SDK 4.0.0 或いは SDK 4.1.0 から SDK 4.2.x にアップグレードする方
 3.VpadnBanner と VpadnInterstitialAd の constructor の最終パラメータ VponPlatform.TW を文字列 `TW`に変更します。)
 original version：
 
-    `new VponBanner(this, bannerId1,VponAdSize.SMART_BANNER , VponPlatform.TW);`
+  `new VponBanner(this, bannerId1,VponAdSize.SMART_BANNER , VponPlatform.TW);`
 
-    から:
+から:
 
-    `new VpadnBanner(this, bannerId1,VpadnAdSize.SMART_BANNER ,"TW");`
+  `new VpadnBanner(this, bannerId1,VpadnAdSize.SMART_BANNER ,"TW");`
 
 4.Android manifest.xml 内の activity tag を:
 original version:
 
- ```xml
+```xml
  <activity
             android:name="com.vpon.widget.VponActivity"
             android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"

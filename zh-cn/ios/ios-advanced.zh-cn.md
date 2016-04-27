@@ -14,7 +14,7 @@ lang: "zh-cn"
 ## 增加测试手机的识别码
 您可以使用这些属性来指定要接收测试广告的装置或装置 Set。若要确认 SDK 是否已顺利整合，请加入您的测试装置并执行应用程式，然后按一下所显示的测试广告。
 
-```objective-c
+```objc
   // 请新增此function到您的程式内 如果为测试用 则在下方填入识别码
   -(NSArray*)getTestIdentifiers
   {
@@ -24,6 +24,7 @@ lang: "zh-cn"
               nil];
   }
 ```
+
 ## 指定目标
 您也可以指定位置和客层相关资讯。不过，为了保护使用者隐私，请只指定您的应用程式中现有的位置和客层资料。
 
@@ -42,7 +43,7 @@ lang: "zh-cn"
 
 
 
-```objective-c
+```objc
 #pragma mark VpadnBannerDelegate  一般 Banner protocol
 @protocol VpadnBannerDelegate <NSObject>
 @optional
@@ -64,7 +65,7 @@ lang: "zh-cn"
 @end
 ```
 
-```objective-c
+```objc
 pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
 @protocol VpadnInterstitialDelegate <VpadnBannerDelegate>
 @optional
@@ -82,7 +83,7 @@ pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
 
 这些方法可用于个别的物件，例如
 
-```objective-c
+```objc
   #import "VpadnBanner.h"
   #import "VpadnInterstitial.h"
   @interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
@@ -90,33 +91,33 @@ pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
 
 将要接收的物件传给 VpadnBanner：
 
-```objective-c
+```objc
 vpadnAd.delegate = self;
 ```
 当 VpadnBanner 广告抓取成功时传送。
 
-```objective-c
+```objc
   - (void)onVpadnAdReceived:(UIView *)bannerView{}
 ```
 当 VpadnBanner 失败时传送；失败原因通常是网路连线失败、应用程式设定错误或广告空间不足。建议您将这些事件记录下来以便侦错：
 
-```objective-c
+```objc
   - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
 ```
 
 当广告因获得使用者点击，在您的应用程式之前webView 并呈现出全萤幕广告使用者介面时呼叫。
 
-```objective-c
+```objc
   - (void)onVpadnPresent:(UIView *)bannerView{}
 ```
 当使用者关闭与 onVpadnDismiss 一同显示的webView，控制权也交还给应用程式时呼叫。
 
-```objective-c
+```objc
   - (void)onVpadnDismiss:(UIView *)bannerView;
 ```
 当 Ad 点击会启动新的应用程式(out app)时呼叫。
 
-```objective-c
+```objc
   - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
 ```
 
@@ -129,8 +130,8 @@ vpadnAd.delegate = self;
 ## 设定
 ---
 在后台注册申请流程中可选择是否播放 Crazy Ad。<br>
-进入 http://cn.adon.vpon.com/ 注册中国区 License Key。<br>
-进入 http://tw.adon.vpon.com/ 注册台湾区 License Key。<br>
+进入 <http://cn.adon.vpon.com/> 注册中国区 License Key。<br>
+进入 <http://tw.adon.vpon.com/> 注册台湾区 License Key。<br>
 如图:
 ![CrazyadSetting]
 

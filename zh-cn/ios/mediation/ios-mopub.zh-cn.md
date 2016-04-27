@@ -2,13 +2,14 @@
 layout: "ios"
 title: "iOS 中介服务 - MoPub"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/mediation/mopub/
 lang: "zh-cn"
 ---
-#关于Mopub后台设定请参考下列步骤:
+# 关于Mopub后台设定请参考下列步骤:
 ---
+
 ## Step1: 新增完您的app后 请点选Network选项
 
 ## Step2: 按下add a Network
@@ -16,7 +17,7 @@ lang: "zh-cn"
 ![mopub_001.png]
 
 
-##Step3: 选择Custom Native Network
+## Step3: 选择Custom Native Network
 
 ![mopub_002.png]
 

@@ -38,7 +38,7 @@ lang:           "zh-tw"
 
 4.改變 Androidmanifest.xml 裡的 activity tag，由
 
- ```xml
+```xml
  <activity
       android:name="com.vpon.widget.VponActivity"
       android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"

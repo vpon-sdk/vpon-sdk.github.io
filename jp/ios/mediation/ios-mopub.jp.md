@@ -4,7 +4,7 @@ title:          "iOS - MoPub"
 lead:           "iOS メディエーション"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       jp/ios/advanced/mopub/
+permalink:       jp/ios/mediation/mopub/
 lang:            "jp"
 ---
 # MoPub Settings
@@ -17,14 +17,14 @@ MoPub をセットアップするには、以下のステップを完了�
 ## Step2: Click "add a Network"
 
 
-![]
+![][1]
 
 ## Step3: Custom Native Network
-![][1]
+![][2]
 
 ## Step4: 広告ネットワークを管理するには、タイトルを追加してください
 
-![][2]
+![][3]
 
 ## Step5: package name/class name
  Fill in your package name + class name, you can see the sample at the reference page.
@@ -34,14 +34,14 @@ Fill in BannerID which you apply from our Vpon website, and the key is adUnitID
 
 ## Step7: Click save
 
-![][3]
+![][4]
 
 ## Step8: Click Save
 
-![][4]
+![][5]
 
-  []: {{site.imgurl}}/Mopub_001.png
-  [1]: {{site.imgurl}}/Mopub_002.png
-  [2]: {{site.imgurl}}/Mopub_003.png
-  [3]: {{site.imgurl}}/Mopub_004-a.png
-  [4]: {{site.imgurl}}/Mopub_005.png
+  [1]: {{site.imgurl}}/Mopub_001.png
+  [2]: {{site.imgurl}}/Mopub_002.png
+  [3]: {{site.imgurl}}/Mopub_003.png
+  [4]: {{site.imgurl}}/Mopub_004-a.png
+  [5]: {{site.imgurl}}/Mopub_005.png

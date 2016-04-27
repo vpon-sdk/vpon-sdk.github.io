@@ -7,7 +7,7 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/mediation/admob/
 lang:           "en"
 ---
-# Google AdMob mediation
+# Google AdMob Mediation
 --------
 Google Admob Mediation document, please refer to [here].
 

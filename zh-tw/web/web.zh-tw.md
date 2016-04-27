@@ -11,7 +11,7 @@ lang:           "zh-tw"
 # 總覽
 ---
 Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示 Vpon 廣告，並賺取收益。 <br>
-> <font color="red">**Note**：此廣告僅支援<strong>行動裝置</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！</font>
+<font color="red">**Note**：此廣告僅支援<strong>行動裝置</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！</font>
 <br>
 
 
@@ -40,7 +40,7 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 ---
 1. 在網頁 <body> 內預放廣告的位置加上以下程式碼：
 
-```HTML
+```html
 <body>
 ...
   <vpon vpon_ad_test="1"
@@ -70,18 +70,21 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 
 ## Advanced Setup
 ---
-       名稱             |        描述                        |  必要 |  範例
-:----------------------:| :-------------------------------:|:---:|:------------------------------------------------:
-  vpon\_ad\_licensy\_key|   版位 ID                         |  Y   |  <font color="red">輸入 Vpon License Key</font>
-  vpon\_ad\_format      |   廣告版型：320x50\_mb, 300x250\_mb |   Y |     “320x50\_mb”
-  vpon\_ad\_test        |   是否拉取測試廣告                   | N   |   1(是)/0(否)，預設為(是)
-  debug                 |   是否在 console 顯示 debug 資訊    |  N   |   true/false，預設為false
-  openTab               |   是否開啓新tab 顯示 廣告內容         |N    |  true/false，預設為true
+
+名稱                  |        描述                      | 必要  |  範例
+:--------------------:|:---------------------------------------:|:----------:|:------------------------:
+vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">輸入 Vpon License Key</font>
+vpon\_ad\_format      | 廣告版行：320x50\_mb, 300x250\_mb            |   Y       |     “320x50\_mb”
+vpon\_ad\_test        |   是否拉取測試廣告                        | N          |   1(是)/0(否)，預設為(是)
+debug                 | 是否在 console 顯示 debug 資訊          |  N         |   true/false，預設為 false
+openTab               |是否開啓新tab 顯示 廣告內容                 |N           |  true/false，預設為 true
+
+<br>
 
 # 範例網頁
 ---
 
-```HTML
+```html
 <html>
   <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
@@ -239,6 +242,7 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 
 # FAQ
 ---
+
 ## 仍然看不到廣告？
 請確認以下項目：
 

@@ -7,14 +7,14 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/mediation/admob/
 lang: "zh-cn"
 ---
-# Google AdMob mediation
+# Google AdMob Mediation
 --------
-google AdMob mediation 请看[这裡]
+Google AdMob Mediation 请看[这裡]
 
 # Admob Mediation 操作图示
 -----
 
-1. 请登入到 [这裡][]
+1. 请登入到 [这裡][a]
 ![1]
 
 2. 盈利 -&gt; 透过新应用程式盈利
@@ -48,13 +48,13 @@ google AdMob mediation 请看[这裡]
 
 
 
-# 下载 Sample
+# 下载 Sample Code
 ---
-[Go to Download Sample Code]
+[前往下载]
 
 
 [这裡]: https://developers.google.com/admob/ios/quick-start
-[]: http://www.google.com.tw/ads/admob/
+[a]: http://www.google.com.tw/ads/admob/
 [1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
 [2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
 [3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png
@@ -63,4 +63,4 @@ google AdMob mediation 请看[这裡]
 [6]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid6.png
 [7]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid7.png
 [8]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid8.png
-[Go to Download Sample Code]: {{site.baseurl}}/zh-cn/ios/download
+[前往下载]: {{site.baseurl}}/zh-cn/ios/download

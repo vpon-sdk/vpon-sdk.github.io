@@ -2,13 +2,15 @@
 layout: "ios"
 title: "iOS 中介服務 - MoPub"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/mediation/mopub/
 lang: "zh-tw"
 ---
-#關於Mopub後台設定請參考下列步驟:
+
+# 關於Mopub後台設定請參考下列步驟:
 ---
+
 ## Step1: 新增完您的app後 請點選Network選項
 
 ## Step2: 按下add a Network
@@ -16,7 +18,7 @@ lang: "zh-tw"
 ![mopub_001.png]
 
 
-##Step3: 選擇Custom Native Network
+## Step3: 選擇Custom Native Network
 
 ![mopub_002.png]
 
@@ -24,7 +26,7 @@ lang: "zh-tw"
 ## Step4: 填入辨識用的標題名稱
 方便您管理增加的Ad network
 
-[mopub_003.png]
+![mopub_003.png]
 
 
 ## Step5: 填入您的package name/class name

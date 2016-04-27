@@ -34,7 +34,7 @@ Usage is nevertheless very similar to Vpadn banner:
 
 Once again, the best place to do this is in your app's UIViewController
 
-```objective-c
+```objc
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -48,11 +48,11 @@ Once again, the best place to do this is in your app's UIViewController
 @end
 ```
 
-There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad [vpadnInterstitial show] once onVpadnInterstitialAdReceived load succeeds.
+There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad `[vpadnInterstitial show]` once onVpadnInterstitialAdReceived load succeeds.
 
 Once load succeeds the full-screen ad is ready for presentation:
 
-```objective-c
+```objc
 #pragma mark VpadnInterstitial Delegate Only when you want to show interstitial ad can add this one
 - (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
    NSLog(@"interstitial ad received");
@@ -67,7 +67,7 @@ Vpadn Interstitial Delegate [advanced setting] provides many callback methods fo
 # Test Ads
 ---
 
-```objective-c
+```objc
 //Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
 -(NSArray*)getTestIdentifiers
 {

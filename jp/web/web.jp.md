@@ -1,6 +1,6 @@
 ---
 layout:         "default"
-title:          "日本語web"
+title:          "Mobile Web SDK インテグレーションガイト"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
@@ -19,7 +19,7 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
 3. モバイルウェブサイトコードを変更する権限
 <br><br>
 
-#バナー広告のサイズ
+# バナー広告のサイズ
 ---
 現在の Vpon モバイルウェブSDK は、以下の広告フォーマットをサポートします。
 
@@ -33,10 +33,11 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
 
 # 広告コードの組み込み
 ---
+
 ## 基本編
 1. ウェブページ内の広告を配置したい位置に以下のコードを追加します。
 
-```HTML
+```html
 <body>
 ...
   <vpon vpon_ad_test="1"
@@ -66,19 +67,20 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
 
 ## Advanced Setup
 
-名称                    |        說明                          | 必須 |  インスタンス
-:----------------------:| :----------------------------------:|:---:|:-----------------------------------------:
-vpon\_ad\_licensy\_key| 広告枠 ID                     | Y  |<font color="red">Vpon License Key（=プロパティID）を入力してく ださい</font>
-vpon\_ad\_format      | 広告フォーマット:320x50_mb, 300x250_mb    |   Y |     “320x50\_mb”
-vpon\_ad\_test        | テスト広告を取得するかどうか               | N   |   1(はい)/0(いいえ)、デフォルト: (はい)
-debug                 | コンソールにデバッグ情報を表示するかどうか   |  N   |   true/false、デフォルト:false
-openTab               |新しいタブで広告コンテンツを表示するには       |N    |  true/falseをtrueにセットしてください。
-<br>
+
+名称                  |        說明                      | 必須       |  インスタンス
+:--------------------:|:---------------------------------------:|:-------------:|:------------------------:
+vpon\_ad\_licensy\_key| 広告枠 ID                               |  Y         |<font color="red">Vpon License Key（=プロパティID）を入力して</font>
+vpon\_ad\_format      | 広告フォーマット：320x50\_mb, 300x250\_mb   |   Y       |     “320x50\_mb”
+vpon\_ad\_test        |   テスト広告を取得するかどうか              | N       |   1(はい)/0(いいえ)、デフォルト: (はい)
+debug                 | コンソールにデバッグ情報を表示するかどうか      |  N      |  true/false、デフォルト:false
+openTab               |新しいタブで広告コンテンツを表示するには     |N         |  true/falseをtrueにセットしてください
+
 <br>
 
 # インスタンスの作成
 ---
-```HTML
+```html
 <html>
   <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
@@ -246,6 +248,7 @@ Example：
 
 # よくある質問
 ---
+
 ## 広告コードを追加したが、広告が表示されない
 以下の項目を確認してください:
 

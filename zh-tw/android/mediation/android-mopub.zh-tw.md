@@ -16,16 +16,16 @@ Mopub 後台設定請參考下列步驟:
 
 ## Step2: 按下 add a Network
 
-![]
+![][1]
 
 ## Step3: Custom Native Network
 選擇 Custom Native Network
-![][1]
+![][2]
 
 ## Step4: 填入標題名稱
 填入辨識用的標題名稱, 方便您管理增加的 Ad network
 
-![]({{site.imgurl}}/Mopub_003.png)
+![][3]
 
 ## Step5: package name/class name
 填入您的 package name + class name, 可以參考範例所示
@@ -35,14 +35,14 @@ Mopub 後台設定請參考下列步驟:
 
 ## Step7: 按下儲存
 
-![][3]
+![][4]
 
 ## Step8: 按下儲存
 
-![][4]
+![][5]
 
-[]: {{site.imgurl}}/Mopub_001.png
-[1]: {{site.imgurl}}/Mopub_002.png
-[2]: {{site.imgurl}}/Mopub_003.png
-[3]: {{site.imgurl}}/Mopub_004-a.png
-[4]: {{site.imgurl}}/Mopub_005.png
+[1]: {{site.imgurl}}/Mopub_001.png
+[2]: {{site.imgurl}}/Mopub_002.png
+[3]: {{site.imgurl}}/Mopub_003.png
+[4]: {{site.imgurl}}/Mopub_004-a.png
+[5]: {{site.imgurl}}/Mopub_005.png

@@ -12,7 +12,7 @@ This document provides instructions for using the Google Mobile Ads SDK to displ
 
 If you are using AdMob or DFP, please import 2 libs into your project. ([download][1])
 
-1. Fundamental SDK
+1. Fundamental SDK  or  Framework SDK
 2. Adapter SDK
 
 
@@ -33,7 +33,7 @@ Go to DFP ([Here])：
 ## Setting Order, Line Item and Creative
 To run a new ad campaign through DFP Small Business, you'll first need to create a new order. After creating the order, you'll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), DFP will not reserve inventory until the order is approved.<br><br>
 
-##
+
 To create an order before running an inventory forecast:
 
 1. In your DFP Small Business account, click the Orders tab.
@@ -98,6 +98,7 @@ Input the following information:
 
 # Banner/Interstitial Ad delivery
 ---
+
 ## Banner Ad Unit
 As the article discussed above, ad size set at 320x50.
 
@@ -123,11 +124,11 @@ Example：
 
 # Download Sample Code
 ---
- [Android Download][1]
+ [Download Sample Code][1]
 
 
 [integration guide]: ../../integration-guide
-[1]: {{site.baseurl}}/android/download/#dfp
+[1]: ../../download/#dfp
 [Here]: https://www.google.com/dfp/
 [DFP 廣告空間]: {{site.imgurl}}/ADUNIT_DFP.png
 [DFP_Partner_English.png]: {{site.imgurl}}/DFP_Partner_English.png

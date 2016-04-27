@@ -17,7 +17,7 @@ You can use these properties to specify a device or set of devices that will rec
 You should utilize this property during development to avoid generating false impressions.
 To verify that you've integrated the SDK correctly, add your test device, run your application, and click on the displayed test banner.
 
-```Java
+```java
   VpadnAdRequest request = new VpadnAdRequest();
   request.addTestDevice("your test device advertising id");
   //TODO: fill in your device advertising id
@@ -27,10 +27,10 @@ To verify that you've integrated the SDK correctly, add your test device, run yo
 
 Location and demographic targeting information may also be specified. Out of respect for user privacy, please only specify location and demographic data if the information is already required by your app.
 
-```Java
-VpadnAdRequest request = new VpadnAdRequest();
-request.setGender(VpadnAdRequest.Gender.FEMALE);
-request.setBirthday("1977-08-23");
+```java
+  VpadnAdRequest request = new VpadnAdRequest();
+  request.setGender(VpadnAdRequest.Gender.FEMALE);
+  request.setBirthday("1977-08-23");
 ```
 where the user's location is obtained by a suitable method.
 
@@ -53,8 +53,8 @@ You may optionally track ad lifecycle events like request failures or "click-thr
 This interface may be implemented by your activity or any other object:
 
 ```java
-import com.vpadn.ads.*;
-public class VpadnBannerExample extends Activity implements VpadnAdListener {
+  import com.vpadn.ads.*;
+  public class VpadnBannerExample extends Activity implements VpadnAdListener {
   //TODO: Implements all interface methods }
 }
 ```
@@ -62,7 +62,7 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
 and then passed to the `VponBanner`:
 
 ```java
- vponBanner.setAdListener(this);
+  vponBanner.setAdListener(this);
 ```
 
 `public void onVpadnReceiveAd(VpadnAd ad)`
@@ -74,7 +74,7 @@ and then passed to the `VponBanner`:
 
 
 ```java
- @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
+  @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
 ```
 
 `public void onVpadnPresentScreen(VpadnAd ad)`
@@ -96,9 +96,9 @@ Banner expands to take over the whole screen and automatically closes after 5-7 
 ---
 Choose whether or not to use crazy advertisement from License Key Application.
 
-Enter in http://cn.pub.vpon.com/ for China Vpon Platform.
+Enter in <http://cn.pub.vpon.com/> for China Vpon Platform.
 
-Enter in http://tw.pub.vpon.com/ for Taiwan Vpon Platform.
+Enter in <http://tw.pub.vpon.com/> for Taiwan Vpon Platform.
 
 Example:
 ![CrazyadSetting]

@@ -96,5 +96,5 @@ You can download an example project containing SDK 4 lib file in VpadnAd folder:
 
 
 
-[Go to Download Page]:{{site.baseurl}}/zh-tw/ios/download
+[Go to Download Page]:../../android/download
 [advanced setting]: ../advanced/

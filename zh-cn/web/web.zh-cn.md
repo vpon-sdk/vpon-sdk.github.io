@@ -1,6 +1,6 @@
 ---
 layout:         "default"
-title:          "中文web"
+title:          "Mobile Web SDK 串接说明"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
@@ -11,7 +11,7 @@ lang:           "zh-cn"
 # 总览
 ---
 Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示 Vpon 广告，并赚取收益。 <br>
-> <font color="red">**Note**：此广告仅支援<strong>行动装置</strong>，使用者透过 PC 浏览该网站则广告不会显示！</font>
+<font color="red">**Note**：此广告仅支援<strong>行动装置</strong>，使用者透过 PC 浏览该网站则广告不会显示！</font>
 <br>
 
 
@@ -40,7 +40,7 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 ---
 1. 在网页 <body> 内预放广告的位置加上以下程式码：
 
-```HTML
+```html
 <body>
 ...
   <vpon vpon_ad_test="1"
@@ -70,18 +70,21 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 
 ## Advanced Setup
 ---
-       名称             |        描述                        |  必要 |  范例
-:----------------------:| :-------------------------------:|:---:|:------------------------------------------------:
-  vpon\_ad\_licensy\_key|   版位 ID                         |  Y   |  <font color="red">请输入您的 Vpon License Key</font>
-  vpon\_ad\_format      |   广告版型：320x50\_mb, 300x250\_mb |   Y |     “320x50\_mb”
-  vpon\_ad\_test        |   是否拉取测试广告                   | N   |   1(是)/0(否)，预设为(是)
-  debug                 |   是否在 console 显示 debug 资讯    |  N   |   true/false，预设为false
-  openTab               |   是否开啓新tab 显示 广告内容         |N    |  true/false，预设为true
+
+名称                  |        描述                      | 必要  |  范例
+:--------------------:|:---------------------------------------:|:----------:|:------------------------:
+vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">输入 Vpon License Key</font>
+vpon\_ad\_format      | 广告版行：320x50\_mb, 300x250\_mb            |   Y       |     “320x50\_mb”
+vpon\_ad\_test        |   是否拉取测试广告                        | N          |   1(是)/0(否)，预设为(是)
+debug                 | 是否在 console 显示 debug 资讯          |  N         |   true/false，预设为 false
+openTab               |是否开启新tab 显示 广告内容                 |N           |  true/false，预设为 true
+
+<br>
 
 # 范例网页
 ---
 
-```HTML
+```html
 <html>
   <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
@@ -242,6 +245,7 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 
 # FAQ
 ---
+
 ## 仍然看不到广告？
 请确认以下项目：
 

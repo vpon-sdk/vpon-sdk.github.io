@@ -15,6 +15,7 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 
 # System Compatibility  
 ---
+
 ## iOS OS versions  
 
  * iOS OS 5.0 or later
@@ -29,6 +30,7 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 
 # License Key Application  
 ---
+
 ## Apply Vpon SDK License Key  
 
 It is required to apply a unique license key in order to request for ADs. We strongly suggest developers apply both China and Taiwan license key to target Great China Market. <br>Enter in http://cn.pub.vpon.com/ for China Vpon Platform. <br>Enter in http://tw.pub.vpon.com/ for Taiwan Vpon Platform.

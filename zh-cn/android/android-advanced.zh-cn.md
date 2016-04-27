@@ -17,7 +17,7 @@ lang:            "zh-cn"
   您可以使用这些属性来指定要接收测试广告的装置或装置 Set。若要确认 SDK 是否已顺利整合，请加入您的测试装置并执行应用程式，然后按一下所显示的测试广告。
 
 
-```Java
+```java
   VpadnAdRequest request = new VpadnAdRequest();
   request.addTestDevice("your test device advertising id");
   //TODO 需要填入您测试机的advertising id
@@ -28,10 +28,10 @@ lang:            "zh-cn"
 您也可以指定位置和客层相关资讯。不过，为了保护使用者隐私，请只指定您的应用程式中现有的位置和客层资料。
 
 
-```Java
-VpadnAdRequest request = new VpadnAdRequest();
-request.setGender(VpadnAdRequest.Gender.FEMALE);
-request.setBirthday("1977-08-23");
+```java
+  VpadnAdRequest request = new VpadnAdRequest();
+  request.setGender(VpadnAdRequest.Gender.FEMALE);
+  request.setBirthday("1977-08-23");
 ```
   系统会以适当的方法取得使用者的位置
 
@@ -54,8 +54,8 @@ request.setBirthday("1977-08-23");
 这个介面可由您的活动或任何其他物件执行：
 
 ```java
-import com.vpadn.ads.*;
-public class VpadnBannerExample extends Activity implements VpadnAdListener {
+  import com.vpadn.ads.*;
+  public class VpadnBannerExample extends Activity implements VpadnAdListener {
   //TODO: Implements all interface methods }
 }
 ```
@@ -63,7 +63,7 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
 然后传给 `VpadnBanner`：
 
 ```java
- vponBanner.setAdListener(this);
+  vponBanner.setAdListener(this);
 ```
 
 ---
@@ -73,28 +73,28 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
 当 VpadnBanner.loadAd 成功时传送。
 
 ```java
-public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
+  public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
 ```
 当 loadAd 失败时传送；失败原因通常是网路连线失败、应用程式设定错误或广告空间不足。
 
 建议您将这些事件记录下来以便侦错：
 
 ```java
- @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
+  @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
 ```
 
 ```java
-public void onVpadnPresentScreen(VpadnAd ad)
+  public void onVpadnPresentScreen(VpadnAd ad)
 ```
 当广告因获得使用者点击，在您的应用程式之前建立了 Activity 并呈现出全萤幕广告使用者介面时呼叫。
 
 ```java
-public void onVpadnDismissScreen(VpadnAd ad)
+  public void onVpadnDismissScreen(VpadnAd ad)
 ```
 当使用者关闭与 onVponPresentScreen 一同显示的全萤幕 Activity，控制权也交还给应用程式时呼叫。
 
 ```java
-public void onVpadnLeaveApplication(VpadnAd ad)
+  public void onVpadnLeaveApplication(VpadnAd ad)
 ```
 当 Ad 点击会启动新的应用程式时呼叫。
 
@@ -110,8 +110,8 @@ public void onVpadnLeaveApplication(VpadnAd ad)
 ## 设定
 ---
 在后台注册申请流程中可选择是否播放 Crazy Ad。<br>
-进入 http://cn.adon.vpon.com/ 注册中国区License Key。<br>
-进入 http://tw.adon.vpon.com/ 注册台湾区License Key。<br>
+进入 <http://cn.adon.vpon.com/> 注册中国区License Key。<br>
+进入 <http://tw.adon.vpon.com/> 注册台湾区License Key。<br>
 如图:
 ![CrazyadSetting]
 

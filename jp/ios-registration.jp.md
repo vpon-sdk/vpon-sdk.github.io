@@ -15,6 +15,7 @@ Vpon ウェブサイトにアクセスしてください。: こちら[ページ
 
 # システム要求
 ---
+
 ## iPhone OS バージョン
 
  * `iPhone OS 5.0 以上`
@@ -29,6 +30,7 @@ Vpon ウェブサイトにアクセスしてください。: こちら[ページ
 
 # License Key（プロパティID）の取得
 ---
+
 ## Vpon SDK License Key（プロパティID）の取得
 
 広告を取得するために、まずプロパティIDを取得してください。「台湾エリア」および「中国エリア」の 両方のプロパティIDを取得することで、 大中華圏のマーケットをカバーすることが可能です。
@@ -55,7 +57,7 @@ http://tw.pub.vpon.com/ 台湾エリアのプロパティIDを登録
 
 ![Trandationchinesefrontserver3_JP.png]
 
-1. プロパティの審査ステータスbr>
+1. プロパティの審査ステータス<br>
 2. プロパティ ID
 
 アプリ・サイトリストページでは、審査ステータスとVpon license Keyをご確認いただけます。
@@ -70,5 +72,5 @@ http://tw.pub.vpon.com/ 台湾エリアのプロパティIDを登録
 
 [SDK400新增版位_JP]:      {{site.imgurl}}/SDK400新增版位_JP.png
 [VponSDK_400_NewApp_JP]: {{site.imgurl}}/VponSDK_400_NewApp_JP.png
-[Trandationchinesefrontserver3 JP.png]: {{site.imgurl}}/Trandationchinesefrontserver3_JP.png
+[Trandationchinesefrontserver3_JP.png]: {{site.imgurl}}/Trandationchinesefrontserver3_JP.png
 [Trandationchinesefrontserver4_JP.png]: {{site.imgurl}}/Trandationchinesefrontserver4_JP.png

@@ -97,8 +97,8 @@ To create a line item:
 
 
 # 広告の放送
-
 ---
+
 ## バナー広告
 320x50.
 

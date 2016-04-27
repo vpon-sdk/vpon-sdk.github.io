@@ -2,7 +2,7 @@
 layout: "ios"
 title: "iOS 中介服務 - DFP"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/mediation/dfp/
 lang: "zh-tw"
@@ -11,7 +11,7 @@ lang: "zh-tw"
 
 使用 AdMob 或 DFP 串接時，請務必將兩個 lib 檔都要加入到您的專案內([下載][1])
 
-1. Fundamental SDK
+1. Fundamental SDK  or  Framework SDK
 2. Adapter SDK
 
 
@@ -104,6 +104,7 @@ DFP 使用者必須指定「DFP 廣告單元編號」，而不是「AdMob 發佈
 
 # 橫幅/插頁式廣告單元
 ---
+
 ## 橫幅廣告單元
 文章前面篇幅皆討論橫幅的廣告單元，尺寸設定值為 320x50
 
@@ -131,7 +132,7 @@ DFP 使用者必須指定「DFP 廣告單元編號」，而不是「AdMob 發佈
 
 # Sample Code 下載
 ---
- [Go to Download Sample Code][1]
+ [前往下載][1]
 
 
 [串接說明]: ../../integration-guide

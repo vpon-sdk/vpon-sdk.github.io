@@ -10,8 +10,8 @@ lang:            "jp"
 # Vpon SDK 4 基本編
 ---
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
-台湾: http://tw.pub.vpon.com/<br>
-中国: http://cn.pub.vpon.com/<br>
+台湾: <http://tw.pub.vpon.com/><br>
+中国: <http://cn.pub.vpon.com/><br>
 
 2. 台湾のプラットフォームを利用する場合、以下をご利用ください。
 `vpadnAd.platform = @"TW"`;
@@ -123,7 +123,7 @@ The SDK library references the a few iOS development frameworks. <br  >
 # サンプルコードのダウンロード
 ---
 SDK 4 lib ファイルは、Sample codeフォルダ内にあります。
-[Go to download page]({{site.baseurl}}/android/download)
+[Go to download page](../download)
 
 # App Transport Security
 ---

@@ -80,7 +80,7 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 # Download Sample Code
 ---
-[Go to Download Page]
+[前往下載]
 
 # 注意事項
 ---
@@ -92,5 +92,5 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
-[Go to Download Page]:{{site.baseurl}}/zh-tw/android/download
+[前往下載]:{{site.baseurl}}/zh-tw/android/download
 [進階設定]: {{site.baseurl}}/zh-tw/android/advanced

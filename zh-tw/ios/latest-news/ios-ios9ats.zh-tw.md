@@ -2,13 +2,14 @@
 layout: "ios"
 title: "最新消息 - iOS9 ATS"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/latest-news/ios9ats/
 lang: "zh-tw"
 ---
 # iOS9 ATS
 ---
+
 ## 概覽
 Apple 將在 iOS9 加上新的安全條款—[Transport Security
 (ATS)]，要求所有版本 iOS9 以上裝置的 app 只能使用 HTTPS
@@ -33,5 +34,5 @@ Apple 將在 iOS9 加上新的安全條款—[Transport Security
 - [Ads Developer Blog]
 
 
-[Transport Security (ATS)]: https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/|App
-[Ads Developer Blog]: http://googleadsdeveloper.blogspot.tw/2015/08/handling-app-transport-security-in-ios-9.html|Google
+[Transport Security (ATS)]: <https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/>|App
+[Ads Developer Blog]: <http://googleadsdeveloper.blogspot.tw/2015/08/handling-app-transport-security-in-ios-9.html>|Google

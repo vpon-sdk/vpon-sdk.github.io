@@ -7,9 +7,9 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/ios/mediation/admob/
 lang:            "jp"
 ---
-# Google AdMob mediation
+# Google AdMob Mediation
 --------
-Google AdMob mediation は[こちら]をご覧ください。
+Google AdMob Mediation は[こちら]をご覧ください。
 
 # Google Ad Network Mediation
 -----

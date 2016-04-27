@@ -2,7 +2,7 @@
 layout: "ios"
 title: "iOS - 中介服務"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/mediation/mogo/
 lang: "zh-tw"
@@ -37,9 +37,9 @@ MOGO Mediation 請先註冊帳號: [進入]
 
 ![][7]
 
-# Download Sample Code
+# 下載 Sample Code
 ---
-[Go to download]
+[前往下載]
 
 
   [進入]: {{site.imgurl}}/http://www.adsmogo.com/
@@ -51,4 +51,4 @@ MOGO Mediation 請先註冊帳號: [進入]
   [5]: {{site.imgurl}}/VponBannerID.png "fig:VponBannerID.png"
   [6]: {{site.imgurl}}/Vpon.png "fig:Vpon.png"
   [7]: {{site.imgurl}}/MOGOID.png "fig:MOGOID.png"
-  [Go to download]: {{site.baseurl}}/zh-tw/ios/download/#mogo
+  [前往下載]: {{site.baseurl}}/zh-tw/ios/download/#mogo

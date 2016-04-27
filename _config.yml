@@ -2,15 +2,15 @@
 # !!! or it would not work
 
 # Dependencies
-# markdown:           kramdown
-# kramdown:
-  # input: GFM
-  # hard_wrap: false
-markdown:           redcarpet
-redcarpet:
- extensions:       ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+markdown:           kramdown
+kramdown:
+   input: GFM
+   hard_wrap: false
+#markdown:           redcarpet
+#redcarpet:
+# extensions:       ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 # default highlighter would be changed to rouge in 2016
-#highlighter:        rouge
+highlighter:        rouge
 
 #github settings
 baseurl:

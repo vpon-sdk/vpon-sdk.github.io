@@ -1,13 +1,15 @@
 # SDK Download (Version: 4.5.1)
 ---
+
 Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 8+) |
 :-------------: | :------------:|
 [download][1]   | [download][8] |
 
 
->**Note:** You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 7.0. So, if you are targeting at users with device OS lower than 7.0, please use fundamental SDK instead.
+>**Note:** You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 8.0. So, if you are targeting at users with device OS lower than 8.0, please use fundamental SDK instead.
 
 # Header Download
+
 |VpadnBanner.h <br> VpadnInterstitial.h|
 |:-------------:|
 |[download][9]|
@@ -15,12 +17,14 @@ Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 8+) |
 
 # Adapter Download
 ---
+
 AdMob Adapter <br> (Version: 1.0.1)|MoPub Adapter
 :---------------------------------:|:-----------:|
 [download][2]                      |[download][6]
 
 # Sample Code Download
 ---
+
 Fundamental     | AdMob        |    DFP       | Mogo
 :-------------: | :-----------:|:------------:|:--------:|
 [download][3]   | [download][4]|[download][5] |[download][7]

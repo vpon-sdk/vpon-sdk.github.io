@@ -31,7 +31,7 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 
 建議您最好在應用程式的 UIViewController 內執行上述所有步驟。
 
-```Objective-C
+```objc
 #import <UIKit/UIKit.h>
 // 載入標頭檔
 #import "VpadnBanner.h"
@@ -50,7 +50,7 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 
 以下程式碼會在 viewController的 viewDidLoad 初始化步驟中設定橫幅廣告。
 
-```Objective-C
+```objc
 @implementation ViewController
 
 - (void)dealloc
@@ -91,7 +91,7 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 ```
 
 
-```Objective-C
+```objc
 #pragma mark VpadnAdDelegate method 接一般Banner廣告就需要新增
 - (void)onVpadnAdReceived:(UIView *)bannerView{
     NSLog(@"廣告抓取成功");
@@ -138,7 +138,7 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 
 ## 測試廣告
 
-```objective-c
+```objc
 // 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。
 -(NSArray*)getTestIdentifiers
 {
@@ -170,13 +170,13 @@ device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandsca
 ---
 如果您在伺服器的 Vpon 帳戶中指定了更新速率，且需要使用下面的 sample 才會啟動 banner 自動更新
 
-  [vpadnAd setAdAutoRefresh:YES];
+`[vpadnAd setAdAutoRefresh:YES];`
 
 
 
 # 下載 Sample code
 ---
-[Go to download page]
+[前往下載]
 
 # 結果
 ---
@@ -193,5 +193,5 @@ iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建�
 
 
 [串接說明]: ../integration-guide/
-[Go to download page]: ../download/
+[前往下載]: ../download/
 [這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

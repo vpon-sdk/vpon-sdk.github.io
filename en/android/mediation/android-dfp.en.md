@@ -32,7 +32,7 @@ Go to DFP ([Here])：
 ## Setting Order, Line Item and Creative
 To run a new ad campaign through DFP Small Business, you'll first need to create a new order. After creating the order, you'll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), DFP will not reserve inventory until the order is approved.<br><br>
 
-##
+
 To create an order before running an inventory forecast:
 
 1. In your DFP Small Business account, click the Orders tab.
@@ -97,6 +97,7 @@ Input the following information:
 
 # Banner/Interstitial Ad delivery
 ---
+
 ## Banner Ad Unit
 As the article discussed above, ad size set at 320x50.
 

@@ -19,7 +19,7 @@ If you haven't finished the previous integration guide, please check all the [se
 
   The five lines of code it takes to add a Vpon banner:
 
-1. Import com.vpadn.ads.*
+1. Import `com.vpadn.ads.*`
 2. Declare an VpadnBanner instance
 3. Create it, specifying a unit ID—your VpadnBanner Banner ID
 4. Add the view to the UI
@@ -112,7 +112,7 @@ If you haven't finished the previous integration guide, please check all the [se
 ---
 Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 shown on phones:
 
-      Size (WxH)            | Description    |  VponAdSize Constant
+|      Size (WxH)            | Description    |  VponAdSize Constant            |
   :------------------------: | :-------------:| :-----------------------------:
   320x50                     | Standard Banner| VpadnAdSize.BANNER
   468x60                     |IAB Full-Size Banner| VpadnAdSize.IAB\_BANNER
@@ -126,17 +126,17 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
 ----
 You need to use the following sample code to enable auto refresh banner.
 
-  ```java
+```java
    VpadnAdRequest adRequest = new VpadnAdRequest();
    //set auto-refresh
    adRequest.setEnableAutoRefresh(true);
    adShowBanner.loadAd(adRequest);
-  ```
+```
 
 
 # Download Sample code
 ---
-[Go to download page]
+[Go to download page][1]
 <br>
 
 # Results
@@ -148,4 +148,5 @@ Now run your demo app and you would see a banner at the top of the screen:
 > Please refer to [Interstitial Ads](../Interstitial)、[Mediation](../mediation)、[Advanced Setting](../advanced) for more information.
 
 
-[Go to download page]: {{site.baseurl}}/download/
+
+[1]:{{ site.baseurl }}/android/download/

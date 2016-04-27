@@ -64,8 +64,10 @@ public class MainActivity extends Activity {
   <br>
 
 # XMLでバナーを表示する
-直接XMLでバナーを定義することができます。この場合、Java codeを作成する必要はありません。
 ---
+直接XMLでバナーを定義することができます。この場合、Java codeを作成する必要はありません。
+
+
 ``` xml
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:vpadn="http://schemas.android.com/apk/lib/com.vpadn.ads"
@@ -115,7 +117,7 @@ public class MainActivity extends Activity {
 ---
 スマートフォン用の 320x50 以外に、タブレット向けの広告サイズもサポート しています。
 
-      サイズ (幅 x 高さ)           | 説明    |  VponAdSize 定数値
+|    サイズ (幅 x 高さ)       |       説明      |  VponAdSize 定数値             |
   :------------------------: | :-------------:| :-----------------------------:
   320x50                     |標準のバナー広告| VpadnAdSize.BANNER
   468x60                     |IAB フルサイズバナー広告| VpadnAdSize.IAB\_BANNER
@@ -152,4 +154,4 @@ public class MainActivity extends Activity {
 より詳細な情報は[ンタースティシャル広告](../interstitial)、[メディエーション](../mediation)、[詳細設定](../advanced)をご確認 ください。
 
 
-[Go to download page]: {{site.baseurl}}/download/
+[Go to download page]: ../../android/download/

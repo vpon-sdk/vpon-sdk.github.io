@@ -2,7 +2,7 @@
 layout: "ios"
 title: "iOS - 最新消息"
 lead: "Latest News Here"
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/latest-news/
 lang: "zh-tw"

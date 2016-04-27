@@ -43,17 +43,17 @@ Google AdMob mediation 請看[這裡]
 7. 新增廣告連播網
 ![][7]
 
-8. 設定Vpon進入您的聚合列表：
-(1) 在可用的廣告聯播網中找到 Vpon
-(2) Vpon Ad Id: 填入您在 Vpon 後台申請的版位ID
-(3) Zone: 選擇您欲請求的廣告平台的地區
+8. 設定Vpon進入您的聚合列表：<br>
+ (1) 在可用的廣告聯播網中找到 Vpon <br>
+ (2) Vpon Ad Id: 填入您在 Vpon 後台申請的版位ID <br>
+ (3) Zone: 選擇您欲請求的廣告平台的地區 <br>
 (例：如果您的 App 是欲給大陸平台使用者使用，則您需在此欄位中填入`cn`，若您 app 是給除了大陸平台以外地區使用者使用則填入`tw`)
 
 ![][8]
 
 
 # 串接 Vpon 進專案
-您需將載入兩個 Jar 檔進入您專案中的 libs 資料夾，分別是：admob-adapter-\*\*\*\*.jar 和 vpadn-sdk-\*\*\*-\*\*\*-\*\*\*.jar.
+您需將載入兩個 Jar 檔進入您專案中的 libs 資料夾，分別是：`admob-adapter-\*\*\*\*.jar` 和 `vpadn-sdk-\*\*\*-\*\*\*-\*\*\*.jar`.
 ![][9]
 
 
@@ -154,7 +154,9 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
  </application>
 </manifest>
 ```
+
 ## Permissions
+
 ---
 加入以下 permission 在您的 AndroidManifest.xml<br>
 `'INTERNET"` 此為必要，以開啓網路功能進行傳輸。<br>
@@ -188,16 +190,16 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
 要在您的 Android app 中展示橫幅廣告，只需要簡單的新增 com.google.android.gms.ads.AdView 到您的使用者介面。
 新增 com.google.android.gms.ads.AdView
 
-利用以下五個步驟新增出一個橫幅廣告:
-• 匯入 com.google.android.gms.ads.*
-• 宣告一個 AdView物件
-• 建立並指定一個 ad unit ID
-• 在使用者介面中新增 view
-• 取得banner
+利用以下五個步驟新增出一個橫幅廣告: <br>
+• 匯入 com.google.android.gms.ads.*  <br>
+• 宣告一個 AdView物件  <br>
+• 建立並指定一個 ad unit ID  <br>
+• 在使用者介面中新增 view  <br>
+• 取得banner  <br>
 
 最簡易的方法為在您的 Activity 中做出所有的步驟.
 
-```Java
+```java
   import com.google.android.gms.ads.*;
 
   public class BannerExample extends Activity {
@@ -258,7 +260,7 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
 
 同樣的，最方便的方式為在您的 Activity 中做以下的步驟。
 
-```Java
+```java
  import com.google.android.gms.ads.*;
  public class BannerExample extends Activity {
 

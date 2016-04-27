@@ -17,7 +17,7 @@ lang:            "jp"
 SDKが正しく実装されていることを確認するには、テスト用端末を追加し、アプリを起動させ、表示されたテスト広告をクリックします。
 
 
-```objective-c
+```objc
 // この機能をプログラム内に追加し、下方にテスト端末IDを記入する
 -(NSArray*)getTestIdentifiers
 {
@@ -27,6 +27,7 @@ SDKが正しく実装されていることを確認するには、テスト用�
           nil];
 }
 ```
+
 ## ターゲティング
 位置情報とユーザー属性情報を指定することができます。ユーザーのプライバシー情報保護の観点から、アプリ内の既存情報としての位置情報とユーザー属性情報を指定してください。
 
@@ -44,7 +45,7 @@ SDKが正しく実装されていることを確認するには、テスト用�
 ViewController の宣言時にこの2つのプロトコルを追加することで、広告リクエストの失敗やクリックスルーなどのライフサイクルイベントをトラッキングすることができます。
 
 
-```objective-c
+```objc
 #pragma mark VpadnBannerDelegate  general banner protocol
 @protocol VpadnBannerDelegate <NSObject>
 @optional
@@ -61,7 +62,7 @@ ViewController の宣言時にこの2つのプロトコルを追加すること�
 @end
 ```
 
-```objective-c
+```objc
 #pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
 @protocol VpadnInterstitialDelegate <VpadnBannerDelegate>
 @optional
@@ -76,7 +77,7 @@ ViewController の宣言時にこの2つのプロトコルを追加すること�
 
 これらのメソッドは、ViewController ような個別のオブジェクトに使用できます。
 
-```objective-c
+```objc
 #import "VpadnBanner.h"
 #import "VpadnInterstitial.h"
 @interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
@@ -84,33 +85,33 @@ ViewController の宣言時にこの2つのプロトコルを追加すること�
 
 受信しようとするオブジェクトを VpadnBanner に渡します。
 
-```objective-c
+```objc
 vpadnAd.delegate = self;
 ```
 広告の取得に成功した際に受け渡します。
 
-```objective-c
+```objc
 - (void)onVpadnAdReceived:(UIView *)bannerView{}
 ```
 広告取得失敗の際に渡します。一般的には、ネットワーク・アプリの設定ミス・広告在庫の不足が考えられます。デバッグ用にこれらのイベントを記録しておくことをお奨めします。
 
-```objective-c
+```objc
 - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
 ```
 
 ユーザーが広告をクリックし、アプリ上でフルスクリーン広告のユーザーインターフェースが表示される時に呼び出されます。
 
-```objective-c
+```objc
 - (void)onVpadnPresent:(UIView *)bannerView{}
 ```
 ユーザーが onPresentScreen と一緒に表示されるフルスクリーンアクティビティを閉じ、制御権がアプリに返された時に呼び出す。
 
-```objective-c
+```objc
 - (void)onVpadnDismiss:(UIView *)bannerView;
 ```
 新しいアプリケーションを起動したときに広告のクリックを呼び出します。
 
-```objective-c
+```objc
 - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
 ```
 
@@ -124,9 +125,9 @@ vpadnAd.delegate = self;
 ---
 管理画面にてCrazy ADを配信するかどうかを選択します。
 
-http://cn.pub.vpon.com/ 中国エリアのプロパティIDを登録
+<http://cn.pub.vpon.com/> 中国エリアのプロパティIDを登録
 
-http://tw.pub.vpon.com/ 台湾エリアのプロパティIDを登録
+<http://tw.pub.vpon.com/> 台湾エリアのプロパティIDを登録
 
 図:
 ![CrazyadSetting]

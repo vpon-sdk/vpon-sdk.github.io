@@ -29,7 +29,7 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 > **Note**: 再次提醒您，最好在應用程式的 ViewController 內執行上述步驟。
 
 
-```Objective-C
+```objc
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -44,14 +44,14 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 ```
 
 不過，目前沒有任何項目可加入 ViewController，而且您必須等到這個請求成功後才能嘗試顯示廣告，
-這點請格外注意。最簡單的做法是當 onVpadnInterstitialAdReceived 收到通知時 則執行 [vpadnInterstitial show]
+這點請格外注意。最簡單的做法是當 onVpadnInterstitialAdReceived 收到通知時 則執行 `[vpadnInterstitial show]`
 
 若想進一步瞭解 protocol 相關詳情，請參閱[進階設定]。
 
 # 測試廣告
 ---
 
-```objective-c
+```objc
 // 請新增此function到您的程式內 如果為測試用 則在下方填入UUID，即可看到測試廣告。
 -(NSArray*)getTestIdentifiers
 {
@@ -62,6 +62,12 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 }
 ```
 
+# 下載 Sample code
+---
+[前往下載][1]
+<br>
+
 
 [串接說明]: ../integration-guide/
 [進階設定]: ../advanced/
+[1]: ../download/

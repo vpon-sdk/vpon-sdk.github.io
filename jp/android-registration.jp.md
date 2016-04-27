@@ -15,27 +15,29 @@ Vpon ウェブサイトにアクセスしてください。: こちら[ページ
 
 # システム要求
 ---
+
 ## iPhone OS バージョン
 
- * `iPhone OS 5.0 以上`
+`iPhone OS 5.0 以上`
 
 ## Android OS バージョン
 
- * `Android 2.1 以上`
+`Android 2.1 以上`
 
 ## サポート対象のバナーサイズ
 
- * 最小でも `320x50 dip` を確保してください
+`最小でも 320x50 dip を確保してください`
 
 # License Key（プロパティID）の取得
 ---
+
 ## Vpon SDK License Key（プロパティID）の取得
 
 広告を取得するために、まずプロパティIDを取得してください。「台湾エリア」および「中国エリア」の 両方のプロパティIDを取得することで、 大中華圏のマーケットをカバーすることが可能です。
 
-http://cn.pub.vpon.com/ 中国エリアのプロパティIDを登録
+<http://cn.pub.vpon.com/> 中国エリアのプロパティIDを登録
 
-http://tw.pub.vpon.com/ 台湾エリアのプロパティIDを登録
+<http://tw.pub.vpon.com/> 台湾エリアのプロパティIDを登録
 
 ## Vponプラットフォームの設定
 ![SDK400新增版位_JP]

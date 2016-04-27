@@ -132,7 +132,7 @@ Google Play services requires you to add the following meta-data tag within the 
 
 ## Declare AdActivity
 ---
-The Mobile Ads SDK requires that com.google.android.gms.ads.AdActivity be declared in your app's AndroidManifest.xml:
+The Mobile Ads SDK requires that `com.google.android.gms.ads.AdActivity` be declared in your app's `AndroidManifest.xml`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -155,6 +155,7 @@ The Mobile Ads SDK requires that com.google.android.gms.ads.AdActivity be declar
  </application>
 </manifest>
 ```
+
 ## Permissions
 ---
 Making ad requests requires these permissions to be declared in the manifest:<br>
@@ -199,7 +200,7 @@ The five lines of code it takes to add a banner:
 
 The easiest place to do all this is in your app's Activity.
 
-```Java
+```java
   import com.google.android.gms.ads.*;
 
   public class BannerExample extends Activity {
@@ -260,7 +261,7 @@ Usage is nevertheless very similar to AdView:
 
 Once again, the easiest place to do this is somewhere in your app's Activity.
 
-```Java
+```java
  import com.google.android.gms.ads.*;
  public class BannerExample extends Activity {
 

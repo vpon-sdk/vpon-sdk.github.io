@@ -9,24 +9,20 @@ lang:           "en"
 ---
 # Vpon SDK 4 Fundamental
 ----
-If you are using the previous version of vpon SDK, please read this first: [How to update to SDK4.2.x]({{site.baseurl}}/latest-news/update-to-SDK4_2_x/)
+If you are using the previous version of vpon SDK, please read this first: [How to update to SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)
 
 1. Check your ad network from registering url first:<br>
 Taiwan is <http://tw.pub.vpon.com/>  
 China  is <http://cn.pub.vpon.com/>  
 
-2. If you register Taiwan platform, please use:
+2. If you register Taiwan platform, please use:<br>
+`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
+“TW”);`
 
-```Java
-vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
-```
 
-3. If you register China platform, please use:
-
-```java
-vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "CN");
-```
-<br>
+3. If you register China platform, please use:<br>
+`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
+“CN”);`
 
 # Overview
 --------
@@ -144,7 +140,7 @@ recommend you to add hardware acceleration in your main Activity.
 
 # Download
 ---
-[Go to download page]({{site.baseurl}}/android/download)
+[Go to download page](../download)
 
 # Other Tips
 ---

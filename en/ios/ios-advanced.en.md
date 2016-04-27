@@ -15,7 +15,7 @@ You can insert the test ID to your testDevices (first time, it'll give you a hin
 ## Adding Test ID
 It will receive test ads when you use this property to specify a device. To verify that you've integrated the SDK correctly, add your test device, run your application, and click on the displayed test ad.
 
-```objective-c
+```objc
 // Add this function and test ID in your project to enable test ads.
 -(NSArray*)getTestIdentifiers
 {
@@ -25,11 +25,16 @@ It will receive test ads when you use this property to specify a device. To veri
           nil];
 }
 ```
+
 ## Targeting
 You can also specify location and demographic targeting information. But to protect the user privacy, please you only specify location and demographic data if that information is already used by your app.
+
    [vpadnAd setUserInfoAge:25];
+
    [vpadnAd setUserInfoKeyword:@"Game,RPG"];
+
    [vpadnAd setUserInfoGender:female];
+   
    [vpadnAd setUserInfoBirthdayWithYear:1988 Month:6 andDay:9];
 
 
@@ -37,7 +42,7 @@ You can also specify location and demographic targeting information. But to prot
 ---
 You can add these two protocol when you declare ViewController to help you track ad events like request failures or click-through. (VpadnBannerDelegate || VpadnInterstitialDelegate)
 
-```objective-c
+```objc
 #pragma mark VpadnBannerDelegate  general banner protocol
 @protocol VpadnBannerDelegate <NSObject>
 @optional
@@ -54,7 +59,7 @@ You can add these two protocol when you declare ViewController to help you track
 @end
 ```
 
-```objective-c
+```objc
 #pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
 @protocol VpadnInterstitialDelegate <VpadnBannerDelegate>
 @optional
@@ -69,7 +74,7 @@ You can add these two protocol when you declare ViewController to help you track
 
 These methods can be used for specific object like a ViewController:
 
-```objective-c
+```objc
 #import "VpadnBanner.h"
 #import "VpadnInterstitial.h"
 @interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
@@ -77,33 +82,33 @@ These methods can be used for specific object like a ViewController:
 
 Received objects and pass to VpadnBanner：
 
-```objective-c
+```objc
 vpadnAd.delegate = self;
 ```
 sent when VpadnBanner ads has succeeded
 
-```objective-c
+```objc
 - (void)onVpadnAdReceived:(UIView *)bannerView{}
 ```
 sent when VpadnBanner has failed, typically because of network failure, an application configuration error, or a lack of ad inventory. You may wish to log these events for debugging:
 
-```objective-c
+```objc
 - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
 ```
 
 Sent immediately before the user is presented with a full-screen ad UI in response to their touching the sender.
 
-```objective-c
+```objc
 - (void)onVpadnPresent:(UIView *)bannerView{}
 ```
 Sent when the user has exited
 
-```objective-c
+```objc
 - (void)onVpadnDismiss:(UIView *)bannerView;
 ```
 Sent just before the application gets backgrounded or terminated
 
-```objective-c
+```objc
 - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
 ```
 
@@ -117,9 +122,9 @@ Banner expands to take over the whole screen and automatically closes after 5-7 
 ---
 Choose whether or not to use crazy advertisement from License Key Application.
 
-Enter in http://cn.pub.vpon.com/ for China Vpon Platform.
+Enter in <http://cn.pub.vpon.com/> for China Vpon Platform.
 
-Enter in http://tw.pub.vpon.com/ for Taiwan Vpon Platform.
+Enter in <http://tw.pub.vpon.com/> for Taiwan Vpon Platform.
 
 Example:
 ![CrazyadSetting]

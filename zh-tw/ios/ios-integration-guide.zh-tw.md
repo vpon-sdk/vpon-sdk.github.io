@@ -10,8 +10,8 @@ lang: "zh-tw"
 # Vpon SDK 基本使用
 ---
 1. 請先從註冊網址檢查您的Ad Network平台<br>
-Taiwan平台為: http://tw.pub.vpon.com/<br>
-China平台為: http://cn.pub.vpon.com/<br>
+Taiwan平台為: <http://tw.pub.vpon.com/><br>
+China平台為: <http://cn.pub.vpon.com/><br>
 
 2. 如果您申請的是Taiwan的平台，請使用:`vpadnAd.platform = @"TW"`;
 
@@ -112,6 +112,9 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
 ![IOS-add-frameworks_vpadn]
 
 
+# 下載
+---
+[前往下載](../download)
 
 
 # App Transport Security

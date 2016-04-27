@@ -14,6 +14,7 @@ lang:           "zh-cn"
 本文件是从 SDK 4.0.0 或是 SDK 4.1.0 升级到 SDK 4.2.x的方法。因为新版 SDK 4.2.x更改了 package, class, interface和method 的名称，另外删除 com.vpon.ads.VponPlatform这个class，请依照以下步骤做修改。
 
 1.请将位于 libs folder 内旧的 Vpon SDK JAR 档删除，并放入新的 JAR 档
+
 2.更改 import 的 package, interface 和 class 名称
 
 ```java
@@ -37,7 +38,7 @@ lang:           "zh-cn"
 
 4.改变 Androidmanifest.xml 裡的 activity tag，由
 
- ```xml
+```xml
  <activity
       android:name="com.vpon.widget.VponActivity"
       android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"

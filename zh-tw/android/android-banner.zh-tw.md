@@ -152,7 +152,7 @@ device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 
 # 下載 Sample code
 ---
-[Go to download page]
+[前往下載][1]
 <br>
 
 # 結果
@@ -164,4 +164,4 @@ device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 > 請參閱[插頁廣告](../Interstitial)、[中介服務](../mediation)、[進階設定](../advanced)中獲取更多簡介。
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
-[Go to download page]: {{site.baseurl}}/zh-tw/download/
+[1]:../../android/download/

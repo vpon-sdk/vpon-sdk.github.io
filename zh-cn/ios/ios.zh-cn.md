@@ -2,12 +2,13 @@
 layout: "ios"
 title: "iOS - 串接说明"
 lead: "快速上手 - 串接SDK与显示广告"
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/
 lang: "zh-cn"
 ---
 # 快速上手 - 串接 SDK 与显示广告
+
 ## Step1: 下载SDK
 ---
 请先[下载最新SDK][1]，若尚未加入Vpon开发商，请参照此[说明][2]成为开发商伙伴 <br><br>
@@ -18,9 +19,10 @@ lang: "zh-cn"
 
 ## Step3: 串接广告
 ---
+
 | [横幅广告][4]  |[插页广告][5] |[中介服务][6]|
-| :------------:|:-----------:| :--------: |
-<br><br>
+
+<br>
 
 ## 诀窍
 ---

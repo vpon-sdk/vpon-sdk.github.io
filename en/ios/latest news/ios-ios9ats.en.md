@@ -2,13 +2,14 @@
 layout: "ios"
 title: "Latest news - iOS9 ATS"
 lead: ""
-description: 
+description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /ios/latest-news/ios9ats/
 lang: "en"
 ---
 # iOS9 ATS
 ---
+
 ## Overview
 Apple recently brought a new security feature, App Transport Security (ATS), to iOS9, requiring only HTTPS requests are permitted on iOS9 and above. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please edit your "info.plist".
 
@@ -30,5 +31,5 @@ Links for reference ：
 - [Ads Developer Blog]
 
 
-[Transport Security (ATS)]: https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/|App
-[Ads Developer Blog]: http://googleadsdeveloper.blogspot.tw/2015/08/handling-app-transport-security-in-ios-9.html|Google
+[Transport Security (ATS)]: <https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/>|App
+[Ads Developer Blog]: <http://googleadsdeveloper.blogspot.tw/2015/08/handling-app-transport-security-in-ios-9.html>|Google

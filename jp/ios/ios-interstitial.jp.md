@@ -33,7 +33,7 @@ lang:            "jp"
 
 
 
-```objective-c
+```objc
 @implementation ViewController
 
 - (void)viewDidLoad
@@ -47,11 +47,11 @@ lang:            "jp"
 @end
 ```
 
-また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、onVpadnInterstitialAdReceived が通知を受信した時に [vpadnInterstitial show]を実行することです。 protocol に関する詳細な情報につきましては、中級編ガイドをご参照ください。 また、初級編ガイドにの更新項目についても併せてご確認ください。 初級編ガイドはこちら。
+また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、onVpadnInterstitialAdReceived が通知を受信した時に `[vpadnInterstitial show]`を実行することです。 protocol に関する詳細な情報につきましては、中級編ガイドをご参照ください。 また、初級編ガイドにの更新項目についても併せてご確認ください。 初級編ガイドはこちら。
 
 広告のロードに成功すると、インタースティシャルを表示することができます。
 
-```objective-c
+```objc
 #pragma mark VpadnInterstitial Delegate が インタースティシャル広告を取得する場合、追加する必要があります。
 - (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
      NSLog(@"インタースティシャル広告の取得に成功");
@@ -64,7 +64,7 @@ lang:            "jp"
 # Test Ads
 ---
 
-```objective-c
+```objc
 //テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
 -(NSArray*)getTestIdentifiers
 {

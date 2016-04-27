@@ -9,24 +9,19 @@ lang:            "jp"
 ---
 # Vpon SDK 4 基本編
 ----
-旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.5.1+ の最新バージョンへのアップデート方法]({{site.baseurl}}/jp/latest-news/update-to-SDK4_5_1+/)
+旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.5.1+ の最新バージョンへのアップデート方法](../../android/latest-news/update-to-SDK4_5_1+/)
 
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
-台湾: http://tw.pub.vpon.com/<br>
-中国: http://cn.pub.vpon.com/<br>
+台湾: <http://tw.pub.vpon.com/><br>
+中国: <http://cn.pub.vpon.com/><br>
 
-2. 台湾のプラットフォームを利用する場合、以下をご利用ください。
+2. 台湾のプラットフォームを利用する場合、以下をご利用ください:<br>
+`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
+“TW”);`
 
-```Java
-vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
-```
-
-3. 中国のプラットフォームを利用する場合、以下をご利用ください。
-
-```java
-vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "CN");
-```
-<br>
+3. 中国のプラットフォームを利用する場合、以下をご利用ください:<br>
+`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
+“CN”);`
 
 # 概要
 --------
@@ -133,7 +128,7 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 
 # サンプルコードのダウンロード
 ---
-[Go to download page]({{site.baseurl}}/android/download)
+[Go to download page](../download)
 
 # ヒント
 ---

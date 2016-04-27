@@ -1,20 +1,20 @@
 ---
-layout: "ios"
-title: "iOS 中介服務 - AdMob"
-lead: ""
+layout:         "ios"
+title:          "iOS 中介服務 - AdMob"
+lead:           ""
 description:
-keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-tw/ios/mediation/admob/
-lang: "zh-tw"
+keywords:       'Keywords for this page, in the meta data'
+permalink:      /zh-tw/ios/mediation/admob/
+lang:           "zh-tw"
 ---
-# Google AdMob mediation
+# Google AdMob Mediation
 --------
-google AdMob mediation 請看[這裡]
+Google AdMob Mediation 請看[這裡]
 
 # Admob Mediation 操作圖示
 -----
 
-1. 請登入到 [這裡][]
+1. 請登入到 [這裡][a]
 ![1]
 
 2. 盈利 -&gt; 透過新應用程式盈利
@@ -48,13 +48,13 @@ google AdMob mediation 請看[這裡]
 
 
 
-# 下載 Sample
+# 下載 Sample Code
 ---
-[Go to Download Sample Code]
+[前往下載]
 
 
 [這裡]: https://developers.google.com/admob/ios/quick-start
-[]: http://www.google.com/admob/
+[a]: http://www.google.com/admob/
 [1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
 [2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
 [3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png
@@ -63,4 +63,4 @@ google AdMob mediation 請看[這裡]
 [6]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid6.png
 [7]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid7.png
 [8]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid8.png
-[Go to Download Sample Code]: {{site.baseurl}}/zh-tw/ios/download
+[前往下載]: {{site.baseurl}}/zh-tw/ios/download

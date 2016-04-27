@@ -18,14 +18,14 @@ To setup MoPub, you need to complete the following steps:
 ## Step2: Click "add a Network"
 
 
-![]
+![][1]
 
 ## Step3: Custom Native Network
-![][1]
+![][2]
 
 ## Step4: Add title to manage your Ad network
 
-![][2]
+![][3]
 
 ## Step5: package name/class name
  Fill in your package name + class name, you can see the sample at the reference page.
@@ -35,14 +35,14 @@ Fill in BannerID which you apply from our Vpon website, and the key is adUnitID
 
 ## Step7: Click save
 
-![][3]
+![][4]
 
 ## Step8: Click Save
 
-![][4]
+![][5]
 
-  []: {{site.imgurl}}/Mopub_001.png
-  [1]: {{site.imgurl}}/Mopub_002.png
-  [2]: {{site.imgurl}}/Mopub_003.png
-  [3]: {{site.imgurl}}/Mopub_004-a.png
-  [4]: {{site.imgurl}}/Mopub_005.png
+  [1]: {{site.imgurl}}/Mopub_001.png
+  [2]: {{site.imgurl}}/Mopub_002.png
+  [3]: {{site.imgurl}}/Mopub_003.png
+  [4]: {{site.imgurl}}/Mopub_004-a.png
+  [5]: {{site.imgurl}}/Mopub_005.png

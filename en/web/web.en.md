@@ -1,33 +1,33 @@
 ---
 layout:         "default"
 title:          "Web SDK"
-lead:           "fantastic HTML5 ads you should not miss"
+lead:           ""
 description:    ""
 keywords:       ""
 permalink:       web/
 lang:           "en"
 ---
 
-#Overview
+# Overview
 ---
 Vpon Mobile Web SDK enables mobile web developers to maximize their monetization on Android and iOS. <br>
 <font color="red">* NOTE：It only supports ads on mobile site, it would not show any ad if you open your website on personal computer.</font>
 <br>
 
 
-#Requirement
+# Requirement
 ---
 1. The basic concept of HTML <br>
 2. Registering a banner ID for Vpon Mobile Web<br>
 3. Having the permission to modify code of mobile website
 <br><br>
 
-#Ad Formats
+# Ad Formats
 ---
 Vpon Mobile Web SDK supports the following formats:<br><br>
 
 | Name              |    Size(WxH)  |
-| :---------------- | :------------:|
+| :---------------: | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
 
@@ -35,12 +35,13 @@ Vpon Mobile Web SDK supports the following formats:<br><br>
 <br>
 <br>
 
-#Setups
+# Setups
 ---
-##Basic Setup
+
+## Basic Setup
 1. You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it:
 
-```HTML
+```html
 <body>
 ...
   <vpon vpon_ad_test="1"
@@ -61,27 +62,32 @@ Vpon Mobile Web SDK supports the following formats:<br><br>
   <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 </body>
 ```
+
 Note:<br>
 * You only allow to use 3 ads at most in one page and please use different banner ID for every ad.<br>
+
 * You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above. <br>
+
 * After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
 <br>
 
 ## Advanced Setup
-
-Name             |        Description                       | Necessary |  Example
-:----------------------:| :-------------------------------:|:---:|:------------------------------------------------:
-vpon\_ad\_licensy\_key| Banner ID                           |  Y   |<font color="red">Put your Vpon License Key</font>
-vpon\_ad\_format      | Size：320x50\_mb, 300x250\_mb       |   Y |     “320x50\_mb”
-vpon\_ad\_test        |   Test Ad                           | N   |   1(Yes)/0(No)，Default(Yes)
-debug                 | Debugging information in console   |  N   |   true/false，Default:false
-openTab               |If open a new tab to show ad's contents  |N    |  true/false，Default:true
-<br>
-<br>
-
-#Sample Code
 ---
-```HTML
+
+Name                  |        Description                      | Necessary  |  Example
+:--------------------:|:---------------------------------------:|:----------:|:------------------------:
+vpon\_ad\_licensy\_key| Banner ID                               |  Y         |<font color="red">Put your Vpon License Key</font>
+vpon\_ad\_format      | Size：320x50\_mb, 300x250\_mb            |   Y       |     “320x50\_mb”
+vpon\_ad\_test        |   Test Ad                               | N          |   1(Yes)/0(No)，Default(Yes)
+debug                 | Debugging information in console        |  N         |   true/false，Default:false
+openTab               |If open a new tab to show ad's contents  |N           |  true/false，Default:true
+
+<br>
+
+# Sample Code
+---
+
+```html
 <html>
   <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
@@ -245,6 +251,7 @@ Need more details to understand how its working, please take a look at this page
 
 # FAQ
 ---
+
 ## Still can't see any ad
 Please check the following items:
 

@@ -17,7 +17,7 @@ lang:            "jp"
 開発中に不要な広告を表示させないためにこのプロパティをご利用ください。
 SDKが正しく実装されていることを確認するには、テスト用端末を追加し、アプリを起動させ、表示されたテスト広告をクリックします。
 
-```Java
+```java
   VpadnAdRequest request = new VpadnAdRequest();
   request.addTestDevice("your test device advertising id");
   //TODO テスト用端末のAdvertising IDを記入する。
@@ -27,10 +27,10 @@ SDKが正しく実装されていることを確認するには、テスト用�
 
 位置情報とユーザー属性情報を指定することができます。ユーザーのプライバシー情報保護の観点から、アプリ内の既存情報としての位置情報とユーザー属性情報を指定してください。
 
-```Java
-VpadnAdRequest request = new VpadnAdRequest();
-request.setGender(VpadnAdRequest.Gender.FEMALE);
-request.setBirthday("1977-08-23");
+```java
+  VpadnAdRequest request = new VpadnAdRequest();
+  request.setGender(VpadnAdRequest.Gender.FEMALE);
+  request.setBirthday("1977-08-23");
 ```
 ユーザーの[位置情報](http://developer.android.com/reference/android/location/Location.html)は適切な情報で[取得可能](http://developer.android.com/guide/topics/location/strategies.html)です。 システムは、適切な方法でユーザの位置を入手できます。
 
@@ -52,8 +52,8 @@ request.setBirthday("1977-08-23");
 このインターフェースは、アクティビティー或いはその他のオブジェクトが実行できます。
 
 ```java
-import com.vpadn.ads.*;
-public class VpadnBannerExample extends Activity implements VpadnAdListener {
+  import com.vpadn.ads.*;
+  public class VpadnBannerExample extends Activity implements VpadnAdListener {
   //TODO: Implements all interface methods }
 }
 ```
@@ -61,7 +61,7 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
 そして `VpadnBanner` に渡します。
 
 ```java
- vponBanner.setAdListener(this);
+  vponBanner.setAdListener(this);
 ```
 
 `public void onVpadnReceiveAd(VpadnAd ad)`
@@ -70,7 +70,7 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
   loadAd が失敗した場合に渡します。一般的には、ネットワーク・アプリの設定ミス・広告在庫の不足が考えられます。デバッグ用にこれらのイベントを記録しておくことをお奨めします。
 
 ```java
- @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
+  @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
 ```
 
 `public void onVpadnPresentScreen(VpadnAd ad)`
@@ -94,9 +94,9 @@ public class VpadnBannerExample extends Activity implements VpadnAdListener {
 ---
 管理画面にてCrazy ADを配信するかどうかを選択します。
 
-http://cn.pub.vpon.com/ 中国エリアのプロパティIDを登録
+<http://cn.pub.vpon.com/> 中国エリアのプロパティIDを登録
 
-http://tw.pub.vpon.com/ 台湾エリアのプロパティIDを登録
+<http://tw.pub.vpon.com/> 台湾エリアのプロパティIDを登録
 
 図:
 ![CrazyadSetting_JP]

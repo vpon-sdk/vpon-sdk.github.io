@@ -1,12 +1,16 @@
 # SDK Download
 ---
-Fundamental SDK<br> (Version: 4.5.1) | AdMob Adapter <br> (Version: 1.0.0) |    
-:-------------: | :--------:|
-[download][1]   | [download][2]
+
+ Fundamental SDK <br>(Version: 4.5.1)    |  AdMob Adapter <br>(Version: 1.0.0)     
+:----------------------------------: | :-------------------------------:
+[download][1]                     | [download][2]
+
+
 
 
 # Sample Code Download
 ---
+
 Fundamental     | AdMob        |    DFP       |   MoPub     | Mogo
 :-------------: | :-----------:|:------------:|:-----------:|:--------:
 [download][3]   | [download][4]|[download][5] |[download][6]|[download][7]
@@ -15,6 +19,7 @@ Fundamental     | AdMob        |    DFP       |   MoPub     | Mogo
 
 # Other Platform
 ---
+
 | Unity         |
 |:-------------:|
 [download][8]   |
@@ -30,4 +35,4 @@ Fundamental     | AdMob        |    DFP       |   MoPub     | Mogo
 [8]: http://wiki.vpon.com/index.php?title=Unity_With_Android_Vpon_SDK_4
 
 
-<br><br>
+<br>

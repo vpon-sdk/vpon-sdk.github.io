@@ -12,8 +12,8 @@ lang:           "en"
 ---
 The messages below show you how to upgrade to SDK4.2.x from the previous version of SDK 4.0.0 or SDK 4.1.0. Because we've change the name of package, class, interface, method and also delete the class of com.vpon.ads.VponPlatform in SDK4.2.x. So please follow the steps below to modify.
 
-1. Please replace the previous Vpon SDK jar file by the latest jar file in libs folder
-2. Please change the name of package,interface and class. 。
+1. Please replace the previous Vpon SDK jar file by the latest jar file in libs folder.
+2. Please change the name of package,interface and class.
 
 ```java
     com.vpon.ad.VponBanner -> com.vpadn.ad.VpadnBanner
@@ -23,20 +23,19 @@ The messages below show you how to upgrade to SDK4.2.x from the previous version
     com.vpon.ad.VponAdSize -> com.vpadn.ad.VpadnAdSize
     com.vpon.ad.VponInterstitialAd -> com.vpadn.ad.VpadnInterstitialAd
 ```
+
 3.You've to modify the last one parameter of the constructor of VpadnBanner and VpadnInterstitialAd. Please change the VponPlatform.TW to be the String"TW" or "CN"(only for China)
 original version：
 
-    `new VponBanner(this, bannerId1,VponAdSize.SMART_BANNER , VponPlatform.TW);`
+`new VponBanner(this, bannerId1,VponAdSize.SMART_BANNER , VponPlatform.TW);`
+Change it like this: <br>
+`new VpadnBanner(this, bannerId1,VpadnAdSize.SMART_BANNER ,"TW");`
 
-    Change it like this:
-
-    `new VpadnBanner(this, bannerId1,VpadnAdSize.SMART_BANNER ,"TW");`
-
-4.Please change activity tag in Androidmanifest.xml:
+4.Please change activity tag in Androidmanifest.xml: <br>
 original version:
 
- ```xml
- <activity
+```xml
+        <activity
             android:name="com.vpon.widget.VponActivity"
             android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent"
@@ -44,6 +43,7 @@ original version:
             >
            </activity>
 ```
+
 Change it like this:
 
 ```xml
@@ -55,8 +55,6 @@ Change it like this:
             >  
         </activity>
 ```
-
-に変更します。
 
 5.If you used the interface of VponAdListener, please modify it to VpadnAdListener.
 All names of methods used in interface should be changed to vpadn, for example:

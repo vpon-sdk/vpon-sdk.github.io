@@ -9,6 +9,7 @@ lang:            "en"
 
 ---
 # A Quick Overview
+
 ## Step1: SDK Download
 ---
 Please [download latest SDK][1] first. If you are not one of Vpon developer yet, please refer to [this guide][2] for registration. <br><br>
@@ -19,9 +20,10 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 
 ## Step3: Ad Integration
 ---
-| [Banner Ad][4]  |[Interstitial Ad][5] |[Mediation][6]|
-| :------------:|:-----------:| :--------: |
-<br><br>
+
+| [Banner Ad][4]  |[Interstitial Ad][5] |[Mediation][6] |
+
+<br>
 
 ## Tips
 ---

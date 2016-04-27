@@ -10,7 +10,7 @@ lang:           "zh-tw"
 
 # Vpon SDK 基本使用
 ----
-若您曾使用過舊版SDK，請先閱讀: [升級最新 SDK 所需修改](../../latest-news/update-to-SDK4_2_x/)
+若您曾使用過舊版SDK，請先閱讀: [升級最新 SDK 所需修改](../../android/latest-news/update-to-SDK4_5_1+/)
 
 1. 請先從註冊網址檢查您的 Ad Network 平台: <br>
 Taiwan 平台為 <http://tw.pub.vpon.com/> <br>
@@ -124,7 +124,7 @@ Vpon 廣告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 
 # 下載
 ---
-[前往下載]({{site.baseurl}}/android/download)
+[前往下載](../download)
 
 
 # 其他訣竅

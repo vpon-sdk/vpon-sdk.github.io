@@ -11,8 +11,8 @@ lang:            "en"
 # Vpon SDK Fundamental
 ---
 1. Check your ad network from registering url first:<br>
-Taiwan is: http://tw.pub.vpon.com/<br>
-China is: http://cn.pub.vpon.com/<br>
+Taiwan is: <http://tw.pub.vpon.com/><br>
+China is: <http://cn.pub.vpon.com/><br>
 
 2. If you register platform in Taiwan, please use:`vpadnAd.platform = @"TW"`;
 
@@ -88,7 +88,7 @@ The decompressed SDK consists of a lib file and two header files.
 ### Add Framework
 The SDK library references the a few iOS development frameworks.<br>
 
-1.Add all the following frameworks.
+1.Add all the following frameworks.<br>
 `AdSupport`, <br>
 `AssetsLibrary`, <br>
 `AudioToolbox`, <br>
@@ -117,7 +117,7 @@ To add these frameworks, double-click the project name. Open the Link Binary Wit
 
 # Download
 ---
-[Go to download page]({{site.baseurl}}/android/download)
+[Go to download page](../download)
 
 # App Transport Security
 ---

@@ -27,7 +27,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 
 これらすべての処理を最も簡単に実行できるのはアプリの UIViewController 内です。
 
-```Objective-C
+```objc
 #import <UIKit/UIKit.h>
 //ヘッダーファイルを読み込む
 #import "VpadnBanner.h"
@@ -48,7 +48,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 
 以下のコードは viewControllerのviewDidLoad初期段階でバナー広告を設定します。
 
-```Objective-C
+```objc
 @implementation ViewController
 
 - (void)dealloc
@@ -132,7 +132,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 
 ## Test Ads
 
-```objective-c
+```objc
 //テスト用に、この function をプログラム内に追加することができます。下方に UUID を記入するとテスト広告が見えます。
 -(NSArray*)getTestIdentifiers
 {
@@ -162,7 +162,7 @@ device width x auto height |Smart Banner Landscape       |VpadnAdSizeSmartBanner
 ---
 Vpon アカウントで更新頻度を指定し、以下のサンプルコードを使用するとバナーの自動リフレッシュがオンとなります。
 
-  [vpadnAd setAdAutoRefresh:YES];
+`[vpadnAd setAdAutoRefresh:YES];`
 
 
 # サンプルコードのダウンロード

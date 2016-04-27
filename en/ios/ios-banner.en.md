@@ -28,7 +28,7 @@ Like any UIView, a VpadnBanner is easy to create in code.
 
 The best place to do all this is in your app's UIViewController.
 
-```Objective-C
+```objc
 #import <UIKit/UIKit.h>
 // Import header files from the SDK
 #import "VpadnBanner.h"
@@ -47,7 +47,7 @@ The best place to do all this is in your app's UIViewController.
 ---
 The following performs setup in the view controller's viewDidLoad initialization hook.
 
-```Objective-C
+```objc
 @implementation ViewController
 
 - (void)dealloc
@@ -132,7 +132,7 @@ The following performs setup in the view controller's viewDidLoad initialization
 
 ## Test Ads
 
-```objective-c
+```objc
 //Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
 -(NSArray*)getTestIdentifiers
 {
@@ -162,7 +162,7 @@ We recommend that you can use the smart banner constant.
 # Ad Refresh
 ---
 You need to use the following sample code to enable auto refresh banner.
-  [vpadnAd setAdAutoRefresh:YES];
+`[vpadnAd setAdAutoRefresh:YES];`
 
 
 # Download Sample Code
@@ -185,4 +185,4 @@ Please refer to [Interstitial Ad](../Interstitial)、[Mediation](../mediation) f
 
 
 [Go to download page]: ../download/
-[this link]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
+[this link]: ../latest-news/ios9ats/

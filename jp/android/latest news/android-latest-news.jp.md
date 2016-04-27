@@ -7,7 +7,8 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/android/latest-news/
 lang:            "jp"
 ---
-#Update to SDK 4.5.1+
+
+# Update to SDK 4.5.1+
 ---
 This news is to show why we suggest you to update the SDK from version 4.5.0 to the latest one (4.5.1+). In here, developer can determine what version of SDK are used. By releasing the latest version, developer can upgrade the SDK.[continue reading](update-to-SDK4_5_1+)
 
