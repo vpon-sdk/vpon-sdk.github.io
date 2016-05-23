@@ -1,4 +1,4 @@
-# SDK Download (Version: 4.5.1)
+# SDK Download (Version: 4.5.2)
 ---
 
 Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 8+) |
@@ -31,7 +31,7 @@ Fundamental     | AdMob        |    DFP       | Mogo
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-451-70406102-1604071723-6712621.a
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-452-02506102-1605201058-cda9cb0.a
 [2]: http://m.vpadn.com/sdk/VponAdapter_iOS_eff8d70_v1.0.1.a
 [3]: {{site.dnldurl}}/sample-code/BannerInterstitialSample_42x.zip
 [4]: {{site.dnldurl}}/sample-code/iosAdmobSampleCode.zip

@@ -1,5 +1,12 @@
 # iOS Changelog
 
+### 4.5.2
+
+* Release Date: 20 May. 2016
+* Build Number: 02506102
+* Improve performance and user experience
+* Support the interactive web on video ads
+
 ### 4.5.1
 
 * Release Date: 15 Apr. 2016

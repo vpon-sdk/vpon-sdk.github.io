@@ -1,5 +1,12 @@
 # Android Changelog
 
+### 4.5.2
+
+* Release Date: 20 May. 2016
+* Build Number: 02506102
+* Improve performance and user experience
+* Support the interactive web on video ads
+
 ### 4.5.1
 
 * Release Date: 15 Apr. 2016
@@ -120,7 +127,7 @@
 * 解決在網路速度偏低的狀態下接 Admob Mediation 有時會無法取得 Vpon Banner 的問題
 * 更改暫存檔目錄，依照 Android 標準將暫存檔目錄放於 /Android/data/底下
 
-### 
+###
 
 * Build Number: 20130613
 * fix call AsyncTask.execute in non-UI Thread
