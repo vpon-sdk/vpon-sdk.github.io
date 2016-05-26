@@ -22,6 +22,18 @@
         <a class="btn btn-lg btn-outline" role="button" id="btn-to-download"><b>Get started</b></a>
         <br>
         <br>
+        <div id="test">
+          <b>The latest Vpon SDK 4.5.2 is updated. Click here to download: <a style="text-decoration:underline" id="a_for_download" href="android/download/index.html">Android</a>, <a style="text-decoration:underline" id="a_for_download" href="ios/download/index.html">iOS</a></b>
+        </div>
+        <script type='text/javascript'>
+        function toggleClass(id, c1, c2, ms)
+        {
+          var o=document.getElementById(id);
+          o.className= (o.className == c1 ) ? c2 : c1;
+          setTimeout('toggleClass("'+id+'","'+c1+'","'+c2+'",'+ms+')', ms);
+        }
+        toggleClass("test", "btn btn-lg btn-download", "btn btn-lg btn-download-blink", 500);
+        </script>
         <div class="col-lg-6 col-lg-offset-3">
         </div>
       </div>
