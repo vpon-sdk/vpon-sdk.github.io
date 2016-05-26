@@ -39,6 +39,24 @@ a:before, a:after {
   -o-transition: color .1s ease-in, background .1s ease-in;
   transition: color .1s ease-in, background .1s ease-in
 }
+
+#a_for_download{
+  color: #fff;
+  word-wrap: break-word;
+  -webkit-transition: color .1s ease-in, background .1s ease-in;
+  -moz-transition: color .1s ease-in, background .1s ease-in;
+  -ms-transition: color .1s ease-in, background .1s ease-in;
+  -o-transition: color .1s ease-in, background .1s ease-in;
+  transition: color .1s ease-in, background .1s ease-in
+}
+
+#a_for_download:hover, #a_for_download:focus, #a_for_download:active{
+  color: #7b7b7b;
+  text-decoration: none;
+
+}
+
+
 hr {
   display: block;
   height: 1px;
