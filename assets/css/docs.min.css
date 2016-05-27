@@ -15,6 +15,53 @@ body {
     font-weight: 400
 }
 
+.message{
+    color: #fff;
+    background-color:  #FF4A2C;
+    text-align:center;
+    height:40px;
+    line-height:40px;
+    font-size: 120%;
+}
+
+.message:hover{
+    color: #fff;
+    background-color:  #f82300;
+    text-align:center;
+    height:40px;
+    line-height:40px;
+    font-size: 130%;
+}
+
+.close-btn {
+    height:40px;
+    width:40px;
+    position: relative;
+    top: 0px;
+    left: 20px;
+    float: left;
+}
+
+.close-btn a {
+    padding-bottom: :10px;
+    left: 20px;
+    height:25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    display: block;
+}
+
+.close-btn a:hover{
+
+    height:40px;
+    width:40px;
+    display: block;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+
 .btn-outline {
     color: #ffb42c;
     background-color: transparent;
@@ -29,31 +76,6 @@ body {
     background-color: #ffb42c;
     border-color: #ffb42c;
 }
-
-.btn-download{
-    color: #fff;
-    background-color: #ff0000;
-    border-color: #ff0000;
-    border-radius: 25px ;
-}
-
-.btn-download:hover,
-.btn-download:focus,
-.btn-download:active {
-    color: #fff;
-    background-color: #ff4b2c;
-    border-color: #ffff00;
-    border-width:5px;
-}
-
-.btn-download-blink{
-  color: #fff;
-  background-color: #ff4b2c;
-  border-color: #ffff00;
-  border-width:5px;
-  border-radius: 25px ;
-}
-
 
 
 .btn-outline-inverse {
