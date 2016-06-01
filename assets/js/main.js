@@ -19,5 +19,4 @@ $(document).ready(function() {
   document.getElementById("open-button").addEventListener('click', function(e) {
     document.getElementById('burgericon').classList.toggle('open');
   });
-
 });

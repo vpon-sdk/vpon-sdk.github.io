@@ -7,26 +7,25 @@
 </head>
 
 <body data-spy="scroll" data-offset="0" data-target="#theMenu">
+  <div class ="message">
+    <a class="boxclose" id="boxclose"></a>
+    <b style="font-family:Palatino">Vpon SDK 已更新至最新版本 4.5.2，请按此立即下载 : <a style="text-decoration:underline" id="a_for_download" href="android/download/index.html">Android</a>, <a style="text-decoration:underline" id="a_for_download" href="ios/download/index.html">iOS</a></b>
+  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
-        $(".close-btn").click(function(){
-            $(".message").animate({
-                top: '40px',
-                height: '0px',
-            });
+        $(".boxclose").click(function(){
+            $(".message").fadeOut('slow');
         });
     });
-    </script>
+  </script>
 
-    <div class ="message">
-      <span class="close-btn"><a>X</a></span>
-      <b style="font-family:Palatino">Vpon SDK 已更新至最新版本 4.5.2，请按此立即下载 : <a style="text-decoration:underline" id="a_for_download" href="android/download/index.html">Android</a>, <a style="text-decoration:underline" id="a_for_download" href="ios/download/index.html">iOS</a></b>
-    </div>
   <!-- Docs master nav -->
   {% include nav-new.html %}
 
   <!-- ========== HEADER SECTION ========== -->
+
   <section id="home" name="home"></section>
   <div id="headerwrap">
     <div class="container">
