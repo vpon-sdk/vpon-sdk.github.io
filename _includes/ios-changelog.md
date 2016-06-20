@@ -1,5 +1,12 @@
 # iOS Changelog
 
+### 4.5.3
+
+* Release Date: 20 Jun. 2016
+* Build Number: 02606102
+* Increase SDK stability
+* Fix a potential security problem
+
 ### 4.5.2
 
 * Release Date: 20 May. 2016
