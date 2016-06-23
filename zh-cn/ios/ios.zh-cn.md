@@ -1,6 +1,6 @@
 ---
 layout: "ios"
-title: "iOS - 串接说明"
+title: "iOS -  开始使用"
 lead: "快速上手 - 串接SDK与显示广告"
 description:
 keywords: 'Keywords for this page, in the meta data'
@@ -42,4 +42,4 @@ lang: "zh-cn"
 [4]:{{ site.baseurl }}/zh-cn/ios/banner/
 [5]:{{ site.baseurl }}/zh-cn/ios/interstitial/
 [6]:{{ site.baseurl }}/zh-cn/ios/mediation/
-[这篇]: ../latest-news/ios9ats/
+[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
