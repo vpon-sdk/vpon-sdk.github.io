@@ -50,11 +50,11 @@ Framework SDK 是一包 dynamic library，它会动态抓取 framework reference
 接着，加入 `VpadnSDKAdKit.framework` 至专案中
 ![]({{site.imgurl}}/ios_framework_2.png)
 
-再来，至专案设定选项中的 `General` 下方的 `Embedded Binaries` 中点击 `+`，新增 `VpadnSDKAdKit.framework`
-![]({{site.imgurl}}/ios_framework_3.png)
+记得，至专案设定选项中的 `General` 下方确认一下 `Linked Frameworks and Libraries` 内是否已加入此 framework
+![]({{site.imgurl}}/ios_framework_7.png)
 
-记得，确认一下 `Embedded Binaries` 内是否已加入此 framework
-![]({{site.imgurl}}/ios_framework_4.png)
+至专案设定选项中的 `Build Settings`下的 `Other Linker Flags`输入`-ObjC`
+![]({{site.imgurl}}/ios_framework_6.png)
 
 最后，至专案中透过 “@import VpadnSDKAdKit” 引入 SDK
 

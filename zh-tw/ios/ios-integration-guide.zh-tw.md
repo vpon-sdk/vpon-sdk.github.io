@@ -53,8 +53,8 @@ Framework SDK 是一包 static library，對您的廣告串接而言：維護容
 記得，至專案設定選項中的 `General` 下方確認一下 `Linked Frameworks and Libraries` 內是否已加入此 framework
 ![]({{site.imgurl}}/ios_framework_7.png)
 
-至專案設定選項中的 `Build Settings`下的`Other Linker Flags`輸入`-ObjC`
-![]({{site.imgurl}}/ios_framework_6.png) 
+至專案設定選項中的 `Build Settings`下的 `Other Linker Flags`輸入`-ObjC`
+![]({{site.imgurl}}/ios_framework_6.png)
 
 最後，至專案中透過 “@import VpadnSDKAdKit” 引入 SDK
 

@@ -49,11 +49,11 @@ First, right-click your project and choose `Add Files to your_project`
 Second, add `VpadnSDKAdKit.framework` into your project.
 ![]({{site.imgurl}}/ios_framework_2.png)
 
-Third, find `Embedded Binaries` under `General` and click `+` to add `VpadnSDKAdKit.framework`
-![]({{site.imgurl}}/ios_framework_3.png)
+Remember to check whether the framework  in `Linked Frameworks and Libraries` under `General` has been added.
+![]({{site.imgurl}}/ios_framework_7.png)
 
-Remember to check whether the framework in `Embedded Binaries` has been added.
-![]({{site.imgurl}}/ios_framework_4.png)
+Third, find `Other Linker Flags` under `Build Settings` and input `-ObjC`
+![]({{site.imgurl}}/ios_framework_6.png)
 
 Finally, import the framework:
 
