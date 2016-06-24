@@ -40,7 +40,7 @@ Vpon 提供以下兩種串接廣告的 SDK，擇一即可:<br>
 
 若您的 app 使用客群是 iOS 7 以上，我們建議您使用 Framework SDK。
 
-Framework SDK 是一包 dynamic library，它會動態抓取 framework reference, headers 還有 Fundamental SDK 內的程式碼，因此對您的廣告串接而言：步驟少、容量也小。
+Framework SDK 是一包 static library，對您的廣告串接而言：維護容易、步驟少、容量也小。
 
 ### 導入 Framework SDK
 
@@ -50,11 +50,11 @@ Framework SDK 是一包 dynamic library，它會動態抓取 framework reference
 接著，加入 `VpadnSDKAdKit.framework` 至專案中
 ![]({{site.imgurl}}/ios_framework_2.png)
 
-再來，至專案設定選項中的 `General` 下方的 `Embedded Binaries` 中點擊 `+`，新增 `VpadnSDKAdKit.framework`
-![]({{site.imgurl}}/ios_framework_3.png)
+記得，至專案設定選項中的 `General` 下方確認一下 `Linked Frameworks and Libraries` 內是否已加入此 framework
+![]({{site.imgurl}}/ios_framework_7.png)
 
-記得，確認一下 `Embedded Binaries` 內是否已加入此 framework
-![]({{site.imgurl}}/ios_framework_4.png)
+至專案設定選項中的 `Build Settings`下的`Other Linker Flags`輸入`-ObjC`
+![]({{site.imgurl}}/ios_framework_6.png) 
 
 最後，至專案中透過 “@import VpadnSDKAdKit” 引入 SDK
 
