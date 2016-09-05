@@ -7,7 +7,7 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/android/integration-guide/
 lang:            "jp"
 ---
-# Vpon SDK 4 基本編
+# Vpon SDK 基本編
 ----
 旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.5.1+ の最新バージョンへのアップデート方法](../../android/latest-news/update-to-SDK4_5_1+/)
 
@@ -36,13 +36,49 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 # SDK の導入
 ----------
 
+Vpon provides two ways to integrate our SDK. Choose one of the following two options:
+
+* [Streamlined Simple? , using Maven,](#maven)<br>
+* [Manual, using the SDK download.](#manual-sdk)<br>
+<br>
+
+## Streamlined, using Maven {#maven}
+
+Follow the description below and add the link of the Maven repository in `allprojects` in the project-level `build.gradle`.
+
+```javascript
+allprojects {
+    repositories {
+        jcenter()
+        maven{
+            url 'https://dl.bintray.com/vpon-sdk/maven'
+        }
+    }
+}
+```
+
+Add the compile dependency with the assigned version of the Vpon SDK in the app-level `build.gradle` (Here take SDK 4.6.0 for example).
+
+```javascript
+dependencies {
+    ...
+    compile 'com.vpon:vpadnSDK:4.6.0'
+}
+```
+
+> Publisher can revise the above-mentioned to ``'com.vpon:vpadnSDK:4.6.+'`` to gain the latest SDK in version 4.6.
+
+<br>
+
+## Manual, using the SDK download {#manual-sdk}
+
 アプリにVpon広告を導入するためには、次の3つのステップを完了させてください。
 
-1.  Android Studio/Eclipse プロジェクトに Vpon SDK 4 JAR を追加します。
+1.  Android Studio/Eclipse プロジェクトに Vpon SDK JAR を追加します。
 2.  AndroidManifest.xml で com.vpadn.widget.VpadnActivity を宣言 します。
 3.  情報マニフェストで必要な permissions を設定します。
 
-## Eclipse
+### Eclipse
 ---
 1. Eclipse 内のアプリプロジェクト上でマウスの右ボタンをクリックし、[プロパティ]を選びます。
 <img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
@@ -52,7 +88,7 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 <br>
 
 
-## Android Studio
+### Android Studio
 ---
 1. Find `libs` in your Android project (Route：Project Name -&gt; app
 -&gt; Android プロジェクトの「libs」を選んでください。(ルート:プロジェクト名 -&gt; app -&gt; libs)
@@ -63,15 +99,15 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 ![]({{site.imgurl}}/DropJarFileToLibFolder.jpg)
 
 
-3. ダウンロードした JAR を Finder にある `libs` に移動させてください。(IDE で `libs` に Vpon JAR をドラッグして入れることも可能です)  
+3. ダウンロードした JAR を Finder にある `libs` に移動させてください。(IDE で `libs` に Vpon JAR をドラッグして入れることも可能です)
 ![]({{site.imgurl}}/MainInterface.jpg)
 
 
 
-4. Android プロジェクトに戻り、先ほど追加した Vpon JAR が `libs` に表示されていること を確認してください。参考リンク先をリンクさせるには、右クリックし、ライブラリとし て追加を選択してください。同時に、「コンパイルファイル ('libs/vpon_SDK_version_name.jar')」という文章があるか、 build.gradle を確認してくださ い。下の写真をご参考ください  
+4. Android プロジェクトに戻り、先ほど追加した Vpon JAR が `libs` に表示されていること を確認してください。参考リンク先をリンクさせるには、右クリックし、ライブラリとし て追加を選択してください。同時に、「コンパイルファイル ('libs/vpon_SDK_version_name.jar')」という文章があるか、 build.gradle を確認してくださ い。下の写真をご参考ください
 ![]({{site.imgurl}}/ModifyBuildGradle.jpg)
 
-## VpadnActivity
+# VpadnActivity
 ---
 以下の設定を AndroidManifest.xml に追加します。
 
@@ -88,7 +124,7 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 
 <br>
 
-## パーミション
+# パーミション
 ---
 以下のパーミッションを AndroidManifest.xml に追加します。
 
@@ -103,10 +139,10 @@ Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上�
 ```java
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
   <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />    
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-```  
+```
 
 ビデオ広告をサポートするために、アクティビティにてハードウェアアクセラレータを有効にしていただくことをお奨めいたします。
 

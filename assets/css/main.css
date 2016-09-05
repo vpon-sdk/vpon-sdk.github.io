@@ -1,6 +1,6 @@
 body {
   background-color: #fff;
-  font-family: 'Noto Sans', sans-serif, SimHei;
+  font-family: 'Roboto', sans-serif, SimHei;
   font-size: 16px;
   font-weight: 400;
   color: #555;
@@ -104,7 +104,7 @@ hr {
   margin-bottom: 50px;
   margin-top: 0px;
   font-weight: 400;
-  font-family: 'Noto Sans', sans-serif, SimHei;
+  font-family: 'Roboto', sans-serif, SimHei;
 }
 #headerwrap .logo {
   text-align: left;

@@ -36,17 +36,53 @@ iOS アプリでバナー広告を表示させるためには、Xcodeプロジ�
 # SDK の導入
 ---
 
-Vpon provides two SDKs serving the same functions for our publishers. You should choose either of these 2 for integration.<br>
-  1. **Fundamental SDK** (Require iOS 5.0+)<br>
-  2. **Framework SDK** (Require iOS 8.0+)
+Vpon provides two ways to integrate our SDK :
+
+* [Streamlined Simple? , using CocoaPods,](#cocoapods)<br>
+* [Manual, using the SDK download.](#manual-sdk)<br>
+<br>
+
+## Streamlined, using CocoaPods {#cocoapods}
+
+> * Please follow the CocoaPods’ [install guidance](https://cocoapods.org/) if it is still uninstalled. Publisher can use CocoaPods, which is a dependency manager for Objective-C Cocoa projects, to integrate Vpon SDK simply and automatically.
+> * Remind that Integrated SDK by CocoaPods only support devices in iOS version higher than `7.0`.
+
+1.Create the Podfile
+
+Run `pod init` from the terminal, in the same directory as the project file (.xcodeproj). Open the Podfile which just be generated and uncomment the description about the platform version and revise it to the corresponding one.
+
+In the Podfile, publishers also have to add the description in the `target` about what Vpon SDK version they want to integrate. The description depends on `whether the publishers assign the version of SDK` :
+
+* Unassigned , system will download the latest version automatically `(Recommend)` : input `pod 'VpadnSDK'`
+* Assigned (Take SDK 4.6.0 for example) : input `pod 'VpadnSDK', '~>4.6.0'`
+
+![]({{site.imgurl}}/cocoapods_1.png)
+
+
+2.Run pod install
+
+Please close the project (.xcodeproj) and run `pod install` from the terminal in the same directory after revising the Podfile. Once the installation finishes, a new project (.xcworkspace) file will be generated. This project file should include a Pods project with new dependencies for VpadnSDK.
+
+![]({{site.imgurl}}/cocoapods_2.png)
+
+> In the terminal, run `pod update` in the directory where the Podfile is located if you want to update to the latest Vpon SDK.
+
+<br>
+
+## Manual, using the SDK download {#manual-sdk}
+
+Vpon provides two SDKs serving the same functions for our publishers. You should choose either of these 2 to integrate manually.<br>
+
+* [Framework SDK (iOS 7.0+)](#framework-sdk)<br>
+* [Fundamental SDK (iOS 5.0+)](#fundamental-sdk)
 
 There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.
 
-## Framework SDK
+### Framework SDK
 ---
 Framework SDK is a dynamic library, our latest SDK within any necessary references, headers and lib, needs fewer steps, and is lighter than Fundamental SDK.
 
-However, this convenient way is only for apps designed for iOS version higher than 8.0. If you are targeting at users with devices OS version lower than 8.0, you should definitely choose the [fundamental SDK](#fundamental-sdk) instead.
+However, this convenient way is only for apps designed for iOS version higher than 7.0. If you are targeting at users with devices OS version lower than 7.0, you should definitely choose the [fundamental SDK](#fundamental-sdk) instead.
 
 First, right-click your project and choose `Add Files to your_project`
 <img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
@@ -62,15 +98,15 @@ Third, find `Other Linker Flags` under `Build Settings` and input `-ObjC`
 
 Finally, import the framework:
 
-```Objective-C
+```objc
 @import VpadnSDKAdKit
 ```
 ![]({{site.imgurl}}/ios_framework_5.png)
 
 > **Note:** <br>
-> Remind again that Framework SDK only support devices in iOS version higher than 8.0 and do not use this framework if you are targeting at users with devices OS version lower than 8.0.
+> Remind again that Framework SDK only support devices in iOS version higher than 7.0 and do not use this framework if you are targeting at users with devices OS version lower than 7.0.
 
-## Fundamental SDK
+### Fundamental SDK
 
 解凍した SDK には、Objective-C ヘッダー、実行期間のライブラリー、READMEテキストが含まれています。アプリにVpon広告を導入するためには、次の3つのステップを完了させてください。
 
@@ -80,7 +116,7 @@ Finally, import the framework:
 
 > **Note**: **All three** these steps are necessary!
 
-### SDK lib の追加
+#### SDK lib の追加
 解凍した SDK には、lib ファイル 1 つ・ヘッダーファイル 2つが含まれています。
 
 1. Xcode 内のプロジェクト内で右クリックし、 [Add Files to "Vpadn_BannerInter_x5"...]を選択し"Vpadn_BannerInter_x5" 内でファイルを新規作成します。
@@ -90,7 +126,7 @@ Finally, import the framework:
 <img src="{{site.imgurl}}/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/>
 
 
-### Framework の追加
+#### Framework の追加
 The SDK library references the a few iOS development frameworks. <br  >
 
 1.Add all the following frameworks.<br>

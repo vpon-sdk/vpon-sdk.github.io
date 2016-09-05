@@ -32,37 +32,68 @@ Vpon 广告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 
 # 导入 SDK
 ----------
-要在应用程式中加入 Vpon 广告，您必须完成三个步骤：
 
-1. 在 Android Studio/Eclipse 专案中加入 Vpon SDK 4 JAR
+Vpon 提供以下两种串接广告 SDK的方式：
+
+* [精简 (搭配 Maven)](#maven)<br>
+* [手动 (手动下载并串接)](#manual-sdk)<br>
+<br>
+
+## 精简 (搭配 Maven) {#maven}
+
+在 Android Studio 专案层级的 `build.gradle` 中，如下方所示在 allprojects 的 repositories 加入在以下连结中的 Maven Repository
+
+```javascript
+allprojects {
+    repositories {
+        jcenter()
+        maven{
+            url 'https://dl.bintray.com/vpon-sdk/maven'
+        }
+    }
+}
+```
+
+加入上述连结后，即可在 app 层级下的 `build.gradle` 中加入 Vpon SDK 指定版本的编译相依性( 此处以 SDK 4.6.0为例 )
+
+```javascript
+dependencies {
+    ...
+    compile 'com.vpon:vpadnSDK:4.6.0'
+}
+```
+
+> 若要更新 SDK，可将上述改为 compile ``'com.vpon:vpadnSDK:4.6.+'``，可获取 SDK 版本号 4.6 中最新的版本。
+
+<br>
+
+## 手动 (手动下载并串接) {#manual-sdk}
+
+要手动在应用程式中加入 Vpon 广告，您必须完成三个步骤：
+
+1. 在 Android Studio/Eclipse 专案中加入 Vpon SDK JAR
 2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VpadnActivity
 3. 在资讯清单中设定必要的 permissions。
 
-
-## Eclipse
+### Eclipse
 1. 在 Eclipse 中的应用程式专案上按一下滑鼠右键，并选择 `Properties`。
 <img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
 2. 选取 `Java Build Path` (Java 建构路径) 和 `Libraries` (程式库) 分页，然后按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon 广告 JAR。
 ![]({{site.imgurl}}/A-sdk330-02.png)
 
-## Android Studio
+### Android Studio
 1. 在 Android 中的应用程式专案找到 `libs` (途径：`project_name` -> `app` -> `libs`)
 ![]({{site.imgurl}}/ProjectLibFolder.jpg)
-
 
 2. 滑鼠右键点选 `libs` 后，左键点选 [Reveal in Finder]
 ![]({{site.imgurl}}/DropJarFileToLibFolder.jpg)
 
-
-3. 将下载下来的 JAR 档複製到 `libs` 资料夹 (也可以直接拖移 Vpon JAR 至专案的 `libs`)
+3. 将下载下来的 JAR 档复制到 `libs` 资料夹 (也可以直接拖移 Vpon JAR 至专案的 `libs`)
 ![]({{site.imgurl}}/MainInterface.jpg)
-
-
 
 4. 回到 Android 专案，`libs` 会多出一个 Vpon 的 JAR 档案，对它按下右键选则 [Add as library]。也请到 app 下的 build.gradle 确认，如范例显示，将会有一行 compile files('libs/vpon_SDK_version_name.jar') 表示 JAR 被读到了
 ![]({{site.imgurl}}/ModifyBuildGradle.jpg)
-
 
 # VpadnActivity
 ---
@@ -76,6 +107,7 @@ Vpon 广告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
   android:hardwareAccelerated="true" >
 </activity>
 ```
+
 > **注意**: 上面**每一个**属性都不能少,其值都需要相同！
 
 <br>

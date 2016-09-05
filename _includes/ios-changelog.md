@@ -1,5 +1,13 @@
 # iOS Changelog
 
+### 4.6.0
+
+* Release Date: 05 Sep. 2016
+* Build Number: 50906102
+* Improve video ad's performance and user experience
+* Provide a new way to integrate SDK
+* Fix few bugs
+
 ### 4.5.3
 
 * Release Date: 20 Jun. 2016

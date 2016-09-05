@@ -1,12 +1,12 @@
-# SDK Download (Version: 4.5.3)
+# SDK Download (Version: 4.6.0)
 ---
 
-Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 8+) |
+Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |
 :-------------: | :------------:|
 [download][1]   | [download][8] |
 
 
->**Note:** You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 8.0. So, if you are targeting at users with device OS lower than 8.0, please use fundamental SDK instead.
+>**Note:** You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 7.0. So, if you are targeting at users with device OS lower than 7.0, please use fundamental SDK instead.
 
 # Header Download
 
@@ -31,7 +31,7 @@ Fundamental     | AdMob        |    DFP       | Mogo
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-453-61606102-1606161754-fea6071.a
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-460-20906102-1609021604-2170a31.a
 [2]: http://m.vpadn.com/sdk/VponAdapter_iOS_eff8d70_v1.0.1.a
 [3]: {{site.dnldurl}}/sample-code/BannerInterstitialSample_42x.zip
 [4]: {{site.dnldurl}}/sample-code/iosAdmobSampleCode.zip
@@ -39,5 +39,5 @@ Fundamental     | AdMob        |    DFP       | Mogo
 [6]: http://m.vpon.com/sdk/Mopub_iOS_Vpon_Adapter1.0.zip
 [7]: http://m.vpon.com/sdk/MOGO/MangoDemo.zip
 
-[8]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.5.3.zip
+[8]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.6.0.zip
 [9]: {{site.dnldurl}}/vpon-headers.zip

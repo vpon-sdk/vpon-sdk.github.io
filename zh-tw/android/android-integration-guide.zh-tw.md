@@ -32,21 +32,58 @@ Vpon 廣告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使�
 
 # 導入 SDK
 ----------
-要在應用程式中加入 Vpon 廣告，您必須完成三個步驟：
 
-1. 在 Android Studio/Eclipse 專案中加入 Vpon SDK 4 JAR
+Vpon 提供以下兩種串接廣告 SDK 的方式：
+
+* [精簡 (搭配 Maven)](#maven)<br>
+* [手動 (手動下載並串接)](#manual-sdk)<br>
+<br>
+
+## 精簡 (搭配 Maven) {#maven}
+
+在 Android Studio 專案層級的 `build.gradle` 中，如下方所示在 allprojects 的 repositories 加入在以下連結中的 Maven Repository
+
+```javascript
+allprojects {
+    repositories {
+        jcenter()
+        maven{
+            url 'https://dl.bintray.com/vpon-sdk/maven'
+        }
+    }
+}
+```
+
+加入上述連結後，即可在 app 層級下的 `build.gradle` 中加入 Vpon SDK 指定版本的編譯相依性( 此處以 SDK 4.6.0為例 )
+
+```javascript
+dependencies {
+    ...
+    compile 'com.vpon:vpadnSDK:4.6.0'
+}
+```
+
+> 若要更新 SDK，可將上述改為 compile ``'com.vpon:vpadnSDK:4.6.+'``，可獲取 SDK 版本號 4.6 中最新的版本。
+
+<br>
+
+## 手動 (手動下載並串接) {#manual-sdk}
+
+要手動在應用程式中加入 Vpon 廣告，您必須完成三個步驟：
+
+1. 在 Android Studio/Eclipse 專案中加入 Vpon SDK JAR
 2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VpadnActivity
 3. 在資訊清單中設定必要的 permissions。
 
 
-## Eclipse
+### Eclipse
 1. 在 Eclipse 中的應用程式專案上按一下滑鼠右鍵，並選擇 `Properties`。
 <img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
 2. 選取 `Java Build Path` (Java 建構路徑) 和 `Libraries` (程式庫) 分頁，然後按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon 廣告 JAR。
 ![]({{site.imgurl}}/A-sdk330-02.png)
 
-## Android Studio
+### Android Studio
 1. 在 Android 中的應用程式專案找到 `libs` (途徑：`project_name` -> `app` -> `libs`)
 ![]({{site.imgurl}}/ProjectLibFolder.jpg)
 
