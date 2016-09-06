@@ -31,7 +31,7 @@ Fundamental     | AdMob        |    DFP       | Mogo
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-460-20906102-1609021604-2170a31.a
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-460-50906102-1609061120-c1cfcf5.a
 [2]: http://m.vpadn.com/sdk/VponAdapter_iOS_eff8d70_v1.0.1.a
 [3]: {{site.dnldurl}}/sample-code/BannerInterstitialSample_42x.zip
 [4]: {{site.dnldurl}}/sample-code/iosAdmobSampleCode.zip
