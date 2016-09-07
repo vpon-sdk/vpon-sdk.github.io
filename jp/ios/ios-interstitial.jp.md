@@ -47,7 +47,7 @@ lang:            "jp"
 @end
 ```
 
-また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、onVpadnInterstitialAdReceived が通知を受信した時に `[vpadnInterstitial show]`を実行することです。 protocol に関する詳細な情報につきましては、中級編ガイドをご参照ください。 また、初級編ガイドにの更新項目についても併せてご確認ください。 初級編ガイドはこちら。
+また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、onVpadnInterstitialAdReceived が通知を受信した時に `[vpadnInterstitial show]`を実行することです。 protocol に関する詳細な情報につきましては、中級編ガイドをご参照ください。 また、初級編ガイドにの更新項目についても併せてご確認ください。 初級編ガイドはこちら。`(In order to maintain the quality of user experience, we recommend that you can load an ad first. Hold it until a certain event is triggered. Please try to avoid showing interstitial ad directly while getting it)`.
 
 広告のロードに成功すると、インタースティシャルを表示することができます。
 

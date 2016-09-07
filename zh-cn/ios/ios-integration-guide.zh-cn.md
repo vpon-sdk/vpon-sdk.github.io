@@ -17,7 +17,7 @@ China平台为: <http://cn.pub.vpon.com/><br>
 
 3. 如果您申请的是China的平台，请使用:`vpadnAd.platform = @"CN"`;
 
-4. 在 iOS8 之后如果没有看到 `didImpression`， 可能是因为 window 没有预设大小的关係，需要手动去setFrame设定大小，请注意！看到 `didImpression`的log才是正确的串接完成。
+4. 在 iOS8 之后如果没有看到 `didImpression`， 可能是因为 window 没有预设大小的关系，需要手动去setFrame设定大小。串接**横幅广告**时会进行`遮蔽侦测`，该侦测可能会导致部分广告被遮蔽而使广告无法通过遮蔽侦测，进而无法显示`didImpression`，请注意！看到 `didImpression`的log才是正确的串接完成。
 
 # 总览
 ---

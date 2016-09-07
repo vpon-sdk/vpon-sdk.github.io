@@ -67,16 +67,25 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 また、広告を表示するまでは保持しておくことが可能です。 最も簡単な方法は、AdListenerを実行する、もしくはブー ル属性 isReady を直接使用することです。
 
-広告のロードに成功すると、インタースティシャルを表示することができます。
+広告のロードに成功すると、インタースティシャルを表示することができます。`(In order to maintain the quality of user experience, we recommend that you can load an ad first. Hold it until a certain event is triggered. Please try to avoid showing interstitial ad directly while getting it)`
 
 ```java
 @Override
 public void onVpadnReceiveAd(VpadnAd ad) {
 	if (ad == this.interstitialAd) {
 		 //インタースティシャル広告を表示する もしくは表示する準備が完了するまで保留する
-	 	 interstitialAd.show();
+	 	 //interstitialAd.show();
+		 //in order to maintain the quality of user experience, please try to avoid showing interstitial ad directly while getting it.
 	}
 }
+
+...
+if ( certain event is triggered ) {
+	if ( interstitialAd.isReady()) {
+		interstitialAd.show();
+	}
+}
+
 ```
 
 一度インタースティシャル広告が表示されると、ユーザが閉じるまでディスプレイ全体をカバーします。この時、制御権が アプリに渡されます。

@@ -64,16 +64,26 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 不過，目前沒有任何項目可加入檢視階層，而且您必須等到這個請求成功後才能嘗試顯示廣告，這點請格外注意。最簡單的做法是執行 AdListener (「InterstitialAd」也是一種廣告)，或是直接使用布林屬性 isReady。
 
-一旦 load Ad 成功，廣告就可以顯示了：
+一旦 load Ad 成功，廣告就可以顯示了 `(為維持良好的使用者經驗，建議可先抓取插頁，待特定時機再將其顯示，盡量避免抓取後立即顯示)`：
 
 ```java
   @Override
   public void onVpadnReceiveAd(VpadnAd ad) {
     if (ad == this.interstitialAd) {
       //show interstitial ad 或可以延後在show
+      //interstitialAd.show();
+      //為了維持良好的使用者體驗，建議避免抓到廣告後馬上 show
+    }
+  }
+
+  ...
+  
+  if ( certain event is triggered ) {
+    if ( interstitialAd.isReady()) {
       interstitialAd.show();
     }
   }
+
 ```
 
 接著，插頁式廣告會佔據整個畫面，直到使用者點擊關閉；這時控制權才會交還給應用程式。[進階設定]中 Vpadn AdListener 小節列出了多種實用的回呼方式，供您參考。

@@ -43,7 +43,8 @@ Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实�
 ```
 
 不过，目前没有任何项目可加入 ViewController，而且您必须等到这个请求成功后才能尝试显示广告，
-这点请格外注意。最简单的做法是当 onVpadnInterstitialAdReceived 收到通知时 则执行 `[vpadnInterstitial show]`
+这点请格外注意。最简单的做法是当 onVpadnInterstitialAdReceived 收到通知时 则执行 `[vpadnInterstitial show]`。
+`但是为了维持良好的使用者体验，我们较建议可先抓取插页，待特定时机再将其显示，尽量避免抓取后立即显示。`
 
 若想进一步瞭解 protocol 相关详情，请参阅[进阶设定]。
 

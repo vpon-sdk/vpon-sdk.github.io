@@ -67,16 +67,27 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 Alternatively, you can hold onto the interstitial until you are ready to display it.
 Here we implement AdListener and immediately show the interstitial upon callbacks to onReceiveAd(), or checking with isReady().
-See the Intermediate guide for further details on using AdListener.
+
+See the Intermediate guide for further details on using AdListener `(In order to maintain the quality of user experience, we recommend that you can load an ad first. Hold it until a certain event is triggered. Please try to avoid showing interstitial ad directly while getting it)`.
 
 ```java
-    @Override
-    public void onVpadnReceiveAd(VpadnAd ad) {
-        if (ad == this.interstitialAd) {
-    //show interstitial ad or hold onto the interstitial untill you're ready to display it.
-             interstitialAd.show();
-        }
+  @Override
+  public void onVpadnReceiveAd(VpadnAd ad) {
+    if (ad == this.interstitialAd) {
+      //show interstitial ad or hold onto the interstitial untill ready to display it.
+      //interstitialAd.show();
+      //in order to maintain the quality of user experience, please try to avoid showing interstitial ad directly while getting it.
     }
+  }
+
+  ...
+
+  if ( certain event is triggered ) {
+    if ( interstitialAd.isReady()) {
+      interstitialAd.show();
+    }
+  }
+
 ```
 
 The interstitial then takes over the screen until the user dismisses it, at which point control returns to your app and the view controller passes to this method.

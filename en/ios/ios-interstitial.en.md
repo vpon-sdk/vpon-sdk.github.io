@@ -48,7 +48,7 @@ Once again, the best place to do this is in your app's UIViewController
 @end
 ```
 
-There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad `[vpadnInterstitial show]` once onVpadnInterstitialAdReceived load succeeds.
+There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad `[vpadnInterstitial show]` once onVpadnInterstitialAdReceived load succeeds.`(In order to maintain the quality of user experience, we recommend that you can load an ad first. Hold it until a certain event is triggered. Please try to avoid showing interstitial ad directly while getting it)`.
 
 Once load succeeds the full-screen ad is ready for presentation:
 

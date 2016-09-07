@@ -18,7 +18,7 @@ China is: <http://cn.pub.vpon.com/><br>
 
 3. If you register platform in China, please use:`vpadnAd.platform = @"CN"`;
 
-4.  If you cannot see `didImpression` from log after updating to iOS8, it is probably because there is no window's width*hight by default. So you have to manually adjust it by calling setFrame. Notice, Seeing the `didImpression` is the correct way of integration.
+4.  If you cannot see `didImpression` from log after updating to iOS8, it is probably because there is no window's width*hight by default. So you have to manually adjust it by calling setFrame. `Occlusion Detection` is executed while integrating **banner ads**. An ad might be occluded partially without showing `didImpression` in log. Notice, Seeing the `didImpression` is the correct way of integration.
 
 # Overview
 ---
