@@ -1,5 +1,12 @@
 # iOS Changelog
 
+### 4.6.1
+
+* Release Date: 05 Sep. 2016
+* Build Number: 02906102
+* Fix few bugs
+* AdMob Adapter 1.0.2 supports Bitcode
+
 ### 4.6.0
 
 * Release Date: 05 Sep. 2016
