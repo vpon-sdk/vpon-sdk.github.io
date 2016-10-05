@@ -1,5 +1,12 @@
 # Android Changelog
 
+### 4.6.1
+
+* Release Date: 04 Oct. 2016
+* Build Number: 40016102
+* Increase the advertising precision
+* Fix few bugs
+
 ### 4.6.0
 
 * Release Date: 05 Sep. 2016
