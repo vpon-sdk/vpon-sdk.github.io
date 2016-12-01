@@ -319,6 +319,11 @@ Rating Min/Max| 1/5
 --------
 本页以基本的 Native Ad 为例进行说明， [Sample Code] 中另有 `Table View` 的范例以供参考。<br>
 
+# 中介服务
+--------
+透过中介服务，您的应用程式就能放送众多广告来源的广告，详细说明[请参阅]。
+
 [串接说明]: {{site.baseurl}}/zh-tw/android/integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/android/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesAndroid.zip
+[请参阅]: {{ site.baseurl }}/zh-cn/android/native/mediation/mopub

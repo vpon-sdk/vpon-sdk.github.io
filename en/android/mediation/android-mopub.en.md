@@ -12,35 +12,43 @@ lang:           "en"
 To setup MoPub, you need to complete the following steps:
 
 ## Step1: Add your app
- Click "Network tab"
+Click "Inventory" tab and click "Add a New App". Register your app here.
+![][6]
 
-## Step2: Click "add a Network"
+## Step2: Add an Ad unit
+In the inventory that you just created, click "Add an Ad Unit" to create a native ad.
+![][7]
 
+## Step3: Add Vpon Ad Netword
+Click "Networks" tab and click "add a Network".
 ![][1]
 
-## Step3: Custom Native Network
+## Step4: Custom Native Network
 ![][2]
 
-## Step4: Add title to manage your Ad network
+## Step5: Add title to manage your Ad network
 
 ![][3]
 
-## Step5: package name/class name
+## Step6: Fill in CUSTOMEVENT
 Fill in your package name + class name, you can see the sample at the reference page.
 
-## Step6: BannerID/adUnitID
-Fill in BannerID which you apply from our Vpon website, and the key is adUnitID
+## Step7: VponID/adUnitID
+Fill in VponID which you apply from our Vpon website, and the key is `adUnitID`
+![][8]
 
-## Step7: Click save
+## Step8: Enable Vpon Ad Network
+After filling in the data above, click "Segments" tab and choose "Global Segment", you will see your inventory, ads, and Vpon ad network. Please turn Vpon Network "Enabled" on, and check the the stauts of the network is "Running".
 
-![][4]
+![][9]
 
-## Step8: Click Save
-
-![][5]
 
   [1]: {{site.imgurl}}/Mopub_001.png
   [2]: {{site.imgurl}}/Mopub_002.png
   [3]: {{site.imgurl}}/Mopub_003.png
   [4]: {{site.imgurl}}/Mopub_004-a.png
   [5]: {{site.imgurl}}/Mopub_005.png
+  [6]: {{site.imgurl}}/Mopub_006.png
+  [7]: {{site.imgurl}}/Mopub_007.png
+  [8]: {{site.imgurl}}/Mopub_008.png
+  [9]: {{site.imgurl}}/Mopub_009.png

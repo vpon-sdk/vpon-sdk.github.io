@@ -174,7 +174,12 @@ Rating Min/Max| 1/5
 --------
 本頁以基本的 Native Ad 為例進行說明， [Sample Code] 中另有 `Table View` 的範例以供參考。<br>
 
+# 中介服務
+--------
+透過中介服務，您的應用程式就能放送眾多廣告來源的廣告，詳細說明[請參閱]。
+
 
 [串接說明]: ../integration-guide/
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
+[請參閱]: {{ site.baseurl }}/zh-tw/ios/native/mediation/mopub

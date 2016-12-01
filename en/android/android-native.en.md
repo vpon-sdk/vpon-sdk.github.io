@@ -319,6 +319,11 @@ Rating Min/Max| 1/5
 ---
 Here we use basic Native ad as an example. A Native Ad sample in table view is also in the [Sample Code] <br>
 
+# Mediation
+---
+Mediation is a feature that lets you serve ads to your apps from multiple sources. [Click here] to get the complete description about the Native Ad Mediation setting.
+
 [settings here]: ../integration-guide/
-[here]: {{ site.baseurl }}/en/android/registration/
+[here]: {{ site.baseurl }}/android/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesAndroid.zip
+[Click here]: {{ site.baseurl }}/android/native/mediation/mopub
