@@ -11,6 +11,10 @@ lang:            "jp"
 ---
 まだ以前の実装ガイドを終了していない場合は、[ここから全設定](../integration-guide)をご確認ください。
 
+## 最新ニュース
+---
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+
 # インタースティシャル広告の概要
 ---
 インタースティシャル広告は、インタラクティブなマルチメディア HTML5 もしくは「ネットワークアプリケーション」で、アプリの画面遷移時に表示されます (例えばアプリ起動・動画のプレロール・ゲームのレベル読み込時など)。 「ネットワークアプリケーション」とは、ナビゲーションバーの代わりにクローズボタンのみが配置されたアプリ内の画面です。この広告タイプはよりリッチで魅力的であるため、通常より高価となり、インプレッション機会は限られたものとなります。
@@ -86,3 +90,4 @@ lang:            "jp"
 
 [Go to Download Page]:{{site.baseurl}}/jp/ios/download
 [advanced setting]: ../advanced/
+[this link]: {{site.baseurl}}/jp/ios/latest-news/ios10ats/

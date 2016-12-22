@@ -11,6 +11,10 @@ lang: "zh-cn"
 ---
 若您尚未完成串接广告形式前的串接说明，请先前往[串接说明]完成相关设定
 
+## 最新消息
+---
+iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
+
 # 概要
 --------
 原生广告不同于以往横幅广告、插页广告会直接提供可立即呈现的广告内容，原生广告 API 提供了标题、图像等广告内容的组合，您可以透过这些属性的编排打造出最理想的原生广告风格。原生广告更打破以往对于广告的刻板印象，以最自然的方式呈现，提供更符合需求的广告体验。
@@ -178,3 +182,4 @@ Rating Min/Max| 1/5
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
 [请参阅]: {{ site.baseurl }}/zh-cn/ios/native/mediation/mopub
+[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios10ats/

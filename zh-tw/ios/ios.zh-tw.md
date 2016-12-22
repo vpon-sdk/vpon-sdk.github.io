@@ -32,7 +32,7 @@ lang: "zh-tw"
 > **Note**:
 
 > 1. 串接完畢後，請自行檢查是否有印出VponLog:didImpression，以確認有成功回傳資訊到Vpon Server
-> 2. iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建立 iOS9 專案，請參考[這篇]來修改部份設定
+> 2. iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
 
 
 
@@ -42,4 +42,4 @@ lang: "zh-tw"
 [4]:{{ site.baseurl }}/zh-tw/ios/banner/
 [5]:{{ site.baseurl }}/zh-tw/ios/interstitial/
 [6]:{{ site.baseurl }}/zh-tw/ios/mediation/
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/

@@ -163,7 +163,7 @@ SDK 4 lib ファイルは、Sample codeフォルダ内にあります。
 
 # App Transport Security
 ---
-アップルは最近、iOS9 に App Transport Security (ATS)という新しいセキュリティシステ ムを導入しました。最新の Xcode 7 を使用して、 iOS9 プロジェクトを作成または移行し ている場合は、[このリンク](latest-news/ios9ats))先を参考に修正を行ってください。
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios10ats/) for some modification.
 
 # ヒント
 ---

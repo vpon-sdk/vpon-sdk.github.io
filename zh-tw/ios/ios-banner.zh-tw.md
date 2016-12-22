@@ -11,6 +11,10 @@ lang: "zh-tw"
 ---
 若您尚未完成串接廣告形式前的串接說明，請先前往[串接說明]完成相關設定
 
+## 最新消息
+---
+iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
+
 # 概要
 --------
 Vpon 橫幅廣告 (banner) 利用畫面的一小部分來吸引使用者點擊，即可打開全螢幕享受更豐富的瀏覽體驗，例如網站或應用程式商店網頁。
@@ -186,7 +190,7 @@ device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandsca
 
 # App Transport Security
 ---
-iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建立 iOS9 專案，請參考[這篇]來修改部份設定
+iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
 
 # 其他訣竅
 > 請參閱[插頁廣告](../Interstitial)、[中介服務](../mediation)、[進階設定](../advanced)中獲取更多簡介。
@@ -194,4 +198,4 @@ iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建�
 
 [串接說明]: ../integration-guide/
 [前往下載]: ../download/
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/

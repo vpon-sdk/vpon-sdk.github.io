@@ -11,6 +11,19 @@ lang: "zh-tw"
 ---
 若您尚未完成串接廣告形式前的串接說明，請先前往[串接說明]完成相關設定
 
+## 最新消息
+---
+iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
+
+# 原生廣告選擇
+---
+Vpon 提供兩種原生廣告的形式：
+
+1. [基本原生廣告]
+2. [原生廣告 - Table View]
+
+本頁以基本原生廣告為例，Table View 形式的原生廣告可由點擊上方連結獲得更詳細說明。
+
 # 概要
 --------
 原生廣告不同於以往橫幅廣告、插頁廣告會直接提供可立即呈現的廣告內容，原生廣告 API 提供了標題、圖像等廣告內容的組合，您可以透過這些屬性的編排打造出最理想的原生廣告風格。原生廣告更打破以往對於廣告的刻板印象，以最自然的方式呈現，提供更符合需求的廣告體驗。
@@ -183,3 +196,6 @@ Rating Min/Max| 1/5
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
 [請參閱]: {{ site.baseurl }}/zh-tw/ios/native/mediation/mopub
+[原生廣告 - Table View]: {{site.baseurl}}/zh-tw/ios/native/table/
+[基本原生廣告]: #
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/

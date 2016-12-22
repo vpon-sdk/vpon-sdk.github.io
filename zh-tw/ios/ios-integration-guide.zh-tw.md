@@ -157,7 +157,7 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
 
 # App Transport Security
 ---
-iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建立 iOS9 專案，請參考[這篇]來修改部份設定
+iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
 
 # 其他訣竅
 請參閱[橫幅廣告](../banner)、[插頁廣告](../Interstitial)、[中介服務](../mediation)中獲取更多簡介。
@@ -165,4 +165,4 @@ iOS9 多了安全條款 App Transport Security (ATS)，若您使用 Xcode 7 建�
 
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/

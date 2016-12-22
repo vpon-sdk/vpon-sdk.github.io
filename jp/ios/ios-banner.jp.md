@@ -11,6 +11,10 @@ lang:            "jp"
 ---
 まだ以前の実装ガイドを終了していない場合は、[ここから全設定](../integration-guide)をご確認ください。
 
+## 最新ニュース
+---
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+
 # バナー広告を表示させるためのコーディング
 ---
 iOS アプリは、UIView オブジェクトで構成され、テキストエリアやボタン、その他のコントロールの形でユーザーに表示される Objective-C インスタンスです。VpadnBanner はユーザーのタップ操作に反応して HTML5 の小さな広告を表示するもう 1 つのUIView のサブクラスです。
@@ -177,7 +181,7 @@ Vpon アカウントで更新頻度を指定し、以下のサンプルコード
 
 # App Transport Security
 ---
-Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to [this link] for some modification.
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
 
 # ヒント
 ---
@@ -186,4 +190,4 @@ Apple recently brought a new security feature, App Transport Security (ATS), to 
 
 
 [Go to download page]: ../download/
-[this link]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/
+[this link]: {{site.baseurl}}/jp/ios/latest-news/ios10ats/

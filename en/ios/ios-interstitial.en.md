@@ -12,6 +12,10 @@ lang:            "en"
 ---
 If you haven't finished the previous integration guide, please check all the [settings here](../integration-guide/).
 
+## Latest News
+---
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+
 # Overview
 ---
 Interstitials, on the other hand, immediately present rich HTML5 experiences or "web apps" at natural app transition points such as launch, video pre-roll or game level load. Web apps are in-app browsing experiences with a simple close button rather than any navigation bar—the content provides its own internal navigation scheme. Interstitial ads are typically more expensive and subject to impression constraints.
@@ -89,3 +93,4 @@ You can download an example project containing SDK 4 lib file in VpadnAd folder:
 
 [Go to Download Page]:{{site.baseurl}}/ios/download
 [advanced setting]: ../advanced/
+[this link]: ../latest-news/ios10ats/

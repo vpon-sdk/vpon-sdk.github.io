@@ -32,7 +32,7 @@ lang:            "jp"
 
 その他ご質問がございましたら、弊社、 [Vpon FAE](mailto:fae@vpon.com) までお問い合わせください。最高のサ ービスをお届けいたします。
 
-> **Note**: アップルは最近、iOS9 に App Transport Security (ATS)という新しいセキュリティシステ ムを導入しました。最新の Xcode 7 を使用して、 iOS9 プロジェクトを作成または移行し ている場合は、[このリンク](latest-news/ios9ats))先を参考に修正を行ってください。
+> **Note**: Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios10ats/) for some modification.
 
 
 

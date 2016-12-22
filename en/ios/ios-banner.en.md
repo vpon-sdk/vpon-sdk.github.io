@@ -12,6 +12,10 @@ lang:            "en"
 ---
 If you haven't finished the previous integration guide, please check all the [settings here]({{site.baseurl}}/ios/integration-guide/).
 
+## Latest News
+---
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+
 # Coding for showing Banner
 ---
 iOS apps are composed of UIView objects, Objective-C instances the user sees as text areas, buttons and others controls. VpadnBanner is simply a UIView subclass displaying small HTML5 ads that respond to user touch.
@@ -177,7 +181,7 @@ The outcome should be a banner at the top of your app:
 
 # App Transport Security
 ---
-Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to [this link] for some modification.
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
 
 # Other Tips
 ---
@@ -185,4 +189,4 @@ Please refer to [Interstitial Ad](../Interstitial)、[Mediation](../mediation) f
 
 
 [Go to download page]: ../download/
-[this link]: ../latest-news/ios9ats/
+[this link]: ../latest-news/ios10ats/

@@ -159,7 +159,7 @@ To add these frameworks, double-click the project name. Open the Link Binary Wit
 
 # App Transport Security
 ---
-Apple recently brought a new security feature, App Transport Security (ATS), to iOS9. If you are using the latest Xcode 7 to build or migrate to an iOS9 project, please refer to [this link] for some modification.
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
 
 # Other Tips
 ---
@@ -169,4 +169,4 @@ Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[M
 
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
-[this link]: {{site.baseurl}}/ios/latest-news/ios9ats/
+[this link]: {{site.baseurl}}/ios/latest-news/ios10ats/

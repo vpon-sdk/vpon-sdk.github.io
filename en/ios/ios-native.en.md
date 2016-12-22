@@ -12,6 +12,19 @@ lang:            "en"
 ---
 If you haven't finished the previous integration guide, please check all the [settings here].
 
+## Latest News
+---
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+
+# NativeAd Options
+---
+We support two kinds of Native Ad below:
+
+1. [Basic Native Ad]
+2. [Native Ad - Table View]
+
+Here we use the first one as an example to show how to construct a Basic Native Ad. Click the link above to get more detail about the Basic Native.
+
 # Overview
 ---
 While using the Native Ad API, you will receive a group of ad properties such as a title, an image, and you will have to use them to construct a custom UIView where the ad is shown. The Native Ad, an innovated type of ad, allows you to build a customized experience for the ads you show in your app.
@@ -172,7 +185,7 @@ Rating Min/Max| 1/5
 
 # Download Sample Code
 ---
-Here we use basic Native ad as an example. A Native Ad sample in table view is also in the [Sample Code] <br>
+Here we use Basic Native Ad as an example. A Native Ad sample in table view is also in the [Sample Code] <br>
 
 # Mediation
 ---
@@ -183,3 +196,6 @@ Mediation is a feature that lets you serve ads to your apps from multiple source
 [here]: {{ site.baseurl }}/ios/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
 [Click here]: {{ site.baseurl }}/ios/native/mediation/mopub
+[Basic Native Ad]: #
+[Native Ad - Table View]: {{ site.baseurl }}/ios/native/table/
+[this link]: ../latest-news/ios10ats/
