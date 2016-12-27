@@ -21,7 +21,7 @@ lang:            "jp"
 ## Step3: 広告の統合
 ---
 
-| [バナー広告][4]  |[インタースティシャル広告][5] | [メディエーション][6]|
+| [バナー広告][4]  |[インタースティシャル広告][5] |[Native Ad][7]| [メディエーション][6]|
 
 <br>
 
@@ -44,3 +44,4 @@ lang:            "jp"
 [4]:{{ site.baseurl }}/jp/android/banner/
 [5]:{{ site.baseurl }}/jp/android/interstitial/
 [6]:{{ site.baseurl }}/jp/android/mediation/
+[7]:{{ site.baseurl }}/jp/android/native/

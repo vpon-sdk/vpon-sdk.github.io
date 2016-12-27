@@ -20,7 +20,7 @@ lang: "zh-tw"
 ## Step3: 串接廣告
 ---
 
-| [橫幅廣告][4]  |[插頁廣告][5] |[中介服務][6]|
+| [橫幅廣告][4]  |[插頁廣告][5] |[原生廣告][7]|[中介服務][6]|
 
 <br>
 
@@ -43,3 +43,4 @@ lang: "zh-tw"
 [5]:{{ site.baseurl }}/zh-tw/ios/interstitial/
 [6]:{{ site.baseurl }}/zh-tw/ios/mediation/
 [這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/
+[7]:{{ site.baseurl }}/zh-tw/ios/native/

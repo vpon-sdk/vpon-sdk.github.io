@@ -22,7 +22,7 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 ## Step3: Ad Integration
 ---
 
-| [Banner Ad][4]  |[Interstitial Ad][5] | [Mediation][6]|
+| [Banner Ad][4]  |[Interstitial Ad][5] | [Native Ad][7]|[Mediation][6]|
 
 <br>
 
@@ -46,3 +46,4 @@ Still have problems? Please send us,[Vpon FAE](mailto:fae@vpon.com). We will ren
 [4]:{{ site.baseurl }}/android/banner/
 [5]:{{ site.baseurl }}/android/interstitial/
 [6]:{{ site.baseurl }}/android/mediation/
+[7]:{{ site.baseurl }}/android/native/

@@ -20,7 +20,7 @@ lang: "zh-cn"
 ## Step3: 串接广告
 ---
 
-| [横幅广告][4]  |[插页广告][5] |[中介服务][6]|
+| [横幅广告][4]  |[插页广告][5] |[原生广告][7]|[中介服务][6]|
 
 <br>
 
@@ -43,3 +43,4 @@ lang: "zh-cn"
 [5]:{{ site.baseurl }}/zh-cn/ios/interstitial/
 [6]:{{ site.baseurl }}/zh-cn/ios/mediation/
 [这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios10ats/
+[7]:{{ site.baseurl }}/zh-cn/ios/native/
