@@ -10,9 +10,10 @@ Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |
 
 # Header Download
 
-|VpadnBanner.h <br> VpadnInterstitial.h|
+|VpadnBanner.h <br> VpadnInterstitial.h <br> VpadnNativeAd.h <br> VpadnNativeAdsManager.h <br> VpadnNativeAdTableViewAdProvider.h|
 |:-------------:|
 |[download][9]|
+
 
 
 # Adapter Download

@@ -1,6 +1,6 @@
 ---
 layout:         "android-changelog"
-title:          "Android - Support"
+title:          "Android - Changelog"
 lead:           ""
 description:    ""
 keywords:       ""
