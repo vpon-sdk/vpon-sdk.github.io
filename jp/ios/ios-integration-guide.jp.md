@@ -112,7 +112,7 @@ Finally, import the framework:
 
 1. プロジェクトに `libAdOn.a` , `VpadnBanner.h` および `VpadnInterstitial.h` を追加します。
 2. 必要なフレームワークを追加します。
-3. Build Settings 内の Other Linker Flagsに `-all_load` と` -Obj-C` を追加し、また Summary の下で AdSupport を Optional に設定します。
+3. Build Settings 内の Other Linker Flagsに `-all_load` と` -ObjC` を追加し、また Summary の下で AdSupport を Optional に設定します。
 
 > **Note**: **All three** these steps are necessary!
 

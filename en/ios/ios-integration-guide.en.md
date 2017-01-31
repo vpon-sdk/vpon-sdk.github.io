@@ -111,7 +111,7 @@ The decompressed SDK consists of Objective-C, a runtime library and a README. Sh
 
 1. Import `libAdOn.a`, `VpadnBanner.h` and `VpadnInterstitial.h`
 2. Add all iOS development frameworks
-3. Add  `-all_load` and `-Obj-C` under `Other Linker Flags` of `Build Settings`. Click the `Build Phases` and set the `AdSupport` framework to `Optional`.
+3. Add  `-all_load` and `-ObjC` under `Other Linker Flags` of `Build Settings`. Click the `Build Phases` and set the `AdSupport` framework to `Optional`.
 
 > **Note**: **All three** these steps are necessary!
 

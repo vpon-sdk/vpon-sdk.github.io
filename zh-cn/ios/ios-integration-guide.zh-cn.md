@@ -111,7 +111,7 @@ Framework SDK 是一包 dynamic library，它会动态抓取 framework reference
 
 1. 在专案中加入 `libAdOn.a`， `VpadnBanner.h` 与 `VpadnInterstitial.h`
 2. 加入相关所需的 framework
-3. 在 `Build Settings` 内 `Other Linker Flags` 请填入 `-all_load` 与 `-Obj-C`，并把 `Summary` 下把 `AdSupport` 设为 `Optional`
+3. 在 `Build Settings` 内 `Other Linker Flags` 请填入 `-all_load` 与 `-ObjC`，并把 `Summary` 下把 `AdSupport` 设为 `Optional`
 
 > **Note**: 上述三项缺一不可，请务必完成！
 

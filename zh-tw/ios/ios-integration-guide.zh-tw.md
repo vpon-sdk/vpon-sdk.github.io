@@ -112,7 +112,7 @@ Framework SDK 是一包 static library，對您的廣告串接而言：維護容
 
 1. 在專案中加入 `libAdOn.a`， `VpadnBanner.h` 與 `VpadnInterstitial.h`
 2. 加入相關所需的 framework
-3. 在 `Build Settings` 內 `Other Linker Flags` 請填入 `-all_load` 與 `-Obj-C`，並把 `Summary` 下把 `AdSupport` 設為 `Optional`
+3. 在 `Build Settings` 內 `Other Linker Flags` 請填入 `-all_load` 與 `-ObjC`，並把 `Summary` 下把 `AdSupport` 設為 `Optional`
 
 > **Note**: 上述三項缺一不可，請務必完成！
 

@@ -37,7 +37,7 @@ Fundamental<br><font size="2px" color="#C0C0C0">Obj-C & Swift</font>  | Framewor
 [3]: {{site.dnldurl}}/sample-code/iOSFundamentalSampleCode.zip
 [4]: {{site.dnldurl}}/sample-code/iosAdmobSampleCode.zip
 [5]: http://m.vpon.com/sdk/iosDFPsample.zip
-[6]: http://m.vpon.com/sdk/Mopub_iOS_Vpon_Adapter1.0.zip
+[6]: http://m.vpon.com/sdk/Mopub_iOS_Vpon_Adapter_v1.0.1.zip
 [7]: http://m.vpon.com/sdk/MOGO/MangoDemo.zip
 
 [8]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.6.3.zip
