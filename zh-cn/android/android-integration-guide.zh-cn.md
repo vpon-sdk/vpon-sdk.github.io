@@ -118,23 +118,16 @@ dependencies {
 
 ```java
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-上面六个是必要的 permission，另外建议您可以开启下面这个 permission，将可以更精准的定位取得地理位置相关的广告
+上面五个是必要的 permission，另外建议您可以开启下面这个 permission，将可以更精准的定位取得地理位置相关的广告
 
 
 ```java
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-```
-另外下面这个 permission 可以提高辨识使用者身分的能力，让广告能更精准的被投放，进而为您带入更多的营收
-
-
-```java
-  <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 ```
 
 由于 Vpon SDK 4 有大量的 Video 广告，建议您在你放 Banner 的 Activity 内加入硬体加速，如下

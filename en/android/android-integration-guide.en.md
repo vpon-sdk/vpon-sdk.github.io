@@ -138,22 +138,15 @@ Add following permissions in AndroidManifest.xml
 
 ```java
   <uses-permission android:name="android.permission.INTERNET" />
-  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-The six permissions above are necessary. In addition, we recommend that you can add the following permission for being able to obtain more accurate banner related location.
+The five permissions above are necessary. In addition, we recommend that you can add the following permission for being able to obtain more accurate banner related location.
 
 ```java
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-```
-Use following permission could make ads to be more accurate delivery,
-and bring more revenue.
-
-```java
-  <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 ```
 
 Since there would be plenty of Video ads displayed on devices, we

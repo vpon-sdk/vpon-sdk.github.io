@@ -138,10 +138,8 @@ dependencies {
 
 ```java
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-  <uses-permission android:name="android.permission.GET_ACCOUNTS" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
 ビデオ広告をサポートするために、アクティビティにてハードウェアアクセラレータを有効にしていただくことをお奨めいたします。
