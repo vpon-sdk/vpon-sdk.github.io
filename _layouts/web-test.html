@@ -3,61 +3,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
   <script>
-  function closeIframe(){
-    document.getElementByTagName('iframe').remove();
-  }
-  function test(){
-    console.log('oh i am click');
-  }
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+  </script>
+
+  <script>
+    googletag.cmd.push(function() {
+      googletag.defineSlot('/43888021/web_onlyadsense_320x50', [320, 50], 'div-gpt-ad-1487661435851-0').addService(googletag.pubads());
+      googletag.pubads().enableSingleRequest();
+      googletag.pubads().collapseEmptyDivs();
+      googletag.enableServices();
+    });
   </script>
 </head>
 
 <body>
-  <button onclick="test()">Click me</button>
-  <!-- <h1>test = 1, 320x50</h1>
 
-  <div>
-    <vpon vpon_ad_test="1" vpon_ad_licensy_key="8a80818250d608d5015122886a664a2c" vpon_ad_format="320x50_mb" debug="true"></vpon>
-  </div> -->
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-  <h1>test = 0, 320x50 int </h1>
-
+  <!-- /43888021/web_onlyadsense_320x50 -->
+  <div id='div-gpt-ad-1487661435851-0' style='height:50px; width:320px;'>
   <script>
-  function vponCallBackMethod(adStatus) {
-    if (adStatus != 0) {
-      console.log("type1 adStatus!=0");
-    }
-    else{
-      console.log("type2 adStatus=0");
-    }
-  }
-</script>
-
-  <div>
-    <vpon vpon_ad_test="0" vpon_ad_licensy_key="8a808182530c87cb0153183b538f0c37" vpon_ad_format="int" debug="true" ad_request_callback="vponCallBackMethod" is_rotate='false'></vpon>
-  </div>
-  <!-- <div>
-    <vpon vpon_ad_test="0" vpon_ad_licensy_key="8a808182530c87cb0153183b538f0c37" vpon_ad_format="int" debug="true"></vpon>
-  </div> -->
-
-  </br>
-
-
-  <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+  googletag.cmd.push(function() { googletag.display('div-gpt-ad-1487661435851-0'); });
   </script>
+  </div>
 </body>
