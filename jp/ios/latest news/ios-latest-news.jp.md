@@ -7,9 +7,9 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/ios/latest-news/
 lang:            "jp"
 ---
-# iOS 10 ATS
+<!-- # iOS 10 ATS
 ---
-Starting January 2017, Apple is requiring all apps submitted to the App Store to have ATS enabled. To comply with these requirements, the following settings must be used to ensure the Vpon SDK continues to work as expected. By editting your "info.plist" as the following settings, it will enable ATS in the app on `iOS 10`... [[Continue reading](ios10ats)]
+Starting January 2017, Apple is requiring all apps submitted to the App Store to have ATS enabled. To comply with these requirements, the following settings must be used to ensure the Vpon SDK continues to work as expected. By editting your "info.plist" as the following settings, it will enable ATS in the app on `iOS 10`... [[Continue reading](ios10ats)] -->
 
 
 # iOS 9 ATS

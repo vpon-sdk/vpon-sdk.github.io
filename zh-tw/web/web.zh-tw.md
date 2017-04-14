@@ -31,7 +31,9 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 | :---------------- | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
+<br>
 
+上述廣告可依照需求嵌入行動網站中，我們也提供可黏著於行動網頁下方的 [Adhension Banner，點此了解更多]({{site.baseurl}}/zh-tw/web/adhesion-banner/)。
 
 <br>
 <br>

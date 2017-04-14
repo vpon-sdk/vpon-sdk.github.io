@@ -1,5 +1,14 @@
 # iOS Changelog
 
+### 4.6.4
+
+* Release Date: 14 Apr. 2017
+* Build Number: 41407102
+* Support new interstitial ad' format combined video & App store
+* Increase native ad stability
+* Increase advertising accuracy
+* Fix few bugs
+
 ### 4.6.3
 
 * Release Date: 22 Dec. 2016

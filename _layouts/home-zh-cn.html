@@ -9,41 +9,8 @@
 <body data-spy="scroll" data-offset="0" data-target="#theMenu">
   <div class ="message" style="display:none">
     <a class="boxclose" id="boxclose"></a>
-    <b style="font-family:Palatino">Vpon SDK 已更新至最新版本 4.6.3 ，请按此立即下载 : <a style="text-decoration:underline" id="a_for_download" href="android/download/index.html">Android</a>, <a style="text-decoration:underline" id="a_for_download" href="ios/download/index.html">iOS</a></b>
+    <b style="font-family:Palatino">Vpon SDK 已更新至最新版本 4.6.4 ，请按此立即下载 : <a style="text-decoration:underline" id="a_for_download" href="android/download/index.html">Android</a>, <a style="text-decoration:underline" id="a_for_download" href="ios/download/index.html">iOS</a></b>
   </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script>
-  function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-  }
-
-  function SetCookie(name,value){
-    var exp=new Date();
-    exp.setTime(exp.getTime() + 10*60*1000);//有效期10分鐘
-    document.cookie=name + "=" +escape(value) + ";expires=" + exp.toGMTString();
-  }
-
-  if(getCookie('refresh') != 10){
-    $(".message").show();
-  }
-
-  $(".boxclose").click(function(){
-    $(".message").fadeOut('slow');
-    SetCookie('refresh','10');
-  });
-  </script>
 
   <!-- Docs master nav -->
   {% include nav-new.html %}

@@ -7,9 +7,9 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/latest-news/
 lang: "zh-cn"
 ---
-# iOS 10 ATS
+<!-- # iOS 10 ATS
 ---
-从 2017 年 1 月开始， Apple 要求所有要提交到 App Store 的应用程式都必须开启 App Transport Security (ATS)，此设定会要求 iOS9 以上装置的 app 只能使用 HTTPS 传输。以下的设定可开启 `iOS 10` 中的 ATS...[继续阅读][2]
+从 2017 年 1 月开始， Apple 要求所有要提交到 App Store 的应用程式都必须开启 App Transport Security (ATS)，此设定会要求 iOS9 以上装置的 app 只能使用 HTTPS 传输。以下的设定可开启 `iOS 10` 中的 ATS...[继续阅读][2] -->
 
 # iOS 9 ATS
 ---
