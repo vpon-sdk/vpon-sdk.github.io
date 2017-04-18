@@ -23,9 +23,20 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 3. 修改行动网站程式码的权限
 <br>
 
+
+
+# 串接广告
+---
+
+| [一般横幅广告][1]  |[置底横幅广告][2] |
+
+<br>
+
 # 广告格式
 ---
-现在的 Vpon Mobile Web SDK 支援以下广告格式:<br><br>
+现在的 Vpon Mobile Web SDK 支援以下`一般横幅广告格式`:
+
+
 
 | 名称             |    Size(WxH)  |
 | :---------------- | :------------:|
@@ -34,11 +45,10 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 
 
 <br>
-<br>
 
 # 嵌入广告程式码
 ---
-1. 在网页 <body> 内预放广告的位置加上以下程式码：
+在网页 <body> 内预放广告的位置加上以下程式码：
 
 ```html
 <body>
@@ -64,8 +74,10 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
 > **Note**:
 
 >* 同一网页最多嵌入 3 个广告版面 (如上例)，每个版面请用不同版位 ID。
->* JavaScript 只需要放置一个，并且必须加在</body>前
->* 完成存档后，重新读取网页，您就可以在有 <vpon> tag 的位置看到 “测试广告” 被拉取。(如要上线请改成不拉取测试广告 vpon_ad_test="0")
+>
+>* JavaScript 只需要放置一个，并且必须加在</body>前。
+>
+>* 完成存档后，重新读取网页，您就可以在有 \<vpon\> tag 的位置看到 `测试广告` 被拉取。(如要上线请改成不拉取测试广告 vpon_ad_test="0")
 <br>
 
 ## Advanced Setup
@@ -264,3 +276,5 @@ openTab               |是否开启新tab 显示 广告内容                 |N
 [DFP_WEB_CALLBACK]: {{site.imgurl}}/DFP_WEB_CALLBACK.png
 [Warning]: {{site.imgurl}}/Warning.png
 [Here]: https://www.google.com/dfp/
+[1]: {{site.baseurl}}/zh-cn/web/
+[2]: {{site.baseurl}}/zh-cn/web/adhesion-banner/

@@ -23,19 +23,23 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 3. 修改行動網站程式碼的權限
 <br>
 
+# 串接廣告
+---
+
+| [一般橫幅廣告][1]  |[置底橫幅廣告][2] |
+
+<br>
+
 # 廣告格式
 ---
-現在的 Vpon Mobile Web SDK 支援以下廣告格式:<br><br>
+現在的 Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式` :<br><br>
 
 | 名稱             |    Size(WxH)  |
 | :---------------- | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
-<br>
 
-上述廣告可依照需求嵌入行動網站中，我們也提供可黏著於行動網頁下方的 [Adhension Banner，點此了解更多]({{site.baseurl}}/zh-tw/web/adhesion-banner/)。
 
-<br>
 <br>
 
 # 嵌入廣告程式碼
@@ -66,8 +70,10 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 > **Note**:
 
 >* 同一網頁最多嵌入 3 個廣告版面 (如上例)，每個版面請用不同版位 ID。
->* JavaScript 只需要放置一個，並且必須加在</body>前
->* 完成存檔後，重新讀取網頁，您就可以在有 <vpon> tag 的位置看到 “測試廣告” 被拉取。(如要上線請改成不拉取測試廣告 vpon_ad_test="0")
+>
+>* JavaScript 只需要放置一個，並且必須加在 </body> 前。
+>
+>* 完成存檔後，重新讀取網頁，您就可以在有 \<vpon\> tag 的位置看到 `測試廣告` 被拉取。(如要上線請改成不拉取測試廣告 vpon_ad_test="0")
 <br>
 
 ## Advanced Setup
@@ -263,3 +269,5 @@ openTab               |是否開啓新tab 顯示 廣告內容                 |N
 [DFP_WEB_CALLBACK]: {{site.imgurl}}/DFP_WEB_CALLBACK.png
 [Warning]: {{site.imgurl}}/Warning.png
 [Here]: https://www.google.com/dfp/
+[1]: {{site.baseurl}}/zh-tw/web/
+[2]: {{site.baseurl}}/zh-tw/web/adhesion-banner/

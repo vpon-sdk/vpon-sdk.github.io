@@ -22,9 +22,16 @@ Vpon Mobile Web SDK enables mobile web developers to maximize their monetization
 3. Having the permission to modify code of mobile website
 <br><br>
 
+# Ad Integration
+---
+
+| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] |
+
+<br>
+
 # Ad Formats
 ---
-Vpon Mobile Web SDK supports the following formats:<br><br>
+Vpon Mobile Web SDK supports the following `original banner ad formats`:<br><br>
 
 | Name              |    Size(WxH)  |
 | :---------------: | :------------:|
@@ -33,13 +40,12 @@ Vpon Mobile Web SDK supports the following formats:<br><br>
 
 
 <br>
-<br>
 
 # Setups
 ---
 
 ## Basic Setup
-1. You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it:
+You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it:
 
 ```html
 <body>
@@ -63,12 +69,13 @@ Vpon Mobile Web SDK supports the following formats:<br><br>
 </body>
 ```
 
-Note:<br>
-* You only allow to use 3 ads at most in one page and please use different banner ID for every ad.<br>
+> **Note**:
 
-* You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above. <br>
-
-* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
+>* You only allow to use 3 ads at most in one page and please use different banner ID for every ad.<br>
+>
+>* You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above. <br>
+>
+>* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
 <br>
 
 ## Advanced Setup
@@ -269,3 +276,5 @@ Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
 [AppType.png]: {{site.imgurl}}/AppType.png
 [MobileDFP_creativeSetting]: {{site.imgurl}}/MobileDFP_creativeSetting.png
 [DFP_WEB_CALLBACK]: {{site.imgurl}}/DFP_WEB_CALLBACK.png
+[1]: {{site.baseurl}}/web/
+[2]: {{site.baseurl}}/web/adhesion-banner/
