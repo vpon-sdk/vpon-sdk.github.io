@@ -63,7 +63,7 @@ Just like the setups in original banner, you should insert the following snippet
             vpon_ad_isBottom="true"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 

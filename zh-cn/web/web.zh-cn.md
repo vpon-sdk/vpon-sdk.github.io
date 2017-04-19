@@ -68,7 +68,7 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发佈商方便的显示
         vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 </body>
 ```
 > **Note**:
@@ -116,7 +116,7 @@ openTab               |是否开启新tab 显示 广告内容                 |N
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 
@@ -200,7 +200,7 @@ openTab               |是否开启新tab 显示 广告内容                 |N
        vpon_ad_licensy_key="Your license Key"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 > **Note**: vpon vpon_ad_test="1" 爲开啓测试广告， vpon vpon_ad_test="0"爲拉取正式广告。
 
@@ -233,7 +233,7 @@ openTab               |是否开启新tab 显示 广告内容                 |N
 
 <vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-<script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
 </script>
 ```
 > **Note**：

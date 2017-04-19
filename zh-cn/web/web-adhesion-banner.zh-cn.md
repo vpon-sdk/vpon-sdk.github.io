@@ -64,7 +64,7 @@ Vpon Mobile Web SDK 提供`置底横幅广告`，让横幅广告可黏着于行�
             vpon_ad_isBottom="true"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 > **Note**:

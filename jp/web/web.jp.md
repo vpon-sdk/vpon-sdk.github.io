@@ -55,7 +55,7 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
         vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 </body>
 ```
 > **Note:**<br>
@@ -100,7 +100,7 @@ openTab               |新しいタブで広告コンテンツを表示するに
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 
@@ -194,7 +194,7 @@ DFP スタンダードを使用して新しい広告キャンペーンを始め�
        vpon_ad_licensy_key="Your license Key"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 > **Note**: vpon vpon_ad_test="1" はテスト広告を取得、 vpon vpon_ad_test="0"は本番用広告を取得します。
 
@@ -225,7 +225,7 @@ DFP スタンダードを使用して新しい広告キャンペーンを始め�
 
 <vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-<script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
 </script>
 ```
 > **Note**：

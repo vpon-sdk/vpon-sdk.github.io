@@ -65,7 +65,7 @@ You should insert the following snippet of code directly after the opening <body
         vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 </body>
 ```
 
@@ -114,7 +114,7 @@ openTab               |If open a new tab to show ad's contents  |N           |  
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 
@@ -200,7 +200,7 @@ Input the snippet of code:
        vpon_ad_licensy_key="Your license Key"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="http://m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 > **Note**: vpon_ad_test="1" for test ads，vpon_ad_test="0" for normal ads。
 
@@ -233,7 +233,7 @@ snippet of code is provided below:
 
 <vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-<script type="text/javascript" src="http://m.vpon.com/sdk/vpadn-sdk.js">
+<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
 </script>
 ```
 > **Note**：
