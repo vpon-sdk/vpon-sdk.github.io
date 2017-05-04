@@ -32,7 +32,7 @@ Fundamental<br><font size="2px" color="#C0C0C0">Obj-C & Swift</font>  | Framewor
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-464-41407102-1704141723-61ec6d1.a
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-464-62407102-1704261715-ebbe3a5.a
 [2]: http://m.vpadn.com/sdk/VponAdapter_iOS_53c7141_v1.0.2.a
 [3]: {{site.dnldurl}}/sample-code/iOSFundamentalSampleCode.zip
 [4]: {{site.dnldurl}}/sample-code/iosAdmobSampleCode.zip
