@@ -1,27 +1,25 @@
 ---
 layout:         "web"
-title:          "Web - Adhesion Banner"
+title:          "Web - Interstitial Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       web/adhesion-banner/
+permalink:       web/interstitial/
 lang:           "en"
 ---
 
 # Overview
 ---
-Vpon Mobile Web SDK provides a new type of ad : Adhesion Banner, which is positioned to the bottom of the device display, to maximize your monetization.<br>
+Vpon Mobile Web SDK provides a new type of ad : Interstitial Ad, which immediately present rich HTML5 experiences or "web apps" at transition points such as launch, video pre-roll or game level load. Web apps are in-app browsing experiences with a simple close button rather than any navigation bar—the content provides its own internal navigation scheme.<br>
 
 > **Note**:
 >It only supports ads on <strong>` mobile site `</strong>, it would not show any ad if you open your website on personal computer.
 <br>
 
-<br>
 
 # Setups
 ---
-Just like the setups in original banner, you should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> between the original one & adhesive is that the latter includes a new attribute : <strong>vpon_ad_isBottom</strong>. The banner will be  positioned to the bottom of the device display while this new attribute’s value is <strong>true</strong>.
-
+You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> from banner ad is that the attribute <strong>vpon_ad_format</strong> should be <strong>`mi`</strong> of interstitial one.
 
 
 ```html
@@ -33,22 +31,13 @@ Just like the setups in original banner, you should insert the following snippet
 
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
-            vpon_ad_format="320x50_mb"
-            debug="true"></vpon>
-    </div>
-    </br>
-    <div>
-      <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="your_first_vpon_banner_id"
-            vpon_ad_format="320x50_mb"
-            vpon_ad_isBottom="true"
+            vpon_ad_licensy_key="Your Interstitial ID"
+            vpon_ad_format="mi"
             debug="true"></vpon>
     </div>
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
-
 > **Note**:
 
 >* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source while importing SDK. According to the protocol of the page, browsers will import the suitable one.
@@ -59,9 +48,9 @@ Just like the setups in original banner, you should insert the following snippet
 >
 >* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
 >
->* The adhesion feature of Adhesion Banner will be lost while embedding the ad in an iframe.
->
 >* Remember to replace the license key with your own one which apply on our website.
+>
+>* If you use iframe for embedding vpon's ad, please get better control on it, just like the width & height should be 100 %, collapse the iframe after users clikc the close button, and so on.
 
 <br>
 
@@ -79,10 +68,9 @@ openTab               |If open a new tab to show ad's contents  |N           |  
 
 <br>
 
-
 # Results
 ---
-<img src="{{site.imgurl}}/Adhesion-Banner-1.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/Web-Interstitial-1.png" alt="" class="width-300"/>
 
 
 # FAQ

@@ -1,34 +1,25 @@
 ---
 layout:         "web"
-title:          "Web - 置底橫幅廣告"
+title:          "Web - 插頁廣告"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       /zh-tw/web/adhesion-banner/
+permalink:       /zh-tw/web/interstitial/
 lang:           "zh-tw"
 ---
 
 # 總覽
 ---
-Vpon Mobile Web SDK 提供`置底橫幅廣告`，讓橫幅廣告可黏著於行動裝置的螢幕下方，讓我們精準投放的廣告更能讓使用者觀看，以提升廣告收益。<br>
+Vpon Mobile Web SDK 提供`插頁廣告`，插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。<br>
 
 > **Note**:
 >此廣告僅支援<strong> `行動裝置 `</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！
 <br>
 
-# 廣告格式
----
-現在的 Vpon Mobile Web SDK 支援以下`置底廣告格式`:<br>
-
-| 名稱             |    Size(WxH)  |
-| :---------------- | :------------:|
-| Banner            |    320x50     |
-
-<br>
 
 # 嵌入廣告程式碼
 ---
-與一般 Web Banner 相似，同樣在行動網頁的 <body> 中填入 \<vpon\> tag，唯一不同點在於當 \<vpon\> tag 中包含了 `vpon_ad_isBottom` 的屬性且其為 true 時，可自動將該廣告黏著於行動裝置的螢幕下方。<br>
+在行動網頁的 <body> 中填入 \<vpon\> tag，與橫幅廣告不同點在於當 \<vpon\> tag 中的屬性 `vpon_ad_format` 為 `mi`時，會去請求插頁式廣告呈現。<br>
 在網頁 <body> 內預放廣告的位置加上以下程式碼：
 
 ```html
@@ -40,16 +31,8 @@ Vpon Mobile Web SDK 提供`置底橫幅廣告`，讓橫幅廣告可黏著於行�
 
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
-            vpon_ad_format="320x50_mb"
-            debug="true"></vpon>
-    </div>
-    </br>
-    <div>
-      <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="your_first_vpon_banner_id"
-            vpon_ad_format="320x50_mb"
-            vpon_ad_isBottom="true"
+            vpon_ad_licensy_key="Your Interstitial ID"
+            vpon_ad_format="mi"
             debug="true"></vpon>
     </div>
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -59,18 +42,18 @@ Vpon Mobile Web SDK 提供`置底橫幅廣告`，讓橫幅廣告可黏著於行�
 
 >* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在將 SDK 檔案引入時請如上使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源。
 >
->* 同一網頁最多嵌入 1 個置底廣告版面 (如上例)。包含置底廣告與一般橫幅廣告，同一網頁最多嵌入 3 個廣告版面 (如上例)，每個版面請用不同版位 ID。
+>* 同一網頁最多嵌入 1 個插頁廣告 (如上例)。
 >
 >* JavaScript 只需要放置一個，並且必須加在 </body>前。
 >
 >* 完成存檔後，重新讀取網頁，您就可以在有 \<vpon\> tag 的位置看到 `測試廣告` 被拉取。(如要上線請改成不拉取測試廣告 vpon_ad_test="0")
 >
->* Adhesion Ad 倘若嵌入在 iframe 內，將會失去自動黏著於行動裝置的螢幕下方的功能。
->
 >* 以上的 License Key 為範例，請置換為您自己申請的 License Key 以防收益分潤無法取得。
-
+>
+>* 倘若嵌入在 iframe 內，必須確保該 iframe 是滿版的蓋在網頁上，包含寬高皆為 100 % 等等，以及點擊關閉時需處理將該 iframe 收起等事宜。
 
 <br>
+
 
 ## Advanced Setup
 ---
@@ -78,7 +61,7 @@ Vpon Mobile Web SDK 提供`置底橫幅廣告`，讓橫幅廣告可黏著於行�
 名稱                  |        描述                      | 必要  |  範例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">輸入 Vpon License Key</font>
-vpon\_ad\_format      | 廣告版行：320x50\_mb, 300x250\_mb            |   Y       |     "320x50\_mb"
+vpon\_ad\_format      | 廣告版行：320x50\_mb, 300x250\_mb            |   Y       |     "mi"
 vpon\_ad\_test        |   是否拉取測試廣告                        | N          |   1(是)/0(否)，預設為(是)
 vpon\_ad\_isBottom    |   是否為置底橫幅廣告                        | N          |   true/false，預設為 false
 debug                 | 是否在 console 顯示 debug 資訊          |  N         |   true/false，預設為 false
@@ -89,9 +72,7 @@ openTab               |是否開啓新tab 顯示 廣告內容                 |N
 
 # 結果
 ---
-<img src="{{site.imgurl}}/Adhesion-Banner-1.png" alt="" class="width-300"/>
-
-
+<img src="{{site.imgurl}}/Web-Interstitial-1.png" alt="" class="width-300"/>
 
 
 # FAQ

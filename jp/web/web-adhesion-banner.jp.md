@@ -4,8 +4,8 @@ title:          "Web - Adhesion Banner"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       web/adhesion-banner/
-lang:           "en"
+permalink:       /jp/adhesion-banner/
+lang:           "jp"
 ---
 
 # Overview
@@ -66,19 +66,18 @@ Just like the setups in original banner, you should insert the following snippet
 <br>
 
 ## Advanced Setup
----
 
-Name                  |        Description                      | Necessary  |  Example
-:--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                               |  Y         |<font color="red">Put your Vpon License Key</font>
-vpon\_ad\_format      | Size：320x50\_mb, 300x250\_mb            |   Y       |     "320x50\_mb"
-vpon\_ad\_test        |   Test Ad                               | N          |   1(Yes)/0(No)，Default(Yes)
-vpon\_ad\_isBottom    |   Adhesion Ad                        | N          |   true/false，Default:false
-debug                 | Debugging information in console        |  N         |   true/false，Default:false
-openTab               |If open a new tab to show ad's contents  |N           |  true/false，Default:true
+
+名称                  |        說明                      | 必須       |  インスタンス
+:--------------------:|:---------------------------------------:|:-------------:|:------------------------:
+vpon\_ad\_licensy\_key| 広告枠 ID                               |  Y         |<font color="red">Vpon License Key（=プロパティID）を入力して</font>
+vpon\_ad\_format      | 広告フォーマット：320x50\_mb, 300x250\_mb   |   Y       |     "320x50\_mb"
+vpon\_ad\_test        |   テスト広告を取得するかどうか              | N       |   1(はい)/0(いいえ)、デフォルト: (はい)
+vpon\_ad\_isBottom    |   Adhesion Ad                        | N          |   true/false、デフォルト:false
+debug                 | コンソールにデバッグ情報を表示するかどうか      |  N      |  true/false、デフォルト:false
+openTab               |新しいタブで広告コンテンツを表示するには     |N         |  true/falseをtrueにセットしてください
 
 <br>
-
 
 # Results
 ---

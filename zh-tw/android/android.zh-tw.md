@@ -1,7 +1,7 @@
 ---
 layout:         "android"
 title:          "Android - 開始使用"
-lead:           "快速上手 - 串接SDK與顯示廣告"
+lead:           "快速上手 - 串接 SDK 與顯示廣告"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       zh-tw/android/
