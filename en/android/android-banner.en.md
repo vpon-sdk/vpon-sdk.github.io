@@ -102,7 +102,7 @@ If you haven't finished the previous integration guide, please check all the [se
       //TODO: put Android device advertising id
       adRequest.setTestDevices(testDeviceImeiSet);
       vponBanner.loadAd(adRequest);
-```  
+```
   You can get advertising ID by following methods:
   1. Search "advertising_id" from eclipse's log.
   2. Get your Advertising ID by clicking Ads in Google Settings from your phone directly.
@@ -115,6 +115,7 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
 |      Size (WxH)            | Description    |  VponAdSize Constant            |
   :------------------------: | :-------------:| :-----------------------------:
   320x50                     | Standard Banner| VpadnAdSize.BANNER
+  300x250                    |IAB Medium Recangle| VpadnAdSize.IAB\_MRECT
   468x60                     |IAB Full-Size Banner| VpadnAdSize.IAB\_BANNER
   728x90                     | IAB Leaderboard|  VpadnAdSize.IAB\_LEADERBOARD
   device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER

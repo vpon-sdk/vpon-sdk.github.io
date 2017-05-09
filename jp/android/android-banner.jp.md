@@ -106,7 +106,7 @@ public class MainActivity extends Activity {
       //TODO: テスト用端末のAdvertising IDを入力
       adRequest.setTestDevices(testDeviceImeiSet);
       vponBanner.loadAd(adRequest);
-```  
+```
 以下のコードで端末の Advertising IDを取得することができます。
 
 1. Eclipse上のログから"advertising_id"を検索する
@@ -120,6 +120,7 @@ public class MainActivity extends Activity {
 |    サイズ (幅 x 高さ)       |       説明      |  VponAdSize 定数値             |
   :------------------------: | :-------------:| :-----------------------------:
   320x50                     |標準のバナー広告| VpadnAdSize.BANNER
+  300x250                     |IAB ミディアムレクタングル広告 | VpadnAdSize.IAB\_MRECT
   468x60                     |IAB フルサイズバナー広告| VpadnAdSize.IAB\_BANNER
   728x90                     |IAB ビッグバナー広告|  VpadnAdSize.IAB\_LEADERBOARD
   device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER

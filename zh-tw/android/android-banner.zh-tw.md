@@ -131,6 +131,7 @@ Android 應用程式由 View 物件所組成，也就是以文字區域和按鈕
 大小 (寬度x高度)             |     說明       |  VponAdSize 常數值
 :------------------------: | :-------------:| :-----------------------------:
 320x50                     | 標準橫幅廣告     | VpadnAdSize.BANNER
+300x250                    | IAB 中矩形廣告     | VpadnAdSize.IAB\_MRECT
 468x60                     | IAB 全橫幅廣告   | VpadnAdSize.IAB\_BANNER
 728x90                     | IAB 超級橫幅廣告 |  VpadnAdSize.IAB\_LEADERBOARD
 device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
