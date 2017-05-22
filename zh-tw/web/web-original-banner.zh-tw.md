@@ -120,9 +120,11 @@ openTab               |是否開啓新tab 顯示 廣告內容                 |N
 本段專為 DFP 使用者而設，主要說明 DoubleClick 聯播網搭配 Web API 的方式。
 
 ## DFP 產生廣告代碼
+---
 勾選「啟用單一請求」後將 「Google發佈商廣告代碼」裡產生的「標頭」放在網頁的HEAD元素中，將「文件內文」放在您要顯示這個廣告單元的網頁內文中。
 
 ## 設定廣告空間
+---
 在 DFP 使用者介面中 [Here]:
 
 1. 新增廣告空間
@@ -133,6 +135,7 @@ openTab               |是否開啓新tab 顯示 廣告內容                 |N
 <img src="{{site.imgurl}}/UnitAdSetting_DFP2.png" alt="" class="width-600" />
 
 ## 設定委刊單、委刊項及廣告素材
+---
 如要透過「DFP 廣告管理系統標準版」放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。針對保留的委刊項類型 (贊助和標準)，在委刊單獲得核准以前，DFP 不會保留廣告空間。
 
 ### 建立委刊單
@@ -188,7 +191,7 @@ openTab               |是否開啓新tab 顯示 廣告內容                 |N
        debug="true"></vpon>
       <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
-> **Note**: vpon vpon_ad_test="1" 爲開啓測試廣告， vpon vpon_ad_test="0"爲拉取正式廣告。
+> **Note**: vpon_ad_test="1" 爲開啓測試廣告， vpon_ad_test="0"爲拉取正式廣告。
 
 範例：
 ![素材設定_DFP]

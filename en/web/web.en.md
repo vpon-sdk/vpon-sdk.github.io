@@ -41,6 +41,6 @@ Please register your own license key in the following lnk: <http://tw.pub.vpon.c
 Still have problems? Please send us,[Vpon FAE](mailto:fae@vpon.com). We will render the best service for you.
 
 
-[1]: {{site.baseurl}}/web/
+[1]: {{site.baseurl}}/web/original-banner/
 [2]: {{site.baseurl}}/web/adhesion-banner/
 [3]: {{site.baseurl}}/web/interstitial/

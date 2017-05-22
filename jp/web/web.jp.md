@@ -39,6 +39,6 @@ Please register your own license key in the following lnk: <http://tw.pub.vpon.c
 その他ご質問がございましたら、弊社、 [Vpon FAE](mailto:fae@vpon.com) までお問い合わせください。最高のサ ービスをお届けいたします。
 
 
-[1]: {{site.baseurl}}/jp/web/
+[1]: {{site.baseurl}}/jp/web/original-banner/
 [2]: {{site.baseurl}}/jp/web/adhesion-banner/
 [3]: {{site.baseurl}}/jp/web/interstitial/

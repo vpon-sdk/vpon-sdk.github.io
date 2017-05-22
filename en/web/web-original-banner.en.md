@@ -195,7 +195,7 @@ Input the snippet of code:
        debug="true"></vpon>
       <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
-> **Note**: vpon_ad_test="1" for test ads，vpon_ad_test="0" for normal ads。
+> **Note**: vpon_ad_test="1" for test ads，vpon_ad_test="0" for normal ads.
 
 Example：
 ![MobileDFP_creativeSetting]
