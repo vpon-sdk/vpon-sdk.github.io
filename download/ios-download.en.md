@@ -20,4 +20,4 @@ lang:            "en"
 
 [How to update to the new version of SDK4.2.x]: {{site.baseurl}}/ios/latest-news/update-to-SDK4_2_x/
 
-[this link]: ../latest-news/ios10ats/
+[this link]: ../latest-news/ios9ats/

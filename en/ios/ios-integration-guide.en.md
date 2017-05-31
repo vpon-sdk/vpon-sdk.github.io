@@ -169,4 +169,4 @@ Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[M
 
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
-[this link]: {{site.baseurl}}/ios/latest-news/ios10ats/
+[this link]: {{site.baseurl}}/ios/latest-news/ios9ats/

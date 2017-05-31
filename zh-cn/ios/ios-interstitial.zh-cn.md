@@ -75,4 +75,4 @@ Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实�
 [串接说明]: ../integration-guide/
 [进阶设定]: ../advanced/
 [1]: ../download/
-[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios10ats/
+[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

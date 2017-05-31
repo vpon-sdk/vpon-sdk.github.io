@@ -198,4 +198,4 @@ Mediation is a feature that lets you serve ads to your apps from multiple source
 [Click here]: {{ site.baseurl }}/ios/native/mediation/mopub
 [Basic Native Ad]: #
 [Native Ad - Table View]: {{ site.baseurl }}/ios/native/table/
-[this link]: ../latest-news/ios10ats/
+[this link]: ../latest-news/ios9ats/

@@ -93,4 +93,4 @@ You can download an example project containing SDK 4 lib file in VpadnAd folder:
 
 [Go to Download Page]:{{site.baseurl}}/ios/download
 [advanced setting]: ../advanced/
-[this link]: ../latest-news/ios10ats/
+[this link]: ../latest-news/ios9ats/

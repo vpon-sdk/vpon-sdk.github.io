@@ -165,4 +165,4 @@ iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来�
 
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
-[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios10ats/
+[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

@@ -182,4 +182,4 @@ Rating Min/Max| 1/5
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
 [请参阅]: {{ site.baseurl }}/zh-cn/ios/native/mediation/mopub
-[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios10ats/
+[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

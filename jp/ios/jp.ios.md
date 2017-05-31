@@ -32,7 +32,7 @@ lang:            "jp"
 
 その他ご質問がございましたら、弊社、 [Vpon FAE](mailto:fae@vpon.com) までお問い合わせください。最高のサ ービスをお届けいたします。
 
-> **Note**: Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios10ats/) for some modification.
+> **Note**: Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios9ats/) for some modification.
 
 
 

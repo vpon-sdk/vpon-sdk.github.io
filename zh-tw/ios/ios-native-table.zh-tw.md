@@ -210,4 +210,4 @@ Rating Min/Max| 1/5
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
 [基本原生廣告]: {{site.baseurl}}/zh-tw/ios/native/
 [原生廣告 - Table View]: #
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

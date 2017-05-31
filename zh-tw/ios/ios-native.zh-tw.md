@@ -198,4 +198,4 @@ Rating Min/Max| 1/5
 [請參閱]: {{ site.baseurl }}/zh-tw/ios/native/mediation/mopub
 [原生廣告 - Table View]: {{site.baseurl}}/zh-tw/ios/native/table/
 [基本原生廣告]: #
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

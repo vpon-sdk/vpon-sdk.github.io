@@ -17,4 +17,4 @@ lang: "zh-cn"
 
 [升级最新SDK所需修改]: {{site.baseurl}}/zh-cn/ios/latest-news/update-to-SDK4_2_x/
 
-[这篇]: ../latest-news/ios10ats/
+[这篇]: ../latest-news/ios9ats/

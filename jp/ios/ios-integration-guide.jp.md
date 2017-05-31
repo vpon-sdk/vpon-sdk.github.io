@@ -163,7 +163,7 @@ SDK 4 lib ファイルは、Sample codeフォルダ内にあります。
 
 # App Transport Security
 ---
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios10ats/) for some modification.
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios9ats/) for some modification.
 
 # ヒント
 ---

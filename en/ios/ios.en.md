@@ -34,7 +34,7 @@ Please follow the [Integration Guide][3] to finish Vpon SDK integration, includi
 Still have problems? Please send us,[Vpon FAE](mailto:fae@vpon.com). We will render the best service for you.
 
 
-> **Note**: Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios10ats/) for some modification.
+> **Note**: Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link](latest-news/ios9ats/) for some modification.
 
 
 

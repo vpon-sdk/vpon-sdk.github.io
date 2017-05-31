@@ -189,4 +189,4 @@ Please refer to [Interstitial Ad](../Interstitial)、[Mediation](../mediation) f
 
 
 [Go to download page]: ../download/
-[this link]: ../latest-news/ios10ats/
+[this link]: ../latest-news/ios9ats/

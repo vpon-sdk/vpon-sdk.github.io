@@ -42,5 +42,5 @@ lang: "zh-tw"
 [4]:{{ site.baseurl }}/zh-tw/ios/banner/
 [5]:{{ site.baseurl }}/zh-tw/ios/interstitial/
 [6]:{{ site.baseurl }}/zh-tw/ios/mediation/
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
 [7]:{{ site.baseurl }}/zh-tw/ios/native/

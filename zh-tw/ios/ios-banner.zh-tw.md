@@ -198,4 +198,4 @@ iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來�
 
 [串接說明]: ../integration-guide/
 [前往下載]: ../download/
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios10ats/
+[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

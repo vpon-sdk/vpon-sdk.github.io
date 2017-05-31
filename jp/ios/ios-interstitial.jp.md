@@ -90,4 +90,4 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 
 [Go to Download Page]:{{site.baseurl}}/jp/ios/download
 [advanced setting]: ../advanced/
-[this link]: {{site.baseurl}}/jp/ios/latest-news/ios10ats/
+[this link]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/

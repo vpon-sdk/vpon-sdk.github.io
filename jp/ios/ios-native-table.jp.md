@@ -208,4 +208,4 @@ Here we use `NativeAd - Table View` as an example. A basic naive ad sample is al
 [Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
 [Basic Native Ad]: {{ site.baseurl }}/jp/ios/native/
 [Native Ad - Table View]: #
-[this link]: {{site.baseurl}}/jp/ios/latest-news/ios10ats/
+[this link]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/
