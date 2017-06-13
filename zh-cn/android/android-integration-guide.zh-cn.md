@@ -152,4 +152,4 @@ dependencies {
 
 
 # 其他诀窍
-请参阅[横幅广告](../banner)、[插页广告](../Interstitial)、[中介服务](../mediation)中获取更多简介。
+请参阅[横幅广告](../banner)、[插页广告](../Interstitial)、[原生广告](../native)、[中介服务](../mediation)中获取更多简介。

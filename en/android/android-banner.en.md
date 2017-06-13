@@ -146,7 +146,7 @@ Now run your demo app and you would see a banner at the top of the screen:
 <img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
 
 # Other tips
-> Please refer to [Interstitial Ads](../Interstitial)、[Mediation](../mediation)、[Advanced Setting](../advanced) for more information.
+> Please refer to [Interstitial Ads](../Interstitial)、[Native Ads](../native)、[Mediation](../mediation)、[Advanced Setting](../advanced) for more information.
 
 
 

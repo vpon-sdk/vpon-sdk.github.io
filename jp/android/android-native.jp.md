@@ -325,5 +325,5 @@ Mediation is a feature that lets you serve ads to your apps from multiple source
 
 [settings here]: ../integration-guide/
 [here]: {{ site.baseurl }}/jp/android/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesAndroid.zip
-[Click here]: {{ site.baseurl }}/jp/android/native/mediation/mopub
+[Sample Code]: {{ site.baseurl }}/jp/android/download/
+[Click here]: {{ site.baseurl }}/jp/android/mediation/mopub

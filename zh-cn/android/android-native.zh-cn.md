@@ -323,7 +323,7 @@ Rating Min/Max| 1/5
 --------
 透过中介服务，您的应用程式就能放送众多广告来源的广告，详细说明[请参阅]。
 
-[串接说明]: {{site.baseurl}}/zh-tw/android/integration-guide/
+[串接说明]: {{site.baseurl}}/zh-cn/android/integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/android/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesAndroid.zip
-[请参阅]: {{ site.baseurl }}/zh-cn/android/native/mediation/mopub
+[Sample Code]: {{ site.baseurl }}/zh-cn/android/download/
+[请参阅]: {{ site.baseurl }}/zh-cn/android/mediation/mopub

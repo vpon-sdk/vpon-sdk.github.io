@@ -158,4 +158,4 @@ dependencies {
 
 
 # 其他訣竅
-請參閱[橫幅廣告](../banner)、[插頁廣告](../Interstitial)、[中介服務](../mediation)中獲取更多簡介。
+請參閱[橫幅廣告](../banner)、[插頁廣告](../Interstitial)、[原生廣告](../native)、[中介服務](../mediation)中獲取更多簡介。

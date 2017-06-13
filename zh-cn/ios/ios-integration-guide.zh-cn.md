@@ -160,7 +160,7 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
 
 # 其他诀窍
-请参阅[横幅广告](../banner)、[插页广告](../Interstitial)、[中介服务](../mediation)中获取更多简介。
+请参阅[横幅广告](../banner)、[插页广告](../Interstitial)、[原生广告](../native)、[中介服务](../mediation)中获取更多简介。
 
 
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png

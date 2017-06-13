@@ -180,6 +180,6 @@ Rating Min/Max| 1/5
 
 [串接说明]: ../integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
-[请参阅]: {{ site.baseurl }}/zh-cn/ios/native/mediation/mopub
+[Sample Code]: {{ site.baseurl }}/zh-cn/ios/download/
+[请参阅]: {{ site.baseurl }}/zh-cn/ios/mediation/mopub
 [这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

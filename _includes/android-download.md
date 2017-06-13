@@ -1,11 +1,17 @@
-# SDK Download
+# SDK Download (Version: 4.6.4)
 ---
 
- Fundamental SDK <br>(Version: 4.6.4)    |  AdMob Adapter <br>(Version: 1.0.0)
+ Fundamental SDK |
+:----------------------------------:  |
+[download][1]                         |
+
+
+# Adapter Download
+---
+
+ AdMob Adapter <br>(Version: 1.0.0)  | MoPub Custom Events <br>
 :----------------------------------: | :-------------------------------:
-[download][1]                     | [download][2]
-
-
+ [download][2]                       | [download][3]
 
 
 # Sample Code Download
@@ -13,27 +19,17 @@
 
 Fundamental<br><font size="2px" color="#C0C0C0">Android Studio</font> | Fundamental<br><font size="2px" color="#C0C0C0">Eclipse</font>     | AdMob        |    DFP       |   MoPub     | Mogo
 :------------------:| :-------------: | :-----------:|:------------:|:-----------:|:--------:
-    [download][9] |  [download][3]   | [download][4]|[download][5] |[download][6]|[download][7]
+    [download][4] |  [download][5]   | [download][6]|[download][7] |[download][8]|[download][9]
 
-
-
-# Other Platform
----
-
-| Unity         |
-|:-------------:|
-[download][8]   |
 
 
 [1]: http://m.vpadn.com/sdk/vpadn-sdk-obf464-21407102-1704121104-cdcc646.jar
-[2]: http://m.vpon.com/sdk/admob-adapter-1.0.0-1505261651-830485e.jar
-[3]: {{site.dnldurl}}/sample-code/VpadnSampleCodeEclipse.zip
-[4]: http://m.vpon.com/sdk/AdmobSample.zip
-[5]: http://m.vpon.com/sdk/DFPsample.zip
-[6]: http://m.vpon.com/sdk/Mopub_Android_Vpon_Adapter.zip
-[7]: http://m.vpon.com/sdk/MOGO/AdsMogoBanner.zip
-[8]: http://wiki.vpon.com/index.php?title=Unity_With_Android_Vpon_SDK_4
-[9]: {{site.dnldurl}}/sample-code/VpadnSampleCodeAndroidStudio.zip
 
-
-<br>
+[2]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/AdMobAdapter
+[3]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/MoPubCustomEvents
+[4]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Fundamental/AndroidStudioExample
+[5]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Fundamental/EclipseExample
+[6]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/AdMobExample
+[7]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/DFPExample
+[8]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/MoPubExample
+[9]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/MogoExample

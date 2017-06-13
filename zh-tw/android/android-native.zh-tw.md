@@ -327,5 +327,5 @@ Rating Min/Max| 1/5
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
 [說明]: {{ site.baseurl }}/zh-tw/android/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesAndroid.zip
-[請參閱]: {{ site.baseurl }}/zh-tw/android/native/mediation/mopub
+[Sample Code]: {{ site.baseurl }}/zh-tw/android/download/
+[請參閱]: {{ site.baseurl }}/zh-tw/android/mediation/mopub/

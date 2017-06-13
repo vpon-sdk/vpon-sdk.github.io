@@ -163,7 +163,7 @@ device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 <img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
 
 # 其他诀窍
-> 请参阅[插页广告](../Interstitial)、[中介服务](../mediation)、[进阶设定](../advanced)中获取更多简介。
+> 请参阅[插页广告](../Interstitial)、[原生广告](../native)、[中介服务](../mediation)、[进阶设定](../advanced)中获取更多简介。
 
 [串接说明]: ../integration-guide/
 [1]:../../android/download/

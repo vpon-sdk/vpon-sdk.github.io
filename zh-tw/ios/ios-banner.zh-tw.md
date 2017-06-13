@@ -193,7 +193,7 @@ device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandsca
 iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
 
 # 其他訣竅
-> 請參閱[插頁廣告](../Interstitial)、[中介服務](../mediation)、[進階設定](../advanced)中獲取更多簡介。
+> 請參閱[插頁廣告](../Interstitial)、[原生廣告](../native)、[中介服務](../mediation)、[進階設定](../advanced)中獲取更多簡介。
 
 
 [串接說明]: ../integration-guide/

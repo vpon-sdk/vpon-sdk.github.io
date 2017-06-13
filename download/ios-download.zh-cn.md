@@ -11,6 +11,7 @@ lang: "zh-cn"
 
 >**Note:**
 
+>1. 提供 `Objective-C` & `Swift` 版本的 Sample code
 >2. Sample code 内不含 SDK lib 档
 >3. 串接完毕后，请自行检查是否有印出 `VponLog:didImpression`，以确认有成功回传资讯到 Vpon Server
 >4. iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定

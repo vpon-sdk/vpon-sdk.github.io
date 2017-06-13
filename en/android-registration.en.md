@@ -13,25 +13,25 @@ Please visit our website: [Here](http://tw.pub.vpon.com/register.action). You ma
 
 If you haven't been able to receive the validation code, please contact us: [Vpon BD](mailro:bd@vpon.com). Thank you.
 
-# System Compatibility  
+# System Compatibility
 ---
 
-## iOS OS versions  
+## iOS OS versions
 
 `iOS OS 5.0 or later`
 
-## Android OS versions  
+## Android OS versions
 
-`Android 2.1 or later`
+`Android 2.3.3 or later`
 
-## Feasible Ad Size  
+## Feasible Ad Size
 
 `Be sure at least 320x50 dip`
 
-# License Key Application  
+# License Key Application
 ---
 
-## Apply Vpon SDK License Key  
+## Apply Vpon SDK License Key
 
 It is required to apply a unique license key in order to request for ADs. We strongly suggest developers apply both China and Taiwan license key to target Great China Market. <br>
 Enter in <http://cn.pub.vpon.com/> for China Vpon Platform.<br>

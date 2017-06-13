@@ -185,7 +185,7 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 
 # Other Tips
 ---
-Please refer to [Interstitial Ad](../Interstitial)、[Mediation](../mediation) for more information.
+Please refer to [Interstitial Ad](../Interstitial)、[Native Ad](../native)、[Mediation](../mediation) for more information.
 
 
 [Go to download page]: ../download/

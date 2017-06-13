@@ -194,8 +194,8 @@ Rating Min/Max| 1/5
 
 [串接說明]: ../integration-guide/
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
-[請參閱]: {{ site.baseurl }}/zh-tw/ios/native/mediation/mopub
+[Sample Code]: {{ site.baseurl }}/zh-tw/ios/download/
+[請參閱]: {{ site.baseurl }}/zh-tw/ios/mediation/mopub
 [原生廣告 - Table View]: {{site.baseurl}}/zh-tw/ios/native/table/
 [基本原生廣告]: #
 [這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

@@ -173,4 +173,4 @@ recommend you to add hardware acceleration in your main Activity.
 
 # Other Tips
 ---
-Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[Mediation](../mediation) for more information.
+Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[Native Ad](../native)、[Mediation](../mediation) for more information.

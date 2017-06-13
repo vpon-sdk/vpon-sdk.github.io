@@ -12,7 +12,8 @@ lang:            "en"
 
 >**Note:**
 
->1. There's no SDK in any Sample Code.
+>1. We provide `Objective-C's` & `Swift's` sample code.
+>2. There's no SDK in any Sample Code.
 >3. After Integration, please check if it has `VponLog:didImpression` in Log to make sure the information of impression will send back to our server.
 >4. Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
 
