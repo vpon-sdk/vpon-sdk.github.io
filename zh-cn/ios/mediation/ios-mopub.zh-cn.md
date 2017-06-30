@@ -32,7 +32,7 @@ Mopub 后台设定请参考下列步骤:
 ![][3]
 
 ## Step6: 填写 CUSTOMEVENT
-填入您的 package name + class name, 可以参考范例所示
+填入您的 class name, 可以参考范例所示
 
 ## Step7: VponID/adUnitID
 填入您在 Vpon 申请的 BannerID/InterstitialID, key 为 `strBannerId`

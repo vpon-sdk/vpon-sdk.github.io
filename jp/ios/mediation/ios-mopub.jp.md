@@ -31,7 +31,7 @@ Click "Networks" tab and click "add a Network".
 ![][3]
 
 ## Step6: Fill in CUSTOMEVENT
-Fill in your package name + class name, you can see the sample at the reference page.
+Fill in your class name, you can see the sample at the reference page.
 
 ## Step7: NativeID/adUnitID
 Fill in NativeID which you apply from our Vpon website, and the key is `strBannerId`
