@@ -24,6 +24,7 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 | :---------------- | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
+| Large Rectangle   |    320x480    |
 
 
 <br>
@@ -42,12 +43,12 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 ...
   <vpon vpon_ad_test="1"
         vpon_ad_licensy_key="your_second_vpon_banner_id"
-        vpon_ad_format="320x50_mb"
+        vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
         vpon_ad_licensy_key="your_third_vpon_banner_id"
-        vpon_ad_format="300x250_mb"
+        vpon_ad_format="320x480_mb"
         debug="true"></vpon>
 ...
   <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -72,7 +73,7 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 名稱                  |        描述                      | 必要  |  範例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">輸入 Vpon License Key</font>
-vpon\_ad\_format      | 廣告版行：320x50\_mb, 300x250\_mb            |   Y       |     "320x50\_mb"
+vpon\_ad\_format      | 廣告版型：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb            |   Y       |     "320x50\_mb"
 vpon\_ad\_test        |   是否拉取測試廣告                        | N          |   1(是)/0(否)，預設為(是)
 vpon\_ad\_isBottom    |   是否為置底橫幅廣告                        | N          |   true/false，預設為 false
 debug                 | 是否在 console 顯示 debug 資訊          |  N         |   true/false，預設為 false

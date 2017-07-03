@@ -26,6 +26,7 @@ Vpon Mobile Web SDK supports the following `original banner ad formats`:<br><br>
 | :---------------: | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
+| Large Rectangle   |    320x480    |
 
 
 <br>
@@ -46,12 +47,12 @@ You should insert the following snippet of code directly after the opening <body
 ...
   <vpon vpon_ad_test="1"
         vpon_ad_licensy_key="your_second_vpon_banner_id"
-        vpon_ad_format="320x50_mb"
+        vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
         vpon_ad_licensy_key="your_third_vpon_banner_id"
-        vpon_ad_format="300x250_mb"
+        vpon_ad_format="320x480_mb"
         debug="true"></vpon>
 ...
   <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -76,7 +77,7 @@ You should insert the following snippet of code directly after the opening <body
 Name                  |        Description                      | Necessary  |  Example
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| Banner ID                               |  Y         |<font color="red">Put your Vpon License Key</font>
-vpon\_ad\_format      | Size：320x50\_mb, 300x250\_mb            |   Y       |     "320x50\_mb"
+vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb            |   Y       |     "320x50\_mb"
 vpon\_ad\_test        |   Test Ad                               | N          |   1(Yes)/0(No)，Default(Yes)
 vpon\_ad\_isBottom    |   Adhesion Ad                        | N          |   true/false，Default:false
 debug                 | Debugging information in console        |  N         |   true/false，Default:false
