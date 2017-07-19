@@ -1,5 +1,13 @@
 # Android Changelog
 
+### 4.6.5
+
+* Release Date: 19 Jul. 2017
+* Build Number: 91707102
+* Support mutiple size of the interstitial ad's close button and improve its showing timing to increase user experience
+* Update impression tracking logic to reduce impression discrepancie
+* Fix few bugs
+
 ### 4.6.4
 
 * Release Date: 14 Apr. 2017
