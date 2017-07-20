@@ -212,7 +212,7 @@ Rating Min/Max| 1/5
 
 [串接说明]: ../integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
+[Sample Code]: {{ site.baseurl }}/zh-cn/ios/download/
 [基本原生广告]: {{site.baseurl}}/zh-cn/ios/native/
 [原生广告 - Table View]: #
 [这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

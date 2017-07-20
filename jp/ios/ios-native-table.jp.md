@@ -205,7 +205,7 @@ Here we use `NativeAd - Table View` as an example. A basic naive ad sample is al
 
 [settings here]: ../integration-guide/
 [here]: {{ site.baseurl }}/jp/ios/registration/
-[Sample Code]: {{site.dnldurl}}/sample-code/NativeSamplesiOS.zip
+[Sample Code]: {{ site.baseurl }}/jp/ios/download/
 [Basic Native Ad]: {{ site.baseurl }}/jp/ios/native/
 [Native Ad - Table View]: #
 [this link]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/
