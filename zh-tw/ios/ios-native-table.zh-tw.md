@@ -181,15 +181,15 @@ static NSString *const kAdCellIdentifier = @"adIdentifier";
 
 Properties   |   Description
 :-----------:|:-----------:|
-<font color="red">AdLabel</font>      | 讓使用者了解此為廣告
+<font color="red">AdLabel</font>      | 讓使用者了解此為廣告 (例如：贊助、廣告 等等)
 :-----------:|:-----------:|
 <font color="red">Title</font>  | 最少需顯示8個中文字, 放不下時須顯示`...`
-:-----------:|:-----------:|
-<font color="red">CallToAction</font> | 需要完整顯示
 :-----------:|:-----------:|
 <font color="red">CoverImage</font>   | 1200 x 627px (可等比例縮放，不可變形，不可裁切)
 :-----------:|:-----------:|
 <font color="red">Icon</font>     | 128 x 128px (可等比例縮放，不可變形，不可裁切)
+:-----------:|:-----------:|
+CallToAction | 需要完整顯示
 :-----------:|:-----------:|
 BodyText     | 最少顯示20個中文字，或不要顯示
 :-----------:|:-----------:|

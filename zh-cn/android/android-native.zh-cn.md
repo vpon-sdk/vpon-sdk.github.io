@@ -296,15 +296,15 @@ Vpon SDK 提供原生广告管理器( Native Ads Manager )。当您设计的 App
 
 Properties   |   Description
 :-----------:|:-----------:|
-<font color="red">AdLabel</font>      | 让使用者了解此为广告
+<font color="red">AdLabel</font>      | 让使用者了解此为广告 (例如： 赞助、广告 等等)
 :-----------:|:-----------:|
 <font color="red">Title</font>  | 最少需显示8个中文字, 放不下时须显示`...`
-:-----------:|:-----------:|
-<font color="red">CallToAction</font> | 需要完整显示
 :-----------:|:-----------:|
 <font color="red">CoverImage</font>   | 1200 x 627px (可等比例缩放，不可变形，不可裁切)
 :-----------:|:-----------:|
 <font color="red">Icon</font>     | 128 x 128px (可等比例缩放，不可变形，不可裁切)
+:-----------:|:-----------:|
+CallToAction | 需要完整显示
 :-----------:|:-----------:|
 BodyText     | 最少显示20个中文字，或不要显示
 :-----------:|:-----------:|

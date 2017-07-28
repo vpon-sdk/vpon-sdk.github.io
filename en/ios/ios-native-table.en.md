@@ -179,15 +179,15 @@ Method `setNativeAd` in CustomCell will determine whether there exists native ad
 
 Properties   |   Description
 :-----------:|:-----------:|
-<font color="red">AdLabel</font>      | Let user know it is ad.
+<font color="red">AdLabel</font>      | Let user know it is ad ( Sponsor, Ad, and so on ).
 :-----------:|:-----------:|
 <font color="red">Title</font>  | Show at least 16 English alphabets. <br>Show `...` while it's out of space.
-:-----------:|:-----------:|
-<font color="red">CallToAction</font> | Show completely
 :-----------:|:-----------:|
 <font color="red">CoverImage</font>   | 1200 x 627px <br>(enable scaling in proportion, without distortion and clipping)
 :-----------:|:-----------:|
 <font color="red">Icon</font>     | 128 x 128px <br>(enable scaling in proportion, without distortion and clipping)
+:-----------:|:-----------:|
+CallToAction | Show completely
 :-----------:|:-----------:|
 BodyText     | Show at least 20 English alphabets or unshow it.
 :-----------:|:-----------:|
