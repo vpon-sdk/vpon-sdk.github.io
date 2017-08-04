@@ -1,4 +1,4 @@
-# SDK Download (Version: 4.6.5)
+# SDK Download (Version: {{site.version}})
 ---
 
 Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |

@@ -104,3 +104,6 @@ languages:
 analytics:
   google:
     account:         UA-66722167-2
+
+#version
+version:          4.6.5
