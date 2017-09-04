@@ -23,7 +23,7 @@ Fundamental<br><font size="2px" color="#C0C0C0">Android Studio</font> | Fundamen
 
 
 
-[1]: http://m.vpadn.com/sdk/vpadn-sdk-obf465-71707102-1707171713-4cf3969.jar
+[1]: http://m.vpadn.com/sdk/vpadn-sdk-obf466-40907102-1709041622-9bb101a.jar
 
 [2]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/AdMobAdapter
 [3]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/MoPubCustomEvents

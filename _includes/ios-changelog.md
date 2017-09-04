@@ -1,5 +1,13 @@
 # iOS Changelog
 
+### 4.6.6
+
+* Release Date: 04 Sep. 2017
+* Build Number: 40907102
+* Address compatibility issues for iOS 11
+* Support progress wheel to improve interstitial ad's user experience
+* Fix few bugs
+
 ### 4.6.5
 
 * Release Date: 19 Jul. 2017
