@@ -1,4 +1,4 @@
-# SDK Download (Version: {{site.version}})
+# SDK Download (Version: {{site.a_version}})
 ---
 
  Fundamental SDK |

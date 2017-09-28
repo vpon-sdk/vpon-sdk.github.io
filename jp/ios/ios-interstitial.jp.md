@@ -79,13 +79,15 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 }
 ```
 
+# Confirm Correct Integration (after v4.6.6 )
+---
+Apart from seeing a interstitial ad, you also have to check the following information shown in log to confirm a correct integration while using SDK after v4.6.6.
 
+`<Vpadn> [NOTE] Covered detection success`
 
 # サンプルコードのダウンロード
 ---
 [Go to Download Page]
-
-
 
 
 [Go to Download Page]:{{site.baseurl}}/jp/ios/download

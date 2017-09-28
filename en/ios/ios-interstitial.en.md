@@ -82,6 +82,12 @@ Vpadn Interstitial Delegate [advanced setting] provides many callback methods fo
 }
 ```
 
+# Confirm Correct Integration (after v4.6.6 )
+---
+Apart from seeing a interstitial ad, you also have to check the following information shown in log to confirm a correct integration while using SDK after v4.6.6.
+
+`<Vpadn> [NOTE] Covered detection success`
+
 # Download Sample Code
 ---
 You can download an example project containing SDK 4 lib file in VpadnAd folder:

@@ -106,4 +106,5 @@ analytics:
     account:         UA-66722167-2
 
 #version
-version:          4.6.6
+a_version:          4.6.6
+i_version:          4.6.7
