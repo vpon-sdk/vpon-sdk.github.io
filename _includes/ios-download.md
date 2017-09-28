@@ -5,8 +5,11 @@ Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |
 :-------------: | :------------:|
 [download][1]   | [download][2] |
 
+> **Note**:
 
->**Note:** You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 7.0. So, if you are targeting at users with device OS lower than 7.0, please use fundamental SDK instead.
+>* `Please use Xcode 9 while using version after 4.6.7.`
+>
+>* You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. However, it requires OS version higher than 7.0. So, if you are targeting at users with device OS lower than 7.0, please use fundamental SDK instead.
 
 # Header Download
 
