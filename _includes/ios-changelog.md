@@ -1,5 +1,12 @@
 # iOS Changelog
 
+### 4.6.7
+
+* Release Date: 28 Sep. 2017
+* Build Number: 82907102
+* Fix the bug which cause crash error on iPhone X simulator
+* Adjust few layouts to fit iPhone X
+
 ### 4.6.6
 
 * Release Date: 04 Sep. 2017
