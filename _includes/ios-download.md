@@ -22,7 +22,7 @@ Fundamental SDK<br>(Require iOS 5+)  | Framework SDK <br> (Require iOS 7+) |
 # Adapter Download
 ---
 
-AdMob Adapter <br> (Version: 1.0.2)|MoPub Custom Events
+AdMob Adapter <br> (Version: 1.0.5)|MoPub Custom Events
 :---------------------------------:|:-----------:|
 [download][4]                      |[download][5]
 
