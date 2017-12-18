@@ -1,5 +1,13 @@
 # Android Changelog
 
+### 4.7.0
+
+* Release Date: 18 Dec. 2017
+* Build Number: 81217102
+* Improve native ad's performance and user experience
+* Solve the interstitial formatting probelm on the Android verson above 8.0
+* Fix few bugs
+
 ### 4.6.6
 
 * Release Date: 04 Sep. 2017

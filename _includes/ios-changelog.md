@@ -1,5 +1,13 @@
 # iOS Changelog
 
+### 4.7.0
+
+* Release Date: 18 Dec. 2017
+* Build Number: 81217102
+* Improve native ad's performance and user experience
+* Prevent cleaning cache in the app
+* Fix few bugs
+
 ### 4.6.7
 
 * Release Date: 28 Sep. 2017
