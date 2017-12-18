@@ -36,7 +36,7 @@ Fundamental  | Framework | AdMob        |    DFP       |     Mogo    |  MoPub
 
 
 [1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-470-81217102-1712181204-fb310a5.a
-[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.6.7.zip
+[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.7.0.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter
