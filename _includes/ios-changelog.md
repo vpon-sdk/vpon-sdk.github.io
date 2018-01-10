@@ -1,5 +1,11 @@
 # iOS Changelog
 
+### 4.7.1
+
+* Release Date: 10 Jan. 2018
+* Build Number: 01108102
+* Fix the bug which causes that iPad's interstitial ad cannot be closed by users in particular situations
+
 ### 4.7.0
 
 * Release Date: 18 Dec. 2017
@@ -12,7 +18,7 @@
 
 * Release Date: 28 Sep. 2017
 * Build Number: 82907102
-* Fix the bug which cause crash error on iPhone X simulator
+* Fix the bug which causes crash error on iPhone X simulator
 * Adjust few layouts to fit iPhone X
 
 ### 4.6.6
