@@ -1,11 +1,5 @@
 # iOS Changelog
 
-### 4.7.1
-
-* Release Date: 10 Jan. 2018
-* Build Number: 01108102
-* Fix the bug which causes that iPad's interstitial ad cannot be closed by users in particular situations
-
 ### 4.7.0
 
 * Release Date: 18 Dec. 2017
