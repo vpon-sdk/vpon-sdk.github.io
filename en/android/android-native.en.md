@@ -111,12 +111,20 @@ Before adding the code to load the ad, you need to build your customized native 
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/nativeAdImage"
+    <!--Vpon Inc. original method, feel free to use VpadnMediaView tag below-->
+    <!--<ImageView-->
+        <!--android:id="@+id/nativeAdImage"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:contentDescription="Ad image" />-->
+
+    <!--Vpon Inc. New layout-->
+    <com.vpadn.ads.VpadnMediaView
+        android:id="@+id/native_ad_media"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:contentDescription="Ad image" />
+        android:gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -235,7 +243,9 @@ While the Native ad is received successfully, the function `inflateAd` will also
         ImageView nativeAdIcon = (ImageView) nativeAdView.findViewById(R.id.nativeAdIcon);
         TextView nativeAdTitle = (TextView) nativeAdView.findViewById(R.id.nativeAdTitle);
         TextView nativeAdBody = (TextView) nativeAdView.findViewById(R.id.nativeAdBody);
-        ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
+        // Vpon Inc. original method, feel free to use VpadnMediaView below
+        //ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
+        VpadnMediaView nativeAdMedia = (VpadnMediaView)
         RatingBar nativeAdStarRating = (RatingBar) nativeAdView.findViewById(R.id.nativeAdStarRating);
         TextView nativeAdSocialContext = (TextView) nativeAdView.findViewById(R.id.nativeAdSocialContext);
         Button nativeAdCallToAction = (Button) nativeAdView.findViewById(R.id.nativeAdCallToAction);
@@ -266,14 +276,19 @@ While the Native ad is received successfully, the function `inflateAd` will also
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
         int screenWidth = metrics.widthPixels;
-        nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
-        VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
+        // Vpon Inc. original method, feel free to use VpadnMediaView tag below
+        //nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
+        //VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
+        nativeAdMedia.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
+        nativeAdMedia.setNativedAd(nativeAd);
 
         // Wire up the View with the native ad, the whole nativeAdContainer will be clickable.
         // nativeAd.registerViewForInteraction(nativeAdView);
 
         // You can replace the above call with the following call to specify the clickable areas.
-        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
+        // Vpon Inc. original method, feel free to use VpadnMediaView tag below
+        // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
+        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
 
     }
 ```

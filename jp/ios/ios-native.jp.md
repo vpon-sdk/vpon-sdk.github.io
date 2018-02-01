@@ -49,6 +49,8 @@ First, in your View Controller header file, import Vpon SDK and declare that you
 #import "ViewController.h"
 
 @interface ViewController ()<VpadnNativeAdDelegate>
+/* For SDK version 4.7.1 or above */
+@interface ViewController ()<VpadnNativeAdDelegate, VpadnMediaViewDelegate>
 
 @property (strong, nonatomic) VpadnNativeAd *nativeAd;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
@@ -59,6 +61,8 @@ First, in your View Controller header file, import Vpon SDK and declare that you
 @property (weak, nonatomic) IBOutlet UILabel *adBody;
 @property (weak, nonatomic) IBOutlet UIButton *adAction;
 @property (weak, nonatomic) IBOutlet UILabel *adSocialContext;
+/* For SDK version 4.7.1 or above */
+@property (weak, nonatomic) IBOutlet VpadnMediaView *adMediaView;
 
 @end
 ```
@@ -105,9 +109,14 @@ While the Native ad is received successfully, the function will also construct t
         safeSelf.adIcon.image = image;
     }];
     // media cover
+    /* For SDK version 4.7.0 or below
     [nativeAd.coverImage loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
         safeSelf.adCoverMedia.image = image;
     }];
+    */
+    /* For SDK version 4.7.1 or above */
+    self.adMediaView.delegate = self;
+    [self.adMediaView setNativeAd:nativeAd];
     // text
     self.adTitle.text = nativeAd.title;
     self.adBody.text = nativeAd.body;
@@ -137,6 +146,11 @@ While the Native ad is received successfully, the function will also construct t
 
 - (void)onVpadnNativeAdLeaveApplication:(VpadnNativeAd *)nativeAd {
     NSLog(@"NativeAdViewController onVpadnNativeAdLeaveApplication");
+}
+
+/* For SDK version 4.7.1 or above */
+- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
+    NSLog(@"mediaViewDidLoad");
 }
 ```
 
