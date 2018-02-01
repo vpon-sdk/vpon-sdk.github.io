@@ -1,5 +1,14 @@
 # Android Changelog
 
+### 4.7.1
+
+* Release Date: 01 Feb. 2018
+* Build Number: 10208102
+* Improve native ad's performance and user experience
+* Support new integration way on native ad
+* Increase advertising accuracy
+* Fix few bugs
+
 ### 4.7.0
 
 * Release Date: 18 Dec. 2017

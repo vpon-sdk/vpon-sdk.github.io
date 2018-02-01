@@ -1,5 +1,14 @@
 # iOS Changelog
 
+### 4.7.1
+
+* Release Date: 01 Feb. 2018
+* Build Number: 10208102
+* Fix the bug that close button would be shown in the wrong position
+* Improve native ad's performance and user experience
+* Support new integration way on native ad
+* Increase advertising accuracy
+
 ### 4.7.0
 
 * Release Date: 18 Dec. 2017
