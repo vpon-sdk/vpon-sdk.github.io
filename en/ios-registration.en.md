@@ -16,24 +16,26 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 # System Compatibility
 ---
 
-## iOS OS versions
+## iOS
 
- * iOS OS 5.0 or later
+ `iOS 8.0 or later & Xcode 9.0 or later`
 
 ## Android OS versions
 
- * Android 2.3.3 or later
+ `Android 2.3.3 or later`
 
 ## Feasible Ad Size
 
- * Be sure at least 320x50 dip
+ `Be sure at least 320x50 dip`
 
 # License Key Application
 ---
 
 ## Apply Vpon SDK License Key
 
-It is required to apply a unique license key in order to request for ADs. We strongly suggest developers apply both China and Taiwan license key to target Great China Market. <br>Enter in http://cn.pub.vpon.com/ for China Vpon Platform. <br>Enter in http://tw.pub.vpon.com/ for Taiwan Vpon Platform.
+It is required to apply a unique license key in order to request for ADs.
+
+Enter in <http://tw.pub.vpon.com/> for Taiwan Vpon Platform.
 
 ## Set Vpon platform
 

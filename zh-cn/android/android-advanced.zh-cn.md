@@ -110,7 +110,6 @@ lang:            "zh-cn"
 ## 设定
 ---
 在后台注册申请流程中可选择是否播放 Crazy Ad。<br>
-进入 <http://cn.adon.vpon.com/> 注册中国区License Key。<br>
 进入 <http://tw.adon.vpon.com/> 注册台湾区License Key。<br>
 如图:
 ![CrazyadSetting]

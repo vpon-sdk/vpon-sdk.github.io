@@ -16,9 +16,9 @@ Vpon ウェブサイトにアクセスしてください。: こちら[ページ
 # システム要求
 ---
 
-## iPhone OS バージョン
+## iOS
 
- * `iPhone OS 5.0 以上`
+ * `iOS 8.0 以上 & Xcode 9.0 以上`
 
 ## Android OS バージョン
 

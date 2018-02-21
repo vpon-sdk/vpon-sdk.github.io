@@ -3,6 +3,7 @@
 {% case langs %}
 {% when "en" %}
   {% assign urlGettingStarted = v | append:"/android" %}
+  {% assign urlRegistration = v | append:"/android/registration" %}
   {% assign urlIntegrationGuide = v | append:"/android/integration-guide" %}
   {% assign urlBanner = v | append:"/android/banner" %}
   {% assign urlInterstitial = v | append:"/android/interstitial" %}
@@ -14,6 +15,7 @@
   {% assign urlChangelog = v | append:"/android/changelog" %}
   {% assign sidebar-title1 = "Android Integration" %}
   {% assign getting-started = "Getting Started" %}
+  {% assign registration = "Registration" %}
   {% assign integration-guide = "Integration Guide" %}
   {% assign sidebar-title2 = "Ad Type Choices" %}
   {% assign banner-id = "Banner Ad" %}
@@ -27,6 +29,7 @@
   {% assign changelog = "Changelog" %}
 {% else %}
   {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/android" %}
+  {% assign urlRegistration = v | append:"/" | append: langs | append: "/android/registration" %}
   {% assign urlIntegrationGuide = v | append:"/" | append: langs | append: "/android/integration-guide" %}
   {% assign urlBanner = v | append:"/" | append: langs | append: "/android/banner" %}
   {% assign urlInterstitial = v | append:"/" | append: langs | append: "/android/interstitial" %}
@@ -41,6 +44,7 @@
 {% when "zh-tw" %}
   {% assign sidebar-title1 = "Android 串接" %}
   {% assign getting-started = "開始使用" %}
+  {% assign registration = "註冊帳號" %}
   {% assign integration-guide = "串接說明" %}
   {% assign sidebar-title2 = "廣告型態選擇" %}
   {% assign banner-id = "橫幅廣告" %}
@@ -55,6 +59,7 @@
 {% when "zh-cn" %}
   {% assign sidebar-title1 = "Android 串接" %}
   {% assign getting-started = "开始使用" %}
+  {% assign registration = "注册帐号" %}
   {% assign integration-guide = "串接说明" %}
   {% assign sidebar-title2 = "广告型态选择" %}
   {% assign banner-id = "横幅广告" %}
@@ -69,6 +74,7 @@
 {% when "jp" %}
   {% assign sidebar-title1 = "Android 串接" %}
   {% assign getting-started = "スタートガイド" %}
+  {% assign registration = "Vponへの登録" %}
   {% assign integration-guide = "インテグレーションガ" %}
   {% assign sidebar-title2 = "広告パターンとを選択" %}
   {% assign banner-id = "バナー広告" %}
@@ -84,6 +90,7 @@
 <ul class= "nav nav-sidebar nav-left hidden-xs hidden-sm">
   <span id= "sidebar-title1">{{sidebar-title1}}</span>
   <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+  <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
   <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
   <span id= "sidebar-title2">{{sidebar-title2}}</span>
   <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
@@ -101,6 +108,7 @@
   <div class="nav nav-sidebar" style="float:left">
       <span id= "sidebar-title1">{{sidebar-title1}}</span>
       <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+      <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
       <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
   </div>
   <div class="nav nav-sidebar">

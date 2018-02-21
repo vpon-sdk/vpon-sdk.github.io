@@ -11,7 +11,7 @@ lang:           "zh-cn"
 # 注册新帐号
 ---
 
-请到 Vpon 网站注册帐号: [注册服务区为台湾]、[注册服务区为大陆]。
+请到 Vpon 网站注册帐号: [注册服务区为台湾]。
 
 进入网站之后，您可以到右上角更换语言。注册填写完毕之后，您会在注册的信箱中，收到一封认证信，将认证码填写完，即完成注册流程。
 
@@ -20,9 +20,9 @@ lang:           "zh-cn"
 # 系统需求
 ---
 
-## iPhone OS 版本
+## iOS
 
-`iPhone OS 5.0以上`
+`iOS 8.0 以上 & Xcode 9.0 以上`
 
 ## Android OS 版本
 
@@ -36,10 +36,8 @@ lang:           "zh-cn"
 # 申请 License Key
 ---
 进行开发之前，请务必为您的应用程式取得 License Key。
-我们强烈建议您同时注册「台湾区」以及「中国区」的 License
-Key，可以帮助您横跨大中华区的行动广告市场。
-
-进入 <http://cn.adon.vpon.com/> 注册中国区License Key。
+<!-- 我们强烈建议您同时注册「台湾区」以及「中国区」的 License
+Key，可以帮助您横跨大中华区的行动广告市场。 -->
 
 进入 <http://tw.adon.vpon.com/> 注册台湾区License Key。
 
@@ -71,7 +69,6 @@ URL 与应用程式说明与选择是否可播放 Crazy AD
 
 
   [注册服务区为台湾]: http://tw.pub.vpon.com/register.action
-  [注册服务区为大陆]: http://cn.pub.vpon.com/register.action
   [0]: {{site.imgurl}}/SDK400建立應用程式.jpeg
   [1]: {{site.imgurl}}/SDK400新增版位.jpeg
   [2]: {{site.imgurl}}/Trandationchinesefrontserver3.png

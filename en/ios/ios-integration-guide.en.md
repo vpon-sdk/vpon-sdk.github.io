@@ -12,22 +12,17 @@ lang:            "en"
 ---
 1. Check your ad network from registering url first:<br>
 Taiwan is: <http://tw.pub.vpon.com/><br>
-China is: <http://cn.pub.vpon.com/><br>
+<!-- China is: <http://cn.pub.vpon.com/><br> -->
 
 2. If you register platform in Taiwan, please use:`vpadnAd.platform = @"TW"`;
 
-3. If you register platform in China, please use:`vpadnAd.platform = @"CN"`;
-
-4.  If you cannot see `didImpression` from log after updating to iOS8, it is probably because there is no window's width*hight by default. So you have to manually adjust it by calling setFrame. `Occlusion Detection` is executed while integrating **banner ads**. An ad might be occluded partially without showing `didImpression` in log. Notice, Seeing the `didImpression` is the correct way of integration.
+3. `Occlusion Detection` is executed while integrating **banner ads**. An ad might be occluded partially without showing `didImpression` in log. Notice, Seeing the `didImpression` is the correct way of integration.
 
 # Overview
 ---
-Banner ads use a small portion of the screen to entice users to "click through" to a richer, full-screen experience such as a website or app store page. To display banner ads in your iOS app, simply import Vpadn SDK in Xcode project and add a VpadnBanner to your UI.
+> * Banner ads use a small portion of the screen to entice users to "click through" to a richer, full-screen experience such as a website or app store page. To display banner ads in your iOS app, simply import Vpadn SDK in Xcode project and add a VpadnBanner to your UI.
 
-# Requirement
----
-* iOS version 5.0 or later
-* Xcode 4.4 or later
+> * If you would like to show Vpon’s ad by integrating Mediation Platform such as AdMob, DFP, MoPub, and so on, please click here to see the [Sample Codes]. Remember to integrate [Adapter or Custom Events] into your projects.
 
 # Import SDK
 ---
@@ -41,7 +36,6 @@ Vpon provides two ways to integrate our SDK. Choose one of the following two opt
 ## Streamlined, using CocoaPods {#cocoapods}
 
 > * Please follow the CocoaPods’ [install guidance](https://cocoapods.org/) if it is still uninstalled. Publisher can use CocoaPods, which is a dependency manager for Objective-C Cocoa projects, to integrate Vpon SDK simply and automatically.
-> * Remind that Integrated SDK by CocoaPods only support devices in iOS version higher than `7.0`.
 
 1.Create the Podfile
 
@@ -50,7 +44,7 @@ Run `pod init` from the terminal, in the same directory as the project file (.xc
 In the Podfile, publishers also have to add the description in the `target` about what Vpon SDK version they want to integrate. The description depends on `whether the publishers assign the version of SDK` :
 
 * Unassigned , system will download the latest version automatically `(Recommend)` : input `pod 'VpadnSDK'`
-* Assigned (Take SDK 4.6.0 for example) : input `pod 'VpadnSDK', '~>4.6.0'`
+* Assigned (Take SDK {{site.i_version}} for example) : input `pod 'VpadnSDK', '~>{{site.i_version}}'`
 
 ![]({{site.imgurl}}/cocoapods_1.png)
 
@@ -61,7 +55,7 @@ Please close the project (.xcodeproj) and run `pod install` from the terminal in
 
 ![]({{site.imgurl}}/cocoapods_2.png)
 
-> In the terminal, run `pod update` in the directory where the Podfile is located if you want to update to the latest Vpon SDK.
+> In the terminal, run `pod repo update` in the directory where the Podfile is located if you want to update to the latest Vpon SDK.
 
 <br>
 
@@ -69,8 +63,8 @@ Please close the project (.xcodeproj) and run `pod install` from the terminal in
 
 Vpon provides two SDKs serving the same functions for our publishers. You should choose either of these 2 to integrate manually.<br>
 
-* [Framework SDK (iOS 7.0+)](#framework-sdk)<br>
-* [Fundamental SDK (iOS 5.0+)](#fundamental-sdk)
+* [Framework SDK](#framework-sdk)<br>
+* [Fundamental SDK](#fundamental-sdk)
 
 
 There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.
@@ -170,3 +164,5 @@ Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[N
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
 [this link]: {{site.baseurl}}/ios/latest-news/ios9ats/
+[Adapter or Custom Events]: {{site.baseurl}}/ios/download/#adapter-download
+[Sample Codes]: {{site.baseurl}}/ios/download/#sample-code-download

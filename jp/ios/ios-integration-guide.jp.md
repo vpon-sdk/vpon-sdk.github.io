@@ -7,29 +7,22 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/ios/integration-guide/
 lang:            "jp"
 ---
-# Vpon SDK 4 基本編
+# Vpon SDK 基本編
 ---
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
 台湾: <http://tw.pub.vpon.com/><br>
-中国: <http://cn.pub.vpon.com/><br>
 
 2. 台湾のプラットフォームを利用する場合、以下をご利用ください。
 `vpadnAd.platform = @"TW"`;
 
-3. 中国のプラットフォームを利用する場合、以下をご利用ください。
-`vpadnAd.platform = @"CN"`;
-
-4.   iOS8にアップデート後、ログに `didImpression` が確認できない場合、原因としてデフォルト設定でウィンドウの幅 x 高さが存在しない可能性が考えられます。setFrame関数をマニュアルで呼び出して調整する必要があります。`didImpression` が正しく実装されているかご確認ください。
+3. iOS8にアップデート後、ログに `didImpression` が確認できない場合、原因としてデフォルト設定でウィンドウの幅 x 高さが存在しない可能性が考えられます。setFrame関数をマニュアルで呼び出して調整する必要があります。`didImpression` が正しく実装されているかご確認ください。
 
 # 概要
 ---
-Vponバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
+> * Vponバナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
 iOS アプリでバナー広告を表示させるためには、XcodeプロジェクトにSDKを導入し、ユーザインターフ ェースに VpadnBanner を追加するだけです。
 
-# 要件
----
-* iOS 5.x 以降のバージョン
-* XCode 4.4 以降のバー ジョン
+> * If you would like to show Vpon’s ad by integrating Mediation Platform such as AdMob, DFP, MoPub, and so on, please click here to see the [Sample Codes]. Remember to integrate [Adapter or Custom Events] into your projects.
 
 を組み合わせて使用する必要があります。
 
@@ -54,7 +47,7 @@ Run `pod init` from the terminal, in the same directory as the project file (.xc
 In the Podfile, publishers also have to add the description in the `target` about what Vpon SDK version they want to integrate. The description depends on `whether the publishers assign the version of SDK` :
 
 * Unassigned , system will download the latest version automatically `(Recommend)` : input `pod 'VpadnSDK'`
-* Assigned (Take SDK 4.6.0 for example) : input `pod 'VpadnSDK', '~>4.6.0'`
+* Assigned (Take SDK {{site.i_version}} for example) : input `pod 'VpadnSDK', '~>{{site.i_version}}'`
 
 ![]({{site.imgurl}}/cocoapods_1.png)
 
@@ -65,7 +58,7 @@ Please close the project (.xcodeproj) and run `pod install` from the terminal in
 
 ![]({{site.imgurl}}/cocoapods_2.png)
 
-> In the terminal, run `pod update` in the directory where the Podfile is located if you want to update to the latest Vpon SDK.
+> In the terminal, run `pod repo update` in the directory where the Podfile is located if you want to update to the latest Vpon SDK.
 
 <br>
 
@@ -73,8 +66,8 @@ Please close the project (.xcodeproj) and run `pod install` from the terminal in
 
 Vpon provides two SDKs serving the same functions for our publishers. You should choose either of these 2 to integrate manually.<br>
 
-* [Framework SDK (iOS 7.0+)](#framework-sdk)<br>
-* [Fundamental SDK (iOS 5.0+)](#fundamental-sdk)
+* [Framework SDK](#framework-sdk)<br>
+* [Fundamental SDK](#fundamental-sdk)
 
 There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.
 
@@ -173,3 +166,5 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
 [このリンク]: {{site.baseurl}}/ios/latest-news/ios9ats/
+[Adapter or Custom Events]: {{site.baseurl}}/jp//ios/download/#adapter-download
+[Sample Codes]: {{site.baseurl}}/jp/ios/download/#sample-code-download

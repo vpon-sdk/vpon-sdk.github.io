@@ -11,7 +11,7 @@ lang:           "zh-tw"
 # 註冊新帳號
 ---
 
-請到 Vpon 網站註冊帳號: [註冊服務區為台灣]、[註冊服務區為大陸]。
+請到 Vpon 網站註冊帳號: [註冊服務區為台灣]。
 
 進入網站之後，您可以到右上角更換語言。註冊填寫完畢之後，您會在註冊的信箱中，收到一封認證信，將認證碼填寫完，即完成註冊流程。
 
@@ -20,9 +20,9 @@ lang:           "zh-tw"
 # 系統需求
 ---
 
-## iPhone OS 版本
+## iOS
 
-`iPhone OS 5.0以上`
+`iOS 8.0 以上 & Xcode 9.0 以上`
 
 ## Android OS 版本
 
@@ -36,10 +36,6 @@ lang:           "zh-tw"
 # 申請 License Key
 ---
 進行開發之前，請務必為您的應用程式取得 License Key。
-我們強烈建議您同時註冊「台灣區」以及「中國區」的 License
-Key，可以幫助您橫跨大中華區的行動廣告市場。
-
-進入 <http://cn.adon.vpon.com/> 註冊中國區License Key。
 
 進入 <http://tw.adon.vpon.com/> 註冊台灣區License Key。
 
@@ -71,7 +67,6 @@ URL 與應用程式說明與選擇是否可播放 Crazy AD
 
 
   [註冊服務區為台灣]: http://tw.pub.vpon.com/register.action
-  [註冊服務區為大陸]: http://cn.pub.vpon.com/register.action
   [0]: {{site.imgurl}}/SDK400建立應用程式.jpeg
   [1]: {{site.imgurl}}/SDK400新增版位.jpeg
   [2]: {{site.imgurl}}/Trandationchinesefrontserver3.png

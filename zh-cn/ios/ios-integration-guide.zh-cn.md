@@ -11,21 +11,17 @@ lang: "zh-cn"
 ---
 1. 请先从注册网址检查您的Ad Network平台<br>
 Taiwan平台为: <http://tw.pub.vpon.com/><br>
-China平台为: <http://cn.pub.vpon.com/><br>
+<!-- China平台为: <http://cn.pub.vpon.com/><br> -->
 
 2. 如果您申请的是Taiwan的平台，请使用:`vpadnAd.platform = @"TW"`;
 
-3. 如果您申请的是China的平台，请使用:`vpadnAd.platform = @"CN"`;
-
-4. 在 iOS8 之后如果没有看到 `didImpression`， 可能是因为 window 没有预设大小的关系，需要手动去setFrame设定大小。串接**横幅广告**时会进行`遮蔽侦测`，该侦测可能会导致部分广告被遮蔽而使广告无法通过遮蔽侦测，进而无法显示`didImpression`，请注意！看到 `didImpression`的log才是正确的串接完成。
+3. 串接**横幅广告**时会进行`遮蔽侦测`，若部分广告被遮蔽而使广告无法通过遮蔽侦测，会无法显示`didImpression`，请注意！看到 `didImpression`的log才是正确的串接完成。
 
 # 总览
 ---
-若要在 iOS 应用程式中显示 Vpon 广告，只要在您的 Xcode 专案中导入 SDK，然后在使用者介面中加入相关指令就行了。
+> * 若要在 iOS 应用程式中显示 Vpon 广告，只要在您的 Xcode 专案中导入 SDK，然后在使用者介面中加入相关指令就行了。
 
-# 需求条件
----
-Vpon 广告 iOS 版的 SDK 需搭配 iOS 5.x 或更新版本 以及 XCode 4.4 或更新版本。
+> * 若要使用 AdMob, DFP, MoPub 等中介平台来播放 Vpon 广告，请直接参考 [Sample Codes]，请务必记得在专案中加入 [Adapter or Custom Events]，本篇为单一串接 Vpon 的说明。
 
 # 导入 SDK
 ---
@@ -39,7 +35,6 @@ Vpon 提供以下两种串接广告 SDK的方式：
 ## 精简 (使用 CocoaPods) {#cocoapods}
 
 > * CocoaPods 负责管理 Xcode 专案的程式库相依性，开发者可以利用此方式快速的串接 SDK。如果机器上未安装 CocoaPods，请参阅 CocoaPods [安装指南](https://cocoapods.org/)。
-> * 提醒您，使用 CocoaPods 串接 SDK 只对 `iOS 7.0` 以上有效。
 
 1.建立 Podfile
 
@@ -49,7 +44,7 @@ Vpon 提供以下两种串接广告 SDK的方式：
 并在 target 中加入欲使用的 SDK 版本，以`有无指定 SDK 版本`来区分：
 
 * 无指定版本，自动下载最新版本`(建议使用)`：填入 `pod 'VpadnSDK'`
-* 有指定版本(以 SDK 4.6.0 为例)：填入`pod 'VpadnSDK', '~>4.6.0'`
+* 有指定版本(以 SDK {{site.i_version}} 为例)：填入`pod 'VpadnSDK', '~>{{site.i_version}}'`
 
 ![]({{site.imgurl}}/cocoapods_1.png)
 
@@ -60,7 +55,7 @@ Vpon 提供以下两种串接广告 SDK的方式：
 
 ![]({{site.imgurl}}/cocoapods_2.png)
 
-> 若要更新至最新的 SDK，执行终端机 (在与 Podfile 相同的目录中) 上的 `pod update`。这个指令会自动撷取最新的 pods，在应用程式中提供参考。
+> 若要更新至最新的 SDK，执行终端机 (在与 Podfile 相同的目录中) 上的 `pod repo update`。这个指令会自动撷取最新的 pods，在应用程式中提供参考。
 
 <br>
 
@@ -68,16 +63,14 @@ Vpon 提供以下两种串接广告 SDK的方式：
 
 Vpon 提供以下两种手动串接广告的 SDK，择一即可:<br>
 
-* [Framework SDK (iOS 7.0+)](#framework-sdk)<br>
-* [Fundamental SDK (iOS 5.0+)](#fundamental-sdk)
+* [Framework SDK](#framework-sdk)<br>
+* [Fundamental SDK](#fundamental-sdk)
 
 这两个 SDK 其实提供的功能一样，差别在于，iOS 版本需求较高的 Framework SDK 的串接较简单、轻便
 
 ### Framework SDK
 
-若您的 app 使用客群是 iOS 7 以上，我们建议您使用 Framework SDK。
-
-Framework SDK 是一包 dynamic library，它会动态抓取 framework reference, headers 还有 Fundamental SDK 内的程式码，因此对您的广告串接而言：步骤少、容量也小。
+我们建议您使用 Framework SDK。Framework SDK 是一包 dynamic library，它会动态抓取 framework reference, headers 还有 Fundamental SDK 内的程式码，因此对您的广告串接而言：步骤少、容量也小。
 
 #### 导入 Framework SDK
 
@@ -99,11 +92,6 @@ Framework SDK 是一包 dynamic library，它会动态抓取 framework reference
 @import VpadnSDKAdKit
 ```
 ![]({{site.imgurl}}/ios_framework_5.png)
-
-> **Note:** <br>
-> 再次提醒您 Framework SDK **只对 iOS 7.0 以上的装置有用**。
-> 若您的 app 还支援 7.0 以下的装置，请勿使用此 framework，而是使用 [Fundamental SDK](#fundamental-sdk)。
-
 
 
 ### Fundamental SDK
@@ -166,3 +154,5 @@ iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来�
 [IOS-add-file_vpadn.png]: {{site.imgurl}}/IOS-add-file_vpadn.png
 [IOS-add-frameworks_vpadn]: {{site.imgurl}}/IOS-add-frameworks_vpadn.png
 [这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
+[Adapter or Custom Events]: {{site.baseurl}}/zh-cn/ios/download/#adapter-download
+[Sample Codes]: {{site.baseurl}}/zh-cn/ios/download/#sample-code-download
