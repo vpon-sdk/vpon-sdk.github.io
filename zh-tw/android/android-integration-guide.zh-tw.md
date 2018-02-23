@@ -14,21 +14,11 @@ lang:           "zh-tw"
 
 1. 請先從註冊網址檢查您的 Ad Network 平台: <br>
 Taiwan 平台為 <http://tw.pub.vpon.com/> <br>
-China  平台為 <http://cn.pub.vpon.com/>
 
 2. 如果您申請的是 Taiwan 的平台，請使用： <br>
 `vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
 “TW”);`
-
-3. 如果您申請的是 China 的平台，請使用： <br>
-`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
-“CN”);`
 <br>
-
-
-# 系統需求
------------
-Vpon 廣告 Android 版的 SDK 需至少搭配 Android 2.1.X 或更新版本使用。請確認您所使用的是最新版的 Android SDK，並依據 Android v4.X 或更新版本進行編譯 (將 default.properties 中的 target 設為 android-17)。
 
 # 導入 SDK
 ----------

@@ -22,7 +22,7 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 
 ## Android OS versions
 
-`Android 2.3.3 or later`
+`Android 3.0 or later`
 
 ## Feasible Ad Size
 
@@ -33,8 +33,8 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 
 ## Apply Vpon SDK License Key
 
-It is required to apply a unique license key in order to request for ADs. We strongly suggest developers apply both China and Taiwan license key to target Great China Market. <br>
-Enter in <http://cn.pub.vpon.com/> for China Vpon Platform.<br>
+It is required to apply a unique license key in order to request for ADs.
+
 Enter in <http://tw.pub.vpon.com/> for Taiwan Vpon Platform.
 
 ## Set Vpon platform

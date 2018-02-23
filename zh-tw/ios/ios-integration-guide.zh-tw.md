@@ -11,7 +11,6 @@ lang: "zh-tw"
 ---
 1. 請先從註冊網址檢查您的Ad Network平台<br>
 Taiwan平台為: <http://tw.pub.vpon.com/><br>
-<!-- China平台為: <http://cn.pub.vpon.com/><br> -->
 
 2. 如果您申請的是Taiwan的平台，請使用:`vpadnAd.platform = @"TW"`;
 

@@ -96,8 +96,6 @@ Banner expands to take over the whole screen and automatically closes after 5-7 
 ---
 Choose whether or not to use crazy advertisement from License Key Application.
 
-Enter in <http://cn.pub.vpon.com/> for China Vpon Platform.
-
 Enter in <http://tw.pub.vpon.com/> for Taiwan Vpon Platform.
 
 Example:

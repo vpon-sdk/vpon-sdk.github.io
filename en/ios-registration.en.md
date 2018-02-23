@@ -22,7 +22,7 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 
 ## Android OS versions
 
- `Android 2.3.3 or later`
+ `Android 3.0 or later`
 
 ## Feasible Ad Size
 

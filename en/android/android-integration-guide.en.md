@@ -7,22 +7,17 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/integration-guide/
 lang:           "en"
 ---
-# Vpon SDK 4 Fundamental
+# Vpon SDK Fundamental
 ----
 If you are using the previous version of vpon SDK, please read this first: [How to update to SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)
 
 1. Check your ad network from registering url first:<br>
 Taiwan is <http://tw.pub.vpon.com/>
-China  is <http://cn.pub.vpon.com/>
 
 2. If you register Taiwan platform, please use:<br>
 `vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
 “TW”);`
 
-
-3. If you register China platform, please use:<br>
-`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
-“CN”);`
 
 # Overview
 --------
@@ -33,10 +28,6 @@ banner ad.
 
 To display Vpon banners in your Android app, simply import SDK jar file
 to your Eclipse project and add a com.vpadn.ads.VpadnBanner to your UI.
-
-# Requirement
------------
-To show Vpon banner needs Android 2.1.x at least.
 
 # Import SDK
 ----------

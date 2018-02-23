@@ -12,7 +12,6 @@ lang:            "en"
 ---
 1. Check your ad network from registering url first:<br>
 Taiwan is: <http://tw.pub.vpon.com/><br>
-<!-- China is: <http://cn.pub.vpon.com/><br> -->
 
 2. If you register platform in Taiwan, please use:`vpadnAd.platform = @"TW"`;
 

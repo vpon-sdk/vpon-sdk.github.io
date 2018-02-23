@@ -13,25 +13,17 @@ lang:            "jp"
 
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
 台湾: <http://tw.pub.vpon.com/><br>
-中国: <http://cn.pub.vpon.com/><br>
 
 2. 台湾のプラットフォームを利用する場合、以下をご利用ください:<br>
 `vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
 “TW”);`
 
-3. 中国のプラットフォームを利用する場合、以下をご利用ください:<br>
-`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
-“CN”);`
 
 # 概要
 --------
 Vpon バナー広告は、小さなエリアを利用し、ユーザーにクリックさせることで、ウェブサイトもしくはアプリのダウンロードページなどの情報豊富なフルスクリーンページへ遷移させます。ここではあなたのアプリへバナー広告を配信する方法をご案内します。
 
 Android アプリでバナー広告を表示させるためには、Eclipse プロジェクトにSDKを導入し、ユーザインターフ ェースに com.vpadn.ads.VpadnBanner を追加するだけです。
-
-# 要件
------------
-Vpon 広告の Android 版のSDKには、 少なくとも Android 2.1.X 以上のバージョンを使用する必要があ ります。現在ご使用のSDKが最新版のAndroidSDK(http://developer.android.com/sdk/index.html) であることをご確認くださ い。また Android v4.X 以降のバージョンに基づいてコンパイル(default.properties 内の target を android-17 に設定)します
 
 # SDK の導入
 ----------

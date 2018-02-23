@@ -26,7 +26,7 @@ lang:           "zh-tw"
 
 ## Android OS 版本
 
-`Android 2.3.3 以上`
+`Android 3.0 以上`
 
 ## 設定廣告區塊大小
 
