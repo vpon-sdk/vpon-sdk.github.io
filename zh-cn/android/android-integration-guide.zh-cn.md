@@ -13,7 +13,7 @@ lang:           "zh-cn"
 若您曾使用过旧版SDK，请先阅读: [升级最新 SDK 所需修改](../../android/latest-news/update-to-SDK4_5_1+/)
 
 1. 请先从注册网址检查您的 Ad Network 平台: <br>
-Taiwan 平台为 <http://tw.pub.vpon.com/> <br>
+Taiwan 平台为 <http://console.vpon.com/> <br>
 
 2. 如果您申请的是 Taiwan 的平台，请使用： <br>
 `vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,

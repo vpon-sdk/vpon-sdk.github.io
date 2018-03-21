@@ -11,7 +11,7 @@ lang:            "en"
 # Vpon SDK Fundamental
 ---
 1. Check your ad network from registering url first:<br>
-Taiwan is: <http://tw.pub.vpon.com/><br>
+Taiwan is: <http://console.vpon.com/><br>
 
 2. If you register platform in Taiwan, please use:`vpadnAd.platform = @"TW"`;
 

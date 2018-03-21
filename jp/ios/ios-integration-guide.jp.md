@@ -10,7 +10,7 @@ lang:            "jp"
 # Vpon SDK 基本編
 ---
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
-台湾: <http://tw.pub.vpon.com/><br>
+台湾: <http://console.vpon.com/><br>
 
 2. 台湾のプラットフォームを利用する場合、以下をご利用ください。
 `vpadnAd.platform = @"TW"`;

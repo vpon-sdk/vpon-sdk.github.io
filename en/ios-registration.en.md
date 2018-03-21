@@ -9,7 +9,7 @@ lang:           "en"
 ---
 # Vpon Registration
 ---
-Please visit our website: [Here](http://tw.pub.vpon.com/register.action). You may change your language settings on the top-right hand side. Once having completed your registration, please check your emails to get the validation code. After entering the validation code, you will be verified immediately.
+Please visit our website: [Here](http://console.vpon.com/register.action). You may change your language settings on the top-right hand side. Once having completed your registration, please check your emails to get the validation code. After entering the validation code, you will be verified immediately.
 
 If you haven't been able to receive the validation code, please contact us: [Vpon BD](mailro:bd@vpon.com). Thank you.
 
@@ -35,7 +35,7 @@ If you haven't been able to receive the validation code, please contact us: [Vpo
 
 It is required to apply a unique license key in order to request for ADs.
 
-Enter in <http://tw.pub.vpon.com/> for Taiwan Vpon Platform.
+Enter in <http://console.vpon.com/> for Taiwan Vpon Platform.
 
 ## Set Vpon platform
 

@@ -30,7 +30,7 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发布商方便的显示
 1. HTML 基本观念
 
 2. 注册、申请，并取得 Vpon Mobile Web 版位 ID。
-尚未申请版位 ID 者可至以下连结完成：<http://tw.pub.vpon.com/>
+尚未申请版位 ID 者可至以下连结完成：<http://console.vpon.com/>
 
 3. 修改行动网站程式码的权限
 

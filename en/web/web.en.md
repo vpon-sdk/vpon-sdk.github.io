@@ -27,7 +27,7 @@ Vpon Mobile Web SDK enables mobile web developers to maximize their monetization
 1. The basic concept of HTML <br>
 
 2. Registering a banner ID for Vpon Mobile Web<br>
-Please register your own license key in the following lnk: <http://tw.pub.vpon.com/>
+Please register your own license key in the following lnk: <http://console.vpon.com/>
 
 3. Having the permission to modify code of mobile website
 <br>

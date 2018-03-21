@@ -12,7 +12,7 @@ lang:            "jp"
 旧バージョンのSDKをご利用の場合、まず最新版のSDKにバージョンアップするための修正をご確認ください。 [SDK4.5.1+ の最新バージョンへのアップデート方法](../../android/latest-news/update-to-SDK4_5_1+/)
 
 1. まず下記URLから登録済みネットワークプラットフォームを確認してください:<br>
-台湾: <http://tw.pub.vpon.com/><br>
+台湾: <http://console.vpon.com/><br>
 
 2. 台湾のプラットフォームを利用する場合、以下をご利用ください:<br>
 `vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,

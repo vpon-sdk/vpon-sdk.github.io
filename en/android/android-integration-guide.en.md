@@ -12,7 +12,7 @@ lang:           "en"
 If you are using the previous version of vpon SDK, please read this first: [How to update to SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)
 
 1. Check your ad network from registering url first:<br>
-Taiwan is <http://tw.pub.vpon.com/>
+Taiwan is <http://console.vpon.com/>
 
 2. If you register Taiwan platform, please use:<br>
 `vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,

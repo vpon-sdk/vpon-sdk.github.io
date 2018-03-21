@@ -68,7 +68,7 @@ URL 与应用程式说明与选择是否可播放 Crazy AD
 进入软体列表页面，会看到您所建立的应用程式、应用程式的审核状态与相关设定
 
 
-  [注册服务区为台湾]: http://tw.pub.vpon.com/register.action
+  [注册服务区为台湾]: http://console.vpon.com/register.action
   [0]: {{site.imgurl}}/SDK400建立應用程式.jpeg
   [1]: {{site.imgurl}}/SDK400新增版位.jpeg
   [2]: {{site.imgurl}}/Trandationchinesefrontserver3.png

@@ -28,7 +28,7 @@ Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示
 1. HTML 基本觀念
 
 2. 註冊、申請，並取得 Vpon Mobile Web 版位 ID。<br>
-尚未申請版位 ID 者可至以下連結完成：<http://tw.pub.vpon.com/>
+尚未申請版位 ID 者可至以下連結完成：<http://console.vpon.com/>
 
 3. 修改行動網站程式碼的權限
 <br>

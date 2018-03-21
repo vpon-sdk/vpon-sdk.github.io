@@ -85,7 +85,7 @@ Initializes VpadnNativeAd and request an ad to load in your View Controller's im
 }
 ```
 
-## Use the Returned Ad Metadata to Build a Custom Native UI
+## Native Ad Callback
 ---
 After adding the code to load the ad, the following 5 functions can handle loading failures, and callback the ad status:
 

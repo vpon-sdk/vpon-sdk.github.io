@@ -125,7 +125,7 @@ vpadnAd.delegate = self;
 ---
 管理画面にてCrazy ADを配信するかどうかを選択します。
 
-<http://tw.pub.vpon.com/> 台湾エリアのプロパティIDを登録
+<http://console.vpon.com/> 台湾エリアのプロパティIDを登録
 
 図:
 ![CrazyadSetting]
