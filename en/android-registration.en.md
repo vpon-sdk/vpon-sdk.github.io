@@ -11,7 +11,7 @@ lang:           "en"
 ---
 Please visit our website: [Here](http://console.vpon.com/register.action). You may change your language settings on the top-right hand side. Once having completed your registration, please check your emails to get the validation code. After entering the validation code, you will be verified immediately.
 
-If you haven't been able to receive the validation code, please contact us: [Vpon BD](mailro:bd@vpon.com). Thank you.
+If you haven't been able to receive the validation code, please contact us: [Vpon BD](mailto:bd@vpon.com). Thank you.
 
 # System Compatibility
 ---
