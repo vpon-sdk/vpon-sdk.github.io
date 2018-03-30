@@ -4,7 +4,7 @@ title:          "Web - Adhesion Banner"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       /jp/adhesion-banner/
+permalink:       /jp/web/adhesion-banner/
 lang:           "jp"
 ---
 

@@ -4,7 +4,7 @@ title:          "Web - Original Banner"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       /jp/original-banner/
+permalink:       /jp/web/original-banner/
 lang:           "jp"
 ---
 
