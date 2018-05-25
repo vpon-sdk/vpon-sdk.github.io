@@ -1,5 +1,5 @@
 ---
-layout:         "default"
+layout:         "web"
 title:          "Web - 一般横幅广告"
 lead:           ""
 description:    ""
@@ -24,7 +24,7 @@ Vpon Mobile Web SDK 提供`一般横幅广告`，让横幅广告可让开发者�
 
 
 
-| 名称             |    Size(WxH)  |
+| 名称              |    Size(WxH)  |
 | :---------------- | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
@@ -76,14 +76,14 @@ Vpon Mobile Web SDK 提供`一般横幅广告`，让横幅广告可让开发者�
 ## Advanced Setup
 ---
 
-名称                  |        描述                      | 必要  |  范例
+名称                  | 描述                              | 必要  | 范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">输入 Vpon License Key</font>
-vpon\_ad\_format      | 广告版行：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb            |   Y       |     "320x50\_mb"
-vpon\_ad\_test        |   是否拉取测试广告                        | N          |   1(是)/0(否)，预设为(是)
-vpon\_ad\_isBottom    |   是否为置底横幅广告                        | N          |   true/false，预设为 false
-debug                 | 是否在 console 显示 debug 资讯          |  N         |   true/false，预设为 false
-openTab               |是否开启新tab 显示 广告内容                 |N           |  true/false，预设为 true
+vpon\_ad\_licensy\_key| 版位 ID                           | Y    |<font color="red">输入 Vpon License Key</font>
+vpon\_ad\_format      | 广告版型：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb   | Y   | "320x50\_mb"
+vpon\_ad\_test        | 是否拉取测试广告                    | N    | 1(是)/0(否)<br>预设为 "1"
+vpon\_ad\_adhesion    | 将横幅广告设为置顶或置底              | N    | top/bottom<br>置顶："top"<br>置底："buttom"
+debug                 | 是否在 console 显示 debug 资讯      | N    | true/false<br>预设为 false
+openTab               | 是否开启新tab 显示 广告内容           | N    | true/false<br>预设为 true
 
 
 

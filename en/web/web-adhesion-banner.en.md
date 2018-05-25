@@ -20,7 +20,7 @@ Vpon Mobile Web SDK provides a new type of ad : Adhesion Banner, which is positi
 
 # Setups
 ---
-Just like the setups in original banner, you should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> between the original one & adhesive is that the latter includes a new attribute : <strong>vpon_ad_isBottom</strong>. The banner will be  positioned to the bottom of the device display while this new attribute’s value is <strong>true</strong>.
+Just like the setups in original banner, you should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> between the original one & adhesive is that the latter includes a new attribute : <strong>vpon_ad_adhesion</strong>. The banner will be positioned to the top of the device display while this new attribute’s value is <strong>top</strong>, and it will be positioned to the bottom if the attribute's value is <strong>bottom</strong>.
 
 
 
@@ -42,7 +42,7 @@ Just like the setups in original banner, you should insert the following snippet
       <vpon vpon_ad_test="1"
             vpon_ad_licensy_key="your_first_vpon_banner_id"
             vpon_ad_format="320x50_mb"
-            vpon_ad_isBottom="true"
+            vpon_ad_adhesion="top"
             debug="true"></vpon>
     </div>
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -53,7 +53,7 @@ Just like the setups in original banner, you should insert the following snippet
 
 >* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source while importing SDK. According to the protocol of the page, browsers will import the suitable one.
 >
->* You only allow to use 1 adhesion banner ad in one page, and use 3 ads( include Original Banner & Adhesion Banner ) at most in one page. Please use different banner ID for every ad.
+>* You only allow to use 1 adhesion banner on top and 1 adhesion banner on bottom at the same time, and use 3 ads( include Original Banner & Adhesion Banner ) at most in one page. Please use different banner ID for every ad.
 >
 >* You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above.
 >
@@ -68,14 +68,14 @@ Just like the setups in original banner, you should insert the following snippet
 ## Advanced Setup
 ---
 
-Name                  |        Description                      | Necessary  |  Example
-:--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                               |  Y         |<font color="red">Put your Vpon License Key</font>
-vpon\_ad\_format      | Size：320x50\_mb, 300x250\_mb            |   Y       |     "320x50\_mb"
-vpon\_ad\_test        |   Test Ad                               | N          |   1(Yes)/0(No)，Default(Yes)
-vpon\_ad\_isBottom    |   Adhesion Ad                        | N          |   true/false，Default:false
-debug                 | Debugging information in console        |  N         |   true/false，Default:false
-openTab               |If open a new tab to show ad's contents  |N           |  true/false，Default:true
+Name                  | Description                              | Reuqired  | Example
+:--------------------:|:----------------------------------------:|:----------:|:------------------------:
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Put your Vpon License Key</font>
+vpon\_ad\_format      | Size：<br>(1)320x50                      | Y          | "320x50\_mb"
+vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
+vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
+debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
+openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
 
 <br>
 

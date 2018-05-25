@@ -74,14 +74,14 @@ You should insert the following snippet of code directly after the opening <body
 ## Advanced Setup
 ---
 
-Name                  |        Description                      | Necessary  |  Example
-:--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                               |  Y         |<font color="red">Put your Vpon License Key</font>
-vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb            |   Y       |     "320x50\_mb"
-vpon\_ad\_test        |   Test Ad                               | N          |   1(Yes)/0(No)，Default(Yes)
-vpon\_ad\_isBottom    |   Adhesion Ad                        | N          |   true/false，Default:false
-debug                 | Debugging information in console        |  N         |   true/false，Default:false
-openTab               |If open a new tab to show ad's contents  |N           |  true/false，Default:true
+Name                  | Description                              | Reuqired  | Example
+:--------------------:|:----------------------------------------:|:----------:|:------------------------:
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Put your Vpon License Key</font>
+vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb | Y       | "320x50\_mb"
+vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
+vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
+debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
+openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
 
 <br>
 

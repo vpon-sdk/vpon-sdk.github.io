@@ -1,5 +1,5 @@
 ---
-layout:         "default"
+layout:         "web"
 title:          "Web - 插页广告"
 lead:           ""
 description:    ""
