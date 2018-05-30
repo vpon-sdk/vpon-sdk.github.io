@@ -336,9 +336,12 @@ Here we use basic Native ad as an example. A Native Ad sample in table view is a
 
 # Mediation
 ---
-Mediation is a feature that lets you serve ads to your apps from multiple sources. [Click here] to get the complete description about the Native Ad Mediation setting.
+Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.<br>
+- [Mopub]<br>
+- [Smaato]
 
 [settings here]: ../integration-guide/
 [here]: {{ site.baseurl }}/android/registration/
 [Sample Code]: {{ site.baseurl }}/android/download/
-[Click here]: {{ site.baseurl }}/android/mediation/mopub
+[MoPub]: {{ site.baseurl }}/android/mediation/mopub
+[Smaato]: {{ site.baseurl }}/android/native/mediation/smaato

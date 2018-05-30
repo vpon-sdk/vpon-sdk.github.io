@@ -19,7 +19,7 @@ Mopub 后台设定请参考下列步骤:
 进入刚注册的 app 后点选 "Add an Ad Unit" 并选择要新增的广告类型。
 ![][10]
 
-## Step3: 新增 Vpon Ad Netword
+## Step3: 新增 Vpon Ad Network
 选择 "Networks" 选项并点击 "add a Network"。
 ![][1]
 

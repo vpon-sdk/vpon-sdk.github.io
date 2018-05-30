@@ -20,16 +20,16 @@ Fundamental SDK<br>| Framework SDK <br>|
 # Adapter Download
 ---
 
-AdMob Adapter <br> (Version: 1.0.5)|MoPub Custom Events
-:---------------------------------:|:-----------:|
-[download][4]                      |[download][5]
+|AdMob Adapter <br> (Version: 1.0.5)|MoPub <br> Custom Events|Smaato <br> SOMAMediationPlugin|
+|:---------------------------------:|:----------------------:|:-----------------------------:|
+|           [download][4]           |     [download][5]      |         [download][12]        |
 
 # Sample Code Download
 ---
 
-Fundamental  | Framework | AdMob        |    DFP       |     Mogo    |  MoPub
-:-------------: | :-----------:| :-----------:|:------------:|:-----------:|:-----------:
-[download][6]   | [download][7]| [download][8]|[download][9] |[download][10]|[download][11]
+|Fundamental     | Framework    | AdMob        |    DFP       |  MoPub      |  Smaato        |
+|:-------------: | :-----------:| :-----------:|:------------:|:-----------:|:--------------:|
+|[download][6]   | [download][7]| [download][8]|[download][9] |[download][11]|[download][13]|
 
 
 
@@ -43,5 +43,7 @@ Fundamental  | Framework | AdMob        |    DFP       |     Mogo    |  MoPub
 [7]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FrameworkExample
 [8]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/AdMobExample
 [9]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/DFPExample
-[10]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/MogoExample
+
 [11]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/MoPubExample
+[12]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/SOMAVpadnPlugin
+[13]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/SmaatoSample/

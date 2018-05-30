@@ -166,6 +166,7 @@ Vpon 提供兩種原生廣告的形式：
 }
 ```
 
+
 # 原生廣告管理器
 --------
 Vpon SDK 提供原生廣告管理器( Native Ads Manager )。當您設計的 App 中會在短時間內在數個地方顯示原生廣告，原生廣告管理器可以協助您一次請求並管理多筆原生廣告。如何使用原生廣告管理器請直接參考 [Sample Code]。
@@ -203,13 +204,16 @@ Rating Min/Max| 1/5
 
 # 中介服務
 --------
-透過中介服務，您的應用程式就能放送眾多廣告來源的廣告，詳細說明[請參閱]。
+透過中介服務，您的應用程式就能放送眾多來源的廣告，詳細請見說明：<br>
+- [使用 MoPub] <br>
+- [使用 Smaato]
 
 
 [串接說明]: ../integration-guide/
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/
 [Sample Code]: {{ site.baseurl }}/zh-tw/ios/download/
-[請參閱]: {{ site.baseurl }}/zh-tw/ios/mediation/mopub
+[使用 MoPub]: {{ site.baseurl }}/zh-tw/ios/mediation/mopub
+[使用 Smaato]: {{ site.baseurl }}/zh-tw/ios/native/mediation/smaato
 [原生廣告 - Table View]: {{site.baseurl}}/zh-tw/ios/native/table/
 [基本原生廣告]: #
 [這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

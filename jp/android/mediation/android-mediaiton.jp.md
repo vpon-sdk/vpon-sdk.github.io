@@ -19,16 +19,18 @@ AdMob メディエーションは、AdMob ネットワーク、サードパー�
 # メディエーション
 ---
 
-Google AdMob    |  Google DFP
---------------: | :----------
-[![admob]][1]   | [![dfp]][2]
+Google AdMob    |  Google DFP | Mopub        | Smaato        |
+--------------: | :----------:| :-----------:| :------------:|
+[![admob]][1]   | [![dfp]][2] | [![mopub]][3]| [![smaato]][4]|
 
 
 
 [admob]: {{site.imgurl}}/admob-logo.png
 [dfp]:   {{site.imgurl}}/dfp-logo.png
 [mopub]: {{site.imgurl}}/mopub-logo.png
+[smaato]: {{site.imgurl}}/smaato-logo.png
 
 [1]: admob
 [2]: dfp
 [3]: mopub
+[4]: smaato

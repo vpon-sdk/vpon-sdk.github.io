@@ -1,0 +1,96 @@
+{% assign v = {{site.baseurl}} %}
+{% assign langs = {{page.lang}}%}
+{% case langs %}
+{% when "en" %}
+  {% assign urlGettingStarted = v | append:"/web" %}
+  {% assign urlOriginalBanner = v | append:"/web/original-banner" %}
+  {% assign urlAdhesionBanner = v | append:"/web/adhesion-banner" %}
+  {% assign urlInterstitial = v | append:"/web/interstitial" %}
+  {% assign urlLatestNews = v | append:"/web/latest-news" %}
+  {% assign urlChangelog = v | append:"/web/changelog" %}
+  {% assign sidebar-title1 = "Web Integration" %}
+  {% assign getting-started = "Getting Started" %}
+  {% assign sidebar-title2 = "Ad Type Choices" %}
+  {% assign original-banner-id = "Original Banner Ad" %}
+  {% assign adhesion-banner-id = "Adhesion Banner Ad" %}
+  {% assign interstitial-id = "Interstitial Ad" %}
+
+  {% assign sidebar-title3 = "Other" %}
+  {% assign latest-news = "Latest News" %}
+  {% assign changelog = "Changelog" %}
+
+{% else %}
+  {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/web" %}
+  {% assign urlOriginalBanner = v | append:"/" | append: langs | append: "/web/original-banner" %}
+  {% assign urlAdhesionBanner = v | append:"/" | append: langs | append: "/web/adhesion-banner" %}
+  {% assign urlInterstitial = v | append:"/" | append: langs | append: "/web/interstitial" %}
+  {% assign urlLatestNews = v | append:"/" | append: langs | append: "/web/latest-news" %}
+  {% assign urlChangelog = v | append:"/" | append: langs | append: "/web/changelog" %}
+{% endcase %}
+{% case langs %}
+{% when "zh-tw" %}
+  {% assign sidebar-title1 = "Web 串接" %}
+  {% assign getting-started = "開始使用" %}
+  {% assign sidebar-title2 = "廣告型態選擇" %}
+  {% assign original-banner-id = "一般橫幅廣告" %}
+  {% assign adhesion-banner-id = "置頂/置底橫幅廣告" %}
+  {% assign interstitial-id = "插頁廣告" %}
+
+  {% assign sidebar-title3 = "其他輔助" %}
+  {% assign latest-news = "最新消息" %}
+  {% assign changelog = "更新日誌" %}
+
+{% when "zh-cn" %}
+  {% assign sidebar-title1 = "Web 串接" %}
+  {% assign getting-started = "开始使用" %}
+  {% assign sidebar-title2 = "广告型态选择" %}
+  {% assign original-banner-id = "一般横幅广告" %}
+  {% assign adhesion-banner-id = "置顶/置底横幅广告" %}
+  {% assign interstitial-id = "插页广告" %}
+
+  {% assign sidebar-title3 = "其他辅助" %}
+  {% assign latest-news = "最新消息" %}
+  {% assign changelog = "更新日志" %}
+
+{% when "jp" %}
+  {% assign sidebar-title1 = "Web 串接" %}
+  {% assign getting-started = "スタートガイド" %}
+  {% assign sidebar-title2 = "広告パターンとを選択" %}
+  {% assign original-banner-id = "バナー広告" %}
+  {% assign adhesion-banner-id = "(adhesion)バナー広告" %}
+  {% assign interstitial-id = "インタースティシャル広告" %}
+
+  {% assign sidebar-title3 = "その他" %}
+  {% assign latest-news = "ダウンロード" %}
+  {% assign changelog = "変更履歴" %}
+  
+{% endcase %}
+<ul class= "nav nav-sidebar nav-left hidden-xs hidden-sm">
+  <span id= "sidebar-title1">{{sidebar-title1}}</span>
+  <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+  <span id= "sidebar-title2">{{sidebar-title2}}</span>
+  <li><a id= "banner-id" href="{{urlOriginalBanner}}">{{original-banner-id}}</a></li>
+  <li><a id= "banner-id" href="{{urlAdhesionBanner}}">{{adhesion-banner-id}}</a></li>
+  <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
+  <span id= "sidebar-title3">{{sidebar-title3}}</span>
+  <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
+  <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
+</ul>
+
+<div class="visible-xs visible-sm" style="width:100%">
+  <div class="nav nav-sidebar" style="float:left">
+      <span id= "sidebar-title1">{{sidebar-title1}}</span>
+      <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+  </div>
+  <div class="nav nav-sidebar">
+      <span id="sidebar-title2">{{sidebar-title2}}</span>
+        <li><a id= "banner-id" href="{{urlOriginalBanner}}">{{original-banner-id}}</a></li>
+        <li><a id= "banner-id" href="{{urlAdhesionBanner}}">{{adhesion-banner-id}}</a></li>
+        <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
+  </div>
+  <div class="nav nav-sidebar" style="float: right">
+      <span id="sidebar-title3">{{sidebar-title3}}</span>
+        <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
+        <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
+  </div>
+</div>

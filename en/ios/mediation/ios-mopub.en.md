@@ -19,7 +19,7 @@ Click "Inventory" tab and click "Add a New App". Register your app here.
 In the inventory that you just created, click "Add an Ad Unit" to create a native ad.
 ![][10]
 
-## Step3: Add Vpon Ad Netword
+## Step3: Add Vpon Ad Network
 Click "Networks" tab and click "add a Network".
 ![][1]
 
