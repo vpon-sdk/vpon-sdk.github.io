@@ -4,7 +4,7 @@ title: "Android - Smaato"
 lead: ""
 description:
 keywords: 'Keywords for this page, in the meta data'
-permalink: /android/mediation/smaato/
+permalink: android/mediation/smaato/
 lang: "en"
 ---
 # Smaato Settings
