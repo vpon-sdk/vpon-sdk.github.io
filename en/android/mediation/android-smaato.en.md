@@ -1,8 +1,8 @@
 ---
 layout: "android"
 title: "Android - Smaato"
-lead: ""
-description:
+lead: "android mediation"
+description: ""
 keywords: 'Keywords for this page, in the meta data'
 permalink: android/mediation/smaato/
 lang: "en"
