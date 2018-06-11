@@ -20,7 +20,7 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 ---
 現在的 Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式` :<br><br>
 
-| 名稱             |    Size(WxH)  |
+| 名稱              |    Size(WxH)  |
 | :---------------- | :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
