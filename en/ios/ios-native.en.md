@@ -29,6 +29,10 @@ Here we use the first one as an example to show how to construct a Basic Native 
 ---
 While using the Native Ad API, you will receive a group of ad properties such as a title, an image, and you will have to use them to construct a custom UIView where the ad is shown. The Native Ad, an innovated type of ad, allows you to build a customized experience for the ads you show in your app.
 
+<img src="{{site.imgurl}}/Native_iOS.PNG" alt="" class="width-300"/>
+
+# How to Implement Native Ad
+---
 There are five actions you will need to take to implement this in your app:
 
 1. Import Vpon SDK

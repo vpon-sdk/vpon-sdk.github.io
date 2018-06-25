@@ -15,11 +15,6 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
 >この広告はモバイル端末にのみ対応しており、ユーザーがPCを通じて対象のウェブサイトを閲覧しても広告は表示されません。
 <br>
 
-# Ad Integration
----
-
-| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] |
-
 # 要件
 ---
 1. HTMLの基本的な概念
@@ -29,6 +24,11 @@ Please register your own license key in the following lnk: <http://console.vpon.
 
 3. モバイルウェブサイトコードを変更する権限
 <br><br>
+
+# Ad Integration
+---
+
+| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] |
 
 ## ヒント
 ---

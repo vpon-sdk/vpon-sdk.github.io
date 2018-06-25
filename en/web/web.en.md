@@ -16,11 +16,6 @@ Vpon Mobile Web SDK enables mobile web developers to maximize their monetization
 >It only supports ads on <strong>` mobile site `</strong>, it would not show any ad if you open your website on personal computer.
 <br>
 
-# Ad Integration
----
-
-| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] |
-
 
 # Requirement
 ---
@@ -31,6 +26,12 @@ Please register your own license key in the following lnk: <http://console.vpon.
 
 3. Having the permission to modify code of mobile website
 <br>
+
+# Ad Integration
+---
+
+| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] |
+
 
 # Tips
 ---
