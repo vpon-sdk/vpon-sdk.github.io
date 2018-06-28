@@ -13,7 +13,7 @@ lang:           "zh-tw"
 Vpon Mobile Web SDK 可以讓各種規模的行動網站發佈商方便的顯示 Vpon 廣告，並賺取收益。 <br>
 
 > **Note**:
->此類型廣告僅支援<strong> `行動裝置 `</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！
+>此類型廣告僅支援<strong> `行動裝置`</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！
 <br>
 
 # 需求條件

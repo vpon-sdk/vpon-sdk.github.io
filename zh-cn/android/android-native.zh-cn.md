@@ -342,7 +342,6 @@ Rating Min/Max| 1/5
 --------
 透过中介服务，您的应用程式就能放送众多广告来源的广告，详细请见说明：<br>
 - [使用 MoPub] <br>
-- [使用 Smaato]
 
 [串接说明]: {{site.baseurl}}/zh-cn/android/integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/android/registration/

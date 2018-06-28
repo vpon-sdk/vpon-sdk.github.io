@@ -13,7 +13,7 @@ lang:           "en"
 Vpon Mobile Web SDK enables mobile web developers to maximize their monetization on Android and iOS. <br>
 
 > **Note**:
->It only supports ads on <strong>` mobile site `</strong>, it would not show any ad if you open your website on personal computer.
+>It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
 <br>
 
 
