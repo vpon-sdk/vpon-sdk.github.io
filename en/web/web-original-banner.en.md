@@ -13,7 +13,7 @@ lang:           "en"
 Vpon Mobile Web SDK provides a type of ad : Original Banner, which can be positioned to the place you want in your mobile website to maximize your monetization.<br>
 
 > **Note**:
->It only supports ads on <strong>` mobile site `</strong>, it would not show any ad if you open your website on personal computer.
+>It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
 <br>
 
 <br>

@@ -13,7 +13,7 @@ lang:           "en"
 Vpon Mobile Web SDK provides a new type of ad : Adhesion Banner, which is positioned to the bottom of the device display, to maximize your monetization.<br>
 
 > **Note**:
->It only supports ads on <strong>` mobile site `</strong>, it would not show any ad if you open your website on personal computer.
+>It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
 <br>
 
 <br>

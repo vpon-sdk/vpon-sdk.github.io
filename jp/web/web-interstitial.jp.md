@@ -13,7 +13,7 @@ lang:           "jp"
 Vpon Mobile Web SDK provides a new type of ad : Interstitial Ad, which immediately present rich HTML5 experiences or "web apps" at transition points such as launch, video pre-roll or game level load. Web apps are in-app browsing experiences with a simple close button rather than any navigation bar—the content provides its own internal navigation scheme.<br>
 
 > **Note**:
->It only supports ads on <strong>` mobile site `</strong>, it would not show any ad if you open your website on personal computer.
+>It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
 <br>
 
 
