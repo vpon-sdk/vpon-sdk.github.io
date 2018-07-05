@@ -38,33 +38,62 @@ You should insert the following snippet of code directly after the opening <body
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
-> **Note**:
 
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source while importing SDK. According to the protocol of the page, browsers will import the suitable one.
+> **Note**:
 >
->* You only allow to use 1 adhesion banner ad in one page, and use 3 ads( include Original Banner & Adhesion Banner ) at most in one page. Please use different banner ID for every ad.
+>* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
->* You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above.
->
->* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
->
->* Remember to replace the license key with your own one which apply on our website.
+>* You only allow to use 1 ads at most in each page and please use different banner ID for every ad.
 >
 >* If you use iframe for embedding vpon's ad, please get better control on it, just like the width & height should be 100 %, collapse the iframe after users clikc the close button, and so on.
+>
+>* Once you finish editing your page, save and reload it. You can find a test ad in the <vpon> tag after initializing the SDK.
+>
+>* Please modify the parameter of vpon_ad_test to `"0"` to get formal ads before you launch your site officially.
 
 <br>
 
+## Callback {#callback}
+---
+Use our Callback Function rationally when there is no proper ad fill to maximum your profit.
+
+```html
+<body>
+...
+  <vpon vpon_ad_test="1"
+        vpon_ad_licensy_key="your_vpon_banner_id"
+        vpon_ad_format="320x480_mb"
+        debug="true"
+        ad_request_callback="vponCallBackMethod"></vpon>
+...
+  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
+  <script>
+        function vponCallBackMethod(adStatus) {
+          if (adStatus != 0) {
+            // No ads, do something here.
+          } else {
+            // Ad received.
+          }
+        }
+  </script>
+...
+</body>
+```
+<br>
+
+
 ## Advanced Setup
+---
 
-
-名称                  |        說明                      | 必須       |  インスタンス
-:--------------------:|:---------------------------------------:|:-------------:|:------------------------:
-vpon\_ad\_licensy\_key| 広告枠 ID                               |  Y         |<font color="red">Vpon License Key（=プロパティID）を入力して</font>
-vpon\_ad\_format      | 広告フォーマット：320x50\_mb, 300x250\_mb   |   Y       |     "mi"
-vpon\_ad\_test        |   テスト広告を取得するかどうか              | N       |   1(はい)/0(いいえ)、デフォルト: (はい)
-vpon\_ad\_isBottom    |   Adhesion Ad                        | N          |   true/false、デフォルト:false
-debug                 | コンソールにデバッグ情報を表示するかどうか      |  N      |  true/false、デフォルト:false
-openTab               |新しいタブで広告コンテンツを表示するには     |N         |  true/falseをtrueにセットしてください
+Name                  | Description                              | Reuqired  | Example
+:--------------------:|:----------------------------------------:|:----------:|:------------------------:
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
+vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb | Y       | "320x50\_mb"
+vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
+debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
+openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
+ad\_request\_callback | Callback Function for no ad fill         | N          | Please refer to [Callback]
 
 <br>
 
@@ -168,15 +197,13 @@ Example：
 ---
 
 ## Still can't see any ad
----
 Please check the following items:
 
 * Please open the page by mobile browser not the personal computer.
-
 * Clean the cache, delete cookie and reload the page.
 
 ## Still can't solve it
----
 Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
 
+[Callback]: {{site.baseurl}}/jp/web/interstitial/#callback
 [Vpon FAE]: mailto:fae@vpon.com
