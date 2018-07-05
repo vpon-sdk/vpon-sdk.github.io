@@ -249,7 +249,7 @@ While the Native ad is received successfully, the function `inflateAd` will also
         TextView nativeAdBody = (TextView) nativeAdView.findViewById(R.id.nativeAdBody);
         // Vpon Inc. original method, feel free to use VpadnMediaView below
         //ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
-        VpadnMediaView nativeAdMedia = (VpadnMediaView)
+        VpadnMediaView nativeAdMedia = (VpadnMediaView) nativeAdView.findViewById(R.id.native_ad_media);
         RatingBar nativeAdStarRating = (RatingBar) nativeAdView.findViewById(R.id.nativeAdStarRating);
         TextView nativeAdSocialContext = (TextView) nativeAdView.findViewById(R.id.nativeAdSocialContext);
         Button nativeAdCallToAction = (Button) nativeAdView.findViewById(R.id.nativeAdCallToAction);

@@ -289,7 +289,7 @@ protected void onCreate(Bundle savedInstanceState) {
         // Wire up the View with the native ad, the whole nativeAdContainer will be clickable.
         // nativeAd.registerViewForInteraction(nativeAdView);
 
-        // You can replace the above call with the following call to specify the clickable areas.
+        // You can replace above call with following call to specify the clickable areas.
         // Vpon Inc. original method, feel free to use VpadnMediaView tag below
         // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
         nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
