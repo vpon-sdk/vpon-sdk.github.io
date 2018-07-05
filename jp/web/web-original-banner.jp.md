@@ -10,10 +10,10 @@ lang:           "jp"
 
 # Overview
 ---
-Vpon Mobile Web SDK provides a type of ad : Original Banner, which can be positioned to the place you want in your mobile website to maximize your monetization.<br>
+Vpon Mobile Web SDK provides Original Banner which can be placed your mobile website to maximize your monetization.<br>
 
 > **Note**:
->It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
+>Original Banners are only available on <strong>`mobile sites`</strong>, you won't see any ads if you open your website with  personal computers.
 <br>
 
 <br>
@@ -60,15 +60,44 @@ You should insert the following snippet of code directly after the opening <body
 ```
 
 > **Note**:
+>
+>* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
+>
+>* You only allow to use 3 ads at most in each page and please use different banner ID for every ad.
+>
+>* Once you finish editing your page, save and reload it. You can find a test ad in the <vpon> tag after initializing the SDK.
+>
+>* Please modify the parameter of vpon_ad_test to `"0"` to get formal ads before you launch your site officially.
 
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source while importing SDK. According to the protocol of the page, browsers will import the suitable one.
->
->* You only allow to use 3 ads at most in one page and please use different banner ID for every ad.<br>
->
->* You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above. <br>
->
->* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
+<br>
 
+## Callback {#callback}
+---
+Use our Callback Function rationally when there is no proper ad fill to maximum your profit.
+
+```html
+<body>
+...
+  <vpon vpon_ad_test="1"
+        vpon_ad_licensy_key="your_vpon_banner_id"
+        vpon_ad_format="320x480_mb"
+        debug="true"
+        ad_request_callback="vponCallBackMethod"></vpon>
+...
+  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
+  <script>
+        function vponCallBackMethod(adStatus) {
+          if (adStatus != 0) {
+            // No ads, do something here.
+          } else {
+            // Ad received.
+          }
+        }
+  </script>
+...
+</body>
+```
 <br>
 
 ## Advanced Setup
@@ -76,12 +105,13 @@ You should insert the following snippet of code directly after the opening <body
 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Put your Vpon License Key</font>
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
 vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb | Y       | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
+ad\_request\_callback | Callback Function for no ad fill         | N          | Please refer to [Callback]
 
 <br>
 
@@ -113,8 +143,8 @@ openTab               | If open a new tab to show ad's contents  | N          | 
 ```
 
 > **Note:**
->If you use iframe for embedding vpon's ad, please remember to modify the size of iframe to fit the right size of vpon's ad.
-<br>
+>If you use iframe to embed vpon's ad, please remember to set the size of iframe properly to fit the ads.
+
 <br>
 
 
@@ -231,7 +261,7 @@ snippet of code is provided below:
 </script>
 ```
 > **Note**：
-
+>
 > 1. your_ad_unit: put the other ad unit received from inventory, e.g. `/network_ID/ad_unit`. This ad unit is targeted by the line item, which is the next ads you want to show when lack of Vpon ads. In the example above, it includes an AdSense script, and make sure that the subsequent ad requests passed-back from the third-party ad server to DFP are unique; therefore, do not call the same third party for ads.
 > 2. [320, 50]： you can change the ad size
 > 3. your_license_key：please put the vpon's Banner ID here
@@ -248,23 +278,21 @@ Need more details to understand how its working, please take a look at this page
 
 
 
-
-
 # FAQ
 ---
 
 ## Still can't see any ad
 Please check the following items:
 
-* Please open the page by mobile browser not the personal computer.<br>
+* Please open the page by a mobile device instead of a personal computer.<br>
 * Clean the cache, delete cookie and reload the page.
 
 ## Still can't solve it
-Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
+Open the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
 
 
 
-
+[Callback]: {{site.baseurl}}/jp/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
 [MobileDPF_Eng]: {{site.imgurl}}/MobileDPF_Eng.png
 [AppType.png]: {{site.imgurl}}/AppType.png

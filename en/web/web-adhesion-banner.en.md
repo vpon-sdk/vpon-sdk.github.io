@@ -10,17 +10,17 @@ lang:           "en"
 
 # Overview
 ---
-Vpon Mobile Web SDK provides a new type of ad : Adhesion Banner, which is positioned to the bottom of the device display, to maximize your monetization.<br>
+Vpon Mobile Web SDK provides Adhesion Banner, which can be placed on the top or bottom of your mobile website to maximize your monetization.<br>
 
 > **Note**:
->It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
+>Ashesion Banners are only available on <strong>`mobile sites`</strong>, you won't see any ads if you open your website with  personal computers.
 <br>
 
 <br>
 
 # Setups
 ---
-Just like the setups in original banner, you should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> between the original one & adhesive is that the latter includes a new attribute : <strong>vpon_ad_adhesion</strong>. The banner will be positioned to the top of the device display while this new attribute’s value is <strong>top</strong>, and it will be positioned to the bottom if the attribute's value is <strong>bottom</strong>.
+Just like the setups in original banner, you should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> between the original one and adhesive is that the latter includes a new attribute : <strong>vpon_ad_adhesion</strong>. The banner will be positioned to the top of the device display while this new attribute’s value is <strong>top</strong>, and it will be positioned to the bottom if the attribute's value is <strong>bottom</strong>.
 
 
 
@@ -50,18 +50,16 @@ Just like the setups in original banner, you should insert the following snippet
 ```
 
 > **Note**:
-
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source while importing SDK. According to the protocol of the page, browsers will import the suitable one.
 >
->* You only allow to use 1 adhesion banner on top and 1 adhesion banner on bottom at the same time, and use 3 ads( include Original Banner & Adhesion Banner ) at most in one page. Please use different banner ID for every ad.
+>* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
->* You only need to put <font color="red">just one</font> JavaScript before "</body>" like the sample code above.
->
->* After saving the page, this code will load and initialize the SDK. You can load a test ad in the <vpon> tag. (If you want to see the official ad: vpon_ad_test="0")
+>* You only allow to use 3 ads at most in each page and please use different banner ID for every ad.
 >
 >* The adhesion feature of Adhesion Banner will be lost while embedding the ad in an iframe.
 >
->* Remember to replace the license key with your own one which apply on our website.
+>* Once you finish editing your page, save and reload it. You can find a test ad in the <vpon> tag after initializing the SDK.
+>
+>* Please modify the parameter of vpon_ad_test to `"0"` to get formal ads before you launch your site officially.
 
 <br>
 
@@ -76,6 +74,7 @@ vpon\_ad\_test        | Test Ad                                  | N          | 
 vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
+ad\_request\_callback | Callback Function for no ad fill         | N          | Please refer to [Callback]
 
 <br>
 
@@ -92,10 +91,10 @@ openTab               | If open a new tab to show ad's contents  | N          | 
 Please check the following items:
 
 * Please open the page by mobile browser not the personal computer.
-
 * Clean the cache, delete cookie and reload the page.
 
 ## Still can't solve it
 Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
 
+[Callback]: {{site.baseurl}}/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com

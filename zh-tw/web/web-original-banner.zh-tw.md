@@ -10,28 +10,28 @@ lang:           "zh-tw"
 
 # 總覽
 ---
-Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者嵌入於行動網站中，讓我們精準投放的廣告更能讓使用者觀看，以提升廣告收益。<br>
+Vpon Mobile Web SDK 提供`一般橫幅廣告`，可讓開發者將橫幅廣告嵌入行動網站中，透過精準投放的廣告提升廣告收益。<br>
 
 > **Note**:
->此廣告僅支援<strong> `行動裝置`</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！
+>此廣告形式僅支援<strong>`行動裝置`</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！
+
 <br>
 
 # 廣告格式
 ---
-現在的 Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式` :<br><br>
+現在的 Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式`：<br>
 
-| 名稱              |    Size(WxH)  |
-| :---------------- | :------------:|
+| 名稱               |    Size(WxH)  |
+| :--------------- :| :------------:|
 | Banner            |    320x50     |
 | Medium Rectangle  |    300x250    |
 | Large Rectangle   |    320x480    |
-
 
 <br>
 
 # 嵌入廣告程式碼
 ---
-1. 在網頁 <body> 內預放廣告的位置加上以下程式碼：
+在網頁 <body> 內欲顯示廣告的位置加上以下程式碼：
 
 ```html
 <body>
@@ -55,29 +55,58 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 </body>
 ```
 > **Note**:
-
->* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在將 SDK 檔案引入時請如上使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源。
 >
->* 同一網頁最多嵌入 3 個廣告版面 (如上例)，每個版面請用不同版位 ID。
+>* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
 >
->* JavaScript 只需要放置一個，並且必須加在 </body> 前。
+>* 同一網頁最多嵌入 `3` 個廣告版面 (如範例所示)，每個版位請使用不同的版位 ID。
 >
->* 完成存檔後，重新讀取網頁，您就可以在有 \<vpon\> tag 的位置看到 `測試廣告` 被拉取。(如要上線請改成不拉取測試廣告 vpon_ad_test="0")
+>* 存檔後，重新讀取網頁，您就可以在有 \<vpon\> tag 的位置看到 `測試廣告` 被拉取。
+>
+>* 如要將網站正式上線，請將 vpon_ad_test 的參數改為 `"0"` 以拉取正式廣告。
 
 <br>
 
+## Callback {#callback}
+---
+Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能在沒有廣告回傳時，仍可以有效利用流量。
+
+```html
+<body>
+...
+  <vpon vpon_ad_test="1"
+        vpon_ad_licensy_key="your_vpon_banner_id"
+        vpon_ad_format="320x480_mb"
+        debug="true"
+        ad_request_callback="vponCallBackMethod"></vpon>
+...
+  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
+  <script>
+        function vponCallBackMethod(adStatus) {
+          if (adStatus != 0) {
+            // 沒有廣告回傳，執行其它操作
+          } else {
+            // 有廣告回傳
+          }
+        }
+  </script>
+...
+</body>
+```
+<br>
 
 ## Advanced Setup
 ---
 
-| 名稱                  | 描述                                     | 必要    | 範例                      |
+| 名稱                  | 描述                                     | 必要    | 說明                      |
 |:--------------------:|:---------------------------------------:|:-------:|:-------------------------:|
-|vpon\_ad\_licensy\_key| 版位 ID                      | Y       | <font color="red">輸入 Vpon License Key</font>|
+|vpon\_ad\_licensy\_key| 版位 ID                          | Y       | <font color="red">輸入 Vpon License Key</font>|
 |vpon\_ad\_format      | 廣告版型：<br>(1) 320x50\_mb <br>(2) 300x250\_mb <br>(3) 320x480\_mb| Y    |"320x50\_mb"
-|vpon\_ad\_test        | 是否拉取測試廣告               | N       | 1(是)/0(否)<br>預設為 "1"
-|vpon\_ad\_adhesion    | 將橫幅廣告設為置頂或置底     | N       | top/bottom<br>置頂："top"<br>置底："bottom"
-|debug                 | 是否在 console 顯示 debug 資訊 | N       | true/false<br>預設為 false
-|openTab               | 是否開啓新tab 顯示 廣告內容     | N       | true/false<br>預設為 true
+|vpon\_ad\_test        | 是否拉取測試廣告                   | N       | 1(是)/0(否)<br>預設為 "1"
+|vpon\_ad\_adhesion    | 將橫幅廣告設為置頂或置底             | N       | top/bottom<br>置頂："top"<br>置底："bottom"
+|debug                 | 是否在 console 顯示 debug 資訊     | N       | true/false<br>預設為 false
+|openTab               | 是否開啓新 tab 顯示 廣告內容         | N       | true/false<br>預設為 true
+|ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 請參考 [Callback]
 
 <br>
 
@@ -110,9 +139,10 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 ```
 
 > **Note**:
-
+>
 > 1. 若將 Vpon 廣告嵌入在 iframe 內，請記得調整 iframe 到適當大小，以符合 Vpon 廣告的長寬。
-> 2. 以上的 License Key 為範例，請置換為您自己申請的 License Key 以防收益分潤無法取得。
+> 2. 以上的 License Key 為範例，請置換為您自己申請的 License Key 以免無法取得收益分潤。
+
 <br>
 
 
@@ -227,7 +257,7 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 </script>
 ```
 > **Note**：
-
+>
 >1. your_ad_unit：放入另一組廣告空間產生的廣告代碼，此廣告代碼的格式會例如這樣: /78213298/WebMediation，且此代碼被指向到欲輪播的下一家廣告的廣告訂單項，在此訂單項裡上傳欲輪播的素材，如: Adsense script。請避免再將無廣告投遞的素材包含進來，以防造成無窮迴圈。
 >2. [320, 50]： 請替換成欲展示的廣告大小。
 >3. your_license_key：請填入vpon申請的Banner ID。
@@ -254,8 +284,9 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，讓橫幅廣告可讓開發者�
 * 先清除瀏覽器快取並刪除 Cookie，然後重新連線到網站。
 
 ## 仍然無法解決？
-請將 debug 模式打開，重新連線網站，將 "Vpadn-" 開頭的訊息截取下來並且聯繫 [Vpon FAE]
+請將 debug 模式打開，重新載入網站，並將 "Vpadn-" 開頭的訊息截取下來並且聯繫 [Vpon FAE]
 
+[Callback]: {{site.baseurl}}/zh-tw/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
 [UnitAdSetting_DFP1]: {{site.imgurl}}/UnitAdSetting_DFP1.png
 [UnitAdSetting_DFP2]: {{site.imgurl}}/UnitAdSetting_DFP2.png
