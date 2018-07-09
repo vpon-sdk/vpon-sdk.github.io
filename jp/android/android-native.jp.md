@@ -172,7 +172,7 @@ Before adding the code to load the ad, you need to build your customized native 
 </LinearLayout>
 ```
 
-## Use the Returned Ad Metadata to Build a Custom Native UI {#importNativeData}
+## Status Of Ad Request And Callback {#setAdListener}
 ---
 After adding the code to load the ad, the following 5 functions can handle loading failures, and callback the ad status:
 
@@ -182,7 +182,7 @@ After adding the code to load the ad, the following 5 functions can handle loadi
 4. onVpadnDismissScreen
 5. onVpadnLeaveApplication
 
-While the Native ad is received successfully, the function `inflateAd` will also construct the ad into a custom UI. In addition, the implementation of the callback functions in onVpadnReceiveAd are depend on which view is registered. [Here](#registerView) shows more detail about view registration.
+While the Native ad is received successfully, the function `inflateAd` will also construct the ad into a custom UI. In addition, the implementation of the callback functions in onVpadnReceiveAd are depend on which view is registered. Check more detail about view registration [Here](#registerView).
 
 ```java
 @Override
@@ -241,15 +241,24 @@ While the Native ad is received successfully, the function `inflateAd` will also
     public void onVpadnLeaveApplication(VpadnAd vpadnAd) {
         Log.e(LT, "CALL NativeAd onVpadnLeaveApplication");
     }
+```
 
+## Use the Returned Ad Metadata to Build a Custom Native UI {#importNativeData}
+---
+Implement `inflateAd` to build a custom Native UI.
+
+```java
     protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
         //Create native UI using the ad metadata.
         ImageView nativeAdIcon = (ImageView) nativeAdView.findViewById(R.id.nativeAdIcon);
         TextView nativeAdTitle = (TextView) nativeAdView.findViewById(R.id.nativeAdTitle);
         TextView nativeAdBody = (TextView) nativeAdView.findViewById(R.id.nativeAdBody);
-        // Vpon Inc. original method, feel free to use VpadnMediaView below
-        //ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
+
+        // Original method to use ImageView
+        // ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
+        // Or you can use VpadnMediaView as below
         VpadnMediaView nativeAdMedia = (VpadnMediaView) nativeAdView.findViewById(R.id.native_ad_media);
+
         RatingBar nativeAdStarRating = (RatingBar) nativeAdView.findViewById(R.id.nativeAdStarRating);
         TextView nativeAdSocialContext = (TextView) nativeAdView.findViewById(R.id.nativeAdSocialContext);
         Button nativeAdCallToAction = (Button) nativeAdView.findViewById(R.id.nativeAdCallToAction);
@@ -280,32 +289,43 @@ While the Native ad is received successfully, the function `inflateAd` will also
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
         int screenWidth = metrics.widthPixels;
-        // Vpon Inc. original method, feel free to use VpadnMediaView tag below
-        //nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
-        //VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
+
+        // If you use nativeAdImage
+        // nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
+        // VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
+        // If you use VpadnMediaView
         nativeAdMedia.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
         nativeAdMedia.setNativedAd(nativeAd);
 
-        // Wire up the View with the native ad, the whole nativeAdContainer will be clickable.
-        // nativeAd.registerViewForInteraction(nativeAdView);
-
-        // You can replace the above call with the following call to specify the clickable areas.
-        // Vpon Inc. original method, feel free to use VpadnMediaView tag below
-        // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
-        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
-
-    }
+        ...
+      }
 ```
 
 ## Ad View Registration {#registerView}
 ---
-In order to enable the the SDK to log the impression and handle the click automatically you must register the ad's view with the nativeAd instance. Additionally, registering the view using `registerViewForInteraction(View view)` will make the whole view clickable. If you are looking for finer control you can specify the clickable subviews using `registerViewForInteraction(View view, List<View> clickableViews)`. Please follow [the  sample code above](#importNativeData) to use it.
+In order to enable the the SDK to log the impression and handle the click automatically you must register the ad's view with the nativeAd instance. Additionally, registering the view using `registerViewForInteraction(View view)` will make the whole view clickable. If you are looking for finer control you can specify the clickable subviews using `registerViewForInteraction(View view, List<View> clickableViews)`.<br>
+Please follow [the  sample code above](#importNativeData) to use it.
+
+```java
+      protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
+        ...
+
+        // Make the whole nativeAdContainer clickable.
+        // nativeAd.registerViewForInteraction(nativeAdView);
+
+        // Specify clickable areas of the natvieAdContainer.
+        // If you use ImageView
+        // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
+        // If you use VpadnMediaView
+        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
+    }
+```
 
 # Clear Native Ad {#clearNativeAd}
 ---
 If you want to re-use the view to show different ads over time, make sure to call `unregisterView()` before registering the same view with a different instance of VpadnNativeAd.
 
-# Native Ads Manager
+# Native Ad Manager
 ---
 The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager.
 

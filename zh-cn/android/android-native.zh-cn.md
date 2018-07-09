@@ -172,7 +172,7 @@ protected void onCreate(Bundle savedInstanceState) {
 </LinearLayout>
 ```
 
-## 广告资料汇入原生 UI {#importNativeData}
+## 监听广告请求及显示的状态 {#setAdListener}
 --------
 完成请求原生广告后，下述五个函数可回传目前广告的各式状态，包含：
 
@@ -182,7 +182,7 @@ protected void onCreate(Bundle savedInstanceState) {
 4. 解除原生广告
 5. 执行 OutApp 应用程式
 
-当广告`请求成功`时可利用 `inflateAd` 将回传的素材建构成自订的原生广告型态，细节可参考以下程式码。此外在请求成功里实作了点击  CallToAction、Image、OtherComponent 的 CallBack，这取决于您要注册哪些元件为可检视的。关于注册元件可参考[注册广告检视](#registerView)。
+当广告`请求成功`时可利用 `inflateAd` 将回传的素材建构成自订的原生广告型态。此外在请求成功里实作了点击  CallToAction、Image、OtherComponent 的 CallBack，这取决于您要注册哪些元件为可检视的。关于注册元件可参考[注册广告检视](#registerView)。
 
 ```java
 @Override
@@ -241,15 +241,23 @@ protected void onCreate(Bundle savedInstanceState) {
     public void onVpadnLeaveApplication(VpadnAd vpadnAd) {
         Log.e(LT, "CALL NativeAd onVpadnLeaveApplication");
     }
+```
 
+## 广告资料汇入原生 UI {#importNativeData}
+--------
+实作`inflateAd`，将回传的素材建构成自订的原生广告型态，细节可参考以下程式码：
+```java
     protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
         //Create native UI using the ad metadata.
         ImageView nativeAdIcon = (ImageView) nativeAdView.findViewById(R.id.nativeAdIcon);
         TextView nativeAdTitle = (TextView) nativeAdView.findViewById(R.id.nativeAdTitle);
         TextView nativeAdBody = (TextView) nativeAdView.findViewById(R.id.nativeAdBody);
-        // Vpon Inc. original method, feel free to use VpadnMediaView below
-        //ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
-        VpadnMediaView nativeAdMedia = (VpadnMediaView)
+
+        // Original method to use ImageView
+        // ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
+        // Or you can use VpadnMediaView as below
+        VpadnMediaView nativeAdMedia = (VpadnMediaView) nativeAdView.findViewById(R.id.native_ad_media);
+
         RatingBar nativeAdStarRating = (RatingBar) nativeAdView.findViewById(R.id.nativeAdStarRating);
         TextView nativeAdSocialContext = (TextView) nativeAdView.findViewById(R.id.nativeAdSocialContext);
         Button nativeAdCallToAction = (Button) nativeAdView.findViewById(R.id.nativeAdCallToAction);
@@ -280,26 +288,39 @@ protected void onCreate(Bundle savedInstanceState) {
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
         int screenWidth = metrics.widthPixels;
-        // Vpon Inc. original method, feel free to use VpadnMediaView tag below
-        //nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
-        //VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
+
+        // If you use nativeAdImage
+        // nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
+        // VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
+        // If you use VpadnMediaView
         nativeAdMedia.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
         nativeAdMedia.setNativedAd(nativeAd);
 
-        // Wire up the View with the native ad, the whole nativeAdContainer will be clickable.
-        // nativeAd.registerViewForInteraction(nativeAdView);
-
-        // You can replace the above call with the following call to specify the clickable areas.
-        // Vpon Inc. original method, feel free to use VpadnMediaView tag below
-        // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
-        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
-
-    }
+        ...
+      }
 ```
 
 ## 注册广告检视 {#registerView}
 --------
-由于 Vpon SDK 会自动记录曝光次数并处理点击事件，您必须使用 nativeAd 注册广告检视，才能启用检视。若要使整个检视都可点击，请使用 `registerViewForInteraction(View view)`，如需更细微的控制，您可使用 `registerViewForInteraction(View view, List<View> clickableViews)`，使用方式可参考[上述的程式码](#importNativeData)。
+由于 Vpon SDK 会自动记录曝光次数并处理点击事件，您必须使用 nativeAd 注册广告检视，才能启用检视。<br>
+若要使整个检视都可点击，请使用 `registerViewForInteraction(View view)`<br>
+如需更细微的控制，您可使用 `registerViewForInteraction(View view, List<View> clickableViews)`<br>
+使用方式可参考以下程式码：
+
+```java
+      protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
+        ...
+
+        // Make the whole nativeAdContainer clickable.
+        // nativeAd.registerViewForInteraction(nativeAdView);
+
+        // Specify clickable areas of the natvieAdContainer.
+        // If you use ImageView
+        // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
+        // If you use VpadnMediaView
+        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
+    }
+```
 
 # 清除原生广告 {#clearNativeAd}
 --------
