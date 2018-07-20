@@ -62,7 +62,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 ...
   <vpon vpon_ad_test="1"
         vpon_ad_licensy_key="your_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
+        vpon_ad_format="mi"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
@@ -88,7 +88,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 名稱                  |        描述                      | 必要  |  範例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">輸入 Vpon License Key</font>
-vpon\_ad\_format      | 廣告版行：320x50\_mb, 300x250\_mb            |   Y       |     "mi"
+vpon\_ad\_format      | 插頁廣告格式<br>mi           |   Y       |     "mi"
 vpon\_ad\_test        |   是否拉取測試廣告                        | N          |   1(是)/0(否)，預設為(是)
 debug                 | 是否在 console 顯示 debug 資訊          |  N         |   true/false，預設為 false
 openTab               |是否開啓新tab 顯示 廣告內容                 |N           |  true/false，預設為 true
