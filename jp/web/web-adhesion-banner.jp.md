@@ -20,32 +20,26 @@ Vpon Mobile Web SDK provides Adhesion Banner, which can be placed on the top or 
 
 # Setups
 ---
-Just like the setups in original banner, you should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> between the original one and adhesive is that the latter includes a new attribute : <strong>vpon_ad_adhesion</strong>. The banner will be positioned to the top of the device display while this new attribute’s value is <strong>top</strong>, and it will be positioned to the bottom if the attribute's value is <strong>bottom</strong>.
+Just like the setups in original banner, you should put following code snippet in the <body> section of the page that you want to show ads. The <strong>biggest</strong> difference between the original one and adhesive is that the latter includes a new attribute : <strong>vpon_ad_adhesion</strong>. The banner will be positioned to the top of the device display while this new attribute’s value is <strong>top</strong>, and it will be positioned to the bottom if the attribute's value is <strong>bottom</strong>.
 
 
 
 ```html
-<html>
-  <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  </head>
   <body>
-    <h1>The Test Page</h1>
-
-    <div>
+...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_licensy_key="Your First Banner ID"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
-    </div>
-    </br>
-    <div>
+...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="your_first_vpon_banner_id"
+            vpon_ad_licensy_key="Your Second Banner ID"
             vpon_ad_format="320x50_mb"
             vpon_ad_adhesion="top"
             debug="true"></vpon>
-    </div>
+...
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
   </body>
 ```
 
@@ -69,7 +63,7 @@ Just like the setups in original banner, you should insert the following snippet
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
-vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb | Y       | "320x50\_mb"
+vpon\_ad\_format      | Format<br>(1)320x50\_mb                  | Y          | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
@@ -86,14 +80,14 @@ ad\_request\_callback | Callback Function for no ad fill         | N          | 
 # FAQ
 ---
 
-## Still can't see any ad
+## Still can't see any ads
 Please check the following items:
 
-* Please open the page by mobile browser not the personal computer.
-* Clean the cache, delete cookie and reload the page.
+* Please open the page with a mobile browser instead of a personal computer.
+* Clean the cache, delete cookies and reload the page.
 
 ## Still can't solve it
-Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
+Turn on the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
 
 [Callback]: {{site.baseurl}}/jp/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com

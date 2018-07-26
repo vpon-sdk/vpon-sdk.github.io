@@ -34,7 +34,7 @@ Vpon Mobile Web SDK supports the following `original banner ad formats`:<br><br>
 ---
 
 ## Basic Setup
-You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it:
+You should put following code snippet in the <body> section of the page that you want to show ads.
 
 ```html
 <body>
@@ -72,7 +72,7 @@ You should insert the following snippet of code directly after the opening <body
 
 ## Callback {#callback}
 ---
-Use our Callback Function rationally when there is no proper ad fill to maximum your profit.
+Use our Callback Function rationally when there is no proper ad fill.
 
 ```html
 <body>
@@ -105,7 +105,7 @@ Use our Callback Function rationally when there is no proper ad fill to maximum 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
-vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb | Y       | "320x50\_mb"
+vpon\_ad\_format      | Format：<br>(1)320x50\_mb <br>(2)300x250\_mb| Y       | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
@@ -280,15 +280,14 @@ Need more details to understand how its working, please take a look at this page
 # FAQ
 ---
 
-## Still can't see any ad
+## Still can't see any ads
 Please check the following items:
 
-* Please open the page by a mobile device instead of a personal computer.<br>
-* Clean the cache, delete cookie and reload the page.
+* Please open the page with a mobile browser instead of a personal computer.
+* Clean the cache, delete cookies and reload the page.
 
 ## Still can't solve it
-Open the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
-
+Turn on the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
 
 
 [Callback]: {{site.baseurl}}/jp/web/original-banner/#callback

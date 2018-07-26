@@ -19,7 +19,7 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，可讓開發者將橫幅廣告�
 
 # 廣告格式
 ---
-現在的 Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式`：<br>
+Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式`：<br>
 
 | 名稱               |    Size(WxH)  |
 | :--------------- :| :------------:|
@@ -33,25 +33,25 @@ Vpon Mobile Web SDK 提供`一般橫幅廣告`，可讓開發者將橫幅廣告�
 在網頁 <body> 內欲顯示廣告的位置加上以下程式碼：
 
 ```html
-<body>
+  <body>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_first_vpon_banner_id"
-        vpon_ad_format="320x50_mb"
-        debug="true"></vpon>
+    <vpon vpon_ad_test="1"
+          vpon_ad_licensy_key="Yout First Banner ID"
+          vpon_ad_format="320x50_mb"
+          debug="true"></vpon>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_second_vpon_banner_id"
-        vpon_ad_format="300x250_mb"
-        debug="true"></vpon>
+    <vpon vpon_ad_test="1"
+          vpon_ad_licensy_key="Yout Second Banner ID"
+          vpon_ad_format="300x250_mb"
+          debug="true"></vpon>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_third_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
-        debug="true"></vpon>
+    <vpon vpon_ad_test="1"
+          vpon_ad_licensy_key="Yout Third Banner ID"
+          vpon_ad_format="320x50_mb"
+          debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
-</body>
+    <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  </body>
 ```
 > **Note**:
 >
@@ -72,9 +72,9 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 ```html
 <body>
 ...
-  <vpon vpon_ad_test="1"
+  <vpon vpon_ad_test="0"
         vpon_ad_licensy_key="your_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
+        vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
@@ -103,8 +103,8 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 |vpon\_ad\_format      | 橫幅廣告格式<br>(1) 320x50\_mb <br>(2) 300x250\_mb| Y    |"320x50\_mb"
 |vpon\_ad\_test        | 是否拉取測試廣告                   | N       | 1(是)/0(否)<br>預設為 "1"
 |vpon\_ad\_adhesion    | 將橫幅廣告設為置頂或置底             | N       | top/bottom<br>置頂："top"<br>置底："bottom"
-|debug                 | 是否在 console 顯示 debug 資訊     | N       | true/false<br>預設為 false
-|openTab               | 是否開啓新 tab 顯示 廣告內容         | N       | true/false<br>預設為 true
+|debug                 | 是否在 console 顯示 debug 資訊     | N       | true/false<br>預設為 "false"
+|openTab               | 是否開啓新 tab 顯示 廣告內容         | N       | true/false<br>預設為 "true"
 |ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 請參考 [Callback]
 
 <br>
@@ -135,6 +135,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
     </div>
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
+</html>
 ```
 
 > **Note**:
@@ -216,12 +217,12 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 ```html
 <vpon vpon_ad_test="0"
-       vpon_ad_licensy_key="Your license Key"
+       vpon_ad_licensy_key="Your License Key"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
       <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
-> **Note**: vpon_ad_test="1" 爲開啓測試廣告， vpon_ad_test="0"爲拉取正式廣告。
+> **Note**: vpon_ad_test="1" 為開啓測試廣告， vpon_ad_test="0"為拉取正式廣告。
 
 範例：
 ![素材設定_DFP]

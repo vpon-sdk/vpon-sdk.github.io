@@ -28,7 +28,7 @@ Please register your own license key in the following lnk: <http://console.vpon.
 # Ad Integration
 ---
 
-| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] |
+| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] | [Native Ad][4] |
 
 ## ヒント
 ---
@@ -42,3 +42,4 @@ Please register your own license key in the following lnk: <http://console.vpon.
 [1]: {{site.baseurl}}/jp/web/original-banner/
 [2]: {{site.baseurl}}/jp/web/adhesion-banner/
 [3]: {{site.baseurl}}/jp/web/interstitial/
+[4]: {{site.baseurl}}/jp/web/native/

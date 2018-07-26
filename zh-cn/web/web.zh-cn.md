@@ -10,7 +10,7 @@ lang:           "zh-cn"
 
 # 总览
 ---
-Vpon Mobile Web SDK 可以让各种规模的行动网站发布商方便的显示 Vpon 广告，并赚取收益。
+Vpon Mobile Web SDK 提供多种广告形式，让行动网站发布商可以方便地展示 Vpon 广告，并赚取收益。
 
 
 > **Note**:
@@ -23,15 +23,15 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发布商方便的显示
 
 1. HTML 基本观念
 
-2. 注册、申请，并取得 Vpon Mobile Web 版位 ID。
-尚未申请版位 ID 者可至以下连结进行注册及申请：<http://console.vpon.com/>
+2. 注册、申请，并取得 Vpon Mobile Web 版位 ID。<br>
+  [我要申请版位 ID](http://console.vpon.com/)
 
 3. 修改行动网站程式码的权限
 
 # 串接广告
 ---
 
-| [一般横幅广告][1] | [置底横幅广告][2] | [插页广告][3] |
+| [一般横幅广告][1] | [置底横幅广告][2] | [插页广告][3] | [原生广告][4] |
 
 
 
@@ -44,3 +44,4 @@ Vpon Mobile Web SDK 可以让各种规模的行动网站发布商方便的显示
 [1]: {{site.baseurl}}/zh-cn/web/original-banner/
 [2]: {{site.baseurl}}/zh-cn/web/adhesion-banner/
 [3]: {{site.baseurl}}/zh-cn/web/interstitial/
+[4]: {{site.baseurl}}/zh-cn/web/native/

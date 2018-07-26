@@ -22,24 +22,20 @@ Vpon Mobile Web SDK 提供`插页广告`，插页式广告是互动式多媒体 
 
 # 嵌入广告程式码
 ---
-在行动网页的 <body> 中填入 \<vpon\> tag，与横幅广告不同点在于当 \<vpon\> tag 中的属性 `vpon_ad_format` 为 `mi`时，会去请求插页式广告呈现。
+在行动网页的 <body> 中填入 \<vpon\> tag，与横幅广告不同点在于当 \<vpon\> tag 中的属性 `vpon_ad_format` 为 `mi`时，会请求插页式广告。
 
 在网页 <body> 内预放广告的位置加上以下程式码：
 
 ```html
-<html>
-  <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  </head>
   <body>
-    <h1>The Test Page</h1>
-
-    <div>
+...
       <vpon vpon_ad_test="1"
             vpon_ad_licensy_key="Your Interstitial ID"
             vpon_ad_format="mi"
             debug="true"></vpon>
-    </div>
+...
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
   </body>
 ```
 
@@ -59,14 +55,14 @@ Vpon Mobile Web SDK 提供`插页广告`，插页式广告是互动式多媒体 
 
 ## Callback {#callback}
 ---
-Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能在沒有廣告回傳時，仍可以有效利用流量。
+Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能在没有广告回传时，仍可以有效利用流量。
 
 ```html
 <body>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
+  <vpon vpon_ad_test="0"
+        vpon_ad_licensy_key="Your Interstitial ID"
+        vpon_ad_format="mi"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
@@ -93,12 +89,12 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 名称                  |        描述                      | 必要  |  范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| 版位 ID                               |  Y         |<font color="red">输入 Vpon License Key</font>
-vpon\_ad\_format      | 广告版行：320x50\_mb, 300x250\_mb            |   Y       |     "mi"
-vpon\_ad\_test        |   是否拉取测试广告                        | N          |   1(是)/0(否)，预设为(是)
-debug                 | 是否在 console 显示 debug 资讯          |  N         |   true/false，预设为 false
-openTab               |是否开启新tab 显示 广告内容                 |N           |  true/false，预设为 true
-ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 请参考 [Callback]
+vpon\_ad\_licensy\_key| 版位 ID                                 | Y          | <font color="red">输入 Vpon License Key</font>
+vpon\_ad\_format      | 插页广告格式<br>mi                       | Y          | "mi"
+vpon\_ad\_test        | 是否拉取测试广告                          | N          | 1(是)/0(否)，预设为 "1"
+debug                 | 是否在 console 显示 debug 资讯            | N          | true/false，预设为 "false"
+openTab               | 是否开启新tab 显示 广告内容                | N          | true/false，预设为 "true"
+ad\_request\_callback | 没有广告回传时的 Callback Function        | N          | 请参考 [Callback]
 
 <br>
 
@@ -174,7 +170,7 @@ DoubleClick for Publishers : <https://www.google.com/dfp/>
 
 ```html
 <vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="Your license Key"
+       vpon_ad_licensy_key="Your License Key"
        vpon_ad_format="mi"
        debug="true"></vpon>
 <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>

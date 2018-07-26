@@ -22,7 +22,7 @@ Vpon Mobile Web SDK 提供`置页/置底横幅广告`，让横幅广告可固定
 
 
 
-| 名称               | Size(WxH)  |
+| 名称               | Size(WxH)     |
 | :---------------- | :------------:|
 | Banner            |    320x50     |
 
@@ -35,27 +35,21 @@ Vpon Mobile Web SDK 提供`置页/置底横幅广告`，让横幅广告可固定
 在网页 <body> 内欲放广告的位置加上以下程式码：
 
 ```html
-<html>
-  <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  </head>
   <body>
-    <h1>The Test Page</h1>
-
-    <div>
+...
       <vpon vpon_ad_test="1"
             vpon_ad_licensy_key="Your Banner ID"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
-    </div>
-    </br>
-    <div>
+...
       <vpon vpon_ad_test="1"
             vpon_ad_licensy_key="your_first_vpon_banner_id"
             vpon_ad_format="320x50_mb"
             vpon_ad_adhesion="top"
             debug="true"></vpon>
-    </div>
+...
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
   </body>
 ```
 > **Note**:
@@ -79,11 +73,11 @@ Vpon Mobile Web SDK 提供`置页/置底横幅广告`，让横幅广告可固定
 名称                  | 描述                               | 必要    | 范例
 :--------------------:|:--------------------------------:|:-------:|:------------------------:
 vpon\_ad\_licensy\_key| 版位 ID                           | Y       | <font color="red">输入 Vpon License Key</font>
-vpon\_ad\_format      | 广告版型：320x50\_mb               | Y       | "320x50\_mb"
+vpon\_ad\_format      | 置顶/置底广告格式<br>320x50\_mb     | Y       | "320x50\_mb"
 vpon\_ad\_test        | 是否拉取测试广告                    | N       | 1(是)/0(否)<br>预设为 "1"
 vpon\_ad\_isBottom    | 是否为置底横幅广告                  | N       | top/bottom<br>置顶："top"<br>置底："buttom"
-debug                 | 是否在 console 显示 debug 资讯      | N       | true/false<br>预设为 false
-openTab               | 是否开启新tab 显示 广告内容          |N        | true/false<br>预设为 true
+debug                 | 是否在 console 显示 debug 资讯      | N       | true/false<br>预设为 "false"
+openTab               | 是否开启新tab 显示 广告内容          |N        | true/false<br>预设为 "true"
 ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 请参考 [Callback]
 
 <br>

@@ -20,7 +20,7 @@ Vpon Mobile Web SDK 提供`一般横幅广告`，可让开发者将横幅广告�
 
 # 广告格式
 ---
-现在的 Vpon Mobile Web SDK 支援以下`一般横幅广告格式` :
+Vpon Mobile Web SDK 支援以下`一般横幅广告格式` :
 
 
 | 名称               |    Size(WxH)  |
@@ -37,25 +37,25 @@ Vpon Mobile Web SDK 提供`一般横幅广告`，可让开发者将横幅广告�
 在网页 <body> 内预放广告的位置加上以下程式码：
 
 ```html
-<body>
+  <body>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_first_vpon_banner_id"
-        vpon_ad_format="320x50_mb"
-        debug="true"></vpon>
+    <vpon vpon_ad_test="1"
+          vpon_ad_licensy_key="Your First Banner ID"
+          vpon_ad_format="320x50_mb"
+          debug="true"></vpon>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_second_vpon_banner_id"
-        vpon_ad_format="300x250_mb"
-        debug="true"></vpon>
+    <vpon vpon_ad_test="1"
+          vpon_ad_licensy_key="Your Second Banner ID"
+          vpon_ad_format="300x250_mb"
+          debug="true"></vpon>
 ...
-  <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_third_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
-        debug="true"></vpon>
+    <vpon vpon_ad_test="1"
+          vpon_ad_licensy_key="Your Third Banner ID"
+          vpon_ad_format="320x50_mb"
+          debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
-</body>
+    <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  </body>
 ```
 > **Note**:
 >
@@ -71,14 +71,14 @@ Vpon Mobile Web SDK 提供`一般横幅广告`，可让开发者将横幅广告�
 
 ## Callback {#callback}
 ---
-Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能在沒有廣告回傳時，仍可以有效利用流量。
+Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能在没有广告回传时，仍可以有效利用流量。
 
 ```html
 <body>
 ...
-  <vpon vpon_ad_test="1"
+  <vpon vpon_ad_test="0"
         vpon_ad_licensy_key="your_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
+        vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
@@ -104,7 +104,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 名称                  | 描述                              | 必要  | 范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| 版位 ID                           | Y    |<font color="red">输入 Vpon License Key</font>
-vpon\_ad\_format      | 广告版型：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb   | Y   | "320x50\_mb"
+vpon\_ad\_format      | 横幅广告格式<br>(1)320x50\_mb <br>(2)300x250\_mb| Y   | "320x50\_mb"
 vpon\_ad\_test        | 是否拉取测试广告                    | N    | 1(是)/0(否)<br>预设为 "1"
 vpon\_ad\_adhesion    | 将横幅广告设为置顶或置底              | N    | top/bottom<br>置顶："top"<br>置底："buttom"
 debug                 | 是否在 console 显示 debug 资讯      | N    | true/false<br>预设为 false
@@ -217,7 +217,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
 
 ```html
 <vpon vpon_ad_test="0"
-       vpon_ad_licensy_key="Your license Key"
+       vpon_ad_licensy_key="Your License Key"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
       <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -269,7 +269,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
 
 # 其它诀窍
 ---
-[DFP Small Business](https://support.google.com/dfp_sb/)
+[DFP Small Business](https://support.google.com/dfp_sb/)<br>
 [Google Developers DFP Banner Ads](https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android)
 
 

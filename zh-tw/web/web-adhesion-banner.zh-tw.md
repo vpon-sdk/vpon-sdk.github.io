@@ -18,7 +18,7 @@ Vpon Mobile Web SDK 提供`置頂/置底橫幅廣告`，讓橫幅廣告可固定
 
 # 廣告格式
 ---
-現在的 Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
+Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
 
 | 名稱               | Size(WxH)     |
 | :---------------- | :------------:|
@@ -28,31 +28,25 @@ Vpon Mobile Web SDK 提供`置頂/置底橫幅廣告`，讓橫幅廣告可固定
 
 # 嵌入廣告程式碼
 ---
-與一般 Web Banner 相似，同樣是在行動網頁的 <body> 中填入 \<vpon\> tag，唯一不同點在於當 \<vpon\> tag 中包含了 `vpon_ad_adhesion` 的屬性且其參數為 "top" 或 "bottom" 時，可自動將該廣告固定於行動裝置的螢幕上方或下方。<br>
+與一般 Web Banner 相似，同樣是在行動網頁的 <body> 中填入 \<vpon\> tag，唯一不同點在於當 \<vpon\> tag 中包含了 `vpon_ad_adhesion` 的屬性且其參數為 "top" 或 "bottom" 時，可自動將該廣告固定於行動裝置的螢幕上方或下方。<br><br>
 在網頁 <body> 內欲放廣告的位置加上以下程式碼：
 
 ```html
-<html>
-  <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  </head>
   <body>
-    <h1>The Test Page</h1>
-
-    <div>
+...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_licensy_key="Your First Banner ID"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
-    </div>
-    </br>
-    <div>
+...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="your_first_vpon_banner_id"
+            vpon_ad_licensy_key="Your Second Banner ID"
             vpon_ad_format="320x50_mb"
-            vpon_ad_adhesion="top"
+            vpon_ad_adhesion="bottom"
             debug="true"></vpon>
-    </div>
+...
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
   </body>
 ```
 > **Note**:
@@ -76,11 +70,11 @@ Vpon Mobile Web SDK 提供`置頂/置底橫幅廣告`，讓橫幅廣告可固定
 名稱                   | 描述                               | 必要  | 範例
 :--------------------:|:----------------------------------:|:----:|:------------------------:
 vpon\_ad\_licensy\_key| 版位 ID                             | Y    | <font color="red">輸入 Vpon License Key</font>
-vpon\_ad\_format      | 置頂/置底橫幅廣告格式<br>320x50\_mb                 | Y    | "320x50\_mb"
+vpon\_ad\_format      | 置頂/置底橫幅廣告格式<br>320x50\_mb    | Y    | "320x50\_mb"
 vpon\_ad\_test        | 是否拉取測試廣告                      | N    | 1(是)/0(否)<br>預設為 "1"
 vpon\_ad\_adhesion    | 將橫幅廣告設為置頂或置底               | N    | top/bottom<br>置頂："top"<br>置底："bottom"
-debug                 | 是否在 console 顯示 debug 資訊        | N   | true/false<br>預設為 false
-openTab               | 是否開啓新tab 顯示 廣告內容            | N    | true/false<br>預設為 true
+debug                 | 是否在 console 顯示 debug 資訊        | N   | true/false<br>預設為 "false"
+openTab               | 是否開啓新tab 顯示 廣告內容            | N    | true/false<br>預設為 "true"
 ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 請參考 [Callback]
 
 <br>
@@ -88,8 +82,6 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 
 # 結果
 ---
 <img src="{{site.imgurl}}/Adhesion-Banner-1.png" alt="" class="width-300"/>
-
-
 
 
 # FAQ

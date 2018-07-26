@@ -19,23 +19,19 @@ Vpon Mobile Web SDK provides a new type of ad : Interstitial Ad, which immediate
 
 # Setups
 ---
-You should insert the following snippet of code directly after the opening <body> tag on each page you want to load it. <strong>The biggest difference</strong> from banner ad is that the attribute <strong>vpon_ad_format</strong> should be <strong>`mi`</strong> of interstitial one.
+You should put following code snippet in the <body> section of the page that you want to show ads. The<strong> biggest  </strong>difference from banner ad is that the attribute <strong>vpon_ad_format</strong> should be <strong>`mi`</strong> of interstitial one.
 
 
 ```html
-<html>
-  <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  </head>
   <body>
-    <h1>The Test Page</h1>
-
-    <div>
+...
       <vpon vpon_ad_test="1"
             vpon_ad_licensy_key="Your Interstitial ID"
             vpon_ad_format="mi"
             debug="true"></vpon>
-    </div>
+...
     <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+...
   </body>
 ```
 > **Note**:
@@ -55,7 +51,7 @@ You should insert the following snippet of code directly after the opening <body
 
 ## Callback {#callback}
 ---
-Use our Callback Function rationally when there is no proper ad fill to maximum your profit.
+Use our Callback Function rationally when there is no proper ad fill.
 
 ```html
 <body>
@@ -89,7 +85,7 @@ Use our Callback Function rationally when there is no proper ad fill to maximum 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
-vpon\_ad\_format      | Size：<br>(1)320x50\_mb, <br>(2)300x250\_mb, <br>(3)320x480\_mb | Y       | "320x50\_mb"
+vpon\_ad\_format      | Format<br>mi | Y       | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
@@ -196,14 +192,14 @@ Example：
 # FAQ
 ---
 
-## Still can't see any ad
+## Still can't see any ads
 Please check the following items:
 
-* Please open the page by mobile browser not the personal computer.
-* Clean the cache, delete cookie and reload the page.
+* Please open the page with a mobile browser instead of a personal computer.
+* Clean the cache, delete cookies and reload the page.
 
 ## Still can't solve it
-Open the debug mode and send all of  "Vpadn-" informations to [Vpon FAE]
+Turn on the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
 
 [Callback]: {{site.baseurl}}/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com

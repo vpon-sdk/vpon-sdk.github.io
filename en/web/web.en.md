@@ -10,21 +10,21 @@ lang:           "en"
 
 # Overview
 ---
-Vpon Mobile Web SDK enables mobile web developers to maximize their monetization on Android and iOS. <br>
+Vpon Mobile Web SDK helps mobile web developers to maximize their monetization on both Android and iOS. <br>
 
 > **Note**:
->It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
+>Mobile web ads only available on <strong>`mobile sites`</strong>, you won’t see any ads if you open your website with personal computers.
 <br>
 
 
-# Requirement
+# Prerequisites
 ---
-1. The basic concept of HTML <br>
+1. Basic concept of HTML <br>
 
-2. Registering a banner ID for Vpon Mobile Web<br>
-Please register your own license key in the following lnk: <http://console.vpon.com/>
+2. Banner ID for Vpon Mobile Web<br>
+[Register your Banner ID here!](http://console.vpon.com/)
 
-3. Having the permission to modify code of mobile website
+3. Permission to modify code of the mobile website
 <br>
 
 # Ad Integration
@@ -35,11 +35,11 @@ Please register your own license key in the following lnk: <http://console.vpon.
 
 # Tips
 ---
-* All Android-relevant information are listed left.
-* The right sidebar tells you where you are in current article.
-* Besides, please click the higher right corner language bar for your favored language and platforms if you are in need of theses.
+* All Web-related information are listed left.
+* The right-sidebar will indicate the position where you are in current page.
+* Switch to the Language and Platform you need via the tool bar on top-right.
 
-Still have problems? Please send us,[Vpon FAE](mailto:fae@vpon.com). We will render the best service for you.
+More questions? Please contact us via [Vpon FAE](mailto:fae@vpon.com). We will help to figure it out ASAP!
 
 
 [1]: {{site.baseurl}}/web/original-banner/
