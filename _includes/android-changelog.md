@@ -2,6 +2,7 @@
 
 ### 4.7.2
 * Release Date: 31 July. 2018
+* Build Number: 13708102
 * Fix few bugs
 
 ### 4.7.1
