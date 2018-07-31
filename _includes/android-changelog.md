@@ -1,5 +1,9 @@
 # Android Changelog
 
+### 4.7.2
+* Release Date: 31 July. 2018
+* Fix few bugs
+
 ### 4.7.1
 
 * Release Date: 01 Feb. 2018
