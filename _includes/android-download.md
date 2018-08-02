@@ -31,5 +31,5 @@ Fundamental<br><font size="2px" color="#C0C0C0">Android Studio</font> | Fundamen
 [6]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/AdMobExample
 [7]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/DFPExample
 [8]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/MoPubExample
-[9]:https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/SmaatoCustomEvents
+[9]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/SmaatoCustomEvents
 [10]:https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/SmaatoExample
