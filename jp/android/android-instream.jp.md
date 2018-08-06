@@ -4,8 +4,8 @@ title:          "Android - In-stream Video Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       android/instream/
-lang:           "en"
+permalink:       jp/android/instream/
+lang:           "jp"
 ---
 # Overview
 ---
@@ -82,6 +82,6 @@ Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can als
 [Vpon BD]: mailto:bd@vpon.com
 [Google IMA SDK]: https://developers.google.com/interactive-media-ads/docs/sdks/android/
 [Google Mobile Ads SDK]: https://developers.google.com/mobile-ads-sdk/docs/dfp/android/download
-[Prerequisites]: {{site.baseurl}}/android/instream/#prerequisites
-[Advanced Setting]: {{site.baseurl}}/android/instream/#s2s
+[Prerequisites]: {{site.baseurl}}/jp/android/instream/#prerequisites
+[Advanced Setting]: {{site.baseurl}}/jp/android/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf

@@ -1,0 +1,89 @@
+---
+layout:         "android"
+title:          "Android - In-stream 影音广告"
+lead:           ""
+description:    ""
+keywords:       "Keywords for this page, in the meta data"
+permalink:       /zh-cn/android/instream/
+lang:           "zh-cn"
+---
+# 概要
+---
+Vpon 提供 In-stream 影音广告，只要您的 App 中有支援 VAST / VPAID 格式的影音播放器，即可透过 Vpon In-stream 影音广告进行流量变现。
+
+# 完成串接准备 {#prerequisites}
+---
+在开始串接 Vpon In-stream 影音广告前，需要进行以下准备：
+
+1. 联系 [Vpon BD] 完成帐号设定，并取得您的 Placement ID
+2. 准备一个支援 VAST / VPAID 格式的影音播放器 <br> 
+   (我们建议您可以使用 [Google IMA SDK] 来建立您的影音播放器)
+3. 联系 [Vpon BD]，取得广告请求 URL
+
+# 开始串接
+---
+串接 Vpon In-stream 影音广告不需要再额外使用其它的 Vpon SDK。如果您选择使用 [Google IMA SDK] 来建立您的影音播放器，我们建议您使用 Google Ad Manager 来管理您的广告请求。
+
+以下说明将会引导您完成在 Google Ad Manager 上的 In-stream 影音广告设定。在您[完成串接准备]后，需要在您的 Google Ad Manager 完成以下设定：
+
+1. 在您的 App Project 中加入 [Google Mobile Ads SDK]
+2. 新增影音广告单元
+3. 新增影音广告委刊项
+4. 新增影音广告素材
+
+此外，您也可以使用 S2S 的方式直接向 Vpon 请求 In-stream 影音广告。关于 S2S 的串接方式，请参考 [Advanced Setting]。
+
+## 新增影音广告单元
+---
+首先，您需要在您的 Google Ad Manager 后台新增影音广告单元。
+
+请由 [广告空间]→[广告单元] 并选择新增广告单元。请先输入不重覆的广告单元名称，点击下图红框处的`影片(VAST) 大小`，展开影音广告单元的选项，依照您需要的广告单元大小选择尺吋。
+<img src="{{site.imgurl}}/instream_01.png" alt="" class="width-600"/>
+建立广告单元后，需要生成一组用来请求广告的广告代码。点击`产生广告代码`
+<img src="{{site.imgurl}}/instream_02.png" alt="" class="width-600"/>
+选择`影片广告的 Google 发布商广告代码`
+<img src="{{site.imgurl}}/instream_03.png" alt="" class="width-600"/>
+选取代码选项。如果您的影片是直播形式的话，请勾选「启用即时流量控制」
+<img src="{{site.imgurl}}/instream_04.png" alt="" class="width-600"/>
+完成广告代码参数的编辑。内容描述网址为必填项目，请输入您放置影音播放器的页面网址
+<img src="{{site.imgurl}}/instream_05.png" alt="" class="width-600"/>
+选择「继续」，即会产生广告代码。请将广告代码加入您的 App Project 中，您将使用这组广告代码来请求 In-stream 影音广告
+<img src="{{site.imgurl}}/instream_06.png" alt="" class="width-600"/>
+
+## 新增影音广告委刊项
+---
+取得广告代码后，您需要新增广告委刊项，并将影音广告单元加入委刊项中。
+
+请由 [广告放送]→[订单] 建立订单，输入订单名称、广告客户
+<img src="{{site.imgurl}}/instream_07.png" alt="" class="width-600"/>
+接着进行委刊项的设定，输入委刊项名称，广告空间大小请选择`影片 VAST`，并依广告单元大小选择广告空间大小
+<img src="{{site.imgurl}}/instream_08.png" alt="" class="width-600"/>
+您需要针对委刊项进行广告活动起始时间的设定，请依您的需求完成设定。此外，您也可以选择性的调整您需要的广告放送方式
+<img src="{{site.imgurl}}/instream_09.png" alt="" class="width-600"/>
+最后您需要指定广告目标，系统会依照您在前面设定过的广告空间大小筛选出节合要求的广告单元，请选择您要放送广告的广告单元
+<img src="{{site.imgurl}}/instream_10.png" alt="" class="width-600"/>
+完成后，请储存您的设定。建立订单及委刊项后，您需要`核准`订单并在委刊项中加入广告素材，广告才会开始放送
+<img src="{{site.imgurl}}/instream_11.png" alt="" class="width-600"/>
+
+## 新增影音广告素材
+---
+完成委刊项设定后，您需要在委刊项中加入广告素材。请由您的影音广告委刊项点击新增广告素材集，您可以选择新增新的广告素材集，或是使用现有广告素材集
+<img src="{{site.imgurl}}/instream_12.png" alt="" class="width-600"/>
+选择新的广告素材集，输入广告素材名称后，选择广告素材类型为`转向`
+<img src="{{site.imgurl}}/instream_13.png" alt="" class="width-600"/>
+请在 VAST 广告代码网址的栏位填入 Vpon 提供您的广告请求网址，並输入您希望取得的广告素材长度，例：30、60。当包含 Vpon 广告素材集的委刊项被选中后，将会向这个网址请求符合条件的广告。
+<img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
+完成以上设定后，储存您的设定即可。
+
+# Advanced Setting {#s2s}
+---
+除了透过 Google Ad Manager 的方式来串接 In-stream 影音广告外，Vpon 也提供以 S2S 方式来串接。只要[完成串接准备]，并参考 [Vpon In-stream Video Ad Guideline] 的参数说明完成您的广告请求网址，便可以直接向 Vpon 请求 In-stream 影音广告了。
+
+
+
+[Vpon BD]: mailto:bd@vpon.com
+[Google IMA SDK]: https://developers.google.com/interactive-media-ads/docs/sdks/android/
+[Google Mobile Ads SDK]: https://developers.google.com/mobile-ads-sdk/docs/dfp/android/sdk
+[完成串接准备]: {{site.baseurl}}/zh-cn/android/instream/#prerequisites
+[Advanced Setting]: {{site.baseurl}}/zh-cn/android/instream/#s2s
+[Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf

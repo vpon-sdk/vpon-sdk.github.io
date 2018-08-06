@@ -1,7 +1,7 @@
 ---
 layout:         "android"
 title:          "Android - In-stream 影音廣告 "
-lead:           "Android - In-stream"
+lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-tw/android/instream/
@@ -26,9 +26,10 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 
 以下說明將會引導您完成在 Google Ad Manager 上的 In-stream 影音廣告設定。在您[完成串接準備]後，需要在您的 Google Ad Manager 完成以下設定：
 
-1. 新增影音廣告單元
-2. 新增影音廣告委刊項
-3. 新增影音廣告素材
+1. 在您的 App Project 中加入 [Google Mobile Ads SDK]
+2. 新增影音廣告單元
+3. 新增影音廣告委刊項
+4. 新增影音廣告素材
 
 此外，您也可以使用 S2S 的方式直接向 Vpon 請求 In-stream 影音廣告。關於 S2S 的串接方式，請參考 [Advanced Setting]。
 
@@ -55,7 +56,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 
 請由 [廣告放送]→[訂單] 建立訂單，輸入訂單名稱、廣告客戶
 <img src="{{site.imgurl}}/instream_07.png" alt="" class="width-600"/>
-接著進行委刊項的設定，輸入委刊項名稱，廣告空間大小請選擇 「影片 VAST」，並依廣告單元大小選擇廣告空間大小
+接著進行委刊項的設定，輸入委刊項名稱，廣告空間大小請選擇`影片 VAST`，並依廣告單元大小選擇廣告空間大小
 <img src="{{site.imgurl}}/instream_08.png" alt="" class="width-600"/>
 您需要針對委刊項進行廣告活動起始時間的設定，請依您的需求完成設定。此外，您也可以選擇性的調整您需要的廣告放送方式
 <img src="{{site.imgurl}}/instream_09.png" alt="" class="width-600"/>
@@ -70,7 +71,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_12.png" alt="" class="width-600"/>
 選擇新的廣告素材集，輸入廣告素材集名稱後，選擇廣告素材集類型為`轉向`
 <img src="{{site.imgurl}}/instream_13.png" alt="" class="width-600"/>
-請在 VAST 廣告代碼網址的欄位填入 Vpon 提供您的廣告請求網址，當包含 Vpon 廣告素材集的委刊項被選中後，將會向這個網址請求符合條件的廣告。並輸入您希望取得的廣告素材長度，例：30、60
+請在 VAST 廣告代碼網址的欄位填入 Vpon 提供您的廣告請求網址，並輸入您希望取得的廣告素材長度，例：30、60。當包含 Vpon 廣告素材集的委刊項被選中後，將會向這個網址請求符合條件的廣告。
 <img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
 完成以上設定後，儲存您的設定即可。
 
@@ -82,6 +83,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 
 [Vpon BD]: mailto:bd@vpon.com
 [Google IMA SDK]: https://developers.google.com/interactive-media-ads/docs/sdks/android/
+[Google Mobile Ads SDK]: https://developers.google.com/mobile-ads-sdk/docs/dfp/android/sdk
 [完成串接準備]: {{site.baseurl}}/zh-tw/android/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/zh-tw/android/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf

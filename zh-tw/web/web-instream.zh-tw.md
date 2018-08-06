@@ -55,7 +55,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 
 請由 [廣告放送]→[訂單] 建立訂單，輸入訂單名稱、廣告客戶
 <img src="{{site.imgurl}}/instream_07.png" alt="" class="width-600"/>
-接著進行委刊項的設定，輸入委刊項名稱，廣告空間大小請選擇 「影片 VAST」，並依廣告單元大小選擇廣告空間大小
+接著進行委刊項的設定，輸入委刊項名稱，廣告空間大小請選擇`影片 VAST`，並依廣告單元大小選擇廣告空間大小
 <img src="{{site.imgurl}}/instream_08.png" alt="" class="width-600"/>
 您需要針對委刊項進行廣告活動起始時間的設定，請依您的需求完成設定。此外，您也可以選擇性的調整您需要的廣告放送方式
 <img src="{{site.imgurl}}/instream_09.png" alt="" class="width-600"/>
@@ -70,7 +70,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_12.png" alt="" class="width-600"/>
 選擇新的廣告素材集，輸入廣告素材集名稱後，選擇廣告素材集類型為`轉向`
 <img src="{{site.imgurl}}/instream_13.png" alt="" class="width-600"/>
-請在 VAST 廣告代碼網址的欄位填入 Vpon 提供您的廣告請求網址，當包含 Vpon 廣告素材集的委刊項被選中後，將會向這個網址請求符合條件的廣告。並輸入您希望取得的廣告素材長度，例：30、60
+請在 VAST 廣告代碼網址的欄位填入 Vpon 提供您的廣告請求網址，並輸入您希望取得的廣告素材長度，例：30、60。當包含 Vpon 廣告素材集的委刊項被選中後，將會向這個網址請求符合條件的廣告。
 <img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
 完成以上設定後，儲存您的設定即可。
 
