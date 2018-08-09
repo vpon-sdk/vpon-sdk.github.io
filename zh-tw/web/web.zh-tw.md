@@ -32,9 +32,9 @@ Vpon Mobile Web SDK 提供多種廣告形式，讓行動網站發佈商可以方
 
 | [一般橫幅廣告][1] | [置頂/置底橫幅廣告][2] | [插頁廣告][3] | [原生廣告][4] |
 
-# 訣竅
+# Tips
 ---
-所有 Web 相關資訊都在左排列表中，右排為文章的目錄，若想跳轉其他裝置平台或語言，請點選網站右上角的目標語言與平台。若您有任何技術問題，請不吝聯絡 [Vpon FAE](mailto:fae@vpon.com)
+所有 Vpon Mobile Web SDK 的相關資訊都在左排列表中，右排列表為文章的目錄，若想跳轉其他裝置平台或語言，請點選網站右上角的目標語言與平台。若您有任何技術問題，請不吝聯絡 [Vpon FAE](mailto:fae@vpon.com)
 
 
 [1]: {{site.baseurl}}/zh-tw/web/original-banner/

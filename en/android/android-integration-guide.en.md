@@ -7,40 +7,30 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/integration-guide/
 lang:           "en"
 ---
-# Vpon SDK Fundamental
+# Prerequisites
 ----
-If you are using the previous version of vpon SDK, please read this first: [How to update to SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)
+Before you start to integrate Vpon SDK, please make sure you already have your own Vpon Publisher Account and get your License Key. [Register as a Vpon Publisher] if you haven't own your Publisher Account.
 
-1. Check your ad network from registering url first:<br>
-Taiwan is <http://console.vpon.com/>
+Once you have your own Publisher Account, follow the instruction below to integrate Vpon Android SDK:
 
-2. If you register Taiwan platform, please use:<br>
-`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
-“TW”);`
+1. Import SDK to your project.
+2. Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml
+3. Add required Permission to your AndroidManifest.xml
 
-
-# Overview
---------
-Vpon banners use a small portion of the screen to entice users to “click
-through” to a richer, full-screen experience such as a website or app
-store page. This guide shows you how to enable your app to serve a
-banner ad.
-
-To display Vpon banners in your Android app, simply import SDK jar file
-to your Eclipse project and add a com.vpadn.ads.VpadnBanner to your UI.
-
-# Import SDK
-----------
-
+# Import SDK to your project
+---
 Vpon provides two ways to integrate our SDK. Choose one of the following two options:
 
-* [Streamlined Simple? , using Maven,](#maven)<br>
-* [Manual, using the SDK download.](#manual-sdk)<br>
-<br>
+* [Integrate SDK with Maven (Streamlined simple)](#maven)
+* [Integrate SDK manually](#manual-sdk)
 
-## Streamlined, using Maven {#maven}
+> **Notice**: If you've integrated Vpon SDK before, check [How to update SDK](../../android/latest-news/update-to-SDK4_5_1+/) first.
 
-Follow the description below and add the link of the Maven repository in `allprojects` in the project-level `build.gradle`.
+## Integrate SDK with Maven {#maven}
+---
+> **Notice**: Maven is a build automation tool used primarily for Java projects. If you haven't installed Maven in your device for development, please refer to [Maven Introduction](https://maven.apache.org/).
+
+Add Vpon's Maven repository in `allprojects` section in the project-level `build.gradle` file.
 
 ```javascript
 allprojects {
@@ -53,115 +43,110 @@ allprojects {
 }
 ```
 
-Add the compile dependency with the assigned version of the Vpon SDK in the app-level `build.gradle` (Here take SDK 4.6.0 for example).
+Add the dependency with a specified version of Vpon SDK in the app-level `build.gradle` file (Here take SDK 4.7.0 for example).
 
 ```javascript
 dependencies {
     ...
-    compile 'com.vpon:vpadnSDK:4.6.0'
+    implementation 'com.vpon:vpadnSDK:4.7.0'
 }
 ```
 
-> Publisher can revise the above-mentioned to ``'com.vpon:vpadnSDK:4.6.+'`` to gain the latest SDK in version 4.6.
+> **Notice**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7.
 
-<br>
 
-## Manual, using the SDK download {#manual-sdk}
+## Integrate SDK manually {#manual-sdk}
+---
+Please follow the instruction below to integrate Vpon SDK to your application manually:
 
-Show Vpon banner on your Android App, you must complete three steps:
-
-1.  Import Vpon SDK JAR into your Android Studio/Eclipse project.
-2.  Declare com.vpadn.widget.VpadnActivity in AndroidManifest.xml.
-3.  Set necessary permissions.
+1. [Download latest Vpon SDK here](../download)
+2. Import Vpon SDK to your Android Studio / Eclipse project
 
 ### Eclipse
 ---
-1. Import Vpon SDK Jar file to your eclipse  project. (copy jar file to
-libs folder)
+1. Right click on your mouse to show the menu. Choose `Properties`.
 <img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
-2. Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
+2. Click `Java Build Path` and switch to the `Libraries` tag. Click `Add External JARs...` to add Vpon SDK.
 ![]({{site.imgurl}}/A-sdk330-02.png)
-
-3. Add required permissons to your AndroidManifest.xml.
-<br>
-
 
 ### Android Studio
 ---
-1. Find `libs` in your Android project (Route：Project Name -&gt; app
--&gt; libs)
+1. Find `libs` in your Android project (Directory：Project Name -> app -> libs)
 ![]({{site.imgurl}}/ProjectLibFolder.jpg)
 
-
-2. Right-click on `libs` and follow with a left-click on `Reveal in Finder`
+2. Right click on `libs` and choose to `Reveal in Finder`
 ![]({{site.imgurl}}/DropJarFileToLibFolder.jpg)
 
 
-3. Move the JAR downloaded to `libs` on finder (You can also grab Vpon JAR into `libs` on IDE)
+3. Move the SDK (.jar) to `libs` (You can also grab the file into `libs` in IDE)
 ![]({{site.imgurl}}/MainInterface.jpg)
 
-
-
-4. Go back to your Android project and you will see that the Vpon JAR we just added shows up in [libs]. Make a right-click and choose `Add as library` to link reference. Please check the build.gradle at the same time to make sure there's a sentence " compile files('libs/vpon_SDK_version_name.jar') ". See the photo below.
-![]({{site.imgurl}}/ModifyBuildGradle.jpg)
+4. Go back to your Android project and you will see the SDK (.jar) we just added shows in the [libs] folder. Right click on the SDK (.jar) and choose `Add as library` to link reference. Please check the build.gradle at the same time to make sure there's a sentence "implementation ('libs/vpon_SDK_version_name.jar')" .
+![]({{site.imgurl}}/ModifyBuildGradleN.jpg)
 
 # VpadnActivity
 ---
-Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml
+Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
 
 ```xml
 <activity
   android:name="com.vpadn.widget.VpadnActivity"
   android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
   android:theme="@android:style/Theme.Translucent"
-  android:hardwareAccelerated="true" >
+  android:hardwareAccelerated="true">
 </activity>
 ```
 
-> **Note**: **EVERY** attribute is required!
+> **Notice**: **EVERY** attribute is required!
 
-<br>
 
-# Permissions
+# Permission
 ---
-Add following permissions in AndroidManifest.xml
+Add permissions below to your AndroidManifest.xml.
 
-```java
-  <uses-permission android:name="android.permission.INTERNET" />
+```xml
+  <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-The five permissions above are necessary. In addition, we recommend that you can add the following permission for being able to obtain more accurate banner related location.
+These are required permissions.
 
-```java
+Besides, we recommend that you can add one more permission below additionally to allow Vpon to deliver location-base ads with more accurate location information.
+
+```xml
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
 
-Since there would be plenty of Video ads displayed on devices, we
-recommend you to add hardware acceleration in your main Activity.
+Since we started to support Video ads from Vpon SDK 4, we recommend that you can add the scripts below to your Activity which contain ads to accelerate hardward performance.
 
 ```xml
 <activity
   android:name="com.vpadn.example.MainActivity"
   android:label="@string/app_name"
   android:configChanges="keyboardHidden|orientation"
-  android:hardwareAccelerated="true" >
+  android:hardwareAccelerated="true">
   <intent-filter>
-    <action android:name="android.intent.action.MAIN" />
-    <category android:name="android.intent.category.LAUNCHER" />
+    <action android:name="android.intent.action.MAIN"/>
+    <category android:name="android.intent.category.LAUNCHER"/>
   </intent-filter>
 </activity>
 ```
 
-
-
-# Download
+# Tips
 ---
-[Go to download page](../download)
+For more ad types, please refer to:
 
-# Other Tips
----
-Please refer to [Banner Ad](../banner)、[Interstitial Ad](../Interstitial)、[Native Ad](../native)、[Mediation](../mediation) for more information.
+* [Banner Ad][1]
+* [Interstitial Ad][2]
+* [Native][3]
+* [Mediation][4]
+
+
+[Register as a Vpon Publisher]: {{ site.baseurl }}/android/registration/
+[1]:{{ site.baseurl }}/android/banner/
+[2]:{{ site.baseurl }}/android/interstitial/
+[3]:{{ site.baseurl }}/android/native/
+[4]:{{ site.baseurl }}/android/mediation/

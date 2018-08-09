@@ -9,30 +9,36 @@ lang: "zh-cn"
 ---
 # 快速上手 - 串接 SDK 与显示广告
 
-## Step1: 下载SDK
+## Step1: 检查系统需求
 ---
-请先[下载最新SDK][1]，若尚未加入Vpon开发商，请参照此[说明][2]成为开发商伙伴 <br><br>
+Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SDK 前，请确保您的 App 符合以下条件：
 
-## Step2: 串接SDK
+* iOS：`iOS 8.0 以上 & Xcode 9.0 以上`
+* Android：`Android 3.0 以上`
+
+## Step2: 成为 Vpon 开发商伙伴
 ---
-请遵循[串接说明][3]完成各种SDK串接，包括最低需求、权限以及其他设定<br><br>
+请先[注册帐号][2]成为 Vpon 开发商伙伴，您将会透过开发商帐号管理您在串接广告时所使用的 License Key 及广告收益
 
-## Step3: 串接广告
+## Step3: 串接 SDK
+---
+请遵循[串接说明][3]完成各种 SDK 串接，包含权限以及其他设定
+
+## Step4: 串接广告
 ---
 
-| [横幅广告][4]  |[插页广告][5] |[原生广告][7]|[中介服务][6]|
+| [横幅广告][4]  |[插页广告][5] |[原生广告][7]| [中介服务][6]|
 
-<br>
 
-## 诀窍
+## Tips
 ---
 所有 iOS 相关资讯都在左排列表中，右排为文章的目录，若想跳转其他装置平台或语言，请点选网站右上角的目标语言与平台。若您有任何技术问题，请不吝联络 [FAE 团队](mailto:fae@vpon.com)
-<br><br>
 
-> **Note**:
-
+> **Note**：
+>
 > 1. 串接完毕后，请自行检查是否有印出VponLog:didImpression，以确认有成功回传资讯到Vpon Server
-> 2. iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
+>
+> 2. iOS10 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定
 
 
 
@@ -42,5 +48,5 @@ lang: "zh-cn"
 [4]:{{ site.baseurl }}/zh-cn/ios/banner/
 [5]:{{ site.baseurl }}/zh-cn/ios/interstitial/
 [6]:{{ site.baseurl }}/zh-cn/ios/mediation/
-[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
+[iOS9 ATS]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
 [7]:{{ site.baseurl }}/zh-cn/ios/native/

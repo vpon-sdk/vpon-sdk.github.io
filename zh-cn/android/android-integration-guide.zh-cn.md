@@ -8,30 +8,30 @@ permalink:       zh-cn/android/integration-guide/
 lang:           "zh-cn"
 ---
 
-# Vpon SDK 基本使用
-----
-若您曾使用过旧版SDK，请先阅读: [升级最新 SDK 所需修改](../../android/latest-news/update-to-SDK4_5_1+/)
+# 串接准备
+---
+在开始串接 SDK 前，请确认您已经拥有 Vpon 开发商帐号，并已经取得您的 License Key。如果您还没完成注册，请先[注册帐号]。
 
-1. 请先从注册网址检查您的 Ad Network 平台: <br>
-Taiwan 平台为 <http://console.vpon.com/> <br>
+取得 Vpon 开发商帐号后，请参考以下说明完成 Vpon Android SDK 的串接：
 
-2. 如果您申请的是 Taiwan 的平台，请使用： <br>
-`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
-“TW”);`
-<br>
+1. 导入 SDK 到您的专案中
+2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VpadnActivity
+3. 在 AndroidManifest.xml 中设定必要的 Permission
 
 # 导入 SDK
 ----------
+Vpon 提供以下两种串接广告 SDK 的方式：
 
-Vpon 提供以下两种串接广告 SDK的方式：
+* [精简 (搭配 Maven)](#maven)
+* [手动 (手动下载并串接)](#manual-sdk)
 
-* [精简 (搭配 Maven)](#maven)<br>
-* [手动 (手动下载并串接)](#manual-sdk)<br>
-<br>
+> **Notice**：若您曾使用过旧版 SDK，请先阅读：[如何升级 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
 ## 精简 (搭配 Maven) {#maven}
+---
+> **Note**：Maven 是一个项目管理及项目自动建构的工具，如果您还没在开发用的装置中安装过 Maven，请参考 [Maven 安装指南](https://maven.apache.org/)。
 
-在 Android Studio 专案层级的 `build.gradle` 中，如下方所示在 allprojects 的 repositories 加入在以下连结中的 Maven Repository
+开启 Android Studio Project 层级的 `build.gradle` 档案，在下方所示在 allprojects 的 repositories 加入 Maven Repository
 
 ```javascript
 allprojects {
@@ -44,26 +44,23 @@ allprojects {
 }
 ```
 
-加入上述连结后，即可在 app 层级下的 `build.gradle` 中加入 Vpon SDK 指定版本的编译相依性( 此处以 SDK 4.6.0为例 )
+加入 Maven Repository 后，即可在 App 层级下的 `build.gradle` 加入 Vpon SDK 指定版本的编译相依性( 此处以 SDK 4.7.0为例 )
 
 ```javascript
 dependencies {
     ...
-    compile 'com.vpon:vpadnSDK:4.6.0'
+    compile 'com.vpon:vpadnSDK:4.7.0'
 }
 ```
 
-> 若要更新 SDK，可将上述改为 compile ``'com.vpon:vpadnSDK:4.6.+'``，可获取 SDK 版本号 4.6 中最新的版本。
-
-<br>
+> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可获取 SDK 版本号 4.7 中最新的版本。
 
 ## 手动 (手动下载并串接) {#manual-sdk}
 
-要手动在应用程式中加入 Vpon 广告，您必须完成三个步骤：
+要手动在应用程式中加入 Vpon SDK，您必须完成以下步骤：
 
-1. 在 Android Studio/Eclipse 专案中加入 Vpon SDK JAR
-2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VpadnActivity
-3. 在资讯清单中设定必要的 permissions。
+1. [由此下载最新版本的 Vpon SDK](../download)
+2. 在 Android Studio / Eclipse 专案中加入 Vpon SDK
 
 ### Eclipse
 1. 在 Eclipse 中的应用程式专案上按一下滑鼠右键，并选择 `Properties`。
@@ -83,44 +80,44 @@ dependencies {
 ![]({{site.imgurl}}/MainInterface.jpg)
 
 4. 回到 Android 专案，`libs` 会多出一个 Vpon 的 JAR 档案，对它按下右键选则 [Add as library]。也请到 app 下的 build.gradle 确认，如范例显示，将会有一行 compile files('libs/vpon_SDK_version_name.jar') 表示 JAR 被读到了
-![]({{site.imgurl}}/ModifyBuildGradle.jpg)
+![]({{site.imgurl}}/ModifyBuildGradlen.jpg)
 
-# VpadnActivity
+# 宣告 VpadnActivity
 ---
-加入以下设定在您的 AndroidManifest.xml
+请在您的 AndroidManifest.xml 加入以下内容：
 
 ```xml
 <activity
   android:name="com.vpadn.widget.VpadnActivity"
   android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
   android:theme="@android:style/Theme.Translucent"
-  android:hardwareAccelerated="true" >
+  android:hardwareAccelerated="true">
 </activity>
 ```
 
-> **注意**: 上面**每一个**属性都不能少,其值都需要相同！
+> **Notice**： 上面**每一个**属性都不能少,其值都需要相同！
 
 <br>
 
-# Permissions
+# 加入 Permissions
 ---
-加入以下 permission 在您的 AndroidManifest.xml
+请在您的 AndroidManifest.xml 加入以下内容：
 
-```java
-  <uses-permission android:name="android.permission.INTERNET" />
+```xml
+  <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-上面五个是必要的 permission，另外建议您可以开启下面这个 permission，将可以更精准的定位取得地理位置相关的广告
+以上五个为必要的 permission，另外建议您可以额外开启以下 permission，提供更精准的定位讯息来取得地理位置相关的广告
 
 
-```java
+```xml
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
 
-由于 Vpon SDK 4 有大量的 Video 广告，建议您在你放 Banner 的 Activity 内加入硬体加速，如下
+此外，由于 Vpon SDK 4 开始支援影音形式的广告，建议您在放广告的 Activity 中加入硬体加速，请参考如下：
 
 
 ```xml
@@ -128,18 +125,25 @@ dependencies {
   android:name="com.vpadn.example.MainActivity"
   android:label="@string/app_name"
   android:configChanges="keyboardHidden|orientation"
-  android:hardwareAccelerated="true" >
+  android:hardwareAccelerated="true">
   <intent-filter>
-    <action android:name="android.intent.action.MAIN" />
-    <category android:name="android.intent.category.LAUNCHER" />
+    <action android:name="android.intent.action.MAIN"/>
+    <category android:name="android.intent.category.LAUNCHER"/>
   </intent-filter>
 </activity>
 ```
 
-# 下载
+# Tips
 ---
-[前往下载](../download)
+关于更多广告形式的呈现，请参考：
 
+* [横幅广告][1]
+* [插页广告][2]
+* [原生广告][3]
+* [中介服务][4]
 
-# 其他诀窍
-请参阅[横幅广告](../banner)、[插页广告](../Interstitial)、[原生广告](../native)、[中介服务](../mediation)中获取更多简介。
+[注册帐号]: {{ site.baseurl }}/zh-cn/android/registration/
+[1]:{{ site.baseurl }}/zh-cn/android/banner/
+[2]:{{ site.baseurl }}/zh-cn/android/interstitial/
+[3]:{{ site.baseurl }}/zh-cn/android/native/
+[4]:{{ site.baseurl }}/zh-cn/android/mediation/

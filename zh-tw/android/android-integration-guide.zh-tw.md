@@ -7,31 +7,30 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       zh-tw/android/integration-guide/
 lang:           "zh-tw"
 ---
+# 串接準備
+---
+在開始串接 SDK 前，請確認您已經擁有 Vpon 開發商帳號，並已經取得您的 License Key。如果您還沒完成註冊，請先[註冊帳號]。
 
-# Vpon SDK 基本使用
-----
-若您曾使用過舊版SDK，請先閱讀: [升級最新 SDK 所需修改](../../android/latest-news/update-to-SDK4_5_1+/)
+取得 Vpon 開發商帳號後，請參考以下說明完成 Vpon Android SDK 的串接：
 
-1. 請先從註冊網址檢查您的 Ad Network 平台: <br>
-Taiwan 平台為 <http://console.vpon.com/> <br>
-
-2. 如果您申請的是 Taiwan 的平台，請使用： <br>
-`vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER,
-“TW”);`
-<br>
+1. 導入 SDK 到您的專案中
+2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VpadnActivity
+3. 在 AndroidManifest.xml 中設定必要的 Permission
 
 # 導入 SDK
-----------
-
+---
 Vpon 提供以下兩種串接廣告 SDK 的方式：
 
-* [精簡 (搭配 Maven)](#maven)<br>
-* [手動 (手動下載並串接)](#manual-sdk)<br>
-<br>
+* [精簡 (搭配 Maven)](#maven)
+* [手動 (手動下載並串接)](#manual-sdk)
+
+> **Notice**：若您曾使用過舊版 SDK，請先閱讀: [如何升級 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
 ## 精簡 (搭配 Maven) {#maven}
+---
+> **Note**：Maven 是一個項目管理及項目自動建構的工具，如果您還沒在開發用的裝置中安裝過 Maven，請參考 [Maven 安裝指南](https://maven.apache.org/)。
 
-在 Android Studio 專案層級的 `build.gradle` 中，如下方所示在 allprojects 的 repositories 加入在以下連結中的 Maven Repository
+開啟 Android Studio Project 層級的 `build.gradle` 檔案，在下方所示 allprojects 的 repositories 加入 Maven Repository
 
 ```javascript
 allprojects {
@@ -44,37 +43,34 @@ allprojects {
 }
 ```
 
-加入上述連結後，即可在 app 層級下的 `build.gradle` 中加入 Vpon SDK 指定版本的編譯相依性( 此處以 SDK 4.6.0為例 )
+加入 Maven Repository 後，開啟 App 層級下的 `build.gradle` 加入 Vpon SDK 指定版本的編譯相依性 (此處以 SDK 4.7.0為例)
 
 ```javascript
 dependencies {
     ...
-    compile 'com.vpon:vpadnSDK:4.6.0'
+    implementation 'com.vpon:vpadnSDK:4.7.0'
 }
 ```
 
-> 若要更新 SDK，可將上述改為 compile ``'com.vpon:vpadnSDK:4.6.+'``，可獲取 SDK 版本號 4.6 中最新的版本。
-
-<br>
+> **Notice**：若要更新 SDK，可改為 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可獲取 SDK 版本號 4.7 中最新的版本
 
 ## 手動 (手動下載並串接) {#manual-sdk}
+---
+要手動在應用程式中加入 Vpon SDK，您需要完成以下步驟：
 
-要手動在應用程式中加入 Vpon 廣告，您必須完成三個步驟：
-
-1. 在 Android Studio/Eclipse 專案中加入 Vpon SDK JAR
-2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VpadnActivity
-3. 在資訊清單中設定必要的 permissions。
+1. [由此下載最新版本的 Vpon SDK](../download)
+2. 在 Android Studio / Eclipse 專案中加入 Vpon SDK
 
 
 ### Eclipse
 1. 在 Eclipse 中的應用程式專案上按一下滑鼠右鍵，並選擇 `Properties`。
 <img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
 
-2. 選取 `Java Build Path` (Java 建構路徑) 和 `Libraries` (程式庫) 分頁，然後按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon 廣告 JAR。
+2. 選取 `Java Build Path` (Java 建構路徑) 和 `Libraries` (程式庫) 分頁，然後按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon SDK JAR。
 ![]({{site.imgurl}}/A-sdk330-02.png)
 
 ### Android Studio
-1. 在 Android 中的應用程式專案找到 `libs` (途徑：`project_name` -> `app` -> `libs`)
+1. 在 Android 中的應用程式專案找到 `libs` (路徑：`project_name` -> `app` -> `libs`)
 ![]({{site.imgurl}}/ProjectLibFolder.jpg)
 
 
@@ -82,70 +78,73 @@ dependencies {
 ![]({{site.imgurl}}/DropJarFileToLibFolder.jpg)
 
 
-3. 將下載下來的 JAR 檔複製到 `libs` 資料夾 (也可以直接拖移 Vpon JAR 至專案的 `libs`)
+3. 將下載下來的 JAR 檔複製到 `libs` 資料夾 (也可以直接將 JAR 檔拖移至專案的 `libs`)
 ![]({{site.imgurl}}/MainInterface.jpg)
 
 
+4. 回到 Android 專案，`libs` 會多出一個 Vpon 的 JAR 檔，右鍵點擊 JAR 檔並選擇 [Add as library]。再到 App 下的 build.gradle 進行確認，如範例所示，如果 JAR 檔被讀到了，將顯示 implementation ('libs/vpon_SDK_version_name.jar')
+![]({{site.imgurl}}/ModifyBuildGradleN.jpg)
 
-4. 回到 Android 專案，`libs` 會多出一個 Vpon 的 JAR 檔案，對它按下右鍵選則 [Add as library]。也請到 app 下的 build.gradle 確認，如範例顯示，將會有一行 compile files('libs/vpon_SDK_version_name.jar') 表示 JAR 被讀到了
-![]({{site.imgurl}}/ModifyBuildGradle.jpg)
 
-
-# VpadnActivity
+# 宣告 VpadnActivity
 ---
-加入以下設定在您的 AndroidManifest.xml
+請在您的 AndroidManifest.xml 加入以下內容：
 
 ```xml
 <activity
   android:name="com.vpadn.widget.VpadnActivity"
   android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
   android:theme="@android:style/Theme.Translucent"
-  android:hardwareAccelerated="true" >
+  android:hardwareAccelerated="true">
 </activity>
 ```
 
-> **注意**: 上面**每一個**屬性都不能少,其值都需要相同！
+> **Notice**：上面**每一個**屬性都不能少，其值都需要相同！
 
-<br>
-
-# Permissions
+# 加入 Permission
 ---
-加入以下 permission 在您的 AndroidManifest.xml
+請在您的 AndroidManifest.xml 加入以下內容：
 
-```java
-  <uses-permission android:name="android.permission.INTERNET" />
+```xml
+  <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-上面五個是必要的 permission，另外建議您可以開啟下面這個 permission，將可以更精準的定位取得地理位置相關的廣告
+以上五個為必要的 permission。另外建議您可以額外開啟以下 permission，提供更精準的定位訊息來取得與地理位置相關的廣告
 
-
-```java
+```xml
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
 
-由於Vpon SDK 4 有大量的 Video 廣告，建議您在你放 Banner 的 Activity 內加入硬體加速，如下
-
+此外，由於 Vpon SDK 4 開始支援影音形式的廣告，建議您在放置廣告的 Activity 中加入硬體加速，請參考如下：
 
 ```xml
 <activity
   android:name="com.vpadn.example.MainActivity"
   android:label="@string/app_name"
   android:configChanges="keyboardHidden|orientation"
-  android:hardwareAccelerated="true" >
+  android:hardwareAccelerated="true">
   <intent-filter>
-    <action android:name="android.intent.action.MAIN" />
-    <category android:name="android.intent.category.LAUNCHER" />
+    <action android:name="android.intent.action.MAIN"/>
+    <category android:name="android.intent.category.LAUNCHER"/>
   </intent-filter>
 </activity>
 ```
 
-# 下載
+# Tips
 ---
-[前往下載](../download)
+關於更多廣告形式的呈現，請參考：
+
+* [橫幅廣告][1]
+* [插頁廣告][2]
+* [原生廣告][3]
+* [中介服務][4]
 
 
-# 其他訣竅
-請參閱[橫幅廣告](../banner)、[插頁廣告](../Interstitial)、[原生廣告](../native)、[中介服務](../mediation)中獲取更多簡介。
+[註冊帳號]: {{ site.baseurl }}/zh-tw/android/registration/
+[1]:{{ site.baseurl }}/zh-tw/android/banner/
+[2]:{{ site.baseurl }}/zh-tw/android/interstitial/
+[3]:{{ site.baseurl }}/zh-tw/android/native/
+[4]:{{ site.baseurl }}/zh-tw/android/mediation/

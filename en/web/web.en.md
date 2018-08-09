@@ -39,7 +39,7 @@ Vpon Mobile Web SDK helps mobile web developers to maximize their monetization o
 * The right-sidebar will indicate the position where you are in current page.
 * Switch to the Language and Platform you need via the tool bar on top-right.
 
-More questions? Please contact us via [Vpon FAE](mailto:fae@vpon.com). We will help to figure it out ASAP!
+More questions? Please contact [Vpon FAE](mailto:fae@vpon.com). We will help to figure it out ASAP!
 
 
 [1]: {{site.baseurl}}/web/original-banner/

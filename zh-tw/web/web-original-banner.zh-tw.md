@@ -146,33 +146,33 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 <br>
 
 
-# 使用 DFP 中介服務
+# 使用 Google Ad Manager 中介服務
 ---
-本段專為 DFP 使用者而設，主要說明 DoubleClick 聯播網搭配 Web API 的方式。
+本段專為 Google Ad Manager 使用者而設，主要說明 Google Ad Manager 搭配 Web API 的方式。
 
-## DFP 產生廣告代碼
+## Google Ad Manager 產生廣告代碼
 ---
 勾選「啟用單一請求」後將 「Google發佈商廣告代碼」裡產生的「標頭」放在網頁的HEAD元素中，將「文件內文」放在您要顯示這個廣告單元的網頁內文中。
 
 ## 設定廣告空間
 ---
-在 DFP 使用者介面中 [Here]:
+在 Google Ad Manager 使用者介面中 [Here]:
 
 1. 新增廣告空間
 2. 在廣告單元中設定名稱、 大小、目標視窗後儲存
 3. 產生廣告代碼 (選取Google發佈商廣告代碼)
 
-<img src="{{site.imgurl}}/UnitAdSetting_DFP1.png" alt="" class="width-600" />
-<img src="{{site.imgurl}}/UnitAdSetting_DFP2.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/UnitAdSetting_Google Ad Manager1.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/UnitAdSetting_Google Ad Manager2.png" alt="" class="width-600" />
 
 ## 設定委刊單、委刊項及廣告素材
 ---
-如要透過「DFP 廣告管理系統標準版」放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。針對保留的委刊項類型 (贊助和標準)，在委刊單獲得核准以前，DFP 不會保留廣告空間。
+如要透過「Google Ad Manager 廣告管理系統標準版」放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。針對保留的委刊項類型 (贊助和標準)，在委刊單獲得核准以前，Google Ad Manager 不會保留廣告空間。
 
 ### 建立委刊單
 若要在執行廣告空間預測之前建立委刊單，請按照下列指示進行：
 
-1. 在「DFP 廣告管理系統標準版」帳戶中，按一下 `委刊單` 標籤。
+1. 在「Google Ad Manager 廣告管理系統標準版」帳戶中，按一下 `委刊單` 標籤。
 2. 按一下 `新增委刊單`。
 3. 在適當欄位中輸入您的委刊單資訊。不可與聯播網中其他的委刊單名稱重複。
 4. 輸入委刊項資訊。
@@ -182,7 +182,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 ### 委刊項資訊
 如何建立委刊項：
 
-1. 在 DFP 廣告管理系統標準版帳戶中，按一下 `委刊單` 標籤。
+1. 在 Google Ad Manager 廣告管理系統標準版帳戶中，按一下 `委刊單` 標籤。
 2. 建立新委刊單，或按一下表格中的現有委刊單。
 3. 按一下 `新增委刊項`
 4. 輸入委刊項名稱，不得與聯播網中其他委刊項的名稱重複。
@@ -197,7 +197,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 廣告單元會沿用您的聯播網名稱，代表您聯播網中所有的廣告單元。如果您為委刊項指定這個聯播網層級的廣告單元，委刊項將指定聯播網中的任何廣告單元。
 
 範例：
-![新增指定目標_DFP]
+![新增指定目標_Google Ad Manager]
 
 10. (選用程序) 輸入其他指定條件，指定特定目標對象。 如果您未將委刊項指定給任何廣告單元或刊登位置，系統會將委刊項設成在全聯播網隨機放送。這表示委刊項可在您網站上的任何廣告單元中放送
 11. 按一下 `儲存`
@@ -210,7 +210,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 #### 只加入一個廣告素材
 選取廣告素材類型: 選取`所有`中的`第三方`
-<img src="{{site.imgurl}}/廣告素材類型_DFP.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/廣告素材類型_Google Ad Manager.png" alt="" class="width-600" />
 
 #### 基本廣告素材設定
 程式碼片段請填入:
@@ -225,7 +225,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 > **Note**: vpon_ad_test="1" 為開啓測試廣告， vpon_ad_test="0"為拉取正式廣告。
 
 範例：
-![素材設定_DFP]
+![素材設定_Google Ad Manager]
 
 
 #### 輪播型素材設定
@@ -263,14 +263,14 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 >3. your_license_key：請填入vpon申請的Banner ID。
 
 範例：
-![DFP_WEB_CALLBACK]
+![Google Ad Manager_WEB_CALLBACK]
 
-欲了解更多passback運行機制，請參考 [GAM tags](https://support.google.com/dfp_sb/answer/1693146?hl=en)
+欲了解更多passback運行機制，請參考 [GAM tags](https://support.google.com/Google Ad Manager_sb/answer/1693146?hl=en)
 
 # 其它訣竅
 ---
-[DFP Small Business](https://support.google.com/dfp_sb/) <br>
-[Google Developers DFP Banner Ads](https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android)
+[Google Ad Manager Small Business](https://support.google.com/Google Ad Manager_sb/) <br>
+[Google Developers Google Ad Manager Banner Ads](https://developers.google.com/mobile-ads-sdk/docs/Google Ad Manager/fundamentals#android)
 
 
 
@@ -288,11 +288,11 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 [Callback]: {{site.baseurl}}/zh-tw/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
-[UnitAdSetting_DFP1]: {{site.imgurl}}/UnitAdSetting_DFP1.png
-[UnitAdSetting_DFP2]: {{site.imgurl}}/UnitAdSetting_DFP2.png
-[新增指定目標_DFP]: {{site.imgurl}}/新增指定目標.png
-[廣告素材類型_DFP]: {{site.imgurl}}/廣告素材類型_DFP.png
-[素材設定_DFP]: {{site.imgurl}}/素材設定_DFP.png
-[DFP_WEB_CALLBACK]: {{site.imgurl}}/DFP_WEB_CALLBACK.png
+[UnitAdSetting_Google Ad Manager1]: {{site.imgurl}}/UnitAdSetting_Google Ad Manager1.png
+[UnitAdSetting_Google Ad Manager2]: {{site.imgurl}}/UnitAdSetting_Google Ad Manager2.png
+[新增指定目標_Google Ad Manager]: {{site.imgurl}}/新增指定目標.png
+[廣告素材類型_Google Ad Manager]: {{site.imgurl}}/廣告素材類型_Google Ad Manager.png
+[素材設定_Google Ad Manager]: {{site.imgurl}}/素材設定_Google Ad Manager.png
+[Google Ad Manager_WEB_CALLBACK]: {{site.imgurl}}/Google Ad Manager_WEB_CALLBACK.png
 [Warning]: {{site.imgurl}}/Warning.png
-[Here]: https://www.google.com/dfp/
+[Here]: https://www.google.com/Google Ad Manager/
