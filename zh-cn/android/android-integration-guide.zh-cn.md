@@ -25,7 +25,7 @@ Vpon 提供以下两种串接广告 SDK 的方式：
 * [精简 (搭配 Maven)](#maven)
 * [手动 (手动下载并串接)](#manual-sdk)
 
-> **Notice**：若您曾使用过旧版 SDK，请先阅读：[如何升级 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
+> **Note**：若您曾使用过旧版 SDK，请先阅读：[如何升级 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
 ## 精简 (搭配 Maven) {#maven}
 ---
@@ -80,7 +80,7 @@ dependencies {
 ![]({{site.imgurl}}/MainInterface.jpg)
 
 4. 回到 Android 专案，`libs` 会多出一个 Vpon 的 JAR 档案，对它按下右键选则 [Add as library]。也请到 app 下的 build.gradle 确认，如范例显示，将会有一行 compile files('libs/vpon_SDK_version_name.jar') 表示 JAR 被读到了
-![]({{site.imgurl}}/ModifyBuildGradlen.jpg)
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
 # 宣告 VpadnActivity
 ---
@@ -95,7 +95,7 @@ dependencies {
 </activity>
 ```
 
-> **Notice**： 上面**每一个**属性都不能少,其值都需要相同！
+> **Note**： 上面**每一个**属性都不能少,其值都需要相同！
 
 <br>
 

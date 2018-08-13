@@ -24,11 +24,11 @@ Vpon provides two ways to integrate our SDK. Choose one of the following two opt
 * [Integrate SDK with Maven (Streamlined simple)](#maven)
 * [Integrate SDK manually](#manual-sdk)
 
-> **Notice**: If you've integrated Vpon SDK before, check [How to update SDK](../../android/latest-news/update-to-SDK4_5_1+/) first.
+> **Note**: If you've integrated Vpon SDK before, check [How to update SDK](../../android/latest-news/update-to-SDK4_5_1+/) first.
 
 ## Integrate SDK with Maven {#maven}
 ---
-> **Notice**: Maven is a build automation tool used primarily for Java projects. If you haven't installed Maven in your device for development, please refer to [Maven Introduction](https://maven.apache.org/).
+> **Note**: Maven is a build automation tool used primarily for Java projects. If you haven't installed Maven in your device for development, please refer to [Maven Introduction](https://maven.apache.org/).
 
 Add Vpon's Maven repository in `allprojects` section in the project-level `build.gradle` file.
 
@@ -52,7 +52,7 @@ dependencies {
 }
 ```
 
-> **Notice**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7.
+> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7.
 
 
 ## Integrate SDK manually {#manual-sdk}
@@ -83,7 +83,7 @@ Please follow the instruction below to integrate Vpon SDK to your application ma
 ![]({{site.imgurl}}/MainInterface.jpg)
 
 4. Go back to your Android project and you will see the SDK (.jar) we just added shows in the [libs] folder. Right click on the SDK (.jar) and choose `Add as library` to link reference. Please check the build.gradle at the same time to make sure there's a sentence "implementation ('libs/vpon_SDK_version_name.jar')" .
-![]({{site.imgurl}}/ModifyBuildGradleN.jpg)
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
 # VpadnActivity
 ---
@@ -98,7 +98,7 @@ Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
 </activity>
 ```
 
-> **Notice**: **EVERY** attribute is required!
+> **Note**: **EVERY** attribute is required!
 
 
 # Permission

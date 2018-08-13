@@ -23,7 +23,7 @@ Vpon 提供以下两种串接广告 SDK的方式：
 
 ## 精简 (使用 CocoaPods) {#cocoapods}
 
-> **Notice**：CocoaPods 负责管理 Xcode 专案的程式库相依性，开发者可以利用此方式快速的串接 SDK。如果您还未在开发用的装置上安装 CocoaPods，请参阅 [CocoaPods 安装指南](https://cocoapods.org/)。
+> **Note**：CocoaPods 负责管理 Xcode 专案的程式库相依性，开发者可以利用此方式快速的串接 SDK。如果您还未在开发用的装置上安装 CocoaPods，请参阅 [CocoaPods 安装指南](https://cocoapods.org/)。
 
 ### 1. 建立 Podfile
 
@@ -43,7 +43,7 @@ Vpon 提供以下两种串接广告 SDK的方式：
 
 ![]({{site.imgurl}}/cocoapods_2.png)
 
-> **Notice**：若要更新至最新的 SDK，请将终端机路径移至 Podfile 相同的目录中，执行 `pod repo update` 撷取最新的 Pods，再执行 `pod install` 重新安装 SDK。
+> **Note**：若要更新至最新的 SDK，请将终端机路径移至 Podfile 相同的目录中，执行 `pod repo update` 撷取最新的 Pods，再执行 `pod install` 重新安装 SDK。
 
 ## 手动 (手动下载并串接) {#manual-sdk}
 

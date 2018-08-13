@@ -24,7 +24,7 @@ Vpon 提供以下兩種串接廣告 SDK 的方式：
 * [精簡 (搭配 Maven)](#maven)
 * [手動 (手動下載並串接)](#manual-sdk)
 
-> **Notice**：若您曾使用過舊版 SDK，請先閱讀: [如何升級 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
+> **Note**：若您曾使用過舊版 SDK，請先閱讀: [如何升級 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
 ## 精簡 (搭配 Maven) {#maven}
 ---
@@ -52,7 +52,7 @@ dependencies {
 }
 ```
 
-> **Notice**：若要更新 SDK，可改為 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可獲取 SDK 版本號 4.7 中最新的版本
+> **Note**：若要更新 SDK，可改為 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可獲取 SDK 版本號 4.7 中最新的版本
 
 ## 手動 (手動下載並串接) {#manual-sdk}
 ---
@@ -83,7 +83,7 @@ dependencies {
 
 
 4. 回到 Android 專案，`libs` 會多出一個 Vpon 的 JAR 檔，右鍵點擊 JAR 檔並選擇 [Add as library]。再到 App 下的 build.gradle 進行確認，如範例所示，如果 JAR 檔被讀到了，將顯示 implementation ('libs/vpon_SDK_version_name.jar')
-![]({{site.imgurl}}/ModifyBuildGradleN.jpg)
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
 
 # 宣告 VpadnActivity
@@ -99,7 +99,7 @@ dependencies {
 </activity>
 ```
 
-> **Notice**：上面**每一個**屬性都不能少，其值都需要相同！
+> **Note**：上面**每一個**屬性都不能少，其值都需要相同！
 
 # 加入 Permission
 ---

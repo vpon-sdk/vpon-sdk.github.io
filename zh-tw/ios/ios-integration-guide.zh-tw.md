@@ -23,7 +23,7 @@ Vpon 提供以下兩種串接廣告 SDK 的方式：
 
 ## 精簡 (使用 CocoaPods) {#cocoapods}
 ---
-> **Notice**： CocoaPods 負責管理 Xcode 專案的程式庫相依性，開發者可以利用此方式快速的串接 SDK。如果您還未在開發用的裝置上安裝 CocoaPods，請參閱 [CocoaPods 安裝指南](https://cocoapods.org/)。
+> **Note**： CocoaPods 負責管理 Xcode 專案的程式庫相依性，開發者可以利用此方式快速的串接 SDK。如果您還未在開發用的裝置上安裝 CocoaPods，請參閱 [CocoaPods 安裝指南](https://cocoapods.org/)。
 
 ### 1. 建立 Podfile
 
@@ -44,7 +44,7 @@ Vpon 提供以下兩種串接廣告 SDK 的方式：
 
 ![]({{site.imgurl}}/cocoapods_2.png)
 
-> **Notice**：若要更新至最新版本的 SDK，請將終端機路徑移至與 Podfile 相同的目錄中，執行 `pod repo update` 擷取最新的 Pods，再執行 `pod install` 重新安裝 SDK。
+> **Note**：若要更新至最新版本的 SDK，請將終端機路徑移至與 Podfile 相同的目錄中，執行 `pod repo update` 擷取最新的 Pods，再執行 `pod install` 重新安裝 SDK。
 
 ## 手動 (手動下載並串接) {#manual-sdk}
 ---
@@ -90,7 +90,7 @@ Framewrok 及 Fundamental SDK 提供一樣的功能，主要的差別在於對 i
 2. 加入相關所需的 framework
 3. 修改 Build Settings 中的設定
 
-> **Notice**：上述三項缺一不可，請務必完成！
+> **Note**：上述三項缺一不可，請務必完成！
 
 #### 1. 新增 SDK lib
 1.1 解壓縮後的 SDK 包含一個 .a 檔、及兩個標頭檔。對 Xcode 中的專案按一下滑鼠右鍵，然後選取 [Add Files to your_project...] (在 "your_project" 中新增檔案)。

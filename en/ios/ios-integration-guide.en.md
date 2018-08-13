@@ -24,7 +24,7 @@ Vpon provides two ways to integrate our SDK. Choose one of the following two opt
 
 ## Integrate SDK with CocoaPods {#cocoapods}
 
-> **Notice**: CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. If you haven't installed CocoaPods in your device for development, please refer to [CocoaPods Introduction](https://cocoapods.org/)
+> **Note**: CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. If you haven't installed CocoaPods in your device for development, please refer to [CocoaPods Introduction](https://cocoapods.org/)
 
 ### 1. Create Podfile
 
@@ -46,7 +46,7 @@ You'll see a new project file (.xcoworkspace) in your Xcode project directory. A
 
 ![]({{site.imgurl}}/cocoapods_2.png)
 
-> **Notice**: To update to the latest SDK, please change your directory in terminal to your Xcode project. Run `pod repo update` to refresh the podspec and use `pod install` again to install SDK.
+> **Note**: To update to the latest SDK, please change your directory in terminal to your Xcode project. Run `pod repo update` to refresh the podspec and use `pod install` again to install SDK.
 
 
 ## Integrate SDK Manually {#manual-sdk}
@@ -85,7 +85,7 @@ Finally, import the framework:
 ```
 ![]({{site.imgurl}}/ios_framework_5.png)
 
-> **Notice**: Remind again that the Framework SDK only support devices in iOS version higher than `7.0`. Do not use this SDK if your app targets at users with devices OS version lower than `7.0`.
+> **Note**: Remind again that the Framework SDK only support devices in iOS version higher than `7.0`. Do not use this SDK if your app targets at users with devices OS version lower than `7.0`.
 
 
 ### Fundamental SDK
@@ -96,7 +96,7 @@ The decompressed SDK consists of Objective-C, a runtime library and a README. Sh
 2. Add all iOS development frameworks
 3. Modify Build Settings
 
-> **Noticee**: **All three** these steps are necessary!
+> **Notee**: **All three** these steps are necessary!
 
 #### 1. Add SDK lib
 The decompressed SDK consists of a lib file and two header files.

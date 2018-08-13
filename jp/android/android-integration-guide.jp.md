@@ -97,7 +97,7 @@ dependencies {
 
 
 4. Android プロジェクトに戻り、先ほど追加した Vpon JAR が `libs` に表示されていること を確認してください。参考リンク先をリンクさせるには、右クリックし、ライブラリとし て追加を選択してください。同時に、「コンパイルファイル ('libs/vpon_SDK_version_name.jar')」という文章があるか、 build.gradle を確認してくださ い。下の写真をご参考ください
-![]({{site.imgurl}}/ModifyBuildGradle.jpg)
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
 # VpadnActivity
 ---
