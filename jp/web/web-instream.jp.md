@@ -29,7 +29,7 @@ Here is an instruction of how to set up your In-stream Video Ad on Google Ad Man
 2. Create a Line Item for In-stream Video Ad
 3. Add Video Creatives
 
-Besides, you can also use S2S to request Vpon In-stream Video Ad directly. For S2S integration, please refer to [Advanced Setting].
+> **Note**: Besides, you can also use `S2S` to request Vpon In-stream Video Ad directly. For S2S integration, please refer to [Advanced Setting].
 
 ## Create a Ad Unit for In-stream Video Ad
 ---

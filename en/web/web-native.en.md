@@ -1,6 +1,6 @@
 ---
 layout:         "web"
-title:          "web - Native Ad"
+title:          "Web - Native Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"

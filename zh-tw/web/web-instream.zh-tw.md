@@ -30,7 +30,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 2. 新增影音廣告委刊項
 3. 新增影音廣告素材
 
-此外，您也可以使用 S2S 的方式直接向 Vpon 請求 In-stream 影音廣告。關於 S2S 的串接方式，請參考 [Advanced Setting]。
+> **Note**：此外，您也可以使用 `S2S` 的方式直接向 Vpon 請求 In-stream 影音廣告。關於 S2S 的串接方式，請參考 [Advanced Setting]。
 
 ## 新增影音廣告單元
 ---
