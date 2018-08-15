@@ -115,7 +115,7 @@ Properties   |Class Name   | Description
 :-----------:|:-----------:|:-----------:|
 <font color="red">Title</font> | vpon-title | Title of the ads, text should be clear and eazy to read <br> Max length: 30 English character or 15 Chinese words
 :-----------:|:-----------:|:-----------:|
-<font color="red">Main Image</font> | vpon-cover-image| 1200 x 627px <br> 627 x 627px<br> (enable scaling in proportion or clipping into 16:9, 4:3)
+<font color="red">Main Image</font> | vpon-cover-image| 1200 x 627px <br> 627 x 627px<br> (enable to scale in proportion or crop into 16:9, 4:3)
 :-----------:|:-----------:|:-----------:|
 <font color="red">AD Badge</font> | vpon-attribution  | Let user know it is an ad <br>(e.g. Sponsor name, Sponsor, Ad, and so on ) <br> Max length: 15 English character or 8 Chinese words
 :-----------:|:-----------:|:-----------:|
