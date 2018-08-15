@@ -1,11 +1,11 @@
 ---
 layout:         "web"
-title:          "Web - Native Ad"
+title:          "Web - Native Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       web/native/
-lang:            "en"
+lang:           "en"
 ---
 
 # Overview
