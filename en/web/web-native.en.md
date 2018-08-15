@@ -4,7 +4,7 @@ title:          "Web - Native Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       /web/native/
+permalink:       web/native/
 lang:            "en"
 ---
 
