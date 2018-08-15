@@ -12,7 +12,7 @@ lang:           "zh-tw"
 ---
 Vpon Mobile Web SDK 提供`原生廣告`。有別於橫幅廣告、插頁廣告會直接提供可立即呈現的廣告內容，Vpon 提供了三種包含標題、圖像等廣告內容的原生廣告組合，您可以自訂 `CSS` 樣式，將廣告內容打造成符合您網頁內容的風格，讓您以最自然的方式呈現廣告。 <br>
 
-> **Note**:
+> **Note**：
 >此廣告形式僅支援<strong>`行動裝置`</strong>，使用者透過 PC 瀏覽該網站則廣告不會顯示！
 
 
@@ -96,7 +96,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 |vpon\_ad\_format      | 原生廣告格式<br>na                        | Y       | "na"
 |vpon\_ad\_test        | 是否拉取測試廣告                           | N       | 1(是)/0(否)<br>預設為 "1"
 |vpon\_na\_layout      | 原生廣告版型                              | N       | 請參考[原生廣告版型]<br>預設為"0"
-|vpon\_na\_min         | Image 尺吋<br>(1) 1200x627<br>(2) 836x627 <br>(3) 627x627 | N       | "1200x627"
+|vpon\_na\_min         | Main Image 尺吋<br>(1) 1200x627<br>(2) 627x627 | N       | "1200x627"
 |debug                 | 是否在 console 顯示 debug 資訊             | N       | true/false<br>預設為 "false"
 |openTab               | 是否開啓新 tab 顯示 廣告內容                | N       | true/false<br>預設為 "true"
 |ad\_request\_callback | 沒有廣告回傳時的 Callback Function         | N       | 請參考 [Callback]
@@ -109,18 +109,19 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 Properties   |Class Name   | Description
 :-----------:|:-----------:|:-----------:|
-<font color="red">Title</font> | vpon-title | 原生廣告標題文字
+<font color="red">Title</font> | vpon-title | 原生廣告標題文字，文字內容需清晰可見<br> 最長為30個英文字或15個中文字
 :-----------:|:-----------:|:-----------:|
-<font color="red">Image</font> | vpon-cover-image| 1200 x 627px <br> 836 x 627px <br> 627 x 627px<br> (可等比例縮放，不可變形，不可裁切)
+<font color="red">Main Image</font> | vpon-cover-image| 1200 x 627px <br> 627 x 627px<br> (可等比例縮放，或裁切為16:9、4:3)
 :-----------:|:-----------:|:-----------:|
-<font color="red">AD Badge</font> | vpon-attribution  | 讓使用者了解此為廣告<br> (例如：贊助、廣告 等等)
+<font color="red">AD Badge</font> | vpon-attribution | 讓使用者了解此為廣告 <br> (例如：贊助商名稱、贊助、廣告等等)<br> 最長為15個英文字或8個中文字
 :-----------:|:-----------:|:-----------:|
 Icon  | vpon-icon-image| 128 x 128px<br> (可等比例縮放，不可變形，不可裁切)
 :-----------:|:-----------:|:-----------:|
-CallToAction | vpon-action| 需要完整顯示
+Description  | vpon-body-text| 原生廣告內容文字，文字內容需清晰可見 <br> 最長為100個英文字或50個中文字
 :-----------:|:-----------:|:-----------:|
-Description  | vpon-body-text| 原生廣告內容文字
+CallToAction | vpon-action| 需要完整顯示 <br> 最長為20個英文字或10個中文字
 :-----------:|:-----------:|:-----------:|
+
 
 <br>
 

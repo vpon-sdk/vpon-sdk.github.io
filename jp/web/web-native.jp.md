@@ -7,6 +7,7 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /jp/web/native/
 lang:           "jp"
 ---
+
 # Overview
 ---
 Different from banner and interstitial, Vpon provide three types of layouts that include a group of ad creatives such as titles and images for each. You can embed `CSS` in your HTML to make the native ad layouts more fit to your website.<br>
@@ -99,7 +100,7 @@ vpon\_ad\_licensy\_key| Banner ID                                | Y         | <
 vpon\_ad\_format      | Format:<br>na                             | Y          | "na"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_na\_layout      | Native Ad layouts                        | N          | Please refer to [Native Ad layouts]. <br>Default = "0"
-vpon\_na\_min         | Size of Image<br>(1) 1200x627<br>(2) 836x627<br>(3) 627x627 | N          | "1200x627"
+vpon\_na\_min         | Size of Main Image<br>(1) 1200x627<br>(2) 627x627 | N          | "1200x627"
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
 ad\_request\_callback | Callback Function for no ad fill         | N          | Please refer to [Callback].
@@ -112,18 +113,19 @@ We will return the creatives that depends on the parameter of `vpon_na_layout`. 
 
 Properties   |Class Name   | Description
 :-----------:|:-----------:|:-----------:|
-<font color="red">Title</font> | vpon-title | Title of the ads
+<font color="red">Title</font> | vpon-title | Title of the ads, text should be clear and eazy to read <br> Max length: 30 English character or 15 Chinese words
 :-----------:|:-----------:|:-----------:|
-<font color="red">Image</font> | vpon-cover-image| 1200 x 627px <br> 836 x 627px <br> 627 x 627px<br> (enable scaling in proportion, without distortion and clipping)
+<font color="red">Main Image</font> | vpon-cover-image| 1200 x 627px <br> 627 x 627px<br> (enable scaling in proportion or clipping into 16:9, 4:3)
 :-----------:|:-----------:|:-----------:|
-<font color="red">AD Badge</font> | vpon-attribution  | Let user know it is ad <br>( Sponsor, Ad, and so on ).
+<font color="red">AD Badge</font> | vpon-attribution  | Let user know it is an ad <br>(e.g. Sponsor name, Sponsor, Ad, and so on ) <br> Max length: 15 English character or 8 Chinese words
 :-----------:|:-----------:|:-----------:|
 Icon  | vpon-icon-image| 128 x 128px<br> (enable scaling in proportion, without distortion and clipping)
 :-----------:|:-----------:|:-----------:|
-CallToAction | vpon-action| Show comletely
+Description  | vpon-body-text| Description of the ads <br> Max length: 100 English character or 50 Chinese words
 :-----------:|:-----------:|:-----------:|
-Description  | vpon-body-text| Description of the ads
+CallToAction | vpon-action| Show comletely <br> Max length: 20 English character or 10 Chinese words
 :-----------:|:-----------:|:-----------:|
+
 
 # Sample Code
 ---

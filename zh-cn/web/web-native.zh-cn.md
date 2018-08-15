@@ -97,7 +97,7 @@ vpon\_ad\_licensy\_key| 版位 ID                                 | Y          |
 vpon\_ad\_format      | 原生广告格式<br>na                       | Y          | "na"
 vpon\_ad\_test        | 是否拉取测试广告                          | N          | 1(是)/0(否)，预设为 "1"
 vpon\_na\_layout      | 原生广告版型                             | N          | 请参考[原生广告版型]<br> 预设为"0"
-vpon\_na_\_min        | Image 尺吋<br>(1) 1200x627 <br>(2) 836x627 <br>(3) 627x627 | N          | "1200x627"
+vpon\_na_\_min        | Main Image 尺吋<br>(1) 1200x627 <br>(2) 627x627 | N          | "1200x627"
 debug                 | 是否在 console 显示 debug 资讯            | N          | true/false，预设为 "false"
 openTab               | 是否开启新tab 显示 广告内容                | N          | true/false，预设为 "true"
 ad\_request\_callback | 没有广告回传时的 Callback Function        | N          | 请参考 [Callback]
@@ -111,17 +111,17 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 
 Properties   |Class Name   | Description
 :-----------:|:-----------:|:-----------:|
-<font color="red">Title</font> | vpon-title | 原生广告标题文字
+<font color="red">Title</font> | vpon-title | 原生广告标题文字，文字内容需清晰可见 <br> 最长为30个英文字或15个中文字
 :-----------:|:-----------:|:-----------:|
-<font color="red">Image</font> | vpon-cover-image| 1200 x 627px <br> 836 x 627px <br> 627 x 627px<br> (可等比例缩放，不可变形，不可裁切)
+<font color="red">Main Image</font> | vpon-cover-image| 1200 x 627px <br> 627 x 627px<br> (可等比例缩放，或裁切为16:9、4:3)
 :-----------:|:-----------:|:-----------:|
-<font color="red">AD Badge</font> | vpon-attribution  | 让使用者了解此为广告 (例如： 赞助、广告 等等)
+<font color="red">AD Badge</font> | vpon-attribution | 让使用者了解此为广告<br> (例如： 赞助商名称、赞助、广告 等等) <br> 最长为15个英文字或8个中文字
 :-----------:|:-----------:|:-----------:|
 Icon  | vpon-icon-image| 128 x 128px<br> (可等比例缩放，不可变形，不可裁切)
 :-----------:|:-----------:|:-----------:|
-CallToAction | vpon-action| 需要完整显示
+Description  | vpon-body-text| 原生广告内容文字，文字内容需清晰可见 <br> 最长为100个英文字或50个中文字
 :-----------:|:-----------:|:-----------:|
-Description  | vpon-body-text| 原生广告内容文字
+CallToAction | vpon-action| 需要完整显示<br>最长为20个英文字或10个中文字
 :-----------:|:-----------:|:-----------:|
 
 # 范例网页
