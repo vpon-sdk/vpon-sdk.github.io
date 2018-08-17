@@ -126,6 +126,9 @@ Description  | vpon-body-text| Description of the ads <br> Max length: 100 Engli
 CallToAction | vpon-action| Show comletely <br> Max length: 20 English character or 10 Chinese words
 :-----------:|:-----------:|:-----------:|
 
+# Result
+---
+<img src="{{site.imgurl}}/Web_Native_Sample.png" alt="" class="width-300"/>
 
 # Sample Code
 ---

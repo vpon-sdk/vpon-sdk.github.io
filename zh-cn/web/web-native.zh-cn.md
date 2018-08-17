@@ -124,6 +124,10 @@ Description  | vpon-body-text| 原生广告内容文字，文字内容需清晰�
 CallToAction | vpon-action| 需要完整显示<br>最长为20个英文字或10个中文字
 :-----------:|:-----------:|:-----------:|
 
+# 结果
+---
+<img src="{{site.imgurl}}/Web_Native_Sample.png" alt="" class="width-300"/>
+
 # 范例网页
 ---
 
