@@ -15,7 +15,7 @@
   {% assign original-banner-id = "Original Banner Ad" %}
   {% assign adhesion-banner-id = "Adhesion Banner Ad" %}
   {% assign interstitial-id = "Interstitial Ad" %}
-  
+  {% assign native-id = "Native Ad" %}
 
 {% else %}
   {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/web" %}
@@ -34,7 +34,7 @@
   {% assign original-banner-id = "一般橫幅廣告" %}
   {% assign adhesion-banner-id = "置頂/置底橫幅廣告" %}
   {% assign interstitial-id = "插頁廣告" %}
-  
+  {% assign native-id = "原生廣告" %}
 
 {% when "zh-cn" %}
   {% assign sidebar-title1 = "Web 串接" %}
@@ -43,7 +43,7 @@
   {% assign original-banner-id = "一般横幅广告" %}
   {% assign adhesion-banner-id = "置顶/置底横幅广告" %}
   {% assign interstitial-id = "插页广告" %}
-  
+  {% assign native-id = "原生广告" %}
 
 {% when "jp" %}
   {% assign sidebar-title1 = "Web 串接" %}
@@ -52,7 +52,7 @@
   {% assign original-banner-id = "バナー広告" %}
   {% assign adhesion-banner-id = "(adhesion)バナー広告" %}
   {% assign interstitial-id = "インタースティシャル広告" %}
-  
+  {% assign native-id = "Native Ad" %}
 
 
 {% endcase %}

@@ -19,9 +19,10 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
 ---
 1. HTMLの基本的な概念
 
-2. Vponへの登録・ウェブサイトの申請・プロパティIDを取得します。<br>
-Please register your own license key in the following lnk: <http://console.vpon.com/>
-
+2. Vponへの登録・ウェブサイトの申請・プロパティIDを取得します。<br><br>
+* [Register as a Vpon Publisher](http://console.vpon.com/register.action)
+* [Apply for License ID](http://console.vpon.com)
+<br><br>
 3. モバイルウェブサイトコードを変更する権限
 <br><br>
 
