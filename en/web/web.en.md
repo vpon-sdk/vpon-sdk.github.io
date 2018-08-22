@@ -31,7 +31,7 @@ Vpon Mobile Web SDK helps mobile web developers to maximize their monetization o
 # Ad Integration
 ---
 
-| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] |
+| [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] | [Native Ad][4] |
 
 
 # Tips
@@ -46,3 +46,4 @@ More questions? Please contact [Vpon FAE](mailto:fae@vpon.com). We will help to 
 [1]: {{site.baseurl}}/web/original-banner/
 [2]: {{site.baseurl}}/web/adhesion-banner/
 [3]: {{site.baseurl}}/web/interstitial/
+[4]: {{site.baseurl}}/web/native/
