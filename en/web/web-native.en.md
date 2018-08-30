@@ -137,6 +137,49 @@ CallToAction | vpon-action| Show comletely <br> Max length: 20 English character
 ```html
 <html>
   <head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Vpon Native Ad</title>
+  <!-- Native Ad Style -->
+  <style>
+      .vpon-native-ad{
+        border: 1px solid #dcdcdc;
+        position: relative;
+      }
+
+      .vpon-native-ad .vpon-title{
+        display: block;
+        padding: 5px;
+        font-size: 20px;
+
+      }
+
+      .vpon-native-ad .vpon-cover-image{
+        float: left;
+        width: 33%;
+        margin: 10px;
+      }
+      .vpon-native-ad .vpon-cover-image img{
+        width: 100%;
+      }
+
+      .vpon-native-ad .vpon-icon-image{
+      }
+
+      .vpon-native-ad .vpon-body-text{
+        font-size: 14px;
+      }
+
+      .vpon-native-ad .vpon-action{
+        display: none;   
+      }
+
+      .vpon-native-ad .vpon-attribution{
+        position: absolute;
+        color: #9a9a9a;
+        right: 5px;
+        bottom: 5px;
+        font-size: 13px;
+      }
+    </style>
   </head>
   <body>
     <h1>The Test Page</h1>
