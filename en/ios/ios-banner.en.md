@@ -6,91 +6,113 @@ description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/banner/
 lang:            "en"
-
 ---
-## Finished Integration Guide
+# Overview
 ---
-If you haven't finished the previous integration guide, please check all the [settings here]({{site.baseurl}}/ios/integration-guide/).
+Vpon Banner can be embedded to part of your app layout. It consists of a multimedia object which can attract user. The ads will expand to show much richer content after clicking.
 
-## Latest News
+<img src="{{site.imgurl}}/iOS_Banner_Sample.png" alt="" class="width-300"/>
+
+
+# Prerequisites
 ---
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
-# Coding for showing Banner
+# Start To Implement Banner
 ---
-iOS apps are composed of UIView objects, Objective-C instances the user sees as text areas, buttons and others controls. VpadnBanner is simply a UIView subclass displaying small HTML5 ads that respond to user touch.
+iOS apps are composed of UIView objects which will present as text area, buttons or other controllers. VpadnBanner is simply an UIView subclass that can display small HTML5 ads trigger by users' touch.
 
-Like any UIView, a VpadnBanner is easy to create in code.
+Just like all the other UIView, a VpadnBanner is easy to implement in code.
 
-
-1. Import `VpadnBanner.h` and `VpadnInterstitial.h`
+1. Import `VpadnSDKAdKit`
 2. Declare a VpadnBanner instance
-4. Set the Banner ID which is from Vpadn
-5. Set the "root view controller"
-6. Add the view to the UI
-6. Load it with an ad
+3. Set up VpadnBanner object and indicate a License ID
+4. Request for a banner ad
+5. Set up Delegate protocol
 
-The best place to do all this is in your app's UIViewController.
+We strongly recommend that you can finish all the steps in ViewController of the application.
 
+## Import VpadnSDKAdKit And Declare A VpadnBanner Instance
+---
 ```objc
-#import <UIKit/UIKit.h>
-// Import header files from the SDK
-#import "VpadnBanner.h"
-#import "VpadnInterstitial.h"
+#import <ViewController.h>
 
-// Add two protocol to receive the status of Ads
-@interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
-{
-    VpadnBanner*    vpadnAd; // Declare the instance of Vpadn's banner Ads
-    VpadnInterstitial*    vpadnInterstitial; // Declare the instance of Vpadn's interstitial Ads
-}
+// import Vpon SDK
+@import VpadnSDKAdKit;
+
+// Add a protocol to receive the status of Ads
+@interface ViewController() <VpadnBannerDelegate>
+
+// Declare VpadnBanner Instance
+@property (strong, nonatomic) VpadnBanner *vpadnBanner;
+
+@property (weak, nonatomic) IBOutlet UIView *loadBannerView;
+
 @end
 ```
 
-## viewDidLoad setup
+## Set Up VpadnBanner Object And Indicate A License ID
 ---
-The following performs setup in the view controller's viewDidLoad initialization hook.
+Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of ViewController.
 
 ```objc
 @implementation ViewController
 
-- (void)dealloc
-{
-    if(nil != vpadnAd)
-    {
-        [vpadnAd release];
-        vpadnAd = nil;
-    }
-    if(nil != vpadnInterstitial)
-    {
-        [vpadnInterstitial release];
-        vpadnInterstitial = nil;
-    }
-    [super dealloc];
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    BOOL bStatusBarHide = [UIApplication sharedApplication].statusBarHidden;
-    float screenHeight = [[UIScreen mainScreen] bounds].size.height;
-    if(!bStatusBarHide)
-        screenHeight -= 20;
-    // Set the coordinate
-    CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
-    vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];  //initialize the instance of banner
-    vpadnAd.strBannerId = @"";   // Specify the Banner ID
-    vpadnAd.delegate = self;       // Set delegate to receive messages from protocol
-    vpadnAd.platform = @"TW";       // Taiwan: TW, China: CN
-    [vpadnAd setAdAutoRefresh:YES]; //if it is mediation then set NO
-    [vpadnAd setRootViewController:self]; //Set the window's rootViewController here so that the Ads can execute successfully
-    [self.view addSubview:[vpadnAd getVpadnAdView]]; // Add the VpadnBanner's view in this ViewController
-    [vpadnAd startGetAd:[self getTestIdentifiers]]; // start to get banner Ads
 
+    if (self.vpadnBanner != nil) {
+            [self.vpadnBanner.getVpadnAdView removeFromSuperview];
+    }
+
+vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];  // Initialize Banner Object
+  vpadnBanner.strBannerId = @""; // Fill in with your License ID
+  vpadnBanner.delegate = self; // Set up Delegate to receive protocol message
+  vpadnBanner.platform = @"TW"; // Fill in with "TW"
+  [vpadnBanner setAdAutoRefresh:YES]; // Set "YES" to enable Banner auto refresh. Set "NO" if you use mediation
+  [vpadnBanner setRootViewController:self];
+  [self.loadBannerView addSubview:bannerView]; // Add  VpadnBanner View to ViewController
+  
+  ...
 }
+```
 
-#pragma mark VpadAdDelegate method. Add this when use banner Ads
+
+## Request for Banner Ad
+---
+After finishing banner ad initialization, add the code snippet to request for ads:
+
+```objc
+- (void)viewDidLoad {
+    ...
+
+  // Start to request Banner Ad
+  [vpadnBanner startGetAd:[]]; 
+
+  // Start to request test Banner Ad with below code snippet
+  // [vpadnBanner startGetAd:[self getTestIdentifiers]];
+}
+```
+
+## Request for Test Ad
+---
+Please add the code snippet to your application and fill in with your test device's UUID as below to request for test ads.
+
+```objc
+-(NSArray*)getTestIdentifiers {
+  return [NSArray arrayWithObjects:
+    // Add your test device's UUID
+    @"your_UUID",
+    nil];
+}
+```
+
+## Set Up Delegate Protocol
+---
+After finishing ad request, implement the deligate protocol as below to listen ad status.
+
+```objc
+#pragma mark - Vpadn Banner Delegate
 - (void)onVpadnAdReceived:(UIView *)bannerView{
     NSLog(@"VpadnAdReceived");
 }
@@ -110,83 +132,45 @@ The following performs setup in the view controller's viewDidLoad initialization
 - (void)onVpadnLeaveApplication:(UIView *)bannerView{
     NSLog(@"Leave publisher application");
 }
-
-#pragma mark VpadnInterstitial Delegate. Add this when use interstitial Ads
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
-    NSLog(@"VpadnInterstitialAdReceived");
-    // Show interstitial Ads
-    [vpadInterstitial show];
-}
-
-- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView{
-    NSLog(@"VpadnInterstitialAdFailed");
-}
-
-- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView{
-    NSLog(@"VpadnintersittialAdDismiss %@",bannerView);
-}
-
-#pragma mark inform close the Vpadn Ads
-- (void)onVpadnSplashAdDismiss{
-    NSLog(@"VpadnSplashAdDismiss");
-}
-
-@end
 ```
 
-## Test Ads
-
-```objc
-//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
--(NSArray*)getTestIdentifiers
-{
-  return [NSArray arrayWithObjects:
-      // add your test UUID
-      @"your_UUID",
-      nil];
-}
-```
-
-
-# Banner Sizes
+# Banner Format
 ---
 Besides the 320x50, Vpon supports the following ad formats:
 
 Size (WxH)                 |Description             |  VponAdSize Constant           | Devices
 :------------------------: | :---------------------:| :-----------------------------:|:-----------:
-320x50                     | Standard Banner        | VpadnAdSizeBANNER              |iPhone & iPad
-468x60                     | IAB Full-Size Banner   |VpadnAdSizeFullBanner           |iPad
-728x90                     | IAB  Leaderboard       |  VpadnAdSizeLeaderboard        |iPad
-300x250                    |IAB Medium Recangle     |VpadnAdSizeMediumRectangle      |iPhone & iPad
-device width x auto height |Smart Banner Portrait   |  VpadnAdSizeSmartBannerPortrait |iPhone & iPad
-device width x auto height |Smart Banner Landscape  |VpadnAdSizeSmartBannerLandscape  |iPhone & iPad
+320x50                     | Standard Banner        | VpadnAdSizeBANNER              |iPhone<br>iPad
+468x60                     | IAB Full-Size Banner   | VpadnAdSizeFullBanner           |iPad
+728x90                     | IAB  Leaderboard       | VpadnAdSizeLeaderboard        |iPad
+300x250                    | IAB Medium Recangle    | VpadnAdSizeMediumRectangle      |iPhone<br>iPad
+device width x auto height | Smart Banner Portrait  | VpadnAdSizeSmartBannerPortrait |iPhone<br>iPad
+device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLandscape  |iPhone<br>iPad
+device width x auto height | Custom Banner Size     | VpadnAdSizeFromCGSize | iPhone<br>iPad
 
-We recommend that you can use the smart banner constant.
+We recommend that you can use `VpadnAdSizeFromCGSize` as following example:
 
-# Ad Refresh
+```objc
+vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];
+```
+
+# Tips
 ---
-You need to use the following sample code to enable auto refresh banner.
-`[vpadnAd setAdAutoRefresh:YES];`
+
+### App Transport Security
+Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for some modification.
 
 
-# Download Sample Code
----
-[Go to download page]
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
 
-# Result
----
-The outcome should be a banner at the top of your app:
-<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="width-300"/>
+### Other Tips
+Please refer to the link below to learn more about other ad types:
 
+* [Interstitial Ad](../Interstitial)
+* [Native Ad](../native)
+* [Mediation](../mediation)
+* [Advanced](../advanced)
 
-# App Transport Security
----
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
-
-# Other Tips
----
-Please refer to [Interstitial Ad](../Interstitial)、[Native Ad](../native)、[Mediation](../mediation) for more information.
-
-
-[Go to download page]: ../download/
-[this link]: ../latest-news/ios9ats/
+[Sample Code]: ../download/
+[iOS9 ATS]: ../latest-news/ios9ats/

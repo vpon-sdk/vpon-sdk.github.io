@@ -36,7 +36,7 @@ lang:            "jp"
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
 //TODO: 登録済みプロパティID （注意：バナー広告用のプロパティIDとは異なるものを使用）
-	private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
+	private String interstitialBannerId = "License ID";
 	private VpadnInterstitialAd interstitialAd;
 
   @Override

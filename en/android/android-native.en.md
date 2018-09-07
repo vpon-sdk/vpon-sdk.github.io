@@ -47,7 +47,7 @@ protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadNativeUI();
-        nativeAd = new VpadnNativeAd(this, "Input NativeAd ID ", "TW");
+        nativeAd = new VpadnNativeAd(this, "License ID", "TW");
         nativeAd.setAdListener(this);
 
         /** Request Test Ad Start **/

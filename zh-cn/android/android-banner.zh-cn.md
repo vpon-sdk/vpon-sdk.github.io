@@ -25,7 +25,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
 
 1. 汇入 `com.vpadn.ads.*`
 2. 宣告 VpadnBanner 执行个体
-3. 建立例项，指定 BannerId，也就是 Vpon 申请的 BannerId
+3. 建立例项，指定 License ID，也就是 Vpon 申请的 BannerId
 4. 将该检视加进使用者介面
 5. 透过广告载入例项
 
@@ -37,7 +37,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
   	//TODO: Vpon Banner ID
-  	private String bannerId = CHANGE ME ;
+  	private String bannerId = "License ID" ;
 
          @Override
   	protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +92,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
               android:layout_height="wrap_content"
               vpadn:adSize="SMART_BANNER"
               vpadn:autoFresh="true"
-              vpadn:bannerId= CHANGE_ME
+              vpadn:bannerId= "License ID"
               vpadn:loadAdOnCreate="true"
               vpadn:platform="CN" />
       </RelativeLayout>
@@ -101,7 +101,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
 <br>
 
 > **Note:**
-记得将上面的 vpon:bannerId 填入你真实的 banner ID
+记得将上面的 vpon:bannerId 填入你真实的 License ID
 
 
 # 测试广告

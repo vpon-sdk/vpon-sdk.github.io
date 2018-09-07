@@ -27,7 +27,7 @@ You should put following code snippet in the <body> section of the page that you
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="Your Native ID"
+        vpon_ad_licensy_key="License ID"
         vpon_ad_format="na"
         vpon_na_layout="0"
         vpon_na_min="1200x627"
@@ -68,7 +68,7 @@ Use our Callback Function rationally when there is no proper ad fill.
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="Your Native ID"
+        vpon_ad_licensy_key="License ID"
         vpon_ad_format="na"
         vpon_na_layout="0"
         vpon_na_min="1200x627"
@@ -96,7 +96,7 @@ Use our Callback Function rationally when there is no proper ad fill.
 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License ID</font>
 vpon\_ad\_format      | Format:<br>na                             | Y          | "na"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_na\_layout      | Native Ad layouts                        | N          | Please refer to [Native Ad layouts]. <br>Default = "0"
@@ -185,7 +185,7 @@ CallToAction | vpon-action| Show comletely <br> Max length: 20 English character
 
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Native ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="na"
             vpon_na_layout="0"
             vpon_na_min="1200x627"

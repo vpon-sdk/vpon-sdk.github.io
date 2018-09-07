@@ -50,13 +50,13 @@ First, in your View Controller header file, import Vpon SDK and declare that you
 
 ## Declare VpadnSplashAd Instance & Send Request
 --------
-Initialize VpadnSplashAd while implementing ViewController. After filling your Splash Ad ID and setting splashView, let's start to request an Splash Ad. (Please click [here] if you still do not get the Splash Ad ID)
+Initialize VpadnSplashAd while implementing ViewController. After filling your License ID and setting splashView, let's start to request an Splash Ad. (Please click [here] if you still do not get the License ID)
 
 
 ```objc
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.vpadnSplash = [[VpadnSplash alloc] initWithSplashId:@"Key in splashID" withTarget:self.splashView];
+    self.vpadnSplash = [[VpadnSplash alloc] initWithSplashId:@"License ID" withTarget:self.splashView];
     self.vpadnSplash.delegate = self;
     [self.vpadnSplash setEndurableSecond:3];
 

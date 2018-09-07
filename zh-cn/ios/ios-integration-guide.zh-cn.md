@@ -9,7 +9,7 @@ lang: "zh-cn"
 ---
 # 串接准备
 ---
-在开始串接 SDK 前，请确认您已经拥有 Vpon 开发商帐号，并已经取得您的 License Key。如果您还没完成注册，请先[注册帐号]。
+在开始串接 SDK 前，请确认您已经拥有 Vpon 开发商帐号，并已经取得您的 License ID。如果您还没完成注册，请先[注册帐号]。
 
 取得 Vpon 开发商帐号后，只要在您的 Xcode 专案中导入 SDK，并在程式码中加入相关指令即可。
 
@@ -130,7 +130,7 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 
 # App Transport Security
 ---
-iOS10 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定
+iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定
 
 # Tips
 ---

@@ -13,7 +13,7 @@ lang: "zh-tw"
 
 ## 最新消息
 ---
-iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
+iOS9 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
 
 # 原生廣告選擇
 ---
@@ -77,7 +77,7 @@ static NSString *const kAdCellIdentifier = @"adIdentifier";
     [super viewDidLoad];
 
     if (!self.adsManager) {
-        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"8a80818257ff669e0157ffa7bca60008" forNumAdsRequested:5];
+        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"License ID" forNumAdsRequested:5];
         self.adsManager.delegate = self;
     }
     [self.adsManager loadAdsWithTestIdentifiers:@[@"49EAAA1A-869E-43D5-BAFD-26839FAEEEDD"]];

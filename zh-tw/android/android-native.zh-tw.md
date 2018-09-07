@@ -39,14 +39,14 @@ import com.vpadn.ads.*
 
 ## 建立 VpadnNativeAd 物件並請求廣告
 --------
-初始化 VpadnNativeAd 物件並給定 NativeAd ID，完成指定 NativeAd ID 後即可請求廣告， loadNativeUI 可參考[建立自訂原生 UI ](#createNativeUI)。( 尚未申請 NativeAd ID 請先參考此[說明] )
+初始化 VpadnNativeAd 物件並給定 License ID，完成指定 NativeAd ID 後即可請求廣告， loadNativeUI 可參考[建立自訂原生 UI ](#createNativeUI)。( 尚未申請 NativeAd ID 請先參考此[說明] )
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadNativeUI();
-        nativeAd = new VpadnNativeAd(this, "請填入 NativeAd ID ", "TW");
+        nativeAd = new VpadnNativeAd(this, "請填入 License ID ", "TW");
         nativeAd.setAdListener(this);
 
         /** Request Test Ad Start **/

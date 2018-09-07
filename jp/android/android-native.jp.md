@@ -40,14 +40,14 @@ import com.vpadn.ads.*
 
 ## Declare a VpadnNativeAd Instance & Request an Ad
 ---
-Initializes VpadnNativeAd and request an ad. Function `loadNativeUI` can follow [Create Native UI](#clearNativeAd). (Please click [here] if you still do not get the Native Ad ID)
+Initializes VpadnNativeAd and request an ad. Function `loadNativeUI` can follow [Create Native UI](#clearNativeAd). (Please click [here] if you still do not get the License ID)
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         loadNativeUI();
-        nativeAd = new VpadnNativeAd(this, "Input NativeAd ID ", "TW");
+        nativeAd = new VpadnNativeAd(this, "License ID", "TW");
         nativeAd.setAdListener(this);
 
         /** Request Test Ad Start **/

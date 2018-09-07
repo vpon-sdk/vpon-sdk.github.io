@@ -48,14 +48,14 @@ import com.vpadn.ads.*
 
 ## 建立 VpadnSplash 物件并请求广告
 --------
-在 SplashActivity 实作中初始化 VpadnSplashAd 物件，完成指定 splashID( PlacementID ) 及 splashView 后，并设置监听器即可请求广告。
+在 SplashActivity 实作中初始化 VpadnSplashAd 物件，完成指定 License ID 及 splashView 后，并设置监听器即可请求广告。
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
     RelativeLayout adsParent = (RelativeLayout) findViewById(R.id.splashContainer);
-    vpadnSplashAd = new VpadnSplashAd(this, "Key in splashID", adsParent);
+    vpadnSplashAd = new VpadnSplashAd(this, "License ID", adsParent);
     vpadnSplashAd.setAdListener(this);
     /** Request Test Ad Start **/
     VpadnAdRequest adRequest =  new VpadnAdRequest();

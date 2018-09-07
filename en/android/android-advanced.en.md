@@ -94,7 +94,7 @@ Banner expands to take over the whole screen and automatically closes after 5-7 
 
 ## Setting
 ---
-Choose whether or not to use crazy advertisement from License Key Application.
+Choose whether or not to use crazy advertisement from License ID Application.
 
 Enter in <http://console.vpon.com/> for Taiwan Vpon Platform.
 

@@ -26,7 +26,7 @@ Vpon Mobile Web SDK 提供`原生广告`。有别于横幅广告、插页广告�
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="Your Native ID"
+        vpon_ad_licensy_key="License ID"
         vpon_ad_format="na"
         vpon_na_layout="0"
         vpon_na_min="1200x627"
@@ -63,7 +63,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 <body>
 ...
   <vpon vpon_ad_test="0"
-        vpon_ad_licensy_key="Your Native ID"
+        vpon_ad_licensy_key="License ID"
         vpon_ad_format="na"
         vpon_na_layout="0"
         vpon_na_min="1200x627"
@@ -93,7 +93,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 
 名称                  |        描述                      | 必要  |  范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| 版位 ID                                 | Y          | <font color="red">输入 Vpon License Key</font>
+vpon\_ad\_licensy\_key| 广告版位 ID                                 | Y          | <font color="red">输入 Vpon License ID</font>
 vpon\_ad\_format      | 原生广告格式<br>na                       | Y          | "na"
 vpon\_ad\_test        | 是否拉取测试广告                          | N          | 1(是)/0(否)，预设为 "1"
 vpon\_na\_layout      | 原生广告版型                             | N          | 请参考[原生广告版型]<br> 预设为"0"
@@ -183,7 +183,7 @@ CallToAction | vpon-action| 需要完整显示<br>最长为20个英文字或10�
 
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Native ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="na"
             vpon_na_layout="0"
             vpon_na_min="1200x627"
@@ -198,7 +198,7 @@ CallToAction | vpon-action| 需要完整显示<br>最长为20个英文字或10�
 > **Note**:
 >
 > 1. 若将 Vpon 广告嵌入在 iframe 内，请记得调整 iframe 到适当大小，以符合 Vpon 广告的长宽。
-> 2. 以上的 License Key 为范例，请置换为您自己申请的 License Key 以防收益分润无法取得。
+> 2. 以上的 License ID 为范例，请置换为您自己申请的 License ID 以防收益分润无法取得。
 
 <br>
 

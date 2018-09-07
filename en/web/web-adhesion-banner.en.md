@@ -28,12 +28,12 @@ Just like the setups in original banner, you should put following code snippet i
   <body>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your First Banner ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Second Banner ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="320x50_mb"
             vpon_ad_adhesion="bottom"
             debug="true"></vpon>
@@ -47,7 +47,7 @@ Just like the setups in original banner, you should put following code snippet i
 >
 >* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
->* You only allow to use 3 ads at most in each page and please use different banner ID for every ad.
+>* You only allow to use 3 ads at most in each page and please use different License ID for every ad.
 >
 >* The adhesion feature of Adhesion Banner will be lost while embedding the ad in an iframe.
 >
@@ -62,7 +62,7 @@ Just like the setups in original banner, you should put following code snippet i
 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                                | Y          | <font color="red">Put your Vpon License Key</font>
+vpon\_ad\_licensy\_key| Banner ID                                | Y          | <font color="red">Put your Vpon License ID</font>
 vpon\_ad\_format      | Format <br>(1)320x50                     | Y          | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>

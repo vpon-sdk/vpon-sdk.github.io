@@ -13,7 +13,7 @@ lang:            "jp"
 
 ## 最新ニュース
 ---
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [this link] for some modification.
 
 # インタースティシャル広告の概要
 ---
@@ -31,7 +31,7 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 
 * lib ファイルとヘッダーファイルをインポートする
 * オブジェクトを宣言する
-* インタースティシャル用のBanner ID(=プロパティID。通常のバナー広告用のBanner IDと重複不可)を指定してオブジェクトを作成する。
+* インタースティシャル用のBanner ID(=プロパティID。通常のバナー広告用のLicense IDと重複不可)を指定してオブジェクトを作成する。
 
 この場合も、これらの処理に最も適しているのはアプリの ViewController 内です。
 
@@ -43,7 +43,7 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 - (void)viewDidLoad
 {
     vpadnInterstitial = [[VpadnInterstitial alloc] init];
-    vpadnInterstitial.strBannerId = @"";   //インタースティシャル広告用 BannerID を記入する
+    vpadnInterstitial.strBannerId = @"License ID";   //インタースティシャル広告用 License ID を記入する
     vpadnInterstitial.platform = @"TW";       //台湾エリアはTW、中国エリアは CN を入力
     vpadnInterstitial.delegate = self;
     [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
@@ -78,12 +78,6 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
     nil];
 }
 ```
-
-# Confirm Correct Integration (after v4.6.6 )
----
-Apart from seeing a interstitial ad, you also have to check the following information shown in log to confirm a correct integration while using SDK after v4.6.6.
-
-`<Vpadn> [NOTE] Covered detection success`
 
 # サンプルコードのダウンロード
 ---

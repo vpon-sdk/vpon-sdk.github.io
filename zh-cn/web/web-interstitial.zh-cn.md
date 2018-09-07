@@ -30,7 +30,7 @@ Vpon Mobile Web SDK 提供`插页广告`，插页式广告是互动式多媒体 
   <body>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Interstitial ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="mi"
             debug="true"></vpon>
 ...
@@ -43,7 +43,7 @@ Vpon Mobile Web SDK 提供`插页广告`，插页式广告是互动式多媒体 
 >
 >* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
 >
->* 同一网页最多嵌入 1 个插页广告 (如范例所示)，每个版面请用不同版位 ID。
+>* 同一网页最多嵌入 1 个插页广告 (如范例所示)，每个版面请用不同 License ID。
 >
 >* 倘若嵌入在 iframe 内，必须确保该 iframe 是满版的盖在网页上，包含宽高皆为 100 % 等等，以及点击关闭时需处理将该 iframe 收起等事宜。
 >
@@ -61,7 +61,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 <body>
 ...
   <vpon vpon_ad_test="0"
-        vpon_ad_licensy_key="Your Interstitial ID"
+        vpon_ad_licensy_key="License ID"
         vpon_ad_format="mi"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
@@ -89,7 +89,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 
 名称                  |        描述                      | 必要  |  范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| 版位 ID                                 | Y          | <font color="red">输入 Vpon License Key</font>
+vpon\_ad\_licensy\_key| 广告版位 ID                                 | Y          | <font color="red">输入 Vpon License ID</font>
 vpon\_ad\_format      | 插页广告格式<br>mi                       | Y          | "mi"
 vpon\_ad\_test        | 是否拉取测试广告                          | N          | 1(是)/0(否)，预设为 "1"
 debug                 | 是否在 console 显示 debug 资讯            | N          | true/false，预设为 "false"
@@ -170,7 +170,7 @@ DoubleClick for Publishers : <https://www.google.com/dfp/>
 
 ```html
 <vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="Your License Key"
+       vpon_ad_licensy_key="License ID"
        vpon_ad_format="mi"
        debug="true"></vpon>
 <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>

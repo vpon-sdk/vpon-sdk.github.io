@@ -26,7 +26,7 @@ You should put following code snippet in the <body> section of the page that you
   <body>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Interstitial ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="mi"
             debug="true"></vpon>
 ...
@@ -39,7 +39,7 @@ You should put following code snippet in the <body> section of the page that you
 >
 >* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
->* You only allow to use 1 ads at most in each page and please use different banner ID for every ad.
+>* You only allow to use 1 ads at most in each page and please use different License ID for every ad.
 >
 >* If you use iframe for embedding vpon's ad, please get better control on it, just like the width & height should be 100 %, collapse the iframe after users clikc the close button, and so on.
 >
@@ -57,8 +57,8 @@ Use our Callback Function rationally when there is no proper ad fill.
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
+        vpon_ad_licensy_key="License ID"
+        vpon_ad_format="mi"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
@@ -84,7 +84,7 @@ Use our Callback Function rationally when there is no proper ad fill.
 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License ID</font>
 vpon\_ad\_format      | Format<br>mi | Y       | "mi"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
@@ -167,7 +167,7 @@ Input the snippet of code:
 
 ```html
 <vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="Your license Key"
+       vpon_ad_licensy_key="License ID"
        vpon_ad_format="mi"
        debug="true"></vpon>
 <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>

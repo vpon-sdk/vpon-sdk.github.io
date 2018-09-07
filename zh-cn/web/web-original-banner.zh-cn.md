@@ -40,17 +40,17 @@ Vpon Mobile Web SDK 支援以下`一般横幅广告格式` :
   <body>
 ...
     <vpon vpon_ad_test="1"
-          vpon_ad_licensy_key="Your First Banner ID"
+          vpon_ad_licensy_key="Your First License ID for Banner"
           vpon_ad_format="320x50_mb"
           debug="true"></vpon>
 ...
     <vpon vpon_ad_test="1"
-          vpon_ad_licensy_key="Your Second Banner ID"
+          vpon_ad_licensy_key="Your Second License ID for Banner"
           vpon_ad_format="300x250_mb"
           debug="true"></vpon>
 ...
     <vpon vpon_ad_test="1"
-          vpon_ad_licensy_key="Your Third Banner ID"
+          vpon_ad_licensy_key="Your Third License ID for Banner"
           vpon_ad_format="320x50_mb"
           debug="true"></vpon>
 ...
@@ -61,7 +61,7 @@ Vpon Mobile Web SDK 支援以下`一般横幅广告格式` :
 >
 >* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
 >
->* 同一网页最多嵌入 3 个广告版面 (如范例所示)，每个版面请用不同版位 ID。
+>* 同一网页最多嵌入 3 个广告版面 (如范例所示)，每个版面请用不同 License ID。
 >
 >* 存档后，重新读取网页，您就可以在有 \<vpon\> tag 的位置看到 `测试广告` 被拉取。
 >
@@ -77,7 +77,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 <body>
 ...
   <vpon vpon_ad_test="0"
-        vpon_ad_licensy_key="your_vpon_banner_id"
+        vpon_ad_licensy_key="Your License ID For Banner"
         vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
@@ -103,7 +103,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 
 名称                  | 描述                              | 必要  | 范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| 版位 ID                           | Y    |<font color="red">输入 Vpon License Key</font>
+vpon\_ad\_licensy\_key| 广告版位 ID                           | Y    |<font color="red">输入 Vpon License ID</font>
 vpon\_ad\_format      | 横幅广告格式<br>(1)320x50\_mb <br>(2)300x250\_mb| Y   | "320x50\_mb"
 vpon\_ad\_test        | 是否拉取测试广告                    | N    | 1(是)/0(否)<br>预设为 "1"
 vpon\_ad\_adhesion    | 将横幅广告设为置顶或置底              | N    | top/bottom<br>置顶："top"<br>置底："buttom"
@@ -126,14 +126,14 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
 
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_licensy_key="Your License ID for Banner"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
     </div>
     </br>
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_licensy_key="Your License ID for Banner"
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
@@ -144,7 +144,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
 > **Note**:
 >
 > 1. 若将 Vpon 广告嵌入在 iframe 内，请记得调整 iframe 到适当大小，以符合 Vpon 广告的长宽。
-> 2. 以上的 License Key 为范例，请置换为您自己申请的 License Key 以防收益分润无法取得。
+> 2. 以上的 License ID 为范例，请置换为您自己申请的 License ID 以防收益分润无法取得。
 
 <br>
 
@@ -217,7 +217,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
 
 ```html
 <vpon vpon_ad_test="0"
-       vpon_ad_licensy_key="Your License Key"
+       vpon_ad_licensy_key="Your License ID for Banner"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
       <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -251,7 +251,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
   }
 </script>
 
-<vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
+<vpon vpon_ad_test="1" vpon_ad_licensy_key="Your License ID for Banner" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
 <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
 </script>
@@ -260,7 +260,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 
 >
 >1. your_ad_unit：放入另一组广告空间产生的广告代码，此广告代码的格式会例如这样: /78213298/WebMediation，且此代码被指向到欲轮播的下一家广告的广告订单项，在此订单项里上传欲轮播的素材，如: Adsense script。请避免再将无广告投递的素材包含进来，以防造成无穷回圈。
 >2. [320, 50]： 请替换成欲展示的广告大小。
->3. your_license_key：请填入vpon申请的Banner ID。
+>3. your_licensy_key：请填入vpon申请的 License ID。
 
 范例：
 ![DFP_WEB_CALLBACK]

@@ -13,7 +13,7 @@ lang: "zh-cn"
 
 ## 最新消息
 ---
-iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
+iOS9 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
 
 # 原生广告选择
 ---
@@ -73,14 +73,14 @@ static NSString *const kAdCellIdentifier = @"adIdentifier";
 
 ## 初始化 adsManager 并请求广告
 --------
-初始化 adsManager，完成指定 NativeAd ID ( 尚未申请 NativeAd ID 请先参考此[说明] )，并设定 `forNumAdsRequested` (最高可设为 5，表 adsManager 一次请求 5 笔原生广告)。
+初始化 adsManager，完成指定 License ID ( 尚未申请 License ID 请先参考此[说明] )，并设定 `forNumAdsRequested` (最高可设为 5，表 adsManager 一次请求 5 笔原生广告)。
 
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     if (!self.adsManager) {
-        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"8a80818257ff669e0157ffa7bca60008" forNumAdsRequested:5];
+        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"License ID" forNumAdsRequested:5];
         self.adsManager.delegate = self;
     }
     [self.adsManager loadAdsWithTestIdentifiers:@[@"49EAAA1A-869E-43D5-BAFD-26839FAEEEDD"]];

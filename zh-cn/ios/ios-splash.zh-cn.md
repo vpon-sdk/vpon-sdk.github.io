@@ -27,7 +27,7 @@ iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来�
 2. 于应用程式建立 UIViewController 类别，命名为 SplashViewController
 3. 于 StoryBoard (or Xib) 建立 UIViewController，并指定 class 为 SplashViewController
 4. 于 SplashViewController 页面新增 UIView，命名为 splashView
-5. 建立 VpadnSplash 物件，指定splashID、splashView，并请求广告
+5. 建立 VpadnSplash 物件，指定 License ID、splashView，并请求广告
 6. 将应用程式开启时的 UIWindow rootViewController 指定为 splashViewController
 7. 应用程式重启即可显示开屏
 
@@ -51,7 +51,7 @@ iOS10 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来�
 ```objc
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.vpadnSplash = [[VpadnSplash alloc] initWithSplashId:@"Key in splashID" withTarget:self.splashView];
+    self.vpadnSplash = [[VpadnSplash alloc] initWithSplashId:@"License ID" withTarget:self.splashView];
     self.vpadnSplash.delegate = self;
     [self.vpadnSplash setEndurableSecond:3];
     //  If you would like to show the test ad, please use the following codes to set 'Yes' as the value of setTestMode and key in your device's IDFA.

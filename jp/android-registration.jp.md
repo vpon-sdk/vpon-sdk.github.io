@@ -28,10 +28,10 @@ Vpon ウェブサイトにアクセスしてください。: こちら[ページ
 
 `最小でも 320x50 dip を確保してください`
 
-# License Key（プロパティID）の取得
+# License ID（プロパティID）の取得
 ---
 
-## Vpon SDK License Key（プロパティID）の取得
+## Vpon SDK License ID（プロパティID）の取得
 
 広告を取得するために、まずプロパティIDを取得してください。
 
@@ -58,7 +58,7 @@ Vpon ウェブサイトにアクセスしてください。: こちら[ページ
 1. プロパティの審査ステータスbr>
 2. プロパティ ID
 
-アプリ・サイトリストページでは、審査ステータスと Vpon license Keyをご確認いただけます。
+アプリ・サイトリストページでは、審査ステータスと Vpon License IDをご確認いただけます。
 
 ![Trandationchinesefrontserver4_JP.png]
 

@@ -21,7 +21,7 @@ If you haven't finished the previous integration guide, please check all the [se
 
 1. Import `com.vpadn.ads.*`
 2. Declare an VpadnBanner instance
-3. Create it, specifying a unit ID—your VpadnBanner Banner ID
+3. Create it, specifying a unit ID — your License ID
 4. Add the view to the UI
 5. Load it with an ad
 
@@ -31,7 +31,7 @@ If you haven't finished the previous integration guide, please check all the [se
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
   	//Vpon TODO:  Banner ID
-  	private String bannerId = CHANGE ME ;
+  	private String bannerId = "License ID" ;
 
          @Override
   	protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ If you haven't finished the previous integration guide, please check all the [se
               android:layout_height="wrap_content"
               vpadn:adSize="SMART_BANNER"
               vpadn:autoFresh="true"
-              vpadn:bannerId= CHANGE_ME
+              vpadn:bannerId= "License ID"
               vpadn:loadAdOnCreate="true"
               vpadn:platform="TW" />
       </RelativeLayout>

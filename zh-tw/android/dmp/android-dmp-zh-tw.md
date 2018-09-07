@@ -28,7 +28,7 @@ lang:           "zh-tw"
 import com.vpadn.dmp.VpadnAnalytics;
 ```
 
-## 設定 License Key
+## 設定 License ID
 接下來，再將以下 code加入 MainActivity
 
 ```java

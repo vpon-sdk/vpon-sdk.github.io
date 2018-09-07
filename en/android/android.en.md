@@ -21,7 +21,7 @@ Before you start to integrate Vpon SDK, make sure your app is compatible.
 
 ## Step2: Register as a Vpon Publisher
 ---
-[Register as a Vpon Publisher][2] first, and you'll get an account to manage your License Key for ad integration and your profit.
+[Register as a Vpon Publisher][2] first, and you'll get an account to manage your License ID for ad integration and your profit.
 
 ## Step3: SDK Integration
 ---

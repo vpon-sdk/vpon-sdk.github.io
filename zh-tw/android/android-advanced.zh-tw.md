@@ -110,7 +110,7 @@ public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
 ## 設定
 ---
 在後台註冊申請流程中可選擇是否播放 Crazy Ad。<br>
-進入 <http://tw.adon.vpon.com/> 註冊台灣區License Key。<br>
+進入 <http://tw.adon.vpon.com/> 註冊台灣區License ID。<br>
 如圖:
 ![CrazyadSetting]
 

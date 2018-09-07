@@ -56,7 +56,7 @@ iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來�
 ```objc
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.vpadnSplash = [[VpadnSplash alloc] initWithSplashId:@"Key in splashID" withTarget:self.splashView];
+    self.vpadnSplash = [[VpadnSplash alloc] initWithSplashId:@"Key in License ID for Splash Ad" withTarget:self.splashView];
     self.vpadnSplash.delegate = self;
     [self.vpadnSplash setEndurableSecond:3];
 

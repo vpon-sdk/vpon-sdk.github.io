@@ -88,8 +88,8 @@ Click New creative and select the creative's dimensions. (Choose `Mobile App` �
 Input the following information:
 
 1. Select Network：Vpon
-2. Zone：`TW` or `CN`
-3. Vpon Ad ID：the License Key observed obtained from Vpon
+2. Zone：`TW`
+3. Vpon Ad ID：the License ID observed obtained from Vpon
 
 ![DFP_Partner_English.png]
 

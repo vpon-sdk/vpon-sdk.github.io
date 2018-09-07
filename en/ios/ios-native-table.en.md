@@ -68,14 +68,14 @@ static NSString *const kAdCellIdentifier = @"adIdentifier";
 
 ## Initialize adsManager & Request ads
 ---
-Initialize adsManager and set the NativeAd ID (Please click [here] if you still do not get the Native Ad ID). Besides, the parameter `forNumAdsRequested` could handle the number of ads which have been request in adsManager ( 5 would be the maximum of the parameter, it is meant you can request 5 ads each time).
+Initialize adsManager and set the License ID (Please click [here] if you still do not get the License ID). Besides, the parameter `forNumAdsRequested` could handle the number of ads which have been request in adsManager ( 5 would be the maximum of the parameter, it is meant you can request 5 ads each time).
 
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     if (!self.adsManager) {
-        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"8a80818257ff669e0157ffa7bca60008" forNumAdsRequested:5];
+        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"License ID" forNumAdsRequested:5];
         self.adsManager.delegate = self;
     }
     [self.adsManager loadAdsWithTestIdentifiers:@[@"49EAAA1A-869E-43D5-BAFD-26839FAEEEDD"]];

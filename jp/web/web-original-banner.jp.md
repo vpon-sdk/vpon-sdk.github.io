@@ -40,17 +40,17 @@ You should put following code snippet in the <body> section of the page that you
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_first_vpon_banner_id"
+        vpon_ad_licensy_key="Your First License ID for Banner"
         vpon_ad_format="320x50_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_second_vpon_banner_id"
+        vpon_ad_licensy_key="Your Seconde License ID for Banner"
         vpon_ad_format="300x250_mb"
         debug="true"></vpon>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_third_vpon_banner_id"
+        vpon_ad_licensy_key="Your Third License ID for Banner"
         vpon_ad_format="320x480_mb"
         debug="true"></vpon>
 ...
@@ -62,7 +62,7 @@ You should put following code snippet in the <body> section of the page that you
 >
 >* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
->* You only allow to use 3 ads at most in each page and please use different banner ID for every ad.
+>* You only allow to use 3 ads at most in each page and please use different License ID for every ad.
 >
 >* Once you finish editing your page, save and reload it. You can find a test ad in the <vpon> tag after initializing the SDK.
 >
@@ -78,8 +78,8 @@ Use our Callback Function rationally when there is no proper ad fill.
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="your_vpon_banner_id"
-        vpon_ad_format="320x480_mb"
+        vpon_ad_licensy_key="License ID"
+        vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
@@ -104,7 +104,7 @@ Use our Callback Function rationally when there is no proper ad fill.
 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License Key</font>
+vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License ID</font>
 vpon\_ad\_format      | Format：<br>(1)320x50\_mb <br>(2)300x250\_mb| Y       | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
@@ -126,14 +126,14 @@ ad\_request\_callback | Callback Function for no ad fill         | N          | 
 
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
     </div>
     </br>
     <div>
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Banner ID"
+            vpon_ad_licensy_key="License ID"
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
@@ -220,7 +220,7 @@ Input the snippet of code:
 
 ```html
 <vpon vpon_ad_test="0"
-       vpon_ad_licensy_key="Your license Key"
+       vpon_ad_licensy_key="License ID"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
       <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -254,7 +254,7 @@ snippet of code is provided below:
   }
 </script>
 
-<vpon vpon_ad_test="1" vpon_ad_licensy_key="your_license_key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
+<vpon vpon_ad_test="1" vpon_ad_licensy_key="License ID" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
 <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
 </script>

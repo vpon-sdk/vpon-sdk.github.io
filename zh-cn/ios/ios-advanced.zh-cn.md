@@ -130,7 +130,7 @@ vpadnAd.delegate = self;
 ## 设定
 ---
 在后台注册申请流程中可选择是否播放 Crazy Ad。<br>
-进入 <http://tw.adon.vpon.com/> 注册台湾区 License Key。<br>
+进入 <http://tw.adon.vpon.com/> 注册台湾区 License ID。<br>
 如图:
 ![CrazyadSetting]
 

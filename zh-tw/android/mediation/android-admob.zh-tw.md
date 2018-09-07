@@ -45,9 +45,8 @@ Google AdMob mediation 請看[這裡]
 
 8. 設定Vpon進入您的聚合列表：<br>
  (1) 在可用的廣告聯播網中找到 Vpon <br>
- (2) Vpon Ad Id: 填入您在 Vpon 後台申請的版位ID <br>
- (3) Zone: 選擇您欲請求的廣告平台的地區 <br>
-(例：如果您的 App 是欲給大陸平台使用者使用，則您需在此欄位中填入`cn`，若您 app 是給除了大陸平台以外地區使用者使用則填入`tw`)
+ (2) Vpon Ad Id: 填入您在 Vpon 後台申請的 License ID <br>
+ (3) Zone: 選擇您欲請求的廣告平台的地區，請填寫 "TW"<br>
 
 ![][8]
 

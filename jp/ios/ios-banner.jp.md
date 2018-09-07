@@ -11,10 +11,6 @@ lang:            "jp"
 ---
 まだ以前の実装ガイドを終了していない場合は、[ここから全設定](../integration-guide)をご確認ください。
 
-## 最新ニュース
----
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
-
 # バナー広告を表示させるためのコーディング
 ---
 iOS アプリは、UIView オブジェクトで構成され、テキストエリアやボタン、その他のコントロールの形でユーザーに表示される Objective-C インスタンスです。VpadnBanner はユーザーのタップ操作に反応して HTML5 の小さな広告を表示するもう 1 つのUIView のサブクラスです。
@@ -24,7 +20,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 1. VpadnBanner.hとVpadnInterstitial.hをインポートする。
 2. アプリの UIViewController 内で VpadnBanner を宣言する。
 1. VpadnBanner オブジェクトを作成する。
-1. BannerId、つまり Vponの登録済みプロパティIDを指定する。
+1. License ID、つまり Vponの登録済みプロパティIDを指定する。
 1. window の rootViewController を設定する。
 1. 対象View を ViewController 内に追加する。
 1. 広告をロードする
@@ -81,7 +77,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
     // 広告位置を設定する
     CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
     vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];   // バナーのインスタンスを初期化する
-    vpadnAd.strBannerId = @"";   //BannerId（=プロパティID） を記入する
+    vpadnAd.strBannerId = @"";   //License ID（=プロパティID） を記入する
     vpadnAd.delegate = self;       // delegate がプロトコルで返されるメッセージを受信するよう設定する
     vpadnAd.platform = @"TW";       //台湾エリアはTW 、中国エリアはCNを入力
     [vpadnAd setAdAutoRefresh:YES]; //mediation の場合、NOと入力
@@ -176,12 +172,12 @@ Vpon アカウントで更新頻度を指定し、以下のサンプルコード
 # 結果
 ---
 実行すると、ディスプレイの上方にバナー広告が表示されます。
-<img src="{{site.imgurl}}/IOS-Banner_result.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/iOS_Banner_Sample.png" alt="" class="width-300"/>
 
 
 # App Transport Security
 ---
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [iOS9 ATS] for some modification.
 
 # ヒント
 ---
@@ -190,4 +186,4 @@ Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [
 
 
 [Go to download page]: ../download/
-[this link]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/
+[iOS9 ATS]: {{site.baseurl}}/jp/ios/latest-news/ios9ats/

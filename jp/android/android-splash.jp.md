@@ -49,14 +49,14 @@ import com.vpadn.ads.*
 
 ## Declare VpadnSplashAd Instance & Send Request
 --------
-Initialize VpadnSplashAd while implementing SplashActivity. After filling your Splash Ad ID and setting AdListener, let's start to request an Splash Ad. (Please click [here] if you still do not get the Splash Ad ID)
+Initialize VpadnSplashAd while implementing SplashActivity. After filling your License ID and setting AdListener, let's start to request an Splash Ad. (Please click [here] if you still do not get the License ID)
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
     RelativeLayout adsParent = (RelativeLayout) findViewById(R.id.splashContainer);
-    vpadnSplashAd = new VpadnSplashAd(this, "Key in splashID", adsParent);
+    vpadnSplashAd = new VpadnSplashAd(this, "License ID", adsParent);
     vpadnSplashAd.setAdListener(this);
 
     /** Request Test Ad Start **/

@@ -8,35 +8,54 @@ permalink:       ios/interstitial/
 lang:            "en"
 ---
 
-## Finished Integration Guide
----
-If you haven't finished the previous integration guide, please check all the [settings here](../integration-guide/).
-
-## Latest News
----
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
-
 # Overview
 ---
 Interstitials, on the other hand, immediately present rich HTML5 experiences or "web apps" at natural app transition points such as launch, video pre-roll or game level load. Web apps are in-app browsing experiences with a simple close button rather than any navigation bar—the content provides its own internal navigation scheme. Interstitial ads are typically more expensive and subject to impression constraints.
 ![]({{site.imgurl}}/Interstitial.png)
 
 > **Note**:
-> We suggest that the interstitial ads running in portrait mode for the best visual effects.
+> We recommend that the interstitial ads display in portrait mode for the best visual effects.
+
+# Prerequisites
+---
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
 
-# Vpon Interstitial Ad
+# Start To Implement Interstitial
 ---
 The richer, more heavyweight nature of Vpadn interstitial is reflected by its definition not as a UIView but rather an NSObject requiring more distinct instantiation, load and display steps.
 
 Usage is nevertheless very similar to Vpadn banner:
 
-* Import lib file and head file
-* Declare instance
-* Create the object and set Vpadn interstitial banner ID (do not use the same ID as banner)
+1. Import `VpadnSDKAdKit`
+2. Declare a VpadnInterstitial instance
+3. Set up VpadnInterstitial object and indicate an License ID
+4. Request for an interstitial ad
+5. Show interstitial ad
+6. Set up Delegate protocol
 
+We strongly recommend that you can finish all the steps in ViewController of the application.
 
-Once again, the best place to do this is in your app's UIViewController
+## Import VpadnSDKAdKit And Declare A VpadnInterstitial Instance
+---
+```objc
+#import <ViewController.h>
+
+// import Vpon SDK
+@import VpadnSDKAdKit;
+
+// Add a protocol to receive the status of Ads
+@interface ViewController() <VpadnInterstitialDelegate>
+
+// Declare VpadnInterstitial Instance
+@property (strong, nonatomic) VpadnInterstitial *vpadnInterstitial;
+
+@end
+```
+
+## Set Up VpadnInterstitial Object And Indicate A License ID
+---
+Please refer to the code snippet below to initialize Interstitial Ad in viewDidLoad of ViewController.
 
 ```objc
 @implementation ViewController
@@ -44,35 +63,40 @@ Once again, the best place to do this is in your app's UIViewController
 - (void)viewDidLoad
 {
     vpadnInterstitial = [[VpadnInterstitial alloc] init];
-    vpadnInterstitial.strBannerId = @"";   // Write your Interstitial BannerId
-    vpadnInterstitial.platform = @"TW";       // Taiwan: TW China: CN
+    vpadnInterstitial.strBannerId = @""; // Fill in with your License ID
+    vpadnInterstitial.platform = @"TW"; // Fill in with "TW"
     vpadnInterstitial.delegate = self;
-    [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
+    [vpadnInterstitial getInterstitial:@[]]; // Start to request Interstitial Ad
+
+    // Request test Interstitial Ad with below code snippet
+    // [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
 }
 @end
 ```
 
-There is no item can be add to ViewController now and you must wait this request success before displaying the creative. The simplest way is showing ad `[vpadnInterstitial show]` once onVpadnInterstitialAdReceived load succeeds.`(In order to maintain the quality of user experience, we recommend that you can load an ad first. Hold it until a certain event is triggered. Please try to avoid showing interstitial ad directly while getting it)`.
+> **Note**: Do not use the same License ID for Interstitial as the one for Banner.
 
-Once load succeeds the full-screen ad is ready for presentation:
+
+## Show Interstitial Ad
+---
+You can only show the interstitial ad after ad initializaion and ad receviced. The simplest way is call `[vpadnInterstitial show]` after onVpadnInterstitialAdReceived be listened.
+
 
 ```objc
-#pragma mark VpadnInterstitial Delegate Only when you want to show interstitial ad can add this one
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
-   NSLog(@"interstitial ad received");
-   [vpadnInterstitial show];
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView {
+    [self.vpadnInterstitial show];
 }
 ```
 
-The interstitial then takes over the screen until the user dismisses it, at which point control returns to your app and the view controller passes to this method.
-Vpadn Interstitial Delegate [advanced setting] provides many callback methods for you.
+> **Note:** In order to optimize user experience, we recommend that you can load an ad first. Hold it until a certain event to triggered. Avoid showing interstitial ad immediately while getting it.
 
 
 # Test Ads
 ---
+<!-- //Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet: -->
+Vpon SDK provide test ads. Please add following function to your application and fill in with your test UUID to get test ads.
 
 ```objc
-//Use testDevices to enable test ads. You should utilize test ads during development to avoid generating false impressions. Here is a sample snippet:
 -(NSArray*)getTestIdentifiers
 {
   return [NSArray arrayWithObjects:
@@ -82,21 +106,51 @@ Vpadn Interstitial Delegate [advanced setting] provides many callback methods fo
 }
 ```
 
-# Confirm Correct Integration (after v4.6.6 )
+
+## Set Up Delegate Protocol
 ---
-Apart from seeing a interstitial ad, you also have to check the following information shown in log to confirm a correct integration while using SDK after v4.6.6.
+After finishing ad request, implement the deligate protocol as below to listen ad status.
 
-`<Vpadn> [NOTE] Covered detection success`
+```objc
+#pragma mark VpadnInterstitial Delegate
+- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
+    NSLog(@"VpadnInterstitialAdReceived");
+    // Show interstitial Ads
+    [vpadInterstitial show];
+}
 
-# Download Sample Code
+- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView{
+    NSLog(@"VpadnInterstitialAdFailed");
+}
+
+- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView{
+    NSLog(@"VpadnintersittialAdDismiss %@",bannerView);
+}
+```
+
+The interstitial then takes over the screen until the user dismisses it, at which point control returns to your app and the view controller passes to this method.
+Vpadn Interstitial Delegate [advanced setting] provides many callback methods for you.
+
+
+
+# Tips
 ---
-You can download an example project containing SDK 4 lib file in VpadnAd folder:
 
-[Go to Download Page]
-
-
+### App Transport Security
+Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for some modification.
 
 
-[Go to Download Page]:{{site.baseurl}}/ios/download
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
+
+### Other Tips
+Please refer to the link below to learn more about other ad types:
+
+* [Banner Ad](../banner)
+* [Native Ad](../native)
+* [Mediation](../mediation)
+* [Advanced](../advanced)
+
+[Sample Code]: ../download/
+[iOS9 ATS]: ../latest-news/ios9ats/
 [advanced setting]: ../advanced/
-[this link]: ../latest-news/ios9ats/

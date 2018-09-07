@@ -29,15 +29,15 @@ Usage is nevertheless very similar to Vpadn banner:
 
 * Import lib file and head file
 * Declare instance
-* Create the object and set Vpadn interstitial banner ID (do not use the same ID as banner)
+* Create the object and set your License ID (do not use the same ID as banner)
 
 
 Be sure perform the above steps in the Activity of you Application.
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-  //TODO: The InterstitialBannerId which is you apply form Vpon.(Remind: This interstitial banner ID is different with normal banner ID).
-	private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
+  //TODO: The InterstitialBannerId which is you apply form Vpon.(Remind: This interstitial License ID is different with normal License ID).
+	private String interstitialBannerId = "License ID";
 	private VpadnInterstitialAd interstitialAd;
 
   @Override

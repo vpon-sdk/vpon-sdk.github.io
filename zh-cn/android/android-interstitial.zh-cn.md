@@ -26,7 +26,7 @@ lang:         "zh-cn"
 
 * 汇入 `com.vpadn.ads.*`
 * 宣告例项
-* 建立例项，并指定 Vpon 发佈商编号 (bannerId)
+* 建立例项，并指定 Vpon License ID
 
 (不能与横幅广告所用发佈商编号重複)
 
@@ -34,8 +34,8 @@ lang:         "zh-cn"
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-  //TODO: 您向Vpon申请的interstitial banner Id (提醒您 跟一般的横幅广告banner ID是不同的)
-  private String interstitialBannerId = "xxxxxxxxxxxxxxxx";
+  //TODO: 您向Vpon申请的 License ID (提醒您，跟一般的横幅广告 License ID是不同的)
+  private String interstitialBannerId = "License ID";
   private VpadnInterstitialAd interstitialAd;
 
   @Override

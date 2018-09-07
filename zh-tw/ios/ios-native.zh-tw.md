@@ -13,7 +13,7 @@ lang: "zh-tw"
 
 ## 最新消息
 ---
-iOS10 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
+iOS9 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
 
 # 原生廣告選擇
 ---
@@ -36,7 +36,7 @@ Vpon 提供兩種原生廣告的形式：
 
 1. 匯入 Vpon SDK
 2. 在應用程式的 UIViewController 中宣告 VpadnNativeAd
-3. 建立 VpadnNativeAd 物件，並指定 NativeAd ID
+3. 建立 VpadnNativeAd 物件，並指定 Licesnse ID
 4. 請求廣告成功後利用回傳的資料建置自訂的原生 UI
 5. 使用 nativeAd 執行個體註冊廣告檢視
 
