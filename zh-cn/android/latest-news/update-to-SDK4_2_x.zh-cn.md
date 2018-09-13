@@ -91,15 +91,13 @@ lang:           "zh-cn"
             android:layout_height="wrap_content"
             vpadn:adSize="SMART_BANNER"
             vpadn:autoFresh="true"
-            vpadn:bannerId= CHANGE_ME
+            vpadn:bannerId= "License Key"
             vpadn:loadAdOnCreate="true"
             vpadn:platform="CN" />
     </RelativeLayout>
 </LinearLayout>
 ```
-
-As usual you must replace CHANGE ME with your Vpon Banner ID.
-You can use the following code to get the Test Banner If your banner ID has not been vetted
+You can use following code snippet to get test banner if your License Key has not been vetted
 
 ```java
   VpadnAdRequest adRequest =  new VpadnAdRequest();

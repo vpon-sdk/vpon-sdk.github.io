@@ -15,7 +15,7 @@ Vpon provide In-stream Video Ad which can help to maximum your monetization with
 ---
 Before you begin to integrate Vpon In-stream Video Ad, you’ll need the following:
 
-1. Contact [Vpon BD] to set up your account and get your placement id.
+1. Contact [Vpon BD] to set up your account and get your License Key.
 2. Prepare your own VAST / VPAID complicant video player. (Strongly recommneded that your video player is integrated with [Google IMA SDK].)
 3. Contact [Vpon BD] to get an ad request URL from Vpon.
 

@@ -27,7 +27,7 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来�
 
 1. 汇入 Vpon SDK
 2. 在应用程式的 UIViewController 中宣告 VpadnNativeAd
-3. 建立 VpadnNativeAd 物件，并指定 License ID
+3. 建立 VpadnNativeAd 物件，并指定 License Key
 4. 请求广告成功后利用回传的资料建置自订的原生 UI
 5. 使用 nativeAd 执行个体注册广告检视
 
@@ -62,14 +62,14 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来�
 
 ## 建立 VpadnNativeAd 物件
 --------
-在 ViewController 实作中初始化 VpadnNativeAd 物件，完成指定 License ID 后即可请求广告， removePreviousAd 可参考[清除原生广告](#clearNativeAd)。( 尚未申请 NativeAd ID 请先参考此[说明] )
+在 ViewController 实作中初始化 VpadnNativeAd 物件，完成指定 License Key 后即可请求广告， removePreviousAd 可参考[清除原生广告](#clearNativeAd)。( 尚未申请 License Key 请先参考此[说明] )
 
 ```objc
 - (IBAction)loadNativeAd:(id)sender {
     if(self.nativeAd) {
         [self removePreviousAd];
     }
-    self.nativeAd = [[VpadnNativeAd alloc] initWithBannerID:@"License ID"];
+    self.nativeAd = [[VpadnNativeAd alloc] initWithBannerID:@"License Key"];
     self.nativeAd.delegate = self;
     //如填入测试实机的 IDFA 会在该手机上显示测试广告，如宣告其为空字串会抓取正式广告
     [self.nativeAd loadAdWithTestIdentifiers:@[@"请填入手机的 IDFA"]];

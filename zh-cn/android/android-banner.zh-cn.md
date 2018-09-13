@@ -25,7 +25,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
 
 1. 汇入 `com.vpadn.ads.*`
 2. 宣告 VpadnBanner 执行个体
-3. 建立例项，指定 License ID，也就是 Vpon 申请的 BannerId
+3. 建立例项，指定 License Key，也就是 Vpon 申请的 BannerId
 4. 将该检视加进使用者介面
 5. 透过广告载入例项
 
@@ -36,8 +36,8 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
   public class MainActivity extends Activity {
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
-  	//TODO: Vpon Banner ID
-  	private String bannerId = "License ID" ;
+  	//TODO: Vpon License Key
+  	private String bannerId = "License Key" ;
 
          @Override
   	protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
   		//get your layout view for Vpon banner
   		adBannerLayout = (RelativeLayout) findViewById(R.id.adLayout);
   		//create VpadnBanner instance
-                  vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "CN");
+                  vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
   		VpadnAdRequest adRequest = new VpadnAdRequest();
   		//set auto refresh to get banner
   		adRequest.setEnableAutoRefresh(true);
@@ -92,7 +92,7 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
               android:layout_height="wrap_content"
               vpadn:adSize="SMART_BANNER"
               vpadn:autoFresh="true"
-              vpadn:bannerId= "License ID"
+              vpadn:bannerId= "License Key"
               vpadn:loadAdOnCreate="true"
               vpadn:platform="CN" />
       </RelativeLayout>
@@ -101,12 +101,12 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
 <br>
 
 > **Note:**
-记得将上面的 vpon:bannerId 填入你真实的 License ID
+记得将上面的 vpon:bannerId 填入你真实的 License Key
 
 
 # 测试广告
 ---
-如果你的 banner ID 还未经过审核可以使用下列的方式取得测试广告
+如果你的 License Key 还未经过审核可以使用下列的方式取得测试广告
 <br>
 
 ```java

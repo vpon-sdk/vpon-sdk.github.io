@@ -9,7 +9,7 @@ lang:           "en"
 ---
 # Prerequisites
 ----
-Before you start to integrate Vpon SDK, please make sure you already have your own Vpon Publisher Account and get your License ID. [Register as a Vpon Publisher] if you haven't own your Publisher Account.
+Before you start to integrate Vpon SDK, please make sure you already have your own Vpon Publisher Account and get your License Key. [Register as a Vpon Publisher] if you haven't own your Publisher Account.
 
 Once you have your own Publisher Account, follow the instruction below to integrate Vpon Android SDK:
 
@@ -134,6 +134,18 @@ Since we started to support Video ads from Vpon SDK 4, we recommend that you can
   </intent-filter>
 </activity>
 ```
+
+# Proguard Configuration
+---
+If your app need obfuscateed before release, please add settings below：<br>
+-dontwarn c.\*\* <br>
+-dontwarn com.vpon.\*\* <br>
+-dontwarn vpadn.\*\* <br>
+-keep class c.\*\*{ \*; } <br>
+-keep class com.vpon.\*\* { \*; } <br>
+-keep class vpon.\*\* { \*; } <br>
+-keep class com.vpadn.\*\* { \*; } <br>
+-keep class vpadn.\*\* { \*; } <br>
 
 # Tips
 ---

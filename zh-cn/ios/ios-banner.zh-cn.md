@@ -25,7 +25,7 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
 
 1. Import `VpadnSDKAdKit`
 2. 在应用程式的 ViewController 中宣告 `VpadnBanner`
-3. 建立 VpadnBanner 物件，并指定 License ID
+3. 建立 VpadnBanner 物件，并指定 License Key
 4. 拉取广告
 5. 实作 Delegate protocol
 
@@ -53,7 +53,7 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
 
 ## 建立 VpadnBanner 物件
 ---
-请参考以下程式码，在 ViewController 的 viewDidLoad 中初始化横横幅广告，并指定 Banner ID
+请参考以下程式码，在 ViewController 的 viewDidLoad 中初始化横横幅广告，并指定 License Key
 
 ```objc
 @implementation ViewController
@@ -66,7 +66,7 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
     }
 
   vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];  // 初始化 Banner 物件
-  vpadnBanner.strBannerId = @""; // 填入您的 License ID
+  vpadnBanner.strBannerId = @""; // 填入您的 License Key
   vpadnBanner.delegate = self; // 设定 Delegate 接受 protocol 回传讯息
   vpadnBanner.platform = @"TW"; // 请一律填写 "TW"
   [vpadnBanner setAdAutoRefresh:YES]; // set "YES" 启动 Banner 自动更新，若为 mediation 则 set "NO"

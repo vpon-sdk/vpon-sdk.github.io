@@ -25,7 +25,7 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 
 1. Import `VpadnSDKAdKit`
 2. 在應用程式的 ViewController 中宣告 `VpadnInterstitial`
-3. 建立 VpadnInterstitial 物件，並指定 License ID
+3. 建立 VpadnInterstitial 物件，並指定 License Key
 4. 拉取廣告
 5. 展示廣告
 6. 實作 Delegate protocol
@@ -51,14 +51,14 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 
 ## 建立 VpadnInterstitial 物件
 ---
-請參考以下程式碼，在 ViewController 的 viewDidLoad 中初始化插頁廣告，並指定 License ID
+請參考以下程式碼，在 ViewController 的 viewDidLoad 中初始化插頁廣告，並指定 License Key
 
 ```objc
 @implementation ViewController
 
 - (void)viewDidLoad {
     vpadnInterstitial = [[VpadnInterstitial alloc] init];
-    vpadnInterstitial.strBannerId = @""; // 填入您的 Interstitial License ID
+    vpadnInterstitial.strBannerId = @""; // 填入您的 Interstitial License Key
     vpadnInterstitial.platform = @"TW"; // 請一律填寫 "TW"
     vpadnInterstitial.delegate = self;
     [vpadnInterstitial getInterstitial:@[]]; // 開始拉取 Interstitial 廣告
@@ -69,7 +69,7 @@ Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實�
 @end
 ```
 
-> **Note**：插頁廣告所使用的 Banner ID 不能與橫幅廣告所用的 Banner ID 重複
+> **Note**：插頁廣告所使用的 License Key 不能與橫幅廣告所用的 License Key 重複
 
 
 ## 展示廣告

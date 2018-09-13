@@ -23,9 +23,9 @@ Vpon Mobile Web SDK 提供多种广告形式，让行动网站发布商可以方
 
 1. HTML 基本观念
 
-2. 注册、申请，并取得 Vpon Mobile Web License ID<br><br>
+2. 注册、申请，并取得 Vpon Mobile Web License Key<br><br>
 * [注册成为 Vpon 开发商夥伴](http://console.vpon.com/register.action)
-* [申请 License ID](http://console.vpon.com)
+* [申请 License Key](http://console.vpon.com)
 <br><br>
 3. 修改行动网站程式码的权限
 

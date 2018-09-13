@@ -31,7 +31,7 @@ lang:           "zh-cn"
 首先汇入 SDK。如果是使用横幅、插页、原生广告的应用程式，Mainfest 的相关设定请参考[串接说明]。如欲加入开屏广告请在 Mainfest 参考以下设定
 
 ```java
-import com.vpadn.ads.*
+import com.vpadn.ads.*;
 ```
 
 ```xml
@@ -48,14 +48,14 @@ import com.vpadn.ads.*
 
 ## 建立 VpadnSplash 物件并请求广告
 --------
-在 SplashActivity 实作中初始化 VpadnSplashAd 物件，完成指定 License ID 及 splashView 后，并设置监听器即可请求广告。
+在 SplashActivity 实作中初始化 VpadnSplashAd 物件，完成指定 License Key 及 splashView 后，并设置监听器即可请求广告。
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_splash);
     RelativeLayout adsParent = (RelativeLayout) findViewById(R.id.splashContainer);
-    vpadnSplashAd = new VpadnSplashAd(this, "License ID", adsParent);
+    vpadnSplashAd = new VpadnSplashAd(this, "License Key", adsParent);
     vpadnSplashAd.setAdListener(this);
     /** Request Test Ad Start **/
     VpadnAdRequest adRequest =  new VpadnAdRequest();

@@ -20,7 +20,7 @@ Android アプリは、View オブジェクトで構成され、つまりテキ�
 
 1. `com.vpadn.ads.*をインポートする`
 2. VpadnBanner インスタンスを宣言する
-3. BannerId、つまり Vpon を申請する License ID を指定してインスタンスを作成する
+3. BannerId、つまり Vpon を申請する License Key を指定してインスタンスを作成する
 4. ビューをユーザインターフェースに追加する
 5. 広告を通じてインスタンスを読み込む
 6. これらすべての処理を最も簡単に実行できるのはアプリの Activity 内です。
@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
   	//TODO: Vpon プロパティID
-  	private String bannerId = "License ID";
+  	private String bannerId = "License Key";
 
          @Override
   	protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class MainActivity extends Activity {
               android:layout_height="wrap_content"
               vpadn:adSize="SMART_BANNER"
               vpadn:autoFresh="true"
-              vpadn:bannerId= "License ID"
+              vpadn:bannerId= "License Key"
               vpadn:loadAdOnCreate="true"
               vpadn:platform="TW" />
       </RelativeLayout>

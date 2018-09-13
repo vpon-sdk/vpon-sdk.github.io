@@ -94,25 +94,13 @@ Banner expands to take over the whole screen and automatically closes after 5-7 
 
 ## Setting
 ---
-Choose whether or not to use crazy advertisement from License ID Application.
+Choose whether or not to use crazy advertisement from License Key Application.
 
 Enter in <http://console.vpon.com/> for Taiwan Vpon Platform.
 
 Example:
 ![CrazyadSetting]
 
-
-# Proguard Configuration
----
-If your app need obfuscateed before release, please add settings below：<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
 
 
 # Corona User

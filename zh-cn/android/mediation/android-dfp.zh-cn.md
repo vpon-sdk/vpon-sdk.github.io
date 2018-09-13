@@ -96,7 +96,7 @@ DFP 使用者必须指定「DFP 广告单元编号」，而不是「AdMob 发佈
 
 1. Select Network：`Vpon`
 2. Zone：`TW`
-3. Vpon Ad ID：向 Vpon 申请的 `License ID`<br>
+3. Vpon Ad ID：向 Vpon 申请的 `License Key`<br>
 
 范例：
 ![DFP Partner Simplified Chinese.png]

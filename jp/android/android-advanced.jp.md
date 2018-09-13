@@ -100,19 +100,6 @@ SDKが正しく実装されていることを確認するには、テスト用�
 ![CrazyadSetting_JP]
 
 
-# Proguard Configuration
----
-APP 自体が proguard の難読化を経る必要がある場合、次の設定を追加してください。<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
-
-
 # Corona User
 ---
 App を Corona で Vpon 広告に連結しようとする場合、web SDK の方式で連結するようお勧めま す。使用方法は、以下の通りとします。

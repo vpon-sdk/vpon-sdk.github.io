@@ -10,7 +10,7 @@ lang:            "en"
 ---
 # Prerequisites
 ---
-Before you start to integrate Vpon SDK, please make sure you already have your own Vpon Publisher Account and get your License ID. [Register as a Vpon Publisher] if you haven't own your Publisher Account.
+Before you start to integrate Vpon SDK, please make sure you already have your own Vpon Publisher Account and get your License Key. [Register as a Vpon Publisher] if you haven't own your Publisher Account.
 
 Once you have your own Publisher Account, follow the instruction below to integrate Vpon iOS SDK to your Xcode project.
 

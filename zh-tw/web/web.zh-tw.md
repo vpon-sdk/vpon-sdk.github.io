@@ -20,9 +20,9 @@ Vpon Mobile Web SDK 提供多種廣告形式，讓行動網站發佈商可以方
 
 1. HTML 基本觀念
 
-2. 註冊成為 Vpon 開發商夥伴，並取得 Vpon Mobile Web License ID<br><br>
+2. 註冊成為 Vpon 開發商夥伴，並取得 Vpon Mobile Web License Key<br><br>
 * [註冊成為 Vpon 開發商夥伴](http://console.vpon.com/register.action)
-* [申請 License ID](http://console.vpon.com)
+* [申請 License Key](http://console.vpon.com)
 <br><br>
 3. 修改行動網站程式碼的權限
 

@@ -37,7 +37,7 @@ There are five actions you will need to take to implement this in your app:
 
 1. Import Vpon SDK
 2. Declare a VpadnNativeAd instance
-3. Set the License ID
+3. Set the License Key
 4. Use the returned ad metadata to build a custom native UI
 5. Register the ad's view with the nativeAd instance
 
@@ -82,7 +82,7 @@ Initializes VpadnNativeAd and request an ad to load in your View Controller's im
     if(self.nativeAd) {
         [self removePreviousAd];
     }
-    self.nativeAd = [[VpadnNativeAd alloc] initWithBannerID:@"License ID"];
+    self.nativeAd = [[VpadnNativeAd alloc] initWithBannerID:@"License Key"];
     self.nativeAd.delegate = self;
     //The testing device will show the testing Ad while input its IDFA. Declare it as a empty string and the device will laod the actula Ad.
     [self.nativeAd loadAdWithTestIdentifiers:@[@"Input the device's IDFA"]];

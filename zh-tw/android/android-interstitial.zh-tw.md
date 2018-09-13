@@ -25,16 +25,16 @@ lang: zh-tw
 
 * 匯入 `com.vpadn.ads.*`
 * 宣告例項
-* 建立例項，並指定 License ID
+* 建立例項，並指定 License Key
 
-(不能與橫幅廣告所用的 License ID 重複)
+(不能與橫幅廣告所用的 License Key 重複)
 
 再次提醒您，最好在應用程式的 Activity 內執行上述步驟。
 
 ```java
 public class MainActivity extends Activity implements VpadnAdListener {
-  //TODO: 您向 Vpon 申請的 License ID (提醒您: 跟一般的橫幅廣告 License ID 是不同的)
-  private String interstitialBannerId = "License ID";
+  //TODO: 您向 Vpon 申請的 License Key (提醒您: 跟一般的橫幅廣告 License Key 是不同的)
+  private String interstitialBannerId = "License Key";
   private VpadnInterstitialAd interstitialAd;
 
   @Override

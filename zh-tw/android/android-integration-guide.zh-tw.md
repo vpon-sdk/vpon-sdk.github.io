@@ -9,7 +9,7 @@ lang:           "zh-tw"
 ---
 # 串接準備
 ---
-在開始串接 SDK 前，請確認您已經擁有 Vpon 開發商帳號，並已經取得您的 License ID。如果您還沒完成註冊，請先[註冊帳號]。
+在開始串接 SDK 前，請確認您已經擁有 Vpon 開發商帳號，並已經取得您的 License Key。如果您還沒完成註冊，請先[註冊帳號]。
 
 取得 Vpon 開發商帳號後，請參考以下說明完成 Vpon Android SDK 的串接：
 
@@ -132,6 +132,18 @@ dependencies {
   </intent-filter>
 </activity>
 ```
+
+# Proguard Configuration
+---
+如果您的 App 本身需要經過 Proguard 混淆，請增加下面的設定：<br>
+-dontwarn c.\*\* <br>
+-dontwarn com.vpon.\*\* <br>
+-dontwarn vpadn.\*\* <br>
+-keep class c.\*\*{ \*; } <br>
+-keep class com.vpon.\*\* { \*; } <br>
+-keep class vpon.\*\* { \*; } <br>
+-keep class com.vpadn.\*\* { \*; } <br>
+-keep class vpadn.\*\* { \*; } <br>
 
 # Tips
 ---

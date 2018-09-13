@@ -148,15 +148,27 @@ dependencies {
   </intent-filter>
 </activity>
 ```
-  []: A-skd330-01.png "fig:A-skd330-01.png"
-  [1]: A-sdk330-02.png "fig:A-sdk330-02.png"
 
-
-# サンプルコードのダウンロード
+# Proguard Configuration
 ---
-[Go to download page](../download)
+APP 自体が proguard の難読化を経る必要がある場合、次の設定を追加してください。<br>
+-dontwarn c.\*\* <br>
+-dontwarn com.vpon.\*\* <br>
+-dontwarn vpadn.\*\* <br>
+-keep class c.\*\*{ \*; } <br>
+-keep class com.vpon.\*\* { \*; } <br>
+-keep class vpon.\*\* { \*; } <br>
+-keep class com.vpadn.\*\* { \*; } <br>
+-keep class vpadn.\*\* { \*; } <br>
 
-# ヒント
+
+# Tips
 ---
+より詳細な情報は
 
-より詳細な情報は、[バナー広告](../banner)、[ンタースティシャル広告](../interstitial)、[メディエーション](../mediation)をご確認 ください。
+* [バナー広告](../banner)
+* [ンタースティシャル広告](../interstitial)
+* [Native Ad](../native)
+* [メディエーション](../mediation)
+
+をご確認 ください。

@@ -15,7 +15,7 @@ Vpon 提供 In-stream 影音广告，只要您的 App 中有支援 VAST / VPAID 
 ---
 在开始串接 Vpon In-stream 影音广告前，需要进行以下准备：
 
-1. 联系 [Vpon BD] 完成帐号设定，并取得您的 Placement ID
+1. 联系 [Vpon BD] 完成帐号设定，并取得您的 License Key
 2. 准备一个支援 VAST / VPAID 格式的影音播放器 <br> 
    (我们建议您可以使用 [Google IMA SDK] 来建立您的影音播放器)
 3. 联系 [Vpon BD]，取得广告请求 URL

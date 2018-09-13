@@ -37,8 +37,8 @@ Click "Networks" tab and click "add a Network".
 ## Step6: Fill in CUSTOMEVENT
 Fill in your package name + class name, you can see the sample at the reference page.
 
-## Step7: License ID/adUnitID
-Fill in License ID which you apply from our Vpon website, and the key is `strBannerId`
+## Step7: License Key / adUnitID
+Fill in License Key which you apply from our Vpon website, and the key is `strBannerId`
 ![][11]
 
 ## Step8: Enable Vpon Ad Network

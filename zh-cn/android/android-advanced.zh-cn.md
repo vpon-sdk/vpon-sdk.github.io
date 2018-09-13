@@ -110,22 +110,9 @@ lang:            "zh-cn"
 ## 设定
 ---
 在后台注册申请流程中可选择是否播放 Crazy Ad。<br>
-进入 <http://tw.adon.vpon.com/> 注册台湾区 License ID。<br>
+进入 <http://tw.adon.vpon.com/> 注册台湾区 License Key。<br>
 如图:
 ![CrazyadSetting]
-
-
-# Proguard Configuration
----
-如果您的 App 本身需要经过 proguard 溷淆，请增加下面的设定：<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
 
 
 # Corona User

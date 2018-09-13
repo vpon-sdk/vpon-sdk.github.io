@@ -21,7 +21,7 @@ Vpon モバイルウェブSDKは、あらゆる規模のウェブサイト運営
 
 2. Vponへの登録・ウェブサイトの申請・プロパティIDを取得します。<br><br>
 * [Register as a Vpon Publisher](http://console.vpon.com/register.action)
-* [Apply for License ID](http://console.vpon.com)
+* [Apply for License Key](http://console.vpon.com)
 <br><br>
 3. モバイルウェブサイトコードを変更する権限
 <br><br>

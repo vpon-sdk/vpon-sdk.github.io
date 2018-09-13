@@ -16,13 +16,13 @@ Please contact [Vpon BD](mailto:bd@vpon.com) if you haven't receive the validati
 > **Note**: You can change the language setting on the top-right corner of the application page.
 
 
-# Apply License ID For Vpon SDK
+# Apply License Key For Vpon SDK
 ---
-Before you start to integrate Vpon SDK, you need to apply License IDs for each ad types in different platform.
+Before you start to integrate Vpon SDK, you need to apply License Keys for each ad types in different platform.
 
-Please access [Publisher Panel](http://console.vpon.com/) to apply your own License ID.
+Please access [Publisher Panel](http://console.vpon.com/) to apply your own License Key.
 
-# Get Your License ID
+# Get Your License Key
 ---
 Switch to "App" tag and click `Create New App` to connect your application with your Vpon Publisher account. Insert your application name, platform, URL and application instructions. Then you have to choose if you would like to use CrazyAd.
 
@@ -41,7 +41,7 @@ Click "Send" button after you finish it.
 
 ![SDK_400_New_Banner_Position]
 
-You will see your banner status and your License ID in the Banner Position List page.
+You will see your banner status and your License Key in the Banner Position List page.
 
 ![SDK400_Banner_Position_List]
 

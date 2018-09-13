@@ -31,7 +31,7 @@ Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [t
 
 * lib ファイルとヘッダーファイルをインポートする
 * オブジェクトを宣言する
-* インタースティシャル用のBanner ID(=プロパティID。通常のバナー広告用のLicense IDと重複不可)を指定してオブジェクトを作成する。
+* インタースティシャル用のLicense Key(=プロパティID。通常のバナー広告用のLicense Keyと重複不可)を指定してオブジェクトを作成する。
 
 この場合も、これらの処理に最も適しているのはアプリの ViewController 内です。
 
@@ -43,7 +43,7 @@ Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [t
 - (void)viewDidLoad
 {
     vpadnInterstitial = [[VpadnInterstitial alloc] init];
-    vpadnInterstitial.strBannerId = @"License ID";   //インタースティシャル広告用 License ID を記入する
+    vpadnInterstitial.strBannerId = @"License Key";   //インタースティシャル広告用 License Key を記入する
     vpadnInterstitial.platform = @"TW";       //台湾エリアはTW、中国エリアは CN を入力
     vpadnInterstitial.delegate = self;
     [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];

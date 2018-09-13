@@ -29,7 +29,7 @@ Usage is nevertheless very similar to Vpadn banner:
 
 1. Import `VpadnSDKAdKit`
 2. Declare a VpadnInterstitial instance
-3. Set up VpadnInterstitial object and indicate an License ID
+3. Set up VpadnInterstitial object and indicate an License Key
 4. Request for an interstitial ad
 5. Show interstitial ad
 6. Set up Delegate protocol
@@ -53,7 +53,7 @@ We strongly recommend that you can finish all the steps in ViewController of the
 @end
 ```
 
-## Set Up VpadnInterstitial Object And Indicate A License ID
+## Set Up VpadnInterstitial Object And Indicate A License Key
 ---
 Please refer to the code snippet below to initialize Interstitial Ad in viewDidLoad of ViewController.
 
@@ -63,7 +63,7 @@ Please refer to the code snippet below to initialize Interstitial Ad in viewDidL
 - (void)viewDidLoad
 {
     vpadnInterstitial = [[VpadnInterstitial alloc] init];
-    vpadnInterstitial.strBannerId = @""; // Fill in with your License ID
+    vpadnInterstitial.strBannerId = @""; // Fill in with your License Key
     vpadnInterstitial.platform = @"TW"; // Fill in with "TW"
     vpadnInterstitial.delegate = self;
     [vpadnInterstitial getInterstitial:@[]]; // Start to request Interstitial Ad
@@ -74,7 +74,7 @@ Please refer to the code snippet below to initialize Interstitial Ad in viewDidL
 @end
 ```
 
-> **Note**: Do not use the same License ID for Interstitial as the one for Banner.
+> **Note**: Do not use the same License Key for Interstitial as the one for Banner.
 
 
 ## Show Interstitial Ad

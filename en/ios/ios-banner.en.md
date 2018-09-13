@@ -26,7 +26,7 @@ Just like all the other UIView, a VpadnBanner is easy to implement in code.
 
 1. Import `VpadnSDKAdKit`
 2. Declare a VpadnBanner instance
-3. Set up VpadnBanner object and indicate a License ID
+3. Set up VpadnBanner object and indicate a License Key
 4. Request for a banner ad
 5. Set up Delegate protocol
 
@@ -51,7 +51,7 @@ We strongly recommend that you can finish all the steps in ViewController of the
 @end
 ```
 
-## Set Up VpadnBanner Object And Indicate A License ID
+## Set Up VpadnBanner Object And Indicate A License Key
 ---
 Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of ViewController.
 
@@ -66,7 +66,7 @@ Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of
     }
 
 vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];  // Initialize Banner Object
-  vpadnBanner.strBannerId = @""; // Fill in with your License ID
+  vpadnBanner.strBannerId = @""; // Fill in with your License Key
   vpadnBanner.delegate = self; // Set up Delegate to receive protocol message
   vpadnBanner.platform = @"TW"; // Fill in with "TW"
   [vpadnBanner setAdAutoRefresh:YES]; // Set "YES" to enable Banner auto refresh. Set "NO" if you use mediation

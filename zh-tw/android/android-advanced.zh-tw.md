@@ -110,22 +110,9 @@ public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
 ## 設定
 ---
 在後台註冊申請流程中可選擇是否播放 Crazy Ad。<br>
-進入 <http://tw.adon.vpon.com/> 註冊台灣區License ID。<br>
+進入 <http://tw.adon.vpon.com/> 註冊台灣區License Key。<br>
 如圖:
 ![CrazyadSetting]
-
-
-# Proguard Configuration
----
-如果您的 App 本身需要經過 proguard 混淆，請增加下面的設定：<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
 
 
 # Corona User

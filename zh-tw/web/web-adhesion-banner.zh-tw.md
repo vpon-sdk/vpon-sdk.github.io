@@ -35,12 +35,12 @@ Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
   <body>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your First License ID for Banner ID"
+            vpon_ad_licensy_key="Your First License Key for License Key"
             vpon_ad_format="320x50_mb"
             debug="true"></vpon>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="Your Second License ID for Banner ID"
+            vpon_ad_licensy_key="Your Second License Key for License Key"
             vpon_ad_format="320x50_mb"
             vpon_ad_adhesion="bottom"
             debug="true"></vpon>
@@ -53,7 +53,7 @@ Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
 >
 >* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
 >
->* 同一網頁最多嵌入 `3` 個廣告版面 (如範例所示)，每個版位請使用不同的 License ID。
+>* 同一網頁最多嵌入 `3` 個廣告版面 (如範例所示)，每個版位請使用不同的 License Key。
 >
 >* Adhesion Ad 倘若嵌入在 iframe 內，將會失去自動固定於行動裝置的螢幕下方的功能。
 >
@@ -69,7 +69,7 @@ Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
 
 名稱                   | 描述                               | 必要  | 範例
 :--------------------:|:----------------------------------:|:----:|:------------------------:
-vpon\_ad\_licensy\_key| 版位 ID                             | Y    | <font color="red">輸入 Vpon License ID</font>
+vpon\_ad\_licensy\_key| 版位 ID                             | Y    | <font color="red">輸入 Vpon License Key</font>
 vpon\_ad\_format      | 置頂/置底橫幅廣告格式<br>320x50\_mb    | Y    | "320x50\_mb"
 vpon\_ad\_test        | 是否拉取測試廣告                      | N    | 1(是)/0(否)<br>預設為 "1"
 vpon\_ad\_adhesion    | 將橫幅廣告設為置頂或置底               | N    | top/bottom<br>置頂："top"<br>置底："bottom"

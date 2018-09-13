@@ -21,7 +21,7 @@ If you haven't finished the previous integration guide, please check all the [se
 
 1. Import `com.vpadn.ads.*`
 2. Declare an VpadnBanner instance
-3. Create it, specifying a unit ID — your License ID
+3. Create it, specifying a unit ID — your License Key
 4. Add the view to the UI
 5. Load it with an ad
 
@@ -30,8 +30,8 @@ If you haven't finished the previous integration guide, please check all the [se
   public class MainActivity extends Activity {
   	private RelativeLayout adBannerLayout;
   	private VpadnBanner vponBanner = null;
-  	//Vpon TODO:  Banner ID
-  	private String bannerId = "License ID" ;
+  	//Vpon TODO: Replace with your License Key
+  	private String bannerId = "License Key" ;
 
          @Override
   	protected void onCreate(Bundle savedInstanceState) {
@@ -84,15 +84,14 @@ If you haven't finished the previous integration guide, please check all the [se
               android:layout_height="wrap_content"
               vpadn:adSize="SMART_BANNER"
               vpadn:autoFresh="true"
-              vpadn:bannerId= "License ID"
+              vpadn:bannerId= "License Key"
               vpadn:loadAdOnCreate="true"
               vpadn:platform="TW" />
       </RelativeLayout>
   </LinearLayout>
 ```
-<br>
-  As usual you must replace CHANGE ME with your Vpon Banner ID.
-  You can use the following code to get the Test Banner If your banner ID has not been vetted.
+
+  You can use following code snippet to get the test banner if your License Key has not been vetted.
 <br>
 
 ```java

@@ -34,8 +34,8 @@ Mopub 後台設定請參考下列步驟:
 ## Step6: 填寫 CUSTOMEVENT
 填入您的 class name, 可以參考範例所示
 
-## Step7: License ID/adUnitID
-填入您在 Vpon 申請的 License ID, key 為 `strBannerId`
+## Step7: License Key / adUnitID
+填入您在 Vpon 申請的 License Key, key 為 `strBannerId`
 ![][11]
 
 ## Step8: 開啟授權 Vpon Ad Network

@@ -27,13 +27,13 @@ Deployment target 7.0 以上
 ## VpadnAnalytics.h
 在每個要插入 Vpon Analytics 的頁面都需要 import VpadnAnalytics.h
 
-## 填入 License ID
-在第一次呼叫 [VpadnAnalytics sharedInstance] 時需要先填入跟我們申請的 License ID, 而填入的方式如下
+## 填入 License Key
+在第一次呼叫 [VpadnAnalytics sharedInstance] 時需要先填入跟我們申請的 License Key, 而填入的方式如下
 
 ```Objective-C
-[[VpadnAnalytics sharedInstance] setLicenseKey:@ "License ID"];
+[[VpadnAnalytics sharedInstance] setLicenseKey:@ "License Key"];
 ```
-> **Note:** License ID 請替換成跟我們申請的 License ID
+> **Note:** License Key 請替換成跟我們申請的 License Key
 
 ## launch Event
 launch Event 的傳送會建議在一開始 AppDelegate 中的 didFinishLaunchingWithOptions 這個 callback 內去送, 程式碼如下:

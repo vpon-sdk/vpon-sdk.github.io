@@ -10,23 +10,20 @@ lang:           "en"
 
 # Overview
 ---
-Vpon Mobile Web SDK provides a new type of ad : Interstitial Ad, which immediately present rich HTML5 experiences or "web apps" at transition points such as launch, video pre-roll or game level load. Web apps are in-app browsing experiences with a simple close button rather than any navigation bar—the content provides its own internal navigation scheme.<br>
+Vpon Mobile Web SDK provides a new type of ad : Interstitial Ad, which immediately present rich HTML5 experiences or "web apps" at transition points such as launch, video pre-roll or game level load. Web apps are in-app browsing experiences with a simple close button rather than any navigation bar—the content provides its own internal navigation scheme.
 
 > **Note**:
 >It only supports ads on <strong>`mobile site`</strong>, it would not show any ad if you open your website on personal computer.
-<br>
-
 
 # Setups
 ---
 You should put following code snippet in the <body> section of the page that you want to show ads. The<strong> biggest  </strong>difference from banner ad is that the attribute <strong>vpon_ad_format</strong> should be <strong>`mi`</strong> of interstitial one.
 
-
 ```html
   <body>
 ...
       <vpon vpon_ad_test="1"
-            vpon_ad_licensy_key="License ID"
+            vpon_ad_licensy_key="License Key"
             vpon_ad_format="mi"
             debug="true"></vpon>
 ...
@@ -34,20 +31,18 @@ You should put following code snippet in the <body> section of the page that you
 ...
   </body>
 ```
+
 > **Note**:
 >
 >* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
->* You only allow to use 1 ads at most in each page and please use different License ID for every ad.
+>* You only allow to use 1 ads at most in each page and please use different License Key for every ad.
 >
 >* If you use iframe for embedding vpon's ad, please get better control on it, just like the width & height should be 100 %, collapse the iframe after users clikc the close button, and so on.
 >
 >* Once you finish editing your page, save and reload it. You can find a test ad in the <vpon> tag after initializing the SDK.
 >
 >* Please modify the parameter of vpon_ad_test to `"0"` to get formal ads before you launch your site officially.
-
-
-<br>
 
 ## Callback {#callback}
 ---
@@ -57,7 +52,7 @@ Use our Callback Function rationally when there is no proper ad fill.
 <body>
 ...
   <vpon vpon_ad_test="1"
-        vpon_ad_licensy_key="License ID"
+        vpon_ad_licensy_key="License Key"
         vpon_ad_format="mi"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
@@ -76,98 +71,94 @@ Use our Callback Function rationally when there is no proper ad fill.
 ...
 </body>
 ```
-<br>
-
 
 ## Advanced Setup
 ---
 
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
-vpon\_ad\_licensy\_key| Banner ID                                | Y         | <font color="red">Fill in with your Vpon License ID</font>
+vpon\_ad\_licensy\_key| License Key from Vpon                    | Y         | <font color="red">Fill in with your Vpon License Key</font>
 vpon\_ad\_format      | Format<br>mi | Y       | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
 ad\_request\_callback | Callback Function for no ad fill         | N          | Please refer to [Callback]
 
-<br>
-
 # Results
 ---
 <img src="{{site.imgurl}}/Web-Interstitial-1.png" alt="" class="width-300"/>
 
-<br>
 
-# Mobile Site DFP
+# Google Ad Manager Mediation
 ---
-This document provides instructions for using the mobile site DFP to display banner ads. If you're not familiar setting mobile web api, review the documents first: "Vpon Mobile Web SDK" to become familiar with this document. Then come back this page and follow the DFP setting steps.
+This document provides an instruction of using Google Ad Manager to display Vpon ads.
 
-## Generate tags
+## Create Ad Unit and Generate Publisher Tag
 ---
-1. Click "Inventory"
-2. Click "New ad unit"
-3. Choose "Out-of-page" as the size of ad
-4. Click "Generate Tags"
-5. Choose "Google Publisher Tag"
-6. Click "Enable single request", "Enable synchornous requests" and "Out-of-page"
-7. Place Header code into the HEAD element of the web page and Document body code into the page body where you want to show ad.
+Please finish below setting in [Google Ad Manager]:
 
-<img src="{{site.imgurl}}/DFP_IS_en_01.png" alt="" class="width-600" />
-<img src="{{site.imgurl}}/DFP_IS_en_02.png" alt="" class="width-600" />
-<img src="{{site.imgurl}}/DFP_IS_en_03.png" alt="" class="width-600" />
-<img src="{{site.imgurl}}/DFP_IS_en_04.png" alt="" class="width-600" />
+1. Create ad unit.
+2. Set up Name, Size, and other items for the ad unit. Please choose `Out-of-page` in size option for interstitial ad.
+3. Generate publisher tag
 
+Select an ad unit, click "GENERATE TAGS" to generate publisher tag.
+<img src="{{site.imgurl}}/WebAdManager_19.png" alt="" class="width-600" />
+Choose "Google Publisher Tag" as tag type.
+<img src="{{site.imgurl}}/WebAdManager_20.png" alt="" class="width-600" />
+Click "Enable single request", "Enable synchronous requests" and "Out of page".
+<img src="{{site.imgurl}}/WebAdManager_25.png" alt="" class="width-600" />
+Please paste the code snippet in Document header to <head> and paste the one in Document body to <body> of your website.
+<img src="{{site.imgurl}}/WebAdManager_26.png" alt="" class="width-600" />
 
-## Setting Orders, Items and Creatives
+## Set Up Orders, Line Items and Creatives
 ---
-To run a new ad campaign through DFP Small Business, you'll first need to create a new order. After creating the order, you'll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), DFP will not reserve inventory until the order is approved.
+To run a new ad campaign through Google Ad Manager, you have to create a new order first. Then you must create line items, add creatives, and approve the order to serve the ads. For reserved line item types (sponsorship and standard), Google Ad Manager will not reserve inventory until the order is approved.
 
-### Creat Orders Manually
+### Create Orders
 To create an order before running an inventory forecast:
 
-1. In your DFP Small Business account, click the `Orders` tab.
-2. Click `New order`.
-3. Enter your order information in the appropriate fields.
-4. Enter your line item information.
-5. Click Check inventory to ensure the order will have enough available impressions.
-6. Click `Save`。Once you've created an order, you'll need to approve it before the line items are eligible to serve. See Approve an order to learn how.
+1. Click `Orders` tab in Google Ad Manager.
+2. Click `New order` to create a new order.
+3. Fill in order information in appropriate fields.
+4. Fill in your line item information.
+5. Click "Check inventory" to ensure the order will have enough available impressions.
+6. Click `Save` to save your setting. Once you've created an order, you must approve it before the line items are eligible to serve.
 
-> Order names must be unique within your network.
+> **Note:** Order names must be unique within your network.
 
+### Create Line Items
 
-### Create a Line Item
-
-To create a line item:
-
-1. In your DFP Small Business account, click the Orders tab.
-2. Create a new order or click an existing order in the table.
-3. Click New line item.
-4. Enter a line item name. Line item names must be unique within your network.
-5. Enter the inventory sizes of the creatives you plan to upload.
-6. (Optional) Enter some comments about the line item that might help with trafficking the line item.
+1. Click "Orders" tab in Google Ad Manager
+2. Create a new order or choose an existing one in the table.
+3. Click "New line item" to create a new line item.
+4. Fill in line item name. Line item name must be unique within your network.
+5. Choose inventory sizes of the creatives you plan to deliever.
+6. (Optional) Enter some comments about the line item that might help with targetting the line item.
 7. Enter the line item type, dates, quantity and cost.
 8. Under Adjust delivery, configure your delivery settings (optional). See Optional delivery settings below for more information.
-9. Select the inventory you want to target. You can target at ad units, placements, or both. To find inventory to target at, you can either browse through your network’s inventory or perform a search. The ad unit named after your network represents all of the ad units in your network. If you target the line item to this network-level ad unit, the line item will target any ad unit in your network.
-10. Enter additional targeting criteria to target a specific audience (optional). If you don’t target the line item to any ad units or placements, then the line item will be set to serve as run-of-network. This means the line item can serve to any ad unit on your website.
-11. Click `Save`.
+9. Select the inventory you want to target. You can target at ad units, placements, or both of them.
 
-### Upload a Creative
+![]({{ site.imgurl }}/AddTargeting.png)
 
-1. Click the line item where you'd like to add the creative. You can also create a new line item if needed.
-2. Click Add creatives. All creatives and ad unit dimensions associated with your line item will be listed on the left-hand column. You can upload creatives to any unit size in this list.
-3. You can either drag and drop multiple creatives into the line item or just add one at a time.
+You can add additional targeting criteria to target a specific audience (optional). If you don’t target the line item to any ad units or placements, then the line item will be set to serve as run-of-network. This means the line item can serve to any ad unit on your website.
 
-### Add only one creative
-Click New creative and select the creative's dimensions. (Choose All → Custom)
-<img src="{{site.imgurl}}/DFP_IS_en_05.png" alt="" class="width-600" />
+After you finish your line item setting, click `Save` to save it.
 
-### Creative settings
+### Add Creatives
+
+1. Choose the line item which you'd like to add creatives. You can also create a new one if needed.
+2. Click "ADD CREATIVES" to add new creative. All creatives and ad unit dimensions associated with your line item will be listed on the left-hand column. You can upload creatives to any unit size in this list.
+3. You can either drag and drop several creatives into the line item or just add one at a time.
+
+### Creative Setting
+Choose `Third party` in All tab:
+<img src="{{site.imgurl}}/WebAdManager_23.png" alt="" class="width-600" />
+
 Input the snippet of code:
 
 ```html
 <vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="License ID"
+       vpon_ad_licensy_key="License Key"
        vpon_ad_format="mi"
        debug="true"></vpon>
 <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
@@ -182,24 +173,25 @@ Input the snippet of code:
 >
 >* Remember to add `//%%CLICK_URL_UNESC%%` & `//%%VIEW_URL_UNESC%%`
 >
->* Please do not choose "Serve into a SafeFrame".
+>* "Serve into a SafeFrame" is not support.
 
 
-Example：
-<img src="{{site.imgurl}}/DFP_IS_en_06.png" alt="" class="width-600" />
+Please refer to the screenshot below to finish your setting. Note that "Serve into a SafeFrame" is not support.
+<img src="{{site.imgurl}}/WebAdManager_27.png" alt="" class="width-600" />
 
 
 # FAQ
 ---
 
-## Still can't see any ads
+### Still can't see any ads
 Please check the following items:
 
 * Please open the page with a mobile browser instead of a personal computer.
 * Clean the cache, delete cookies and reload the page.
 
-## Still can't solve it
+### Still can't solve it
 Turn on the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
 
 [Callback]: {{site.baseurl}}/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
+[Google Ad Manager]: https://admanager.google.com/

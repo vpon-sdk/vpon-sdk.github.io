@@ -20,7 +20,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
 1. VpadnBanner.hとVpadnInterstitial.hをインポートする。
 2. アプリの UIViewController 内で VpadnBanner を宣言する。
 1. VpadnBanner オブジェクトを作成する。
-1. License ID、つまり Vponの登録済みプロパティIDを指定する。
+1. License Key、つまり Vponの登録済みプロパティIDを指定する。
 1. window の rootViewController を設定する。
 1. 対象View を ViewController 内に追加する。
 1. 広告をロードする
@@ -77,7 +77,7 @@ iOS アプリは、UIView オブジェクトで構成され、テキストエリ
     // 広告位置を設定する
     CGPoint origin = CGPointMake(0.0,screenHeight - CGSizeFromVpadnAdSize(VpadnAdSizeSmartBannerPortrait).height);
     vpadnAd = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeSmartBannerPortrait origin:origin];   // バナーのインスタンスを初期化する
-    vpadnAd.strBannerId = @"";   //License ID（=プロパティID） を記入する
+    vpadnAd.strBannerId = @"";   //License Key（=プロパティID） を記入する
     vpadnAd.delegate = self;       // delegate がプロトコルで返されるメッセージを受信するよう設定する
     vpadnAd.platform = @"TW";       //台湾エリアはTW 、中国エリアはCNを入力
     [vpadnAd setAdAutoRefresh:YES]; //mediation の場合、NOと入力

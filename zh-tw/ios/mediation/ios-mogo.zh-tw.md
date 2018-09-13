@@ -27,7 +27,7 @@ MOGO Mediation 請先註冊帳號: [進入]
 
 ![][3]  
 ![][4]  
-4. 點選Vpon輸入由Vpon後台申請的Banner ID  
+4. 點選Vpon輸入由Vpon後台申請的License Key  
 
 ![][5]  
 5. 調整投放量  

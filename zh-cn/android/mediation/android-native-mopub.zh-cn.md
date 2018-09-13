@@ -38,8 +38,8 @@ Mopub 后台设定请参考下列步骤:
 ## Step6: 填写 CUSTOMEVENT
 填入您的 package name + class name, 可以参考范例所示
 
-## Step7: License ID/adUnitID
-填入您在 Vpon 申请的 License ID, key 为 `adUnitID`
+## Step7: License Key / adUnitID
+填入您在 Vpon 申请的 License Key, key 为 `adUnitID`
 ![][8]
 
 ## Step8: 开启授权 Vpon Ad Network

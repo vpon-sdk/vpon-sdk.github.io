@@ -73,14 +73,14 @@ static NSString *const kAdCellIdentifier = @"adIdentifier";
 
 ## 初始化 adsManager 并请求广告
 --------
-初始化 adsManager，完成指定 License ID ( 尚未申请 License ID 请先参考此[说明] )，并设定 `forNumAdsRequested` (最高可设为 5，表 adsManager 一次请求 5 笔原生广告)。
+初始化 adsManager，完成指定 License Key ( 尚未申请 License Key 请先参考此[说明] )，并设定 `forNumAdsRequested` (最高可设为 5，表 adsManager 一次请求 5 笔原生广告)。
 
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     if (!self.adsManager) {
-        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"License ID" forNumAdsRequested:5];
+        self.adsManager = [[VpadnNativeAdsManager alloc] initWithBannerID:@"License Key" forNumAdsRequested:5];
         self.adsManager.delegate = self;
     }
     [self.adsManager loadAdsWithTestIdentifiers:@[@"49EAAA1A-869E-43D5-BAFD-26839FAEEEDD"]];

@@ -72,7 +72,7 @@ Vpon 提供兩種原生廣告的形式：
 
 ## 建立 VpadnNativeAd 物件
 --------
-在 ViewController 實作中初始化 VpadnNativeAd 物件，完成指定 NativeAd ID 後即可請求廣告， removePreviousAd 可參考[清除原生廣告](#clearNativeAd)。( 尚未申請 NativeAd ID 請先參考此[說明] )
+在 ViewController 實作中初始化 VpadnNativeAd 物件，完成指定 License Key 後即可請求廣告， removePreviousAd 可參考[清除原生廣告](#clearNativeAd)。( 尚未申請 License Key 請先參考此[說明] )
 
 
 ```objc
