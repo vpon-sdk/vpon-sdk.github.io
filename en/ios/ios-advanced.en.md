@@ -114,28 +114,25 @@ Sent just before the application gets backgrounded or terminated
 
 # Crazy Ad
 ---
-Banner expands to take over the whole screen and automatically closes after 5-7 seconds.
+Crazy Ad is a kind of Banner Ad that will expands to full-screen size automatically and close after 5-7 seconds.
+
 <img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300"/>
 
 
-## Setting
+## How to Set Up Crazy Ad
 ---
-Choose whether or not to use crazy advertisement from License Key Application.
-
-Enter in <http://console.vpon.com/> for Taiwan Vpon Platform.
-
-Example:
-![CrazyadSetting]
-
+1. [Register as a Vpon Publisher] first
+2. Apply your own License Key in the [Publisher Panel](http://console.vpon.com/)
+3. Choose if you want to enable Crazy Ad
 
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 
 
 # Corona User
 ---
-This guid shows how to use Corona SDK and display Vpon ads. We suggest you use Web SDK method. To use ad services:
-You can load local html files using this API like webView:request( "localfile.html", system.ResourceDirectory ).
+1. Please refer to [Vpon Web SDK Integration Guide]({{site.baseurl}}/web/) to prepare a HTML file with ad request
+2. Load the HTML file in WebView, for example, webView:request("localfile.html", system.ResourceDirectory)
 
-You can see the contents of html from Vpon wiki: [Web SDK]({{site.baseurl}}/web/)
+> **Note:** To know more about Corona, please refer to [Corona Document](http://docs.coronalabs.com/api/library/native/newWebView.html)
 
-See more Corona SDK Document: [Corona Document](http://docs.coronalabs.com/api/library/native/newWebView.html)
+[Register as a Vpon Publisher]: {{ site.baseurl }}/ios/registration/

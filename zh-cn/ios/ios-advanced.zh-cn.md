@@ -121,29 +121,36 @@ vpadnAd.delegate = self;
   - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
 ```
 
+
 # Crazy Ad
 ---
-会从banner自动展开成 Crazy Ad，全萤幕富媒体广告的 Crazy Ad 呈现约 5~7 秒会自动关闭。
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300"/>
+Crazy Ad 是由 Banner 自动展示的全萤幕富媒体广告，展开后呈现约 5~7 秒会自动关闭。
+
+<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300" />
 
 
-## 设定
+## 如何设定 Crazy Ad
 ---
-在后台注册申请流程中可选择是否播放 Crazy Ad。<br>
-进入 <http://tw.adon.vpon.com/> 注册台湾区 License Key。<br>
-如图:
+
+1. 请先[注册帐号]成为 Vpon 开发商伙伴
+2. 登入[开发商后台]申请 License Key
+3. 选择是否播放 Crazy Ad
+
+如图：
 ![CrazyadSetting]
-
-
-
-[CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 
 
 # Corona User
 ---
-如果您 App 使用 Corona 欲串接 Vpon 广告，我们建议您用 web SDK 的方式串接，使用方法如下:
-将 web SDK 裡的 html 写进 local file 再让 webview 去 load 这个 file (例如: webView:request( "localfile.html", system.ResourceDirectory ))。
+如果您的 App 使用 Corona 欲串接 Vpon 广告，我们建议您用 Web SDK 的方式串接，使用方法如下：
 
-HTML 内容可参考 Vpon SDK 的 web SDK 操作手册: [Web SDK]({{site.baseurl}}/zh-cn/web/)
+1. 请参考 [Vpon Web SDK 串接说明]，准备一个包含 Web SDK 广告请求的 HTML 档案
+2. 在 WebView 中读取该 HTML 档案，例如：webView:request(“localfile.html”, system.ResourceDirectory)
 
-更多 Corona SDK 文件可参考: [Corona Document](http://docs.coronalabs.com/api/library/native/newWebView.html)
+> **Note**：更多 Corona SDK 文件可参考: [Corona Document]
+
+[CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
+[注册帐号]: {{ site.baseurl }}/zh-cn/ios/registration/
+[开发商后台]: http://console.vpon.com
+[Vpon Web SDK 串接说明]: {{site.baseurl}}/zh-cn/web/
+[Corona Document]: http://docs.coronalabs.com/api/library/native/newWebView.html

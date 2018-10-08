@@ -48,7 +48,6 @@ You should put following code snippet in the <body> section of the page that you
 >
 >* Please modify the parameter of vpon_ad_test to `"0"` to get formal ads before you launch your site officially.
 
-<br>
 
 ## Native Ad layouts {#layout}
 ---

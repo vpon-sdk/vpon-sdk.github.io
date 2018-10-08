@@ -18,7 +18,7 @@ lang: "zh-cn"
 ---
 在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
 
-# 开始撰写 nterstitial
+# 开始撰写 interstitial
 ---
 Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实例化、载入和显示步骤的 Object，而不是 View。
 

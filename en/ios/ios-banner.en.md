@@ -109,7 +109,7 @@ Please add the code snippet to your application and fill in with your test devic
 
 ## Set Up Delegate Protocol
 ---
-After finishing ad request, implement the deligate protocol as below to listen ad status.
+After finishing ad request, implement the delegate protocol as below to listen ad status.
 
 ```objc
 #pragma mark - Vpadn Banner Delegate
@@ -164,7 +164,7 @@ Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [i
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Other Tips
+### More Ad Formats
 Please refer to the link below to learn more about other ad types:
 
 * [Interstitial Ad](../Interstitial)

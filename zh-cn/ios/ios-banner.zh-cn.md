@@ -172,5 +172,5 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] �
 
 
 [串接说明]: ../integration-guide/
-[前往下载]: ../download/
+[Sample Code]: ../download/
 [iOS9 ATS]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

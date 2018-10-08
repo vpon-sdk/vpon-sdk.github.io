@@ -15,7 +15,6 @@ lang: "zh-tw"
 Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SDK 前，請確保您的 App 符合以下條件：
 
 * iOS：`iOS 8.0 以上 & Xcode 9.0 以上`
-* Android：`Android 3.0 以上`
 
 ## Step2: 成為 Vpon 開發商夥伴
 ---

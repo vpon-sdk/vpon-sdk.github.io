@@ -7,13 +7,15 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/native/
 lang: "zh-tw"
 ---
-## 完成串接指示
+# 完成串接指示
 ---
 若您尚未完成串接廣告形式前的串接說明，請先前往[串接說明]完成相關設定
 
-## 最新消息
----
-iOS9 更新了安全條款 App Transport Security (ATS)，請參考[這篇]來修改部份設定
+# 概要
+--------
+原生廣告不同於橫幅廣告、插頁廣告會直接提供可立即呈現的廣告內容，原生廣告 API 提供了標題、圖像等廣告內容的組合，您可以透過這些屬性的編排打造出最理想的原生廣告風格。原生廣告更打破以往對於廣告的刻板印象，以最自然的方式呈現，提供更符合需求的廣告體驗。
+
+<img src="{{site.imgurl}}/Native_iOS.PNG" alt="" class="width-300"/>
 
 # 原生廣告選擇
 ---
@@ -24,19 +26,13 @@ Vpon 提供兩種原生廣告的形式：
 
 本頁以基本原生廣告為例，Table View 形式的原生廣告可由點擊上方連結獲得更詳細說明。
 
-# 概要
---------
-原生廣告不同於橫幅廣告、插頁廣告會直接提供可立即呈現的廣告內容，原生廣告 API 提供了標題、圖像等廣告內容的組合，您可以透過這些屬性的編排打造出最理想的原生廣告風格。原生廣告更打破以往對於廣告的刻板印象，以最自然的方式呈現，提供更符合需求的廣告體驗。
-
-<img src="{{site.imgurl}}/Native_iOS.PNG" alt="" class="width-300"/>
-
-# 如何撰寫 Native Ad
+# 開始撰寫 Native Ad
 --------
 在應用程式中建立原生廣告需要執行以下五個步驟：
 
 1. 匯入 Vpon SDK
 2. 在應用程式的 UIViewController 中宣告 VpadnNativeAd
-3. 建立 VpadnNativeAd 物件，並指定 Licesnse ID
+3. 建立 VpadnNativeAd 物件，並指定 License Key
 4. 請求廣告成功後利用回傳的資料建置自訂的原生 UI
 5. 使用 nativeAd 執行個體註冊廣告檢視
 
@@ -202,22 +198,37 @@ RatingScale  | 5
 Rating Min/Max| 1/5
 :-----------:|:-----------:|
 
-# 下載範例
---------
-本頁以基本的 Native Ad 為例進行說明， [Sample Code] 中另有 `Table View` 的範例以供參考。<br>
+# Tips
+---
 
-# 中介服務
---------
+### App Transport Security
+iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
+
+### Sample Code
+本頁以基本的 Native Ad 為例進行說明，如果您想看到完整的串接實例或 `Table View` 的範例，請參考我們的 [Sample Code]
+
+### 其它廣告形式
+如果您想了解其它廣告形式的串接，請參考以下內容：
+
+* [橫幅廣告](../banner)
+* [插頁廣告](../interstitial)
+* [原生廣告](../native)
+* [中介服務](../mediation)
+* [進階設定](../advanced)
+
+### 中介服務
 透過中介服務，您的應用程式就能放送眾多來源的廣告，詳細請見說明：<br>
 - [使用 MoPub] <br>
 - [使用 Smaato]
 
-
 [串接說明]: ../integration-guide/
+[Vpon BD]: mailto:bd@vpon.com
+[Sample Code]: ../download/
+[iOS9 ATS]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
+
+
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/
-[Sample Code]: {{ site.baseurl }}/zh-tw/ios/download/
 [使用 MoPub]: {{ site.baseurl }}/zh-tw/ios/mediation/mopub
 [使用 Smaato]: {{ site.baseurl }}/zh-tw/ios/native/mediation/smaato
 [原生廣告 - Table View]: {{site.baseurl}}/zh-tw/ios/native/table/
 [基本原生廣告]: #
-[這篇]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/

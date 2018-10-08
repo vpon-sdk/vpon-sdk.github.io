@@ -178,7 +178,10 @@ The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager whe
 
 # Navive Ad Spec {#nativeAdSpec}
 --------
-`Red Color` indicates the required element in the Native Ad. CoverImage and Icon, at least one of them must be shown.
+Please check to table below to find the Native Ad component provided by Vpon.
+
+* Components in red are required to show in Native Ad layout. 
+* Show at least one image (CoverImage or Icon) in Native Ad layout.
 
 Properties   |   Description
 :-----------:|:-----------:|
