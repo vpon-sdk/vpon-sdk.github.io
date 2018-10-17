@@ -431,7 +431,7 @@ Rating Min/Max| 1/5
 
 * [橫幅廣告](../banner)
 * [插頁廣告](../interstitial)
-* [Out-stream 影音廣告](../outstream)
+<!-- * [Out-stream 影音廣告](../outstream) -->
 * [進階設定](../advanced)
 
 ### 中介服務
