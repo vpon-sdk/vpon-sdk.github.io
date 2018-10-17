@@ -66,18 +66,10 @@ dependencies {
 
 アプリにVpon広告を導入するためには、次の3つのステップを完了させてください。
 
-1.  Android Studio/Eclipse プロジェクトに Vpon SDK JAR を追加します。
+1.  Android Studio プロジェクトに Vpon SDK JAR を追加します。
 2.  AndroidManifest.xml で com.vpadn.widget.VpadnActivity を宣言 します。
 3.  情報マニフェストで必要な permissions を設定します。
 
-### Eclipse
----
-1. Eclipse 内のアプリプロジェクト上でマウスの右ボタンをクリックし、[プロパティ]を選びます。
-<img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
-
-2. [Java Build Path] (Java 構築パス)と[Libraries] (ライブラリ)のタブを選択してから[Add External JARs...] (外部 JAR...を追 加)をクリックして、Vpon 広告の JAR を追加します。
-![]({{site.imgurl}}/A-sdk330-02.png)
-<br>
 
 
 ### Android Studio
@@ -149,17 +141,44 @@ dependencies {
 </activity>
 ```
 
+# 3rd-party Library
+---
+Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follow the steps below to import Retrofit:
+
+1. Import Retrofit manually: [Download Retrofit here] and import the .jar file to your project.
+2. Import Retrofit with Maven: Please add the snippet below to your build.gradle in App-level to import Retrofit. 
+
+```xml
+dependencies {
+    ...
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+}
+```
+
 # Proguard Configuration
 ---
 APP 自体が proguard の難読化を経る必要がある場合、次の設定を追加してください。<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
+
+```xml
+-dontwarn c.**
+-dontwarn com.vpon.**
+-dontwarn vpadn.**
+-keep class c.**{ *; }
+-keep class com.vpon.** { *; }
+-keep class vpon.** { *; }
+-keep class com.vpadn.** { *; }
+-keep class vpadn.** { *; }
+ 
+<!-- ----------- acquired since 4.8.0 start --------- -->
+-dontnote retrofit2.Platform
+-dontwarn retrofit2.Platform$Java8
+-dontwarn okhttp3.internal.platform.*
+-keepattributes Exceptions
+-keepattributes Signature
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+<!-- ----------- acquired since 4.8.0 end ----------- -->
+```
 
 
 # Tips

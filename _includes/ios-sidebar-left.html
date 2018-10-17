@@ -8,6 +8,7 @@
   {% assign urlBanner = v | append:"/ios/banner" %}
   {% assign urlInterstitial = v | append:"/ios/interstitial" %}
   {% assign urlNative = v | append:"/ios/native" %}
+  {% assign urlOutstream = v | append:"/ios/outstream" %}
   {% assign urlMediation = v | append:"/ios/mediation" %}
   {% assign urlAdvanced = v | append:"/ios/advanced" %}
   {% assign urlLatestNews = v | append:"/ios/latest-news" %}
@@ -21,6 +22,7 @@
   {% assign banner-id = "Banner Ad" %}
   {% assign interstitial-id = "Interstitial Ad" %}
   {% assign native-id = "Native Ad" %}
+  {% assign outstream-id = "Out-stream Video Ad" %}
   {% assign mediation = "Mediation" %}
   {% assign advanced = "Advanced" %}
   {% assign sidebar-title3 = "Download/Other" %}
@@ -34,6 +36,7 @@
   {% assign urlBanner = v | append:"/" | append: langs | append: "/ios/banner" %}
   {% assign urlInterstitial = v | append:"/" | append: langs | append: "/ios/interstitial" %}
   {% assign urlNative = v | append:"/" | append: langs | append: "/ios/native" %}
+  {% assign urlOutstream = v | append:"/" | append: langs | append: "/ios/outstream" %}
   {% assign urlMediation = v | append:"/" | append: langs | append: "/ios/mediation" %}
   {% assign urlAdvanced = v | append:"/" | append: langs | append: "/ios/advanced" %}
   {% assign urlLatestNews = v | append:"/" | append: langs | append: "/ios/latest-news" %}
@@ -50,6 +53,7 @@
   {% assign banner-id = "橫幅廣告" %}
   {% assign interstitial-id = "插頁廣告" %}
   {% assign native-id = "原生廣告" %}
+  {% assign outstream-id = "Out-stream 影音廣告" %}
   {% assign mediation = "中介服務" %}
   {% assign advanced = "進階設定" %}
   {% assign sidebar-title3 = "下載/其他輔助" %}
@@ -65,6 +69,7 @@
   {% assign banner-id = "横幅广告" %}
   {% assign interstitial-id = "插页广告" %}
   {% assign native-id = "原生广告" %}
+  {% assign outstream-id = "Out-stream 影音广告" %}
   {% assign mediation = "中介服务" %}
   {% assign advanced = "进阶设定" %}
   {% assign sidebar-title3 = "下载/其他辅助" %}
@@ -80,6 +85,7 @@
   {% assign banner-id = "バナー広告" %}
   {% assign interstitial-id = "インタースティシャル広告" %}
   {% assign native-id = "Native Ad" %}
+  {% assign outstream-id = "Out-stream Video Ad" %}
   {% assign mediation = "メディエーション" %}
   {% assign advanced = "詳細設定" %}
   {% assign sidebar-title3 = "ダウンロード/その他" %}
@@ -96,6 +102,7 @@
   <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
   <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
   <li><a id= "native-id" href="{{urlNative}}">{{native-id}}</a></li>
+  <li><a id= "outstream-id" href="{{urlOutstream}}">{{outstream-id}}</a></li>
   <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
   <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
   <span id= "sidebar-title3">{{sidebar-title3}}</span>
@@ -116,6 +123,7 @@
         <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
         <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
         <li><a id= "native-id" href="{{urlNative}}">{{native-id}}</a></li>
+        <li><a id= "outstream-id" href="{{urlOutstream}}">{{outstream-id}}</a></li>
         <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
         <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
   </div>

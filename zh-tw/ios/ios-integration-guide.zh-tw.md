@@ -140,6 +140,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 * [橫幅廣告][1]
 * [插頁廣告][2]
 * [原生廣告][3]
+* [Out-stream 影音廣告][5]
 * [中介服務][4]
 
 
@@ -154,6 +155,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 [2]:{{ site.baseurl }}/zh-tw/ios/interstitial/
 [3]:{{ site.baseurl }}/zh-tw/ios/native/
 [4]:{{ site.baseurl }}/zh-tw/ios/mediation/
+[5]:{{ site.baseurl }}/zh-tw/ios/outstream/
 
 <!--
 3. 串接**橫幅廣告**時會進行`遮蔽偵測`，若部分廣告被遮蔽而使廣告無法通過遮蔽偵測，會無法顯示`didImpression`，請注意！看到 `didImpression`的log才是正確的串接完成。

@@ -21,12 +21,12 @@ Once you have your own Publisher Account, follow the instruction below to integr
 ---
 Vpon provides two ways to integrate our SDK. Choose one of the following two options:
 
-* [Integrate SDK with Maven (Streamlined simple)](#maven)
+<!-- * [Integrate SDK with Maven (Streamlined simple)](#maven) -->
 * [Integrate SDK manually](#manual-sdk)
 
 > **Note**: If you've integrated Vpon SDK before, check [How to update SDK](../../android/latest-news/update-to-SDK4_5_1+/) first.
 
-## Integrate SDK with Maven {#maven}
+<!-- ## Integrate SDK with Maven {#maven}
 ---
 > **Note**: Maven is a build automation tool used primarily for Java projects. If you haven't installed Maven in your device for development, please refer to [Maven Introduction](https://maven.apache.org/).
 
@@ -52,7 +52,7 @@ dependencies {
 }
 ```
 
-> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7.
+> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7. -->
 
 
 ## Integrate SDK manually {#manual-sdk}
@@ -60,15 +60,8 @@ dependencies {
 Please follow the instruction below to integrate Vpon SDK to your application manually:
 
 1. [Download latest Vpon SDK here](../download)
-2. Import Vpon SDK to your Android Studio / Eclipse project
+2. Import Vpon SDK to your Android Studio project
 
-### Eclipse
----
-1. Right click on your mouse to show the menu. Choose `Properties`.
-<img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
-
-2. Click `Java Build Path` and switch to the `Libraries` tag. Click `Add External JARs...` to add Vpon SDK.
-![]({{site.imgurl}}/A-sdk330-02.png)
 
 ### Android Studio
 ---
@@ -79,10 +72,21 @@ Please follow the instruction below to integrate Vpon SDK to your application ma
 ![]({{site.imgurl}}/DropJarFileToLibFolder.jpg)
 
 
-3. Move the SDK (.jar) to `libs` (You can also grab the file into `libs` in IDE)
+3. Move the SDK (.jar / .aar) to `libs` (You can also grab the file into `libs` in IDE)
 ![]({{site.imgurl}}/MainInterface.jpg)
 
-4. Go back to your Android project and you will see the SDK (.jar) we just added shows in the [libs] folder. Right click on the SDK (.jar) and choose `Add as library` to link reference. Please check the build.gradle at the same time to make sure there's a sentence "implementation ('libs/vpon_SDK_version_name.jar')" .
+4. Go back to your Android project and you will see the SDK (.jar / .aar) we just added shows in the [libs] folder. Right click on the SDK (.jar) and choose `Add as library` to link reference.
+
+Open build.gradle in App-level, modify dependencies as below:
+
+```xml
+dependencies {
+    ...
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+}
+```
+
+Please check the build.gradle to see if the .jar / .aar file show in the dependencies as the picture below:
 ![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
 # VpadnActivity
@@ -135,17 +139,44 @@ Since we started to support Video ads from Vpon SDK 4, we recommend that you can
 </activity>
 ```
 
+# 3rd-party Library
+---
+Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follow the steps below to import Retrofit:
+
+1. Import Retrofit manually: [Download Retrofit here] and import the .jar file to your project.
+2. Import Retrofit with Maven: Please add the snippet below to your build.gradle in App-level to import Retrofit. 
+
+```xml
+dependencies {
+    ...
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+}
+```
+
 # Proguard Configuration
 ---
 If your app need obfuscateed before release, please add settings below：<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
+
+```xml
+-dontwarn c.**
+-dontwarn com.vpon.**
+-dontwarn vpadn.**
+-keep class c.**{ *; }
+-keep class com.vpon.** { *; }
+-keep class vpon.** { *; }
+-keep class com.vpadn.** { *; }
+-keep class vpadn.** { *; }
+ 
+<!-- ----------- acquired since 4.8.0 start --------- -->
+-dontnote retrofit2.Platform
+-dontwarn retrofit2.Platform$Java8
+-dontwarn okhttp3.internal.platform.*
+-keepattributes Exceptions
+-keepattributes Signature
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+<!-- ----------- acquired since 4.8.0 end ----------- -->
+```
 
 # Tips
 ---
@@ -153,7 +184,8 @@ For more ad types, please refer to:
 
 * [Banner Ad][1]
 * [Interstitial Ad][2]
-* [Native][3]
+* [Native Ad][3]
+* [Out-stream Video Ad][5]
 * [Mediation][4]
 
 
@@ -162,3 +194,5 @@ For more ad types, please refer to:
 [2]:{{ site.baseurl }}/android/interstitial/
 [3]:{{ site.baseurl }}/android/native/
 [4]:{{ site.baseurl }}/android/mediation/
+[5]:{{ site.baseurl }}/android/outstream/
+[Download Retrofit here]: https://github.com/square/retrofit

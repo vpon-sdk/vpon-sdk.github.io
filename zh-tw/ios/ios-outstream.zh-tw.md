@@ -20,181 +20,41 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 
 # 開始撰寫 Out-stream 影音廣告
 ---
-Vpon Out-stream 影音串流廣告提供 3 種串流外的影音廣告形式，分別為：
-
-1. [InScrollView]
-2. [InTableView (單次請求)]
-3. [InTableView (多次請求)]
-
-<!-- <img src="{{site.imgurl}}/ios_outstream.png" alt="" class=""/> -->
-
-您可以依您的需求選擇 Out-stream 影音廣告的形式，或者，您也可以將 Out-stream 影音廣告放在應用程式中任何您想放置的位置上，請參考 [Custom Ad]。
-
-## 在 InScrollView 中展示 Out-stream 影音廣告 {#inscrollview}
----
-在應用程式中的 ScrollView 建立 Out-stream 影音廣告需要執行以下步驟：
+請參考以下說明，在應用程式中在自定義的位置上建立 Out-stream 影音廣告：
 
 1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnAd`
-3. 建立 VpadnAd 物件，並指定 License Key
-4. 拉取廣告
-5. 實作 Delegate Protocol
-
-請參考以下範例，完成 Out-stream 影音廣告設定：
-
-### Import VpadnSDKAdKit 並宣告 VpadnAd
-
-```objc
-@import VpadnSDKAdKit;
-
-@interface VponSdkVastInScrollViewController () <VpadnAdDelegate>
-
-// 宣告要呈現廣告的 View
-@property (nonatomic, weak) IBOutlet UIView *inScrollLoadedView;
-
-// 宣告用來調整廣告起始高度的 Constraint
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *inScrollHeightConstraint;
-
-// 宣告要放置廣告的 ScrollView
-@property (nonatomic, weak) IBOutlet UIScrollView *inScrollView;
-
-// 宣告 VpadnAd
-@property (nonatomic, strong) VpadnAd *vpadnAd;
-
-@end
-```
-
-### 建立 VpadnAd 物件後指定 License Key，再拉取廣告
-
-```objc
-- (void) requestVpadnAd {
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
-    _vpadnAd = [[VpadnAd alloc] initWithPlacementId:@"License Key" placeholder:_inScrollLoadedView heightConstraint:_inScrollHeightConstraint scrollView:_inScrollView delegate:self];
-    
-    // 拉取廣告
-    [_vpadnAd loadAdWithTestIdentifiers:@[]];
-}
-```
-
-## 在 InTableView 中展示 Out-stream 影音廣告 (單次請求) {#intableview}
----
-在應用程式中的 TableView 建立 Out-stream 影音廣告需要執行以下步驟：
-
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnAd`
-3. 建立 VpadnAd 物件，並指定 License Key
-4. 拉取廣告
-5. 實作 Delegate Protocol
-
-請參考以下範例，完成 Out-stream 影音廣告設定：
-
-### Import VpadnSDKAdKit 並宣告 VpadnAd
-
-```objc
-@import VpadnSDKAdKit;
-
-@interface VponSdkVastInTableViewController () <UITableViewDelegate, UITableViewDataSource, VpadnAdDelegate>
-
-// 宣告要放置廣告的 TableView
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-
-// 宣告 VpadnAd
-@property (nonatomic, strong) VpadnAd *vpadnAd;
-
-@end
-```
-
-### 建立 VpadnAd 物件後指定 License Key，再拉取廣告
-
-```objc
-- (void) requestVpadnAd {
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
-    // 修改 insertionIndexPath 參數來指定廣告嵌入的位置
-    _vpadnAd = [[VpadnAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] tableView:_tableView delegate:self];
-
-    // 拉取廣告
-    [_vpadnAd loadAdWithTestIdentifiers:@[]];
-}
-```
-
-## 在 InTableView 中展示 Out-stream 影音廣告 (多次請求) {#intableviewrepeat}
----
-在應用程式中的 TableView 建立多個 Out-stream 影音廣告需要執行以下步驟：
-
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnAd`
-3. 建立 VpadnAd 物件，並指定 License Key
-4. 拉取廣告
-5. 實作 Delegate Protocol
-
-請參考以下範例，完成 Out-stream 影音廣告設定：
-
-### Import VpadnSDKAdKit 並宣告 VpadnAd
-
-```objc
-@import VpadnSDKAdKit;
-
-@interface VponSdkVastInTableRepeatViewController () <UITableViewDelegate, UITableViewDataSource, VpadnAdDelegate>
-
-// 宣告要放置廣告的 TableView
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-
-// 宣告 VpadnAd
-@property (nonatomic, strong) VpadnAd *vpadnAd;
-
-@end
-```
-
-### 建立 VpadnAd 物件後指定 License Key，再拉取廣告
-
-```objc
-- (void) requestVpadnAd {
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
-    // 修改 insertionIndexPath 的參數，指定廣告嵌入的位置及再次請求的間隔數
-    vpadnAd = [[VpadnAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:5 inSection:0] repeatMode:YES tableView:_tableView delegate:self];
-
-    // 拉取廣告
-    [_vpadnAd loadAdWithTestIdentifiers:@[]];
-}
-```
-
-## Custom Ad {#customad}
----
-在應用程式中在自定義的位置上建立 Out-stream 影音廣告需要執行以下步驟：
-
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnAd`
-3. 建立 VpadnAd 物件，並指定 License Key
+2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+3. 建立 VpadnInReadAd 物件，並指定 License Key
 4. 拉取廣告
 5. 展示廣告
 6. 實作 Delegate Protocol
 
 請參考以下範例，完成 Out-stream 影音廣告設定：
 
-### Import VpadnSDKAdKit 並宣告 VpadnAd
+### Import VpadnSDKAdKit 並宣告 VpadnInReadAd
 
 ```objc
 @import VpadnSDKAdKit;
 
-@interface VponSdkVastCustomAdViewController () <VpadnAdDelegate>
+@interface VponSdkVastCustomAdViewController () <VpadnInReadAdDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *videoLoadedView;
 
-// 宣告 VpadnAd
-@property (nonatomic, strong) VpadnAd *vpadnAd;
+// 宣告 VpadnInReadAd
+@property (nonatomic, strong) VpadnInReadAd *VpadnInReadAd;
 
 @end
 ```
 
-### 建立 VpadnAd 物件後指定 License Key，再拉取廣告
+### 建立 VpadnInReadAd 物件後指定 License Key，再拉取廣告
 
 ```objc
-- (void) requestVpadnAd {
+- (void) requestVpadnInReadAd {
     // 請將 License Key 換成 Vpon BD 提供您的 License Key
-    _vpadnAd = [[VpadnAd alloc] initWithPlacementId:@"License Key" delegate:self];
+    _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" delegate:self];
 
     // 拉取廣告
-    [_vpadnAd loadAdWithTestIdentifiers:@[]];
+    [_VpadnInReadAd loadAdWithTestIdentifiers:@[]];
 }
 ```
 
@@ -203,9 +63,9 @@ Vpon Out-stream 影音串流廣告提供 3 種串流外的影音廣告形式，�
 您可以實作 Delegate Protocol，透過 videoView() 取得廣告後，將廣告加到您想呈現廣告的位置上：
 
 ```objc
-#pragma mark - VpadnAd Delegate
+#pragma mark - VpadnInReadAd Delegate
 
-- (void) vpadnAdDidLoad:(VpadnAd *)ad {
+- (void) VpadnInReadAdDidLoad:(VpadnInReadAd *)ad {
     UIView *videoView = [ad videoView];
     [_videoLoadedView addSubview:videoView];
     
@@ -216,44 +76,184 @@ Vpon Out-stream 影音串流廣告提供 3 種串流外的影音廣告形式，�
 }
 ```
 
+## Interface for Out-stream 影音廣告
+---
+此外，Vpon Out-stream 影音串流廣告提供 3 種串流外的影音廣告介面，分別為：
+
+1. [InScrollView]
+2. [InTableView]
+<!-- 3. [InTableView (多次請求)] -->
+
+<!-- <img src="{{site.imgurl}}/ios_outstream.png" alt="" class=""/> -->
+
+請依您的需求選擇放置 Out-stream 影音廣告的介面。
+
+## 在 InScrollView 中展示 Out-stream 影音廣告 {#inscrollview}
+---
+在應用程式中的 ScrollView 建立 Out-stream 影音廣告需要執行以下步驟：
+
+1. Import `VpadnSDKAdKit`
+2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+3. 建立 VpadnInReadAd 物件，並指定 License Key
+4. 拉取廣告
+5. 實作 Delegate Protocol
+
+請參考以下範例，完成 Out-stream 影音廣告設定：
+
+### Import VpadnSDKAdKit 並宣告 VpadnInReadAd
+
+```objc
+@import VpadnSDKAdKit;
+
+@interface VponSdkVastInScrollViewController () <VpadnInReadAdDelegate>
+
+// 宣告要呈現廣告的 View
+@property (nonatomic, weak) IBOutlet UIView *inScrollLoadedView;
+
+// 宣告用來調整廣告起始高度的 Constraint
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *inScrollHeightConstraint;
+
+// 宣告要放置廣告的 ScrollView
+@property (nonatomic, weak) IBOutlet UIScrollView *inScrollView;
+
+// 宣告 VpadnInReadAd
+@property (nonatomic, strong) VpadnInReadAd *VpadnInReadAd;
+
+@end
+```
+
+### 建立 VpadnInReadAd 物件後指定 License Key，再拉取廣告
+
+```objc
+- (void) requestVpadnInReadAd {
+    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" placeholder:_inScrollLoadedView heightConstraint:_inScrollHeightConstraint scrollView:_inScrollView delegate:self];
+    
+    // 拉取廣告
+    [_VpadnInReadAd loadAdWithTestIdentifiers:@[]];
+}
+```
+
+## 在 InTableView 中展示 Out-stream 影音廣告 {#intableview}
+---
+在應用程式中的 TableView 建立 Out-stream 影音廣告需要執行以下步驟：
+
+1. Import `VpadnSDKAdKit`
+2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+3. 建立 VpadnInReadAd 物件，並指定 License Key
+4. 拉取廣告
+5. 實作 Delegate Protocol
+
+請參考以下範例，完成 Out-stream 影音廣告設定：
+
+### Import VpadnSDKAdKit 並宣告 VpadnInReadAd
+
+```objc
+@import VpadnSDKAdKit;
+
+@interface VponSdkVastInTableViewController () <UITableViewDelegate, UITableViewDataSource, VpadnInReadAdDelegate>
+
+// 宣告要放置廣告的 TableView
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+// 宣告 VpadnInReadAd
+@property (nonatomic, strong) VpadnInReadAd *VpadnInReadAd;
+
+@end
+```
+
+### 建立 VpadnInReadAd 物件後指定 License Key，再拉取廣告
+
+```objc
+- (void) requestVpadnInReadAd {
+    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    // 修改 insertionIndexPath 參數來指定廣告嵌入的位置
+    _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] tableView:_tableView delegate:self];
+
+    // 拉取廣告
+    [_VpadnInReadAd loadAdWithTestIdentifiers:@[]];
+}
+```
+
+<!-- ## 在 InTableView 中展示 Out-stream 影音廣告 (多次請求) {#intableviewrepeat}
+---
+在應用程式中的 TableView 建立多個 Out-stream 影音廣告需要執行以下步驟：
+
+1. Import `VpadnSDKAdKit`
+2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+3. 建立 VpadnInReadAd 物件，並指定 License Key
+4. 拉取廣告
+5. 實作 Delegate Protocol
+
+請參考以下範例，完成 Out-stream 影音廣告設定：
+
+### Import VpadnSDKAdKit 並宣告 VpadnInReadAd
+
+```objc
+@import VpadnSDKAdKit;
+
+@interface VponSdkVastInTableRepeatViewController () <UITableViewDelegate, UITableViewDataSource, VpadnInReadAdDelegate>
+
+// 宣告要放置廣告的 TableView
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+// 宣告 VpadnInReadAd
+@property (nonatomic, strong) VpadnInReadAd *VpadnInReadAd;
+
+@end
+```
+
+### 建立 VpadnInReadAd 物件後指定 License Key，再拉取廣告
+
+```objc
+- (void) requestVpadnInReadAd {
+    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    // 修改 insertionIndexPath 的參數，指定廣告嵌入的位置及再次請求的間隔數
+    VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:5 inSection:0] repeatMode:YES tableView:_tableView delegate:self];
+
+    // 拉取廣告
+    [_VpadnInReadAd loadAdWithTestIdentifiers:@[]];
+}
+``` -->
+
 ## 實作 Delegate Protocol
 ---
 完成廣告初始化後，您可以實作以下函數監聽廣告狀態：
 
 ```objc
-- (void)vpadnAd:(VpadnAd *)ad didFailLoading:(NSError *)error {
+- (void)VpadnInReadAd:(VpadnInReadAd *)ad didFailLoading:(NSError *)error {
 	NSLog(@"廣告抓取失敗");	
 }
 
-- (void)vpadnAdDidLoad:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidLoad:(VpadnInReadAd *)ad {
 	NSLog(@"廣告抓取成功");
 }
 
-- (void)vpadnAdDidStart:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidStart:(VpadnInReadAd *)ad {
 	NSLog(@"影片開始播放");
 }
 
-- (void)vpadnAdDidStop:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidStop:(VpadnInReadAd *)ad {
 	NSLog(@"影片播放結束");
 }
 
-- (void)vpadnAdDidMute:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidMute:(VpadnInReadAd *)ad {
 	NSLog(@"影片靜音");
 }
 
-- (void)vpadnAdDidUnmute:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidUnmute:(VpadnInReadAd *)ad {
 	NSLog(@"影片取消靜音");
 }
 
-- (void)vpadnAdWasClicked:(VpadnAd *)ad {
+- (void)VpadnInReadAdWasClicked:(VpadnInReadAd *)ad {
 	NSLog(@"廣告被點擊");
 }
 
-- (void)vpadnAdDidTakeOverFullScreen:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidTakeOverFullScreen:(VpadnInReadAd *)ad {
 	NSLog(@"影片全屏");
 }
 
-- (void)vpadnAdDidDismissFullscreen:(VpadnAd *)ad {
+- (void)VpadnInReadAdDidDismissFullscreen:(VpadnInReadAd *)ad {
 	NSLog(@"影片離開全屏");
 }
 ```
@@ -279,7 +279,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 [串接說明]: ../integration-guide/
 [Vpon BD]: mailto:bd@vpon.com
 [InScrollView]: {{site.baseurl}}/zh-tw/ios/outstream/#inscrollview
-[InTableView (單次請求)]: {{site.baseurl}}/zh-tw/ios/outstream/#intableview
+[InTableView]: {{site.baseurl}}/zh-tw/ios/outstream/#intableview
 [InTableView (多次請求)]: {{site.baseurl}}/zh-tw/ios/outstream/#intableviewrepeat
 [Custom Ad]: {{site.baseurl}}/zh-tw/ios/outstream/#customad
 [Sample Code]: ../download/

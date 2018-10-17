@@ -139,6 +139,7 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] �
 * [横幅广告][1]
 * [插页广告][2]
 * [原生广告][3]
+* [Out-stream 影音广告][5]
 * [中介服务][4]
 
 
@@ -153,3 +154,4 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] �
 [2]:{{ site.baseurl }}/zh-cn/ios/interstitial/
 [3]:{{ site.baseurl }}/zh-cn/ios/native/
 [4]:{{ site.baseurl }}/zh-cn/ios/mediation/
+[5]:{{ site.baseurl }}/zh-cn/ios/outstream/

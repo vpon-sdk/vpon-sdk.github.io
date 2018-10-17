@@ -149,6 +149,7 @@ Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [i
 * [Banner Ad][1]
 * [Interstitial Ad][2]
 * [Native Ad][3]
+* [Out-stream Video Ad][5]
 * [Mediation][4]
 
 
@@ -164,3 +165,4 @@ Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [i
 [2]:{{ site.baseurl }}/ios/interstitial/
 [3]:{{ site.baseurl }}/ios/native/
 [4]:{{ site.baseurl }}/ios/mediation/
+[5]:{{ site.baseurl }}/ios/outstream/

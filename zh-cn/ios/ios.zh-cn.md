@@ -26,7 +26,7 @@ Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SD
 ## Step4: 串接广告
 ---
 
-| [横幅广告][4]  |[插页广告][5] |[原生广告][7]| [中介服务][6]|
+| [横幅广告][4]  |[插页广告][5] |[原生广告][7]| [Out-stream 影音广告][8]| [中介服务][6]|
 
 
 ## Tips
@@ -49,3 +49,4 @@ Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SD
 [6]:{{ site.baseurl }}/zh-cn/ios/mediation/
 [iOS9 ATS]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
 [7]:{{ site.baseurl }}/zh-cn/ios/native/
+[8]:{{ site.baseurl }}/zh-cn/ios/outstream/

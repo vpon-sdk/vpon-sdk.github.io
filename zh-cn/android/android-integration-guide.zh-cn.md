@@ -22,12 +22,12 @@ lang:           "zh-cn"
 ----------
 Vpon 提供以下两种串接广告 SDK 的方式：
 
-* [精简 (搭配 Maven)](#maven)
+<!-- * [精简 (搭配 Maven)](#maven) -->
 * [手动 (手动下载并串接)](#manual-sdk)
 
 > **Note**：若您曾使用过旧版 SDK，请先阅读：[如何升级 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
-## 精简 (搭配 Maven) {#maven}
+<!-- ## 精简 (搭配 Maven) {#maven}
 ---
 > **Note**：Maven 是一个项目管理及项目自动建构的工具，如果您还没在开发用的装置中安装过 Maven，请参考 [Maven 安装指南](https://maven.apache.org/)。
 
@@ -53,21 +53,14 @@ dependencies {
 }
 ```
 
-> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可获取 SDK 版本号 4.7 中最新的版本。
+> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可获取 SDK 版本号 4.7 中最新的版本。 -->
 
 ## 手动 (手动下载并串接) {#manual-sdk}
 
 要手动在应用程式中加入 Vpon SDK，您必须完成以下步骤：
 
 1. [由此下载最新版本的 Vpon SDK](../download)
-2. 在 Android Studio / Eclipse 专案中加入 Vpon SDK
-
-### Eclipse
-1. 在 Eclipse 中的应用程式专案上按一下滑鼠右键，并选择 `Properties`。
-<img src = "{{site.imgurl}}/A-sdk330-01.png" alt="elcipse-img1" class="width-400">
-
-2. 选取 `Java Build Path` (Java 建构路径) 和 `Libraries` (程式库) 分页，然后按一下 `Add External JARs...` (新增外部 JAR...)，加入 Vpon 广告 JAR。
-![]({{site.imgurl}}/A-sdk330-02.png)
+2. 在 Android Studio 专案中加入 Vpon SDK
 
 ### Android Studio
 1. 在 Android 中的应用程式专案找到 `libs` (途径：`project_name` -> `app` -> `libs`)
@@ -76,10 +69,19 @@ dependencies {
 2. 滑鼠右键点选 `libs` 后，左键点选 [Reveal in Finder]
 ![]({{site.imgurl}}/DropJarFileToLibFolder.jpg)
 
-3. 将下载下来的 JAR 档复制到 `libs` 资料夹 (也可以直接拖移 Vpon JAR 至专案的 `libs`)
+3. 将下载下来的 jar / aar 档复制到 `libs` 资料夹 (也可以直接拖移 Vpon JAR 至专案的 `libs`)
 ![]({{site.imgurl}}/MainInterface.jpg)
 
-4. 回到 Android 专案，`libs` 会多出一个 Vpon 的 JAR 档案，对它按下右键选则 [Add as library]。也请到 app 下的 build.gradle 确认，如范例显示，将会有一行 compile files('libs/vpon_SDK_version_name.jar') 表示 JAR 被读到了
+4. 回到 Android 专案，`libs` 会多出一个 Vpon 的 jar / aar 档案，对它按下右键选则 [Add as library]。也请到 app 层级下的 build.gradle 下，将 dependencies 的部份修改如下：
+
+```xml
+dependencies {
+    ...
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+}
+```
+
+如下图所示，如果 jar / aar 档被读到了，将显示在 dependencies 中
 ![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
 # 宣告 VpadnActivity
@@ -133,17 +135,44 @@ dependencies {
 </activity>
 ```
 
+# 3rd-party Library
+---
+从 `4.8.0` 版开始，Vpon SDK 引入第三方的 Library － Retrofit，请参考以下方法导入 Retrofit：
+
+1. 手动下载导入：[由此直接下载] Retrofit 的 jar 档并导入专案中
+2. 透过 Maven 导入：在 App 层级下的 build.gradle 的 dependencies 中加入以下内容导入 Retrofit:
+
+```xml
+dependencies {
+    ...
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+}
+```
+
 # Proguard Configuration
 ---
 如果您的 App 本身需要经过 Proguard 溷淆，请增加下面的设定：<br>
--dontwarn c.\*\* <br>
--dontwarn com.vpon.\*\* <br>
--dontwarn vpadn.\*\* <br>
--keep class c.\*\*{ \*; } <br>
--keep class com.vpon.\*\* { \*; } <br>
--keep class vpon.\*\* { \*; } <br>
--keep class com.vpadn.\*\* { \*; } <br>
--keep class vpadn.\*\* { \*; } <br>
+
+```xml
+-dontwarn c.**
+-dontwarn com.vpon.**
+-dontwarn vpadn.**
+-keep class c.**{ *; }
+-keep class com.vpon.** { *; }
+-keep class vpon.** { *; }
+-keep class com.vpadn.** { *; }
+-keep class vpadn.** { *; }
+ 
+<!-- ----------- acquired since 4.8.0 start --------- -->
+-dontnote retrofit2.Platform
+-dontwarn retrofit2.Platform$Java8
+-dontwarn okhttp3.internal.platform.*
+-keepattributes Exceptions
+-keepattributes Signature
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+<!-- ----------- acquired since 4.8.0 end ----------- -->
+```
 
 
 # Tips
@@ -153,6 +182,7 @@ dependencies {
 * [横幅广告][1]
 * [插页广告][2]
 * [原生广告][3]
+* [Out-stream 影音广告][5]
 * [中介服务][4]
 
 [注册帐号]: {{ site.baseurl }}/zh-cn/android/registration/
@@ -160,3 +190,5 @@ dependencies {
 [2]:{{ site.baseurl }}/zh-cn/android/interstitial/
 [3]:{{ site.baseurl }}/zh-cn/android/native/
 [4]:{{ site.baseurl }}/zh-cn/android/mediation/
+[5]:{{ site.baseurl }}/zh-cn/android/outstream/
+[由此直接下载]: https://github.com/square/retrofit

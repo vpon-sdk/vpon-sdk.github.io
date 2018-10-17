@@ -237,7 +237,7 @@ public class MainActivity extends Activity {
 ```
 
 
-## 在 RecyclerView 中展示 Out-stream 影音廣告 {#recyclerView}
+## 在 RecyclerView 中展示 Out-stream 影音廣告 {#recyclerview}
 ---
 在應用程式中的 RecyclerView 建立 Out-stream 影音廣告需要執行以下步驟：
 
