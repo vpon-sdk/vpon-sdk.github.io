@@ -11,7 +11,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 # Header Download
 
-|VpadnBanner.h <br> VpadnInterstitial.h <br> VpadnNativeAd.h <br> VpadnNativeAdsManager.h <br> VpadnNativeAdTableViewAdProvider.h|
+|VpadnBanner.h <br> VpadnInterstitial.h <br> VpadnNativeAd.h <br> VpadnNativeAdsManager.h <br> VpadnNativeAdTableViewAdProvider.h |
 |:-------------:|
 |[download][3]|
 
@@ -34,7 +34,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 
 [1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-480-71018102-1810171009-2542385.a
-[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.8.0.zip
+[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.7.1.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter
