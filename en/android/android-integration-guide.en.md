@@ -21,12 +21,12 @@ Once you have your own Publisher Account, follow the instruction below to integr
 ---
 Vpon provides two ways to integrate our SDK. Choose one of the following two options:
 
-<!-- * [Integrate SDK with Maven (Streamlined simple)](#maven) -->
+* [Integrate SDK with Maven (Streamlined simple)](#maven)
 * [Integrate SDK manually](#manual-sdk)
 
 > **Note**: If you've integrated Vpon SDK before, check [How to update SDK](../../android/latest-news/update-to-SDK4_5_1+/) first.
 
-<!-- ## Integrate SDK with Maven {#maven}
+## Integrate SDK with Maven {#maven}
 ---
 > **Note**: Maven is a build automation tool used primarily for Java projects. If you haven't installed Maven in your device for development, please refer to [Maven Introduction](https://maven.apache.org/).
 
@@ -52,7 +52,7 @@ dependencies {
 }
 ```
 
-> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7. -->
+> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7.
 
 
 ## Integrate SDK manually {#manual-sdk}

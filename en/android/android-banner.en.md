@@ -7,46 +7,72 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/banner/
 lang:           "en"
 ---
-## Finished Integration Guide
+# Overview
 ---
-If you haven't finished the previous integration guide, please check all the [settings here](../integration-guide/).
+Vpon Banner can be embedded to part of your app layout. It consists of a multimedia object which can attract user. The ads will expand to show much richer content after clicking.
 
-# Coding for showing Banner
+<img class="width-300" src="{{site.imgurl}}/Android_Banner.png" alt="successful result example">
+
+# Prerequisites
 ---
-  Android apps are composed of View objects, Java instances the user sees as text areas, buttons and other controls. VpadnBanner is simply another View subclass displaying small HTML5 ads that respond to user touch.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
 
-  Like any view, an VpadnBanner may be created either purely in code or largely in XML.
+# Start To Implement Banner Ad
+---
+Android apps are composed of View objects, such as text areas, buttons and other components. VpadnBanner is simply another View subclass displaying HTML5 ads that triggered by user's touch.
 
-  The five lines of code it takes to add a Vpon banner:
+Please follow the steps below to implement Vpon Banner Ad to your application:
 
 1. Import `com.vpadn.ads.*`
-2. Declare an VpadnBanner instance
-3. Create it, specifying a unit ID — your License Key
-4. Add the view to the UI
-5. Load it with an ad
+2. Declare a `VpadnBanner` instance
+3. Set up VpadnBanner instance and indicate a License Key
+4. Request for a banner ad
+5. Implement VpadnAdListener
 
+We strongly recommend that you can finish all the steps in the Activity of the application.
+
+## Implement Banner in MainActivity
+---
+Please follow the instruction below to add Banner Ad in your MainActivity.
+
+### Import Vpon SDK And Declare A VpadnBanner Instance
+---
 ```java
-  import com.vpadn.ads.*
-  public class MainActivity extends Activity {
-  	private RelativeLayout adBannerLayout;
-  	private VpadnBanner vponBanner = null;
-  	//Vpon TODO: Replace with your License Key
-  	private String bannerId = "License Key" ;
+import com.vpadn.ads.*;
 
-         @Override
+public class MainActivity extends Activity implements VpadnAdListener {
+    private RelativeLayout adBannerLayout;
+        
+    // Declare VpadnBanner instance
+  	private VpadnBanner vponBanner = null;
+
+  	// Please fill in with your License Key
+  	private String bannerId = "License Key" ;
+    ...
+}
+```
+
+### Set Up VpadnBanner Instance And Indicate A License Key
+---
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        ...
+        @Override
   	protected void onCreate(Bundle savedInstanceState) {
   		super.onCreate(savedInstanceState);
   		setContentView(R.layout.activity_main);
-  		//get your layout view for Vpon banner
+  		// Get your layout view for Vpon banner
   		adBannerLayout = (RelativeLayout) findViewById(R.id.adLayout);
-  		//create VpadnBanner instance
-                  vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
+
+  		// Create VpadnBanner instance
+                vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
+                vponBanner.setAdListener(this);
   		VpadnAdRequest adRequest = new VpadnAdRequest();
-  		//set auto refresh to get banner
+  		// Set "true" to enable banner ad auto refresh
   		adRequest.setEnableAutoRefresh(true);
-                  //load vpon banner
+                // Load vpon banner
   		vponBanner.loadAd(adRequest);
-                  //add vpon banner to your layout view
+                // Add vpon banner to your layout view
   		adBannerLayout.addView(vponBanner);
   	}
 
@@ -61,9 +87,8 @@ If you haven't finished the previous integration guide, please check all the [se
   	}
     }
 ```
-  <br>
 
-# Create your banner in XML
+## Implement Banner Ad In Layout
 ---
 ``` xml
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -78,6 +103,7 @@ If you haven't finished the previous integration guide, please check all the [se
           android:layout_width="fill_parent"
           android:layout_height="wrap_content" >
 
+          <!-- Implement Vpon Banner Ad As Below -->
           <com.vpadn.ads.VpadnBanner
               android:id="@+id/vpadnBannerXML"
               android:layout_width="wrap_content"
@@ -90,21 +116,66 @@ If you haven't finished the previous integration guide, please check all the [se
       </RelativeLayout>
   </LinearLayout>
 ```
+> **Not:e** Please replace the parameter of vpon:bannerId with your License Key
 
-  You can use following code snippet to get the test banner if your License Key has not been vetted.
-<br>
+## Request for Test Ad
+---
+Please add the code snippet to your application and fill in with your test device's UUID as below to request for test ads.
 
 ```java
-      VpadnAdRequest adRequest =  new VpadnAdRequest();
-      HashSet<String> testDeviceImeiSet = new HashSet<String>();
-      testDeviceImeiSet.add("your device advertising id");
-      //TODO: put Android device advertising id
-      adRequest.setTestDevices(testDeviceImeiSet);
-      vponBanner.loadAd(adRequest);
+public class MainActivity extends Activity implements VpadnAdListener {
+        ...
+        VpadnAdRequest adRequest =  new VpadnAdRequest();
+
+        HashSet<String> testDeviceImeiSet = new HashSet<String>();
+        // Add Android device advertising id
+        testDeviceImeiSet.add("your device advertising id");
+        adRequest.setTestDevices(testDeviceImeiSet);
+
+        vponBanner.loadAd(adRequest);
+        ...
+}
 ```
-  You can get advertising ID by following methods:
-  1. Search "advertising_id" from eclipse's log.
-  2. Get your Advertising ID by clicking Ads in Google Settings from your phone directly.
+
+
+### Advertising ID
+---
+Here are some tips for you to get your advertising id:
+
+1. Search "advertising_id" from the log
+2. Check the advertising id in the Setting of your device
+
+
+## Implement VpadnAdListener
+---
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        @Override
+        public void onVpadnReceiveAd(VpadnAd ad){
+                Log.d("Banner", "VpadnReceiveAd");
+        }
+
+        @Override
+        public void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errCode){
+                Log.d("Banner", "fail to receive ad (" + errCode + ")");
+        }
+
+        @Override
+        public void onVpadnPresentScreen(VpadnAd ad){
+                Log.d("Banner", "VpadnPresentScreen");
+        }
+
+        @Override
+        public void onVpadnDismissScreen(VpadnAd ad){
+                Log.d("Banner", "vpadnDismissScreen");
+        }
+
+        @Override
+        public void onVpadnLeaveApplication(VpadnAd ad){
+                Log.d("Banner", "VpadnLeaveApplication");
+        }
+}
+```
 
 
 # Vpon Banner Size
@@ -119,34 +190,22 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
   728x90                     | IAB Leaderboard|  VpadnAdSize.IAB\_LEADERBOARD
   device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 
-  We recommend that you can use the smart banner constant. (Vpon Banner Don't support VpadnAdSize.IAB_WIDE_SKYSCRAPER)
+  We recommend that you can use the `Smart Banner` constant. (VpadnAdSize.IAB_WIDE_SKYSCRAPER is not available currently)
 
 
-# Banner auto-refresh
-----
-You need to use the following sample code to enable auto refresh banner.
-
-```java
-   VpadnAdRequest adRequest = new VpadnAdRequest();
-   //set auto-refresh
-   adRequest.setEnableAutoRefresh(true);
-   adShowBanner.loadAd(adRequest);
-```
-
-
-# Download Sample code
+# Tips
 ---
-[Go to download page][1]
-<br>
 
-# Results
----
-Now run your demo app and you would see a banner at the top of the screen:
-<img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
 
-# Other tips
-> Please refer to [Interstitial Ads](../Interstitial)、[Native Ads](../native)、[Mediation](../mediation)、[Advanced Setting](../advanced) for more information.
+### More Ad Formats
+Please refer to the link below to learn more about other ad types:
 
+* [Interstitial Ad](../interstitial)
+* [Native Ad](../native)
+* [Out-sream Video Ad](../outstream)
+* [Mediation](../mediation)
+* [Advanced](../advanced)
 
-
-[1]:{{ site.baseurl }}/android/download/
+[Sample Code]: ../download/

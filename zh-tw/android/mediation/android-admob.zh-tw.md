@@ -8,14 +8,17 @@ permalink:       /zh-tw/android/mediation/admob/
 lang:           "zh-tw"
 ---
 
-# Google AdMob mediation
---------
-Google AdMob mediation 請看[這裡]
+# 完成串接準備
+---
+在開始串接廣告之前，請先完成以下準備：
 
-# Admob Mediation 操作圖示
+* 參考 [Google AdMob Integration Guide] 完成 AdMob SDK 串接
+* 參考[串接說明]，將 Vpon SDK 導入您的專案中，請務必將 Vpon Android SDK 及 Vpon AdMob Adapter 都加到您的專案中
+
+# AdMob Mediation 後台操作說明
 -----
 
-1. 請先[登入][] AdMob
+1. 請先進入您的 [AdMob 後台]
 ![1]
 
 2. 盈利 -&gt; 透過新應用程式盈利
@@ -43,26 +46,22 @@ Google AdMob mediation 請看[這裡]
 7. 新增廣告連播網
 ![][7]
 
-8. 設定Vpon進入您的聚合列表：<br>
+8. 設定 Vpon 進入您的聚合列表：<br>
  (1) 在可用的廣告聯播網中找到 Vpon <br>
  (2) Vpon Ad Id: 填入您在 Vpon 後台申請的 License Key <br>
  (3) Zone: 選擇您欲請求的廣告平台的地區，請填寫 "TW"<br>
 
 ![][8]
 
+# AdMob SDK 串接說明
+---
 
-# 串接 Vpon 進專案
-您需將載入兩個 Jar 檔進入您專案中的 libs 資料夾，分別是：`admob-adapter-\*\*\*\*.jar` 和 `vpadn-sdk-\*\*\*-\*\*\*-\*\*\*.jar`.
-![][9]
-
-
-
-# 需求條件
+## 系統需求
 -----
 1. 請確認您已安裝最新版的[Android SDK]，並至少在 Android v3.2 (target in project.properties to android-13)下編譯。
 2. Google Mobile Ads SDK可在Android 2.3以上的版本(在 AndroidManifest.xml 設定 android:minSdkVersion 為至少 9)執行。
 
-# 導入SDK
+## 導入SDK
 ---
 以下的步驟為將Google Mobile Ads SDK 導入您的 App 中:
 
@@ -293,10 +292,11 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
 
 # 下載 Sample Code
 --------------------
-[Download Sample Code]
+[Sample Code]
 
-  [這裡]: https://developers.google.com/admob/android/quick-start
-  [登入]: https://www.google.com.tw/admob/
+  [Google AdMob Integration Guide]: https://developers.google.com/admob/android/quick-start
+  [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
+  [AdMob 後台]: https://www.google.com.tw/admob/
   [1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
   [2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
   [3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png
@@ -309,7 +309,7 @@ Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ad
   [10]: {{site.imgurl}}/GooglePlay_Properties.png
   [11]: {{site.imgurl}}/GooglePlay_Addlib.png
   [12]: {{site.imgurl}}/GooglePlay_Addlib2.png
-  [Download Sample Code]: {{site.baseurl}}/zh-tw/android/download/#admob
+  [Sample Code]: {{site.baseurl}}/zh-tw/android/download/#admob
   [Android SDK]: https://developer.android.com/sdk/index.html
   [Android instructions]: https://developer.android.com/google/play-services/setup.html
   [13]: https://developers.google.com/admob/android/banner

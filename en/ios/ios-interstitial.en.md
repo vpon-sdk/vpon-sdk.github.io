@@ -148,6 +148,7 @@ Please refer to the link below to learn more about other ad types:
 
 * [Banner Ad](../banner)
 * [Native Ad](../native)
+* [Out-sream Video Ad](../outstream)
 * [Mediation](../mediation)
 * [Advanced](../advanced)
 

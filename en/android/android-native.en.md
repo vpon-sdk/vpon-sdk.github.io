@@ -7,65 +7,73 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/native/
 lang:           "en"
 ---
-
-## Finished Integration Guide
----
-If you haven't finished the previous integration guide, please check all the [settings here].
-
 # Overview
 ---
 While using the Native Ad API, you will receive a group of ad properties such as a title, an image, and you will have to use them to construct a custom UIView where the ad is shown. The Native Ad, an innovated type of ad, allows you to build a customized experience for the ads you show in your app.
 
 <img src="{{site.imgurl}}/Native_Android.png" alt="" class="width-300"/>
 
-# How to Implement Native Ad
+# Prerequisites
 ---
-There are five actions you will need to take to implement this in your app:
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
 
-1. Import Vpon SDK
-2. Declare a VpadnNativeAd instance
-3. Construct a native UI and request an ad
-4. Use the returned ad metadata to build a custom native UI
-5. Register the ad's view with the nativeAd instance
-
-Be sure perform the above steps in the Activity of you Application.
-
-# Coding for Showing Native Ad
+# Start To Implement Native Ad
 ---
-First, import Vpon SDK as well as declare and connect instance variables to your UI. You will also need to configure your app's manifest file [as follows]({{site.baseurl}}/zh-tw/android/integration-guide/).
+Please follow the steps below to implement Vpon Native Ad to your application:
 
+1. Import `com.vpadn.ads.*`
+2. Declare a `VpadnNativeAd` instance
+3. Set up VpadnNativeAd instance and indicate a License Key
+4. Create layout for Native Ad
+5. Set up Native Ad with ad metadata
+6. Register ad view with VpadnNativeAd instance
+7. Implement VpadnAdListener
+
+We strongly recommend that you can finish all the steps in the Activity of the application.
+
+## Import Vpon SDK And Declare A VpadnNativeAd Instance
+---
 ```java
-import com.vpadn.ads.*
+import com.vpadn.ads.*;
+
+public class MainActivity extends Activity implements VpadnAdListener {
+    // Declare VpadnNativeAd instance
+    private VpadnNativeAd nativeAd;
+    
+    // Please fill in with your License Key
+    private String licenseKey = "License Key" ;
+    
+    private LinearLayout native_Ad_Container;
+    private LinearLayout nativeAdView;
+    ...
+}
 ```
 
-## Declare a VpadnNativeAd Instance & Request an Ad
+## Set Up VpadnNativeAd Instance And Indicate A License Key
 ---
-Initializes VpadnNativeAd and request an ad. Function `loadNativeUI` can follow [Create Native UI](#clearNativeAd). (Please click [here] if you still do not get the Native Ad ID)
+Set up VpadnNativeAd instance and indicate a license key to request Native Ad. Please follow [Create Layout for Native Ad](#createNativeUI) to create your own layout to present Native Ad.
 
 ```java
-protected void onCreate(Bundle savedInstanceState) {
+public class MainActivity extends Activity implements VpadnAdListener {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Set up Native Ad layout
         loadNativeUI();
-        nativeAd = new VpadnNativeAd(this, "License Key", "TW");
+
+        nativeAd = new VpadnNativeAd(this, licenseKey, "TW");
         nativeAd.setAdListener(this);
-
-        /** Request Test Ad Start **/
         VpadnAdRequest adRequest = new VpadnAdRequest();
-        HashSet<String> testDeviceImeiSet = new HashSet<String>();
-        testDeviceImeiSet.add("Input device's GAID ");
-        adRequest.setTestDevices(testDeviceImeiSet);
-        /** Request Test Ad End
-        Skip the above 4 line codes if you want to request an actual ad **/
-
-        nativeAd.loadAd(adRequest);
-        //nativeAd.loadAd();
+        nativeAd.loadAd();
     }
+}
 ```
 
-## Create Native UI {#clearNativeAd}
+## Create Layout for Native Ad {#clearNativeAd}
 ---
-Before adding the code to load the ad, you need to build your customized native UI. You can either create your custom view in a layout .xml, or you can add elements in code. Here use .xml as an example (Please follow the [Natie Ad Spec](#nativeAdSpec)):
+You must create layout for Native Ads before ad request. Please check our [Native Ad Spec](#nativeAdSpec) to create your own layout.
+
+Here is an example to create Native Ad layout in layout.xml:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -172,80 +180,57 @@ Before adding the code to load the ad, you need to build your customized native 
 </LinearLayout>
 ```
 
-## Status Of Ad Request And Callback {#setAdListener}
+## Set Up Native Ad
 ---
-After adding the code to load the ad, the following 5 functions can handle loading failures, and callback the ad status:
+Implement VpadnAdListener and set up Native Ad with `inflateAd()` after ad receiving.
 
-1. onVpadnReceiveAd
-2. onVpadnFailedToReceiveAd
-3. onVpadnPresentScreen
-4. onVpadnDismissScreen
-5. onVpadnLeaveApplication
-
-While the Native ad is received successfully, the function `inflateAd` will also construct the ad into a custom UI. In addition, the implementation of the callback functions in onVpadnReceiveAd are depend on which view is registered. Check more detail about view registration [Here](#registerView).
+The sample below shows the CallBack function of clicking CallToAction button, image and other components. Please refer to [Register Ad View](#registerView) to define which components are clickable.
 
 ```java
-@Override
-    public void onVpadnReceiveAd(VpadnAd ad) {
-        if (nativeAd == null || nativeAd != ad) {
-            Log.e(LT, "Race condition, load() called again before last ad was displayed");
-            return;
-        }
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
+    @Override
+        public void onVpadnReceiveAd(VpadnAd ad) {
+            if (nativeAd == null || nativeAd != ad) {
+                Log.e("Native", "Race condition, load() called again before last ad was displayed");
+                return;
+            }
 
-        if (ad == nativeAd) {
+            if (ad == nativeAd) {
 
-            nativeAd.unregisterView();
-            inflateAd(nativeAd, nativeAdView, this);
-            nativeAd.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View view, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        switch (view.getId()) {
-                            case R.id.nativeAdCallToAction:
-                                Log.e(LT, "nativeAdCallToAction");
-                                Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
-                                break;
-                            case R.id.nativeAdImage:
-                                Log.e(LT, "nativeAdImage");
-                                Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                Log.d(LT, "Other ad component clicked");
-                                Toast.makeText(getBaseContext(), "Other ad component Clicked", Toast.LENGTH_SHORT).show();
+                nativeAd.unregisterView();
+                inflateAd(nativeAd, nativeAdView, this);
+                nativeAd.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            switch (view.getId()) {
+                                case R.id.nativeAdCallToAction:
+                                    Log.e(LT, "nativeAdCallToAction");
+                                    Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case R.id.nativeAdImage:
+                                    Log.e(LT, "nativeAdImage");
+                                    Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Log.d(LT, "Other ad component clicked");
+                                    Toast.makeText(getBaseContext(), "Other ad component Clicked", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                        return false;
                     }
-                    return false;
-                }
-            });
+                });
 
-            native_Ad_Container.setVisibility(View.VISIBLE);
+                native_Ad_Container.setVisibility(View.VISIBLE);
+            }
         }
-    }
-
-    @Override
-    public void onVpadnFailedToReceiveAd(VpadnAd vpadnAd, VpadnAdRequest.VpadnErrorCode vpadnErrorCode) {
-        Log.e(LT, "CALL NativeAd onVpadnFailedToReceiveAd, " + "errorCode : " + vpadnErrorCode );
-    }
-
-    @Override
-    public void onVpadnPresentScreen(VpadnAd vpadnAd) {
-        Log.e(LT, "CALL NativeAd onVpadnPresentScreen");
-    }
-
-    @Override
-    public void onVpadnDismissScreen(VpadnAd vpadnAd) {
-        Log.e(LT, "CALL NativeAd onVpadnDismissScreen");
-    }
-
-    @Override
-    public void onVpadnLeaveApplication(VpadnAd vpadnAd) {
-        Log.e(LT, "CALL NativeAd onVpadnLeaveApplication");
-    }
+}
 ```
 
-## Use the Returned Ad Metadata to Build a Custom Native UI {#importNativeData}
+## Set Up Native Ad With Ad Metadata {#importNativeData}
 ---
-Implement `inflateAd` to build a custom Native UI.
+Please refer to the sample below to implement `inflateAd()` to set up Native Ad.
 
 ```java
     protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
@@ -303,27 +288,105 @@ Implement `inflateAd` to build a custom Native UI.
 
 ## Ad View Registration {#registerView}
 ---
-In order to enable the the SDK to log the impression and handle the click automatically you must register the ad's view with the nativeAd instance. Additionally, registering the view using `registerViewForInteraction(View view)` will make the whole view clickable. If you are looking for finer control you can specify the clickable subviews using `registerViewForInteraction(View view, List<View> clickableViews)`. <br>
-Please follow [the  sample code above](#importNativeData) to use it.
+Vpon SDK will log the impression and click. You must register ad view with VpadnNativeAd instance.
+
+* To make entire Native Ad layout clickable, please use `registerViewForInteraction(View view)`
+* To make part of Native Ad layout clickable, please use `registerViewForInteraction(View view, List<View> clickableViews)`
+
+Please refer to the smaple below:
 
 ```java
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
       protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
         ...
-
-        // Make the whole nativeAdContainer clickable.
+        // Make the whole nativeAdContainer clickable
         // nativeAd.registerViewForInteraction(nativeAdView);
 
-        // Specify clickable areas of the natvieAdContainer.
+        // Specify clickable areas of the natvieAdContainer
         // If you use ImageView
         // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
         // If you use VpadnMediaView
         nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
     }
+}
 ```
 
 # Clear Native Ad {#clearNativeAd}
 ---
-If you want to re-use the view to show different ads over time, make sure to call `unregisterView()` before registering the same view with a different instance of VpadnNativeAd.
+If you want to re-use the view to show different ads over time, call `unregisterView()` before registering the same view with a different VpadnNativeAd instance.
+
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
+    @Override
+    public void onVpadnReceiveAd(VpadnAd ad) {
+        ...
+        if (ad == nativeAd) {
+            nativeAd.unregisterView();
+            ...
+        }
+}
+```
+
+## Request for Test Ad
+---
+Please add the code snippet to your application and fill in with your test device's UUID as below to request for test ads.
+
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        ...
+        VpadnAdRequest adRequest =  new VpadnAdRequest();
+
+        HashSet<String> testDeviceImeiSet = new HashSet<String>();
+        // Add Android device advertising id
+        testDeviceImeiSet.add("your device advertising id");
+        adRequest.setTestDevices(testDeviceImeiSet);
+
+        vponBanner.loadAd(adRequest);
+        ...
+}
+```
+
+
+### Advertising ID
+---
+Here are some tips for you to get your advertising id:
+
+1. Search "advertising_id" from the log
+2. Check the advertising id in the Setting of your device
+
+
+## Implement VpadnAdListener
+---
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        @Override
+        public void onVpadnReceiveAd(VpadnAd ad){
+                Log.d("Banner", "VpadnReceiveAd");
+        }
+
+        @Override
+        public void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errCode){
+                Log.d("Banner", "fail to receive ad (" + errCode + ")");
+        }
+
+        @Override
+        public void onVpadnPresentScreen(VpadnAd ad){
+                Log.d("Banner", "VpadnPresentScreen");
+        }
+
+        @Override
+        public void onVpadnDismissScreen(VpadnAd ad){
+                Log.d("Banner", "vpadnDismissScreen");
+        }
+
+        @Override
+        public void onVpadnLeaveApplication(VpadnAd ad){
+                Log.d("Banner", "VpadnLeaveApplication");
+        }
+}
+```
 
 # Native Ad Manager
 ---
@@ -331,7 +394,10 @@ The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager whe
 
 # Navive Ad Spec {#nativeAdSpec}
 --------
-`Red Color` indicates the required element in the Native Ad. CoverImage and Icon, at least one of them must be shown.
+Please check to table below to find the Native Ad component provided by Vpon.
+
+* Components in red are required to show in Native Ad layout. 
+* Show at least one image (CoverImage or Icon) in Native Ad layout.
 
 Properties   |   Description
 :-----------:|:-----------:|
@@ -354,17 +420,25 @@ RatingScale  | 5
 Rating Min/Max| 1/5
 :-----------:|:-----------:|
 
-# Download Sample Code
+# Tips
 ---
-Here we use basic Native ad as an example. A Native Ad sample in table view is also in the [Sample Code] <br>
 
-# Mediation
----
-Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.<br>
-- [Mopub]<br>
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
 
-[settings here]: ../integration-guide/
-[here]: {{ site.baseurl }}/android/registration/
-[Sample Code]: {{ site.baseurl }}/android/download/
+### More Ad Formats
+Please refer to the link below to learn more about other ad types:
+
+* [Banner Ad](../banner)
+* [Interstitial Ad](../interstitial)
+* [Out-sream Video Ad](../outstream)
+* [Advanced](../advanced)
+
+### Mediation
+Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.
+
+* [Mopub]
+
+[Sample Code]: ../download/
 [MoPub]: {{ site.baseurl }}/android/mediation/mopub
 [Smaato]: {{ site.baseurl }}/android/native/mediation/smaato

@@ -22,12 +22,12 @@ lang:           "zh-cn"
 ----------
 Vpon 提供以下两种串接广告 SDK 的方式：
 
-<!-- * [精简 (搭配 Maven)](#maven) -->
+* [精简 (搭配 Maven)](#maven)
 * [手动 (手动下载并串接)](#manual-sdk)
 
 > **Note**：若您曾使用过旧版 SDK，请先阅读：[如何升级 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
-<!-- ## 精简 (搭配 Maven) {#maven}
+## 精简 (搭配 Maven) {#maven}
 ---
 > **Note**：Maven 是一个项目管理及项目自动建构的工具，如果您还没在开发用的装置中安装过 Maven，请参考 [Maven 安装指南](https://maven.apache.org/)。
 
@@ -53,7 +53,7 @@ dependencies {
 }
 ```
 
-> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可获取 SDK 版本号 4.7 中最新的版本。 -->
+> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可获取 SDK 版本号 4.7 中最新的版本。
 
 ## 手动 (手动下载并串接) {#manual-sdk}
 

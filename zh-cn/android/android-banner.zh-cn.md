@@ -1,58 +1,78 @@
 ---
 layout:         "android"
 title:          "Android - 横幅广告 "
-lead:           "Android - Banner"
+lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-cn/android/banner/
 lang:           "zh-cn"
 ---
-## 完成串接指示
----
-若您尚未完成串接广告形式前的串接说明，请先前往[串接说明]完成相关设定
-
 # 概要
---------
-Vpon 横幅广告 (banner) 利用画面的一小部分来吸引使用者点击，即可打开全萤幕享受更丰富的浏览体验，例如网站或应用程式商店网页。
-若要在 Android 应用程式中显示横幅广告，只要在您的 Eclipse 专案中导入 SDK，然后在使用者介面上加入 com.vpadn.ads.VpadnBanner 即可。
-
-# 开始撰写 Banner
 ---
-Android 应用程式由 View 物件所组成，也就是以文字区域和按钮等控制项的形式向使用者呈现的 Java 执行个体。VpadnBanner 只是另一种 View 子类别，用来显示由使用者点击触发的小型 HTML5 广告。
-和所有的 View 一样，AdView 可以单用程式码撰写，也可以绝大部分用 XML 写成。
+Vpon 横幅广告 (banner) 是利用画面的一小部分展示广告来吸引使用者点击，广告被点击后即可打开全萤幕呈现更丰富的浏览内容，例如网站或应用程式商店网页。
 
-加入横幅广告会用到程式码：
+<img class="width-300" src="{{site.imgurl}}/Android_Banner.png" alt="successful result example">
+
+# 完成串接准备
+---
+在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
+
+# 开始串接横幅广告
+---
+Android 应用程式由 View 物件所组成，也就是以文字区域和按钮等控制项的形式向使用者呈现的 Java 执行个体。VpadnBanner 是一种 View 子类别，用来显示由使用者点击触发的小型 HTML5 广告。
+
+和所有的 View 一樣，VpadnBanner 可以使用 Java 撰写，也可以用 XML 编写。以下为所需步骤：
 
 1. 汇入 `com.vpadn.ads.*`
-2. 宣告 VpadnBanner 执行个体
-3. 建立例项，指定 License Key，也就是 Vpon 申请的 BannerId
-4. 将该检视加进使用者介面
-5. 透过广告载入例项
+2. 宣告 `VpadnBanner`
+3. 建立 VpadnBanner 物件，并指定 License Key
+4. 拉取广告
+5. 实作 VpadnAdListener
 
-最简易的方式是在应用程式的 Activity 内进行上述所有步骤。
+建议您在应用程式的 Activity 内进行上述步骤。
 
+## 在 MainActivity 中编写横幅广告
+---
+请参考以下步骤，在您的 MainActivity 中完成横幅广告。
+
+### Import Vpon SDK 并完告 VpadnBanner
+---
 ```java
-  import com.vpadn.ads.*
-  public class MainActivity extends Activity {
-  	private RelativeLayout adBannerLayout;
-  	private VpadnBanner vponBanner = null;
-  	//TODO: Vpon License Key
-  	private String bannerId = "License Key" ;
+import com.vpadn.ads.*;
 
-         @Override
+public class MainActivity extends Activity implements VpadnAdListener {
+        private RelativeLayout adBannerLayout;
+        
+        // Declare VpadnBanner instance
+  	private VpadnBanner vponBanner = null;
+
+  	// Please fill in with your License Key
+  	private String bannerId = "License Key" ;
+        ...
+}
+```
+
+### 建立 VpadnBanner 物件，并指定 License Key
+---
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        ...
+        @Override
   	protected void onCreate(Bundle savedInstanceState) {
   		super.onCreate(savedInstanceState);
   		setContentView(R.layout.activity_main);
-  		//get your layout view for Vpon banner
+  		// Get your layout view for Vpon banner
   		adBannerLayout = (RelativeLayout) findViewById(R.id.adLayout);
-  		//create VpadnBanner instance
-                  vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
+
+  		// Create VpadnBanner instance
+                vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
+                vponBanner.setAdListener(this);
   		VpadnAdRequest adRequest = new VpadnAdRequest();
-  		//set auto refresh to get banner
+  		// Set "true" to enable banner ad auto refresh
   		adRequest.setEnableAutoRefresh(true);
-                  //load vpon banner
+                // Load vpon banner
   		vponBanner.loadAd(adRequest);
-                  //add vpon banner to your layout view
+                // Add vpon banner to your layout view
   		adBannerLayout.addView(vponBanner);
   	}
 
@@ -67,11 +87,10 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
   	}
     }
 ```
-  <br>
 
-# 使用 layout xml 设定
+# 在 layout 中编写横幅广告
 ---
-也可以直接使用 xml 定义 Banner 这样你就不需要写任何 java code
+您也可以直接在 layout 中定义横幅广告：
 
 ``` xml
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -85,7 +104,8 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
           android:id="@+id/adLayout"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content" >
-
+          
+          <!-- Implement Vpon Banner Ad As Below -->
           <com.vpadn.ads.VpadnBanner
               android:id="@+id/vpadnBannerXML"
               android:layout_width="wrap_content"
@@ -98,35 +118,70 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
       </RelativeLayout>
   </LinearLayout>
 ```
-<br>
 
-> **Note:**
-记得将上面的 vpon:bannerId 填入你真实的 License Key
+> **Note**：请记得将上面的 vpon:bannerId 改为您的 License Key
 
 
 # 测试广告
 ---
-如果你的 License Key 还未经过审核可以使用下列的方式取得测试广告
-<br>
+如果您的 License Key 还未通过审核的话，您可以使用下列的方式取得测试广告：
 
 ```java
-      VpadnAdRequest adRequest =  new VpadnAdRequest();
-      HashSet<String> testDeviceImeiSet = new HashSet<String>();
-      testDeviceImeiSet.add("your device advertising id");
-      //TODO: put Android device advertising id
-      adRequest.setTestDevices(testDeviceImeiSet);
-      vponBanner.loadAd(adRequest);
+public class MainActivity extends Activity implements VpadnAdListener {
+        ...
+        VpadnAdRequest adRequest =  new VpadnAdRequest();
+
+        HashSet<String> testDeviceImeiSet = new HashSet<String>();
+        // Add Android device advertising id
+        testDeviceImeiSet.add("your device advertising id");
+        adRequest.setTestDevices(testDeviceImeiSet);
+
+        vponBanner.loadAd(adRequest);
+        ...
+}
 ```
 
-## Advertising ID
-可以使用下列任一方式取得 device 上的 Advertising ID
+### Advertising ID
+---
+您可以使用下列方式取得 device 上的 Advertising ID：
 
 1. 于 log 搜寻"advertising_id"
 2. 直接操作手机: 设定 → Google → 广告 → 您的广告 ID (Advertising ID)
 
-# 横幅广告大小
+## 实作 VpadnAdListener
 ---
-除了支援手机上的 320x50 大小外，Vpon 还支援各种不同的横幅广告：
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        @Override
+        public void onVpadnReceiveAd(VpadnAd ad){
+                Log.d("Banner", "VpadnReceiveAd");
+        }
+
+        @Override
+        public void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errCode){
+                Log.d("Banner", "fail to receive ad (" + errCode + ")");
+        }
+
+        @Override
+        public void onVpadnPresentScreen(VpadnAd ad){
+                Log.d("Banner", "VpadnPresentScreen");
+        }
+
+        @Override
+        public void onVpadnDismissScreen(VpadnAd ad){
+                Log.d("Banner", "vpadnDismissScreen");
+        }
+
+        @Override
+        public void onVpadnLeaveApplication(VpadnAd ad){
+                Log.d("Banner", "VpadnLeaveApplication");
+        }
+}
+```
+
+# 横幅广告尺吋
+---
+除了支援标准横幅广告的尺吋外，Vpon Android SDK 还支援下列几种尺吋的横幅广告：
 
 大小 (宽度x高度)             |     说明       |  VponAdSize 常数值
 :------------------------: | :-------------:| :-----------------------------:
@@ -136,34 +191,22 @@ Android 应用程式由 View 物件所组成，也就是以文字区域和按钮
 728x90                     | IAB 超级横幅广告 |  VpadnAdSize.IAB\_LEADERBOARD
 device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 
-如无特定需求，我们建议您直接使用上面最后一项 `smart banner` 即可 (目前不支援VpadnAdSize.IAB_WIDE_SKYSCRAPER)
+如无特定需求，我们建议您直接使用 `Smart Banner` 即可 (目前不支援VpadnAdSize.IAB_WIDE_SKYSCRAPER)
 
 
-#  更新广告
+# Tips
 ---
-如果您在伺服器的 Vpon 帐户中指定了更新速率，则需要使用下面的 sample 才会启动 banner 自动更新
+### Sample Code
+如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
-```java
- VpadnAdRequest adRequest = new VpadnAdRequest();
- //设定成 true 才会自动更新
- adRequest.setEnableAutoRefresh(true);
- adShowBanner.loadAd(adRequest);
-```
+### 其它广告形式
+如果您想了解其它广告形式的串接，请参考以下内容：
 
-
-
-# 下载 Sample code
----
-[前往下载][1]
-<br>
-
-# 结果
----
-现在只要执行这个应用程式，您应该就会在画面上方看到横幅广告：
-<img class="width-400" src="{{site.imgurl}}/A-sdk330-03.png" alt="successful result example">
-
-# 其他诀窍
-> 请参阅[插页广告](../Interstitial)、[原生广告](../native)、[中介服务](../mediation)、[进阶设定](../advanced)中获取更多简介。
+* [插页广告](../interstitial)
+* [原生广告](../native)
+* [Out-stream 影音广告](../outstream)
+* [中介服务](../mediation)
+* [进阶设定](../advanced)
 
 [串接说明]: ../integration-guide/
-[1]:../../android/download/
+[Sample Code]:../../android/download/

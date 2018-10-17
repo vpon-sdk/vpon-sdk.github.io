@@ -99,33 +99,37 @@ public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
 當 Ad 點擊會啟動新的應用程式時呼叫。
 
 
-
-
 # Crazy Ad
 ---
-會從 banner 自動展開成 Crazy Ad，全螢幕富媒體廣告的 Crazy Ad 呈現約 5~7 秒會自動關閉。
+Crazy Ad 是由 Banner 自動展示的全螢幕富媒體廣告，展開後呈現約 5~7 秒會自動關閉。
+
 <img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300" />
 
 
-## 設定
+## 如何設定 Crazy Ad
 ---
-在後台註冊申請流程中可選擇是否播放 Crazy Ad。<br>
-進入 <http://tw.adon.vpon.com/> 註冊台灣區License Key。<br>
+
+1. 請先[註冊帳號]成為 Vpon 開發商夥伴
+2. 登入[開發商後台]申請 License Key
+3. 選擇是否播放 Crazy Ad
+
 如圖:
 ![CrazyadSetting]
 
 
 # Corona User
 ---
-如果您 App 使用 Corona 欲串接 Vpon 廣告，我們建議您用 web SDK 的方式串接，使用方法如下:
+如果您的 App 使用 Corona 欲串接 Vpon 廣告，我們建議您用 Web SDK 的方式串接，使用方法如下：
 
-將 web SDK 裡的 html 寫進 local file 再讓 webview 去 load 這個 file (例如: webView:request( “localfile.html”, system.ResourceDirectory ))。
+1. 請參考 [Vpon Web SDK 串接說明]，準備一個包含 Web SDK 廣告請求的 HTML 檔案
+2. 在 WebView 中讀取該 HTML 檔案，例如：webView:request(“localfile.html”, system.ResourceDirectory)
 
-HTML 內容可參考 Vpon wiki的web SDK 操作手冊: [Web SDK]
-更多 Corona SDK 文件可參考: [Corona Document]
+> **Note**：更多 Corona SDK 文件可參考: [Corona Document]
 
 
 
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
-[Web SDK]: {{site.baseurl}}/zh-tw/web/
+[註冊帳號]: {{ site.baseurl }}/zh-tw/android/registration/
+[開發商後台]: http://console.vpon.com
+[Vpon Web SDK 串接說明]: {{site.baseurl}}/zh-tw/web/
 [Corona Document]: http://docs.coronalabs.com/api/library/native/newWebView.html

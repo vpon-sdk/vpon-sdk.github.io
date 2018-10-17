@@ -14,8 +14,7 @@ lang:           "zh-cn"
 ---
 Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SDK 前，请确保您的 App 符合以下条件：
 
-* iOS：`iOS 8.0 以上 & Xcode 9.0 以上`
-* Android：`Android 3.0 以上`
+* Android：`Android 4.3 以上`
 
 ## Step2: 成为 Vpon 开发商伙伴
 ---
@@ -28,7 +27,7 @@ Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SD
 ## Step4: 串接广告
 ---
 
-| [横幅广告][4]  |[插页广告][5] |[原生广告][7]| [中介服务][6]|
+| [横幅广告][4]  |[插页广告][5] |[原生广告][7]| [Out-stream 影音广告][8]|[中介服务][6]|
 
 
 ## Tips
@@ -48,3 +47,4 @@ Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SD
 [5]:{{ site.baseurl }}/zh-cn/android/interstitial/
 [6]:{{ site.baseurl }}/zh-cn/android/mediation/
 [7]:{{ site.baseurl }}/zh-cn/android/native/
+[8]:{{ site.baseurl }}/zh-cn/android/outstream/

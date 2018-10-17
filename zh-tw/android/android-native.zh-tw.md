@@ -7,65 +7,73 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-tw/android/native/
 lang:           "zh-tw"
 ---
-## 完成串接指示
----
-若您尚未完成串接廣告形式前的串接說明，請先前往[串接說明]完成相關設定
-
 # 概要
---------
+---
 原生廣告不同於以往橫幅廣告、插頁廣告會直接提供可立即呈現的廣告內容，原生廣告 API 提供了標題、圖像等廣告內容的組合，您可以透過這些屬性的編排打造出最理想的原生廣告風格。原生廣告更打破以往對於廣告的刻板印象，以最自然的方式呈現，提供更符合需求的廣告體驗。
 
 <img src="{{site.imgurl}}/Native_Android.png" alt="" class="width-300"/>
 
-# 如何撰寫 Native Ad
---------
+# 完成串接準備
+---
+在開始串接廣告之前，請確認您已經將 Vpon SDK 導入您的專案中。若您尚未完成，請先參考[串接說明]完成相關設定。
+
+# 開始串接原生廣告
+---
 在應用程式中建立原生廣告需要執行以下五個步驟：
 
-1. 匯入 Vpon SDK
-2. 宣告並建立 VpadnNativeAd 物件
-3. 建立自訂原生 UI 並請求廣告
-4. 請求廣告成功後利用回傳的資料建置自訂的原生 UI
-5. 使用 nativeAd 執行個體註冊廣告檢視
+1. 匯入 `com.vpadn.ads.*`
+2. 宣告 `VpadnNativeAd` 物件
+3. 建立 VpadnNativeAd 物件，並指定 License Key
+4. 建立自訂原生廣告 Layout
+5. 廣告請求成功後利用回傳的資料建置原生廣告
+6. 註冊廣告檢視
+7. 實作 VpadnAdListener
 
-最簡易的方式是在應用程式的 Activity 內進行上述所有步驟。
+建議您在應用程式的 Activity 內進行上述步驟。
 
-# 開始撰寫 Native Ad
---------
-首先匯入 SDK ，同時也宣告了欲在原生廣告中呈現的各種元件，Mainfest 的相關設定請參考[串接說明]。( 原生廣告呈現元件規範請參照[這裡](#nativeAdSpec) )
-
+## Import Vpon SDK 並宣告 VpadnNativeAd
+---
 ```java
-import com.vpadn.ads.*
+import com.vpadn.ads.*;
+
+public class MainActivity extends Activity implements VpadnAdListener {
+    // Declare VpadnNativeAd instance
+    private VpadnNativeAd nativeAd;
+    
+    // Please fill in with your License Key
+    private String licenseKey = "License Key" ;
+    
+    private LinearLayout native_Ad_Container;
+    private LinearLayout nativeAdView;
+    ...
+}
 ```
 
-## 建立 VpadnNativeAd 物件並請求廣告
---------
-初始化 VpadnNativeAd 物件並給定 License Key，完成指定 License Key 後即可請求廣告， loadNativeUI 可參考[建立自訂原生 UI ](#createNativeUI)。( 尚未申請 License Key 請先參考此[說明] )
+## 建立廣告物件，並指定 License Key
+---
+建立 VpadnNativeAd 物件並指定 License Key 後即可請求廣告，在請求廣告之前，請參考[建立原生廣告 Layout](#createNativeUI) 建立原生廣告 UI。
 
 ```java
-protected void onCreate(Bundle savedInstanceState) {
+public class MainActivity extends Activity implements VpadnAdListener {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Set up Native Ad layout
         loadNativeUI();
-        nativeAd = new VpadnNativeAd(this, "請填入 License Key ", "TW");
+
+        nativeAd = new VpadnNativeAd(this, licenseKey, "TW");
         nativeAd.setAdListener(this);
-
-        /** Request Test Ad Start **/
         VpadnAdRequest adRequest = new VpadnAdRequest();
-        HashSet<String> testDeviceImeiSet = new HashSet<String>();
-        testDeviceImeiSet.add("請填入測試機 GAID ");
-        adRequest.setTestDevices(testDeviceImeiSet);
-        /** Request Test Ad End **/
-        /** 如需抓取正式廣告可省略以上四行程式碼，同時搭配 nativeAd.loadAd(); **/
-
-        nativeAd.loadAd(adRequest);
-        //nativeAd.loadAd();
+        nativeAd.loadAd();
     }
+}
 ```
 
-## 建立自訂原生 UI {#createNativeUI}
---------
-當擷取到原生廣告資料之前，您需要建立自訂的原生廣告 UI。您可在配置 .xml 中建立自訂檢視，或在程式碼中加入元素。
-以 .xml 為例 ( 原生廣告呈現元件規範請參照 [Native Ad Spec](#nativeAdSpec) )：
+## 建立原生廣告 Layout {#createNativeUI}
+---
+在擷取到原生廣告資料之前，您需要建置原生廣告 Layout，關於原生廣告呈現元件規範請參照 [Native Ad Spec](#nativeAdSpec)。
+
+您可以在 layout 中建立檢視，或在程式碼中加入元素。以 layout 為例：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -172,82 +180,61 @@ protected void onCreate(Bundle savedInstanceState) {
 </LinearLayout>
 ```
 
-## 監聽廣告請求及顯示的狀態 {#setAdListener}
---------
-完成請求原生廣告後，下述五個函數可回傳目前廣告的各式狀態，包含：
+## 建置原生廣告
+---
+完成原生廣告請求後，您可以透過 VpadnAdListener 監聽廣告請求的狀態，在廣告請求成功之後，利用 `inflateAd()` 將回傳的素材建構成自訂義的原生廣告樣式。
 
-1. 請求成功
-2. 請求失敗
-3. 原生廣告成功顯示
-4. 解除原生廣告
-5. 執行 OutApp 應用程式
-
-當廣告`請求成功`時可利用 `inflateAd` 將回傳的素材建構成自訂的原生廣告型態。此外在請求成功裡實作了點擊 CallToAction、Image、OtherComponent 的 CallBack，這取決於您要註冊哪些元件為可檢視的。關於註冊元件可參考[註冊廣告檢視](#registerView)。
+此外，在以下的範例中也實作了點擊 CallToAction、Image、OtherComponent 的 CallBack，這取決於您要註冊哪些元件是可檢視的。關於註冊元件可參考[註冊廣告檢視](#registerView)。
 
 ```java
-@Override
-    public void onVpadnReceiveAd(VpadnAd ad) {
-        if (nativeAd == null || nativeAd != ad) {
-            Log.e(LT, "Race condition, load() called again before last ad was displayed");
-            return;
-        }
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
+    @Override
+        public void onVpadnReceiveAd(VpadnAd ad) {
+            if (nativeAd == null || nativeAd != ad) {
+                Log.e("Native", "Race condition, load() called again before last ad was displayed");
+                return;
+            }
 
-        if (ad == nativeAd) {
+            if (ad == nativeAd) {
 
-            nativeAd.unregisterView();
-            inflateAd(nativeAd, nativeAdView, this);
-            nativeAd.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View view, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                        switch (view.getId()) {
-                            case R.id.nativeAdCallToAction:
-                                Log.e(LT, "nativeAdCallToAction");
-                                Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
-                                break;
-                            case R.id.nativeAdImage:
-                                Log.e(LT, "nativeAdImage");
-                                Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
-                                break;
-                            default:
-                                Log.d(LT, "Other ad component clicked");
-                                Toast.makeText(getBaseContext(), "Other ad component Clicked", Toast.LENGTH_SHORT).show();
+                nativeAd.unregisterView();
+                inflateAd(nativeAd, nativeAdView, this);
+                nativeAd.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent event) {
+                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                            switch (view.getId()) {
+                                case R.id.nativeAdCallToAction:
+                                    Log.e(LT, "nativeAdCallToAction");
+                                    Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case R.id.nativeAdImage:
+                                    Log.e(LT, "nativeAdImage");
+                                    Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
+                                    break;
+                                default:
+                                    Log.d(LT, "Other ad component clicked");
+                                    Toast.makeText(getBaseContext(), "Other ad component Clicked", Toast.LENGTH_SHORT).show();
+                            }
                         }
+                        return false;
                     }
-                    return false;
-                }
-            });
+                });
 
-            native_Ad_Container.setVisibility(View.VISIBLE);
+                native_Ad_Container.setVisibility(View.VISIBLE);
+            }
         }
-    }
-
-    @Override
-    public void onVpadnFailedToReceiveAd(VpadnAd vpadnAd, VpadnAdRequest.VpadnErrorCode vpadnErrorCode) {
-        Log.e(LT, "CALL NativeAd onVpadnFailedToReceiveAd, " + "errorCode : " + vpadnErrorCode );
-    }
-
-    @Override
-    public void onVpadnPresentScreen(VpadnAd vpadnAd) {
-        Log.e(LT, "CALL NativeAd onVpadnPresentScreen");
-    }
-
-    @Override
-    public void onVpadnDismissScreen(VpadnAd vpadnAd) {
-        Log.e(LT, "CALL NativeAd onVpadnDismissScreen");
-    }
-
-    @Override
-    public void onVpadnLeaveApplication(VpadnAd vpadnAd) {
-        Log.e(LT, "CALL NativeAd onVpadnLeaveApplication");
-    }
+}
 ```
 
-## 廣告資料匯入原生 UI {#importNativeData}
+## 將廣告資料匯入原生廣告 Layout {#importNativeData}
 --------
-實作 `inflateAd`，將回傳的素材建構成自訂的原生廣告型態，細節可參考以下程式碼：
+請參考以下範例，實作 `inflateAd()`，將回傳的素材建構成自訂義的原生廣告樣式：
 
 ```java
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
     protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
         //Create native UI using the ad metadata.
         ImageView nativeAdIcon = (ImageView) nativeAdView.findViewById(R.id.nativeAdIcon);
@@ -296,46 +283,121 @@ protected void onCreate(Bundle savedInstanceState) {
         // If you use VpadnMediaView
         nativeAdMedia.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
         nativeAdMedia.setNativedAd(nativeAd);
-
         ...
       }
+}
 ```
 
 ## 註冊廣告檢視 {#registerView}
 --------
-由於 Vpon SDK 會自動記錄曝光次數並處理點擊事件，您必須使用 nativeAd 註冊廣告檢視，才能啟用檢視。<br>
-若要使整個檢視都可點擊，請使用 `registerViewForInteraction(View view)`<br>
-如需更細微的控制，您可使用 `registerViewForInteraction(View view, List<View> clickableViews)`<br>
-使用方式請參考以下程式碼：
+由於 Vpon SDK 會自動記錄曝光次數並處理點擊事件，您必須使用 VpadnNativeAd 物件註冊廣告檢視，才能啟用檢視。
+
+* 若要使整個檢視都可點擊，請使用 `registerViewForInteraction(View view)`
+* 若僅要使部份檢視可點擊，請使用 `registerViewForInteraction(View view, List<View> clickableViews)`
+
+請參考以下程式碼：
 
 ```java
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
       protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
         ...
-
-        // Make the whole nativeAdContainer clickable.
+        // Make the whole nativeAdContainer clickable
         // nativeAd.registerViewForInteraction(nativeAdView);
 
-        // Specify clickable areas of the natvieAdContainer.
+        // Specify clickable areas of the natvieAdContainer
         // If you use ImageView
         // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
         // If you use VpadnMediaView
         nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
     }
+}
 ```
 
-# 清除原生廣告 {#clearNativeAd}
+## 清除原生廣告 {#clearNativeAd}
 --------
-若要重複使用檢視，並在不同時間顯示不同廣告，則在請求新的原生廣告之前必須先呼叫 `unregisterView()` 將原先的廣告清空。
+若要重複使用檢視，並在不同時間顯示不同廣告，請在請求新的原生廣告之前先呼叫 `unregisterView()` 將原先的廣告清空。
+
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+    ...
+    @Override
+    public void onVpadnReceiveAd(VpadnAd ad) {
+        ...
+        if (ad == nativeAd) {
+            nativeAd.unregisterView();
+            ...
+        }
+}
+```
+
+## 測試廣告
+---
+如果你的 License Key 還未通過審核的話，您可以使用下列的方式取得測試廣告：
+
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        ...
+        VpadnAdRequest adRequest =  new VpadnAdRequest();
+
+        HashSet<String> testDeviceImeiSet = new HashSet<String>();
+        // Add Android device advertising id
+        testDeviceImeiSet.add("your device advertising id");
+        adRequest.setTestDevices(testDeviceImeiSet);
+
+        vponBanner.loadAd(adRequest);
+        ...
+}
+```
+
+### Advertising ID
+---
+您可以使用下列方式取得 device 上的 Advertising ID：
+
+1. 於 log 中搜尋 "advertising_id"
+2. 直接操作手機：設定 → Google → 廣告 → 您的廣告 ID (Advertising ID)
+
+## 實作 VpadnAdListener
+---
+```java
+public class MainActivity extends Activity implements VpadnAdListener {
+        @Override
+        public void onVpadnReceiveAd(VpadnAd ad){
+                Log.d("Native", "VpadnReceiveAd");
+        }
+
+        @Override
+        public void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errCode){
+                Log.d("Native", "fail to receive ad (" + errCode + ")");
+        }
+
+        @Override
+        public void onVpadnPresentScreen(VpadnAd ad){
+                Log.d("Native", "VpadnPresentScreen");
+        }
+
+        @Override
+        public void onVpadnDismissScreen(VpadnAd ad){
+                Log.d("Native", "vpadnDismissScreen");
+        }
+
+        @Override
+        public void onVpadnLeaveApplication(VpadnAd ad){
+                Log.d("Native", "VpadnLeaveApplication");
+        }
+}
+```
 
 # 原生廣告管理器
 --------
-Vpon SDK 提供原生廣告管理器( Native Ads Manager )。當您設計的 App 中會在短時間內在數個地方顯示原生廣告，原生廣告管理器可以協助您一次請求並管理多筆原生廣告。如何使用原生廣告管理器請直接參考 [Sample Code]。
+Vpon SDK 提供原生廣告管理器 (Native Ads Manager)，如果您想在短時間內在應用程式同一頁面下的數個位置顯示原生廣告，原生廣告管理器可以協助您一次請求並管理多筆原生廣告。
+
+關於原生廣告管理器的使用方式，請直接參考 [Sample Code]。
 
 
 # Navive Ad Spec {#nativeAdSpec}
 --------
-`紅色`表示您必須顯示的原生廣告元件，其中 CoverImage 與 Icon 必須至少顯示其中一個。
-
+下表為 Vpon 提供的原生廣告元件列表，`紅字`部份表示您必須顯示的原生廣告元件，其中 CoverImage 與 Icon 必須至少顯示其中一個。
 
 Properties   |   Description
 :-----------:|:-----------:|
@@ -358,17 +420,26 @@ RatingScale  | 5
 Rating Min/Max| 1/5
 :-----------:|:-----------:|
 
-# 下載範例
---------
-本頁以基本的 Native Ad 為例進行說明， [Sample Code] 中另有 `Table View` 的範例以供參考。<br>
+# Tips
+---
 
-# 中介服務
---------
-透過中介服務，您的應用程式就能放送眾多廣告來源的廣告，詳細請見說明：<br>
-- [使用 MoPub] <br>
+### Sample Code
+如果您想看到完整的串接實例，請參考我們的 [Sample Code]
+
+### 其它廣告形式
+如果您想了解其它廣告形式的串接，請參考以下內容：
+
+* [橫幅廣告](../banner)
+* [插頁廣告](../interstitial)
+* [Out-stream 影音廣告](../outstream)
+* [進階設定](../advanced)
+
+### 中介服務
+透過中介服務，您的應用程式就能放送眾多廣告來源的廣告，詳細請見說明：
+
+* [使用 MoPub]
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
-[說明]: {{ site.baseurl }}/zh-tw/android/registration/
 [Sample Code]: {{ site.baseurl }}/zh-tw/android/download/
 [使用 MoPub]: {{ site.baseurl }}/zh-tw/android/mediation/mopub
 [使用 Smaato]: {{ site.baseurl }}/zh-tw/android/native/mediation/smaato
