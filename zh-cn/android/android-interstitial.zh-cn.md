@@ -172,7 +172,7 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 * [横幅广告](../banner)
 * [原生广告](../native)
-<!-- * [Out-stream 影音广告](../outstream) -->
+* [Out-stream 影音广告](../outstream)
 * [中介服务](../mediation)
 * [进阶设定](../advanced)
 

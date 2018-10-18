@@ -1,10 +1,10 @@
 # Android Changelog
 
-<!-- ### 4.8.0
-* Release Date: 17 Oct. 2018
-* Build Number: 61018102
+### 4.8.1
+* Release Date: 18 Oct. 2018
+* Build Number: 81018102
 * Release Out-stream Video Ad
-* Fix few bugs -->
+* Fix few bugs
 
 ### 4.7.2
 * Release Date: 31 July. 2018

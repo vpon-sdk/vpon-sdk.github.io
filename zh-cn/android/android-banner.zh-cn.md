@@ -204,7 +204,7 @@ device width x auto height | Smart Banner    |  VpadnAdSize.SMART\_BANNER
 
 * [插页广告](../interstitial)
 * [原生广告](../native)
-<!-- * [Out-stream 影音广告](../outstream) -->
+* [Out-stream 影音广告](../outstream)
 * [中介服务](../mediation)
 * [进阶设定](../advanced)
 

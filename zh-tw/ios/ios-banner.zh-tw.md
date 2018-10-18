@@ -179,7 +179,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 
 * [插頁廣告](../interstitial)
 * [原生廣告](../native)
-<!-- * [Out-stream 影音廣告](../outstream) -->
+* [Out-stream 影音廣告](../outstream)
 * [中介服務](../mediation)
 * [進階設定](../advanced)
 

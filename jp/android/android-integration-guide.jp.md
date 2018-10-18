@@ -141,7 +141,7 @@ dependencies {
 </activity>
 ```
 
-<!-- # 3rd-party Library
+# 3rd-party Library
 ---
 Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follow the steps below to import Retrofit:
 
@@ -153,7 +153,7 @@ dependencies {
     ...
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 }
-``` -->
+```
 
 # Proguard Configuration
 ---
@@ -168,7 +168,16 @@ APP 自体が proguard の難読化を経る必要がある場合、次の設定
 -keep class vpon.** { *; }
 -keep class com.vpadn.** { *; }
 -keep class vpadn.** { *; }
- 
+
+<!-- ----------- acquired since 4.8.0 start --------- -->
+-dontnote retrofit2.Platform
+-dontwarn retrofit2.Platform$Java8
+-dontwarn okhttp3.internal.platform.*
+-keepattributes Exceptions
+-keepattributes Signature
+-dontwarn okio.**
+-dontwarn javax.annotation.**
+<!-- ----------- acquired since 4.8.0 end --------- -->
 ```
 
 
