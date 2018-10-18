@@ -426,7 +426,7 @@ Rating Min/Max| 1/5
 
 * [横幅广告](../banner)
 * [插页广告](../interstitial)
-* [Out-stream 影音广告](../outstream)
+<!-- * [Out-stream 影音广告](../outstream) -->
 * [进阶设定](../advanced)
 
 ### 中介服务

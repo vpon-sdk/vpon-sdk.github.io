@@ -130,7 +130,7 @@ dependencies {
 </activity>
 ```
 
-# 3rd-party Library
+<!-- # 3rd-party Library
 ---
 從 `4.8.0` 版開始，Vpon SDK 引入第三方的 Library － Retrofit，請參考以下方法導入 Retrofit：
 
@@ -142,7 +142,7 @@ dependencies {
     ...
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
 }
-```
+``` -->
 
 # Proguard Configuration
 ---
@@ -157,17 +157,11 @@ dependencies {
 -keep class vpon.** { *; }
 -keep class com.vpadn.** { *; }
 -keep class vpadn.** { *; }
- 
-<!-- ----------- acquired since 4.8.0 start --------- -->
--dontnote retrofit2.Platform
--dontwarn retrofit2.Platform$Java8
--dontwarn okhttp3.internal.platform.*
--keepattributes Exceptions
--keepattributes Signature
--dontwarn okio.**
--dontwarn javax.annotation.**
-<!-- ----------- acquired since 4.8.0 end ----------- -->
 ```
+ 
+
+
+
 
 # Tips
 ---
