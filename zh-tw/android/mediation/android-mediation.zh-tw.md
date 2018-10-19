@@ -18,6 +18,7 @@ lang:           "zh-tw"
 
 # 中介服務平台
 ---
+
 | Google AdMob  | Google DFP  | MoPub        | Smaato        |
 |:-------------:|:-----------:| :-----------:| :------------:|
 | [![admob]][1] | [![dfp]][2] | [![mopub]][3]| [![smaato]][4]|
