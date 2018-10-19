@@ -50,4 +50,4 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 [6]:{{ site.baseurl }}/zh-tw/ios/mediation/
 [iOS9 ATS]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
 [7]:{{ site.baseurl }}/zh-tw/ios/native/
-[7]:{{ site.baseurl }}/zh-tw/ios/outstream/
+[8]:{{ site.baseurl }}/zh-tw/ios/outstream/
