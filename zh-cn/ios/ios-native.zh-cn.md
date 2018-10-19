@@ -7,19 +7,16 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/native/
 lang: "zh-cn"
 ---
-## 完成串接指示
----
-若您尚未完成串接广告形式前的串接说明，请先前往[串接说明]完成相关设定
-
-## 最新消息
----
-iOS9 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
 
 # 概要
 --------
 原生广告不同于以往横幅广告、插页广告会直接提供可立即呈现的广告内容，原生广告 API 提供了标题、图像等广告内容的组合，您可以透过这些属性的编排打造出最理想的原生广告风格。原生广告更打破以往对于广告的刻板印象，以最自然的方式呈现，提供更符合需求的广告体验。
 
 <img src="{{site.imgurl}}/Native_iOS.PNG" alt="" class="width-300"/>
+
+# 完成串接准备
+---
+在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
 
 # 如何撰写 Native Ad
 --------

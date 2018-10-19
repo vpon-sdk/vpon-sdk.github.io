@@ -7,13 +7,11 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/native/table/
 lang:            "en"
 ---
-## Finished Integration Guide
----
-If you haven't finished the previous integration guide, please check all the [settings here].
 
-## Latest News
+# Prerequisites
 ---
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
+
 
 # NativeAd Options
 ---

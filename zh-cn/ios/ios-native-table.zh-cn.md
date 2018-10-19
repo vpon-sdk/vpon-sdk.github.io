@@ -7,13 +7,10 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/native/table/
 lang: "zh-cn"
 ---
-## 完成串接指示
----
-若您尚未完成串接广告形式前的串接说明，请先前往[串接说明]完成相关设定
 
-## 最新消息
+# 完成串接准备
 ---
-iOS9 更新了安全条款 App Transport Security (ATS)，请参考[这篇]来修改部份设定
+在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
 
 # 原生广告选择
 ---

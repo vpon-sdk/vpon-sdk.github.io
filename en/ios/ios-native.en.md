@@ -8,13 +8,10 @@ permalink:       ios/native/
 lang:            "en"
 ---
 
-## Finished Integration Guide
+# Prerequisites
 ---
-If you haven't finished the previous integration guide, please check all the [settings here].
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
-## Latest News
----
-Apple recently revised App Transport Security (ATS), to iOS10. Please refer to [this link] for some modification.
 
 # NativeAd Options
 ---
