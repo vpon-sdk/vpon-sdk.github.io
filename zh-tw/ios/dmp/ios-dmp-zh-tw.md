@@ -86,7 +86,7 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 
 > 1. 請注意函數 createEventWithName 後方參數請參考 VpadnDictionaryBuilder 內的 EventType
 > 2. 如果需要在 console log內印出debug log, 請在環境變數的地方新增一個環境變數, key為 SHOW_VPON_LOG 值為1
-> 3. payload 文件請 [參考此連結](#)
+<!-- > 3. payload 文件請 [參考此連結](#) -->
 
 
 
