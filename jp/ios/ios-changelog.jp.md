@@ -1,6 +1,6 @@
 ---
 layout:         "ios-changelog"
-title:          "iOS - Changelog"
+title:          "iOS - Change Log"
 lead:           ""
 description:    ""
 keywords:       "changelog"

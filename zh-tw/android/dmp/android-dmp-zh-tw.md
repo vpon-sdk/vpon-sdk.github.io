@@ -8,52 +8,58 @@ permalink:       /zh-tw/android/dmp/
 lang:           "zh-tw"
 ---
 
-# 需求
+# 串接準備
 ---
 
+### 匯入 Vpon DMP SDK
+請先[下載 Vpon DMP SDK](http://m.vpadn.com/sdk/vpadn-dmp-obf1.0.0-1507221044-4b374f5.jar)，並將 SDK 加到您的 Android Studio 專案中。
 
-## Permission
-請先加入以下 permission 在您的 `AndroidManifest.xml`
 
-```java
+### Permission
+請在您的 `AndroidManifest.xml` 中加入以下 Permission：
+
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-# 加入實作
+# 開始串接 Vpon DMP SDK
 ---
-## import java
-請加入以下 import 進您的 `MainActivity`
+請參考以下說明，完成 Vpom DMP SDK 串接。
+
+### Import Vpon DMP SDK
 
 ```java
 import com.vpadn.dmp.VpadnAnalytics;
 ```
 
-## 設定 License Key
-接下來，再將以下 code加入 MainActivity
+### 宣告 VpadnAnalytics 物件，並指定 License Key
 
 ```java
-private static final String licenseKey = "申請之licenseKey";
-private static VpadnAnalytics analytics;
-VpadnAnalytics.Tracker tracker;
-```
+public class MainActivity extends Activity {
 
-```java
-@Override
- protected void onCreate(Bundle savedInstanceState) {
-	analytics = VpadnAnalytics.getInstance(MainActivity.this, licenseKey);
-	tracker = analytics.newTracker();
+	private static final String licenseKey = "License Key";
+	private static VpadnAnalytics analytics;
+	VpadnAnalytics.Tracker tracker;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		analytics = VpadnAnalytics.getInstance(MainActivity.this, licenseKey);
+		tracker = analytics.newTracker();
+	}
 }
 ```
 
-> **Note:** 請將 code 中的 "申請之licenseKey" 置換成註冊申請的專屬碼
+> **Note**：請將 License Key 替換成您專屬的 License Key。
 
 
-## 選擇方式回傳資料
+### 回傳資料
+Vpon DMP SDK 提供兩種回傳資料的方法：
+
 #### tracker.sendLaunchEvent()
-此段功能請建立在 app 起始介面，使您的使用者開啟時可以回報開啟的資料
+在使用者開啟 App 時，回報開啟的事件。請將此方法建立在 App 的起始頁面。
 
 #### tracker.sendEvent()
-此段功能可讓您回傳相關資料以利分析，請看以下例子，按下按鈕後觸發：
+根據使用者行為觸發回傳資料的事件，請參考以下範例，建立物件儲存商品名稱 ("name", 您要回傳的參數) 等資料，在 onClick() 事件後觸發：
 
 ```java
 public void onClick(View v) {
@@ -73,32 +79,28 @@ public void onClick(View v) {
         }
 }
 ```
-您可將相關資料，舉上述例子，先將商品名稱 ("name", 您要回傳的參數) 等資料建立物件
 
-同樣的，sendEvent 也可以回傳 app 使用者當下的頁面為何
-例如，先建立一個物件，儲存使用者當下以及前一個頁面，請參考以下:
+此外，tracker.sendEvent() 也可以回傳 App 使用者當下的頁面。您可以先建立一個物件，儲存使用者當下以及前一個頁面，請參考以下範例：
 
 ```java
 public void onClick(View v) {
 	JSONObject payloadJsonObj = new JSONObject();
 	try {
-		payloadJsonObj.put("current", "前一頁面網址");
-		payloadJsonObj.put("pervious", "當前頁面網址");
+		payloadJsonObj.put("pervious", "前一頁面網址");
+		payloadJsonObj.put("current", "當前頁面網址");
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}
 	tracker.sendEvent("page_view", payloadJsonObj, "yourCustomName");
 }
 ```
-一樣利用 sendEvent() 回傳
 
-> **Note:**<br>
->1. 請置換範例 code 中的 yourCustomName 為您的自創名 <br>
->2. 其他相關回傳資料請參考事件說明
+> **Note**：請將範例中的 yourCustomName 改為您自定義的名稱
 
 
 # Download
 ---
+
 |DMP 1.0.0|
-:----:
+|:-------:|
 |[Download](http://m.vpadn.com/sdk/vpadn-dmp-obf1.0.0-1507221044-4b374f5.jar)|

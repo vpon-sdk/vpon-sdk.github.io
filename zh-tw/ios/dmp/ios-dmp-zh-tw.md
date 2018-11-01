@@ -1,44 +1,53 @@
 ---
-layout: ios
-title: iOS - DMP
-lead: ''
-description: ''
-keywords: dmp
+layout: "ios"
+title: "iOS - DMP SDK"
+lead: ""
+description: ""
+keywords: "dmp"
 permalink: /zh-tw/ios/dmp/
-lang: zh-tw
+lang: "zh-tw"
 ---
 
-# 需求
---------------------------------------------------------------------------------
+# 串接準備
+---
 
+### 系統版本需求
 Deployment target 7.0 以上
 
-# 導入 SDK:
---------------------------------------------------------------------------------
+### 匯入 Vpon DMP SDK 
+請先[下載 Vpon DMP SDK](http://m.vpadn.com/sdk/vpadn-dmp-iOS-1.1.0-a41ba9f.tar.gz)，解壓縮後的 SDK 包含Objective-C 標頭、一個執行期間程式庫，要在應用程式中匯入 Vpon DMP SDK，您必須完成二個步驟：
 
-解壓縮後的 SDK 包含Objective-C 標頭、一個執行期間程式庫 要在應用程式中加入 Vpon Analytics，您必須完成二個步驟：
-1. 在專案中加入lib檔 ，`VpadnAnalytics.h`, `VATracker.h` 與 `VpadnDictionaryBuilder.h` 三個標頭檔
+1. 在專案中加入lib檔 ，`VpadnAnalytics.h`、`VATracker.h` 與 `VpadnDictionaryBuilder.h` 三個標頭檔
 2. 加入 `AdSupport.framework`
 
-# 插入程式碼
+# 開始串接 Vpon DMP SDK
+---
 
---------------------------------------------------------------------------------
+### Import Vpon DMP SDK
 
-## VpadnAnalytics.h
-在每個要插入 Vpon Analytics 的頁面都需要 import VpadnAnalytics.h
+請在每個要加入 Vpon Analytics 的頁面中 import VpadnAnalytics.h
 
-## 填入 License Key
-在第一次呼叫 [VpadnAnalytics sharedInstance] 時需要先填入跟我們申請的 License Key, 而填入的方式如下
-
-```Objective-C
-[[VpadnAnalytics sharedInstance] setLicenseKey:@ "License Key"];
+```objc
+#import "VpadnAnalytics.h";
 ```
-> **Note:** License Key 請替換成跟我們申請的 License Key
 
-## launch Event
-launch Event 的傳送會建議在一開始 AppDelegate 中的 didFinishLaunchingWithOptions 這個 callback 內去送, 程式碼如下:
+### 宣告 VpadnAnalytics 物件，並指定 License Key
 
-```Objective-C
+在第一次呼叫 VpadnAnalytics sharedInstance 時需要先填入 License Key，請參考以下範例：
+
+```objc
+[[VpadnAnalytics sharedInstance] setLicenseKey:@"License Key"];
+```
+> **Note**：請將 License Key 替換成您專屬的 License Key
+
+
+### 回傳資料
+Vpon DMP SDK 提供兩種回傳資料的方法：
+
+#### sendLaunchEvent()
+在使用者開啟 App 時，回報開啟的事件。建議將此方法建立在 AppDelegate 中的 didFinishLaunchingWithOptions，請參考以下範例：
+
+```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     [[VpadnAnalytics sharedInstance] setLicenseKey:@""];
     [[VpadnAnalytics sharedInstance].defaultTracker sendLaunchEvent:@"customID"];
@@ -46,25 +55,18 @@ launch Event 的傳送會建議在一開始 AppDelegate 中的 didFinishLaunchin
 }
 ```
 
-## sendLaunchEvent
-請在 applicationDidBecomeActive 內插入 sendLaunchEvent, 程式碼如下:
+#### send()
+根據使用者行為觸發回傳資料的事件，適用於常用的事件傳送。請參考以下範例，分為有 payload 和無 payload 的呼叫方式：
 
-```Objective-C
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    [[VpadnAnalytics sharedInstance].defaultTracker sendLaunchEvent:@"customID"];
-}
-```
+* 無 payload：
 
-## Other event
-其他event的呼叫方式分為下列幾種，單純的event無任何payload則使用下列方式呼叫
-
-```Objective-C
+```objc
 [[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventType: Event_Custom customID:nil extraData:nil]build]];
 ```
 
-帶有payload則使用下列方式呼叫
+* 有 payload：
 
-```Objective-C
+```objc
 NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity:1];
     [dicExtraData setObject:@"just for test" forKey:@"testInfo"];
     NSDictionary* dicJSONData = [[NSDictionary alloc]initWithObjectsAndKeys:@"VponInc", @"facebook", @"testValue", @"custom",nil];
@@ -73,25 +75,22 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
     dicJSONData = nil;
     dicExtraData = nil;
 ```
-此方式適用於常用的事件傳送
 
-如有特殊的event則使用下列方式呼叫
+* 如有特殊的 event 則可以使用下列方式呼叫，此方式適用於所有事件的傳送：
 
-```Objective-C
+```objc
 [[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventName:@"testEvent" customID:nil extraData:nil]build]];
 ```
-此方式適用於所有事件的傳送
 
-> **Note:**
-
-> 1. 請注意函數 createEventWithName 後方參數請參考 VpadnDictionaryBuilder 內的 EventType
-> 2. 如果需要在 console log內印出debug log, 請在環境變數的地方新增一個環境變數, key為 SHOW_VPON_LOG 值為1
-<!-- > 3. payload 文件請 [參考此連結](#) -->
-
+> **Note：**
+>
+> 1. 請參考 VpadnDictionaryBuilder 內的 EventType 來實作 createEventWithName 中的參數
+> 2. 如果需要在 console log 內印出 debug log，請在環境變數的地方新增一個環境變數，key 為 SHOW_VPON_LOG 值為 "1"
 
 
 # Download
 ---
+
 |DMP 1.1.0|
-:----:
+|:-------:|
 |[Download](http://m.vpadn.com/sdk/vpadn-dmp-iOS-1.1.0-a41ba9f.tar.gz)|

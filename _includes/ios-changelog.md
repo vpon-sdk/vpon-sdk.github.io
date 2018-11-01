@@ -1,12 +1,13 @@
-# iOS Changelog
+# Vpon iOS SDK Change Log
 
-### 4.8.1
+## 4.8.1
+
 * Release Date: 18 Oct. 2018
 * Build Number: 81018102
 * Release Out-stream Video Ad
 * Fix few bugs
 
-### 4.7.1
+## 4.7.1
 
 * Release Date: 01 Feb. 2018
 * Build Number: 10208102
@@ -15,7 +16,7 @@
 * Support new integration way on native ad
 * Increase advertising accuracy
 
-### 4.7.0
+## 4.7.0
 
 * Release Date: 18 Dec. 2017
 * Build Number: 81217102
@@ -23,14 +24,14 @@
 * Prevent cleaning cache in the app
 * Fix few bugs
 
-### 4.6.7
+## 4.6.7
 
 * Release Date: 28 Sep. 2017
 * Build Number: 82907102
 * Fix the bug which causes crash error on iPhone X simulator
 * Adjust few layouts to fit iPhone X
 
-### 4.6.6
+## 4.6.6
 
 * Release Date: 04 Sep. 2017
 * Build Number: 40907102
@@ -38,7 +39,7 @@
 * Support progress wheel to improve interstitial ad's user experience
 * Fix few bugs
 
-### 4.6.5
+## 4.6.5
 
 * Release Date: 19 Jul. 2017
 * Build Number: 91707102
@@ -46,7 +47,7 @@
 * Update impression tracking logic to reduce impression discrepancie
 * Fix few bugs
 
-### 4.6.4
+## 4.6.4
 
 * Release Date: 14 Apr. 2017
 * Build Number: 41407102
@@ -55,7 +56,7 @@
 * Increase advertising accuracy
 * Fix few bugs
 
-### 4.6.3
+## 4.6.3
 
 * Release Date: 22 Dec. 2016
 * Build Number: 22216102
@@ -64,14 +65,14 @@
 * Increase SDK stability
 * Fix few bugs
 
-### 4.6.1
+## 4.6.1
 
 * Release Date: 05 Sep. 2016
 * Build Number: 02906102
 * Fix few bugs
 * AdMob Adapter 1.0.2 supports Bitcode
 
-### 4.6.0
+## 4.6.0
 
 * Release Date: 05 Sep. 2016
 * Build Number: 50906102
@@ -79,21 +80,21 @@
 * Provide a new way to integrate SDK
 * Fix few bugs
 
-### 4.5.3
+## 4.5.3
 
 * Release Date: 20 Jun. 2016
 * Build Number: 02606102
 * Increase SDK stability
 * Fix a potential security problem
 
-### 4.5.2
+## 4.5.2
 
 * Release Date: 20 May. 2016
 * Build Number: 02506102
 * Improve performance and user experience
 * Support the interactive web on video ads
 
-### 4.5.1
+## 4.5.1
 
 * Release Date: 15 Apr. 2016
 * Build Number: 51406102
@@ -101,7 +102,7 @@
 * Fix build error for iOS 7.3+
 * Fix few bugs
 
-### 4.5.0
+## 4.5.0
 
 * Rlease Date: 14 Mar. 2016
 * Build Number: 41306102
@@ -109,19 +110,19 @@
 * Fix pop-out video sound bug
 * Add vertical video to interstitial ads
 
-### 4.2.19
+## 4.2.19
 
 * Build Number: 32215102
 * Minor bug fixed.
 * Excessive log trimmed.
 
-### 4.2.18
+## 4.2.18
 
 * Build Number: 71115102
 * localStorage bug fixed.
 * PresentView bug fixed.
 
-### 4.2.17
+## 4.2.17
 
 * Build Num 62015102
 * Optimize for iOS9.
@@ -130,7 +131,7 @@
 * Minor bugs fixed.
 
 
-### 4.2.16
+## 4.2.16
 
 * Optimize for iOS9.
 * Enhance version stability.
@@ -186,18 +187,18 @@ Fixed: show multiple banner
 
 * Build Number: 62304102
 
-#### Major Build Change
+### Major Build Change
 * Video Ad New features:
 * 加強 native video view 上的 UI component
 * 增加 native video view 和 web view 同時出現的廣告型態
 * 增加 video interstitial ad 可以先將video 暫存到手機，減少播放影片後 buffering 的機會
 * 增加 native video view 後 web view 之間的互動機制，web view 可以控制影片的播放行為並可以得知影片播放的狀態
 
-#### Enhance:
+### Enhance:
 * 大量減少開啟 GPS 的時間
 * 調整遮蔽偵測效率
 
-#### Updates:
+### Updates:
 * 改成Vpadn開頭，也更改class name及protocol function name
 
 ## 4.1.0
