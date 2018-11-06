@@ -64,7 +64,7 @@ public class MainActivity extends Activity implements VpadnAdListener {
         nativeAd = new VpadnNativeAd(this, licenseKey, "TW");
         nativeAd.setAdListener(this);
         VpadnAdRequest adRequest = new VpadnAdRequest();
-        nativeAd.loadAd();
+        nativeAd.loadAd(adRequest);
     }
 }
 ```

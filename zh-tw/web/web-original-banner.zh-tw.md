@@ -95,7 +95,6 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 |vpon\_ad\_licensy\_key| 廣告版位 ID                          | Y       | <font color="red">輸入 Vpon License Key</font>|
 |vpon\_ad\_format      | 橫幅廣告格式<br>(1) 320x50\_mb <br>(2) 300x250\_mb| Y    |"320x50\_mb"
 |vpon\_ad\_test        | 是否拉取測試廣告                   | N       | 1(是)/0(否)<br>預設為 "1"
-|vpon\_ad\_adhesion    | 將橫幅廣告設為置頂或置底             | N       | top/bottom<br>置頂："top"<br>置底："bottom"
 |debug                 | 是否在 console 顯示 debug 資訊     | N       | true/false<br>預設為 "false"
 |openTab               | 是否開啓新 tab 顯示 廣告內容         | N       | true/false<br>預設為 "true"
 |ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 請參考 [Callback]

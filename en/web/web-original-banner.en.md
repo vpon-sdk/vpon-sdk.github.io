@@ -98,7 +98,6 @@ Name                  | Description                              | Reuqired  | E
 vpon\_ad\_licensy\_key| License Key from Vpon                    | Y          | <font color="red">Fill in with your Vpon License Key</font>
 vpon\_ad\_format      | Format<br>(1)320x50\_mb <br>(2)300x250\_mb| Y         | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
-vpon\_ad\_adhesion    | Adhesion Ad                              | N          | top/bottom<br>
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
 ad\_request\_callback | Callback Function for no ad fill         | N          | Please refer to [Callback]
