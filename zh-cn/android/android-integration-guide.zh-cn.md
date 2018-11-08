@@ -112,7 +112,7 @@ dependencies {
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-以上五个为必要的 permission，另外建议您可以额外开启以下 permission，提供更精准的定位讯息来取得地理位置相关的广告
+另外建议您可以额外开启以下 permission，提供更精准的定位讯息来取得地理位置相关的广告
 
 
 ```xml

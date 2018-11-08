@@ -116,7 +116,6 @@ Add permissions below to your AndroidManifest.xml.
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-These are required permissions.
 
 Besides, we recommend that you can add one more permission below additionally to allow Vpon to deliver location-base ads with more accurate location information.
 
