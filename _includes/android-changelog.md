@@ -3,6 +3,7 @@
 ## 4.8.1
 * Release Date: 18 Oct. 2018
 * Build Number: 81018102
+* Upgrade Android minSdkVersion support to 18
 * Release Out-stream Video Ad
 * Fix few bugs
 
