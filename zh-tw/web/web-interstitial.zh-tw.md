@@ -98,11 +98,11 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 ---
 
 1. 新增廣告單元
-2. 在廣告單元中，選擇 Out-of-page 為廣告大小，並完成名稱等設定後儲存
+2. 在廣告單元中，選擇 1x1 為廣告大小，並完成名稱等設定後儲存
 3. 產生廣告代碼
 
 新增廣告單元後，選擇廣告單元，並點擊「產生廣告代碼」
-<img src="{{site.imgurl}}/WebAdManager_01.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_28.png" alt="" class="width-600" />
 選取代碼類型為「Google 發佈商廣告代碼」
 <img src="{{site.imgurl}}/WebAdManager_02.png" alt="" class="width-600" />
 選擇「啟用單一請求」、「啟用同步要求」、「非頁內廣告」
@@ -130,7 +130,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 2. 建立新委刊單，或點擊表格中的現有委刊單
 3. 點擊 `新增委刊項`
 4. 輸入委刊項名稱，不得與聯播網中其他委刊項的名稱重複
-5. 輸入您想要上傳廣告素材的廣告空間大小
+5. 請選擇廣告空間大小為`非內頁廣告`
 6. (選用程序) 輸入任何有助於委刊項投放作業的相關註釋
 7. 輸入委刊項類型、日期、數量和費用
 8. (選用程序) 在 `調整放送` 下方進行放送設定
@@ -149,8 +149,8 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 3. 您可以將多個廣告素材拖曳到委刊項，或一次只加入一個廣告素材
 
 #### 廣告素材設定
-選取廣告素材類型：請選擇`所有`中的`第三方`
-<img src="{{site.imgurl}}/WebAdManager_05.png" alt="" class="width-600" />
+選取廣告素材類型：請選擇`所有`中的`自訂`
+<img src="{{site.imgurl}}/WebAdManager_29.png" alt="" class="width-600" />
 
 程式碼片段請填入：
 
@@ -175,7 +175,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 >
 
 廣告素材設定如下圖所示，注意，請勿勾選`放送到 SafeFrame`：
-<img src="{{site.imgurl}}/WebAdManager_09.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_30.png" alt="" class="width-600" />
 
 # FAQ
 ---

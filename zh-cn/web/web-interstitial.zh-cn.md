@@ -97,11 +97,11 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 ## Google Ad Manager 生成广告代码
 ---
 1. 新增广告单元
-2. 在广告单元中，选择 Out-of-page 为广告大小，并完成名称等设定后储存
+2. 在广告单元中，选择 1x1 为广告大小，并完成名称等设定后储存
 3. 生成 “产生广告代码”
 
 新增广告单元后，选择广告单元，并点击「生成代码」
-<img src="{{site.imgurl}}/WebAdManager_10.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_31.png" alt="" class="width-600" />
 选取代码类型为「Google 发布商代码」
 <img src="{{site.imgurl}}/WebAdManager_11.png" alt="" class="width-600" />
 选择「启用单一请求」、「启用同步请求」、「插页式广告素材」
@@ -129,7 +129,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 2. 建立新委刊单，或点击表格中的现有委刊单
 3. 点击 `新增委刊项`
 4. 输入委刊项名称，不得与联播网中其他委刊项的名称重复
-5. 输入您想要上传广告素材的广告空间大小
+5. 请选择广告空间大小为`非内页广告`
 6. (选用程序) 输入任何有助于委刊项投放作业的相关注释
 7. 输入委刊项类型、日期、数量和费用
 8. (选用程序) 在 `调整放送` 下方进行放送设定
@@ -148,8 +148,8 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 3. 您可以将多个广告素材拖曳到委刊项，或一次只加入一个广告素材
 
 #### 广告素材设定
-选取广告素材类型: 选取`所有`中的`第三方`
-<img src="{{site.imgurl}}/WebAdManager_05.png" alt="" class="width-600" />
+选取广告素材类型: 选取`所有`中的`自定义`
+<img src="{{site.imgurl}}/WebAdManager_32.png" alt="" class="width-600" />
 
 #### 基本广告素材设定
 程式码片段请填入:
@@ -175,7 +175,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 >
 
 广告素材设定如下图所示，注意，请勿勾选`投放到 SafeFrame`：
-<img src="{{site.imgurl}}/WebAdManager_18.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_33.png" alt="" class="width-600" />
 
 # FAQ
 ---

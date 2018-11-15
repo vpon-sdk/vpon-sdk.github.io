@@ -97,11 +97,11 @@ This document provides an instruction of using Google Ad Manager to display Vpon
 Please finish below setting in [Google Ad Manager]:
 
 1. Create ad unit.
-2. Set up Name, Size, and other items for the ad unit. Please choose `Out-of-page` in size option for interstitial ad.
+2. Set up Name, Size, and other items for the ad unit. Please choose `1x1` in size option for interstitial ad.
 3. Generate publisher tag
 
 Select an ad unit, click "GENERATE TAGS" to generate publisher tag.
-<img src="{{site.imgurl}}/WebAdManager_19.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_34.png" alt="" class="width-600" />
 Choose "Google Publisher Tag" as tag type.
 <img src="{{site.imgurl}}/WebAdManager_20.png" alt="" class="width-600" />
 Click "Enable single request", "Enable synchronous requests" and "Out of page".
@@ -131,7 +131,7 @@ To create an order before running an inventory forecast:
 2. Create a new order or choose an existing one in the table.
 3. Click "New line item" to create a new line item.
 4. Fill in line item name. Line item name must be unique within your network.
-5. Choose inventory sizes of the creatives you plan to deliever.
+5. Choose inventory size: `Out-of-page`
 6. (Optional) Enter some comments about the line item that might help with targetting the line item.
 7. Enter the line item type, dates, quantity and cost.
 8. Under Adjust delivery, configure your delivery settings (optional). See Optional delivery settings below for more information.
@@ -150,8 +150,8 @@ After you finish your line item setting, click `Save` to save it.
 3. You can either drag and drop several creatives into the line item or just add one at a time.
 
 ### Creative Setting
-Choose `Third party` in All tab:
-<img src="{{site.imgurl}}/WebAdManager_23.png" alt="" class="width-600" />
+Choose `Custom` in All tab:
+<img src="{{site.imgurl}}/WebAdManager_35.png" alt="" class="width-600" />
 
 Input the snippet of code:
 
@@ -176,7 +176,7 @@ Input the snippet of code:
 
 
 Please refer to the screenshot below to finish your setting. Note that "Serve into a SafeFrame" is not support.
-<img src="{{site.imgurl}}/WebAdManager_27.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_36.png" alt="" class="width-600" />
 
 # FAQ
 ---
