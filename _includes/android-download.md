@@ -9,7 +9,7 @@
 # Adapter Download
 ---
 
- AdMob Adapter <br>(Version: 1.0.0)  | MoPub<br>Custom Events | Smaato<br> Custom Events |
+ AdMob Adapter <br>(Version: 1.1.0)  | MoPub<br>Custom Events | Smaato<br> Custom Events |
 :----------------------------------: | :---------------------:| :-----------------------:|
  [download][2]                       | [download][3]          | [download][9]
 

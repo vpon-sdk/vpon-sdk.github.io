@@ -97,6 +97,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 |vpon\_ad\_test        | 是否拉取測試廣告                   | N       | 1(是)/0(否)<br>預設為 "1"
 |debug                 | 是否在 console 顯示 debug 資訊     | N       | true/false<br>預設為 "false"
 |openTab               | 是否開啓新 tab 顯示 廣告內容         | N       | true/false<br>預設為 "true"
+|is\_rotate             | 是否開啟 Banner 自動更新            | N       | true/false<br>預設為 "true"
 |ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 請參考 [Callback]
 
 # 範例網頁

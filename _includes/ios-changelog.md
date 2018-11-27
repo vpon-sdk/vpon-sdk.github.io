@@ -1,5 +1,13 @@
 # Vpon iOS SDK Change Log
 
+## 4.8.2
+
+* Release Date: 27 Nov. 2018
+* Build Number: 62118102
+* Opitimize ad request performance
+* Support AdMob Native Ad mediation (AdMobAdapterVpadn-1.0.8 is required)
+* Bugs fix
+
 ## 4.8.1
 
 * Release Date: 18 Oct. 2018

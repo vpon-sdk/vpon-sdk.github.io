@@ -99,6 +99,7 @@ vpon\_ad\_format      | 横幅广告格式<br>(1)320x50\_mb <br>(2)300x250\_mb| 
 vpon\_ad\_test        | 是否拉取测试广告                    | N    | 1(是)/0(否)<br>预设为 "1"
 debug                 | 是否在 console 显示 debug 资讯      | N    | true/false<br>预设为 false
 openTab               | 是否开启新tab 显示 广告内容           | N    | true/false<br>预设为 true
+is\_rotate             | 是否开启 Banner 自动更新           | N       | true/false<br>预设为 "true"
 ad\_request\_callback | 没有广告回传时的 Callback Function  | N       | 请参考 [Callback]
 
 # 范例网页
