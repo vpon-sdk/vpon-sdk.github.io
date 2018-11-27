@@ -4,6 +4,7 @@
 
 * Release Date: 27 Nov. 2018
 * Build Number: 62118102
+* Update system requirement to iOS 9.0
 * Opitimize ad request performance
 * Support AdMob Native Ad mediation (AdMobAdapterVpadn-1.0.8 is required)
 * Bugs fix
