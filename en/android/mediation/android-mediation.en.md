@@ -26,7 +26,7 @@ AdMob Mediation is a feature that lets you serve ads to your apps from multiple 
 
 
 [admob]: {{site.imgurl}}/admob-logo.png
-[dfp]:   {{site.imgurl}}/dfp-logo.png
+[dfp]:   {{site.imgurl}}/GoogleAdManagerLogo.png
 [mopub]: {{site.imgurl}}/mopub-logo.png
 [smaato]: {{site.imgurl}}/smaato-logo.png
 

@@ -7,9 +7,14 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/mediation/dfp/
 lang:           "en"
 ---
-This document provides instructions for using the Google Mobile Ads SDK to display banner ads. If you're not familiar setting banner and interstitial, review [integration guide] first for SDK and DFP.
+# Latest Information
+---
+According to Google Ad Manager's announcement, Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to this [official annoucement](https://support.google.com/admanager/answer/9020684) to finish mediation setting in Yield Group.
 
-If you are using AdMob or DFP, please import 2 JARs into your project. ([download][1])
+
+# Overview
+---
+This document provides instructions for using the Google Mobile Ads SDK to display banner ads. If you are using AdMob or Google Ad Manager, please make sure below files are included in your project.
 
 1. Fundamental SDK
 2. Adapter SDK
@@ -17,11 +22,11 @@ If you are using AdMob or DFP, please import 2 JARs into your project. ([downloa
 
 # Create an Ad Unit
 ---
-Define ad units first in DoubleClick for Publishers and then add them to the ad tags on your mobile app. This is the typical method of creating an ad unit. The formate of ad unit is like: `/networkCode/adUnitName`
+Define ad units first in Google Ad Manager and then add them to the ad tags on your mobile app. This is the typical method of creating an ad unit. The formate of ad unit is like: `/networkCode/adUnitName`
 
 
 ## Unit Ads Settings
-Go to DFP ([Here])：
+Go to Google Ad Manager ([Here])：
 
 1. Inventory
 2. Setting New Ad Unit (Give your ad unit a descriptive name so that you can easily determine where that ad unit will be displayed and also include the size of that unit.)
@@ -30,12 +35,12 @@ Go to DFP ([Here])：
 ![DFP 廣告空間]
 
 ## Setting Order, Line Item and Creative
-To run a new ad campaign through DFP Small Business, you'll first need to create a new order. After creating the order, you'll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), DFP will not reserve inventory until the order is approved.<br><br>
+To run a new ad campaign through Google Ad Manager, you'll first need to create a new order. After creating the order, you'll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), Google Ad Manager will not reserve inventory until the order is approved.<br><br>
 
 
 To create an order before running an inventory forecast:
 
-1. In your DFP Small Business account, click the Orders tab.
+1. In your Google Ad Manager account, click the Orders tab.
 2. Click New order.
 3. Enter your order information in the appropriate fields.
 (Order names must be unique within your network.)
@@ -51,7 +56,7 @@ Once you've created an order, you'll need to approve it before the line items ar
 ## Create a Line Item
 To create a line item:
 
-1. In your DFP Small Business account, click the Orders tab.
+1. In your Google Ad Manager account, click the Orders tab.
 2. Create a new order or click an existing order in the table.
 3. Click New line item.
 4. Enter a line item name. Line item names must be unique within your network.
@@ -115,21 +120,17 @@ Example：
 
 
 
-# Other Reference
+# Tips
 ---
-[DFP Small Business](https://support.google.com/dfp_sb/)<br>
-[Google Developers DFP Banner Ads](https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android)<br>
-[Google Developers Interstitial Ads](https://developers.google.com/mobile-ads-sdk/docs/android/doubleclick/#support)
 
-# Download Sample Code
----
- [Android Download][1]
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
 
 
 [integration guide]: ../../integration-guide
-[1]: {{site.baseurl}}/android/download/#dfp
+[Sample Code]: {{site.baseurl}}/android/download/#dfp
 [Here]: https://www.google.com/dfp/
-[DFP 廣告空間]: {{site.imgurl}}/ADUNIT_DFP.png
+[DFP 廣告空間]: {{site.imgurl}}/AppAdManager_03.png
 [DFP_Partner_English.png]: {{site.imgurl}}/DFP_Partner_English.png
 [新增指定目標]: {{site.imgurl}}/AddTargeting.png
 [廣告素材類型]: {{site.imgurl}}/SDKMediation.png

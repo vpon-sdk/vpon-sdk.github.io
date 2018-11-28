@@ -28,7 +28,7 @@ Google AdMob    |  Google DFP |      MoPub   |   Smaato      |
 [串接说明]: ../integration-guide
 
 [admob]: {{site.imgurl}}/admob-logo.png
-[dfp]:   {{site.imgurl}}/dfp-logo.png
+[dfp]:   {{site.imgurl}}/GoogleAdManagerLogo.png
 [mopub]: {{site.imgurl}}/mopub-logo.png
 [smaato]: {{site.imgurl}}/smaato-logo.png
 
