@@ -1,6 +1,6 @@
 ---
 layout:         "android"
-title:          "Android 中介服務 - DFP"
+title:          "Android 中介服務 - Google Ad Manager"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"

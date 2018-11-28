@@ -1,27 +1,27 @@
 ---
 layout:         "ios"
-title:          "iOS - DFP"
+title:          "iOS - Google Ad Manager"
 lead:           "ios メディエーション"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/ios/mediation/dfp/
 lang:            "jp"
 ---
-このドキュメントは、 Google Mobile Ads SDK を使用してバナー広告を表示するためのガ イドです。バナー広告やインタースティシャル広告の設定に慣れていない場合は、まず始 めに SDK および DFP の[実装ガイド]をご覧ください。
+このドキュメントは、 Google Mobile Ads SDK を使用してバナー広告を表示するためのガ イドです。バナー広告やインタースティシャル広告の設定に慣れていない場合は、まず始 めに SDK および Google Ad Manager の[実装ガイド]をご覧ください。
 
-AdMob または DFP をご利用中の場合は、プロジェクトに lib を 2 つインポートしてくだ さい。 ([download][1])
+AdMob または Google Ad Manager をご利用中の場合は、プロジェクトに lib を 2 つインポートしてくだ さい。 ([download][1])
 
 1. Fundamental SDK  or  Framework SDK
 2. Adapter SDK
 
 
-# DFP Ad unitの作成
+# Google Ad Manager Ad unitの作成
 ---
-まず、DFPでAd unit IDを生成し、アプリに設定します。これが一般的なAd unitの設定方法です。Ad unitのフォーマットは、`/networkCode/adUnitName` となります
+まず、Google Ad ManagerでAd unit IDを生成し、アプリに設定します。これが一般的なAd unitの設定方法です。Ad unitのフォーマットは、`/networkCode/adUnitName` となります
 
 
 ## Unit Ads Settings
-DFP ユーザインターフェースにて [Here]：
+Google Ad Manager ユーザインターフェースにて [Here]：
 
 1. Inventoryをクリック
 2. Settings内項目の入力 （Ad unitに掲載位置・ユニットサイズを含め簡単に判別できるような名前をつけてください）
@@ -30,12 +30,12 @@ DFP ユーザインターフェースにて [Here]：
 ![DFP 廣告空間]
 
 ## オーダー、広告申込情報及び広告クリエイティブの設定
-DFP Small Businessを通じて新しい広告キャンペーンを実行する場合、まず新しいオーダーを作成してください。オー ダーを作成した後、広告申込情報の作成・広告クリエイティブの追加および承認を受けてから掲載が開始されます。留保された広告申込情報(sponsorshipとstandard)につきましては、承認を得るまで DFP は広告在庫を確保しません。 <br><br>
+Google Ad Managerを通じて新しい広告キャンペーンを実行する場合、まず新しいオーダーを作成してください。オー ダーを作成した後、広告申込情報の作成・広告クリエイティブの追加および承認を受けてから掲載が開始されます。留保された広告申込情報(sponsorshipとstandard)につきましては、承認を得るまで Google Ad Manager は広告在庫を確保しません。 <br><br>
 
 ## オーダーの作成
 広告枠予測を行う前にオーダーを作成する方法：
 
-1. DFP Small Businessアカウント内で`オーダー` タグをクリックします。
+1. Google Ad Managerアカウント内で`オーダー` タグをクリックします。
 2. `新しいオーダー`をクリックします。
 3. オーダー情報を適切に入力します。
 (オーダー名は他のアドネットワークと重複しないようにしてください。)
@@ -51,7 +51,7 @@ DFP Small Businessを通じて新しい広告キャンペーンを実行する�
 
 広告申込情報の作成方法:
 
-1. DFP Small Businessアカウント内の[オーダー] タブを開きます。
+1. Google Ad Managerアカウント内の[オーダー] タブを開きます。
 
 2. 新しいオーダーを作成、もしくはフォーム内の既存オーダーを開きます。
 
@@ -113,7 +113,7 @@ DFP Small Businessを通じて新しい広告キャンペーンを実行する�
 320x50.
 
 ## インターステイシャル広告
-お客様は DFP 内に広告ユニットを作成することで、インターステイシャル広告ユニットとすることができます。インターステイシャル広告ユニットは通常よく見られる四種類のサイズがあ りますが、各デバイスの実際のディスプレイのサイズとは関係ありません。SDK が広告素材を調整することで、サイズが若干異なるディスプレイ上に正確に表示します。
+お客様は Google Ad Manager 内に広告ユニットを作成することで、インターステイシャル広告ユニットとすることができます。インターステイシャル広告ユニットは通常よく見られる四種類のサイズがあ りますが、各デバイスの実際のディスプレイのサイズとは関係ありません。SDK が広告素材を調整することで、サイズが若干異なるディスプレイ上に正確に表示します。
 
 * モバイル:320×480(横向き)、480×320(縦向き)
 * タブレット:768×1024(横向き)、1024×768(縦向き)
@@ -129,18 +129,14 @@ DFP Small Businessを通じて新しい広告キャンペーンを実行する�
 
 
 
-# その他の秘訣
+# Tips
 ---
-[DFP Small Business](https://support.google.com/dfp_sb/)<br>
-[Google Developers DFP Banner Ads](https://developers.google.com/mobile-ads-sdk/docs/dfp/fundamentals#android)<br>
-[Google Developers Interstitial Ads](https://developers.google.com/mobile-ads-sdk/docs/android/doubleclick/#support)
 
-# Sample Code ダウンロード
----
-[Download Sample Code][1]
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
 
 [実装ガイド]: ../../integration-guide/
-[1]: {{site.baseurl}}/jp/android/download/#dfp
+[Sample Code]: {{site.baseurl}}/jp/android/download/#dfp
 [Here]: https://www.google.com/dfp/
 [DFP 廣告空間]: {{site.imgurl}}/ADUNIT_DFP.png
 [DFP_Partner_Japanese]: {{site.imgurl}}/DFP_Partner_Japanese.png

@@ -1,6 +1,6 @@
 ---
 layout:         "ios"
-title:          "iOS - DFP"
+title:          "iOS - Google Ad Manager"
 lead:           "iOS mediation"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"

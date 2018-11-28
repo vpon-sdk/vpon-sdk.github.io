@@ -1,6 +1,6 @@
 ---
 layout:         "android"
-title:          "Android - DFP"
+title:          "Android - Google Ad Manager"
 lead:           "android mediation"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
