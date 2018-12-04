@@ -26,7 +26,7 @@ AdMob メディエーションは、AdMob ネットワーク、サードパー�
 
 
 
-[admob]: {{site.imgurl}}/admob-logo.png
+[admob]: {{site.imgurl}}/admob-logo2.png
 [dfp]:   {{site.imgurl}}/GoogleAdManagerLogo.png
 [mopub]: {{site.imgurl}}/mopub-logo.png
 [smaato]: {{site.imgurl}}/smaato-logo.png

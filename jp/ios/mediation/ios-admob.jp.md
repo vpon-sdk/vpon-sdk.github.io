@@ -7,65 +7,66 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       jp/ios/mediation/admob/
 lang:            "jp"
 ---
-# Google AdMob Mediation
---------
-Google AdMob Mediation は[こちら]をご覧ください。
+# Overview
+---
+This document provides instructions for using the Google Mobile Ads SDK to display banner ads. If you are using AdMob or Google Ad Manager, please make sure below files are included in your project.
 
-# Google Ad Network Mediation
------
+1. Fundamental SDK
+2. Adapter SDK
 
-1. 番号付きのリストアイテム。
-ログイン - [AdMob account][0]
-![1]
+# Ad Unit
+---
 
-2. `収益` ->`新アプリケーションによる収益化 `
-![][2]
+## Set Up A New App
+Log in to your [AdMob][1] first. Set up a new app and get your App ID.
+<img src="{{site.imgurl}}/AdMob_023.png" alt="" class=""/>
 
-3. アプリケーションの選択: <br>
-(1) app name の記入。<br>
-(2) プラットフォームの選択。<br>
-(3)「アプリケーションの追加」をクリック。 <br>
-![][3]
+## Create Ad Unit
+Create an ad unit ang get your Ad Unit ID.
+<img src="{{site.imgurl}}/AdMob_024.png" alt="" class=""/>
 
-4. 広告フォームの選択と広告ユニットの命名: <br>
-(1) バナー広告またはインターステイシャル広告の選択。 <br>
-(2) 設定。 <br>
-(3) 広告ユニット名(例:Vpon_Banner)。 <br>
-(4) 保存<br>
-![][4]
+Please add the App ID and Ad Unit ID to your application to display ads.
 
-5. 一組の広告ユニット番号を取得し、選択が完了。
-![][5]
+# Mediation
+---
 
-6. 仲介サービスの編集
-![][6]
+## Mediation Group
+Open "Medation" page, click CREATE MEDIATION GROUP to create mediation group.
+<img src="{{site.imgurl}}/AdMob_025.png" alt="" class=""/>
 
-7. 広告放送ネットワークの追加
-![][7]
+Set up meditaion group that based on your requirement.
+<img src="{{site.imgurl}}/AdMob_026.png" alt="" class=""/>
 
-8. Vponをメディエーションリストに設定する：    <br>
-(1) Vponネットワークタグを利用可能な広告ネットワークで検索  <br>
-(2) Vpon広告ID：Vponのバックオフィスから取得したVponバナーIDを入力  <br>
-(3) 地域：Vponプラットフォームからリクエストしたい地域を選択する  <br>
+Add Ad Units to the mediation group.
+<img src="{{site.imgurl}}/AdMob_027.png" alt="" class=""/>
+<img src="{{site.imgurl}}/AdMob_028.png" alt="" class=""/>
 
-(あなたのアプリのユーザーが中国から利用している場合は、この列に`cn`と入力し、それ以外は`tw`と入力します)
+## Set Up Ad Network
+If you want to display Banner Ad or Interstitial Ad in your app, please choose `ADD AD NETWORK`
+<img src="{{site.imgurl}}/AdMob_029.png" alt="" class=""/>
 
-![][8]
+Select Vpon.
+<img src="{{site.imgurl}}/AdMob_030.png" alt="" class=""/>
 
+Please insert your own Vpon License key in Vpon Ad ID and insert "TW" in Zone.
+<img src="{{site.imgurl}}/AdMob_031.png" alt="" class=""/>
 
 
-# サンプルコードのダウンロード
---------------------
-[Download Sample Code]
+## Custom Event
+If you want to display Native Ad in your app, please choose `ADD CUSTOM EVENT`
+<img src="{{site.imgurl}}/AdMob_032.png" alt="" class=""/>
 
-[こちら]: https://developers.google.com/admob/ios/quick-start
-[0]: http://www.google.com/admob/
-[1]:  {{site.imgurl}}/AdMobScreenshotSiJP1.PNG
-[2]:  {{site.imgurl}}/AdMobScreenshotSiJP2.png
-[3]:  {{site.imgurl}}/AdMobScreenshotSiJP3.png
-[4]:  {{site.imgurl}}/AdMobScreenshotSiJP4.png
-[5]:  {{site.imgurl}}/AdMobScreenshotSiJP5.png
-[6]:  {{site.imgurl}}/AdMobScreenshotSiJP6.PNG
-[7]:  {{site.imgurl}}/AdMobScreenshotSiJP7.png
-[8]:  {{site.imgurl}}/AdMobScreenshotSiJP8.png
-[Download Sample Code]: {{site.baseurl}}/ios/download/#admob
+Please insert the Class Name of CustomEvent as below. For example, if you are integrating with your iOS app, please insert `GADVpadnNativeAdCustomEvent` and insert your own Vpon License Key in Parameter.
+<img src="{{site.imgurl}}/AdMob_033.png" alt="" class=""/>
+
+
+# Tips
+---
+
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
+
+
+[串接說明]:http://wiki.vpon.com/jp/ios/integration-guide/
+[1]:https://apps.admob.com
+[Sample Code]: {{site.baseurl}}/jp/ios/download

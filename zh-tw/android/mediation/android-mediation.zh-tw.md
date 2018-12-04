@@ -27,7 +27,7 @@ lang:           "zh-tw"
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
 
-[admob]: {{site.imgurl}}/admob-logo.png
+[admob]: {{site.imgurl}}/admob-logo2.png
 [dfp]:   {{site.imgurl}}/GoogleAdManagerLogo.png
 [mopub]: {{site.imgurl}}/mopub-logo.png
 [smaato]: {{site.imgurl}}/smaato-logo.png

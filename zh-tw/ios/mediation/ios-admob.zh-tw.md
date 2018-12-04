@@ -7,59 +7,69 @@ keywords:       'Keywords for this page, in the meta data'
 permalink:      /zh-tw/ios/mediation/admob/
 lang:           "zh-tw"
 ---
-# Google AdMob Mediation
---------
-Google AdMob Mediation 請看[這裡]
-
-# Admob Mediation 操作圖示
------
-
-1. 請登入到 [這裡][a]
-![1]
-
-2. 盈利 -&gt; 透過新應用程式盈利
-![][2]
-
-3. 選取應用程式:
-  (1) 填入app name
-  (2) 選取平台
-  (3) 點選 “新增應用程式"
-![][3]
-
-4. 選取廣告格式並對廣告單元命名: (1) 選擇橫幅廣告或者插頁廣告 (2) 設定,  (3) 廣告單元名稱(ex. Vpon\_Banner)  (4) 儲存
-![][4]
-
-5. 得到一組廣告單元編號，選取完成
-![][5]
-
-6. 編輯中介服務
-![][6]
-
-7. 新增廣告連播網
-![][7]
-
-8. 設定Vpon進入您的聚合列表：
-(1) 在可用的廣告聯播網中找到 Vpon
-(2) Vpon Ad Id: 填入您在 Vpon 後台申請的 License Key
-(3) Zone: 選擇您欲請求的廣告平台的地區，請填寫 "TW"
-
-![][8]
-
-
-
-# 下載 Sample Code
+# 概要
 ---
-[前往下載]
+以下為搭配 Google AdMob 進行廣告串接的設定方式。在開始進行設定之前，請先參考[串接說明]將 Vpon SDK 加到您的專案中。請注意，要使用 Google AdMob 進行廣告串接的話，請務必確認您的專案中包含以下三個檔案：
+
+1. Google Mobile Ads SDK
+2. Vpon SDK
+3. Vpon AdMob Adapter
 
 
-[這裡]: https://developers.google.com/admob/ios/quick-start
-[a]: http://www.google.com/admob/
-[1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
-[2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
-[3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png
-[4]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid4.png
-[5]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid5.png
-[6]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid6.png
-[7]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid7.png
-[8]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid8.png
-[前往下載]: {{site.baseurl}}/zh-tw/ios/download
+# 廣告單元設定
+---
+
+## 新增應用程式
+首先，請登入您的 [AdMob][1] 後台，根據應用程式平台來新增應用程式，並取得應用程式 ID
+
+<img src="{{site.imgurl}}/AdMob_001.png" alt="" class=""/>
+
+## 新增廣告單元
+新增應用程式後，請選擇要新增的廣告單元格式，並取得廣告單元 ID
+<img src="{{site.imgurl}}/AdMob_002.png" alt="" class=""/>
+
+請將應用程式 ID 及廣告單元 ID 加到您的應用程式專案中，以取得廣告
+
+# 中介服務設定
+---
+
+## 中介服務群組
+切換到中介服務標籤，選擇建立中介服務群組
+<img src="{{site.imgurl}}/AdMob_003.png" alt="" class=""/>
+
+根據您的應用程式平台及廣告格式建立中介服務群組
+<img src="{{site.imgurl}}/AdMob_004.png" alt="" class=""/>
+
+選擇要加入廣告單元
+<img src="{{site.imgurl}}/AdMob_005.png" alt="" class=""/>
+<img src="{{site.imgurl}}/AdMob_006.png" alt="" class=""/>
+
+## 廣告聯播網設定
+如果您要串接的是橫幅廣告或插頁廣告，請選擇新增廣告聯播網將 Vpon 新增為您的廣告聯播網
+<img src="{{site.imgurl}}/AdMob_007.png" alt="" class=""/>
+
+選擇 Vpon
+<img src="{{site.imgurl}}/AdMob_008.png" alt="" class=""/>
+
+請在 Vpon Ad ID 的欄位中，填入您申請的 Vpon License Key，並在 Zone 的欄位中，填入 "TW"
+<img src="{{site.imgurl}}/AdMob_009.png" alt="" class=""/>
+
+
+## 自訂事件設定
+如果您要串接的是原生廣告，請選擇新增自訂事件將 Vpon 新增為您的廣告聯播網
+<img src="{{site.imgurl}}/AdMob_010.png" alt="" class=""/>
+
+請在 Class Name 的欄位中，填入 CustomEvent 的 Class Name，iOS 為 `GADVpadnNativeAdCustomEvent`，並在 Parameter 中填入您申請的 Vpon License Key
+<img src="{{site.imgurl}}/AdMob_011.png" alt="" class=""/>
+
+
+# Tips
+---
+
+### Sample Code
+如果您想看到完整的串接實例，請參考我們的 [Sample Code]
+
+
+[串接說明]:http://wiki.vpon.com/zh-tw/ios/integration-guide/
+[1]:https://apps.admob.com
+[Sample Code]: {{site.baseurl}}/zh-tw/ios/download

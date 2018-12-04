@@ -7,309 +7,68 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-tw/android/mediation/admob/
 lang:           "zh-tw"
 ---
-
-# 完成串接準備
+# 概要
 ---
-在開始串接廣告之前，請先完成以下準備：
+以下為搭配 Google AdMob 進行廣告串接的設定方式。在開始進行設定之前，請先參考[串接說明]將 Vpon SDK 加到您的專案中。請注意，要使用 Google AdMob 進行廣告串接的話，請務必確認您的專案中包含以下三個檔案：
 
-* 參考 [Google AdMob Integration Guide] 完成 AdMob SDK 串接
-* 參考[串接說明]，將 Vpon SDK 導入您的專案中，請務必將 Vpon Android SDK 及 Vpon AdMob Adapter 都加到您的專案中
+1. Google Mobile Ads SDK
+2. Vpon SDK
+3. Vpon AdMob Adapter
 
-# AdMob Mediation 後台操作說明
------
 
-1. 請先進入您的 [AdMob 後台]
-![1]
-
-2. 盈利 -&gt; 透過新應用程式盈利
-![][2]
-
-3. 選取應用程式:<br>
-  (1) 填入 app name <br>
-  (2) 選取平台 <br>
-  (3) 點選 “新增應用程式" <br>
-![][3]
-
-4. 選取廣告格式並對廣告單元命名:<br>
- (1) 選擇橫幅廣告或者插頁廣告 <br>
- (2) 設定  <br>
- (3) 廣告單元名稱(ex. Vpon\_Banner) <br>
- (4) 儲存
-![][4]
-
-5. 得到一組廣告單元編號，選取完成
-![][5]
-
-6. 編輯中介服務
-![][6]
-
-7. 新增廣告連播網
-![][7]
-
-8. 設定 Vpon 進入您的聚合列表：<br>
- (1) 在可用的廣告聯播網中找到 Vpon <br>
- (2) Vpon Ad Id: 填入您在 Vpon 後台申請的 License Key <br>
- (3) Zone: 選擇您欲請求的廣告平台的地區，請填寫 "TW"<br>
-
-![][8]
-
-# AdMob SDK 串接說明
+# 廣告單元設定
 ---
 
-## 系統需求
------
-1. 請確認您已安裝最新版的[Android SDK]，並至少在 Android v3.2 (target in project.properties to android-13)下編譯。
-2. Google Mobile Ads SDK可在Android 2.3以上的版本(在 AndroidManifest.xml 設定 android:minSdkVersion 為至少 9)執行。
+## 新增應用程式
+首先，請登入您的 [AdMob][1] 後台，根據應用程式平台來新增應用程式，並取得應用程式 ID
 
-## 導入SDK
+<img src="{{site.imgurl}}/AdMob_001.png" alt="" class=""/>
+
+## 新增廣告單元
+新增應用程式後，請選擇要新增的廣告單元格式，並取得廣告單元 ID
+<img src="{{site.imgurl}}/AdMob_002.png" alt="" class=""/>
+
+請將應用程式 ID 及廣告單元 ID 加到您的應用程式專案中，以取得廣告
+
+# 中介服務設定
 ---
-以下的步驟為將Google Mobile Ads SDK 導入您的 App 中:
 
-1. 新增並 reference Google Play Services library到您的 Eclipse/Android Studio workspace.
-2. 在 AndroidManifest.xml中新增 meta-data tag.
-3. 在 AndroidManifest 中宣告 com.google.android.gms.ads.AdActivity.
-4. 在 manifest 中加入 permissions
+## 中介服務群組
+切換到中介服務標籤，選擇建立中介服務群組
+<img src="{{site.imgurl}}/AdMob_003.png" alt="" class=""/>
 
-## Google Play Services library
-請先安裝設定 Google Play Service SDK: [Android instructions]
+根據您的應用程式平台及廣告格式建立中介服務群組
+<img src="{{site.imgurl}}/AdMob_004.png" alt="" class=""/>
 
-### Eclipse
+選擇要加入廣告單元
+<img src="{{site.imgurl}}/AdMob_005.png" alt="" class=""/>
+<img src="{{site.imgurl}}/AdMob_006.png" alt="" class=""/>
+
+## 廣告聯播網設定
+如果您要串接的是橫幅廣告或插頁廣告，請選擇新增廣告聯播網將 Vpon 新增為您的廣告聯播網
+<img src="{{site.imgurl}}/AdMob_007.png" alt="" class=""/>
+
+選擇 Vpon
+<img src="{{site.imgurl}}/AdMob_008.png" alt="" class=""/>
+
+請在 Vpon Ad ID 的欄位中，填入您申請的 Vpon License Key，並在 Zone 的欄位中，填入 "TW"
+<img src="{{site.imgurl}}/AdMob_009.png" alt="" class=""/>
+
+
+## 自訂事件設定
+如果您要串接的是原生廣告，請選擇新增自訂事件將 Vpon 新增為您的廣告聯播網
+<img src="{{site.imgurl}}/AdMob_010.png" alt="" class=""/>
+
+請在 Class Name 的欄位中，填入 CustomEvent 的 Class Name，例：Android 為 `com.vpadn.mediation.VpadnAdapter`，並在 Parameter 中填入您申請的 Vpon License Key
+<img src="{{site.imgurl}}/AdMob_011.png" alt="" class=""/>
+
+
+# Tips
 ---
-a.在您的應用程式專案中按右鍵並選擇 `properties`
 
-![][10]
+### Sample Code
+如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
-b.選擇 Android -&gt;
-`Add...` 尋找 google-play-services\_lib 內容後按下 OK 新增 Google Play Services library.
-
-![][11]
-
-如圖示，您的專案已經 reference Google Play Services library.
-
-![][12]
-
-### Android Studio
----
-1. 請打開 `app` 模組下的 `build.gradle`
-> **Note**: Android Studio 專案下有兩個 `build.gradle`，請小心以免搞混
-
-2. 增加 build rule 在 dependencies 底下，已取得最新版 `play-services`
-
-```groovy
-apply plugin: 'com.android.application'
-    ...
-
-    dependencies {
-      compile 'com.google.android.gms:play-services:+'
-    }
-```
-接著，存檔並至 toolbar 點選 **Sync Project with Gradle Files**
-
-## 新增 meta-data tag
-Google Play Service 需要在 AndroidManifest.xml 中加入以下設定:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.company"
-          android:versionCode="1" android:versionName="1.0">
- <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">
-  <span style="color:#ff0000"><meta-data android:name="com.google.android.gms.version"
-             android:value="@integer/google_play_services_version"/></span>
-   <activity android:label="@string/app_name" android:name="BannerExample">
-     <intent-filter>
-       <action android:name="android.intent.action.MAIN"/>
-       <category android:name="android.intent.category.LAUNCHER"/>
-     </intent-filter>
-   </activity>
- </application>
-</manifest>
-```
-
-## 宣告 AdActivity
----
-Mobile Ads SDK 需要在 AndroidManifest.xml 中宣告 com.google.android.gms.ads.AdActivity
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.company"
-          android:versionCode="1" android:versionName="1.0">
- <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">
-   <meta-data android:name="com.google.android.gms.version"
-               android:value="@integer/google_play_services_version"/>
-   <activity android:label="@string/app_name" android:name="BannerExample">
-     <intent-filter>
-       <action android:name="android.intent.action.MAIN"/>
-       <category android:name="android.intent.category.LAUNCHER"/>
-     </intent-filter>
-   </activity>
-   <span style="color:#ff0000">
-     <activity android:name="om.google.android.gms.ads.AdActivity"
-       android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/></span>
- </application>
-</manifest>
-```
-
-## Permissions
-
----
-加入以下 permission 在您的 AndroidManifest.xml<br>
-`'INTERNET"` 此為必要，以開啓網路功能進行傳輸。<br>
-`'ACCESS_NETWORK_STATE"` 此為選擇，用來讀取使用者當前的網路狀態。<br>
-
-```xml
- <?xml version="1.0" encoding="utf-8"?>
- <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.company"
-          android:versionCode="1" android:versionName="1.0">
-  <application android:icon="@drawable/icon" android:label="@string/app_name"
-               android:debuggable="true">
-    <meta-data android:name="com.google.android.gms.version"
-               android:value="@integer/google_play_services_version"/>
-    <activity android:label="@string/app_name" android:name="BannerExample">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-    </activity>
-    <activity android:name="com.google.android.gms.ads.AdActivity"
-              android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-  </application>
-  <span style="color:#ff0000"><uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/></span>
- </manifest>
-```
-
-# Banner 橫幅廣告
----
-要在您的 Android app 中展示橫幅廣告，只需要簡單的新增 com.google.android.gms.ads.AdView 到您的使用者介面。
-新增 com.google.android.gms.ads.AdView
-
-利用以下五個步驟新增出一個橫幅廣告: <br>
-• 匯入 com.google.android.gms.ads.*  <br>
-• 宣告一個 AdView物件  <br>
-• 建立並指定一個 ad unit ID  <br>
-• 在使用者介面中新增 view  <br>
-• 取得banner  <br>
-
-最簡易的方法為在您的 Activity 中做出所有的步驟.
-
-```java
-  import com.google.android.gms.ads.*;
-
-  public class BannerExample extends Activity {
-  private AdView adView;
-
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.main);
-
-    // Create the adView.
-    adView = new AdView(this);
-    adView.setAdUnitId(MY_AD_UNIT_ID);
-    adView.setAdSize(AdSize.BANNER);
-
-    // Lookup your LinearLayout assuming it's been given
-    // the attribute android:id="@+id/mainLayout".
-    LinearLayout layout = (LinearLayout)findViewById(R.id.mainLayout);
-
-    // Add the adView to it.
-    layout.addView(adView);
-
-    // Initiate a generic request.
-    AdRequest adRequest = new AdRequest.Builder().build();
-
-    // Load the adView with the ad request.
-    adView.loadAd(adRequest);
-  }
-
-  @Override
-  public void onPause() {
-    adView.pause();
-    super.onPause();
-  }
-
-  @Override
-  public void onResume() {
-    super.onResume();
-    adView.resume();
-  }
-
-  @Override
-  public void onDestroy() {
-    adView.destroy();
-    super.onDestroy();
-   }
- }
-```
-參考更多的 banner 設定: [here][13]
-
-
-# Interstitial 插頁廣告
----
-和 AdView 的使用方式相似:
-• 匯入 `com.google.android.gms.ads.*`
-• 宣告物件
-• 建立並指定一個和banner不同的 AdMob Ad Unit ID。
-
-同樣的，最方便的方式為在您的 Activity 中做以下的步驟。
-
-```java
- import com.google.android.gms.ads.*;
- public class BannerExample extends Activity {
-
-  private InterstitialAd interstitial;
-
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.main);
-
-    // Create the interstitial.
-    interstitial = new InterstitialAd(this);
-    interstitial.setAdUnitId(MY_AD_UNIT_ID);
-
-    // Create ad request.
-    AdRequest adRequest = new AdRequest.Builder().build();
-
-    // Begin loading your interstitial.
-    interstitial.loadAd(adRequest);
-
-  }
-
-  // Invoke displayInterstitial() when you are ready to display an interstitial.
-  public void displayInterstitial() {
-    if (interstitial.isLoaded()) {
-      interstitial.show();
-     }
-   }
- }
-```
-
-# 下載 Sample Code
---------------------
-[Sample Code]
-
-  [Google AdMob Integration Guide]: https://developers.google.com/admob/android/quick-start
-  [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
-  [AdMob 後台]: https://www.google.com.tw/admob/
-  [1]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid1.png
-  [2]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid2.png
-  [3]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid3.png
-  [4]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid4.png
-  [5]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid5.png
-  [6]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid6.png
-  [7]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid7.png
-  [8]:  {{site.imgurl}}/AdMobScreenshotTradChineseAndroid8.png
-  [9]:  {{site.imgurl}}/AdMobLibJarFiles.jpg
-  [10]: {{site.imgurl}}/GooglePlay_Properties.png
-  [11]: {{site.imgurl}}/GooglePlay_Addlib.png
-  [12]: {{site.imgurl}}/GooglePlay_Addlib2.png
-  [Sample Code]: {{site.baseurl}}/zh-tw/android/download/#admob
-  [Android SDK]: https://developer.android.com/sdk/index.html
-  [Android instructions]: https://developer.android.com/google/play-services/setup.html
-  [13]: https://developers.google.com/admob/android/banner
+[串接說明]:http://wiki.vpon.com/zh-tw/android/integration-guide/
+[1]:https://apps.admob.com
+[Sample Code]: {{site.baseurl}}/zh-tw/android/download
