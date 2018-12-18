@@ -1,5 +1,11 @@
 # Vpon iOS SDK Change Log
 
+## 4.8.3
+
+* Release Date: 18 Dec. 2018
+* Build Number: 81218102
+* Bug fix
+
 ## 4.8.2
 
 * Release Date: 27 Nov. 2018
