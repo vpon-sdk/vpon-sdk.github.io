@@ -4,7 +4,7 @@
 
 * Release Date: 18 Dec. 2018
 * Build Number: 81218102
-* Bug fix
+* Fix the crash when user deny to admit location related permission
 
 ## 4.8.2
 
