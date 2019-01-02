@@ -1,5 +1,12 @@
 # Vpon Android SDK Change Log
 
+## 4.8.3
+* Release Date: 02 Jan. 2019
+* Build Number: 20109102
+* Support targetSdk version to Android P (android sdk 28)
+* Optimize ad request performance
+* Optimize debug log
+
 <!-- ## 4.8.2
 * Release Date: 06 Dec. 2018
 * Build Number: 50218102

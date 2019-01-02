@@ -12,7 +12,7 @@
 * Build Number: 62118102
 * Update system requirement to iOS 9.0
 * Optimize ad request performance
-* Support AdMob Native Ad mediation (AdMobAdapterVpadn-1.0.8 is required)
+* Support AdMob Native Ad mediation (AdMobAdapterVpadn-1.0.8 above is required)
 * Bugs fix
 
 ## 4.8.1
