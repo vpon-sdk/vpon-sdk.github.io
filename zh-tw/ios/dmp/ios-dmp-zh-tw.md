@@ -12,16 +12,17 @@ lang: "zh-tw"
 ---
 
 ### 系統版本需求
-Deployment target 7.0 以上
+Deployment target 9.0 以上
 
 ### 匯入 Vpon DMP SDK 
 請先[下載 Vpon DMP SDK]({{site.dnldurl}}/vpadn-dmp-iOS-1.1.1-26cc98c.tar.gz)，解壓縮後的 SDK 包含Objective-C 標頭、一個執行期間程式庫，要在應用程式中匯入 Vpon DMP SDK，您必須完成二個步驟：
 
-1. 在專案中加入lib檔
+1. 在專案中加入 lib 檔 (.a)
+2. 在專案中加入以下 Header：
 * `VpadnAnalytics.h`
 * `VATracker.h`
 * `VpadnDictionaryBuilder.h`
-2. 在專案中手動加入以下 framework：
+3. 在專案中手動加入以下 framework：
 * `AdSupport.framework`
 * `CoreLocation.framework`
 * `SystemConfiguration.framework`

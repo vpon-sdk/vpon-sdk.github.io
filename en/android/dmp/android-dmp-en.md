@@ -10,6 +10,12 @@ lang:           "en"
 
 # Prerequisites
 ---
+Vpon DMP SDK support:
+
+* Android：`Android 4.3 or later`
+
+Before you start to integrate Vpon SDK, make sure your app is compatible.
+
 
 ### Import SDK
 You can [download Vpon DMP SDK here](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar) and import the SDK file into your Android Studio project.
