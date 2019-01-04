@@ -95,6 +95,10 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 > 2. 如果需要在 console log 內印出 debug log，請在環境變數的地方新增一個環境變數，key 為 SHOW_VPON_LOG 值為 "1"
 
 
+# Sample Code
+---
+如果您想看到完整的串接實例，請參考我們的 [Sample Code](https://github.com/vpon-sdk/Vpon-iOS-Analytics)
+
 # Download
 ---
 

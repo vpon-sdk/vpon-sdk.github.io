@@ -129,6 +129,10 @@ public void onClick(View v) {
 
 > **Note**：請將範例中的 yourCustomName 改為您自定義的名稱
 
+# Sample Code
+---
+如果您想看到完整的串接實例，請參考我們的 [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analytics)
+
 
 # Download
 ---

@@ -129,6 +129,9 @@ public void onClick(View v) {
 
 > **Note:** Please replace yourCustomName in the sample code with your custom name.
 
+# Sample Code
+Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analytics) for a complete integration sample.
+
 # Download
 ---
 
