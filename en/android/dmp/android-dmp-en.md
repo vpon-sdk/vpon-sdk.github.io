@@ -21,6 +21,7 @@ dependencies {
     ...
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
 }
+```
 
 ### Permission
 Please add the Permission below in your `AndroidManifest.xml`
