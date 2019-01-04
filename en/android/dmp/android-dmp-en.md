@@ -12,13 +12,45 @@ lang:           "en"
 ---
 
 ### Import SDK
-You can [download Vpon DMP SDK here](http://m.vpadn.com/sdk/vpadn-dmp-obf1.0.0-1507221044-4b374f5.jar) and import the SDK file into your Android Studio project.
+You can [download Vpon DMP SDK here](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar) and import the SDK file into your Android Studio project.
+
+Open build.gradle in App-level, modify dependencies as below:
+
+```xml
+dependencies {
+    ...
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+}
 
 ### Permission
 Please add the Permission below in your `AndroidManifest.xml`
 
 ```xml
+<!-- Required permission -->
 <uses-permission android:name="android.permission.INTERNET"/>
+
+<!-- Optional permissions -->
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+<uses-permission android:name="android.permission.READ_CALL_LOG"/>
+```
+
+### Proguard Configuration
+If your app need obfuscateed before release, please add settings below:<br>
+
+```xml
+-dontwarn c.**
+-dontwarn com.vpon.**
+-dontwarn vpadn.**
+-keep class c.**{ *; }
+-keep class com.vpon.** { *; }
+-keep class vpon.** { *; }
+-keep class com.vpadn.** { *; }
+-keep class vpadn.** { *; }
 ```
 
 # Start To Implement Vpon DMP SDK
@@ -99,6 +131,6 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.0.0|
+|DMP 1.1.0|
 |:-------:|
-|[Download](http://m.vpadn.com/sdk/vpadn-dmp-obf1.0.0-1507221044-4b374f5.jar)|
+|[Download](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar)|

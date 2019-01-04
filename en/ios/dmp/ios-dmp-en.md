@@ -15,10 +15,17 @@ lang:            "en"
 Deployment target 7.0 above.
 
 ### Import SDK
-You can [download Vpon DMP SDK here](http://m.vpadn.com/sdk/vpadn-dmp-iOS-1.1.0-a41ba9f.tar.gz). A Objective-c Header file and a lib file will included. Please follow the steps below to integrate Vpon DMP SDK to your Xcode project.
+You can [download Vpon DMP SDK here]({{site.dnldurl}}/vpadn-dmp-iOS-1.1.1-26cc98c.tar.gz). A Objective-c Header file and a lib file will included. Please follow the steps below to integrate Vpon DMP SDK to your Xcode project.
 
-1. Add `VpadnAnalytics.h`, `VATracker.h` and `VpadnDictionaryBuilder.h` to your project.
-2. Add `AdSupport.framework` to your project.
+1. Add below lib to your project:
+* `VpadnAnalytics.h`
+* `VATracker.h`
+* `VpadnDictionaryBuilder.h`
+2. Add below framework to your project:
+* `AdSupport.framework`
+* `CoreLocation.framework`
+* `SystemConfiguration.framework`
+* `CoreTelephony.framework`
 
 # Start To Implement Vpon DMP SDK
 ---
@@ -93,6 +100,6 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 # Download
 ---
 
-|DMP 1.1.0|
+|DMP 1.1.1|
 |:-------:|
-|[Download](http://m.vpadn.com/sdk/vpadn-dmp-iOS-1.1.0-a41ba9f.tar.gz)|
+|[Download]({{site.dnldurl}}/vpadn-dmp-iOS-1.1.1-26cc98c.tar.gz)|

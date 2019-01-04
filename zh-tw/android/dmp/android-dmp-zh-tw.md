@@ -14,6 +14,15 @@ lang:           "zh-tw"
 ### 匯入 Vpon DMP SDK
 請先[下載 Vpon DMP SDK](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar)，並將 SDK 加到您的 Android Studio 專案中。
 
+再到 App 層級下的 build.gradle，將 dependencies 的部份修改如下：
+
+```xml
+dependencies {
+    ...
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+}
+```
+
 ### Permission
 請在您的 `AndroidManifest.xml` 中加入以下 Permission：
 
