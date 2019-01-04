@@ -12,14 +12,37 @@ lang:           "zh-tw"
 ---
 
 ### 匯入 Vpon DMP SDK
-請先[下載 Vpon DMP SDK](http://m.vpadn.com/sdk/vpadn-dmp-obf1.0.0-1507221044-4b374f5.jar)，並將 SDK 加到您的 Android Studio 專案中。
-
+請先[下載 Vpon DMP SDK](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar)，並將 SDK 加到您的 Android Studio 專案中。
 
 ### Permission
 請在您的 `AndroidManifest.xml` 中加入以下 Permission：
 
 ```xml
+<!-- Required permission -->
 <uses-permission android:name="android.permission.INTERNET"/>
+
+<!-- Optional permissions -->
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+<uses-permission android:name="android.permission.READ_CALL_LOG"/>
+```
+
+### Proguard Configuration
+如果您的 App 本身需要經過 Proguard 混淆，請增加下面的設定：<br>
+
+```xml
+-dontwarn c.**
+-dontwarn com.vpon.**
+-dontwarn vpadn.**
+-keep class c.**{ *; }
+-keep class com.vpon.** { *; }
+-keep class vpon.** { *; }
+-keep class com.vpadn.** { *; }
+-keep class vpadn.** { *; }
 ```
 
 # 開始串接 Vpon DMP SDK
@@ -101,6 +124,6 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.0.0|
+|DMP 1.1.0|
 |:-------:|
-|[Download](http://m.vpadn.com/sdk/vpadn-dmp-obf1.0.0-1507221044-4b374f5.jar)|
+|[Download](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar)|
