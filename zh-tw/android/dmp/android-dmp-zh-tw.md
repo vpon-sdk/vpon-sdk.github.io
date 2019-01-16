@@ -15,7 +15,7 @@ Vpon DMP SDK 目前最低支援以下版本的作業系統，在開始串接 Vpo
 * Android：`Android 4.3 以上`
 
 ### 匯入 Vpon DMP SDK
-請先[下載 Vpon DMP SDK](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar)，並將 SDK 加到您的 Android Studio 專案中。
+請先[下載 Vpon DMP SDK]({{site.dnldurl}}/vpon-analytics-obf1.2.0-release-20190116.aar)，並將 SDK 加到您的 Android Studio 專案中。
 
 再到 App 層級下的 build.gradle，將 dependencies 的部份修改如下：
 
@@ -140,6 +140,6 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.1.0|
+|DMP 1.2.0|
 |:-------:|
-|[Download](http://m.vpadn.com/sdk/vpon-analytics-obf1.1.0-release-20190103.aar)|
+|[Download]({{site.dnldurl}}/vpon-analytics-obf1.2.0-release-20190116.aar)|
