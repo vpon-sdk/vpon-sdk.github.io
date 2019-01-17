@@ -18,7 +18,7 @@ Before you start to integrate Vpon SDK, make sure your app is compatible.
 
 
 ### Import SDK
-You can [download Vpon DMP SDK here]({{site.dnldurl}}/vpon-analytics-obf1.2.0-release-20190116.aar) and import the SDK file into your Android Studio project.
+You can [download Vpon DMP SDK here]({{site.dnldurl}}/vpon-analytics-obf1.2.1-release-20190117.aar) and import the SDK file into your Android Studio project.
 
 Open build.gradle in App-level, modify dependencies as below:
 
@@ -141,6 +141,6 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 # Download
 ---
 
-|DMP 1.2.0|
+|DMP 1.2.1|
 |:-------:|
-|[Download]({{site.dnldurl}}/vpon-analytics-obf1.2.0-release-20190116.aar)|
+|[Download]({{site.dnldurl}}/vpon-analytics-obf1.2.1-release-20190117.aar)|
