@@ -20,7 +20,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 # Adapter Download
 ---
 
-|AdMob Adapter <br> (Version: 1.0.9)|MoPub <br> Custom Events|Smaato <br> SOMAMediationPlugin|
+|AdMob Adapter <br> (Version: 1.1.1)|MoPub <br> Custom Events|Smaato <br> SOMAMediationPlugin|
 |:---------------------------------:|:----------------------:|:-----------------------------:|
 |           [download][4]           |     [download][5]      |         [download][12]        |
 
