@@ -120,7 +120,7 @@ public class MainActivity extends Activity implements VpadnAdListener {
 ---
 您可以使用下列方式取得 device 上的 Advertising ID：
 
-1. 於 log 中搜尋 "advertising_id"
+1. 于 log 中搜寻 "advertising_id" (4.8.3 版后，请搜寻 "advertisingId")
 2. 直接操作手機：設定 → Google → 廣告 → 您的廣告 ID (Advertising ID)
 
 

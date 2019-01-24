@@ -109,7 +109,7 @@ public class MainActivity extends Activity {
 ```
 以下のコードで端末の Advertising IDを取得することができます。
 
-1. Eclipse上のログから"advertising_id"を検索する
+1. Eclipse上のログから"advertisingId"を検索する
 2. 端末を直接操作する：Google設定 ＞広告＞ この端末の広告ID
 
 

@@ -354,7 +354,7 @@ public class MainActivity extends Activity implements VpadnAdListener {
 ---
 Here are some tips for you to get your advertising id:
 
-1. Search "advertising_id" from the log
+1. Search "advertisingId" from the log
 2. Check the advertising id in the Setting of your device
 
 
