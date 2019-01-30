@@ -1,5 +1,12 @@
 # Vpon Android SDK Change Log
 
+## 4.8.4
+* Release Date: 30 Jan. 2019
+* Build Number: 03109102
+* Fix TSL issue
+* Optimize debug log
+* Fix few bugs
+
 ## 4.8.3
 * Release Date: 02 Jan. 2019
 * Build Number: 20109102
