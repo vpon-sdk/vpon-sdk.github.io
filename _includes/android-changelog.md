@@ -1,5 +1,14 @@
 # Vpon Android SDK Change Log
 
+## 4.8.5
+* Release Date: 26 Feb. 2019
+* Build Number: 52209102
+* Fix TSL issue
+* Fix screen orientation issue when playing video ad
+* Fix tracking report issue when buffering video of Out-stream Video Ad
+* Optimize debug log
+* Fix few bugs
+
 ## 4.8.4
 * Release Date: 30 Jan. 2019
 * Build Number: 03109102
