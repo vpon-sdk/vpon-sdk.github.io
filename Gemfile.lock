@@ -135,6 +135,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages (~> 72)
   jekyll (~> 3.0.3)
+  json
 
 BUNDLED WITH
    1.16.1
