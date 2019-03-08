@@ -51,7 +51,7 @@ You should put following code snippet in the <body> section of the page that you
 
 
 
-## Native Ad layouts {#layout}
+## Native Ad Layouts {#layout}
 ---
 Vpon Mobile Web SDK provides three types of layouts with different components for Native Ads. You'll get a group of creatives depends on the parameter of `vpon_na_layout`. Embed `CSS` to your HTML to make these creatives more fit to your website!<br>
 

@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+## 4.8.6
+* Release Date: 8 Mar. 2019
+* Build Number: 80309102
+* Enhance Out-stream Video Ad error reporting
+
 ## 4.8.5
 * Release Date: 26 Feb. 2019
 * Build Number: 52209102

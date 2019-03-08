@@ -1,5 +1,11 @@
 # Vpon iOS SDK Change Log
 
+## 4.8.4
+
+* Release Date: 8 Mar. 2019
+* Build Number: 80309102
+* Enhance Out-stream Video Ad error reporting
+
 ## 4.8.3
 
 * Release Date: 18 Dec. 2018
