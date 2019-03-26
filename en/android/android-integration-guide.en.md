@@ -110,17 +110,15 @@ Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
 Add permissions below to your AndroidManifest.xml.
 
 ```xml
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-```
+<!-- Required Permissions -->
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-Besides, we recommend that you can add one more permission below additionally to allow Vpon to deliver location-base ads with more accurate location information.
-
-```xml
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<!-- Optional Permissions. Use for optimize ad performance -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 ```
 
 Since we started to support Video ads from Vpon SDK 4, we recommend that you can add the scripts below to your Activity which contain ads to accelerate hardward performance.

@@ -106,17 +106,15 @@ dependencies {
 请在您的 AndroidManifest.xml 加入以下内容：
 
 ```xml
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-```
-另外建议您可以额外开启以下 permission，提供更精准的定位讯息来取得地理位置相关的广告
+<!-- Required Permissions -->
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-
-```xml
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<!-- Optional Permissions. Use for optimize ad performance -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 ```
 
 此外，由于 Vpon SDK 4 开始支援影音形式的广告，建议您在放广告的 Activity 中加入硬体加速，请参考如下：
