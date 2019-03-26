@@ -64,8 +64,10 @@ public class MainActivity extends Activity implements VpadnAdListener {
   		// Get your layout view for Vpon banner
   		adBannerLayout = (RelativeLayout) findViewById(R.id.adLayout);
 
-  		// Create VpadnBanner instance
+  		// In SDK 4.8.0 and below, create VpadnBanner instance
                 vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
+                // In SDK 4.8.1 and above, create VpadnBanner instance
+                vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER);
                 vponBanner.setAdListener(this);
   		VpadnAdRequest adRequest = new VpadnAdRequest();
   		// Set "true" to enable banner ad auto refresh
@@ -96,13 +98,13 @@ public class MainActivity extends Activity implements VpadnAdListener {
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:vpadn="http://schemas.android.com/apk/lib/com.vpadn.ads"
       android:id="@+id/mainLayout"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
       android:orientation="vertical" >
 
       <RelativeLayout
           android:id="@+id/adLayout"
-          android:layout_width="fill_parent"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content" >
           
           <!-- Implement Vpon Banner Ad As Below -->

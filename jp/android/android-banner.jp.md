@@ -72,13 +72,13 @@ public class MainActivity extends Activity {
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:vpadn="http://schemas.android.com/apk/lib/com.vpadn.ads"
       android:id="@+id/mainLayout"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
       android:orientation="vertical" >
 
   <RelativeLayout
           android:id="@+id/adLayout"
-          android:layout_width="fill_parent"
+          android:layout_width="match_parent"
           android:layout_height="wrap_content" >
 
           <com.vpadn.ads.VpadnBanner
