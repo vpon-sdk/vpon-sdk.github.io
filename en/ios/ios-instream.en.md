@@ -46,8 +46,16 @@ Choose Player SDK type for tag options. Click "Enable for live traffic" if your 
 <img src="{{site.imgurl}}/instream_18.png" alt="" class="width-600"/>
 Edit your tag parameters. Description URL is required. Please fill in with the URL of the page that you will put your video player.
 <img src="{{site.imgurl}}/instream_19.png" alt="" class="width-600"/>
-Click `Continue` to generate tag. Please add the tag to your App Project for your In-stream Video Ad request.
+Click `Continue` to generate tag.
 <img src="{{site.imgurl}}/instream_20.png" alt="" class="width-600"/>
+Please add `idtype`, `rdid` and `is_lat` after the ad tag and use `&` to separate each of them as the sample below. And add the full tag to your App Project for your In-stream Video Ad Request.
+
+> https://AdTagFromAdManager<font color="red">&idtype=idfa&rdid=123E4567-E89B-12D3-A456-426655440000&is_lat=0
+
+* Please refer to [Pass resettable device identifiers for user targeting] for the definition of idtype, rdid and is_lat.
+* For `idtype` in iOS platform, please fill in `idfa`.
+* If you don't know how to get the IDFA from iOS device, please refer to [How to get iOS IDFA].
+* `is_lat` is required for Google policy, please fill in `0` (User has not chosen to limit ad tracking) to get ad.
 
 ## Create a Line Item for In-stream Video Ad
 ---
@@ -73,6 +81,15 @@ Add new creative set. Name the creative and choose `Redirect`.
 Please insert the ad request URL from Vpon and ad duration (e.g. 30, 60) for your needs. Save your setting after you finish it.
 <img src="{{site.imgurl}}/instream_28.png" alt="" class="width-600"/>
 
+## How to get iOS IDFA {#getidfa}
+---
+You can implement the code snippet as below to get IDFA from user:
+
+```objc
+#import <AdSupport/AdSupport.h>
+NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+```
+
 # Advanced Setting {#s2s}
 ---
 Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can also use S2S to integrate it. After you finish [Prerequisites], please refer to [Vpon In-stream Video Ad Guideline] to compose your own ad request URL to request In-stream Video Ad from Vpon.
@@ -85,3 +102,5 @@ Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can als
 [Prerequisites]: {{site.baseurl}}/ios/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/ios/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
+[Pass resettable device identifiers for user targeting]: https://support.google.com/admanager/answer/6238701?hl=en
+[How to get iOS IDFA]:{{site.baseurl}}/ios/instream/#getidfa

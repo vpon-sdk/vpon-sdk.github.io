@@ -55,7 +55,7 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 
 * 關於 idtype、rdid、is_lat 的定義，請參考：[傳遞可重設的裝置 ID 用來指定使用者]
 * Android 的 idtype，請統一填入 `adid`
-* 如果您不清楚如何取得 Android Device 的 adid，請參考：[如何取得 Android adid]
+* 如果您不清楚如何取得 Android Device 的 AdId，請參考：[如何取得 Android AdId]
 * `is_lat` 為 Google 的政策規定所需，請填入 `0` (使用者尚未選擇限制廣告追蹤) 以便正常取得廣告
 
 
@@ -84,9 +84,9 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
 完成以上設定後，儲存您的設定即可。
 
-## 如何取得 Android adid {#getadid}
+## 如何取得 Android AdId {#getadid}
 ---
-您可以透過實作以下程式片段取得 user 的 adid：
+您可以透過實作以下程式片段取得 user 的 AdId：
 
 ```java
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
@@ -133,4 +133,4 @@ public void getIdThread() {
 [Advanced Setting]: {{site.baseurl}}/zh-tw/android/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
 [傳遞可重設的裝置 ID 用來指定使用者]: https://support.google.com/admanager/answer/6238701
-[如何取得 Android adid]: {{site.baseurl}}/zh-tw/android/instream/#getadid
+[如何取得 Android AdId]: {{site.baseurl}}/zh-tw/android/instream/#getadid

@@ -46,8 +46,17 @@ Choose Player SDK type for tag options. Click "Enable for live traffic" if your 
 <img src="{{site.imgurl}}/instream_18.png" alt="" class="width-600"/>
 Edit your tag parameters. Description URL is required. Please fill in with the URL of the page that you will put your video player.
 <img src="{{site.imgurl}}/instream_19.png" alt="" class="width-600"/>
-Click `Continue` to generate tag. Please add the tag to your App Project for your In-stream Video Ad request.
+Click `Continue` to generate tag.
 <img src="{{site.imgurl}}/instream_20.png" alt="" class="width-600"/>
+Please add `idtype`, `rdid` and `is_lat` after the ad tag and use `&` to separate each of them as the sample below. And add the full tag to your App Project for your In-stream Video Ad Request.
+
+> https://AdTagFromAdManager<font color="red">&idtype=adid&rdid=123e4567-e89b-12d3-a456-426655440000&is_lat=0
+
+* Please refer to [Pass resettable device identifiers for user targeting] for the definition of idtype, rdid and is_lat.
+* For `idtype` in Android platform, please fill in `adid`.
+* If you don't know how to get the AdId from Android device, please refer to [How to get Android AdId].
+* `is_lat` is required for Google policy, please fill in `0` (User has not chosen to limit ad tracking) to get ad.
+
 
 ## Create a Line Item for In-stream Video Ad
 ---
@@ -73,6 +82,42 @@ Add new creative set. Name the creative and choose `Redirect`.
 Please insert the ad request URL from Vpon and ad duration (e.g. 30, 60) for your needs. Save your setting after you finish it.
 <img src="{{site.imgurl}}/instream_28.png" alt="" class="width-600"/>
 
+## How to get Android AdId {#getadid}
+---
+You can implement the code snippet as below to get AdId from user:
+
+```java
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
+import com.google.android.gms.common.GooglePlayServicesAvailabilityException;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import java.io.IOException;
+...
+
+// Do not call this function from the main thread. Otherwise, 
+// an IllegalStateException will be thrown.
+public void getIdThread() {
+
+  Info adInfo = null;
+  try {
+    adInfo = AdvertisingIdClient.getAdvertisingIdInfo(mContext);
+
+  } catch (IOException e) {
+    // Unrecoverable error connecting to Google Play services (e.g.,
+    // the old version of the service doesn't support getting AdvertisingId).
+ 
+  } catch (GooglePlayServicesAvailabilityException e) {
+    // Encountered a recoverable error connecting to Google Play services. 
+
+  } catch (GooglePlayServicesNotAvailableException e) {
+    // Google Play services is not available entirely.
+  }
+  final String id = adInfo.getId();
+  final boolean isLAT = adInfo.isLimitAdTrackingEnabled();
+}
+
+```
+
 # Advanced Setting {#s2s}
 ---
 Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can also use S2S to integrate it. After you finish [Prerequisites], please refer to [Vpon In-stream Video Ad Guideline] to compose your own ad request URL to request In-stream Video Ad from Vpon.
@@ -85,3 +130,5 @@ Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can als
 [Prerequisites]: {{site.baseurl}}/jp/android/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/jp/android/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
+[Pass resettable device identifiers for user targeting]: https://support.google.com/admanager/answer/6238701?hl=en
+[How to get Android AdId]:{{site.baseurl}}/jp/android/instream/#getadid
