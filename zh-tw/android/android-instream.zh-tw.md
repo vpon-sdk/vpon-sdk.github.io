@@ -47,8 +47,17 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_04.png" alt="" class="width-600"/>
 完成廣告代碼參數的編輯。內容描述網址為必填項目，請輸入您放置影音播放器的頁面網址
 <img src="{{site.imgurl}}/instream_05.png" alt="" class="width-600"/>
-選擇「繼續」，即會產生廣告代碼。請將廣告代碼加入您的 App Project 中，您將使用這組廣告代碼來請求 In-stream 影音廣告
+選擇「繼續」，即會產生廣告代碼
 <img src="{{site.imgurl}}/instream_06.png" alt="" class="width-600"/>
+取得廣告代碼後，請務必在廣告代碼後加上 `idtype`、`rdid`、`is_lat` 三個參數，並使用 `&` 來區分每個參數 (如下例)。請將完整的廣告代碼加入您的 App Project 中，您將使用這組廣告代碼來請求 In-stream 影音廣告
+
+> https://AdManager產生的廣告代碼<font color="red">&idtype=adid&rdid=123e4567-e89b-12d3-a456-426655440000&is_lat=0
+
+* 關於 idtype、rdid、is_lat 的定義，請參考：[傳遞可重設的裝置 ID 用來指定使用者]
+* Android 的 idtype，請統一填入 `adid`
+* 如果您不清楚如何取得 Android Device 的 adid，請參考：[如何取得 Android adid]
+* `is_lat` 為 Google 的政策規定所需，請填入 `0` (使用者尚未選擇限制廣告追蹤) 以便正常取得廣告
+
 
 ## 新增影音廣告委刊項
 ---
@@ -75,6 +84,42 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
 完成以上設定後，儲存您的設定即可。
 
+## 如何取得 Android adid {#getadid}
+---
+您可以透過實作以下程式片段取得 user 的 adid：
+
+```java
+import com.google.android.gms.ads.identifier.AdvertisingIdClient;
+import com.google.android.gms.ads.identifier.AdvertisingIdClient.Info;
+import com.google.android.gms.common.GooglePlayServicesAvailabilityException;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import java.io.IOException;
+...
+
+// Do not call this function from the main thread. Otherwise, 
+// an IllegalStateException will be thrown.
+public void getIdThread() {
+
+  Info adInfo = null;
+  try {
+    adInfo = AdvertisingIdClient.getAdvertisingIdInfo(mContext);
+
+  } catch (IOException e) {
+    // Unrecoverable error connecting to Google Play services (e.g.,
+    // the old version of the service doesn't support getting AdvertisingId).
+ 
+  } catch (GooglePlayServicesAvailabilityException e) {
+    // Encountered a recoverable error connecting to Google Play services. 
+
+  } catch (GooglePlayServicesNotAvailableException e) {
+    // Google Play services is not available entirely.
+  }
+  final String id = adInfo.getId();
+  final boolean isLAT = adInfo.isLimitAdTrackingEnabled();
+}
+
+```
+
 # Advanced Setting {#s2s}
 ---
 除了透過 Google Ad Manager 的方式來串接 In-stream 影音廣告外，Vpon 也提供以 S2S 方式來串接。只要[完成串接準備]，並參考 [Vpon In-stream Video Ad Guideline] 的參數說明完成您的廣告請求網址，便可以直接向 Vpon 請求 In-stream 影音廣告了。
@@ -87,3 +132,5 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 [完成串接準備]: {{site.baseurl}}/zh-tw/android/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/zh-tw/android/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
+[傳遞可重設的裝置 ID 用來指定使用者]: https://support.google.com/admanager/answer/6238701
+[如何取得 Android adid]: {{site.baseurl}}/zh-tw/android/instream/#getadid
