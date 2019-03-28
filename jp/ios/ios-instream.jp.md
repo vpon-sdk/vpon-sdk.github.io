@@ -54,8 +54,8 @@ Please add `idtype`, `rdid` and `is_lat` after the ad tag and use `&` to separat
 
 * Please refer to [Pass resettable device identifiers for user targeting] for the definition of idtype, rdid and is_lat.
 * For `idtype` in iOS platform, please fill in `idfa`.
-* If you don't know how to get the IDFA from iOS device, please refer to [How to get iOS IDFA].
-* `is_lat` is required for Google policy, please fill in `0` (User has not chosen to limit ad tracking) to get ad.
+* If you don't know how to get the `rdid(IDFA) and `is_lat` from iOS device, please refer to [How to get iOS IDFA].
+
 
 ## Create a Line Item for In-stream Video Ad
 ---
@@ -88,6 +88,7 @@ You can implement the code snippet as below to get IDFA from user:
 ```objc
 #import <AdSupport/AdSupport.h>
 NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+BOOL is_lat = [ASIdentifierManager sharedManager].advertisingTrackingEnabled;
 ```
 
 # Advanced Setting {#s2s}

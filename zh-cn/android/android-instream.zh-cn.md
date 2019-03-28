@@ -55,8 +55,7 @@ Vpon 提供 In-stream 影音广告，只要您的 App 中有支援 VAST / VPAID 
 
 * 关于 idtype、rdid、is_lat 的定义，请参考：[传递可重设的装置 ID 用来指定使用者]
 * Android 的 idtype，请统一填入 `adid`
-* 如果您不清楚如何取得 Android Device 的 AdId，请参考：[如何取得 Android AdId]
-* `is_lat` 为 Google 的政策规定所需，请填入 `0` (使用者尚未选择限制广告追踪) 以便正常取得广告
+* 如果您不清楚如何取得 Android Device 的 `rdid(AdId)`及 `is_lat`，请参考：[如何取得 Android AdId]
 
 
 ## 新增影音广告订单项

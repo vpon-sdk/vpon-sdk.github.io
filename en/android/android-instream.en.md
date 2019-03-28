@@ -54,8 +54,7 @@ Please add `idtype`, `rdid` and `is_lat` after the ad tag and use `&` to separat
 
 * Please refer to [Pass resettable device identifiers for user targeting] for the definition of idtype, rdid and is_lat.
 * For `idtype` in Android platform, please fill in `adid`.
-* If you don't know how to get the AdId from Android device, please refer to [How to get Android AdId].
-* `is_lat` is required for Google policy, please fill in `0` (User has not chosen to limit ad tracking) to get ad.
+* If you don't know how to get the `rdid(AdId)` and `is_lat` from Android device, please refer to [How to get Android AdId].
 
 ## Create a Line Item for In-stream Video Ad
 ---
