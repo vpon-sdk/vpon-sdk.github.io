@@ -54,7 +54,7 @@ Please add `idtype`, `rdid` and `is_lat` after the ad tag and use `&` to separat
 
 * Please refer to [Pass resettable device identifiers for user targeting] for the definition of idtype, rdid and is_lat.
 * For `idtype` in iOS platform, please fill in `idfa`.
-* If you don't know how to get the `rdid(IDFA) and `is_lat` from iOS device, please refer to [How to get iOS IDFA].
+* If you don't know how to get the `rdid(IDFA)` and `is_lat` from iOS device, please refer to [How to get iOS IDFA].
 
 
 ## Create a Line Item for In-stream Video Ad
