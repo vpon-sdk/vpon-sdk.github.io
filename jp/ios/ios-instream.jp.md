@@ -87,8 +87,8 @@ You can implement the code snippet as below to get IDFA from user:
 
 ```objc
 #import <AdSupport/AdSupport.h>
-NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
 BOOL is_lat = [ASIdentifierManager sharedManager].advertisingTrackingEnabled;
+NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
 ```
 
 # Advanced Setting {#s2s}

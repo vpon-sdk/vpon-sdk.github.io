@@ -89,8 +89,8 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 
 ```objc
 #import <AdSupport/AdSupport.h>
-NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
 BOOL is_lat = [ASIdentifierManager sharedManager].advertisingTrackingEnabled;
+NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
 ```
 
 # Advanced Setting {#s2s}
