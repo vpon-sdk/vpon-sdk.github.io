@@ -49,6 +49,10 @@ allprojects {
 dependencies {
     ...
     implementation 'com.vpon:vpadnSDK:4.7.0'
+
+    // Please add Android support library as below if you are using Vpon SDK 4.8+
+    // The version of the dependency will depend on the version of the compile sdk you are using
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }
 ```
 
@@ -100,7 +104,9 @@ dependencies {
 
 # 加入 Permission
 ---
-請在您的 AndroidManifest.xml 加入以下內容：
+請在您的 AndroidManifest.xml 加入以下內容。
+
+以下為必須加入的 Permissions：
 
 ```xml
 <!-- Required Permissions -->
