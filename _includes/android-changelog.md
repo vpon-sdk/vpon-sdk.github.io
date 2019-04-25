@@ -53,6 +53,7 @@
 * Build Number: 10208102
 * Improve native ad's performance and user experience
 * Support new integration way on native ad
+* Modify the interface of Native Ad, please repace nativeAd.loadAd(); with ```nativeAd.loadAd(adRequest);```  
 * Increase advertising accuracy
 * Fix few bugs
 
