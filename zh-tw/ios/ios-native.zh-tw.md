@@ -219,6 +219,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 
 ### 中介服務
 透過中介服務，您的應用程式就能放送眾多來源的廣告，詳細請見說明：<br>
+- [使用 AdMob] <br>
 - [使用 MoPub] <br>
 - [使用 Smaato]
 
@@ -229,6 +230,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 
 
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/
+[使用 AdMob]: {{ site.baseurl }}/zh-tw/ios/mediation/admob/#customevent
 [使用 MoPub]: {{ site.baseurl }}/zh-tw/ios/mediation/mopub
 [使用 Smaato]: {{ site.baseurl }}/zh-tw/ios/native/mediation/smaato
 [原生廣告 - Table View]: {{site.baseurl}}/zh-tw/ios/native/table/

@@ -439,7 +439,9 @@ Please refer to the link below to learn more about other ad types:
 Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.
 
 * [Mopub]
+* [AdMob]
 
 [Sample Code]: ../download/
+[AdMob]: {{ site.baseurl }}/jp/android/mediation/admob/#customevent
 [MoPub]: {{ site.baseurl }}/jp/android/mediation/mopub
 [Smaato]: {{ site.baseurl }}/jp/android/native/mediation/smaato

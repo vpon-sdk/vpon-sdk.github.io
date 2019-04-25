@@ -432,10 +432,12 @@ Rating Min/Max| 1/5
 ### 中介服务
 透过中介服务，您的应用程式就能放送众多广告来源的广告，详细请见说明：
 
+* [使用 AdMob]
 * [使用 MoPub]
 
 
 [串接说明]: {{site.baseurl}}/zh-cn/android/integration-guide/
 [Sample Code]:../../android/download/
+[使用 AdMob]: {{ site.baseurl }}/zh-cn/android/mediation/admob/#customevent
 [使用 MoPub]: {{ site.baseurl }}/zh-cn/android/mediation/mopub
 [使用 Smaato]: {{ site.baseurl }}/zh-cn/android/native/mediation/smaato

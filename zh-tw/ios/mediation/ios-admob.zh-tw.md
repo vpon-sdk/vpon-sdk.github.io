@@ -55,7 +55,7 @@ lang:           "zh-tw"
 <img src="{{site.imgurl}}/AdMob_009.png" alt="" class=""/>
 
 
-## 自訂事件設定
+## 自訂事件設定 {#customevent}
 如果您要串接的是原生廣告，請選擇新增自訂事件將 Vpon 新增為您的廣告聯播網
 <img src="{{site.imgurl}}/AdMob_010.png" alt="" class=""/>
 

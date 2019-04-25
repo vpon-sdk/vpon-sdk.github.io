@@ -193,11 +193,13 @@ Rating Min/Max| 1/5
 --------
 透过中介服务，您的应用程式就能放送众多广告来源的广告，详细请见说明：<br>
 - [使用 MoPub] <br>
+- [使用 AdMob] <br>
 - [使用 Smaato]
 
 [串接说明]: ../integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/
 [Sample Code]: {{ site.baseurl }}/zh-cn/ios/download/
+[使用 AdMob]: {{ site.baseurl }}/zh-cn/ios/mediation/admob/#customevent
 [使用 MoPub]: {{ site.baseurl }}/zh-cn/ios/mediation/mopub
 [使用 Smaato]: {{ site.baseurl }}/zh-cn/ios/native/mediation/smaato
 [这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
