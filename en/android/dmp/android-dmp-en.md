@@ -30,13 +30,19 @@ dependencies {
 ```
 
 ### Permission
-Please add the Permission below in your `AndroidManifest.xml`
+Please add the Permissions below in your `AndroidManifest.xml`
+
+(Required) Please add below premissions for DMP SDK:
 
 ```xml
-<!-- Required permission -->
+<!-- Required permissions -->
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+```
 
+(Optional) Please add below permissions for additional data collection and analysis:
+
+```xml
 <!-- Optional permissions -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>

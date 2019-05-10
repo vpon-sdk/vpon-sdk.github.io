@@ -50,8 +50,7 @@ Vpon Mobile Web SDK 提供`原生广告`。有别于横幅广告、插页广告�
 
 
 ## 原生广告版型 {#layout}
----
-Vpon Mobile Web SDK 提供三种包含不同广告素材元件的原生广告版型，只要将\<vpon\> tag 中的 `vpon_na_layout` 参数改为您选择要使用的版型，即会回传相对应的广告素材，您可以透过`CSS`控制这些广告素材呈现的样式。<br><br>关于广告素材的显示规范，请参考[Native ad Spec]。
+Vpon Mobile Web SDK 提供三种包含不同广告素材元件的原生广告版型，只要将\<vpon\> tag 中的 `vpon_na_layout` 参数改为您选择要使用的版型，即会回传包含对应广告素材的素材组合，您可以透过`CSS`控制这些广告素材呈现的样式。<br><br>关于广告素材的显示规范，请参考[Native ad Spec]。
 
 ![Web_Native_Layout]
 

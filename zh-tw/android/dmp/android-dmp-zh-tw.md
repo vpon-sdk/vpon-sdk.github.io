@@ -27,13 +27,19 @@ dependencies {
 ```
 
 ### Permission
-請在您的 `AndroidManifest.xml` 中加入以下 Permission：
+請在您的 `AndroidManifest.xml` 中加入所需的 Permissions。
+
+以下為必須加入的 Permissions：
 
 ```xml
-<!-- Required permission -->
+<!-- Required permissions -->
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+```
 
+請依據資料收集及分析的目標，選擇性加入以下 Permissions：
+
+```xml
 <!-- Optional permissions -->
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
