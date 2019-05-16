@@ -74,6 +74,16 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
 完成以上設定後，儲存您的設定即可。
 
+## Fallback Setting {#fallback}
+---
+由於 Vpon In-stream Video Ad 是採用轉向 (redirect) 的方式投放，您可以透過 Google Ad Manager 的`影片備用廣告`功能，盡可能讓每一次的廣告請求都有廣告曝光。關於影片備用廣告功能的說明，請參考：[影片備用廣告總覽]。
+
+### 啟用影片備用廣告功能
+請由 [管理]→[影片廣告] 中，開啟`影片備用廣告`的功能。
+<img src="{{site.imgurl}}/instream_fallback_01.png" alt="" class="width-600"/>
+
+當您同時將多個委刊項指向同一個廣告單元時，Google Ad Manager 會依照您設定的優先順序進行廣告投放。在您啟用`影片備用廣告`功能後，當您透過 Google Ad Manager 送出的廣告請求沒有回應或是請求失敗時，Google Ad Manager 會自動向下一個順位的委刊項請求廣告。
+
 # Advanced Setting {#s2s}
 ---
 除了透過 Google Ad Manager 的方式來串接 In-stream 影音廣告外，Vpon 也提供以 S2S 方式來串接。只要[完成串接準備]，並參考 [Vpon In-stream Video Ad Guideline] 的參數說明完成您的廣告請求網址，便可以直接向 Vpon 請求 In-stream 影音廣告了。
@@ -85,3 +95,4 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 [完成串接準備]: {{site.baseurl}}/zh-tw/web/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/zh-tw/web/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
+[影片備用廣告總覽]: https://support.google.com/admanager/answer/3007370?hl=zh-Hant

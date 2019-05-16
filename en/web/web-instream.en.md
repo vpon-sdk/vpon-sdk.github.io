@@ -72,6 +72,16 @@ Add new creative set. Name the creative and choose `Redirect`.
 Please insert the ad request URL from Vpon and ad duration (e.g. 30, 60) for your needs. Save your setting after you finish it.
 <img src="{{site.imgurl}}/instream_28.png" alt="" class="width-600"/>
 
+## Fallback Setting {#fallback}
+---
+In Google Ad Manager, you can maximize the likelihood of ad filling when you’re using VAST redirects (e.g. Vpon In-stream Video Ad). For more information about Video fallback, please check [Overview of video fallback].
+
+### Enable Video fallback
+Click [Admin]→[Video] to enable `Video fallback` as below.
+<img src="{{site.imgurl}}/instream_fallback_03.png" alt="" class="width-600"/>
+
+The ad sequence will depend on the priority of the line item setting when you target serveral line items to a specific ad unit. And Google Ad Manager will try to request ad from the next line item if there is no ad response from current one after you enable `Video fallback`.
+
 # Advanced Setting {#s2s}
 ---
 Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can also use S2S to integrate it. After you finish [Prerequisites], please refer to [Vpon In-stream Video Ad Guideline] to compose your own ad request URL to request In-stream Video Ad from Vpon.
@@ -83,3 +93,4 @@ Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can als
 [Prerequisites]: {{site.baseurl}}/android/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/android/instream/#s2s
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
+[Overview of video fallback]: https://support.google.com/admanager/answer/3007370?hl=en

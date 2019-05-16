@@ -82,6 +82,16 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 <img src="{{site.imgurl}}/instream_14.png" alt="" class="width-600"/>
 完成以上設定後，儲存您的設定即可。
 
+## Fallback Setting {#fallback}
+---
+由於 Vpon In-stream Video Ad 是採用轉向 (redirect) 的方式投放，您可以透過 Google Ad Manager 的`影片備用廣告`功能，盡可能讓每一次的廣告請求都有廣告曝光。關於影片備用廣告功能的說明，請參考：[影片備用廣告總覽]。
+
+### 啟用影片備用廣告功能
+請由 [管理]→[影片廣告] 中，開啟`影片備用廣告`的功能。
+<img src="{{site.imgurl}}/instream_fallback_01.png" alt="" class="width-600"/>
+
+當您同時將多個委刊項指向同一個廣告單元時，Google Ad Manager 會依照您設定的優先順序進行廣告投放。在您啟用`影片備用廣告`功能後，當您透過 Google Ad Manager 送出的廣告請求沒有回應或是請求失敗時，Google Ad Manager 會自動向下一個順位的委刊項請求廣告。
+
 
 ## 如何取得 iOS IDFA {#getidfa}
 ---
@@ -107,3 +117,4 @@ NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdenti
 [Vpon In-stream Video Ad Guideline]: {{site.dnldurl}}/Vpon_In_stream_Video_Ad_Guideline.pdf
 [傳遞可重設的裝置 ID 用來指定使用者]: https://support.google.com/admanager/answer/6238701
 [如何取得 iOS IDFA]: {{site.baseurl}}/zh-tw/ios/instream/#getidfa
+[影片備用廣告總覽]: https://support.google.com/admanager/answer/3007370?hl=zh-Hant
