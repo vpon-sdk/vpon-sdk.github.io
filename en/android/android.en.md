@@ -32,6 +32,19 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 | [Banner][4]  |[Interstitial][5] | [Native][7]|[Out-stream Video Ad][8]|[Mediation][6]|
 
 
+## License Key For Testing
+---
+
+Here are sample Vpon License Keys for testing. Please implement the one that match the ad type you're testing if you haven't finished the publisher registration process.
+
+| **Ad Type** | **License Key** |
+| Android_Banner | 8a80854b6a90b5bc016ad81c2a136532 |
+| Android_Interstitial | 8a80854b6a90b5bc016ad81c64786533 |
+| Android_Native | 8a80854b6a90b5bc016ad81ca1336534 |
+
+> **Note**: ``Please note that you must replace the Testing License Key with your own one before you update the ad setting to the production environment.``
+
+
 ## Tips
 ---
 * All Android-relevant information are listed left.
@@ -41,7 +54,7 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 Still have problems? Please contact [Vpon FAE](mailto:fae@vpon.com). We will help to figure it out ASAP!
 
 
-> **Note**: If you used the previous version of vpon SDK, please read this first: [How to update to the new version of SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/)
+<!-- > **Note**: If you used the previous version of vpon SDK, please read this first: [How to update to the new version of SDK4.5.1+]({{site.baseurl}}/android/latest-news/update-to-SDK4_5_1+/) -->
 
 
 

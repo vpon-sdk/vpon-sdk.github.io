@@ -31,6 +31,18 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 
 | [Banner][4]  |[Interstitial][5] | [Native][7]|[Out-stream Video Ad][8]|[Mediation][6]|
 
+## License Key For Testing
+---
+
+Here are sample Vpon License Keys for testing. Please implement the one that match the ad type you're testing if you haven't finished the publisher registration process.
+
+| **Ad Type** | **License Key** |
+| iOS_Banner | 8a80854b6a90b5bc016ad81a5059652d |
+| iOS_Interstitial | 8a80854b6a90b5bc016ad81a98cf652e |
+| iOS_Native | 8a80854b6a90b5bc016ad81ac68c6530 |
+
+> **Note**: ``Please note that you must replace the Testing License Key with your own one before you update the ad setting to the production environment.``
+
 
 ## Tips
 ---

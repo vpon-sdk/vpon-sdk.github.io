@@ -34,6 +34,19 @@ Vpon Mobile Web SDK helps mobile web developers to maximize their monetization o
 | [Original Banner Ad][1]  |[Adhesion Banner Ad][2] | [Interstitial Ad][3] | [Native Ad][4] |
 
 
+# License Key For Testing
+---
+
+Here are sample Vpon License Keys for testing. Please implement the one that match the ad type you're testing if you haven't finished the publisher registration process.
+
+| **Ad Type** | **License Key** |
+| Web_Banner | 8a80854b6a90b5bc016ad81ebabb6538 |
+| Web_Interstitial | 8a80854b6a90b5bc016ad81f018e6539 |
+| Web_Native | 8a80854b6a90b5bc016ad81f34fd653a |
+
+> **Note**: ``Please note that you must replace the Testing License Key with your own one before you update the ad setting to the production environment.``
+
+
 # Tips
 ---
 * All Web-related information are listed left.

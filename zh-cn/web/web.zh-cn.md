@@ -35,6 +35,19 @@ Vpon Mobile Web SDK 提供多种广告形式，让行动网站发布商可以方
 | [一般横幅广告][1] | [置底横幅广告][2] | [插页广告][3] | [原生广告][4] |
 
 
+# License Key For Testing
+---
+
+在您完成 Vpon 开发商帐号申请流程之前，如果您需要进行广告串接测试，可以使用以下 License Key 进行测试。请依照您要展示的广告型态，选择对应的 License Key 进行测试。
+
+| **Ad Type** | **License Key** |
+| Web_Banner | 8a80854b6a90b5bc016ad81ebabb6538 |
+| Web_Interstitial | 8a80854b6a90b5bc016ad81f018e6539 |
+| Web_Native | 8a80854b6a90b5bc016ad81f34fd653a |
+
+``注意，在测试完成后，请务必将测试用的 License Key 换成您自行申请并通过审核的 License Key，以免影响您的广告收益。 ``
+
+
 
 
 # 诀窍
