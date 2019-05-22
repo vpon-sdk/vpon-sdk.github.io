@@ -203,6 +203,99 @@ CallToAction | vpon-action| 需要完整顯示 <br> 最長為20個英文字或10
 
 <br>
 
+
+# 使用 Google Ad Manager 中介服務
+---
+本段專為 Google Ad Manager 使用者而設，主要說明 Google Ad Manager 搭配 Web API 的設定方式。
+
+## 新增廣告單元，並產生廣告代碼
+---
+在 [Google Ad Manager] 使用者介面中：
+
+1. 評估 Native Ad 在網頁上顯示的大小，新增相符的廣告單元
+2. 在廣告單元中完成名稱、大小等設定後儲存
+3. 產生廣告代碼
+
+新增廣告單元後，選擇廣告單元，並點擊「產生廣告代碼」
+<img src="{{site.imgurl}}/WebAdManager_01.png" alt="" class="width-600" />
+選取代碼類型為「Google 發佈商廣告代碼」
+<img src="{{site.imgurl}}/WebAdManager_02.png" alt="" class="width-600" />
+選擇「啟用單一請求」
+<img src="{{site.imgurl}}/WebAdManager_03.png" alt="" class="width-600" />
+請將產生的代碼結果中的「文件標頭」放在網站的 <head> 中、將 「文件內文」放在網站的 <body> 中
+<img src="{{site.imgurl}}/WebAdManager_04.png" alt="" class="width-600" />
+
+
+## 設定委刊單、委刊項及廣告素材
+---
+如要透過 Google Ad Manager 放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。針對保留的委刊項類型 (贊助和標準)，在委刊單獲得核准以前，Google Ad Manager 不會保留廣告空間。
+
+### 建立委刊單
+若要在執行廣告空間預測之前建立委刊單，請按照下列指示進行：
+
+1. 在「Google Ad Manager」帳戶中，點擊 `委刊單` 標籤
+2. 點擊 `新增委刊單`
+3. 在適當欄位中輸入您的委刊單資訊。不可與聯播網中其他的委刊單名稱重複
+4. 輸入委刊項資訊
+5. 點擊 `檢查廣告空間`，確認委刊單擁有足夠的曝光供應量
+6. 點擊 `儲存`。建好委刊單之後，您必須先予以核准，委刊項才能放送
+
+### 建立委刊項
+
+1. 在 Google Ad Manager 帳戶中，點擊 `委刊單` 標籤
+2. 建立新委刊單，或點擊表格中的現有委刊單
+3. 點擊 `新增委刊項`
+4. 輸入委刊項名稱，不得與聯播網中其他委刊項的名稱重複
+5. 輸入您想要上傳廣告素材的廣告空間大小
+6. (選用程序) 輸入任何有助於委刊項投放作業的相關註釋
+7. 輸入委刊項類型、日期、數量和費用
+8. (選用程序) 在 `調整放送` 下方進行放送設定
+9. 選取您的目標廣告空間，可以指定廣告單元、刊登位置或同時指定兩者
+
+![新增指定目標_DFP]
+
+此外，您可以輸入其他指定條件，指定特定目標對象。 如果您未將委刊項指定給任何廣告單元或刊登位置，系統會將委刊項設成在全聯播網隨機放送，這表示委刊項可在您網站上的任何廣告單元中放送。
+
+完成編輯後，請點擊 `儲存`保存委刊項設定。
+
+### 新增廣告素材
+
+1. 點擊要新增廣告素材的委刊項，或視需求建立新委刊項
+2. 點擊 [新增廣告素材]。所有與委刊項相關聯的廣告素材和廣告單元尺寸，都會列在左欄中。您可以將廣告素材上傳至清單中任何大小的廣告單元
+3. 您可以將多個廣告素材拖曳到委刊項，或一次只加入一個廣告素材
+
+#### 廣告素材設定
+選取廣告素材類型：請選擇`所有`中的`第三方`
+<img src="{{site.imgurl}}/WebAdManager_05.png" alt="" class="width-600" />
+
+程式碼片段請填入 Vpon 廣告程式碼及用來控制 Native Ad Layout 的 CSS 樣式：
+
+```html
+<vpon vpon_ad_test="0"
+       vpon_ad_licensy_key="Your License Key for Banner"
+       vpon_ad_format="320x50_mb"
+       debug="true"></vpon>
+      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<style>
+      .vpon-native-ad{
+        border: 1px solid #dcdcdc;
+        position: relative;
+      }
+
+      .vpon-native-ad .vpon-title{
+        display: block;
+        padding: 5px;
+        font-size: 20px;
+      }
+
+      ...
+</style>
+```
+> **Note**: vpon_ad_test="1" 為開啓測試廣告， vpon_ad_test="0"為拉取正式廣告。
+
+廣告素材設定如下圖所示，注意，請勿勾選`放送到 SafeFrame`：
+<img src="{{site.imgurl}}/WebAdManager_37.png" alt="" class="width-600" />
+
 # FAQ
 ---
 
@@ -221,3 +314,7 @@ CallToAction | vpon-action| 需要完整顯示 <br> 最長為20個英文字或10
 [Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout.png
 [Native Ad Spec]: {{site.baseurl}}/zh-tw/web/native/#nativeAdSpec
 [Vpon FAE]: mailto:fae@vpon.com
+[Google Ad Manager]: https://admanager.google.com/
+
+[新增指定目標_DFP]: {{site.imgurl}}/新增指定目標.png
+[DFP_WEB_CALLBACK]: {{site.imgurl}}/DFP_WEB_CALLBACK.png
