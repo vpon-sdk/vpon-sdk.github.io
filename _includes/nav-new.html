@@ -3,12 +3,12 @@
    {% capture link1 %}{{ site.baseurl }}{{ page.url | replace: 'zh-tw/', "" }}{% endcapture %}
    {% capture link2 %}{{ site.baseurl }}{{ page.url}}{% endcapture %}
    {% capture link3 %}{{ site.baseurl }}{{ page.url | replace: "zh-tw", 'zh-cn'}}{% endcapture %}
-   {% capture link4 %}{{ site.baseurl }}{{ page.url | replace: "zh-tw", 'jp'}}{% endcapture %}
+   <!-- {% capture link4 %}{{ site.baseurl }}{{ page.url | replace: "zh-tw", 'jp'}}{% endcapture %} -->
 {% when "zh-cn" %}
    {% capture link1 %}{{ site.baseurl }}{{ page.url | replace: 'zh-cn/', "" }}{% endcapture %}
    {% capture link2 %}{{ site.baseurl }}{{ page.url | replace: "zh-cn", 'zh-tw'}}{% endcapture %}
    {% capture link3 %}{{ site.baseurl }}{{ page.url}}{% endcapture %}
-   {% capture link4 %}{{ site.baseurl }}{{ page.url | replace: "zh-cn", 'jp'}}{% endcapture %}
+   <!-- {% capture link4 %}{{ site.baseurl }}{{ page.url | replace: "zh-cn", 'jp'}}{% endcapture %} -->
 {% when "jp" %}
    {% capture link1 %}{{ site.baseurl }}{{ page.url | replace: 'jp/', "" }}{% endcapture %}
    {% capture link2 %}{{ site.baseurl }}{{ page.url | replace: "jp", 'zh-tw'}}{% endcapture %}
@@ -18,7 +18,7 @@
    {% capture link1 %}{{ site.baseurl }}{{ page.url}}{% endcapture %}
    {% capture link2 %}{{ site.baseurl }}/zh-tw{{page.url}}{% endcapture %}
    {% capture link3 %}{{ site.baseurl }}/zh-cn{{page.url}}{% endcapture %}
-   {% capture link4 %}{{ site.baseurl }}/jp{{page.url}}{% endcapture %}
+   <!-- {% capture link4 %}{{ site.baseurl }}/jp{{page.url}}{% endcapture %} -->
 {% endcase %}
 
 {% assign nav = site.left_nav[page.lang] %}
@@ -45,9 +45,9 @@
           <a href="{{ link3 }}">
             <li class="lang-color">简体中文</li>
           </a>
-          <a href="{{ link4 }}">
+          <!-- <a href="{{ link4 }}">
             <li class="lang-color">日本語</li>
-          </a>
+          </a> -->
       </li>
     </ul>
   </div>
@@ -106,7 +106,7 @@
           <li><a class="en" href="{{ link1 }}">English</a></li>
           <li><a class="zh-tw" href="{{ link2 }}">繁體中文</a></li>
           <li><a class="zh-cn" href="{{ link3 }}">简体中文</a></li>
-          <li><a class="jp" href="{{ link4 }}">日本語</a></li>
+          <!-- <li><a class="jp" href="{{ link4 }}">日本語</a></li> -->
         </ul>
       </li>
     </ul>

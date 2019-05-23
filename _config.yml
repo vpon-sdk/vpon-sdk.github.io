@@ -41,7 +41,7 @@ info:
 meta:
   description:      "Here presents the latest Vpon SDK documentation."
   keywords:         ["Vpon", 'SDK', 'wiki', 'documentation', 'document', 'banner', 'interstitial', 'ad', 'mobile', 'integration']
-  author:           "Finn Yeh"
+  author:           "Vpon MI"
 
 # multiple language
 lang:          ["en", "zh-tw", "zh-cn", "jp"]
