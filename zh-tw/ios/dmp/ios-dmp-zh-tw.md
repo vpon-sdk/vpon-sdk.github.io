@@ -103,6 +103,6 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 # Download
 ---
 
-|DMP 1.2.0|
+|DMP 1.2.1|
 |:-------:|
-|[Download]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.0-9ba172b.tar.gz)|
+|[Download]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.1-146c03b.tar.gz)|

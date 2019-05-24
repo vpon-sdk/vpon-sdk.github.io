@@ -146,6 +146,6 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.2.2|
+|DMP 1.2.3|
 |:-------:|
-|[Download]({{site.dnldurl}}/vpon-analytics-obf1.2.2-release-20190117.aar)|
+|[Download]({{site.dnldurl}}/vpon-analytics-obf1.2.3-release-20190524.aar)|
