@@ -152,7 +152,7 @@ After you finish your line item setting, click `Save` to save it.
 
 ### Creative Setting
 Choose `Custom` in All tab:
-<img src="{{site.imgurl}}/WebAdManager_23.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_35.png" alt="" class="width-600" />
 
 Input the snippet of code:
 

@@ -138,46 +138,86 @@ CallToAction | vpon-action| 需要完整顯示 <br> 最長為20個英文字或10
   <title>Vpon Native Ad</title>
   <!-- Native Ad Style -->
   <style>
-      .vpon-native-ad{
-        border: 1px solid #dcdcdc;
+        .vpon-native-ad{
         position: relative;
-      }
+        padding-top: 0;
+        }
 
-      .vpon-native-ad .vpon-title{
-        display: block;
-        padding: 5px;
-        font-size: 20px;
+        .vpon-native-ad .vpon-cover-image{
+        position: relative;
+        width: calc(100vw - 40px);        
+        height: calc((100vw - 40px) * .6);
+        }
 
-      }
+        .vpon-native-ad .vpon-cover-image img{
+          position: absolute;
+          top: 0;
+          left: -6.25vw;
+          bottom: 0;
+          right: 0;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: auto;
+          height: 100%;
+        }
 
-      .vpon-native-ad .vpon-cover-image{
-        float: left;
-        width: 33%;
-        margin: 10px;
-      }
-      .vpon-native-ad .vpon-cover-image img{
-        width: 100%;
-      }
+        .vpon-native-ad .vpon-icon-image{
+        display: none;
+        }
 
-      .vpon-native-ad .vpon-icon-image{
-      }
-
-      .vpon-native-ad .vpon-body-text{
-        font-size: 14px;
-      }
-
-      .vpon-native-ad .vpon-action{
-        display: none;   
-      }
-
-      .vpon-native-ad .vpon-attribution{
+        .vpon-native-ad .vpon-title{
         position: absolute;
-        color: #9a9a9a;
-        right: 5px;
-        bottom: 5px;
+        max-height: 3em;
         font-size: 13px;
-      }
-    </style>
+        font-weight: 500;
+        line-height: 1.5;
+        color: #151717;
+        font-family: NotoSansCJKtc-Regular, "Helvetica Neue", Helvetica,Vaedana;
+        text-decoration: none;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        top: 84%;
+        }
+
+        .vpon-native-ad .vpon-body-text{
+        position: relative;
+        max-height: 3em;
+        margin-top: 16%;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.5;
+        color: #151717;
+        font-family: NotoSansCJKtc-Regular, "Helvetica Neue", Helvetica,Vaedana;
+        text-decoration: none;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 0;
+        -webkit-box-orient: vertical;
+visibility: hidden;
+        }
+
+        .vpon-native-ad .vpon-action{
+        display: none;
+        }
+
+        .vpon-native-ad .vpon-attribution{
+        display: inline-block;
+        margin-right: 10px;
+        padding: 7px 8px;
+        color: #6e7071;
+        font-family: NotoSansCJKtc-Regular, "Helvetica Neue", Helvetica,Vaedana;
+        font-size: 13px;
+        background-color: #f3f4f5;
+        border-radius: 0px;
+        position:absolute;
+        top: 71%;
+        }              
+        </style>
   </head>
   <body>
     <h1>The Test Page</h1>
