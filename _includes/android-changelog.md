@@ -1,5 +1,11 @@
 # Vpon Android SDK Change Log
 
+## 4.8.7
+* Release Date: 11 Jun. 2019
+* Build Number: 01609102
+* Bug fix
+* Set AdView background color to transparent
+
 ## 4.8.6
 * Release Date: 8 Mar. 2019
 * Build Number: 80309102

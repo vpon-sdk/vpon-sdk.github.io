@@ -1,5 +1,13 @@
 # Vpon iOS SDK Change Log
 
+## 4.8.6
+
+* Release Date: 11 Jun. 2019
+* Build Number: 11609102
+* Adjustment for iOS 13
+* Optimize Banner Ad and Native Ad performance
+* Fix Native Ad MediaView unclickable issue
+
 ## 4.8.5
 
 * Release Date: 29 May. 2019
