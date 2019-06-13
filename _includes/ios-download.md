@@ -33,7 +33,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-486-11609102-1906102035-d8f0209.a
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-486-31609102-1906131820-d3f24ef.a
 [2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.8.6.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers

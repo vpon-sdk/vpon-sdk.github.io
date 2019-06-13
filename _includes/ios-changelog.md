@@ -2,8 +2,10 @@
 
 ## 4.8.6
 
-* Release Date: 11 Jun. 2019
-* Build Number: 11609102
+<!-- * Release Date: 11 Jun. 2019 -->
+* Release Date: 13 Jun. 2019
+<!-- * Build Number: 11609102 -->
+* Build Number: 31609102
 * Adjustment for iOS 13
 * Optimize Banner Ad and Native Ad performance
 * Fix Native Ad MediaView unclickable issue
