@@ -150,3 +150,7 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 |DMP 1.2.3|
 |:-------:|
 |[Download]({{site.dnldurl}}/vpon-analytics-obf1.2.3-release-20190524.aar)|
+
+# Change Log
+---
+For DMP SDK change Log, please refer to [DMP SDK Change Log]({{ site.baseurl }}/android/dmp/changelog)

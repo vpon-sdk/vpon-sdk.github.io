@@ -106,3 +106,8 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 |DMP 1.2.1|
 |:-------:|
 |[Download]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.1-146c03b.tar.gz)|
+
+# Change Log
+---
+關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/ios/dmp/changelog)
+
