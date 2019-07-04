@@ -98,7 +98,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 ---
 
 1. 新增廣告單元
-2. 在廣告單元中，選擇 1x1 為廣告大小，並完成名稱等設定後儲存
+2. 在廣告單元中，選擇 `1x1` 為廣告大小，並完成名稱等設定後儲存
 3. 產生廣告代碼
 
 新增廣告單元後，選擇廣告單元，並點擊「產生廣告代碼」
@@ -112,7 +112,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 
 ## 設定委刊單、委刊項及廣告素材
 ---
-如要透過 Google Ad Manager 放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。針對保留的委刊項類型 (贊助和標準)，在委刊單獲得核准以前，Google Ad Manager 不會保留廣告空間。
+如要透過 Google Ad Manager 放送新的廣告活動，請先建立新委刊單。建好委刊單後，您還必須建立委刊項、新增廣告素材以及核准委刊單，委刊單廣告才能放送。
 
 ### 建立委刊單
 若要在執行廣告空間預測之前建立委刊單，請按照下列指示進行：
@@ -130,7 +130,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 2. 建立新委刊單，或點擊表格中的現有委刊單
 3. 點擊 `新增委刊項`
 4. 輸入委刊項名稱，不得與聯播網中其他委刊項的名稱重複
-5. 請選擇廣告空間大小為`非內頁廣告`
+5. 請選擇廣告空間大小為 `1x1`
 6. (選用程序) 輸入任何有助於委刊項投放作業的相關註釋
 7. 輸入委刊項類型、日期、數量和費用
 8. (選用程序) 在 `調整放送` 下方進行放送設定
@@ -155,11 +155,30 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 程式碼片段請填入：
 
 ```html
-<vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="License Key"
-       vpon_ad_format="mi"
-       debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script>
+  var vponTag = document.createElement('vpon')
+  vponTag.setAttribute('vpon_ad_test', '0')
+  vponTag.setAttribute('vpon_ad_licensy_key', 'License Key')
+  vponTag.setAttribute('vpon_ad_format', 'mi')
+  vponTag.setAttribute('debug', 'true')
+  vponTag.setAttribute('ad_request_callback', 'vponCallBackMethod')
+  window.top.document.body.appendChild(vponTag)
+  var vponWebSDK = document.createElement('script')
+  vponWebSDK.type = 'text/javascript'
+  vponWebSDK.src = '//m.vpon.com/sdk/vpadn-sdk.js'
+  window.top.document.body.appendChild(vponWebSDK)
+  var up = window.parent;
+  var s = up.document.createElement('script');
+  s.type = 'text/javascript'
+  up.vponCallBackMethod = function (adStatus){
+  console.log('adStatus:'+adStatus);
+  if(adStatus!= 0) {
+    // 沒有廣告回傳，執行其它操作
+    console.log('no vpon ad');
+    }
+  }
+  up.document.head.appendChild(s)
+</script>
 <script>
 //%%CLICK_URL_UNESC%%
 //%%VIEW_URL_UNESC%%

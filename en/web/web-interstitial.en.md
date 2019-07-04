@@ -132,7 +132,7 @@ To create an order before running an inventory forecast:
 2. Create a new order or choose an existing one in the table.
 3. Click "New line item" to create a new line item.
 4. Fill in line item name. Line item name must be unique within your network.
-5. Choose inventory sizes: `Out-of-page`
+5. Choose inventory sizes: `1x1`
 6. (Optional) Enter some comments about the line item that might help with targetting the line item.
 7. Enter the line item type, dates, quantity and cost.
 8. Under Adjust delivery, configure your delivery settings (optional). See Optional delivery settings below for more information.
@@ -157,16 +157,36 @@ Choose `Custom` in All tab:
 Input the snippet of code:
 
 ```html
-<vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="License Key"
-       vpon_ad_format="mi"
-       debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script>
+  var vponTag = document.createElement('vpon')
+  vponTag.setAttribute('vpon_ad_test', '0')
+  vponTag.setAttribute('vpon_ad_licensy_key', 'License Key')
+  vponTag.setAttribute('vpon_ad_format', 'mi')
+  vponTag.setAttribute('debug', 'true')
+  vponTag.setAttribute('ad_request_callback', 'vponCallBackMethod')
+  window.top.document.body.appendChild(vponTag)
+  var vponWebSDK = document.createElement('script')
+  vponWebSDK.type = 'text/javascript'
+  vponWebSDK.src = '//m.vpon.com/sdk/vpadn-sdk.js'
+  window.top.document.body.appendChild(vponWebSDK)
+  var up = window.parent;
+  var s = up.document.createElement('script');
+  s.type = 'text/javascript'
+  up.vponCallBackMethod = function (adStatus){
+  console.log('adStatus:'+adStatus);
+  if(adStatus!= 0) {
+    // No ads, do something here.
+    console.log('no vpon ad');
+    }
+  }
+  up.document.head.appendChild(s)
+</script>
 <script>
 //%%CLICK_URL_UNESC%%
 //%%VIEW_URL_UNESC%%
 </script>
 ```
+
 > **Note**:
 >
 >* vpon_ad_test="1" for test ads，vpon_ad_test="0" for normal ads.

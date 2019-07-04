@@ -97,7 +97,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 ## Google Ad Manager 生成广告代码
 ---
 1. 新增广告单元
-2. 在广告单元中，选择 1x1 为广告大小，并完成名称等设定后储存
+2. 在广告单元中，选择 `1x1` 为广告大小，并完成名称等设定后储存
 3. 生成 “产生广告代码”
 
 新增广告单元后，选择广告单元，并点击「生成代码」
@@ -111,7 +111,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 
 ## 设定委刊单、委刊项及广告素材
 ---
-如要透过 Google Ad Manager 放送新的广告活动，请先建立新委刊单。建好委刊单后，您还必须建立委刊项、新增广告素材以及核准委刊单，委刊单广告才能放送。针对保留的委刊项类型 (赞助和标准)，在委刊单获得核准以前，Google Ad Manager 不会保留广告空间。
+如要透过 Google Ad Manager 放送新的广告活动，请先建立新委刊单。建好委刊单后，您还必须建立委刊项、新增广告素材以及核准委刊单，委刊单广告才能放送。
 
 ### 建立委刊单
 若要在执行广告空间预测之前建立委刊单，请按照下列指示进行：
@@ -129,7 +129,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 2. 建立新委刊单，或点击表格中的现有委刊单
 3. 点击 `新增委刊项`
 4. 输入委刊项名称，不得与联播网中其他委刊项的名称重复
-5. 请选择广告空间大小为`非内页广告`
+5. 请选择广告空间大小为 `1x1`
 6. (选用程序) 输入任何有助于委刊项投放作业的相关注释
 7. 输入委刊项类型、日期、数量和费用
 8. (选用程序) 在 `调整放送` 下方进行放送设定
@@ -155,16 +155,36 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 程式码片段请填入:
 
 ```html
-<vpon vpon_ad_test="1"
-       vpon_ad_licensy_key="License Key"
-       vpon_ad_format="mi"
-       debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script>
+  var vponTag = document.createElement('vpon')
+  vponTag.setAttribute('vpon_ad_test', '0')
+  vponTag.setAttribute('vpon_ad_licensy_key', 'License Key')
+  vponTag.setAttribute('vpon_ad_format', 'mi')
+  vponTag.setAttribute('debug', 'true')
+  vponTag.setAttribute('ad_request_callback', 'vponCallBackMethod')
+  window.top.document.body.appendChild(vponTag)
+  var vponWebSDK = document.createElement('script')
+  vponWebSDK.type = 'text/javascript'
+  vponWebSDK.src = '//m.vpon.com/sdk/vpadn-sdk.js'
+  window.top.document.body.appendChild(vponWebSDK)
+  var up = window.parent;
+  var s = up.document.createElement('script');
+  s.type = 'text/javascript'
+  up.vponCallBackMethod = function (adStatus){
+  console.log('adStatus:'+adStatus);
+  if(adStatus!= 0) {
+    // 没有广告回传，执行其它操作
+    console.log('no vpon ad');
+    }
+  }
+  up.document.head.appendChild(s)
+</script>
 <script>
 //%%CLICK_URL_UNESC%%
 //%%VIEW_URL_UNESC%%
 </script>
 ```
+
 > **Note**:
 >
 >* vpon_ad_test="1" 为开启测试广告， vpon_ad_test="0"为拉取正式广告。
