@@ -105,8 +105,8 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 <img src="{{site.imgurl}}/WebAdManager_28.png" alt="" class="width-600" />
 選取代碼類型為「Google 發佈商廣告代碼」
 <img src="{{site.imgurl}}/WebAdManager_02.png" alt="" class="width-600" />
-選擇「啟用單一請求」、「啟用同步要求」、「非頁內廣告」
-<img src="{{site.imgurl}}/WebAdManager_07.png" alt="" class="width-600" />
+選擇「啟用單一請求」
+<img src="{{site.imgurl}}/WebAdManager_03.png" alt="" class="width-600" />
 請將產生的代碼結果中的「標頭」放在網站的 <head> 中、將 「文件內文」放在網站的 <body> 中
 <img src="{{site.imgurl}}/WebAdManager_08.png" alt="" class="width-600" />
 

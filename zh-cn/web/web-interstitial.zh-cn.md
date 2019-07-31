@@ -104,8 +104,8 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 <img src="{{site.imgurl}}/WebAdManager_31.png" alt="" class="width-600" />
 选取代码类型为「Google 发布商代码」
 <img src="{{site.imgurl}}/WebAdManager_11.png" alt="" class="width-600" />
-选择「启用单一请求」、「启用同步请求」、「插页式广告素材」
-<img src="{{site.imgurl}}/WebAdManager_16.png" alt="" class="width-600" />
+选择「启用单一请求」
+<img src="{{site.imgurl}}/WebAdManager_12.png" alt="" class="width-600" />
 请将产生的代码结果中的「文档标头」放在网站的 <head> 中、将「文档正文」放在网站的 <body> 中
 <img src="{{site.imgurl}}/WebAdManager_17.png" alt="" class="width-600" />
 

@@ -105,8 +105,8 @@ Select an ad unit, click "GENERATE TAGS" to generate publisher tag.
 <img src="{{site.imgurl}}/WebAdManager_19.png" alt="" class="width-600" />
 Choose "Google Publisher Tag" as tag type.
 <img src="{{site.imgurl}}/WebAdManager_20.png" alt="" class="width-600" />
-Click "Enable single request", "Enable synchronous requests" and "Out of page".
-<img src="{{site.imgurl}}/WebAdManager_25.png" alt="" class="width-600" />
+Click "Enable single request".
+<img src="{{site.imgurl}}/WebAdManager_21.png" alt="" class="width-600" />
 Please paste the code snippet in Document header to <head> and paste the one in Document body to <body> of your website.
 <img src="{{site.imgurl}}/WebAdManager_26.png" alt="" class="width-600" />
 
