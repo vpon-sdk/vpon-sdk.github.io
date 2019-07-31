@@ -108,7 +108,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
 選擇「啟用單一請求」
 <img src="{{site.imgurl}}/WebAdManager_03.png" alt="" class="width-600" />
 請將產生的代碼結果中的「標頭」放在網站的 <head> 中、將 「文件內文」放在網站的 <body> 中
-<img src="{{site.imgurl}}/WebAdManager_08.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_04.png" alt="" class="width-600" />
 
 ## 設定委刊單、委刊項及廣告素材
 ---

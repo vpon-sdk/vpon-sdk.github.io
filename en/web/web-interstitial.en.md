@@ -108,7 +108,7 @@ Choose "Google Publisher Tag" as tag type.
 Click "Enable single request".
 <img src="{{site.imgurl}}/WebAdManager_21.png" alt="" class="width-600" />
 Please paste the code snippet in Document header to <head> and paste the one in Document body to <body> of your website.
-<img src="{{site.imgurl}}/WebAdManager_26.png" alt="" class="width-600" />
+<img src="{{site.imgurl}}/WebAdManager_22.png" alt="" class="width-600" />
 
 ## Set Up Orders, Line Items and Creatives
 ---
