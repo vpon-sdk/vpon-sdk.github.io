@@ -16,7 +16,7 @@ Vpon provide Out-stream Video Ad which served outside of a stream video. To opti
 Before you start to integrate Out-stream Video Ad, please make sure you already finished the items below:
 
 1. Import Vpon SDK to your Xcode project. If you haven't done yet, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
-2. Contact [Vpon BD] to set up your account and get your License Key.
+2. Contact [Vpon PDMKT Team] to set up your account and get your License Key.
 
 # Start To Implement Out-stream Video Ad
 ---
@@ -47,7 +47,7 @@ Please refer to the sample code below to finish your Out-stream Video Ad setting
 ### Set Up VpadnInReadAd Object And Indicate A License Key
 ```objc
 - (void) requestVpadnInReadAd {
-    // Please replace "License Key" with the one you receive from Vpon BD
+    // Please replace "License Key" with the one you receive from Vpon PDMKT Team
     _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" delegate:self];
     
     // Request Vpon Out-stream Video Ad
@@ -124,7 +124,7 @@ Please refer to the sample code below to finish your Out-stream Video Ad setting
 ### Set Up VpadnInReadAd Object And Indicate A License Key
 ```objc
 - (void) requestVpadnInReadAd {
-    // Please replace "License Key" with the one you receive from Vpon BD
+    // Please replace "License Key" with the one you receive from Vpon PDMKT Team
     _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" placeholder:_inScrollLoadedView heightConstraint:_inScrollHeightConstraint scrollView:_inScrollView delegate:self];
     
     // Request Vpon Out-stream Video Ad
@@ -164,7 +164,7 @@ Please refer to the sample code below to finish your Out-stream Video Ad setting
 ### Set Up VpadnInReadAd Object And Indicate A License Key
 ```objc
 - (void) requestVpadnInReadAd {
-    // Please replace "License Key" with the one you receive from Vpon BD
+    // Please replace "License Key" with the one you receive from Vpon PDMKT Team
     // Modify the parameters of insertionIndexPath to decide the position that will embed the ad
     _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] tableView:_tableView delegate:self];
     
@@ -205,7 +205,7 @@ Please refer to the sample code below to finish your Out-stream Video Ad setting
 ### Set Up VpadnInReadAd Object And Indicate A License Key
 ```objc
 - (void) requestVpadnInReadAd {
-    // Please replace "License Key" with the one you receive from Vpon BD
+    // Please replace "License Key" with the one you receive from Vpon PDMKT Team
     // Modify the parameters of insertionIndexPath to decide the position that will embed the ad and the sequence of ad request
     VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:5 inSection:0] repeatMode:YES tableView:_tableView delegate:self];
     
@@ -279,7 +279,7 @@ Please refer to the link below to learn more about other ad types:
 * [Mediation](../mediation)
 * [Advanced](../advanced)
 
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [InScrollView]: {{site.baseurl}}/jp/ios/outstream/#inscrollview
 [InTableView]: {{site.baseurl}}/jp/ios/outstream/#intableview
 [InTableView (Multiple Request)]: {{site.baseurl}}/jp/ios/outstream/#intableviewrepeat

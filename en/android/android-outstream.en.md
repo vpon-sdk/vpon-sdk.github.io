@@ -16,7 +16,7 @@ Vpon provide Out-stream Video Ad which served outside of a stream video. To opti
 Before you start to integrate Out-stream Video Ad, please make sure you already finished the items below:
 
 1. Import Vpon SDK to your project. If you haven't done yet, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
-2. Contact [Vpon BD] to set up your account and get your License Key.
+2. Contact [Vpon PDMKT Team] to set up your account and get your License Key.
 
 
 # Start To Implement Out-stream Video Ad
@@ -457,7 +457,7 @@ Please refer to the link below to learn more about other ad types:
 * [Advanced](../advanced)
 
 [串接說明]: ../integration-guide/
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [ScrollView]: {{site.baseurl}}/android/outstream/#scrollview
 [ListView]: {{site.baseurl}}/android/outstream/#listview
 [RecyclerView]:  {{site.baseurl}}/android/outstream/#recyclerview

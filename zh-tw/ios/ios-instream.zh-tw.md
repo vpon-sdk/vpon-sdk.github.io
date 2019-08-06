@@ -15,10 +15,10 @@ Vpon 提供 In-stream 影音廣告，只要您的 App 中有支援 VAST / VPAID 
 ---
 在開始串接 Vpon In-stream 影音廣告前，需要進行以下準備：
 
-1. 聯繫 [Vpon BD] 完成帳號設定，並取得您的 License Key
+1. 聯繫 [Vpon PDMKT Team] 完成帳號設定，並取得您的 License Key
 2. 準備一個支援 VAST / VPAID 格式的影音播放器 <br>
    (我們建議您可以使用 [Google IMA SDK] 來建立您的影音播放器)
-3. 聯繫 [Vpon BD]，取得廣告請求 URL
+3. 聯繫 [Vpon PDMKT Team]，取得廣告請求 URL
 
 # 開始串接
 ---
@@ -109,7 +109,7 @@ NSString *advertisingId = [[ASIdentifierManager sharedManager].advertisingIdenti
 
 
 
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [Google IMA SDK]: https://developers.google.com/interactive-media-ads/docs/sdks/ios/
 [Google Mobile Ads SDK]: https://developers.google.com/mobile-ads-sdk/docs/dfp/ios/sdk
 [完成串接準備]: {{site.baseurl}}/zh-tw/ios/instream/#prerequisites

@@ -16,7 +16,7 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 在開始串接廣告之前，請確認您已經完成以下準備：
 
 1. 將 Vpon SDK 導入您的專案中，若您尚未完成，請先參考[串接說明]完成相關設定
-2. 聯繫 [Vpon BD] 完成帳號設定，並取得您的 License Key
+2. 聯繫 [Vpon PDMKT Team] 完成帳號設定，並取得您的 License Key
 
 # 開始撰寫 Out-stream 影音廣告
 ---
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
     // 宣告 VpadnInReadAd
     private VpadnInReadAd inReadAd;
 
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    // 請將 License Key 換成 Vpon PDMKT Team 提供您的 License Key
     private String licenseKey = "License Key" ;
     ...
 }
@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
     // 宣告 VpadnInReadAd
     private VpadnInReadAd inReadAd;
 
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    // 請將 License Key 換成 Vpon PDMKT Team 提供您的 License Key
     private String licenseKey = "License Key" ;
 
     // 請替換成欲顯示廣告的位置
@@ -262,7 +262,7 @@ public class MainActivity extends Activity {
     // 宣告 VpadnInReadAd
     private VpadnInReadAd inReadAd;
 
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    // 請將 License Key 換成 Vpon PDMKT Team 提供您的 License Key
     private String licenseKey = "License Key" ;
 
     // 請替換成欲顯示廣告的位置
@@ -462,7 +462,7 @@ public class MainActivity extends Activity {
 * [進階設定](../advanced)
 
 [串接說明]: ../integration-guide/
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [ScrollView]: {{site.baseurl}}/zh-tw/android/outstream/#scrollview
 [ListView]: {{site.baseurl}}/zh-tw/android/outstream/#listview
 [RecyclerView]:  {{site.baseurl}}/zh-tw/android/outstream/#recyclerview

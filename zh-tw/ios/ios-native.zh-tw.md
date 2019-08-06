@@ -224,7 +224,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 - [使用 Smaato]
 
 [串接說明]: ../integration-guide/
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [Sample Code]: ../download/
 [iOS9 ATS]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
 

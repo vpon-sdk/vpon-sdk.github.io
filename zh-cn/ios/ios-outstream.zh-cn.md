@@ -16,7 +16,7 @@ Vpon Out-stream 影音广告提供串流外的影音广告服务，透过将影�
 在开始串接广告之前，请确认您已经完成以下准备：
 
 1. 将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
-2. 联系[Vpon BD] 完成帐号设定，并取得您的 License Key
+2. 联系[Vpon PDMKT Team] 完成帐号设定，并取得您的 License Key
 
 # 开始撰写 Out-stream 影音广告
 ---
@@ -50,7 +50,7 @@ Vpon Out-stream 影音广告提供串流外的影音广告服务，透过将影�
 
 ```objc
 - (void) requestVpadnInReadAd {
-    // 請將 License Key 換成 Vpon BD 提供您的 License Key
+    // 請將 License Key 換成 Vpon PDMKT Team 提供您的 License Key
     _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" delegate:self];
 
     // 拉取广告
@@ -129,7 +129,7 @@ Vpon Out-stream 影音广告提供串流外的影音广告服务，透过将影�
 
 ```objc
 - (void) requestVpadnInReadAd {
-    // 请将 License Key 换成 Vpon BD 提供您的 License Key
+    // 请将 License Key 换成 Vpon PDMKT Team 提供您的 License Key
     _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" placeholder:_inScrollLoadedView heightConstraint:_inScrollHeightConstraint scrollView:_inScrollView delegate:self];
     
     // 拉取广告
@@ -172,7 +172,7 @@ Vpon Out-stream 影音广告提供串流外的影音广告服务，透过将影�
 
 ```objc
 - (void) requestVpadnInReadAd {
-    // 请将 License Key 换成 Vpon BD 提供您的 License Key
+    // 请将 License Key 换成 Vpon PDMKT Team 提供您的 License Key
     // 修改 insertionIndexPath 参数来指定广告嵌入的位置
     _VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] tableView:_tableView delegate:self];
 
@@ -216,7 +216,7 @@ Vpon Out-stream 影音广告提供串流外的影音广告服务，透过将影�
 
 ```objc
 - (void) requestVpadnInReadAd {
-    // 请将 License Key 换成 Vpon BD 提供您的 License Key
+    // 请将 License Key 换成 Vpon PDMKT Team 提供您的 License Key
     // 修改 insertionIndexPath 的参数，指定广告嵌入的位置及再次请求的间隔数
     VpadnInReadAd = [[VpadnInReadAd alloc] initWithPlacementId:@"License Key" insertionIndexPath:[NSIndexPath indexPathForRow:5 inSection:0] repeatMode:YES tableView:_tableView delegate:self];
 
@@ -291,7 +291,7 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] �
 
 
 [串接说明]: ../integration-guide/
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [InScrollView]: {{site.baseurl}}/zh-cn/ios/outstream/#inscrollview
 [InTableView]: {{site.baseurl}}/zh-cn/ios/outstream/#intableview
 [InTableView (多次请求)]: {{site.baseurl}}/zh-cn/ios/outstream/#intableviewrepeat

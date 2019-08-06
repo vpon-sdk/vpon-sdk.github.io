@@ -15,9 +15,9 @@ Vpon provide In-stream Video Ad which can help to maximum your monetization with
 ---
 Before you begin to integrate Vpon In-stream Video Ad, you’ll need the following:
 
-1. Contact [Vpon BD] to set up your account and get your License Key.
+1. Contact [Vpon PDMKT Team] to set up your account and get your License Key.
 2. Prepare your own VAST / VPAID complicant video player. (Strongly recommneded that your video player is integrated with [Google IMA SDK].)
-3. Contact [Vpon BD] to get an ad request URL from Vpon.
+3. Contact [Vpon PDMKT Team] to get an ad request URL from Vpon.
 
 # Integrate Vpon In-stream Video Ad
 ---
@@ -88,7 +88,7 @@ Besides of integrate Vpon In-stream Video Ad with Google Ad Manager, you can als
 
 
 
-[Vpon BD]: mailto:bd@vpon.com
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
 [Google IMA SDK]: https://developers.google.com/interactive-media-ads/docs/sdks/html5/
 [Prerequisites]: {{site.baseurl}}/android/instream/#prerequisites
 [Advanced Setting]: {{site.baseurl}}/android/instream/#s2s

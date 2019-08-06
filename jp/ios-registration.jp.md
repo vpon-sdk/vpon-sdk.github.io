@@ -11,7 +11,7 @@ lang:            "jp"
 # Vponへの登録
 ---
 Vpon ウェブサイトにアクセスしてください。: こちら[ページ](http://console.vpon.com/register.action)右上で言語を変更することができます。 必要項目の記入完了後、登録メールアドレスに認証メールが届いているかを確認してください。サイト上で認証コードを入力すると登録完了となります。
-認証メールが届かない場合、当社 : [Vpon BD](mailto:bd@vpon.com). までご連絡ください。
+認証メールが届かない場合、当社 : [Vpon PDMKT Team](mailto:partner.service@vpon.com). までご連絡ください。
 
 # システム要求
 ---
