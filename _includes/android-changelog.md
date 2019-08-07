@@ -1,5 +1,12 @@
 # Vpon Android SDK Change Log
 
+## 4.9.1
+* Release Date: 7 Aug. 2019
+* Build Number: 60809102
+* Support IAB OM SDK for Banner Ad, Interstitial Ad, Native Ad and Out-stream Video Ad
+* Support GIF file in Native Ad Mediaview
+* Bug fix
+
 ## 4.8.8
 * Release Date: 26 Jun. 2019
 * Build Number: 52609102

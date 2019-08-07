@@ -1,5 +1,13 @@
 # Vpon iOS SDK Change Log
 
+## 4.9.1
+
+* Release Date: 7 Aug. 2019
+* Build Number: 70809102
+* Support IAB OM SDK for Banner Ad, Interstitial Ad, Native Ad and Out-stream Video Ad
+* Support GIF file in Native Ad Mediaview
+* Optimize Interstitial Ad and Native Ad performance
+
 ## 4.8.7
 
 * Release Date: 02 Jul. 2019

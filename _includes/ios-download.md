@@ -20,7 +20,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 # Adapter Download
 ---
 
-|AdMob Adapter <br> (Version: 1.1.2)|MoPub <br> Custom Events|Smaato <br> SOMAMediationPlugin|
+|AdMob Adapter v 1.1.3<br>Compatible with Vpon SDK 4.9.1 or above <br>Compatible with AdMob SDK 4.47.0|MoPub <br> Custom Events|Smaato <br> SOMAMediationPlugin|
 |:---------------------------------:|:----------------------:|:-----------------------------:|
 |           [download][4]           |     [download][5]      |         [download][12]        |
 
@@ -33,8 +33,8 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-487-10709102-1907011613-52eca6d.a
-[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.8.7.zip
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-491-70809102-1908070937-a39a1ba.a
+[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.9.1.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter

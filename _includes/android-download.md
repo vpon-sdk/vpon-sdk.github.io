@@ -9,7 +9,7 @@
 # Adapter Download
 ---
 
- AdMob Adapter <br>(Version: 1.1.1)  | MoPub<br>Custom Events | Smaato<br> Custom Events |
+ AdMob Adapter v 1.1.2<br>Compatible with Vpon SDK 4.9.1 or above| MoPub<br>Custom Events | Smaato<br> Custom Events |
 :----------------------------------: | :---------------------:| :-----------------------:|
  [download][2]                       | [download][3]          | [download][9]
 
@@ -23,7 +23,7 @@ Fundamental<br><font size="2px" color="#C0C0C0">Android Studio</font> | Fundamen
 
 
 
-[1]: http://m.vpadn.com/sdk/vpadn-sdk-obf488-52609102-release.aar
+[1]: http://m.vpadn.com/sdk/vpadn-sdk-obf491-60809102-release.aar
 [2]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/AdMobAdapter
 [3]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/MoPubCustomEvents
 [4]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Fundamental/AndroidStudioExample
