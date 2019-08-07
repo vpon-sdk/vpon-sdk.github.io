@@ -15,7 +15,7 @@ This article will give you basic knowlegde to integrate with Vpon SSP.
 
 # Setup
 ---
-If you have recieved the SSP Mobile Web interstitial placement tag, please follow the guide below. If not, please contact our [BD](mailto: bd.tw@vpon.com) for placement tag.
+If you have recieved the SSP Mobile Web interstitial placement tag, please follow the guide below. If not, please contact our [PDMKT Team](mailto: bd.tw@vpon.com) for placement tag.
 
 ## Placement Tag
 Please insert the code below into your websites.
