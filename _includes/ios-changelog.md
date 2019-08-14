@@ -1,5 +1,11 @@
 # Vpon iOS SDK Change Log
 
+## 4.9.2
+
+* Release Date: 14 Aug. 2019
+* Build Number: 41809102
+* Revise the structure of Interstitial Ad (Video)
+
 ## 4.9.1
 
 * Release Date: 7 Aug. 2019
