@@ -104,9 +104,7 @@ dependencies {
 
 # 加入 Permission
 ---
-請在您的 AndroidManifest.xml 加入以下內容。
-
-以下為必須加入的 Permissions：
+請在您的 AndroidManifest.xml 加入以下 Permission：
 
 ```xml
 <!-- Required Permissions -->
