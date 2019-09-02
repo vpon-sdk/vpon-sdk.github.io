@@ -11,9 +11,9 @@ lang:           "zh-tw"
 # General
 ---
 
-
 ### 廣告沒有成功展示時的狀況判斷
 ---
+
 當您的應用程式或網站向 Vpon 發出廣告請求而沒有廣告展示時，您可以從回應的 Log 中初步判斷廣告沒有回傳的原因。
 
 您可以在您的 IDE 或是瀏覽器的開發者工具中，看到類似以下的 Log：<br>
@@ -24,7 +24,7 @@ Vpadn-Status-Code -> -2
 Vpadn-Status-Desc -> banner position with ad format not consistent
 Vpadn-Status -> INVALID_REQUEST
 ```
-<br>
+
 請參考以下訊息排除基本問題：
 
 * SERVER_ERROR：廣告請求失敗，表示 Vpon Ad Server 無法回應您的廣告請求，請盡速與 [Vpon FAE] 聯繫
@@ -32,7 +32,6 @@ Vpadn-Status -> INVALID_REQUEST
 * INVALID_REQUEST：廣告請求失敗，表示廣告請求中傳入的參數有誤，請檢查是否使用了對應正確平台、版位的 Vpon License Key 來進行廣告請求
 
 如果您仍無法確認沒有廣告展示的原因，請將以上的 Log 提供給 [Vpon FAE]，我們會協助您確認沒有廣告顯示的原因。
-
 
 
 # Android
