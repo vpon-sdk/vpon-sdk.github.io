@@ -206,7 +206,7 @@ Please try to request Vpon Test Ads for your testing. To display Vpon Test Ads, 
 # Web
 ---
 
-### How Can I Test The Ads Uf I Got NO_FILL?
+### How Can I Test The Ads If I Got NO_FILL?
 ---
 
 Please follow the sample code below to replace the parameter of vpon_ad_test from `0` to `1` to get Vpon Test Ads for your testing.
