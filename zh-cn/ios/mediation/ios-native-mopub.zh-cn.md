@@ -7,9 +7,15 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-cn/ios/native/mediation/mopub/
 lang:           "zh-cn"
 ---
-# Download
+
+# 概要
 ---
-[点此处下载Sample Code]。
+在开始进行 MoPub 设定之前，请务必确认您的专案中已包含以下三个档案：
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Event
+
 
 # MoPub 设定
 ---
@@ -47,6 +53,9 @@ Mopub 后台设定请参考下列步骤:
 
 ![][12]
 
+# Download
+---
+[点此处下载Sample Code]。
 
   [1]: {{site.imgurl}}/Mopub_001.png
   [2]: {{site.imgurl}}/Mopub_002.png
@@ -58,3 +67,4 @@ Mopub 后台设定请参考下列步骤:
   [11]: {{site.imgurl}}/Mopub_011.png
   [12]: {{site.imgurl}}/Mopub_012.png
   [点此处下载Sample Code]: {{site.dnldurl}}/sample-code/iOSMoPubNativeMediationSample.zip
+  [串接说明]: ../../integration-guide/#initial-sdk

@@ -128,6 +128,45 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 
 在 `Build Settings` 内 `Other Linker Flags` 请填入 `-all_load` 与 `-ObjC`，并把 `Summary` 下的 `AdSupport` 设为 `Optional`
 
+
+# 初始化 SDK {#initial-sdk}
+---
+若您使用 Vpon SDK 4.9.3 之后的版本，请务必参考以下指示初始化 SDK。
+
+### Objective-C
+
+若您是使用 Objective-C，请在您的 AppDelegate.m 中，加入以下程式码：
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Vpon SDK initialization
+    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
+    config.logLevel = VpadnLogLevelDefault;
+    [config initializeSdk];
+
+    return YES;
+}
+```
+
+### Swift
+
+若您是使用 Swift，请在您的 AppDelegate.swift 中，加入以下程式码：
+
+```swift
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.sharedInstance()
+        config.logLevel = .default
+        config.initializeSdk()
+
+        return true
+    }
+```
+
+
 # App Transport Security
 ---
 iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定

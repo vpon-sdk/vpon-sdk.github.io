@@ -7,6 +7,17 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/mediation/mopub/
 lang: "zh-cn"
 ---
+
+# 概要
+---
+在开始进行 MoPub 设定之前，请务必确认您的专案中已包含以下三个档案：
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Event
+
+并参考[串接说明]初始化 Vpon iOS SDK。
+
 # MoPub 设定
 ---
 Mopub 后台设定请参考下列步骤:
@@ -53,3 +64,4 @@ Mopub 后台设定请参考下列步骤:
   [10]: {{site.imgurl}}/Mopub_010.png
   [11]: {{site.imgurl}}/Mopub_011.png
   [12]: {{site.imgurl}}/Mopub_012.png
+[串接说明]: ../../integration-guide/#initial-sdk

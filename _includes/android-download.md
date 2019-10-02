@@ -1,4 +1,4 @@
-# SDK Download (Version: {{site.a_version}})
+## SDK Download (Version: {{site.a_version}})
 ---
 
  Fundamental SDK |
@@ -6,15 +6,15 @@
 [download][1]                         |
 
 
-# Adapter Download
+## Adapter Download
 ---
 
- AdMob Adapter v 1.1.2<br>Compatible with Vpon SDK 4.9.1 or above| MoPub<br>Custom Events | Smaato<br> Custom Events |
+ AdMob Adapter v 1.1.2<br>Compatible with Vpon SDK 4.9.1 and above| MoPub<br>Custom Events | Smaato<br> Custom Events |
 :----------------------------------: | :---------------------:| :-----------------------:|
  [download][2]                       | [download][3]          | [download][9]
 
 
-# Sample Code Download
+## Sample Code Download
 ---
 
 Fundamental<br><font size="2px" color="#C0C0C0">Android Studio</font> | Fundamental<br><font size="2px" color="#C0C0C0">Eclipse</font>    | AdMob        | DFP         | MoPub       | Smaato        |

@@ -7,6 +7,18 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/mediation/mopub/
 lang:           "en"
 ---
+
+# General
+---
+Please make sure you've added following files in your project:
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Events
+
+And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
+
+
 # MoPub Settings
 ---
 To setup MoPub, you need to complete the following steps:
@@ -52,3 +64,5 @@ After filling in the data above, click "Segments" tab and choose "Global Segment
   [10]: {{site.imgurl}}/Mopub_010.png
   [11]: {{site.imgurl}}/Mopub_011.png
   [12]: {{site.imgurl}}/Mopub_012.png
+
+[Integration Guide]: ../../integration-guide/#initial-sdk

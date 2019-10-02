@@ -12,12 +12,15 @@ lang:           "en"
 According to Google Ad Manager's announcement, Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to this [official annoucement](https://support.google.com/admanager/answer/9020684) to finish mediation setting in Yield Group.
 
 
-# Overview
+# General
 ---
-This document provides instructions for using the Google Mobile Ads SDK to display banner ads. If you are using AdMob or Google Ad Manager, please make sure below files are included in your project.
+Please make sure you've added following files in your project:
 
-1. Fundamental SDK
-2. Adapter SDK
+1. Google Mobile Ads SDK
+2. Vpon SDK
+3. Vpon AdMob Adapter
+
+And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
 
 
 # Create an Ad Unit
@@ -127,7 +130,7 @@ Example：
 Please refer to our [Sample Code] for a complete integration sample.
 
 
-[integration guide]: ../../integration-guide
+[Integration Guide]: ../../integration-guide/#initial-sdk
 [Sample Code]: {{site.baseurl}}/ios/download/#dfp
 [Here]: https://www.google.com/dfp/
 [DFP 廣告空間]: {{site.imgurl}}/AppAdManager_03.png

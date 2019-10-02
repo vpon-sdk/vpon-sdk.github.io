@@ -7,12 +7,15 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/mediation/admob/
 lang:           "en"
 ---
-# Overview
+# General
 ---
-This document provides instructions for using the Google Mobile Ads SDK to display banner ads. If you are using AdMob or Google Ad Manager, please make sure below files are included in your project.
+Please make sure you've added following files in your project:
 
-1. Fundamental SDK
-2. Adapter SDK
+1. Google Mobile Ads SDK
+2. Vpon SDK
+3. Vpon AdMob Adapter
+
+And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
 
 # Ad Unit
 ---
@@ -67,6 +70,6 @@ Please insert the Class Name of CustomEvent as below. For example, if you are in
 Please refer to our [Sample Code] for a complete integration sample.
 
 
-[串接說明]:http://wiki.vpon.com/ios/integration-guide/
+[Integration Guide]: ../../integration-guide/#initial-sdk
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/ios/download

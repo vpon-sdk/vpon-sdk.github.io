@@ -13,11 +13,13 @@ lang: "zh-cn"
 
 # 概要
 ---
-以下为搭配 Google Ad Manager (原 DoubleClick for Publisher) 进行广告串接的设定方式。在开始进行设定之前，请先参考[串接说明]将 Vpon SDK 加到您的专案中。请注意，要使用 Google Ad Manager 进行广告串接的话，请务必确认您的专案中包含以下三个档案：
+在开始进行 Google Ad Manager 设定之前，请务必确认您的专案中已包含以下三个档案：
 
 1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
+
+并参考[串接说明]初始化 Vpon iOS SDK。
 
 # 广告单元设定
 ---
@@ -104,7 +106,7 @@ lang: "zh-cn"
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
 
-[串接说明]: ../../integration-guide
+[串接说明]: ../../integration-guide/#initial-sdk
 [Sample Code]: {{site.baseurl}}/zh-cn/ios/download/#dfp
 [Google Ad Manager 后台]: https://admanager.google.com/
 [Google Ad Manager 串接说明文件]: https://developers.google.com/ad-manager/mobile-ads-sdk/ios/banner#banner_sizes

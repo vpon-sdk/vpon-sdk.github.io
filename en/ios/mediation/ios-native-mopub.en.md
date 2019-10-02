@@ -7,9 +7,17 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/native/mediation/mopub/
 lang:           "en"
 ---
-# Download
+
+# General
 ---
-Here is the [sample code] about the mediation between Vpon and MoPub.
+Please make sure you've added following files in your project:
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Events
+
+And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
+
 
 # MoPub Settings
 ---
@@ -46,6 +54,10 @@ After filling in the data above, click "Segments" tab and choose "Global Segment
 
 ![][12]
 
+# Download
+---
+Here is the [sample code] about the mediation between Vpon and MoPub.
+
 
   [1]: {{site.imgurl}}/Mopub_001.png
   [2]: {{site.imgurl}}/Mopub_002.png
@@ -57,3 +69,5 @@ After filling in the data above, click "Segments" tab and choose "Global Segment
   [11]: {{site.imgurl}}/Mopub_011.png
   [12]: {{site.imgurl}}/Mopub_012.png
   [sample code]: {{site.dnldurl}}/sample-code/iOSMoPubNativeMediationSample.zip
+
+[Integration Guide]: ../../integration-guide/#initial-sdk

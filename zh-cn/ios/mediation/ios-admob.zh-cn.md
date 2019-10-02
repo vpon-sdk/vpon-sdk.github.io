@@ -7,13 +7,16 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/mediation/admob/
 lang: "zh-cn"
 ---
+
 # 概要
 ---
-以下为搭配 Google AdMob 进行广告串接的设定方式。在开始进行设定之前，请先参考[串接说明]将 Vpon SDK 加到您的专案中。请注意，要使用 Google AdMob 进行广告串接的话，请务必确认您的专案中包含以下三个档案：
+在开始进行 AdMob 设定之前，请务必确认您的专案中已包含以下三个档案：
 
 1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
+
+并参考[串接说明]初始化 Vpon iOS SDK。
 
 
 # 广告单元设定
@@ -70,6 +73,6 @@ lang: "zh-cn"
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
 
-[串接说明]:http://wiki.vpon.com/zh-cn/ios/integration-guide/
+[串接说明]:http://wiki.vpon.com/zh-cn/ios/integration-guide/#initial-sdk
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/zh-cn/ios/download

@@ -7,6 +7,17 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/native/mediation/smaato/
 lang: "zh-cn"
 ---
+
+# 概要
+---
+在开始进行 Smaato 设定之前，请务必确认您的专案中已包含以下三个档案：
+
+1. Smaato SDK
+2. Vpon SDK
+3. Vpon Smaato SOMAMediationPlugin
+
+并参考[串接说明]初始化 Vpon iOS SDK。
+
 # Smaato 设定
 ---
 Smaato 后台设定请参考下列步骤：
@@ -52,3 +63,4 @@ Smaato 后台设定请参考下列步骤：
   [6]: {{site.imgurl}}/Smaato_006.png
   [7]: {{site.imgurl}}/Smaato_016.png
   [8]: {{site.imgurl}}/Smaato_013.png
+[串接说明]: ../../integration-guide/#initial-sdk

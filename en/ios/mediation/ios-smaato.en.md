@@ -7,6 +7,17 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /ios/mediation/smaato/
 lang: "en"
 ---
+
+# General
+---
+Please make sure you've added following files in your project:
+
+1. Smaato SDK
+2. Vpon SDK
+3. Vpon Smaato SOMAMediationPlugin
+
+And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
+
 # Smaato Settings
 ---
 To setup Smaato, you need to complete the following steps:
@@ -52,3 +63,4 @@ Click "Save" to save the line item setting.
   [6]: {{site.imgurl}}/Smaato_006.png
   [7]: {{site.imgurl}}/Smaato_012.png
   [8]: {{site.imgurl}}/Smaato_014.png
+[Integration Guide]: ../../integration-guide/#initial-sdk

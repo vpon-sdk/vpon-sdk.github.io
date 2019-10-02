@@ -138,6 +138,46 @@ To add these frameworks, double-click the project name. Open the Link Binary Wit
 
 Add  `-all_load` and `-ObjC` under `Other Linker Flags` of `Build Settings`. Click the `Build Phases` and set the `AdSupport` framework to `Optional`.
 
+
+# SDK Initialization {#initial-sdk}
+---
+
+Please follow the tips below to initialize Vpon SDK if you are using Vpon SDK v4.9.3 or above version.
+
+### Objective-C
+
+Please add below code snipet in your AppDelegate.m if you are using Objective-C:
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Vpon SDK initialization
+    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
+    config.logLevel = VpadnLogLevelDefault;
+    [config initializeSdk];
+
+    return YES;
+}
+```
+
+### Swift
+
+Please add below code snipet in your AppDelegate.swift if you are using Swift:
+
+
+```swift
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.sharedInstance()
+        config.logLevel = .default
+        config.initializeSdk()
+
+        return true
+    }
+```
+
 # App Transport Security
 ---
 Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for your reference.

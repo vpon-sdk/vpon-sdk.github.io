@@ -7,6 +7,17 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/mediation/smaato/
 lang: "zh-tw"
 ---
+
+# 概要
+---
+在開始進行 MoPub 設定之前，請務必確認您的專案中已包含以下三個檔案：
+
+1. Smaato SDK
+2. Vpon SDK
+3. Vpon Smaato SOMAMediationPlugin
+
+並參考[串接說明]初始化 Vpon iOS SDK。
+
 # Smaato 設定
 ---
 Smaato 後台設定請參考下列步驟：
@@ -52,3 +63,5 @@ Smaato 後台設定請參考下列步驟：
   [6]: {{site.imgurl}}/Smaato_006.png
   [7]: {{site.imgurl}}/Smaato_007.png
   [8]: {{site.imgurl}}/Smaato_008.png
+
+[串接說明]: ../../integration-guide/#initial-sdk
