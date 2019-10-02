@@ -1,5 +1,13 @@
 # Vpon iOS SDK Change Log
 
+## 4.9.3
+
+* Release Date: 2 Oct. 2019
+* Build Number: 20019102
+* Optimize the structure of Interstitial Ad
+* Add a method for SDK initialization
+* Add an examination of Photo Library Additions Usage Description
+
 ## 4.9.2
 
 * Release Date: 14 Aug. 2019
