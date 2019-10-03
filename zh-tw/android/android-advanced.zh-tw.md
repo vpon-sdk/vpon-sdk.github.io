@@ -99,24 +99,6 @@ public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
 當 Ad 點擊會啟動新的應用程式時呼叫。
 
 
-# Crazy Ad
----
-Crazy Ad 是由 Banner 自動展示的全螢幕富媒體廣告，展開後呈現約 5~7 秒會自動關閉。
-
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300" />
-
-
-## 如何設定 Crazy Ad
----
-
-1. 請先[註冊帳號]成為 Vpon 開發商夥伴
-2. 登入[開發商後台]申請 License Key
-3. 選擇是否播放 Crazy Ad
-
-如圖:
-![CrazyadSetting]
-
-
 # Corona User
 ---
 如果您的 App 使用 Corona 欲串接 Vpon 廣告，我們建議您用 Web SDK 的方式串接，使用方法如下：

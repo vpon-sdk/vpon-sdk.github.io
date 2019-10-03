@@ -24,7 +24,7 @@ Please access [Publisher Panel](http://console.vpon.com/) to apply your own Lice
 
 # Get Your License Key
 ---
-Switch to "App" tag and click `Create New App` to connect your application with your Vpon Publisher account. Insert your application name, platform, URL and application instructions. Then you have to choose if you would like to use CrazyAd.
+Switch to "App" tag and click `Create New App` to connect your application with your Vpon Publisher account. Insert your application name, platform, URL and application instructions.
 
 Click "Send" button to send your application after you finish the form.
 
@@ -33,9 +33,7 @@ Click "Send" button to send your application after you finish the form.
 Now you can follow these steps to create banner position:
 
 1. Insert your banner position name, and choose your ad type.
-2. Choose if you would like to enable test mode.
-3. Set ad filter.
-4. Set the color of the ad.
+2. Set ad filter.
 
 Click "Send" button after you finish it.
 
@@ -52,7 +50,7 @@ Click “App List” to go to the App List page. You will see the applications t
 
 > **Note**: You can only request for formal Vpon ads after the status of your application and banner position turn green.
 
-[VponSDK_400_NewApp]: {{site.imgurl}}/VponSDK_400_NewApp.png
-[SDK_400_New_Banner_Position]: {{site.imgurl}}/SDK_400_New_Banner_Position.png
-[SDK400_Banner_Position_List]: {{site.imgurl}}/SDK400_Banner_Position_List.png
-[SDK400_App_List]: {{site.imgurl}}/SDK400_App_List.png
+[VponSDK_400_NewApp]: {{site.imgurl}}/Console_en_01.png
+[SDK_400_New_Banner_Position]: {{site.imgurl}}/Console_en_02.png
+[SDK400_Banner_Position_List]: {{site.imgurl}}/Console_en_03.png
+[SDK400_App_List]: {{site.imgurl}}/Console_en_04.png

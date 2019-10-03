@@ -27,27 +27,26 @@ Key，可以帮助您横跨大中华区的行动广告市场。 -->
 
 # License Key 申请流程
 ---
-切换到【应用软体】的页面下，点选【建立软体】即可进行新增应用程式页面。请输入您要串接广告的应用程式名称、应用程式所使用的平台、
-URL 与应用程式说明与选择是否可播放 Crazy AD。填完后按下【送出】键进入新增版位页面。
+切换到【应用软体】的页面下，点选【建立软体/网站】即可新增应用程式。请输入您要串接广告的应用程式名称、应用程式所使用的平台、URL。
+<br>
+填完后按下【送出】键进入新增版位页面。
 ![][0]
 
 进入新增版位页面，请依据图示完成相关资讯的填写：
 
-1.  输入您的广告版位名称、选择您的广告种类，选择是否使用 Vpon 广告与是否使用 mix 广告。<font color="red">建议使用选择开启使用 Vpon 广告及关闭使用mix广告</font>
-2.  测试模式设定
-3.  设定广告过滤
-4.  广告颜色设定
+1.  输入您的广告版位名称、选择您的广告种类，选择是否使用平台广告与是否使用混合曝光平台广告。<font color="red">建议使用选择开启使用平台广告及关闭使用混合曝光平台广告</font>
+2.  设定广告过滤
 
 
 按下【送出】键进入版位列表页面。
 
 ![][1]
 
-进入版位列表页面后，将会看见您的版位审核状态与应用程式的 License Key。按下左选单的【软体列表】进入软体列表页面。
+进入版位列表页面后，将会看见您的版位审核状态与应用程式的 License Key。
 
 ![][2]
 
-进入软体列表页面，会看到您所建立的应用程式、应用程式的审核状态与相关设定
+按下左选单的【软体列表】进入软体列表页面。在软体列表页面中，会看到您所建立的应用程式、应用程式的审核状态与相关设定
 
 ![][3]
 
@@ -55,8 +54,8 @@ URL 与应用程式说明与选择是否可播放 Crazy AD。填完后按下【�
 
   [注册成为开发商]: http://console.vpon.com/register.action
   [开发商后台]: http://console.vpon.com
-  [0]: {{site.imgurl}}/SDK400建立應用程式.jpeg
-  [1]: {{site.imgurl}}/SDK400新增版位.jpeg
-  [2]: {{site.imgurl}}/Trandationchinesefrontserver3.png
-  [3]: {{site.imgurl}}/Trandationchinesefrontserver4.png
+  [0]: {{site.imgurl}}/Console_zh-cn_01.png
+  [1]: {{site.imgurl}}/Console_zh-cn_02.png
+  [2]: {{site.imgurl}}/Console_zh-cn_03.png
+  [3]: {{site.imgurl}}/Console_zh-cn_04.png
   [5]: mailto:partner.service@vpon.com

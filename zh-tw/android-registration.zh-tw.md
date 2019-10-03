@@ -27,34 +27,34 @@ Key，可以幫助您橫跨大中華區的行動廣告市場。 -->
 
 # License Key 申請流程
 ---
-切換到【應用軟體】的頁面下，點選【建立軟體】即可進行新增應用程式頁面。請輸入您要串接廣告的應用程式名稱、應用程式所使用的平台、
-URL 與應用程式說明與選擇是否可播放 Crazy AD。填完後按下【送出】進入新增版位頁面。
+切換到【應用軟體】的頁面下，點選【建立軟體/網站】即可新增應用程式。請輸入您要串接廣告的應用程式名稱、應用程式所使用的平台、
+URL。<br>
+
+填完後按下【送出】進入新增版位頁面。
 ![][0]
 
 進入新增版位頁面，請依據圖示完成相關資訊的填寫：
 
-1.  輸入您的廣告版位名稱、選擇您的廣告種類，選擇是否使用 Vpon 廣告與是否使用 mix 廣告。<font color="red">建議使用選擇開啟使用Vpon廣告及關閉使用mix廣告</font>
-2.  測試模式設定
-3.  設定廣告過濾
-4.  廣告顏色設定
+1.  輸入您的廣告版位名稱、選擇您的廣告種類，選擇是否使用平台廣告與是否使用混合曝光平台廣告。<font color="red">建議使用選擇開啟使用平台廣告及關閉使用混合曝光平台廣告</font>
+2.  設定廣告過濾
 
 
 按下【送出】鍵進入版位列表頁面。
 
 ![][1]
 
-進入版位列表頁面後，您將會看見您的版位審核狀態與應用程式的 License Key。按下左選單的【軟體列表】進入軟體列表頁面。
+進入版位列表頁面後，您將會看見您的版位審核狀態與應用程式的 License Key。
 ![][2]
 
-進入軟體列表頁面，會看到您所建立的應用程式、應用程式的審核狀態與相關設定
+按下左選單的【軟體列表】即可進入軟體列表頁面。在軟體列表頁面中，會看到您所建立的應用程式、應用程式的審核狀態與相關設定。
 ![][3]
 
 > **Note**：當您的應用程式及版位審核狀態為綠燈時，您才可以正式取得 Vpon 廣告。
 
   [註冊成為開發商]: http://console.vpon.com/register.action
   [開發商後台]: http://console.vpon.com
-  [0]: {{site.imgurl}}/SDK400建立應用程式.jpeg
-  [1]: {{site.imgurl}}/SDK400新增版位.jpeg
-  [2]: {{site.imgurl}}/Trandationchinesefrontserver3.png
-  [3]: {{site.imgurl}}/Trandationchinesefrontserver4.png
+  [0]: {{site.imgurl}}/Console_zh-tw_01.png
+  [1]: {{site.imgurl}}/Console_zh-tw_02.png
+  [2]: {{site.imgurl}}/Console_zh-tw_03.png
+  [3]: {{site.imgurl}}/Console_zh-tw_04.png
   [5]: mailto:partner.service@vpon.com

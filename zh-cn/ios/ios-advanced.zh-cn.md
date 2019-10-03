@@ -122,23 +122,6 @@ vpadnAd.delegate = self;
 ```
 
 
-# Crazy Ad
----
-Crazy Ad 是由 Banner 自动展示的全萤幕富媒体广告，展开后呈现约 5~7 秒会自动关闭。
-
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300" />
-
-
-## 如何设定 Crazy Ad
----
-
-1. 请先[注册帐号]成为 Vpon 开发商伙伴
-2. 登入[开发商后台]申请 License Key
-3. 选择是否播放 Crazy Ad
-
-如图：
-![CrazyadSetting]
-
 
 # Corona User
 ---

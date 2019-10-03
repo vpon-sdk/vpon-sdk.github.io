@@ -86,21 +86,6 @@ and then passed to the `VponBanner`:
 
 
 
-# Crazy Ad
----
-Crazy Ad is a kind of Banner Ad that will expands to full-screen size automatically and close after 5-7 seconds.
-
-<img src="{{site.imgurl}}/Crazyad.png" alt="" class="width-300"/>
-
-
-## How to Set Up Crazy Ad
----
-1. [Register as a Vpon Publisher] first
-2. Apply your own License Key in the [Publisher Panel](http://console.vpon.com/)
-3. Choose if you want to enable Crazy Ad
-
-[CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
-
 
 # Corona User
 ---
