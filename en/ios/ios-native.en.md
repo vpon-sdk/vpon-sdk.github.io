@@ -187,9 +187,9 @@ Properties   |   Description
 :-----------:|:-----------:|
 <font color="red">Title</font>  | Show at least 16 English alphabets. <br>Show `...` while it's out of space.
 :-----------:|:-----------:|
-<font color="red">CoverImage</font>   | 1200 x 627px <br>(enable scaling in proportion, without distortion and clipping)
+CoverImage   | 1200 x 627px <br>(enable scaling in proportion, without distortion and clipping)
 :-----------:|:-----------:|
-<font color="red">Icon</font>     | 128 x 128px <br>(enable scaling in proportion, without distortion and clipping)
+Icon         | 128 x 128px <br>(enable scaling in proportion, without distortion and clipping)
 :-----------:|:-----------:|
 CallToAction | Show completely
 :-----------:|:-----------:|
