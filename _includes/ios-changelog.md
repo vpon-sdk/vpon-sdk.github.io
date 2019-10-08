@@ -2,8 +2,8 @@
 
 ## 4.9.3
 
-* Release Date: 2 Oct. 2019
-* Build Number: 20019102
+* Release Date: 7 Oct. 2019
+* Build Number: 70019102
 * Optimize the structure of Interstitial Ad
 * Add a method for SDK initialization
 * Add an examination of Photo Library Additions Usage Description
