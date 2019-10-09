@@ -5,8 +5,10 @@
 * Release Date: 7 Oct. 2019
 * Build Number: 70019102
 * Optimize the structure of Interstitial Ad
-* Add a method for SDK initialization
+* Add a method for [SDK initialization], ad requests will `fail` unless Vpon SDK is initialized
 * Add an examination of Photo Library Additions Usage Description
+
+>* Please note that this is a __`MAJOR`__ version update.
 
 ## 4.9.2
 
@@ -305,3 +307,5 @@ Fixed: show multiple banner
 
 * Build Number: 21603102
 * Fixed: interstitial Ad position error
+
+[SDK initialization]:{{site.baseurl}}/ios/integration-guide/#initial-sdk
