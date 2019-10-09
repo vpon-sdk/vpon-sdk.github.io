@@ -8,7 +8,7 @@
 * Add a method for [SDK initialization], ad requests will `fail` unless Vpon SDK is initialized
 * Add an examination of Photo Library Additions Usage Description
 
->* Please note that this is a __`MAJOR`__ version update.
+>* Note: This release is a __`MAJOR`__ version update.
 
 ## 4.9.2
 
