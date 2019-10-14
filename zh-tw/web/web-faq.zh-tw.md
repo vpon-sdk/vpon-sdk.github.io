@@ -8,7 +8,7 @@ permalink:       /zh-tw/web/faq/
 lang:           "zh-tw"
 ---
 
-# General
+# Genera
 ---
 
 ### 廣告沒有成功展示時的狀況判斷
