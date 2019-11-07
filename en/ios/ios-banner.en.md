@@ -146,7 +146,7 @@ Size (WxH)                 |Description             |  VponAdSize Constant      
 300x250                    | IAB Medium Recangle    | VpadnAdSizeMediumRectangle      |iPhone<br>iPad
 device width x auto height | Smart Banner Portrait  | VpadnAdSizeSmartBannerPortrait |iPhone<br>iPad
 device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLandscape  |iPhone<br>iPad
-device width x auto height | Custom Banner Size     | VpadnAdSizeFromCGSize | iPhone<br>iPad
+<!-- device width x auto height | Custom Banner Size     | VpadnAdSizeFromCGSize | iPhone<br>iPad -->
 
 We recommend that you can use `VpadnAdSizeFromCGSize` as following example:
 

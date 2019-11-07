@@ -49,9 +49,9 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 
 > **Note**：
 >
-> 1. 串接完畢後，請自行檢查是否有印出VponLog:didImpression，以確認有成功回傳資訊到Vpon Server
+<!-- > 1. 串接完畢後，請自行檢查是否有印出VponLog:didImpression，以確認有成功回傳資訊到Vpon Server -->
 >
-> 2. iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
+> 1. iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
 
 
 

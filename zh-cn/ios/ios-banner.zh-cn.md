@@ -145,7 +145,7 @@ Vpon SDK 提供测试广告。请新增此 function 到您的程式内，并填�
 300x250                    |IAB 中矩形广告    |VpadnAdSizeMediumRectangle            |iPhone<br>iPad
 device width x auto height |Smart Banner Portrait |  VpadnAdSizeSmartBannerPortrait |iPhone<br>iPad
 device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandscape  |iPhone<br>iPad
-device width x auto height | Custom Banner Size | VpadnAdSizeFromCGSize | iPhone<br>iPad
+<!-- device width x auto height | Custom Banner Size | VpadnAdSizeFromCGSize | iPhone<br>iPad -->
 
 如无特定需求，我们建议您直接使用上面 `VpadnAdSizeFromCGSize`，例：
 
