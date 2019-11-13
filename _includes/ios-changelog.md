@@ -1,5 +1,11 @@
 # Vpon iOS SDK Change Log
 
+## 4.9.4
+* Release Date: 15 Nov. 2019
+* Build Number: 31119102
+* Revise the mechanism of Swizzling Method
+* Revise the measurement timing of Banner Ad and Native Ad (OM related)
+
 ## 4.9.3
 
 * Release Date: 7 Oct. 2019
