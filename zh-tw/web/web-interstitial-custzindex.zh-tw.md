@@ -1,7 +1,7 @@
 ---
 layout:         "web"
 title:          "Web - 插頁廣告"
-lead:           "Custom z-index"
+lead:           "Custom z-index Value"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-tw/web/interstitial-custzindex/
@@ -30,7 +30,7 @@ Vpon Web SDK 提供 `use_custom_z_index` 參數，用來自定義 Vpon 插頁廣
 ```
 
 > **Note**:
->* `use_custom_z_index` 預設值為 100000，請依您的實際需求，調整 z-index 的值。
+>* `use_custom_z_index` 預設值為 100000，請依您的實際需求調整 z-index 的值。
 
 
 ---
