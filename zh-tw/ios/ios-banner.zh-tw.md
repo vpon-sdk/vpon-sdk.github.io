@@ -161,11 +161,11 @@ device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLand
 
 <!-- device width x auto height | Custom Banner Size | VpadnAdSizeFromCGSize | iPhone<br>iPad -->
 
-如無特定需求，我們建議您直接使用上面 `VpadnAdSizeFromCGSize`，例：
+<!-- 如無特定需求，我們建議您直接使用上面 `VpadnAdSizeFromCGSize`，例：
 
 ```objc
 vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];
-```
+``` -->
 
 # Tips
 ---
