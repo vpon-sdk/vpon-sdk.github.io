@@ -44,12 +44,12 @@ allprojects {
 }
 ```
 
-加入 Maven Repository 后，即可在 App 层级下的 `build.gradle` 加入 Vpon SDK 指定版本的编译相依性( 此处以 SDK 4.7.0为例 )
+加入 Maven Repository 后，即可在 App 层级下的 `build.gradle` 加入 Vpon SDK 指定版本的编译相依性( 此处以 SDK 4.9.1为例)
 
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:4.7.0'
+    implementation 'com.vpon:vpadnSDK:4.9.1'
 
     // Please add Android support library as below if you are using Vpon SDK 4.8+
     // The version of the dependency will depend on the version of the compile sdk you are using
@@ -57,7 +57,7 @@ dependencies {
 }
 ```
 
-> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.7.+'``，即可获取 SDK 版本号 4.7 中最新的版本。
+> **Note**：若要更新 SDK，可改为 implementation ``'com.vpon:vpadnSDK:4.9.+'``，即可获取 SDK 版本号 4.9 中最新的版本。
 
 ## 手动 (手动下载并串接) {#manual-sdk}
 

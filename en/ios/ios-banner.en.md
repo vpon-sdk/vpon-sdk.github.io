@@ -65,7 +65,7 @@ Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of
             [self.vpadnBanner.getVpadnAdView removeFromSuperview];
     }
 
-vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];  // Initialize Banner Object
+vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeBANNER];  // Initialize Banner Object
   vpadnBanner.strBannerId = @""; // Fill in with your License Key
   vpadnBanner.delegate = self; // Set up Delegate to receive protocol message
   vpadnBanner.platform = @"TW"; // Fill in with "TW"

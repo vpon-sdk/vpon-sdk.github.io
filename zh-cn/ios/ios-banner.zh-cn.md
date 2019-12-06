@@ -65,7 +65,7 @@ iOS 应用程式由 UIView 物件所组成，也就是以文字区域和按钮�
             [self.vpadnBanner.getVpadnAdView removeFromSuperview];
     }
 
-  vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];  // 初始化 Banner 物件
+  vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeBANNER];  // 初始化 Banner 物件
   vpadnBanner.strBannerId = @""; // 填入您的 License Key
   vpadnBanner.delegate = self; // 设定 Delegate 接受 protocol 回传讯息
   vpadnBanner.platform = @"TW"; // 请一律填写 "TW"

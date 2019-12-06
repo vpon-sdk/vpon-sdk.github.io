@@ -43,12 +43,12 @@ allprojects {
 }
 ```
 
-Add the dependency with a specified version of Vpon SDK in the app-level `build.gradle` file (Here take SDK 4.7.0 for example).
+Add the dependency with a specified version of Vpon SDK in the app-level `build.gradle` file (Here take SDK 4.9.1 for example).
 
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:4.7.0'
+    implementation 'com.vpon:vpadnSDK:4.9.1'
 
     // Please add Android support library as below if you are using Vpon SDK 4.8+
     // The version of the dependency will depend on the version of the compile sdk you are using
@@ -56,7 +56,7 @@ dependencies {
 }
 ```
 
-> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.7.+'`` to import the latest SDK in version 4.7.
+> **Note**: You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.9.+'`` to import the latest SDK in version 4.7.
 
 
 ## Integrate SDK manually {#manual-sdk}
