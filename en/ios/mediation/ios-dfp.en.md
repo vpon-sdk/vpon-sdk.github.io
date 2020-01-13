@@ -9,7 +9,7 @@ lang:           "en"
 ---
 # Latest Information
 ---
-According to Google Ad Manager's announcement, Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to this [official annoucement](https://support.google.com/admanager/answer/9020684) to finish mediation setting in Yield Group.
+According to [Google Ad Manager's announcement](https://support.google.com/admanager/answer/9020684), Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to [Create and manage yield groups](https://support.google.com/admanager/answer/7390828) to finish mediation setting in Yield Group.
 
 
 # General
@@ -23,103 +23,55 @@ Please make sure you've added following files in your project:
 And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
 
 
-# Create an Ad Unit
----
-Define ad units first in Google Ad Manager and then add them to the ad tags on your mobile app. This is the typical method of creating an ad unit. The formate of ad unit is like: `/networkCode/adUnitName`
-
-
-## Unit Ads Settings
-Go to Google Ad Manager ([Here])：
-
-1. Inventory
-2. Setting New Ad Unit (Give your ad unit a descriptive name so that you can easily determine where that ad unit will be displayed and also include the size of that unit.)
-3. Generate tags (Choose mobile applications)
-
-![DFP 廣告空間]
-
-## Setting Order, Line Item and Creative
-To run a new ad campaign through Google Ad Manager, you'll first need to create a new order. After creating the order, you'll need to create line items, add creatives, and approve the order before it can serve. For reserved line item types (sponsorship and standard), Google Ad Manager will not reserve inventory until the order is approved.<br><br>
-
-
-To create an order before running an inventory forecast:
-
-1. In your Google Ad Manager account, click the Orders tab.
-2. Click New order.
-3. Enter your order information in the appropriate fields.
-(Order names must be unique within your network.)
-
-4. Enter your line item information.
-5. Click Check inventory to ensure the order will have enough available impressions.
-![Warning]
-
-6. Click `Save`。
-Once you've created an order, you'll need to approve it before the line items are eligible to serve. See Approve an order to learn how.
-<br><br>
-
-## Create a Line Item
-To create a line item:
-
-1. In your Google Ad Manager account, click the Orders tab.
-2. Create a new order or click an existing order in the table.
-3. Click New line item.
-4. Enter a line item name. Line item names must be unique within your network.
-5. Enter the inventory sizes of the creatives you plan to upload.
-6. (Optional) Enter some comments about the line item that might help with trafficking the line item.
-7. Enter the line item type, dates, quantity and cost.
-8. Under Adjust delivery, configure your delivery settings (optional). See Optional delivery settings below for more information.
-9. Select the inventory you want to target.
-
-You can target ad units, placements, or both. To find inventory to target, you can either browse through your network’s inventory or perform a search.
-
-The ad unit named after your network represents all of the ad units in your network. If you target the line item to this network-level ad unit, the line item will target any ad unit in your network.
-
-Example：<br>
-![新增指定目標]
-
-10.Enter additional targeting criteria to target a specific audience (optional). If you don’t target the line item to any ad units or placements, then the line item will be set to serve as run-of-network. This means the line item can serve to any ad unit on your website.
-
-11.Click `Save`.
-
-## Upload a creative
-
-1. Click the line item where you'd like to add the creative. You can also create a new line item if needed.
-2. Click Add creatives. All creatives and ad unit dimensions associated with your line item will be listed on the left-hand column. You can upload creatives to any unit size in this list.
-3. You can either drag and drop multiple creatives into the line item or just add one at a time.<br><br>
-
-### Add only one Creative
-Click New creative and select the creative's dimensions. (Choose `Mobile App` → `SDK Mediation`)
-
-![廣告素材類型]
-
-# Creative Setting
----
-Input the following information:
-
-1. Select Network：Vpon
-2. Zone：`TW`
-3. Vpon Ad ID：the License Key observed obtained from Vpon
-
-![DFP_Partner_English.png]
-
-
-
-# Banner/Interstitial Ad delivery
+# Set Up Ad Unit
 ---
 
-## Banner Ad Unit
-As the article discussed above, ad size set at 320x50.
+## Banner Ad
+Please refer to [Google Ad Manager SDK Integration Guide](https://developers.google.com/ad-manager/mobile-ads-sdk/ios/banner#banner_sizes) to determine the size of the ad unit.
 
-## Interstitial Ad Unit
-Create an ad unit in DFP to represent the interstitial ad unit. Interstitial ad units can be defined with one of the four common sizes, regardless of the actual screen size of individual devices. The SDK will handle rendering the creative correctly on screens which are of slightly different sizes.
+## Interstitial Ad
+Interstitial ad units can be defined with one of the four common sizes, regardless of the actual screen size of individual devices. The SDK will handle rendering the creative correctly on screens which are of slightly different sizes.
 
 * Cell phone：320x480 (portrait)、480x320 (landscape)
 * Tablet：768x1024 (portrait)、1024x768 (landscape)
 
 There is no need to define a separate ad unit for landscape mode. You can simply add the landscape size (e.g. 480x320 for smartphones) to line items targeting the interstitial ad unit and include a creative with the landscape size in addition to the regular portrait size.
 
-Example：
+## Native Ad
+Please set up the ad unit size as your requirement.
 
-![插頁尺寸]
+
+# Generate Ad Tags
+---
+After finishing your ad unit setting, please choose an ad unit and click Generate Tags to generate ad tags. Choose `Mobile application` and get the ad unit like: `/networkCode/adUnitName`. Please apply this tag into your App project.
+
+![DFP 廣告空間]
+
+# Yield Group Setting
+---
+
+## Create A Yield Partner
+
+Please follow the steps below to add Vpon as your Yield Partner first in to Company page under Management tag:
+
+1. Choose to create a new company (Ad Network) as your Yield Partner
+2. Choose Vpon in the drop list of Ad Network
+3. Insert the optional information and save your change
+
+
+## Set Up Yield Group
+
+Please refer to the instruction below to finish the Yield Group setting:
+
+1. Create new Yield Gruop
+2. Determine the ad format and the inventory type for your requirement
+3. Determine the ad unit for develiering
+4. Finish the optional setting for your requirement
+5. Choose to add additional third-party yield partners, and add Vpon from the drop list
+6. Determine the integration type:
+* Choose `Mobile SDK` if you are trying to integrate `Banner Ad` or `Interstitial Ad`. Please insert `TW` in the Zone column, and insert your `Vpon License Key` in the Vpon Ad ID column.
+* Chhose `Custom Event` if you are trying to integrate `Native Ad`. Please insert `GADVpadnNativeAdCustomEvent` in the Class Name column, and insert your `Vpon License Key` in the Parameter column.
+7. Save your change
 
 
 
