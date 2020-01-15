@@ -10,8 +10,6 @@ lang:           "en"
 # Latest Information
 ---
 According to [Google Ad Manager's announcement](https://support.google.com/admanager/answer/9020684), Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to [Create and manage yield groups](https://support.google.com/admanager/answer/7390828) to finish mediation setting in Yield Group.# Latest Information
----
-According to [Google Ad Manager's announcement](https://support.google.com/admanager/answer/9020684), Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to [Create and manage yield groups](https://support.google.com/admanager/answer/7390828) to finish mediation setting in Yield Group.
 
 
 # General
