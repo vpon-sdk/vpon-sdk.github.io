@@ -20,9 +20,16 @@ Fundamental SDK<br>| Framework SDK <br>|
 ## Adapter Download
 ---
 
-|AdMob Adapter v 1.1.5<br>Compatible with Vpon SDK 4.9.1 and above <br>Compatible with AdMob SDK 4.47.0|MoPub <br> Custom Events|Smaato <br> SOMAMediationPlugin|
-|:---------------------------------:|:----------------------:|:-----------------------------:|
-|           [download][4]           |     [download][5]      |         [download][12]        |
+| Mediation Platform | Adapter | Note|
+|:------------------:|:-------:|:---:|
+| AdMob | [download][4] | Compatible with Vpon SDK 4.9.1 ↑ <br> Compatible with AdMob SDK 4.47.0 | 
+| MoPub | [download][5] | Compatible with MoPub SDK 5.9.0 ↓|
+| Smatto | [download][12] | |
+
+
+
+
+
 
 ## Sample Code Download
 ---

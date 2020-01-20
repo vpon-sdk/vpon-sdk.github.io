@@ -9,9 +9,11 @@
 ## Adapter Download
 ---
 
- AdMob Adapter v 1.1.2<br>Compatible with Vpon SDK 4.9.1 and above| MoPub<br>Custom Events | Smaato<br> Custom Events |
-:----------------------------------: | :---------------------:| :-----------------------:|
- [download][2]                       | [download][3]          | [download][9]
+| Mediation Platform | Adapter | Note|
+|:------------------:|:-------:|:---:|
+| AdMob | [download][2] | Compatible with Vpon SDK 4.9.1 ↑ | 
+| MoPub | [download][3] | |
+| Smatto | [download][9] | |
 
 
 ## Sample Code Download
