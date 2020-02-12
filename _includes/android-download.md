@@ -19,9 +19,9 @@
 ## Sample Code Download
 ---
 
-Fundamental<br><font size="2px" color="#C0C0C0">Android Studio</font> | Fundamental<br><font size="2px" color="#C0C0C0">Eclipse</font>    | AdMob        | DFP         | MoPub       | Smaato        |
-:------------------:|:-----------:| :-----------:|:-----------:|:-----------:| :------------:|
-[download][4]       |[download][5]| [download][6]|[download][7]|[download][8]| [download][10]|
+Fundamental SDK   | AdMob        | Google Ad Manager         | MoPub       | Smaato        |
+:------------------:| :-----------:|:-----------:|:-----------:| :------------:|
+[download][4]       |[download][6]|[download][7]|[download][8]| [download][10]|
 
 
 
