@@ -7,7 +7,6 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/interstitial/
 lang: "zh-cn"
 ---
-
 # 总览
 ---
 插页式广告是互动式多媒体 HTML5 或「网络应用程式」，在应用程式的正常转换点显示 (例如启动、影片播放前或游戏关卡载入时)。网路应用程式使用上就像在应用程式内浏览一样，只有简单的关闭按钮，而没有任何导览列，因为导览配置就包含在内容本身。这类广告由于内容更丰富、更吸引人，因此製作起来更昂贵，而曝光机会相对有限。
@@ -23,10 +22,10 @@ lang: "zh-cn"
 Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实例化、载入和显示步骤的 Object，而不是 View。
 
 
-1. Import `VpadnSDKAdKit`
-2. 在应用程式的 ViewController 中宣告 `VpadnInterstitial`
-3. 建立 VpadnInterstitial 物件，并指定 License Key
-4. 拉取广告
+1. Import VpadnSDKAdKit
+2. 宣告 VpadnInterstitial
+3. 初始化 VpadnInterstitial 物件，并指定 License Key
+4. 建立 VpadnRequest 物件，并请求广告
 5. 展示广告
 6. 实作 Delegate protocol
 
@@ -34,109 +33,170 @@ Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实�
 
 ## Import VpadnSDKAdKit 并宣告 VpadnInterstitial
 ---
+
+### Objective-C
+
 ```objc
-#import <ViewController.h>
-
-// import Vpon SDK
 @import VpadnSDKAdKit;
+// Import Vpon SDK
 
-// 增加一个 protocol 接收广告状态
 @interface ViewController() <VpadnInterstitialDelegate>
-
-// 宣告使用 VpadnInterstitial 广告
 @property (strong, nonatomic) VpadnInterstitial *vpadnInterstitial;
 
 @end
 ```
 
-## 建立 VpadnInterstitial 物件
----
-请参考以下程式码，在 ViewController 的 viewDidLoad 中初始化插页广告，并指定 License Key
+## Swift
 
-```objc
-@implementation ViewController
+```swift
+import VpadnSDKAdKit
+// Import Vpon SDK
 
-- (void)viewDidLoad {
-    vpadnInterstitial = [[VpadnInterstitial alloc] init];
-    vpadnInterstitial.strBannerId = @""; // 填入您的 License Key
-    vpadnInterstitial.platform = @"TW"; // 请一律填写 "TW"
-    vpadnInterstitial.delegate = self;
-    [vpadnInterstitial getInterstitial:@[]]; // 开始拉取 Interstitial 广告
-
-    // 若要拉取测试 Interstitial 广告，请使用以下程式码
-  // [vpadnInterstitial getInterstitial:[self getTestIdentifiers]];
+class VponSdkInterstitialViewController: UIViewController {
+    var vpadnInterstitial : VpadnInterstitial!
 }
-@end
 ```
 
-> **Note**：插页广告所使用的 License Key 不能与横幅广告所用的 License Key 重复
+## 初始化 VpadnInterstitial 物件
+---
+请参考以下程式码始化插页广告，并指定 License Key
+
+### Objective-C
+
+```objc
+_vpadnInterstitial = [[VpadnInterstitial alloc] initWithLicenseKey:@"License Key"];
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
+
+_vpadnInterstitial.delegate = self;
+```
+
+### Swift
+
+```swift
+vpadnInterstitial = VpadnInterstitial.init(licenseKey:"License Key")
+// licenseKey: Vpon License Key to get ad, please replace with your own one
+
+vpadnInterstitial.delegate = self
+```
+
+## 建立 VpadnRequest 物件，并请求广告
+---
+在发出广告请求前，请先建立 VpadnRequest 物件：
+
+### Objective-C
+
+```objc
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
+
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+[_vpadnInterstitial loadRequest:request];
+// Start to load ad
+```
+
+### Swift
+
+```swift
+let request = VpadnAdRequest.init()
+
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+vpadnInterstitial.load(request)
+// start to load ad
+```
+
+>**Note**
+>
+>* 您可以为每种类型的广告都建立不同的 VpadnRequest 物件，或是在所有的广告请求中都使用同一个 VpadnRequest 物件
+>* 如果您想要指定更多投放条件，请参考[进阶设定](../advanced)
+
 
 
 ## 展示广告
 ---
-在您完成 Interstitial 广告初始化设定并拉取广告后，您需要在广告请求成功后才能尝试显示广告。最简单的作法是当  onVpadnInterstitialAdReceived 收到通知时，执行 `[vpadnInterstitial show]`。
+在您完成 Interstitial 广告初始化设定并拉取广告后，您需要在广告请求成功后才能尝试显示广告。最简单的作法是当  onVpadnInterstitialAdReceived 被触发时时，例如：
+
+### Objective-C
 
 ```objc
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView {
-    [self.vpadnInterstitial show];
+- (void) onVpadnInterstitialAdReceived:(UIView *)bannerView {
+    [self.vpadnInterstitial showFromRootViewController:self];
+}
+```
+
+### Swift
+
+```swift
+func onVpadnInterstitialAdReceived(_ bannerView: UIView!) {
+    vpadnInterstitial.show(fromRootViewController: self)
 }
 ```
 
 > **Note**：为了维持良好的用户体验，我们建议可先抓取插页广告，待特定时机再将其显示，尽量避免抓取后立即显示
 
-## 测试广告
----
-Vpon SDK 提供测试广告。请新增此 function 到您的程式内，并填入测试装置的 UUID，即可拉取测试广告
-
-```objc
--(NSArray*)getTestIdentifiers {
-  return [NSArray arrayWithObjects:
-    // Add your test device's UUID
-    @"your_UUID",
-    nil];
-}
-```
-
 ## 实作 Delegate protocol
 ---
 完成广告请求后，您可以实作以下函数监听广告状态
 
+### Objective-C
+
 ```objc
-#pragma mark VpadnInterstitial Delegate
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView{
-    NSLog(@"插页广告抓取成功");
-    // 显示插页广告
-    [vpadnInterstitial show];
+- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
+    // Invoked if receive Banner Ad successfully
 }
-
-- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView{
-    NSLog(@"插页广告抓取失败");
+- (void) onVpadnInterstitial:(VpadnInterstitial *)interstitial failedToLoad:(NSError *)error {
+    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
-
-- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView{
-    NSLog(@"关闭插页广告 %@",bannerView);
+- (void) onVpadnInterstitialWillOpen:(VpadnInterstitial *)interstitial {
+    // Invoked if the Interstitial Ad is going to be displayed
+}
+- (void) onVpadnInterstitialClosed:(VpadnInterstitial *)interstitial {
+    // Invoked if the Interstitial Ad was dismissed
+}
+- (void) onVpadnInterstitialWillLeaveApplication:(VpadnInterstitial *)interstitial {
+    // Invoked if user leave the app and the current app was backgrounded
+}
+- (void) onVpadnInterstitialClicked:(VpadnInterstitial *)interstitial {
+    // Invoked if the Banner Ad was clicked
 }
 ```
 
-> **Note**： 若想进一步瞭解 protocol 相关详情，请参阅[进阶设定]。
+### Swift
+
+```swift
+extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
+
+    func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
+        // Invoked if receive Banner Ad successfully
+    }
+    func onVpadnInterstitial(_ interstitial: VpadnInterstitial, failedToLoad error: Error) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+    func onVpadnInterstitialWillOpen(_ interstitial: VpadnInterstitial) {
+        // Invoked if the Interstitial Ad is going to be displayed
+    }
+    func onVpadnInterstitialClosed(_ interstitial: VpadnInterstitial) {
+        // Invoked if the Interstitial Ad was dismissed
+    }
+    func onVpadnInterstitialWillLeaveApplication(_ interstitial: VpadnInterstitial) {
+        // Invoked if user leave the app and the current app was backgrounded
+    }
+    func onVpadnInterstitialClicked(_ interstitial: VpadnInterstitial) {
+        // Invoked if the Banner Ad was clicked
+    }
+}
+```
 
 # Tips
 ---
 
-### App Transport Security
-iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定
-
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
-### 其它广告形式
-如果您想了解其它广告形式的串接，请参考以下内容：
-
-* [横幅广告](../banner)
-* [原生广告](../native)
-* [Out-stream 影音广告](../outstream)
-* [中介服务](../mediation)
-* [进阶设定](../advanced)
+### 适用于 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[插页广告](../interstitial-under5)
 
 [串接说明]: ../integration-guide/
 [Sample Code]: ../download/

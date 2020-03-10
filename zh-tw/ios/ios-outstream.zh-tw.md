@@ -22,8 +22,8 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 ---
 請參考以下說明，在應用程式中在自定義的位置上建立 Out-stream 影音廣告：
 
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+1. Import VpadnSDKAdKit
+2. 在應用程式的 ViewController 中宣告 VpadnInReadAd
 3. 建立 VpadnInReadAd 物件，並指定 License Key
 4. 拉取廣告
 5. 展示廣告
@@ -92,8 +92,8 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 ---
 在應用程式中的 ScrollView 建立 Out-stream 影音廣告需要執行以下步驟：
 
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+1. Import VpadnSDKAdKit
+2. 在應用程式的 ViewController 中宣告 VpadnInReadAd
 3. 建立 VpadnInReadAd 物件，並指定 License Key
 4. 拉取廣告
 5. 實作 Delegate Protocol
@@ -138,8 +138,8 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 ---
 在應用程式中的 TableView 建立 Out-stream 影音廣告需要執行以下步驟：
 
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnInReadAd`
+1. Import VpadnSDKAdKit
+2. 在應用程式的 ViewController 中宣告 VpadnInReadAd
 3. 建立 VpadnInReadAd 物件，並指定 License Key
 4. 拉取廣告
 5. 實作 Delegate Protocol
@@ -260,9 +260,6 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 
 # Tips
 ---
-
-### App Transport Security
-iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
 
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]

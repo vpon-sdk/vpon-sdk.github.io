@@ -7,130 +7,101 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/advanced/
 lang: "zh-cn"
 ---
-# 自定参数
+
+# 自定义广告请求参数
 ---
-您可以在固定需要新增的 function(getTestIdentifiers) 中设定测试手机的识别码 (在第一次发出 request 时会提示开发者要新增什麽识别码)，让 Vpon 以更精确的方式指定广告。 在开发期间 建议将自己的手机识别码加在 getTestIdentifiers 函式中以免产生不实曝光，造成您收益上的损失，并请在上架前将识别码删除，否则之后填入识别码的手机将无法抓到正常广告
+您可以在建立广告请求时，选择项地加入以下自定义的参数，让 Vpon 可以用更精准的方式投放广告
 
-## 增加测试手机的识别码
-您可以使用这些属性来指定要接收测试广告的装置或装置 Set。若要确认 SDK 是否已顺利整合，请加入您的测试装置并执行应用程式，然后按一下所显示的测试广告。
-
-```objc
-  // 请新增此function到您的程式内 如果为测试用 则在下方填入识别码
-  -(NSArray*)getTestIdentifiers
-  {
-      return [NSArray arrayWithObjects:
-              // add your test Id
-              @"XXXXXXXXXXXXXXXXXXXXX",
-              nil];
-  }
-```
-
-## 指定目标
-您也可以指定位置和客层相关资讯。不过，为了保护使用者隐私，请只指定您的应用程式中现有的位置和客层资料。
-
-   [vpadnAd setUserInfoAge:25];
-
-   [vpadnAd setUserInfoKeyword:@"Game,RPG"];
-
-   [vpadnAd setUserInfoGender:female];
-
-   [vpadnAd setUserInfoBirthdayWithYear:1988 Month:6 andDay:9];
-
-
-# Protocol
----
-您可以在 ViewController 宣告时加入 VpadnBannerDelegate || VpadnInterstitialDelegate 此两个 protocol，藉此追踪请求失败或「点击」等广告事件。
-
-
+### Objective-C
 
 ```objc
-#pragma mark VpadnBannerDelegate Banner Ad protocol
-@protocol VpadnBannerDelegate <NSObject>
-@optional
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 
-#pragma mark 通知拉取广告成功 pre-fetch 完成
-- (void)onVpadnAdReceived:(UIView *)bannerView;
+[request setAutoRefresh:YES];
+// Only available for Banner Ad, will auto refresh ad if set YES
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
 
-#pragma mark 通知拉取广告失败
-- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error; // alan todo code need to add
+[request setUserInfoGender:VpadnGenderUnspecified];
+// Set user's gender if available
+[request setUserInfoBirthdayWithYear:2000 Month:1 andDay:1];
+// Set user's birthday if available
 
-#pragma mark 通知开启 vpadn 广告页面
-- (void)onVpadnPresent:(UIView *)bannerView;
+[request setMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
+// To set up the maximum content rating filter
+[request setTagForUnderAgeOfConsent:VpadnTagForUnderAgeOfConsentUnspecified];
+// To set up if the ads will be displayed only to the specific ages of audience
+[request setTagForChildDirectedTreatment:VpadnTagForChildDirectedTreatmentUnspecified];
+// To set up if the ads will be displayed to childern specific
 
-#pragma mark 通知关闭vpadn广告页面
-- (void)onVpadnDismiss:(UIView *)bannerView;
-
-#pragma mark 通知离开 publisher application
-- (void)onVpadnLeaveApplication:(UIView *)bannerView;
-@end
+[request addKeyword:@"keywordA"];
+[request addKeyword:@"keyword1:value1"];
 ```
 
-```objc
-#pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
-@protocol VpadnInterstitialDelegate <VpadnBannerDelegate>
-@optional
+### Swift
 
-#pragma mark 通知取得插屏广告成功pre-fetch完成
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView;
+```swift
+let request = VpadnAdRequest.init()
 
-#pragma mark 通知取得插屏广告失败
-- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView;
+request.setAutoRefresh(true)
+// Only available for Banner Ad, will auto refresh ad if set true
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
 
-#pragma mark 通知关闭vpadn广告页面
-- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView;
-@end
+request.setUserInfoGender(.genderUnspecified)
+// Set user's gender if available
+request.setUserInfoBirthdayWithYear(2000, month: 01, andDay: 01)
+// Set user's birthday if available
+
+request.setMaxAdContentRating(.general)
+// To set up the maximum content rating filter
+request.setTagForUnderAgeOfConsent(.false)
+// To set up if the ads will be displayed only to the specific ages of audience
+request.setTagForChildDirectedTreatment(.false)
+// To set up if the ads will be displayed to childern specific
+
+request.addKeyword("keywordA")
+request.addKeyword("keyword1:value1")
 ```
 
-这些方法可用于个别的物件，例如
-
-```objc
-  #import "VpadnBanner.h"
-  #import "VpadnInterstitial.h"
-  @interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
-```
-
-将要接收的物件传给 VpadnBanner：
-
-```objc
-vpadnAd.delegate = self;
-```
-当 VpadnBanner 广告抓取成功时传送。
-
-```objc
-  - (void)onVpadnAdReceived:(UIView *)bannerView{}
-```
-当 VpadnBanner 失败时传送；失败原因通常是网路连线失败、应用程式设定错误或广告空间不足。建议您将这些事件记录下来以便侦错：
-
-```objc
-  - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
-```
-
-当广告因获得使用者点击，在您的应用程式之前webView 并呈现出全萤幕广告使用者介面时呼叫。
-
-```objc
-  - (void)onVpadnPresent:(UIView *)bannerView{}
-```
-当使用者关闭与 onVpadnDismiss 一同显示的webView，控制权也交还给应用程式时呼叫。
-
-```objc
-  - (void)onVpadnDismiss:(UIView *)bannerView;
-```
-当 Ad 点击会启动新的应用程式(out app)时呼叫。
-
-```objc
-  - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
-```
+>**Note:** 关于自定义参数值的定义，请参考以下说明
 
 
+## MaxAdContentRating
 
-# Corona User
+|Constant|Description|
+|:------|:---------|
+|MAX_AD_CONTENT_RATING_G||
+|MAX_AD_CONTENT_RATING_PG||
+|MAX_AD_CONTENT_RATING_T||
+|MAX_AD_CONTENT_RATING_MA||
+|MAX_AD_CONTENT_RATING_UNSPECIFIED|Default value|
+
+## TagForUnderAgeOfConsent
+
+|Constant|Description|
+|:------|:---------|
+|TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE||
+|TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE|
+|TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED|Default value|
+
+## TagForChildDirectedTreatment
+
+|Constant|Description|
+|:------|:---------|
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value|
+
+
+<!-- # Corona User
 ---
 如果您的 App 使用 Corona 欲串接 Vpon 广告，我们建议您用 Web SDK 的方式串接，使用方法如下：
 
 1. 请参考 [Vpon Web SDK 串接说明]，准备一个包含 Web SDK 广告请求的 HTML 档案
 2. 在 WebView 中读取该 HTML 档案，例如：webView:request(“localfile.html”, system.ResourceDirectory)
 
-> **Note**：更多 Corona SDK 文件可参考: [Corona Document]
+> **Note**：更多 Corona SDK 文件可参考: [Corona Document] -->
 
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 [注册帐号]: {{ site.baseurl }}/zh-cn/ios/registration/

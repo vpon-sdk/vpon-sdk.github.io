@@ -7,109 +7,75 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-cn/android/advanced/
 lang:            "zh-cn"
 ---
-
-# VpadnAdRequest
-  -----------------------------
-  您可以先自订 `VpadnAdRequest`，再将它传送给 `VpadnBanner.loadAd`，让 Vpon 以更精确的方式指定广告 (com.adshow.ads.VpadnAdRequest)
-
-## 指定接收广告
-
-  您可以使用这些属性来指定要接收测试广告的装置或装置 Set。若要确认 SDK 是否已顺利整合，请加入您的测试装置并执行应用程式，然后按一下所显示的测试广告。
-
-
-```java
-  VpadnAdRequest request = new VpadnAdRequest();
-  request.addTestDevice("your test device advertising id");
-  //TODO 需要填入您测试机的advertising id
-```
-
-## 指定目标
-
-您也可以指定位置和客层相关资讯。不过，为了保护使用者隐私，请只指定您的应用程式中现有的位置和客层资料。
-
-
-```java
-  VpadnAdRequest request = new VpadnAdRequest();
-  request.setGender(VpadnAdRequest.Gender.FEMALE);
-  request.setBirthday("1977-08-23");
-```
-  系统会以适当的方法取得使用者的位置
-
-
-# VpadnAdListener
-  ------------------------------
-
-您可以选择在传送给 `VpadnBanner.setAdListener` 的物件中执行 `com.adshow.ads.VpadnAdListener`，藉此追踪请求失败或「点阅」等广告生命週期事件。
-
-```java
-   public interface VpadnAdListener {
-     void onVpadnReceiveAd(VpadnAd ad);
-     void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode);
-     void onVpadnPresentScreen(VpadnAd ad);
-     void onVpadnDismissScreen(VpadnAd ad);
-     void onVpadnLeaveApplication(VpadnAd ad);
-   }
-```
-
-这个介面可由您的活动或任何其他物件执行：
-
-```java
-  import com.vpadn.ads.*;
-  public class VpadnBannerExample extends Activity implements VpadnAdListener {
-  //TODO: Implements all interface methods }
-}
-```
-
-然后传给 `VpadnBanner`：
-
-```java
-  vponBanner.setAdListener(this);
-```
-
+# 自定义广告请求参数
 ---
-```java
-  public void onVpadnReceiveAd(VpadnAd ad)
-```
-当 VpadnBanner.loadAd 成功时传送。
+您可以在建立广告请求时，选择项地加入以下自定义的参数，让 Vpon 可以用更精准的方式投放广告
 
 ```java
-  public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode error)
+VponAdRequest.Builder builder = new VponAdRequest.Builder();
+
+builder.setAutoRefresh(boolean);
+// Only available for Banner Ad, will auto refresh ad if set true
+builder.addTestDevice(String);
+// Set your test device's GAID here if you're trying to get Vpon test ad
+
+builder.setGender(VponAdRequest.Gender.UNSPECIFIED);
+// Set user's gender if available
+builder.setBirthday(Date);
+// Set user's birthday if available
+builder.setLocation(Location);
+// Set user's location if available
+
+builder.setMaxAdContentRating(String);
+// To set up the maximum content rating filter
+builder.setTagForUnderAgeOfConsent(-1);
+// To set up if the ads will be displayed only to the specific ages of audience
+builder.tagForChildDirectedTreatment(-1);
+// To set up if the ads will be displayed to childern specific
+
+builder.addKeyword(String);
+builder.addKeywords(Set<String>);
+
 ```
-当 loadAd 失败时传送；失败原因通常是网路连线失败、应用程式设定错误或广告空间不足。
 
-建议您将这些事件记录下来以便侦错：
-
-```java
-  @Override public void onFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errorCode) { Log.d(MY_LOG_TAG, "failed to receive ad (" + errorCode + ")"); }
-```
-
-```java
-  public void onVpadnPresentScreen(VpadnAd ad)
-```
-当广告因获得使用者点击，在您的应用程式之前建立了 Activity 并呈现出全萤幕广告使用者介面时呼叫。
-
-```java
-  public void onVpadnDismissScreen(VpadnAd ad)
-```
-当使用者关闭与 onVponPresentScreen 一同显示的全萤幕 Activity，控制权也交还给应用程式时呼叫。
-
-```java
-  public void onVpadnLeaveApplication(VpadnAd ad)
-```
-当 Ad 点击会启动新的应用程式时呼叫。
+>**Note:** 关于自定义参数值的定义，请参考以下说明
 
 
+## MaxAdContentRating
+
+|Constant|Description|
+|:------|:---------|
+|T| For teenager|
+|PG| For parent guardian|
+|MA| For mature adult|
+|G| For general, any one, include child age under|
+
+## TagForUnderAgeOfConsent
+
+|Constant|Description|
+|:------|:---------|
+|1|TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE|
+|0|TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE|
+|-1|(Default Value)<br>TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED|
+
+## TagForChildDirectedTreatment
+
+|Constant|Description|
+|:------|:---------|
+|1|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE|
+|0|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE|
+|-1|(Default Value)<br>TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|
 
 
 
-# Corona User
+<!-- # Corona User
 ---
 如果您的 App 使用 Corona 欲串接 Vpon 广告，我们建议您用 Web SDK 的方式串接，使用方法如下：
 
 1. 请参考 [Vpon Web SDK 串接说明]，准备一个包含 Web SDK 广告请求的 HTML 档案
 2. 在 WebView 中读取该 HTML 档案，例如：webView:request(“localfile.html”, system.ResourceDirectory)
 
-> **Note**：更多 Corona SDK 文件可参考: [Corona Document]
+> **Note**：更多 Corona SDK 文件可参考: [Corona Document] -->
 
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 [注册帐号]: {{ site.baseurl }}/zh-cn/android/registration/

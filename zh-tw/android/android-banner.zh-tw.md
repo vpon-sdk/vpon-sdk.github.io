@@ -19,15 +19,14 @@ Vpon 橫幅廣告 (Banner) 是利用畫面的一小部分展示廣告來吸引�
 
 # 開始串接橫幅廣告
 ---
-Android 應用程式由 View 物件所組成，也就是以文字區域和按鈕等控制項的形式向使用者呈現的 Java 執行個體。VpadnBanner 是一種 View 子類別，用來顯示由使用者點擊觸發的小型 HTML5 廣告。
+Android 應用程式由 View 物件所組成，也就是以文字區域和按鈕等控制項的形式向使用者呈現的 Java 執行個體。VponBanner 是一種 View 子類別，用來顯示由使用者點擊觸發的小型 HTML5 廣告。
 
 和所有的 View 一樣，VpadnBanner 可以使用 Java 撰寫，也可以用 XML 編寫。以下為所需步驟：
 
-1. 匯入 `com.vpadn.ads.*`
-2. 宣告 `VpadnBanner`
-3. 建立 VpadnBanner 物件，並指定 License Key
-4. 拉取廣告
-5. 實作 VpadnAdListener
+1. 匯入 com.vpon.ads.*
+2. 宣告 VponBanner，並指定 License Key
+3. 建立 VponAdRequest，並請求廣告
+4. 實作 AdListener
 
 建議您在應用程式的 Activity 內進行上述步驟。
 
@@ -35,62 +34,42 @@ Android 應用程式由 View 物件所組成，也就是以文字區域和按鈕
 ---
 請參考以下步驟，在您的 MainActivity 中完成橫幅廣告。
 
-### Import Vpon SDK 並宣告 VpadnBanner
+### 宣告 VponBanner，並請求廣告
 ---
 ```java
-import com.vpadn.ads.*;
+import com.vpon.ads.*;
 
-public class MainActivity extends Activity implements VpadnAdListener {
-        private RelativeLayout adBannerLayout;
+public class MainActivity extends AppCompatActivity {
         
-        // Declare VpadnBanner instance
-  	private VpadnBanner vponBanner = null;
+        private RelativeLayout mainLayout;
+        private VponBanner vponBanner;
+        private String bannerId = "License Key" ;
+        // bannerId: Vpon License Key to get ad, please replace with your own one
 
-  	// Please fill in with your License Key
-  	private String bannerId = "License Key" ;
-        ...
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
+
+            VponBanner vponBanner = new VponBanner(context, bannerId, adSize);
+            // adSize: The Banner Ad size that will be displayed
+
+            VponAdRequest.Builder builder = new VponAdRequest.Builder();
+            builder.setAutoRefresh(true);
+            // Only available for Banner Ad, will auto refresh ad if set true
+            builder.addTestDevice("your device advertising id");
+            // Set your test device's GAID here if you're trying to get Vpon test ad
+            vponBanner.loadAd(builder.build());
+            // Set ad request and load ad
+
+            mainLayout.addView(vponBanner);
+  	}
 }
 ```
 
-### 建立 VpadnBanner 物件，並指定 License Key
----
-```java
-public class MainActivity extends Activity implements VpadnAdListener {
-        ...
-        @Override
-  	protected void onCreate(Bundle savedInstanceState) {
-  		super.onCreate(savedInstanceState);
-  		setContentView(R.layout.activity_main);
-  		// Get your layout view for Vpon banner
-  		adBannerLayout = (RelativeLayout) findViewById(R.id.adLayout);
+>**Note:** 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
 
-  		// In SDK 4.8.0 and below, create VpadnBanner instance
-                vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER, "TW");
-                // In SDK 4.8.1 and above, create VpadnBanner instance
-                vponBanner = new VpadnBanner(this, bannerId, VpadnAdSize.SMART_BANNER);
-                vponBanner.setAdListener(this);
-  		VpadnAdRequest adRequest = new VpadnAdRequest();
-  		// Set "true" to enable banner ad auto refresh
-  		adRequest.setEnableAutoRefresh(true);
-                // Load vpon banner
-  		vponBanner.loadAd(adRequest);
-                // Add vpon banner to your layout view
-  		adBannerLayout.addView(vponBanner);
-  	}
-
-  	@Override
-  	protected void onDestroy() {
-  		super.onDestroy();
-  		if (vponBanner != null) {
-  			//remember to call destroy method
-  			vponBanner.destroy();
-  			vponBanner = null;
-  		}
-  	}
-    }
-```
-
-## 在 layout 中編寫橫幅廣告
+### 在 layout 中編寫橫幅廣告
 ---
 您也可以直接在 layout 中定義橫幅廣告：
 
@@ -108,76 +87,78 @@ public class MainActivity extends Activity implements VpadnAdListener {
           android:layout_height="wrap_content" >
 
           <!-- Implement Vpon Banner Ad As Below -->
-          <com.vpadn.ads.VpadnBanner
-              android:id="@+id/vpadnBannerXML"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              vpadn:adSize="SMART_BANNER"
-              vpadn:autoFresh="true"
-              vpadn:bannerId= "License Key"
-              vpadn:loadAdOnCreate="true"
-              vpadn:platform="TW" />
-      </RelativeLayout>
+          <com.vpon.ads.VponBanner
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            vpon:adSize="SMART_BANNER"
+            vpon:bannerId= "License Key"/>
   </LinearLayout>
 ```
 
-> **Note**：請記得將上面的 vpon:bannerId 改為您的 License Key
+>**Note**：請記得將 ads:bannerId 改為您的 License Key
 
 
-## 測試廣告
+
+## 實作 AdListener
 ---
-如果您的 License Key 還未通過審核的話，您可以使用下列的方式取得測試廣告：
-
 ```java
-public class MainActivity extends Activity implements VpadnAdListener {
-        ...
-        VpadnAdRequest adRequest =  new VpadnAdRequest();
+vponBanner.setAdListener(new VponAdListener() {
 
-        HashSet<String> testDeviceImeiSet = new HashSet<String>();
-        // Add Android device advertising id
-        testDeviceImeiSet.add("your device advertising id");
-        adRequest.setTestDevices(testDeviceImeiSet);
+    @Override
+    public void onAdLoaded() {
+        // Invoked if receive ad successfully
+    }
+    
+    @Override
+    public void onAdFailedToLoad(int errorCode) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
 
-        vponBanner.loadAd(adRequest);
-        ...
-}
+    @Override
+    public void onAdOpened() {
+        // Invoked if the ad was clicked
+    }
+
+    @Override
+    public void onAdLeftApplication() {
+        // Invoked if user leave the app and the current app was backgrounded
+    }
+});
 ```
 
-### Advertising ID
+## 廣告生命週期
 ---
-您可以使用下列方式取得 device 上的 Advertising ID：
 
-1. 於 log 中搜尋 "advertising_id" (4.8.3 版後，請搜尋 "advertisingId")
-2. 直接操作手機：設定 → Google → 廣告 → 您的廣告 ID (Advertising ID)
+為使廣告正常運作，並在適當的時機釋放資源，我們建議可以在 Activity 生命週期中加入以下程式碼：
 
-## 實作 VpadnAdListener
----
 ```java
-public class MainActivity extends Activity implements VpadnAdListener {
-        @Override
-        public void onVpadnReceiveAd(VpadnAd ad){
-                Log.d("Banner", "VpadnReceiveAd");
-        }
+@Override
+protected void onResume() {
+    super.onResume();
 
-        @Override
-        public void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errCode){
-                Log.d("Banner", "fail to receive ad (" + errCode + ")");
-        }
+    if (vponBanner != null) {
+        vponBanner.resume();
+    }
+}
 
-        @Override
-        public void onVpadnPresentScreen(VpadnAd ad){
-                Log.d("Banner", "VpadnPresentScreen");
-        }
+@Override
+protected void onPause() {
+    super.onPause();
 
-        @Override
-        public void onVpadnDismissScreen(VpadnAd ad){
-                Log.d("Banner", "vpadnDismissScreen");
-        }
+    if (vponBanner != null) {
+        vponBanner.pause();
+    }
+}
 
-        @Override
-        public void onVpadnLeaveApplication(VpadnAd ad){
-                Log.d("Banner", "VpadnLeaveApplication");
-        }
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    if (vponBanner != null) {
+        vponBanner.destroy();
+        vponBanner = null;
+    }
 }
 ```
 
@@ -187,13 +168,13 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 大小 (寬度x高度)             |     說明       |  VponAdSize 常數值
 :------------------------: | :-------------:| :-----------------------------:
-320x50                     | 標準橫幅廣告     | VpadnAdSize.BANNER
-300x250                    | IAB 中矩形廣告   | VpadnAdSize.IAB\_MRECT
-468x60                     | IAB 全橫幅廣告   | VpadnAdSize.IAB\_BANNER
-728x90                     | IAB 超級橫幅廣告 | VpadnAdSize.IAB\_LEADERBOARD
-device width x auto height | Smart Banner   | VpadnAdSize.SMART\_BANNER
+320x50                     | 標準橫幅廣告     | VponAdSize.BANNER
+300x250                    | IAB 中矩形廣告   | VponAdSize.IAB\_MRECT
+468x60                     | IAB 全橫幅廣告   | VponAdSize.IAB\_BANNER
+728x90                     | IAB 超級橫幅廣告 | VponAdSize.IAB\_LEADERBOARD
+device width x auto height | Smart Banner   | VponAdSize.SMART\_BANNER
 
-如無特定需求，我們建議您直接使用 `Smart Banner` 即可 (目前不支援VpadnAdSize.IAB_WIDE_SKYSCRAPER)
+>**Note:** 如無特定需求，我們建議您直接使用 `VponAdSize.SMART_BANNER` 即可
 
 # Tips
 ---
@@ -201,14 +182,8 @@ device width x auto height | Smart Banner   | VpadnAdSize.SMART\_BANNER
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
-### 其它廣告形式
-如果您想了解其它廣告形式的串接，請參考以下內容：
-
-* [插頁廣告](../interstitial)
-* [原生廣告](../native)
-* [Out-stream 影音廣告](../outstream)
-* [中介服務](../mediation)
-* [進階設定](../advanced)
+### 適用於 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，請參考[橫幅廣告](../banner-under5)
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
 [Sample Code]:../../android/download/

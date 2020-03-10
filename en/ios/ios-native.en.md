@@ -20,159 +20,245 @@ While using the Native Ad API, you will receive a group of ad properties such as
 Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
 
-# NativeAd Options
----
-We support two kinds of Native Ad below:
-
-1. [Basic Native Ad]
-2. [Native Ad - Table View]
-
-Here we use the first one as an example to show how to construct a Basic Native Ad. Click the link above to get more detail about the Basic Native.
-
-# How to Implement Native Ad
+# Start To Implement Interstitial Ad
 ---
 There are five actions you will need to take to implement this in your app:
 
-1. Import Vpon SDK
+1. Import VpadnSDKAdKit
 2. Declare a VpadnNativeAd instance
-3. Set the License Key
-4. Use the returned ad metadata to build a custom native UI
-5. Register the ad's view with the nativeAd instance
+3. Initialize VpadnNativeAd object and indicate an License Key
+4. Set up VpadnRequest object and send ad request
+5. Set up custom Native Ad layout
+6. Set up Delegate protocol
 
-The best place to do all this is in your app's UIViewController.
+The best place to do all this is in your app's ViewController.
 
-# Coding for Showing Native Ad
+## Import VpadnSDKAdKit And Declare A VpadnNativeAd Instance
 ---
 First, in your View Controller header file, import Vpon SDK and declare that you implement the VpadnNativeAdDelegate protocol as well as declare and connect instance variables to your UI. (Please follow the [Natie Ad Spec](#nativeAdSpec))
 
+### Objective-C
 
 ```objc
 @import VpadnSDKAdKit;
-#import "ViewController.h"
+// Import Vpon SDK
 
-@interface ViewController ()<VpadnNativeAdDelegate>
-/* For SDK version 4.7.1 or above */
-@interface ViewController ()<VpadnNativeAdDelegate, VpadnMediaViewDelegate>
+@interface ViewController () <VpadnMediaViewDelegate, VpadnNativeAdDelegate>
 
 @property (strong, nonatomic) VpadnNativeAd *nativeAd;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UIView *adView;
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *adIcon;
-@property (weak, nonatomic) IBOutlet UIImageView *adCoverMedia;
 @property (weak, nonatomic) IBOutlet UILabel *adTitle;
 @property (weak, nonatomic) IBOutlet UILabel *adBody;
-@property (weak, nonatomic) IBOutlet UIButton *adAction;
 @property (weak, nonatomic) IBOutlet UILabel *adSocialContext;
-/* For SDK version 4.7.1 or above */
+@property (weak, nonatomic) IBOutlet UIButton *adAction;
 @property (weak, nonatomic) IBOutlet VpadnMediaView *adMediaView;
 
 @end
 ```
 
-## Declare a VpadnNativeAd Instance
----
-Initializes VpadnNativeAd and request an ad to load in your View Controller's implementation file. Function `removePreviousAd` can follow [Clear Native Ad](#clearNativeAd).<br>
-(Please click [here] if you still do not get the License Key)
+### Swift
 
+```swift
+import VpadnSDKAdKit
+// Import Vpon SDK
 
-```objc
-- (IBAction)loadNativeAd:(id)sender {
-    if(self.nativeAd) {
-        [self removePreviousAd];
-    }
-    self.nativeAd = [[VpadnNativeAd alloc] initWithBannerID:@"License Key"];
-    self.nativeAd.delegate = self;
-    //The testing device will show the testing Ad while input its IDFA. Declare it as a empty string and the device will laod the actula Ad.
-    [self.nativeAd loadAdWithTestIdentifiers:@[@"Input the device's IDFA"]];
+class VponSdkNativeViewController: UIViewController {
+    
+    var vpadnNative: VpadnNativeAd!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var adIcon: UIImageView!
+    @IBOutlet weak var adTitle: UILabel!
+    @IBOutlet weak var adBody: UILabel!
+    @IBOutlet weak var adSocialContext: UILabel!
+    @IBOutlet weak var adAction: UIButton!
+    @IBOutlet weak var adMediaView: VpadnMediaView!
 }
 ```
 
-## Native Ad Callback
+
+## Initialize VpadnNativeAd Object And Indicate A License Key
 ---
-After adding the code to load the ad, the following 5 functions can handle loading failures, and callback the ad status:
+Please follow the instrcution below to initialize VpadnNativeAd and indicate a License Key for it.
 
-1. onVpadnNativeAdReceived
-2. didFailToReceiveAdWithError
-3. onVpadnNativeAdPresent
-4. onVpadnNativeAdDismiss
-5. onVpadnNativeAdLeaveApplication
-
-While the Native ad is received successfully, the function will also construct the ad into a custom UI. In order to enable the the SDK to log the impression and handle the click automatically you must register the ad's view with the nativeAd instance. Additionally, registering the view using `registerViewForInteraction:withViewController:` will make the whole view clickable. If you are looking for finer control you can specify the clickable subviews using `registerViewForInteraction:withViewController:withClickableViews:`.
+### Objective-C
 
 ```objc
-- (void)onVpadnNativeAdReceived:(VpadnNativeAd *)nativeAd {
-    NSLog(@"VpadnNativeAd onVpadnNativeAdReceived");
+_nativeAd = [[VpadnNativeAd alloc] initWithLicenseKey:@"License Key"];
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 
-    [self.statusLabel setHidden:YES];
+_nativeAd.delegate = self;
+```
 
-    // icon
+### Swift
+
+```swift
+vpadnNative = VpadnNativeAd.init(licenseKey: "License Key")
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
+
+vpadnNative.delegate = self
+```
+
+## Set Up VpadnAdRequest and Send Ad Request
+---
+Set up VpadnAdRequest before you send ad request:
+
+### Objective-C
+
+```objc
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
+
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+[_nativeAd loadRequest:request];
+// Start to load ad
+```
+
+### Swift
+
+```swift
+let request = VpadnAdRequest.init()
+
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+vpadnNative.load(request())
+// start to load ad
+```
+
+>**Note:**
+>
+>* Besides of setting up VpadnRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
+>* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
+
+
+## Set Up Custom Native Ad Layout
+---
+Please refer to the sample below to set up custom Native Ad Layout when onVpadnNativeAdReceived triggered:
+
+
+### Objective-C
+
+```objc
+- (void)setNativeAd {
+    _adIcon.image = nil;
+    
     __block typeof(self) safeSelf = self;
-    [nativeAd.icon loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
+    [_nativeAd.icon loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
         safeSelf.adIcon.image = image;
     }];
-    // media cover
-    /* For SDK version 4.7.0 or below
-    [nativeAd.coverImage loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
-        safeSelf.adCoverMedia.image = image;
-    }];
-    */
-    /* For SDK version 4.7.1 or above */
-    self.adMediaView.delegate = self;
-    [self.adMediaView setNativeAd:nativeAd];
-    // text
-    self.adTitle.text = nativeAd.title;
-    self.adBody.text = nativeAd.body;
-    [self.adAction setHidden:NO];
-    [self.adAction setTitle:nativeAd.callToAction forState:UIControlStateNormal];
-    self.adSocialContext.text = nativeAd.socialContext;
-    //whole view clickable:
-    [self.nativeAd registerViewForInteraction:self.adView withViewController:self];
-    //finer control:
-    //[self.nativeAd registerViewForInteraction:self.adView withViewController:self withClickableViews:@[self.adAction]];
-    [self.adView setHidden:NO];
-}
+    
+    [_adMediaView setNativeAd:_nativeAd];
+    _adMediaView.delegate = self;
+    
+    _adTitle.text = [_nativeAd.title copy];
+    _adBody.text = [_nativeAd.body copy];
+    _adSocialContext.text = [_nativeAd.socialContext copy];
+    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateNormal];
+    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateHighlighted];
+    
+    [_nativeAd registerViewForInteraction:_contentView withViewController:self];
+    // You must register the Ad View to make the ad clickable
 
-- (void)onVpadnNativeAd:(VpadnNativeAd *)nativeAd didFailToReceiveAdWithError:(NSError *)error {
-    NSLog(@"VpadnNativeAd didFailToReceiveAdWithError: %@", error);
-    [self.statusLabel setHidden:NO];
-    [self.statusLabel setText:[NSString stringWithFormat:@"Request failed with error: %d %@", (int)error.code, error.domain]];
-}
-
-- (void)onVpadnNativeAdPresent:(VpadnNativeAd *)nativeAd {
-    NSLog(@"VpadnNativeAd onVpadnNativeAdPresent");
-}
-
-- (void)onVpadnNativeAdDismiss:(VpadnNativeAd *)nativeAd {
-    NSLog(@"VpadnNativeAd onVpadnNativeAdDismiss");
-}
-
-- (void)onVpadnNativeAdLeaveApplication:(VpadnNativeAd *)nativeAd {
-    NSLog(@"NativeAdViewController onVpadnNativeAdLeaveApplication");
-}
-
-/* For SDK version 4.7.1 or above */
-- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
-    NSLog(@"mediaViewDidLoad");
+    // [_nativeAd registerViewForInteraction:withViewController:withClickableViews:self._adAction];
+    // You can also register a specific ad component to make the Ad View to be clickable partly
 }
 ```
 
-# Clear Native Ad {#clearNativeAd}
+### Swift
+
+```swift
+func setNativeAd() {
+        adIcon.image = nil
+            
+        vpadnNative.icon.loadAsync { (image) in
+            self.adIcon.image = image
+        }
+        
+        adMediaView.nativeAd = vpadnNative
+        adMediaView.delegate = self
+            
+        adTitle.text = vpadnNative.title
+        adBody.text = vpadnNative.body
+        adSocialContext.text = vpadnNative.socialContext
+        adAction.setTitle(vpadnNative.callToAction, for: .normal)
+        adAction.setTitle(vpadnNative.callToAction, for: .highlighted)
+        
+        vpadnNative.registerView(forInteraction: contentView, with: self)
+        // You must register the Ad View to make the ad clickable
+
+        vpadnNative.registerView(forInteraction: withViewController, with: self.adAction)
+        // You can also register a specific ad component to make the Ad View to be clickable partly
+    }
+
+```
+
+## Set Up Delegate Protocol
 ---
-If you want to re-use the view to show different ads over time, make sure to call `removePreviousAd` before registering the same view with a different instance of VpadnNativeAd.
+After finishing ad request, implement the delegate protocol as below to listen ad status.
+
+### Objective-C
 
 ```objc
-- (void)removePreviousAd {
-    [self.nativeAd unregisterView];
-    self.nativeAd.delegate = nil;
-    self.adIcon.image = nil;
-    self.adCoverMedia.image = nil;
-    self.adView.hidden = YES;
+- (void) onVpadnNativeAdLoaded:(VpadnNativeAd *)nativeAd {
+    // Invoked if receive Banner Ad successfully
+
+    [self setNativeAd];
+    // Construct Native Ad with returned components
+}
+- (void) onVpadnNativeAd:(VpadnNativeAd *)nativeAd failedToLoad:(NSError *)error {
+    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+}
+- (void) onVpadnNativeAdClicked:(VpadnNativeAd *)nativeAd {
+    // Invoked if the Banner Ad was clicked
+}
+- (void) onVpadnNativeAdWillLeaveApplication:(VpadnNativeAd *)nativeAd {
+    // Invoked if user leave the app and the current app was backgrounded
+}
+- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
+    // Invoked if the media creatives load sucessfully
+}
+- (void) mediaViewDidFailed:(VpadnMediaView *)mediaView error:(NSError *)error {
+    // Invoked if the media creatives load fail
 }
 ```
 
-# Native Ads Manager
+### Swift
+
+```swift
+extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDelegate {
+    
+    func onVpadnNativeAdLoaded(_ nativeAd: VpadnNativeAd) {
+        // Invoked if receive Banner Ad successfully
+
+        self.setNativeAd()
+        // Construct Native Ad with returned components
+    }
+    func onVpadnNativeAd(_ nativeAd: VpadnNativeAd, failedToLoad error: Error) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+    func onVpadnNativeAdClicked(_ nativeAd: VpadnNativeAd) {
+        // Invoked if the Banner Ad was clicked
+    }
+    func onVpadnNativeAdWillLeaveApplication(_ nativeAd: VpadnNativeAd) {
+        // Invoked if user leave the app and the current app was backgrounded
+    }
+    func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
+        // Invoked if the media creatives load sucessfully
+    }
+    func mediaViewDidFailed(_ mediaView: VpadnMediaView, error: Error) {
+        // Invoked if the media creatives load fail  
+    }
+}
+```
+
+
+<!-- # Native Ads Manager
 ---
-The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager.
+The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager. -->
 
 # Navive Ad Spec {#nativeAdSpec}
 --------
@@ -197,25 +283,32 @@ BodyText     | Show at least 20 English alphabets or unshow it.
 :-----------:|:-----------:|
 SocialContext| Show completely
 :-----------:|:-----------:|
-RatingScale  | 5
+RatingScale  | 5, might be null
 :-----------:|:-----------:|
-Rating Min/Max| 1/5
+Rating Min/Max| 1/5, might be null
 :-----------:|:-----------:|
 
-# Download Sample Code
+
+# Tips
 ---
-Here we use Basic Native Ad as an example. A Native Ad sample in table view is also in the [Sample Code] <br>
 
-# Mediation
+### Sample Code
+Please refer to our [Sample Code] for a complete integration sample.
+
+### Integration Guide For Vpon SDK v4.9
+Please refer to [Native Ad Integration Guide](../native-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
+
+### Mediation
 ---
 Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.<br>
 - [AdMob]<br>
 - [Mopub]<br>
 - [Smaato]
 
+
 [settings here]: ../integration-guide/
 [here]: {{ site.baseurl }}/ios/registration/
-[Sample Code]: {{ site.baseurl }}/android/download/
+[Sample Code]: {{ site.baseurl }}/ios/download/
 [Click here]: {{ site.baseurl }}/ios/mediation/mopub
 [AdMob]: {{ site.baseurl }}/ios/mediation/admob/#customevent
 [MoPub]: {{ site.baseurl }}/ios/mediation/mopub

@@ -7,6 +7,7 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/
 lang: "zh-tw"
 ---
+
 # 快速上手 - 串接 SDK 與顯示廣告
 
 
@@ -14,7 +15,7 @@ lang: "zh-tw"
 ---
 Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SDK 前，請確保您的 App 符合以下條件：
 
-* iOS：`iOS 9.0 以上 & Xcode 9.0 以上`
+* `iOS 9.0 以上 & Xcode 9.0 以上`
 
 ## Step2: 成為 Vpon 開發商夥伴
 ---
@@ -40,19 +41,19 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 | iOS_Interstitial | 8a80854b6a90b5bc016ad81a98cf652e |
 | iOS_Native | 8a80854b6a90b5bc016ad81ac68c6530 |
 
-> **Note**：``注意，在測試完成後，請務必將測試用的 License Key 換成您自行申請並通過審核的 License Key，以免影響您的廣告收益。``
+> **Note**：``在測試完成後，請務必將測試用的 License Key 換成您自行申請並通過審核的 License Key，以免影響您的廣告收益。``
 
 
 ## Tips
 ---
-所有 iOS 相關資訊都在左排列表中，右排為文章的目錄，若想跳轉其他裝置平台或語言，請點選網站右上角的目標語言與平台。若您有任何技術問題，請不吝聯絡 [FAE 團隊](mailto:fae@vpon.com)
+所有 iOS 相關資訊都在左排列表中，右排為文章的目錄，若想跳轉其他裝置平台或語言，請點選網站右上角的目標語言與平台。若您有任何技術問題，請不吝聯絡 [FAE 團隊](mailto:fae@vpon.com)。
 
-> **Note**：
+<!-- > **Note**：
 >
-<!-- > 1. 串接完畢後，請自行檢查是否有印出VponLog:didImpression，以確認有成功回傳資訊到Vpon Server -->
+> 1. 串接完畢後，請自行檢查是否有印出VponLog:didImpression，以確認有成功回傳資訊到Vpon Server
 >
 > 1. iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
-
+ -->
 
 
 [1]:{{ site.baseurl }}/zh-tw/ios/download/

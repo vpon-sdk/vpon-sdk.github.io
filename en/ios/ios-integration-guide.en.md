@@ -92,18 +92,18 @@ Finally, import the framework:
 ---
 The decompressed SDK consists of Objective-C, a runtime library and a README. Show Vpadn banner on your Android App, you must complete three steps:
 
-1. Import `libAdOn.a`, `VpadnBanner.h` and `VpadnInterstitial.h`
+1. Import `libAdOn.a` and Headers
 2. Add all iOS development frameworks
 3. Modify Build Settings
 
 > **Notee**: **All three** these steps are necessary!
 
 #### 1. Add SDK lib
-The decompressed SDK consists of a lib file and two header files.
+The decompressed SDK consists of a lib file and couples of header files.
 
 1. Right click on your project in Xcode, choose Add Files to "your_project"
 ![IOS-add-file_vpadn.png]
-2. Choose `libAdOn.a`, `VpadnBanner.h` and `VpadnInterstitial.h` in SDK
+2. Choose `libAdOn.a`, `VpadnBanner.h`, `VpadnInterstitial.h` and following files in SDK
 <img src="{{site.imgurl}}/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/>
 
 #### 2. Add Framework

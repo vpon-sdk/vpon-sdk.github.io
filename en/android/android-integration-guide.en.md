@@ -98,12 +98,17 @@ Please check the build.gradle to see if the .jar / .aar file show in the depende
 Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
 
 ```xml
-<activity
-  android:name="com.vpadn.widget.VpadnActivity"
-  android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
-  android:theme="@android:style/Theme.Translucent"
-  android:hardwareAccelerated="true">
-</activity>
+<!-- Please add below script if you're using SDK v5.0.2 or above-->
+<activity android:name="com.vpon.ads.VponAdActivity"
+android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
+android:theme="@android:style/Theme.Translucent"
+android:hardwareAccelerated="true"/>
+
+<!-- Please add below script if you're using SDK v4.9.1 or below -->
+<activity android:name="com.vpadn.widget.VpadnActivity"
+android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
+android:theme="@android:style/Theme.Translucent"
+android:hardwareAccelerated="true"/>
 ```
 
 > **Note**: **EVERY** attribute is required!
@@ -149,8 +154,13 @@ Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follo
 
 ```xml
 dependencies {
-    ...
+    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    <!-- Import required Google Play Service -->
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
 }
 ```
 
@@ -168,7 +178,7 @@ If your app need obfuscateed before release, please add settings below：<br>
 -keep class com.vpadn.** { *; }
 -keep class vpadn.** { *; }
 
-<!-- ----------- acquired since 4.8.0 start --------- -->
+<!-- ----------- require since 4.8.0 --------- -->
 -dontnote retrofit2.Platform
 -dontwarn retrofit2.Platform$Java8
 -dontwarn okhttp3.internal.platform.*
@@ -176,7 +186,6 @@ If your app need obfuscateed before release, please add settings below：<br>
 -keepattributes Signature
 -dontwarn okio.**
 -dontwarn javax.annotation.**
-<!-- ----------- acquired since 4.8.0 end --------- -->
 ```
 
 # Tips

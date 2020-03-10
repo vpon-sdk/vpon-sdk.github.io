@@ -1,5 +1,14 @@
 # Vpon iOS SDK Change Log
 
+## 5.0.2
+* Release Date: 9 Mar. 2020
+* Build Number: 
+* Replace Cordova framework with self-maintenance Javascript for communicating
+* Replace UIWebView with WKWebView
+* Revise the interface of Banner / Interstitial / Native Ad
+* Revise the framework to make it more compatible with 3rd-party tracking solution
+* Support mraid3 when display Banner and Interstitial Ad
+
 ## 4.9.4
 * Release Date: 15 Nov. 2019
 * Build Number: 31119102

@@ -7,130 +7,95 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/advanced/
 lang: "zh-tw"
 ---
-# 自定參數
+
+# 自定義廣告請求參數
 ---
-您可以在固定需要新增的 function(getTestIdentifiers) 中設定測試手機的識別碼 (在第一次發出 request 時會提示開發者要新增什麼識別碼)，讓 Vpon 以更精確的方式指定廣告。 在開發期間 建議將自己的手機識別碼加在 getTestIdentifiers 函式中以免產生不實曝光，造成您收益上的損失，並請在上架前將識別碼刪除，否則之後填入識別碼的手機將無法抓到正常廣告
+您可以在建立廣告請求時，選擇性地加入以下自定義的參數，讓 Vpon 可以用更精準的方式投放廣告
 
-## 增加測試手機的識別碼
-您可以使用這些屬性來指定要接收測試廣告的裝置或裝置 Set。若要確認 SDK 是否已順利整合，請加入您的測試裝置並執行應用程式，然後按一下所顯示的測試廣告。
-
-```objc
-  // 請新增此function到您的程式內 如果為測試用 則在下方填入識別碼
-  -(NSArray*)getTestIdentifiers
-  {
-      return [NSArray arrayWithObjects:
-              // add your test Id
-              @"XXXXXXXXXXXXXXXXXXXXX",
-              nil];
-  }
-```
-
-## 指定目標
-您也可以指定位置和客層相關資訊。不過，為了保護使用者隱私，請只指定您的應用程式中現有的位置和客層資料。
-
-   [vpadnAd setUserInfoAge:25];
-
-   [vpadnAd setUserInfoKeyword:@"Game,RPG"];
-
-   [vpadnAd setUserInfoGender:female];
-
-   [vpadnAd setUserInfoBirthdayWithYear:1988 Month:6 andDay:9];
-
-
-# Protocol
----
-您可以在 ViewController 宣告時加入 VpadnBannerDelegate || VpadnInterstitialDelegate 此兩個 protocol，藉此追蹤請求失敗或「點擊」等廣告事件。
-
-
+### Objective-C
 
 ```objc
-#pragma mark VpadnBannerDelegate  一般 Banner protocol
-@protocol VpadnBannerDelegate <NSObject>
-@optional
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 
-#pragma mark 通知拉取廣告成功 pre-fetch 完成
-- (void)onVpadnAdReceived:(UIView *)bannerView;
+[request setAutoRefresh:YES];
+// Only available for Banner Ad, will auto refresh ad if set YES
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
 
-#pragma mark 通知拉取廣告失敗
-- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error; // alan todo code need to add
+[request setUserInfoGender:VpadnGenderUnspecified];
+// Set user's gender if available
+[request setUserInfoBirthdayWithYear:2000 Month:1 andDay:1];
+// Set user's birthday if available
 
-#pragma mark 通知開啟 vpadn 廣告頁面
-- (void)onVpadnPresent:(UIView *)bannerView;
+[request setMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
+// To set up the maximum content rating filter
+[request setTagForUnderAgeOfConsent:VpadnTagForUnderAgeOfConsentUnspecified];
+// To set up if the ads will be displayed only to the specific ages of audience
+[request setTagForChildDirectedTreatment:VpadnTagForChildDirectedTreatmentUnspecified];
+// To set up if the ads will be displayed to childern specific
 
-#pragma mark 通知關閉vpadn廣告頁面
-- (void)onVpadnDismiss:(UIView *)bannerView;
-
-#pragma mark 通知離開 publisher application
-- (void)onVpadnLeaveApplication:(UIView *)bannerView;
-@end
+[request addKeyword:@"keywordA"];
+[request addKeyword:@"keyword1:value1"];
 ```
 
-```objc
-#pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
-@protocol VpadnInterstitialDelegate <VpadnBannerDelegate>
-@optional
+### Swift
 
-#pragma mark 通知取得插屏廣告成功pre-fetch完成
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView;
+```swift
+let request = VpadnAdRequest.init()
 
-#pragma mark 通知取得插屏廣告失敗
-- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView;
+request.setAutoRefresh(true)
+// Only available for Banner Ad, will auto refresh ad if set true
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
 
-#pragma mark 通知關閉vpadn廣告頁面
-- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView;
-@end
+request.setUserInfoGender(.genderUnspecified)
+// Set user's gender if available
+request.setUserInfoBirthdayWithYear(2000, month: 01, andDay: 01)
+// Set user's birthday if available
+
+request.setMaxAdContentRating(.general)
+// To set up the maximum content rating filter
+request.setTagForUnderAgeOfConsent(.false)
+// To set up if the ads will be displayed only to the specific ages of audience
+request.setTagForChildDirectedTreatment(.false)
+// To set up if the ads will be displayed to childern specific
+
+request.addKeyword("keywordA")
+request.addKeyword("keyword1:value1")
 ```
 
-這些方法可用於個別的物件，例如
+>**Note:** 關於自定義參數值的參考值，請參考以下說明
 
-```objc
-  #import "VpadnBanner.h"
-  #import "VpadnInterstitial.h"
-  @interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
-```
+<!-- 需要以下參數的 defination -->
 
-將要接收的物件傳給 VpadnBanner：
+## MaxAdContentRating
 
-```objc
-vpadnAd.delegate = self;
-```
-當 VpadnBanner 廣告抓取成功時傳送。
+|Constant|Description|
+|:-------|:---------|
+|MAX_AD_CONTENT_RATING_G||
+|MAX_AD_CONTENT_RATING_PG||
+|MAX_AD_CONTENT_RATING_T||
+|MAX_AD_CONTENT_RATING_MA||
+|MAX_AD_CONTENT_RATING_UNSPECIFIED|Default value|
 
-```objc
-  - (void)onVpadnAdReceived:(UIView *)bannerView{}
-```
-當 VpadnBanner 失敗時傳送；失敗原因通常是網路連線失敗、應用程式設定錯誤或廣告空間不足。建議您將這些事件記錄下來以便偵錯：
+## TagForUnderAgeOfConsent
 
-```objc
-  - (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
-```
+|Constant|Description|
+|:-------|:---------|
+|TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE||
+|TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE|
+|TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED|Default value|
 
-當廣告因獲得使用者點擊，在您的應用程式之前webView 並呈現出全螢幕廣告使用者介面時呼叫。
+## TagForChildDirectedTreatment
 
-```objc
-  - (void)onVpadnPresent:(UIView *)bannerView{}
-```
-當使用者關閉與 onVpadnDismiss 一同顯示的webView，控制權也交還給應用程式時呼叫。
-
-```objc
-  - (void)onVpadnDismiss:(UIView *)bannerView;
-```
-當 Ad 點擊會啟動新的應用程式(out app)時呼叫。
-
-```objc
-  - (void)onVpadnLeaveApplication:(UIView *)bannerView{}
-```
+|Constant|Description|
+|:-------|:---------|
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value|
 
 
 
-# Corona User
----
-如果您的 App 使用 Corona 欲串接 Vpon 廣告，我們建議您用 Web SDK 的方式串接，使用方法如下：
-
-1. 請參考 [Vpon Web SDK 串接說明]，準備一個包含 Web SDK 廣告請求的 HTML 檔案
-2. 在 WebView 中讀取該 HTML 檔案，例如：webView:request(“localfile.html”, system.ResourceDirectory)
-
-> **Note**：更多 Corona SDK 文件可參考: [Corona Document]
 
 [CrazyadSetting]: {{site.imgurl}}/CrazyadSetting.png
 [註冊帳號]: {{ site.baseurl }}/zh-tw/ios/registration/

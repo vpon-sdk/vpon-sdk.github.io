@@ -22,7 +22,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 | Mediation Platform | Adapter | Note|
 |:------------------:|:-------:|:---:|
-| AdMob | [download][4] | Compatible with Vpon SDK 4.9.1 ↑ <br> Compatible with AdMob SDK 4.47.0 | 
+| AdMob <br> Google Ad Manager | [download][4] | Compatible with Vpon SDK 4.9.1 ↑ <br> Compatible with AdMob SDK 4.47.0 | 
 | MoPub | [download][5] | Compatible with MoPub SDK 5.9.0 ↓|
 | Smatto | [download][12] | |
 
@@ -38,8 +38,8 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-494-31119102-1911131618-bc55c76.a
-[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-4.9.4.zip
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.0.2-20200310-2003101454-3d37e73.a
+[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-5.0.2.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter

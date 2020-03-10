@@ -11,7 +11,7 @@
 
 | Mediation Platform | Adapter | Note|
 |:------------------:|:-------:|:---:|
-| AdMob | [download][2] | Compatible with Vpon SDK 4.9.1 ↑ | 
+| AdMob <br> Google Ad Manager | [download][2] | Compatible with Vpon SDK 4.9.1 ↑ | 
 | MoPub | [download][3] | |
 | Smatto | [download][9] | |
 
@@ -25,7 +25,7 @@ Fundamental SDK   | AdMob        | Google Ad Manager         | MoPub       | Sma
 
 
 
-[1]: http://m.vpadn.com/sdk/vpadn-sdk-obf491-60809102-release.aar
+[1]: http://m.vpadn.com/sdk/vpadn-sdk-obf502-90300202-2003091119-1026beb.aar
 [2]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/AdMobAdapter
 [3]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/MoPubCustomEvents
 [4]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Fundamental/AndroidStudioExample

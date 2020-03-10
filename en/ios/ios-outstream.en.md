@@ -22,8 +22,8 @@ Before you start to integrate Out-stream Video Ad, please make sure you already 
 ---
 Please follow the steps below to implement Out-stream Video Ad to your application:
 
-1. Import `VpadnSDKAdKit`
-2. Declare a `VpadnInReadAd` instance
+1. Import VpadnSDKAdKit
+2. Declare a VpadnInReadAd instance
 3. Set up VpadnInReadAd object and indicate a License Key
 4. Request for an Out-stream Video Ad
 5. Show Out-stream Video Ad
@@ -90,8 +90,8 @@ Vpon provide 3 kinds of interface for Out-stream Video Ad, you can choose the on
 ---
 To set up an Out-stream Video Ad in a ScrollView of the application, please follow the steps below:
 
-1. Import `VpadnSDKAdKit`
-2. Declare a `VpadnInReadAd` instance
+1. Import VpadnSDKAdKit
+2. Declare a VpadnInReadAd instance
 3. Set up VpadnInReadAd object and indicate a License Key
 4. Request for an Out-stream Video Ad
 5. Set up Delegate Protocol
@@ -139,8 +139,8 @@ Please refer to the sample code below to finish your Out-stream Video Ad setting
 ---
 To set up an Out-stream Video Ad in a TableView of the application, please follow the steps below:
 
-1. Import `VpadnSDKAdKit`
-2. Declare a `VpadnInReadAd` instance
+1. Import VpadnSDKAdKit
+2. Declare a VpadnInReadAd instance
 3. Set up VpadnInReadAd object and indicate a License Key
 4. Request for an Out-stream Video Ad
 5. Set up Delegate Protocol
@@ -262,10 +262,6 @@ After finishing ad request, implement the delegate protocol as below to listen a
 
 # Tips
 ---
-
-### App Transport Security
-Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for some modification.
-
 
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.

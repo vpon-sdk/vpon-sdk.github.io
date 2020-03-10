@@ -1,5 +1,16 @@
 # Vpon Android SDK Change Log
 
+## 5.0.2
+* Release Date: 9 Mar. 2020
+* Build Number: 
+* Replace Cordova framework with self-maintenance Javascript for communicating
+* Revise the interface naming from Vpadn to Vpon for brand identification
+* Revise the interface of AdListener
+* Adjust the input parameter from Activity to Context when creating ad instance
+* Support mraid3 when display Banner and Interstitial Ad
+* Revise the framework to make it more compatible with 3rd-party tracking solution
+* Bug fix
+
 ## 4.9.1
 * Release Date: 7 Aug. 2019
 * Build Number: 60809102

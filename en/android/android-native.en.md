@@ -21,376 +21,298 @@ Please make sure you've imported Vpon SDK to your Xcode project. If not, please 
 ---
 Please follow the steps below to implement Vpon Native Ad to your application:
 
-1. Import `com.vpadn.ads.*`
-2. Declare a `VpadnNativeAd` instance
-3. Set up VpadnNativeAd instance and indicate a License Key
-4. Create layout for Native Ad
+1. Import com.vpon.ads.*
+2. Declare a VponNativeAd instance and indicate a License Key
+3. Set up VponAdRequest object and send ad request
+4. Set up custom Native Ad layout
 5. Set up Native Ad with ad metadata
-6. Register ad view with VpadnNativeAd instance
-7. Implement VpadnAdListener
+6. Implement AdListener
 
 We strongly recommend that you can finish all the steps in the Activity of the application.
 
-## Import Vpon SDK And Declare A VpadnNativeAd Instance
+
+## Declare A VponNativeAd Instance and Send Ad Request
 ---
 ```java
-import com.vpadn.ads.*;
+import com.vpon.ads.*;
 
-public class MainActivity extends Activity implements VpadnAdListener {
-    // Declare VpadnNativeAd instance
-    private VpadnNativeAd nativeAd;
+public class MainActivity extends AppCompatActivity {
+    private FrameLayout adContainer;
+    private VponNativeAd vponNativeAd;
+    private String nativeAdId = "License Key";
+    // nativeAdId: Vpon License Key to get ad, please replace with your own one
     
-    // Please fill in with your License Key
-    private String licenseKey = "License Key" ;
-    
-    private LinearLayout native_Ad_Container;
-    private LinearLayout nativeAdView;
-    ...
-}
-```
-
-## Set Up VpadnNativeAd Instance And Indicate A License Key
----
-Set up VpadnNativeAd instance and indicate a license key to request Native Ad. Please follow [Create Layout for Native Ad](#createNativeUI) to create your own layout to present Native Ad.
-
-```java
-public class MainActivity extends Activity implements VpadnAdListener {
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Set up Native Ad layout
-        loadNativeUI();
+        adContainer = findViewById(R.id.ad_container); 
 
-        nativeAd = new VpadnNativeAd(this, licenseKey, "TW");
-        nativeAd.setAdListener(this);
-        VpadnAdRequest adRequest = new VpadnAdRequest();
-        nativeAd.loadAd(adRequest);
+        vponNativeAd = new VponNativeAd(this, nativeAdId);
+
+        VponAdRequest.Builder builder = new VponAdRequest.Builder();
+        builder.addTestDevice("your device advertising id");
+        // Set your test device's GAID here if you're trying to get Vpon test ad
+        vponNativeAd.loadAd(builder.build());
+        // Set ad request and load ad
     }
 }
 ```
 
-## Create Layout for Native Ad {#clearNativeAd}
+>**Note:** If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
+
+
+## Set Up Custom Native Ad Layout {#clearNativeAd}
 ---
 You must create layout for Native Ads before ad request. Please check our [Native Ad Spec](#nativeAdSpec) to create your own layout.
 
-Here is an example to create Native Ad layout in layout.xml:
+Here is an example to create Native Ad layout:
+
+### main_activity.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id = "@+id/native_ad_unit"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/ad_container"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+</RelativeLayout>
+```
+
+### native_ad_layout_template.xml
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ad_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
-    android:orientation="vertical">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ad_app_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="Ad icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/ad_headline"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp">
+        android:layout_marginStart="5dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toRightOf="@+id/ad_app_icon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ad_app_icon"
+        tools:text="This is HeadLine" />
 
-        <ImageView
-            android:id="@+id/nativeAdIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:contentDescription="Ad icon"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="5dp" >
-
-            <TextView
-                android:id="@+id/nativeAdTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="1"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/nativeAdBody"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!--Vpon Inc. original method, feel free to use VpadnMediaView tag below-->
-    <!--<ImageView-->
-        <!--android:id="@+id/nativeAdImage"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center"-->
-        <!--android:contentDescription="Ad image" />-->
-
-    <!--Vpon Inc. New layout-->
-    <com.vpadn.ads.VpadnMediaView
-        android:id="@+id/native_ad_media"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/ad_body"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_app_icon"
+        app:layout_constraintLeft_toLeftOf="@+id/ad_headline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_headline"
+        tools:text="This is body" />
 
-    <LinearLayout
+    <com.vpon.ads.VponMediaView
+        android:id="@+id/ad_media_view"
         android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_app_icon"
+        tools:background="?android:attr/fingerprintAuthDrawable"
+        tools:layout_height="157dp"
+        tools:layout_width="0dp" >
+    </com.vpon.ads.VponMediaView>
+    
+    <RatingBar
+        android:id="@+id/ad_stars"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:paddingRight="5dp"
-            android:orientation="vertical" >
-
-            <RatingBar
-                android:id="@+id/nativeAdStarRating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:isIndicator="true"
-                android:stepSize="0.1" />
-
-            <TextView
-                android:id="@+id/nativeAdSocialContext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/nativeAdCallToAction"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:background="#ff8bc615"
-            android:gravity="center"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-</LinearLayout>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_media_view"
+        tools:rating="3" />
+    
+    <Button
+        android:id="@+id/ad_call_to_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Call to Action"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_media_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 ```
 
-## Set Up Native Ad
+## Set Up Native Ad with Ad Metadata
 ---
-Implement VpadnAdListener and set up Native Ad with `inflateAd()` after ad receiving.
-
-The sample below shows the CallBack function of clicking CallToAction button, image and other components. Please refer to [Register Ad View](#registerView) to define which components are clickable.
+Implement VponAdListener and set up Native Ad with Ad metadata when received ad successfully. Please note that you should register the ad view to bind the click event on the ad.
 
 ```java
-public class MainActivity extends Activity implements VpadnAdListener {
-    ...
+import com.vpon.ads.*;
+
+public class MainActivity extends AppCompatActivity {
     @Override
-        public void onVpadnReceiveAd(VpadnAd ad) {
-            if (nativeAd == null || nativeAd != ad) {
-                Log.e("Native", "Race condition, load() called again before last ad was displayed");
-                return;
+    protected void onCreate(Bundle savedInstanceState) {
+
+        LayoutInflater.from(this).inflate(R.layout.layout_native_ad_template, adContainer, true);
+        // Inflate your custom ad layout
+
+        vponNativeAd.withNativeAdLoadedListener(new VponNativeAd.OnNativeAdLoadedListener() {
+            @Override
+            public void onNativeAdLoaded(VponNativeAd.NativeAdData nativeAdData) {
+                setNativeAdDatas(nativeAdData, adContainer);
+                // Set ad datas to your custom ad layout
             }
+        });
 
-            if (ad == nativeAd) {
+        VponAdRequest.Builder builder = new VponAdRequest.Builder();
+        vponNativeAd.loadAd(builder.build());
+        // Set ad request and load ad
+    }
+    
+    private void setNativeAdDatas(VponNativeAd.NativeAdData adData, View adContainer) {
+        ImageView nativeAdIcon = adContainer.findViewById(R.id.ad_app_icon);
+        TextView nativeAdTitle = adContainer.findViewById(R.id.ad_headline);
+        TextView nativeAdBody = adContainer.findViewById(R.id.ad_body);
+        VponMediaView nativeMediaView = adContainer.findViewById(R.id.ad_media_view);
+        Button nativeAdCallToAction = adContainer.findViewById(R.id.ad_call_to_action);
+        RatingBar nativeAdStarRating = adContainer.findViewById(R.id.ad_stars);
 
-                nativeAd.unregisterView();
-                inflateAd(nativeAd, nativeAdView, this);
-                nativeAd.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View view, MotionEvent event) {
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            switch (view.getId()) {
-                                case R.id.nativeAdCallToAction:
-                                    Log.e(LT, "nativeAdCallToAction");
-                                    Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
-                                    break;
-                                case R.id.nativeAdImage:
-                                    Log.e(LT, "nativeAdImage");
-                                    Toast.makeText(getBaseContext(), "nativeAdCallToAction Clicked", Toast.LENGTH_SHORT).show();
-                                    break;
-                                default:
-                                    Log.d(LT, "Other ad component clicked");
-                                    Toast.makeText(getBaseContext(), "Other ad component Clicked", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                        return false;
-                    }
-                });
+        VponNativeAd.downloadAndDisplayImage(adData.getIcon(), nativeAdIcon);
+        // Use VponNativeAd.downloadAndDisplayImage to display icon in your custom ad layout
 
-                native_Ad_Container.setVisibility(View.VISIBLE);
-            }
+        nativeAdTitle.setText(adData.getTitle());
+        if (adData.getBody() != null) {
+            nativeAdBody.setText(adData.getBody());
+        } else {
+            nativeAdBody.setVisibility(View.INVISIBLE);
         }
-}
-```
 
-## Set Up Native Ad With Ad Metadata {#importNativeData}
----
-Please refer to the sample below to implement `inflateAd()` to set up Native Ad.
+        nativeMediaView.setNativeAd(vponNativeAd ,adData);
 
-```java
-    protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
-        //Create native UI using the ad metadata.
-        ImageView nativeAdIcon = (ImageView) nativeAdView.findViewById(R.id.nativeAdIcon);
-        TextView nativeAdTitle = (TextView) nativeAdView.findViewById(R.id.nativeAdTitle);
-        TextView nativeAdBody = (TextView) nativeAdView.findViewById(R.id.nativeAdBody);
+        if (adData.getCallToAction() != null) {
+            nativeAdCallToAction.setText(adData.getCallToAction());
+        } else {
+            nativeAdCallToAction.setVisibility(View.INVISIBLE);
+        }
 
-        // Original method to use ImageView
-        // ImageView nativeAdImage = (ImageView) nativeAdView.findViewById(R.id.nativeAdImage);
-        // Or you can use VpadnMediaView as below
-        VpadnMediaView nativeAdMedia = (VpadnMediaView) nativeAdView.findViewById(R.id.native_ad_media);
-
-        RatingBar nativeAdStarRating = (RatingBar) nativeAdView.findViewById(R.id.nativeAdStarRating);
-        TextView nativeAdSocialContext = (TextView) nativeAdView.findViewById(R.id.nativeAdSocialContext);
-        Button nativeAdCallToAction = (Button) nativeAdView.findViewById(R.id.nativeAdCallToAction);
-
-        // Setting the Text
-        nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
-        nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
-        nativeAdTitle.setText(nativeAd.getAdTitle());
-        nativeAdBody.setText(nativeAd.getAdBody());
-        VpadnNativeAd.Rating rating = nativeAd.getAdStarRating();
+        VponNativeAd.NativeAdData.Rating rating = adData.getRating();
         if (rating != null) {
             nativeAdStarRating.setNumStars((int) rating.getScale());
             nativeAdStarRating.setRating((float) rating.getValue());
         } else {
-            nativeAdStarRating.setVisibility(View.GONE);
+            nativeAdStarRating.setVisibility(View.INVISIBLE);
         }
 
-        // Downloading and setting the ad icon.
-        VpadnNativeAd.Image adIcon = nativeAd.getAdIcon();
-        VpadnNativeAd.downloadAndDisplayImage(adIcon, nativeAdIcon);
-
-        // Downloading and setting the cover image.
-        VpadnNativeAd.Image adCoverImage = nativeAd.getAdCoverImage();
-        int bannerWidth = adCoverImage.getWidth();
-        int bannerHeight = adCoverImage.getHeight();
-        WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
-        Display display = wm.getDefaultDisplay();
-        DisplayMetrics metrics = new DisplayMetrics();
-        display.getMetrics(metrics);
-        int screenWidth = metrics.widthPixels;
-
-        // If you use nativeAdImage
-        // nativeAdImage.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
-        // VpadnNativeAd.downloadAndDisplayImage(adCoverImage, nativeAdImage);
-        // If you use VpadnMediaView
-        nativeAdMedia.setLayoutParams(new LinearLayout.LayoutParams(screenWidth, (int) (((double) screenWidth / (double) bannerWidth) * bannerHeight)));
-        nativeAdMedia.setNativedAd(nativeAd);
-
-        ...
-      }
-```
-
-## Ad View Registration {#registerView}
----
-Vpon SDK will log the impression and click. You must register ad view with VpadnNativeAd instance.
-
-* To make entire Native Ad layout clickable, please use `registerViewForInteraction(View view)`
-* To make part of Native Ad layout clickable, please use `registerViewForInteraction(View view, List<View> clickableViews)`
-
-Please refer to the smaple below:
-
-```java
-public class MainActivity extends Activity implements VpadnAdListener {
-    ...
-      protected static void inflateAd(VpadnNativeAd nativeAd, View nativeAdView, Activity mContext) {
-        ...
-        // Make the whole nativeAdContainer clickable
-        // nativeAd.registerViewForInteraction(nativeAdView);
-
-        // Specify clickable areas of the natvieAdContainer
-        // If you use ImageView
-        // nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdImage));
-        // If you use VpadnMediaView
-        nativeAd.registerViewForInteraction(nativeAdView, Arrays.asList(nativeAdCallToAction, nativeAdMedia));
+        vponNativeAd.registerViewForInteraction(adContainer);
+        // Register your view for click interaction
     }
 }
 ```
 
-# Clear Native Ad {#clearNativeAd}
+## Implement AdListener
 ---
-If you want to re-use the view to show different ads over time, call `unregisterView()` before registering the same view with a different VpadnNativeAd instance.
-
 ```java
-public class MainActivity extends Activity implements VpadnAdListener {
-    ...
+vponNativeAd.setAdListener(new VponAdListener() {
+
     @Override
-    public void onVpadnReceiveAd(VpadnAd ad) {
-        ...
-        if (ad == nativeAd) {
-            nativeAd.unregisterView();
-            ...
-        }
-}
+    public void onAdLoaded() {
+        // Invoked if receive ad successfully
+    }
+    
+    @Override
+    public void onAdFailedToLoad(int errorCode) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+
+    @Override
+    public void onAdOpened() {
+        // Invoked if the ad was clicked
+    }
+
+    @Override
+    public void onAdLeftApplication() {
+        // Invoked if user leave the app and the current app was backgrounded
+    }
+
+    @Override
+    public void onNativeAdLoaded(VponNativeAd.NativeAdData localNativeAdData) {
+        //TODO set native ad datas to view, registerViewForInteraction
+        //TODO VpadnNativeAd.Rating is change to VponNativeAd.NativeAdData.Rating
+        //TODO VponMediaView.setNativeAd(vponNativeAd, localNativeAdData)
+    }
+});
 ```
 
-## Request for Test Ad
+## Ad Lifecycle Handling
 ---
-Please add the code snippet to your application and fill in with your test device's UUID as below to request for test ads.
+To make the Ads work more smoothly and release resource appropriately, we recommend that you can add below code snippets in the Activity Lifecycle.
 
 ```java
-public class MainActivity extends Activity implements VpadnAdListener {
-        ...
-        VpadnAdRequest adRequest =  new VpadnAdRequest();
+@Override
+protected void onResume() {
+    super.onResume();
 
-        HashSet<String> testDeviceImeiSet = new HashSet<String>();
-        // Add Android device advertising id
-        testDeviceImeiSet.add("your device advertising id");
-        adRequest.setTestDevices(testDeviceImeiSet);
+    if (vponNativeAd != null) {
+        vponNativeAd.resume();
+    }
+}
 
-        vponBanner.loadAd(adRequest);
-        ...
+@Override
+protected void onPause() {
+    super.onPause();
+
+    if (vponNativeAd != null) {
+        vponNativeAd.pause();
+    }
+}
+
+@Override
+protected void onDestroy() {
+    super.onDestroy();
+    if (vponNativeAd != null) {
+        vponNativeAd.destroy();
+        vponNativeAd = null;
+    }
 }
 ```
 
-
-### Advertising ID
+<!-- # Native Ad Manager
 ---
-Here are some tips for you to get your advertising id:
-
-1. Find "advertising_id" from the log (Find "advertisingId" instead if you are using 4.8.3 or above)
-2. Check the advertising id in the Setting of your device
-
-
-## Implement VpadnAdListener
----
-```java
-public class MainActivity extends Activity implements VpadnAdListener {
-        @Override
-        public void onVpadnReceiveAd(VpadnAd ad){
-                Log.d("Banner", "VpadnReceiveAd");
-        }
-
-        @Override
-        public void onVpadnFailedToReceiveAd(VpadnAd ad, VpadnAdRequest.VpadnErrorCode errCode){
-                Log.d("Banner", "fail to receive ad (" + errCode + ")");
-        }
-
-        @Override
-        public void onVpadnPresentScreen(VpadnAd ad){
-                Log.d("Banner", "VpadnPresentScreen");
-        }
-
-        @Override
-        public void onVpadnDismissScreen(VpadnAd ad){
-                Log.d("Banner", "vpadnDismissScreen");
-        }
-
-        @Override
-        public void onVpadnLeaveApplication(VpadnAd ad){
-                Log.d("Banner", "VpadnLeaveApplication");
-        }
-}
-```
-
-# Native Ad Manager
----
-The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager.
+The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager. -->
 
 # Navive Ad Spec {#nativeAdSpec}
 --------
@@ -415,9 +337,9 @@ BodyText     | Show at least 20 English alphabets or unshow it.
 :-----------:|:-----------:|
 SocialContext| Show completely
 :-----------:|:-----------:|
-RatingScale  | 5
+RatingScale  | 5, might be null
 :-----------:|:-----------:|
-Rating Min/Max| 1/5
+Rating Min/Max| 1/5, might be null
 :-----------:|:-----------:|
 
 # Tips
@@ -426,13 +348,9 @@ Rating Min/Max| 1/5
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### More Ad Formats
-Please refer to the link below to learn more about other ad types:
 
-* [Banner Ad](../banner)
-* [Interstitial Ad](../interstitial)
-* [Out-sream Video Ad](../outstream)
-* [Advanced](../advanced)
+### Integration Guide For Vpon SDK v4.9
+Please refer to [Interstitial Ad Integration Guide](../interstitial-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
 
 ### Mediation
 Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.

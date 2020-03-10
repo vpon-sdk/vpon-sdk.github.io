@@ -32,8 +32,8 @@ Vpon Out-stream 影音串流广告提供 3 种串流外的影音广告形式，�
 ---
 在应用程式中的 ScrollView 建立 Out-stream 影音广告需要执行以下步骤：
 
-1. 汇入 `com.vpadn.ads.*`
-2. 宣告 `VpadnInReadAd`
+1. 汇入 com.vpon.ads.*
+2. 宣告 VpadnInReadAd
 3. 建立广告呈现的 Layout
 4. 建立 VpadnInReadAd 物件，并指定 License Key
 5. 拉取广告
@@ -125,8 +125,8 @@ protected void onCreate(Bundle savedInstanceState) {
 ---
 在应用程式中的 ListView 建立 Out-stream 影音广告需要执行以下步骤：
 
-1. 汇入 `com.vpadn.ads.*`
-2. 宣告 `VpadnInReadAd`
+1. 汇入 com.vpon.ads.*
+2. 宣告 VpadnInReadAd
 3. 实作作 ListView Adapter 
 4. 建立 VpadnInReadAd 物件，并指定 License Key
 5. 拉取广告
@@ -238,8 +238,8 @@ public class MainActivity extends Activity {
 ---
 在应用程式中的 RecyclerView 建立 Out-stream 影音广告需要执行以下步骤：
 
-1. 汇入 `com.vpadn.ads.*`
-2. 宣告 `VpadnInReadAd`
+1. 汇入 com.vpon.ads.*
+2. 宣告 VpadnInReadAd
 3. 实作 RecyclerView Adapter 
 4. 建立 VpadnInReadAd 物件，并指定 License Key
 5. 拉取广告

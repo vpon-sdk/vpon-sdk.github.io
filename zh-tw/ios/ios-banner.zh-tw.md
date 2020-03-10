@@ -24,124 +24,159 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 
 和所有的 UIView 一樣，用程式碼編寫 VpadnBanner 很簡單。以下為所需步驟：
 
-1. Import `VpadnSDKAdKit`
-2. 在應用程式的 ViewController 中宣告 `VpadnBanner`
-3. 建立 VpadnBanner 物件，並指定 License Key
-4. 拉取廣告
+1. Import VpadnSDKAdKit
+2. 宣告 VpadnBanner
+3. 初始化 VpadnBanner 物件，並指定 License Key
+4. 建立 VpadnRequest 物件，並請求廣告
 5. 實作 Delegate protocol
 
 建議您可以在應用程式的 ViewController 內執行上述步驟。
 
 ## Import VpadnSDKAdKit 並宣告 VpadnBanner
 ---
+
+### Obejctive-C
+
 ```objc
-#import <ViewController.h>
-
-// import Vpon SDK
 @import VpadnSDKAdKit;
+// Import Vpon SDK
 
-// 增加一個 protocol 接收廣告狀態
 @interface ViewController() <VpadnBannerDelegate>
-
-// 宣告使用 VpadnBanner 廣告
 @property (strong, nonatomic) VpadnBanner *vpadnBanner;
-
 @property (weak, nonatomic) IBOutlet UIView *loadBannerView;
 
 @end
 ```
 
-## 建立 VpadnBanner 物件
----
-請參考以下程式碼，在 ViewController 的 viewDidLoad 中初始化橫幅廣告，並指定 License Key
+### Swift
 
-```objc
-@implementation ViewController
+```swift
+import VpadnSDKAdKit
+// Import Vpon SDK
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    if (self.vpadnBanner != nil) {
-            [self.vpadnBanner.getVpadnAdView removeFromSuperview];
-    }
-
-  vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeBANNER];  // 初始化 Banner 物件
-  vpadnBanner.strBannerId = @""; // 填入您的 License Key for Banner AD
-  vpadnBanner.delegate = self; // 設定 Delegate 接收 protocol 回傳訊息
-  vpadnBanner.platform = @"TW"; // 請一律填寫 "TW"
-  [vpadnBanner setAdAutoRefresh:YES]; // set "YES" 啟動 Banner 自動更新，若為 mediation 則 set "NO"
-  [vpadnBanner setRootViewController:self];
-  [self.loadBannerView addSubview:bannerView]; // 將 VpadnBanner 的 View 加入此 ViewController 中
-  
-  ...
+class VponSdkBannerViewController: UIViewController {
+  @IBOutlet weak var requestButton: UIButton!
+  @IBOutlet weak var loadBannerView: UIView!
 }
 ```
 
-## 拉取廣告
+## 初始化 VpadnBanner 物件
 ---
-完成 Banner 廣告初始化設定後，請加入以下程式片段拉取廣告：
+請參考以下程式碼初始化橫幅廣告，並指定 License Key
+
+
+### Objective-C
 
 ```objc
-- (void)viewDidLoad {
-    ...
+_vpadnBanner = [[VpadnBanner alloc] initWithLicenseKey:@"License Key" adSize: VpadnAdSizeBanner];
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
+// adSize: The Banner Ad size that will be displayed
 
-  // 開始拉取 Banner 廣告
-  [vpadnBanner startGetAd:[]]; 
-
-  // 若要拉取測試 Banner 廣告，請使用以下程式碼
-  // [vpadnBanner startGetAd:[self getTestIdentifiers]];
-}
+_vpadnBanner.delegate = self;
 ```
 
-## 測試廣告
----
-Vpon SDK 提供測試廣告。請新增此 function 到您的程式內，並填入測試裝置的 UUID，即可拉取測試廣告
+### Swift
 
-```objc
--(NSArray*)getTestIdentifiers {
-  return [NSArray arrayWithObjects:
-    // Add your test device's UUID
-    @"your_UUID",
-    nil];
-}
+``` swift
+vpadnBanner = VpadnBanner.init(licenseKey: "License Key", adSize: VpadnAdSizeBanner)
+// licenseKey: Vpon License Key to get ad, please replace with your own one
+// adSize: The Banner Ad size that will be displayed
+
+vpadnBanner.delegate = self
 ```
 
-<!-- ## 更新廣告
+
+## 建立 VpadnRequest 物件，並請求廣告
 ---
-如果想讓 Banner 廣告自動更新，請加入以下程式片段啟動 Banner 自動更新
+在發出廣告請求前，請先建立 VpadnRequest 物件：
+
+### Objective-C
 
 ```objc
-- (void)viewDidLoad {
-    ...
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 
-  [vpadnBanner setAdAutoRefresh:YES];
-}
-``` -->
+[request setAutoRefresh:YES];
+// Only available for Banner Ad, will auto refresh ad if set YES
+
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+[_vpadnBanner loadRequest:request];
+// Start to load ad
+```
+
+### Swift
+
+```swift
+let request = VpadnAdRequest.init()
+
+request.setAutoRefresh(true)
+// Only available for Banner Ad, will auto refresh ad if set YES
+
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+vpadnBanner.load(request)
+// start to load ad
+```
+
+>**Note**
+>
+>* 您可以為每種類型的廣告都建立不同的 VpadnRequest 物件，或是在所有的廣告請求中都使用同一個 VpadnRequest 物件
+>* 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
+
+
 
 ## 實作 Delegate protocol
 ---
-完成廣告請求後，您可以實作以下函數監聽廣告狀態
+完成廣告請求後，您可以實作以下函數監聽廣告狀態：
+
+### Objective-C
 
 ```objc
-#pragma mark - Vpadn Banner Delegate
-- (void)onVpadnAdReceived:(UIView *)bannerView {
-    NSLog(@"廣告抓取成功");
-}
+- (void) onVpadnAdLoaded:(VpadnBanner *)banner {
+    // Invoked if receive Banner Ad successfully
 
-- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
-    NSLog(@"廣告抓取失敗");
+    [self.loadBannerView addSubview:banner.getVpadnAdView];
+    // Add ad view to your layout
 }
-
-- (void)onVpadnPresent:(UIView *)bannerView {
-    NSLog(@"開啟vpadn廣告頁面 %@",bannerView);
+- (void) onVpadnAd:(VpadnBanner *)banner failedToLoad:(NSError *)error {
+    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
-
-- (void)onVpadnDismiss:(UIView *)bannerView {
-    NSLog(@"關閉vpadn廣告頁面 %@",bannerView);
+- (void) onVpadnAdClicked:(VpadnBanner *)banner {
+    // Invoked if the Banner Ad was clicked
 }
+- (void) onVpadnAdWillLeaveApplication:(VpadnBanner *)banner {
+    // Invoked if user leave the app and the current app was backgrounded
+}
+- (void) onVpadnAdRefreshed:(VpadnBanner *)banner {
+   // Invoked if the Banner Ad will be refresh
+}
+```
 
-- (void)onVpadnLeaveApplication:(UIView *)bannerView {
-    NSLog(@"離開publisher application");
+### Swift
+
+```swift
+extension VponSdkBannerViewController : VpadnBannerDelegate {
+
+    func onVpadnAdLoaded(_ banner: VpadnBanner) {
+      // Invoked if receive Banner Ad successfully
+
+      self.loadBannerView.addSubview(banner.getVpadnAdView())
+      // Add ad view to your layout
+    }
+    func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
+      // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+    func onVpadnAdClicked(_ banner: VpadnBanner) {
+      // Invoked if the Banner Ad was clicked
+    }
+    func onVpadnAdWillLeaveApplication(_ banner: VpadnBanner) {
+      // Invoked if user leave the app and the current app was backgrounded
+    }
+    func onVpadnAdRefreshed(_ banner: VpadnBanner) {
+      // Invoked if the Banner Ad will be refresh 
+    }
 }
 ```
 
@@ -159,31 +194,14 @@ device width x auto height | Smart Banner Portrait | VpadnAdSizeSmartBannerPortr
 device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLandscape  |iPhone<br>iPad
 
 
-<!-- device width x auto height | Custom Banner Size | VpadnAdSizeFromCGSize | iPhone<br>iPad -->
-
-<!-- 如無特定需求，我們建議您直接使用上面 `VpadnAdSizeFromCGSize`，例：
-
-```objc
-vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loadBannerView.frame.size) origin:CGPointZero];
-``` -->
-
 # Tips
 ---
-
-### App Transport Security
-iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
 
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
-### 其它廣告形式
-如果您想了解其它廣告形式的串接，請參考以下內容：
-
-* [插頁廣告](../interstitial)
-* [原生廣告](../native)
-* [Out-stream 影音廣告](../outstream)
-* [中介服務](../mediation)
-* [進階設定](../advanced)
+### 適用於 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.4 或以下版本的串接方法，請參考[橫幅廣告](../banner-under5)
 
 [串接說明]: ../integration-guide/
 [Sample Code]: ../download/

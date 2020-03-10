@@ -18,119 +18,162 @@ Vpon Banner can be embedded to part of your app layout. It consists of a multime
 ---
 Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
-# Start To Implement Banner
+# Start To Implement Banner Ad
 ---
 iOS apps are composed of UIView objects which will present as text area, buttons or other controllers. VpadnBanner is simply an UIView subclass that can display small HTML5 ads trigger by users' touch.
 
 Just like all the other UIView, a VpadnBanner is easy to implement in code.
 
-1. Import `VpadnSDKAdKit`
+1. Import VpadnSDKAdKit
 2. Declare a VpadnBanner instance
-3. Set up VpadnBanner object and indicate a License Key
-4. Request for a banner ad
+3. Initialize VpadnBanner and indicate a License Key
+4. Set up VpadnRequest object and send ad request
 5. Set up Delegate protocol
 
 We strongly recommend that you can finish all the steps in ViewController of the application.
 
 ## Import VpadnSDKAdKit And Declare A VpadnBanner Instance
 ---
+
+### Obejctive-C
+
 ```objc
-#import <ViewController.h>
-
-// import Vpon SDK
 @import VpadnSDKAdKit;
+// Import Vpon SDK
 
-// Add a protocol to receive the status of Ads
 @interface ViewController() <VpadnBannerDelegate>
-
-// Declare VpadnBanner Instance
 @property (strong, nonatomic) VpadnBanner *vpadnBanner;
-
 @property (weak, nonatomic) IBOutlet UIView *loadBannerView;
 
 @end
 ```
 
-## Set Up VpadnBanner Object And Indicate A License Key
+### Swift
+
+```swift
+import VpadnSDKAdKit
+// Import Vpon SDK
+
+class VponSdkBannerViewController: UIViewController {
+  @IBOutlet weak var requestButton: UIButton!
+  @IBOutlet weak var loadBannerView: UIView!
+}
+```
+
+## Initialize VpadnBanner Object And Indicate A License Key
 ---
 Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of ViewController.
 
+### Objective-C
+
 ```objc
-@implementation ViewController
+_vpadnBanner = [[VpadnBanner alloc] initWithLicenseKey:@"License Key" adSize: VpadnAdSizeBanner];
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
+// adSize: The Banner Ad size that will be displayed
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+_vpadnBanner.delegate = self;
+```
 
-    if (self.vpadnBanner != nil) {
-            [self.vpadnBanner.getVpadnAdView removeFromSuperview];
-    }
+### Swift
 
-vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeBANNER];  // Initialize Banner Object
-  vpadnBanner.strBannerId = @""; // Fill in with your License Key
-  vpadnBanner.delegate = self; // Set up Delegate to receive protocol message
-  vpadnBanner.platform = @"TW"; // Fill in with "TW"
-  [vpadnBanner setAdAutoRefresh:YES]; // Set "YES" to enable Banner auto refresh. Set "NO" if you use mediation
-  [vpadnBanner setRootViewController:self];
-  [self.loadBannerView addSubview:bannerView]; // Add  VpadnBanner View to ViewController
-  
-  ...
-}
+``` swift
+vpadnBanner = VpadnBanner.init(licenseKey: "License Key", adSize: VpadnAdSizeBanner)
+// licenseKey: Vpon License Key to get ad, please replace with your own one
+// adSize: The Banner Ad size that will be displayed
+
+vpadnBanner.delegate = self
 ```
 
 
-## Request for Banner Ad
+## Set Up VpadnAdRequest and Send Ad Request
 ---
-After finishing banner ad initialization, add the code snippet to request for ads:
+Set up VpadnAdRequest before you send ad request:
+
+### Objective-C
 
 ```objc
-- (void)viewDidLoad {
-    ...
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 
-  // Start to request Banner Ad
-  [vpadnBanner startGetAd:[]]; 
+[request setAutoRefresh:YES];
+// Only available for Banner Ad, will auto refresh ad if set YES
 
-  // Start to request test Banner Ad with below code snippet
-  // [vpadnBanner startGetAd:[self getTestIdentifiers]];
-}
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+[_vpadnBanner loadRequest:request];
+// Start to load ad
 ```
 
-## Request for Test Ad
----
-Please add the code snippet to your application and fill in with your test device's UUID as below to request for test ads.
+### Swift
 
-```objc
--(NSArray*)getTestIdentifiers {
-  return [NSArray arrayWithObjects:
-    // Add your test device's UUID
-    @"your_UUID",
-    nil];
-}
+```swift
+let request = VpadnAdRequest.init()
+
+request.setAutoRefresh(true)
+// Only available for Banner Ad, will auto refresh ad if set YES
+
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+vpadnBanner.load(request)
+// start to load ad
 ```
+
+>**Note:**
+>
+>* Besides of setting up VpadnRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
+>* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
 
 ## Set Up Delegate Protocol
 ---
 After finishing ad request, implement the delegate protocol as below to listen ad status.
 
+### Objective-C
+
 ```objc
-#pragma mark - Vpadn Banner Delegate
-- (void)onVpadnAdReceived:(UIView *)bannerView{
-    NSLog(@"VpadnAdReceived");
-}
+- (void) onVpadnAdLoaded:(VpadnBanner *)banner {
+    // Invoked if receive Banner Ad successfully
 
-- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{
-    NSLog(@"VpadnAdFailed");
+    [self.loadBannerView addSubview:banner.getVpadnAdView];
+    // Add ad view to your layout
 }
-
-- (void)onVpadnPresent:(UIView *)bannerView{
-    NSLog(@"VpadnPresent %@",bannerView);
+- (void) onVpadnAd:(VpadnBanner *)banner failedToLoad:(NSError *)error {
+    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
-
-- (void)onVpadnDismiss:(UIView *)bannerView{
-    NSLog(@"VpadnDismiss %@",bannerView);
+- (void) onVpadnAdClicked:(VpadnBanner *)banner {
+    // Invoked if the Banner Ad was clicked
 }
+- (void) onVpadnAdWillLeaveApplication:(VpadnBanner *)banner {
+    // Invoked if user leave the app and the current app was backgrounded
+}
+- (void) onVpadnAdRefreshed:(VpadnBanner *)banner {
+   // Invoked if the Banner Ad will be refresh
+}
+```
 
-- (void)onVpadnLeaveApplication:(UIView *)bannerView{
-    NSLog(@"Leave publisher application");
+### Swift
+
+```swift
+extension VponSdkBannerViewController : VpadnBannerDelegate {
+
+    func onVpadnAdLoaded(_ banner: VpadnBanner) {
+      // Invoked if receive Banner Ad successfully
+
+      self.loadBannerView.addSubview(banner.getVpadnAdView())
+      // Add ad view to your layout
+    }
+    func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
+      // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+    func onVpadnAdClicked(_ banner: VpadnBanner) {
+      // Invoked if the Banner Ad was clicked
+    }
+    func onVpadnAdWillLeaveApplication(_ banner: VpadnBanner) {
+      // Invoked if user leave the app and the current app was backgrounded
+    }
+    func onVpadnAdRefreshed(_ banner: VpadnBanner) {
+      // Invoked if the Banner Ad will be refresh 
+    }
 }
 ```
 
@@ -159,21 +202,11 @@ vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loa
 # Tips
 ---
 
-### App Transport Security
-Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for some modification.
-
-
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### More Ad Formats
-Please refer to the link below to learn more about other ad types:
-
-* [Interstitial Ad](../Interstitial)
-* [Native Ad](../native)
-* [Out-sream Video Ad](../outstream)
-* [Mediation](../mediation)
-* [Advanced](../advanced)
+### Integration Guide For Vpon SDK v4.9
+Please refer to [Banner Ad Integration Guide](../banner-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

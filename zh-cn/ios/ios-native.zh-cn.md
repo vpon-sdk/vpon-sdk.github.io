@@ -18,147 +18,244 @@ lang: "zh-cn"
 ---
 在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
 
-# 如何撰写 Native Ad
+# 开始撰写 Native Ad
 --------
 在应用程式中建立原生广告需要执行以下五个步骤：
 
-1. 汇入 Vpon SDK
-2. 在应用程式的 UIViewController 中宣告 VpadnNativeAd
-3. 建立 VpadnNativeAd 物件，并指定 License Key
-4. 请求广告成功后利用回传的资料建置自订的原生 UI
-5. 使用 nativeAd 执行个体注册广告检视
+1. Import VpadnSDKAdKit
+2. 宣告 VpadnNativeAd 及自定义 UI
+3. 初始化 VpadnNativeAd 物件，并指定 License Key
+4. 建立 VpadnRequest 物件，并请求广告
+4. 利用回传的资料建置自订的原生 UI
+5. 实作 Delegate protocol
 
-建议您最好在应用程式的 UIViewController 内执行上述所有步骤。
+建议您最好在应用程式的 ViewController 内执行上述所有步骤。
 
-# 开始撰写 Native Ad
---------
-首先汇入 SDK ，宣告实作了 VpadnNativeAdDelegate protocol 以接收广告状态，同时也宣告了欲在原生广告中呈现的各种元件。( 原生广告呈现元件规范请参照[Native Ad Spec](#nativeAdSpec) )
+
+## Import VpadnSDKAdKit 并宣告 VpadnNativeAd
+---
+
+首先汇入 SDK ，宣告实作了 VpadnNativeAdDelegate, VpadnMediaViewDelegate protocol 以接收广告状态，同时也宣告了欲在原生广告中呈现的各种元件。(原生广告呈现元件规范请参照[Native Ad Spec](#nativeAdSpec))
+
+### Objective-C
 
 ```objc
 @import VpadnSDKAdKit;
-#import "ViewController.h"
+// Import Vpon SDK
 
-@interface ViewController ()<VpadnNativeAdDelegate>
-/* For SDK version 4.7.1 or above */
-@interface ViewController ()<VpadnNativeAdDelegate, VpadnMediaViewDelegate>
+@interface ViewController () <VpadnMediaViewDelegate, VpadnNativeAdDelegate>
 
 @property (strong, nonatomic) VpadnNativeAd *nativeAd;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UIView *adView;
+
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *adIcon;
-@property (weak, nonatomic) IBOutlet UIImageView *adCoverMedia;
 @property (weak, nonatomic) IBOutlet UILabel *adTitle;
 @property (weak, nonatomic) IBOutlet UILabel *adBody;
-@property (weak, nonatomic) IBOutlet UIButton *adAction;
 @property (weak, nonatomic) IBOutlet UILabel *adSocialContext;
-/* For SDK version 4.7.1 or above */
+@property (weak, nonatomic) IBOutlet UIButton *adAction;
 @property (weak, nonatomic) IBOutlet VpadnMediaView *adMediaView;
 
 @end
 ```
 
-## 建立 VpadnNativeAd 物件
---------
-在 ViewController 实作中初始化 VpadnNativeAd 物件，完成指定 License Key 后即可请求广告， removePreviousAd 可参考[清除原生广告](#clearNativeAd)。( 尚未申请 License Key 请先参考此[说明] )
+### Swift
 
-```objc
-- (IBAction)loadNativeAd:(id)sender {
-    if(self.nativeAd) {
-        [self removePreviousAd];
-    }
-    self.nativeAd = [[VpadnNativeAd alloc] initWithBannerID:@"License Key"];
-    self.nativeAd.delegate = self;
-    //如填入测试实机的 IDFA 会在该手机上显示测试广告，如宣告其为空字串会抓取正式广告
-    [self.nativeAd loadAdWithTestIdentifiers:@[@"请填入手机的 IDFA"]];
+```swift
+import VpadnSDKAdKit
+// Import Vpon SDK
+
+class VponSdkNativeViewController: UIViewController {
+    
+    var vpadnNative: VpadnNativeAd!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var adIcon: UIImageView!
+    @IBOutlet weak var adTitle: UILabel!
+    @IBOutlet weak var adBody: UILabel!
+    @IBOutlet weak var adSocialContext: UILabel!
+    @IBOutlet weak var adAction: UIButton!
+    @IBOutlet weak var adMediaView: VpadnMediaView!
 }
 ```
 
-## 原生广告 Callback
+## 初始化 VpadnNativeAd 物件
 --------
-完成请求原生广告后，下述五个函数可回传目前广告的各式状态，包含：
+请参考以下程式码初始化原生广告，并指定 License Key
 
-1. 请求成功
-2. 请求失败
-3. 原生广告成功显示
-4. 解除原生广告
-5. 执行 OutApp 应用程式
-
-当广告`请求成功`时可将回传的素材建构成自订的原生广告型态。 Vpon SDK 会自动记录曝光次数并处理点击事件。您必须使用 nativeAd 注册广告检视，才能启用检视。使用 `registerViewForInteraction` 可使整个 view 都被注册，如需更细微的控制可以使用 `registerViewForInteraction:withViewController:withClickableViews:` 。
+### Objective-C
 
 ```objc
-- (void)onVpadnNativeAdReceived:(VpadnNativeAd *)nativeAd {
-    NSLog(@"VpadnNativeAd onVpadnNativeAdReceived");
+_nativeAd = [[VpadnNativeAd alloc] initWithLicenseKey:@"License Key"];
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 
-    [self.statusLabel setHidden:YES];
+_nativeAd.delegate = self;
+```
 
-    // icon
+### Swift
+
+```swift
+vpadnNative = VpadnNativeAd.init(licenseKey: "License Key")
+// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
+
+vpadnNative.delegate = self
+```
+
+## 建立 VpadnRequest 物件，并请求广告
+---
+在发出广告请求前，请先建立 VpadnRequest 物件：
+
+### Objective-C
+
+```objc
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
+
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+[_nativeAd loadRequest:request];
+// Start to load ad
+```
+
+### Swift
+
+```swift
+let request = VpadnAdRequest.init()
+
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+vpadnNative.load(request())
+// start to load ad
+```
+
+>**Note**
+>
+>* 您可以为每种类型的广告都建立不同的 VpadnRequest 物件，或是在所有的广告请求中都使用同一个 VpadnRequest 物件
+>* 如果您想要指定更多投放条件，请参考[进阶设定](../advanced)
+
+
+## 自订原生广告 UI
+---
+当 onVpadnNativeAdReceived 被触发时，即取得可用的广告资料，此时可将资料布局至自定义 UI，请参考以下程式码：
+
+### Objective-C
+
+```objc
+- (void)setNativeAd {
+    _adIcon.image = nil;
+    
     __block typeof(self) safeSelf = self;
-    [nativeAd.icon loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
+    [_nativeAd.icon loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
         safeSelf.adIcon.image = image;
     }];
-    // media cover
-    /* For SDK version 4.7.0 or below
-    [nativeAd.coverImage loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
-        safeSelf.adCoverMedia.image = image;
-    }];
-    */
-    /* For SDK version 4.7.1 or above */
-    self.adMediaView.delegate = self;
-    [self.adMediaView setNativeAd:nativeAd];
-    // text
-    self.adTitle.text = nativeAd.title;
-    self.adBody.text = nativeAd.body;
-    [self.adAction setHidden:NO];
-    [self.adAction setTitle:nativeAd.callToAction forState:UIControlStateNormal];
-    self.adSocialContext.text = nativeAd.socialContext;
-    //若要使整个检视都可点击，请使用下列程式码注册检视：
-    [self.nativeAd registerViewForInteraction:self.adView withViewController:self];
-    //如需更细微的控制，您可使用下列程式码指定可点击的子检视：
-    //[self.nativeAd registerViewForInteraction:self.adView withViewController:self withClickableViews:@[self.adAction]];
-    [self.adView setHidden:NO];
-}
+    
+    [_adMediaView setNativeAd:_nativeAd];
+    _adMediaView.delegate = self;
+    
+    _adTitle.text = [_nativeAd.title copy];
+    _adBody.text = [_nativeAd.body copy];
+    _adSocialContext.text = [_nativeAd.socialContext copy];
+    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateNormal];
+    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateHighlighted];
+    
+    [_nativeAd registerViewForInteraction:_contentView withViewController:self];
+    // You must register the Ad View to make the ad clickable
 
-- (void)onVpadnNativeAd:(VpadnNativeAd *)nativeAd didFailToReceiveAdWithError:(NSError *)error {
-    NSLog(@"VpadnNativeAd didFailToReceiveAdWithError: %@", error);
-    [self.statusLabel setHidden:NO];
-    [self.statusLabel setText:[NSString stringWithFormat:@"Request failed with error: %d %@", (int)error.code, error.domain]];
-}
-
-- (void)onVpadnNativeAdPresent:(VpadnNativeAd *)nativeAd {
-    NSLog(@"VpadnNativeAd onVpadnNativeAdPresent");
-}
-
-- (void)onVpadnNativeAdDismiss:(VpadnNativeAd *)nativeAd {
-    NSLog(@"VpadnNativeAd onVpadnNativeAdDismiss");
-}
-
-- (void)onVpadnNativeAdLeaveApplication:(VpadnNativeAd *)nativeAd {
-    NSLog(@"NativeAdViewController onVpadnNativeAdLeaveApplication");
-}
-
-/* For SDK version 4.7.1 or above */
-- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
-    NSLog(@"mediaViewDidLoad");
+    // [_nativeAd registerViewForInteraction:withViewController:withClickableViews:self._adAction];
+    // You can also register a specific ad component to make the Ad View to be clickable partly
 }
 ```
 
-# 清除原生广告 {#clearNativeAd}
---------
-若要重复使用检视，并在不同时间显示不同广告，则在请求新的原生广告之前必须先呼叫 removePreviousAd 将原先的广告清空。
+### Swift
+
+```swift
+func setNativeAd() {
+        adIcon.image = nil
+            
+        vpadnNative.icon.loadAsync { (image) in
+            self.adIcon.image = image
+        }
+        
+        adMediaView.nativeAd = vpadnNative
+        adMediaView.delegate = self
+            
+        adTitle.text = vpadnNative.title
+        adBody.text = vpadnNative.body
+        adSocialContext.text = vpadnNative.socialContext
+        adAction.setTitle(vpadnNative.callToAction, for: .normal)
+        adAction.setTitle(vpadnNative.callToAction, for: .highlighted)
+        
+        vpadnNative.registerView(forInteraction: contentView, with: self)
+        // You must register the Ad View to make the ad clickable
+
+        vpadnNative.registerView(forInteraction: withViewController, with: self.adAction)
+        // You can also register a specific ad component to make the Ad View to be clickable partly
+    }
+
+```
+
+## 实作 Delegate protocol
+---
+完成广告请求后，您可以实下以下函数监听广告状态：
+
+### Objective-C
 
 ```objc
-- (void)removePreviousAd {
-    [self.nativeAd unregisterView];
-    self.nativeAd.delegate = nil;
-    self.adIcon.image = nil;
-    self.adCoverMedia.image = nil;
-    self.adView.hidden = YES;
+- (void) onVpadnNativeAdLoaded:(VpadnNativeAd *)nativeAd {
+    // Invoked if receive Banner Ad successfully
+
+    [self setNativeAd];
+    // Construct Native Ad with returned components
+}
+- (void) onVpadnNativeAd:(VpadnNativeAd *)nativeAd failedToLoad:(NSError *)error {
+    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+}
+- (void) onVpadnNativeAdClicked:(VpadnNativeAd *)nativeAd {
+    // Invoked if the Banner Ad was clicked
+}
+- (void) onVpadnNativeAdWillLeaveApplication:(VpadnNativeAd *)nativeAd {
+    // Invoked if user leave the app and the current app was backgrounded
+}
+- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
+    // Invoked if the media creatives load sucessfully
+}
+- (void) mediaViewDidFailed:(VpadnMediaView *)mediaView error:(NSError *)error {
+    // Invoked if the media creatives load fail
 }
 ```
 
-# 原生广告管理器
+### Swift
+
+```swift
+extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDelegate {
+    
+    func onVpadnNativeAdLoaded(_ nativeAd: VpadnNativeAd) {
+        // Invoked if receive Banner Ad successfully
+
+        self.setNativeAd()
+        // Construct Native Ad with returned components
+    }
+    func onVpadnNativeAd(_ nativeAd: VpadnNativeAd, failedToLoad error: Error) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+    func onVpadnNativeAdClicked(_ nativeAd: VpadnNativeAd) {
+        // Invoked if the Banner Ad was clicked
+    }
+    func onVpadnNativeAdWillLeaveApplication(_ nativeAd: VpadnNativeAd) {
+        // Invoked if user leave the app and the current app was backgrounded
+    }
+    func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
+        // Invoked if the media creatives load sucessfully
+    }
+    func mediaViewDidFailed(_ mediaView: VpadnMediaView, error: Error) {
+        // Invoked if the media creatives load fail  
+    }
+}
+```
+
+<!-- # 原生广告管理器
 --------
-Vpon SDK 提供原生广告管理器( Native Ads Manager )。当您设计的 App 中会在短时间内在数个地方显示原生广告，原生广告管理器可以协助您一次请求并管理多笔原生广告。如何使用原生广告管理器请直接参考 [Sample Code]。
+Vpon SDK 提供原生广告管理器( Native Ads Manager )。当您设计的 App 中会在短时间内在数个地方显示原生广告，原生广告管理器可以协助您一次请求并管理多笔原生广告。如何使用原生广告管理器请直接参考 [Sample Code]。 -->
 
 # Navive Ad Spec {#nativeAdSpec}
 --------
@@ -189,12 +286,8 @@ Rating Min/Max| 1/5
 --------
 本页以基本的 Native Ad 为例进行说明， [Sample Code] 中另有 Table View 的范例以供参考。<br>
 
-# 中介服务
---------
-透过中介服务，您的应用程式就能放送众多广告来源的广告，详细请见说明：<br>
-- [使用 MoPub] <br>
-- [使用 AdMob] <br>
-- [使用 Smaato]
+### 适用于 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[原生广告](../native-under5)
 
 [串接说明]: ../integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/

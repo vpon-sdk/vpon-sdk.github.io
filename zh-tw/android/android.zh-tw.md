@@ -40,13 +40,13 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 | Android_Interstitial | 8a80854b6a90b5bc016ad81c64786533 |
 | Android_Native | 8a80854b6a90b5bc016ad81ca1336534 |
 
-> **Note**：``注意，在測試完成後，請務必將測試用的 License Key 換成您自行申請並通過審核的 License Key，以免影響您的廣告收益。``
+> **Note**：``在測試完成後，請務必將測試用的 License Key 換成您自行申請並通過審核的 License Key，以免影響您的廣告收益。``
 
 
 ## Tips
 ---
 
-所有 Vpon Android SDK 的相關資訊都在左側列表中，右側為文章的目錄，若想跳轉至其他裝置平台或語言，請點選網站右上角的目標語言與平台。若您有任何技術問題，請不吝聯絡 [FAE 團隊](mailto:fae@vpon.com)
+所有 Vpon Android SDK 的相關資訊都在左側列表中，右側為文章的目錄，若想跳轉至其他裝置平台或語言，請點選網站右上角的目標語言與平台。若您有任何技術問題，請不吝聯絡 [FAE 團隊](mailto:fae@vpon.com)。
 
 <!-- > **Note**：若您曾使用過舊版SDK，請先閱讀：[升級最新 SDK 所需修改](../../zh-tw/android/latest-news/update-to-SDK4_5_1+/) -->
 

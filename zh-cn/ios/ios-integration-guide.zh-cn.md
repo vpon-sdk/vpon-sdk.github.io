@@ -27,7 +27,7 @@ Vpon 提供以下两种串接广告 SDK的方式：
 
 ### 1. 建立 Podfile
 
-1.1 使用终端机，并将路径移至 Xcode 专案的目录中，执行 `pod init` 进行初始化。初始化后，会在该目录下产生档案 `Podfile`。<br>
+1.1 使用 Terminal，并将路径移至 Xcode 专案的目录中，执行 `pod init` 进行初始化。初始化后，会在该目录下产生档案 `Podfile`。<br>
 1.2 开启 Podfile，将设定开发平台版本的叙述取消注解，填入对应的 iOS 版本<br>
 1.3 在 target 中加入欲导入的 SDK 版本，以`有无指定 SDK 版本`来区分：
 
@@ -85,16 +85,16 @@ Framewrok 及 Fundamental SDK 提供一样的功能，主要的差别在于对 i
 ### Fundamental SDK
 解压缩后的 SDK 包含 Objective-C 标头、一个执行期间程式库。要在应用程式中加入 Vpon 广告，您必须完成三个步骤：
 
-1. 在专案中加入 `ios-vpadn-sdk.a`， `VpadnBanner.h` 与 `VpadnInterstitial.h`
+1. 在专案中加入 `ios-vpadn-sdk.a` 及 Header 档
 2. 加入相关所需的 framework
 3. 修改 Build Settings 中的设定
 
 > **Note**：上述三项缺一不可，请务必完成！
 
 #### 1. 新增 SDK lib
-1.1 解压缩后的 SDK 包含一个 .a 档、及两个标头档。对 Xcode 中的专案按一下滑鼠右键，然后选取 [Add Files to your_project...] (在 "your_project" 中新增档案)。
+1.1 解压缩后的 SDK 包含一个 .a 档、及数个标头档。对 Xcode 中的专案按一下滑鼠右键，然后选取 [Add Files to your_project...] (在 "your_project" 中新增档案)。
 ![IOS-add-file_vpadn.png]
-1.2 接着在 SDK 中选取 `libAdOn.a`, `VpadnBanner.h` 与 `VpadnInterstitial.h`
+1.2 接着在 SDK 中选取 `libAdOn.a`, `VpadnBanner.h` 与 `VpadnInterstitial.h` 等档案
 <img src="{{site.imgurl}}/IOS-add-lib&header_vpadn.png" alt="" class="width-300"/>
 
 ### 2. 新增 Framework

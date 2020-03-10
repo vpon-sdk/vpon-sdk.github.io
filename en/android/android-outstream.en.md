@@ -31,8 +31,8 @@ Vpon provide 3 kinds of interface for Out-stream Video Ad, you can choose the on
 ---
 To set up an Out-stream Video Ad in a ScrollView of the application, please follow the steps below:
 
-1. Import `com.vpadn.ads.*`
-2. Declare an `VpadnInReadAd` instance
+1. Import com.vpon.ads.*
+2. Declare an VpadnInReadAd instance
 3. Create layout for ad display
 4. Set up VpadnInReadAd instance and indicate a License Key
 5. Request for an Out-stream Video Ad
@@ -122,12 +122,12 @@ public class MainActivity extends Activity {
 }
 ```
 
-## Show Out-stream Video Ad in A ListView {#listview}
+## Show Out-stream Video Ad In A ListView {#listview}
 ---
 To set up an Out-stream Video Ad in a ListView of the application, please follow the steps below:
 
-1. Import `com.vpadn.ads.*`
-2. Declare an `VpadnInReadAd` instance
+1. Import com.vpon.ads.*
+2. Declare an VpadnInReadAd instance
 3. Implement ListView Adapter
 4. Set up VpadnInReadAd instance and indicate a License Key
 5. Request for an Out-stream Video Ad
@@ -236,8 +236,8 @@ protected void onCreate(Bundle savedInstanceState) {
 ---
 To set up an Out-stream Video Ad in a RecyclerView of the application, please follow the steps below:
 
-1. Import `com.vpadn.ads.*`
-2. Declare an `VpadnInReadAd` instance
+1. Import com.vpon.ads.*
+2. Declare an VpadnInReadAd instance
 3. Implement RecyclerView Adapter
 4. Set up VpadnInReadAd instance and indicate a License Key
 5. Request for an Out-stream Video Ad

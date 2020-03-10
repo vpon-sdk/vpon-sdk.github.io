@@ -13,7 +13,7 @@ lang: "zh-cn"
 ---
 Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SDK 前，请确保您的 App 符合以下条件：
 
-* iOS：`iOS 9.0 以上 & Xcode 9.0 以上`
+* `iOS 9.0 以上 & Xcode 9.0 以上`
 
 ## Step2: 成为 Vpon 开发商伙伴
 ---
@@ -39,18 +39,18 @@ Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SD
 | iOS_Interstitial | 8a80854b6a90b5bc016ad81a98cf652e |
 | iOS_Native | 8a80854b6a90b5bc016ad81ac68c6530 |
 
-``注意，在测试完成后，请务必将测试用的 License Key 换成您自行申请并通过审核的 License Key，以免影响您的广告收益。 ``
+**Note：**``在测试完成后，请务必将测试用的 License Key 换成您自行申请并通过审核的 License Key，以免影响您的广告收益。``
 
 
 ## Tips
 ---
-所有 iOS 相关资讯都在左排列表中，右排为文章的目录，若想跳转其他装置平台或语言，请点选网站右上角的目标语言与平台。若您有任何技术问题，请不吝联络 [FAE 团队](mailto:fae@vpon.com)
-
+所有 iOS 相关资讯都在左排列表中，右排为文章的目录，若想跳转其他装置平台或语言，请点选网站右上角的目标语言与平台。若您有任何技术问题，请不吝联络 [FAE 团队](mailto:fae@vpon.com)。
+<!-- 
 > **Note**：
 >
-<!-- > 1. 串接完毕后，请自行检查是否有印出VponLog:didImpression，以确认有成功回传资讯到Vpon Server -->
+> 1. 串接完毕后，请自行检查是否有印出VponLog:didImpression，以确认有成功回传资讯到Vpon Server
 >
-> 1. iOS10 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定
+> 1. iOS10 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] 来修改部份设定 -->
 
 
 

@@ -8,117 +8,97 @@ permalink:       ios/advanced/
 lang:            "en"
 
 ---
-# Custom Variable
+# Custom Ad Request Parameters
 ---
-You can insert the test ID to your testDevices (first time, it'll give you a hint to add a uniqueID) in the function (getTestIdentifiers) in order to refine Vpadn tracking. We recommend you insert the test ID to your testDevices to avoid invalid impression and lost revenue during development. Please delete the test ID after testing your application so you do not receive test ads.
+Add the optional parameters below when setting up VpadnAdRequest to make Vpon deliver more ads precisely.
 
-## Adding Test ID
-It will receive test ads when you use this property to specify a device. To verify that you've integrated the SDK correctly, add your test device, run your application, and click on the displayed test ad.
-
-```objc
-// Add this function and test ID in your project to enable test ads.
--(NSArray*)getTestIdentifiers
-{
-    return [NSArray arrayWithObjects:
-          // add your test Id
-          @"XXXXXXXXXXXXXXXXXXXXX",
-          nil];
-}
-```
-
-## Targeting
-You can also specify location and demographic targeting information. But to protect the user privacy, please you only specify location and demographic data if that information is already used by your app.
-
-   [vpadnAd setUserInfoAge:25];
-
-   [vpadnAd setUserInfoKeyword:@"Game,RPG"];
-
-   [vpadnAd setUserInfoGender:female];
-
-   [vpadnAd setUserInfoBirthdayWithYear:1988 Month:6 andDay:9];
-
-
-# Protocol
----
-You can add these two protocol when you declare ViewController to help you track ad events like request failures or click-through. (VpadnBannerDelegate || VpadnInterstitialDelegate)
+### Objective-C
 
 ```objc
-#pragma mark VpadnBannerDelegate  general banner protocol
-@protocol VpadnBannerDelegate <NSObject>
-@optional
-#pragma mark sent when ads has succeeded
-- (void)onVpadnAdReceived:(UIView *)bannerView;
-#pragma mark sent when ads has failed
-- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error; // alan todo code need to add
-#pragma mark sent immediately before the user is presented with Vpadn ad
-- (void)onVpadnPresent:(UIView *)bannerView;
-#pragma mark sent when the Vpadn ad is dismissed
-- (void)onVpadnDismiss:(UIView *)bannerView;
-#pragma mark sent just before the application gets backgrounded or terminated
-- (void)onVpadnLeaveApplication:(UIView *)bannerView;
-@end
+VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
+
+[request setAutoRefresh:YES];
+// Only available for Banner Ad, will auto refresh ad if set YES
+[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+[request setUserInfoGender:VpadnGenderUnspecified];
+// Set user's gender if available
+[request setUserInfoBirthdayWithYear:2000 Month:1 andDay:1];
+// Set user's birthday if available
+
+[request setMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
+// To set up the maximum content rating filter
+[request setTagForUnderAgeOfConsent:VpadnTagForUnderAgeOfConsentUnspecified];
+// To set up if the ads will be displayed only to the specific ages of audience
+[request setTagForChildDirectedTreatment:VpadnTagForChildDirectedTreatmentUnspecified];
+// To set up if the ads will be displayed to childern specific
+
+[request addKeyword:@"keywordA"];
+[request addKeyword:@"keyword1:value1"];
 ```
 
-```objc
-#pragma mark VpadnInterstitialDelegate Interstitial Ad protocol
-@protocol VpadnInterstitialDelegate <VpadnBannerDelegate>
-@optional
-#pragma mark sent when interstitial ads has succeeded
-- (void)onVpadnInterstitialAdReceived:(UIView *)bannerView;
-#pragma mark sent when interstitial ads has failed
-- (void)onVpadnInterstitialAdFailed:(UIView *)bannerView;
-#pragma mark sent when the Vpadn ad is dismissed
-- (void)onVpadnInterstitialAdDismiss:(UIView *)bannerView;
-@end
+### Swift
+
+```swift
+let request = VpadnAdRequest.init()
+
+request.setAutoRefresh(true)
+// Only available for Banner Ad, will auto refresh ad if set true
+request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+// Set your test device's IDFA here if you're trying to get Vpon test ad
+
+request.setUserInfoGender(.genderUnspecified)
+// Set user's gender if available
+request.setUserInfoBirthdayWithYear(2000, month: 01, andDay: 01)
+// Set user's birthday if available
+
+request.setMaxAdContentRating(.general)
+// To set up the maximum content rating filter
+request.setTagForUnderAgeOfConsent(.false)
+// To set up if the ads will be displayed only to the specific ages of audience
+request.setTagForChildDirectedTreatment(.false)
+// To set up if the ads will be displayed to childern specific
+
+request.addKeyword("keywordA")
+request.addKeyword("keyword1:value1")
 ```
 
-These methods can be used for specific object like a ViewController:
+>**Note:** Please refer to the reference below for the description of specific custom parameters
 
-```objc
-#import "VpadnBanner.h"
-#import "VpadnInterstitial.h"
-@interface ViewController : UIViewController<VpadnBannerDelegate, VpadnInterstitialDelegate>
-```
+<!-- 需要以下參數的 defination -->
 
-Received objects and pass to VpadnBanner：
+## MaxAdContentRating
 
-```objc
-vpadnAd.delegate = self;
-```
-sent when VpadnBanner ads has succeeded
+|Constant|Description|
+|:------|:---------|
+|MAX_AD_CONTENT_RATING_G||
+|MAX_AD_CONTENT_RATING_PG||
+|MAX_AD_CONTENT_RATING_T||
+|MAX_AD_CONTENT_RATING_MA||
+|MAX_AD_CONTENT_RATING_UNSPECIFIED|Default value|
 
-```objc
-- (void)onVpadnAdReceived:(UIView *)bannerView{}
-```
-sent when VpadnBanner has failed, typically because of network failure, an application configuration error, or a lack of ad inventory. You may wish to log these events for debugging:
+## TagForUnderAgeOfConsent
 
-```objc
-- (void)onVpadnAdFailed:(UIView *)bannerView didFailToReceiveAdWithError:(NSError *)error{}
-```
+|Constant|Description|
+|:------|:---------|
+|TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE||
+|TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE|
+|TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED|Default value|
 
-Sent immediately before the user is presented with a full-screen ad UI in response to their touching the sender.
+## TagForChildDirectedTreatment
 
-```objc
-- (void)onVpadnPresent:(UIView *)bannerView{}
-```
-Sent when the user has exited
+|Constant|Description|
+|:------|:---------|
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value|
 
-```objc
-- (void)onVpadnDismiss:(UIView *)bannerView;
-```
-Sent just before the application gets backgrounded or terminated
-
-```objc
-- (void)onVpadnLeaveApplication:(UIView *)bannerView{}
-```
-
-
-
-# Corona User
+<!-- # Corona User
 ---
 1. Please refer to [Vpon Web SDK Integration Guide]({{site.baseurl}}/web/) to prepare a HTML file with ad request
 2. Load the HTML file in WebView, for example, webView:request("localfile.html", system.ResourceDirectory)
 
-> **Note:** To know more about Corona, please refer to [Corona Document](http://docs.coronalabs.com/api/library/native/newWebView.html)
+> **Note:** To know more about Corona, please refer to [Corona Document](http://docs.coronalabs.com/api/library/native/newWebView.html) -->
 
 [Register as a Vpon Publisher]: {{ site.baseurl }}/ios/registration/
