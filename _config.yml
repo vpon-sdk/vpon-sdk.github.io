@@ -2,12 +2,13 @@
 # !!! or it would not work
 
 # Dependencies
+markdown: CommonMarkGhPages
+
 # markdown:           kramdown
 # kramdown:
 #    input: GFM
 #    hard_wrap: false
 
-markdown: CommonMarkGhPages
 
 #markdown:           redcarpet
 #redcarpet:
