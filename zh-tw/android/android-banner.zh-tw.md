@@ -162,6 +162,9 @@ protected void onDestroy() {
 }
 ```
 
+
+
+
 # 橫幅廣告尺吋
 ---
 除了支援標準橫幅廣告的尺吋外，Vpon Android SDK 還支援下列幾種尺吋的橫幅廣告：
