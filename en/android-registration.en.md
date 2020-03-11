@@ -52,7 +52,7 @@ Click “App List” to go to the App List page. You will see the applications t
 
 > **Note**: You can only request for formal Vpon ads after the status of your application and banner position turn green.
 
-[VponSDK_400_NewApp]: {{site.imgurl}}/VponSDK_400_NewApp.png
-[SDK_400_New_Banner_Position]: {{site.imgurl}}/SDK_400_New_Banner_Position.png
-[SDK400_Banner_Position_List]: {{site.imgurl}}/SDK400_Banner_Position_List.png
-[SDK400_App_List]: {{site.imgurl}}/SDK400_App_List.png
+[VponSDK_400_NewApp]: {{site.imgurl}}/Console_en_01.png
+[SDK_400_New_Banner_Position]: {{site.imgurl}}/Console_en_02.png
+[SDK400_Banner_Position_List]: {{site.imgurl}}/Console_en_03.png
+[SDK400_App_List]: {{site.imgurl}}/Console_en_04.png

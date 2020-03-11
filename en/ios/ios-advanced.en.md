@@ -64,10 +64,10 @@ request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 ```
 
->**Note:** Please refer to the reference below for the description of specific custom parameters
+<!-- >**Note:** Please refer to the reference below for the description of specific custom parameters -->
 
 <!-- 需要以下參數的 defination -->
-
+<!-- 
 ## MaxAdContentRating
 
 |Constant|Description|
@@ -92,7 +92,7 @@ request.addKeyword("keyword1:value1")
 |:------|:---------|
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
-|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value|
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value| -->
 
 <!-- # Corona User
 ---

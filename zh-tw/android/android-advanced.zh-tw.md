@@ -37,7 +37,7 @@ builder.tagForChildDirectedTreatment(-1);
 builder.addKeyword(String);
 builder.addKeywords(Set<String>);
 ```
-
+<!-- 
 >**Note:** 關於自定義參數值的參考值，請參考以下說明
 
 
@@ -66,7 +66,7 @@ builder.addKeywords(Set<String>);
 |0|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE|
 |-1|(Default Value)<br>TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|
 
-
+ -->
 
 <!-- # Corona User
 ---

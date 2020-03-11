@@ -37,7 +37,7 @@ builder.addKeyword(String);
 builder.addKeywords(Set<String>);
 
 ```
-
+<!-- 
 >**Note:** 关于自定义参数值的定义，请参考以下说明
 
 
@@ -65,7 +65,7 @@ builder.addKeywords(Set<String>);
 |1|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE|
 |0|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE|
 |-1|(Default Value)<br>TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|
-
+ -->
 
 
 <!-- # Corona User

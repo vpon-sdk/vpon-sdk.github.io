@@ -64,10 +64,10 @@ request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 ```
 
->**Note:** 關於自定義參數值的參考值，請參考以下說明
+<!-- >**Note:** 關於自定義參數值的參考值，請參考以下說明 -->
 
 <!-- 需要以下參數的 defination -->
-
+<!-- 
 ## MaxAdContentRating
 
 |Constant|Description|
@@ -92,7 +92,7 @@ request.addKeyword("keyword1:value1")
 |:-------|:---------|
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
-|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value|
+|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value| -->
 
 
 

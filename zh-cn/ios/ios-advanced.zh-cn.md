@@ -63,7 +63,7 @@ request.setTagForChildDirectedTreatment(.false)
 request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 ```
-
+<!-- 
 >**Note:** 关于自定义参数值的定义，请参考以下说明
 
 
@@ -92,7 +92,7 @@ request.addKeyword("keyword1:value1")
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
 |TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value|
-
+ -->
 
 <!-- # Corona User
 ---
