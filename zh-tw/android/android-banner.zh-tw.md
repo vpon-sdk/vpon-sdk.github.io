@@ -186,15 +186,6 @@ device width x auto height | Smart Banner   | VponAdSize.SMART\_BANNER
 ### 適用於 Vpon SDK v4.9 的串接方法
 如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，請參考[橫幅廣告](../banner-under5)
 
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
 [Sample Code]:../../android/download/
