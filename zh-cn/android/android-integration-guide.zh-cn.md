@@ -49,11 +49,7 @@ allprojects {
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:4.9.1'
-
-    // Please add Android support library as below if you are using Vpon SDK 4.8+
-    // The version of the dependency will depend on the version of the compile sdk you are using
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.vpon:vpadnSDK:5.0.2'
 }
 ```
 
