@@ -15,6 +15,8 @@ lang:           "zh-tw"
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
+>**Note:** 您可以[由此下載][2] Vpon SDK 及 Vpon AdMob Adapter。
+
 
 # 廣告單元設定
 ---
@@ -72,3 +74,4 @@ lang:           "zh-tw"
 [串接說明]:http://wiki.vpon.com/zh-tw/android/integration-guide/
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/zh-tw/android/download
+[2]: {{site.baseurl}}/zh-tw/android/download

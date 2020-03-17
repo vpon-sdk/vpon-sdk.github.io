@@ -7,6 +7,17 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/android/mediation/smaato/
 lang: "zh-tw"
 ---
+
+# 概要
+---
+在開始進行 MoPub 設定之前，請務必確認您的專案中已包含以下三個檔案：
+
+1. Smaato SDK
+2. Vpon SDK
+3. Vpon Smaato Custom Events
+
+>**Note:** 您可以[由此下載][9] Vpon SDK 及 Vpon Smaato Custom Events。
+
 # Smaato 設定
 ---
 Smaato 後台設定請參考下列步驟：
@@ -52,3 +63,4 @@ Smaato 後台設定請參考下列步驟：
   [6]: {{site.imgurl}}/Smaato_006.png
   [7]: {{site.imgurl}}/Smaato_021.png
   [8]: {{site.imgurl}}/Smaato_024.png
+[9]: {{site.baseurl}}/zh-tw/android/download

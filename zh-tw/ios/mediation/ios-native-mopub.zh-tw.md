@@ -18,6 +18,8 @@ lang:           "zh-tw"
 
 並參考[串接說明]初始化 Vpon iOS SDK。
 
+>**Note:** 您可以[由此下載][13] Vpon SDK 及 Vpon MoPub Custom Events。
+
 # MoPub 設定
 ---
 Mopub 後台設定請參考下列步驟:
@@ -70,3 +72,5 @@ Mopub 後台設定請參考下列步驟:
   [12]: {{site.imgurl}}/Mopub_012.png
   [點此處下載Sample Code]: {{site.dnldurl}}/sample-code/iOSMoPubNativeMediationSample.zip
 [串接說明]: ../../integration-guide/#initial-sdk
+
+[13]: {{site.baseurl}}/zh-tw/ios/download

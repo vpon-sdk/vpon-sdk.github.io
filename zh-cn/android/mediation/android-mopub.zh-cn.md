@@ -7,6 +7,17 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-cn/android/mediation/mopub/
 lang:           "zh-cn"
 ---
+
+# 概要
+---
+在开始进行 MoPub 设定之前，请务必确认您的专案中已包含以下三个档案：
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Events
+
+>**Note:** 您可以[由此下载][10] Vpon SDK 及 Vpon MoPub Custom Events。
+
 # MoPub设定
 ---
 Mopub后台设定请参考下列步骤:
@@ -50,5 +61,6 @@ Mopub后台设定请参考下列步骤:
 [5]: {{site.imgurl}}/Mopub_005.png
 [6]: {{site.imgurl}}/Mopub_006.png
 [7]: {{site.imgurl}}/Mopub_007.png
-[8]: {{site.imgurl}}/Mopub_008.png
+[8]: {{site.imgurl}}/Mopub_013.png
 [9]: {{site.imgurl}}/Mopub_009.png
+[10]: {{site.baseurl}}/zh-tw/android/download

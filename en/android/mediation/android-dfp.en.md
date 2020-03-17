@@ -20,6 +20,8 @@ Please make sure you've added following files in your project:
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
+>**Note:** For Vpon SDK and Vpon AdMob Adapter, please [download here][1].
+
 
 # Set Up Ad Unit
 ---
@@ -89,3 +91,5 @@ Please refer to our [Sample Code] for a complete integration sample.
 [廣告素材類型]: {{site.imgurl}}/SDKMediation.png
 [Warning]: {{site.imgurl}}/DFP_EN2.png
 [插頁尺寸]: {{site.imgurl}}/dfp_interstitial.png
+
+[1]: {{site.baseurl}}/android/download

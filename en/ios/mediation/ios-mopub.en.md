@@ -18,6 +18,7 @@ Please make sure you've added following files in your project:
 
 And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
 
+>**Note:** For Vpon SDK and Vpon MoPub Custom Events, please [download here][13].
 
 # MoPub Settings
 ---
@@ -62,7 +63,8 @@ After filling in the data above, click "Segments" tab and choose "Global Segment
   [5]: {{site.imgurl}}/Mopub_005.png
   [6]: {{site.imgurl}}/Mopub_006.png
   [10]: {{site.imgurl}}/Mopub_010.png
-  [11]: {{site.imgurl}}/Mopub_011.png
+  [11]: {{site.imgurl}}/Mopub_014.png
   [12]: {{site.imgurl}}/Mopub_012.png
 
 [Integration Guide]: ../../integration-guide/#initial-sdk
+[13]: {{site.baseurl}}/ios/download

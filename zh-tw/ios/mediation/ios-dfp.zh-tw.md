@@ -22,6 +22,8 @@ lang: "zh-tw"
 
 並參考[串接說明]初始化 Vpon iOS SDK。
 
+>**Note:** 您可以[由此下載][1] Vpon SDK 及 Vpon AdMob Adapter。
+
 # 廣告單元設定
 ---
 首先，請登入您的 [Google Ad Manager 後台]，切換到廣告空間下的廣告單元標籤，請依您要展示的廣告類型設定來新增廣告單元。
@@ -91,3 +93,4 @@ lang: "zh-tw"
 [Google Ad Manager 串接說明文件]: https://developers.google.com/ad-manager/mobile-ads-sdk/ios/banner#banner_sizes
 [Ad Manager 廣告單元]: {{site.imgurl}}/AppAdManager_01.png
 [DFP Partner Traditional Chinese.png]: {{site.imgurl}}/DFP_Partner_Traditional_Chinese.png
+[1]: {{site.baseurl}}/zh-tw/ios/download

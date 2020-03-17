@@ -7,6 +7,18 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       /zh-tw/android/mediation/mopub/
 lang:           "zh-tw"
 ---
+
+# 概要
+---
+在開始進行 MoPub 設定之前，請務必確認您的專案中已包含以下三個檔案：
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Events
+
+>**Note:** 您可以[由此下載][10] Vpon SDK 及 Vpon MoPub Custom Events。
+
+
 # MoPub 設定
 ---
 Mopub 後台設定請參考下列步驟:
@@ -50,5 +62,6 @@ Mopub 後台設定請參考下列步驟:
 [5]: {{site.imgurl}}/Mopub_005.png
 [6]: {{site.imgurl}}/Mopub_006.png
 [7]: {{site.imgurl}}/Mopub_007.png
-[8]: {{site.imgurl}}/Mopub_008.png
+[8]: {{site.imgurl}}/Mopub_013.png
 [9]: {{site.imgurl}}/Mopub_009.png
+[10]: {{site.baseurl}}/zh-tw/android/download

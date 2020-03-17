@@ -18,6 +18,9 @@ Please make sure you've added following files in your project:
 
 And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
 
+>**Note:** For Vpon SDK and Vpon Smaato SOMAMediationPlugin, please [download here][9].
+
+
 # Smaato Settings
 ---
 To setup Smaato, you need to complete the following steps:
@@ -64,3 +67,4 @@ Click "Save" to save the line item setting.
   [7]: {{site.imgurl}}/Smaato_012.png
   [8]: {{site.imgurl}}/Smaato_014.png
 [Integration Guide]: ../../integration-guide/#initial-sdk
+[9]: {{site.baseurl}}/ios/download

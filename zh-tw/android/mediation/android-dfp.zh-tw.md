@@ -13,6 +13,7 @@ lang:           "zh-tw"
 根據 [Google Ad Manager 公告](https://support.google.com/admanager/answer/9020684)，目前已停止使用 Google Ad Manager 廣告素材中 SDK 中介服務廣告素材的功能，若您想使用 Google Ad Manager 進行 SDK Mediation，請參考[建立及管理收益群組](https://support.google.com/admanager/answer/7390828)，將 SDK 中介服務廣告素材轉移到收益群組中。
 
 
+
 # 概要
 ---
 在開始進行 Google Ad Manager 設定之前，請務必確認您的專案中已包含以下三個檔案：
@@ -20,6 +21,8 @@ lang:           "zh-tw"
 1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
+
+>**Note:** 您可以[由此下載][1] Vpon SDK 及 Vpon AdMob Adapter。
 
 # 廣告單元設定
 ---
@@ -94,3 +97,5 @@ lang:           "zh-tw"
 [Warning]: {{site.imgurl}}/Warning.png
 [DFP Partner Traditional Chinese.png]: {{site.imgurl}}/DFP_Partner_Traditional_Chinese.png
 [插頁尺寸]: {{site.imgurl}}/插頁尺寸.png
+
+[1]: {{site.baseurl}}/zh-tw/android/download

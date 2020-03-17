@@ -7,6 +7,17 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       android/mediation/mopub/
 lang:           "en"
 ---
+
+# General
+---
+Please make sure you've added following files in your project:
+
+1. MoPub SDK
+2. Vpon SDK
+3. Vpon MoPub Custom Events
+
+>**Note:** For Vpon SDK and Vpon MoPub Custom Events, please [download here][13].
+
 # MoPub Settings
 ---
 To setup MoPub, you need to complete the following steps:
@@ -50,5 +61,6 @@ After filling in the data above, click "Segments" tab and choose "Global Segment
   [5]: {{site.imgurl}}/Mopub_005.png
   [6]: {{site.imgurl}}/Mopub_006.png
   [7]: {{site.imgurl}}/Mopub_007.png
-  [8]: {{site.imgurl}}/Mopub_008.png
+  [8]: {{site.imgurl}}/Mopub_013.png
   [9]: {{site.imgurl}}/Mopub_009.png
+[13]: {{site.baseurl}}/android/download

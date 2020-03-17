@@ -7,6 +7,17 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: android/mediation/smaato/
 lang: "en"
 ---
+
+# General
+---
+Please make sure you've added following files in your project:
+
+1. Smaato SDK
+2. Vpon SDK
+3. Vpon Smaato Custom Events
+
+>**Note:** For Vpon SDK and Vpon Smaato Custom Events, please [download here][9].
+
 # Smaato Settings
 ---
 To setup Smaato, you need to complete the following steps:
@@ -52,3 +63,4 @@ Click "Save" to save the line item setting.
   [6]: {{site.imgurl}}/Smaato_006.png
   [7]: {{site.imgurl}}/Smaato_023.png
   [8]: {{site.imgurl}}/Smaato_026.png
+[9]: {{site.baseurl}}/android/download

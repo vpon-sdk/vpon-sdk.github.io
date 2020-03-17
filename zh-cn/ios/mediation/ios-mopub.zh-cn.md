@@ -18,6 +18,8 @@ lang: "zh-cn"
 
 并参考[串接说明]初始化 Vpon iOS SDK。
 
+>**Note:** 您可以[由此下载][13] Vpon SDK 及 Vpon MoPub Custom Events。
+
 # MoPub 设定
 ---
 Mopub 后台设定请参考下列步骤:
@@ -62,6 +64,7 @@ Mopub 后台设定请参考下列步骤:
   [5]: {{site.imgurl}}/Mopub_005.png
   [6]: {{site.imgurl}}/Mopub_006.png
   [10]: {{site.imgurl}}/Mopub_010.png
-  [11]: {{site.imgurl}}/Mopub_011.png
+  [11]: {{site.imgurl}}/Mopub_014.png
   [12]: {{site.imgurl}}/Mopub_012.png
 [串接说明]: ../../integration-guide/#initial-sdk
+[13]: {{site.baseurl}}/zh-cn/ios/download

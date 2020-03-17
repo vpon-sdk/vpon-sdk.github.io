@@ -9,10 +9,13 @@ lang:           "en"
 ---
 # Overview
 ---
-This document provides instructions for using the Google Mobile Ads SDK to display banner ads. If you are using AdMob or Google Ad Manager, please make sure below files are included in your project.
+Please make sure you've added following files in your project:
 
-1. Fundamental SDK
-2. Adapter SDK
+1. Google Mobile Ads SDK
+2. Vpon SDK
+3. Vpon AdMob Adapter
+
+>**Note:** For Vpon SDK and Vpon AdMob Adapter, please [download here][2].
 
 # Ad Unit
 ---
@@ -70,3 +73,4 @@ Please refer to our [Sample Code] for a complete integration sample.
 [串接說明]:http://wiki.vpon.com/android/integration-guide/
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/android/download
+[2]: {{site.baseurl}}/android/download

@@ -20,6 +20,8 @@ lang:           "zh-cn"
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
+>**Note:** 您可以[由此下载][1] Vpon SDK 及 Vpon AdMob Adapter。
+
 
 # 广告单元设定
 ---
@@ -92,3 +94,5 @@ lang:           "zh-cn"
 [Warning]: {{site.imgurl}}/Warning.png
 [DFP Partner Traditional Chinese.png]: {{site.imgurl}}/DFP_Partner_Traditional_Chinese.png
 [插页尺寸]: {{site.imgurl}}/插頁尺寸.png
+
+[1]: {{site.baseurl}}/zh-tw/android/download

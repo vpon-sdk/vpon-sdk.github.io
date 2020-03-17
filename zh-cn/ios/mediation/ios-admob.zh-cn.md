@@ -18,6 +18,8 @@ lang: "zh-cn"
 
 并参考[串接说明]初始化 Vpon iOS SDK。
 
+>**Note:** 您可以[由此下载][2] Vpon SDK 及 Vpon AdMob Adapter。
+
 
 # 广告单元设定
 ---
@@ -76,3 +78,4 @@ lang: "zh-cn"
 [串接说明]:http://wiki.vpon.com/zh-cn/ios/integration-guide/#initial-sdk
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/zh-cn/ios/download
+[2]: {{site.baseurl}}/zh-tw/ios/download

@@ -178,13 +178,16 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
     }
 ```
 
+>**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap.
+
+
 # App Transport Security
 ---
 Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for your reference.
 
 # Tips
 ---
-關於更多廣告形式的呈現，請參考：
+For more ad types, please refer to:
 
 * [Banner Ad][1]
 * [Interstitial Ad][2]

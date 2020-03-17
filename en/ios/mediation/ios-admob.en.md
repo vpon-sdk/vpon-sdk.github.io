@@ -17,6 +17,8 @@ Please make sure you've added following files in your project:
 
 And please refer to our [Integration Guide] to initial Vpon iOS SDK before you start setting.
 
+>**Note:** For Vpon SDK and Vpon AdMob Adapter, please [download here][2].
+
 # Ad Unit
 ---
 
@@ -73,3 +75,4 @@ Please refer to our [Sample Code] for a complete integration sample.
 [Integration Guide]: ../../integration-guide/#initial-sdk
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/ios/download
+[2]: {{site.baseurl}}/ios/download

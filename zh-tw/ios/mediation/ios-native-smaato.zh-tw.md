@@ -18,6 +18,8 @@ lang: "zh-tw"
 
 並參考[串接說明]初始化 Vpon iOS SDK。
 
+>**Note:** 您可以[由此下載][9] Vpon SDK 及 Vpon Smaato SOMAMediationPlugin。
+
 # Smaato 設定
 ---
 Smaato 後台設定請參考下列步驟：
@@ -65,3 +67,4 @@ Smaato 後台設定請參考下列步驟：
   [8]: {{site.imgurl}}/Smaato_008.png
 
 [串接說明]: ../../integration-guide/#initial-sdk
+[9]: {{site.baseurl}}/zh-tw/ios/download

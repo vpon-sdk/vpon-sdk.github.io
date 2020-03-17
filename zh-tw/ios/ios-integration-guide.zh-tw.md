@@ -167,6 +167,8 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
     }
 ```
 
+>**Note:** 關於在使用目前版本的 SDK 送審 App Store 後，可能收到 Apple 官方關於 UIWebView 的 API 將被棄用警告 (ITMS-90809) 的狀況，目前該警告不會影響廣告的運作及審核的結果，Vpon 將盡速針對此狀況提供新版本 SDK，謝謝。
+
 
 # App Transport Security
 ---
