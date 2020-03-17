@@ -5,9 +5,11 @@ Fundamental SDK<br>| Framework SDK <br>|
 :-------------: | :------------:|
 [download][1]   | [download][2] |
 
-> **Note**:
+<!-- > **Note**:
 
->* You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK.
+>* You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. -->
+
+>**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap.
 
 ## Header Download
 
