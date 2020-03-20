@@ -11,8 +11,8 @@
 
 | Mediation Platform | Adapter | Note|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager | [download][2] | Compatible with Vpon SDK 4.9.1 ↑ <br> Compatible with GMA SDK 18.3 ↑ | 
-| MoPub | [download][3] | |
+| AdMob <br> Google Ad Manager | [download][2] | Compatible with Vpon SDK 5.0.2 ↑ <br> Compatible with GMA SDK 18.3 ↑ | 
+| MoPub | [download][3] | Compatible with Vpon SDK 5.0.2 ↑ <br> Compatible with MoPub SDK 5.11.1 ↑ |
 | Smatto | [download][9] | |
 
 
