@@ -165,9 +165,6 @@ After finishing ad request, implement the delegate protocol as below to listen a
 - (void) onVpadnInterstitialWillLeaveApplication:(VpadnInterstitial *)interstitial {
     // Invoked if user leave the app and the current app was backgrounded
 }
-- (void) onVpadnInterstitialClicked:(VpadnInterstitial *)interstitial {
-    // Invoked if the Banner Ad was clicked
-}
 ```
 
 ### Swift
@@ -183,9 +180,6 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
     }
     func onVpadnInterstitialWillOpen(_ interstitial: VpadnInterstitial) {
         // Invoked if the Interstitial Ad is going to be displayed
-    }
-    func onVpadnInterstitialClosed(_ interstitial: VpadnInterstitial) {
-        // Invoked if the Interstitial Ad was dismissed
     }
     func onVpadnInterstitialWillLeaveApplication(_ interstitial: VpadnInterstitial) {
         // Invoked if user leave the app and the current app was backgrounded

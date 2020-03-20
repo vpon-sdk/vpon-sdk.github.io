@@ -212,9 +212,6 @@ After finishing ad request, implement the delegate protocol as below to listen a
 - (void) onVpadnNativeAd:(VpadnNativeAd *)nativeAd failedToLoad:(NSError *)error {
     // Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
-- (void) onVpadnNativeAdClicked:(VpadnNativeAd *)nativeAd {
-    // Invoked if the Banner Ad was clicked
-}
 - (void) onVpadnNativeAdWillLeaveApplication:(VpadnNativeAd *)nativeAd {
     // Invoked if user leave the app and the current app was backgrounded
 }
@@ -239,9 +236,6 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
     }
     func onVpadnNativeAd(_ nativeAd: VpadnNativeAd, failedToLoad error: Error) {
         // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-    }
-    func onVpadnNativeAdClicked(_ nativeAd: VpadnNativeAd) {
-        // Invoked if the Banner Ad was clicked
     }
     func onVpadnNativeAdWillLeaveApplication(_ nativeAd: VpadnNativeAd) {
         // Invoked if user leave the app and the current app was backgrounded

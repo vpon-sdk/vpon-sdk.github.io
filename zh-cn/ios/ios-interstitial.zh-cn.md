@@ -158,9 +158,6 @@ func onVpadnInterstitialAdReceived(_ bannerView: UIView!) {
 - (void) onVpadnInterstitialWillLeaveApplication:(VpadnInterstitial *)interstitial {
     // Invoked if user leave the app and the current app was backgrounded
 }
-- (void) onVpadnInterstitialClicked:(VpadnInterstitial *)interstitial {
-    // Invoked if the Banner Ad was clicked
-}
 ```
 
 ### Swift
@@ -182,9 +179,6 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
     }
     func onVpadnInterstitialWillLeaveApplication(_ interstitial: VpadnInterstitial) {
         // Invoked if user leave the app and the current app was backgrounded
-    }
-    func onVpadnInterstitialClicked(_ interstitial: VpadnInterstitial) {
-        // Invoked if the Banner Ad was clicked
     }
 }
 ```

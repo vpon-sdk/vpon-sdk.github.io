@@ -143,9 +143,6 @@ vpadnBanner.load(request)
 - (void) onVpadnAd:(VpadnBanner *)banner failedToLoad:(NSError *)error {
     // Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
-- (void) onVpadnAdClicked:(VpadnBanner *)banner {
-    // Invoked if the Banner Ad was clicked
-}
 - (void) onVpadnAdWillLeaveApplication:(VpadnBanner *)banner {
     // Invoked if user leave the app and the current app was backgrounded
 }
@@ -167,9 +164,6 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
     }
     func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
       // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-    }
-    func onVpadnAdClicked(_ banner: VpadnBanner) {
-      // Invoked if the Banner Ad was clicked
     }
     func onVpadnAdWillLeaveApplication(_ banner: VpadnBanner) {
       // Invoked if user leave the app and the current app was backgrounded
