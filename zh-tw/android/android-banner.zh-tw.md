@@ -176,7 +176,7 @@ protected void onDestroy() {
 device width x auto height | Smart Banner   | VponAdSize.SMART\_BANNER
 
 >**Note:** Smart Banner 在不同解析度的手機上會產生不同的展示效果，如果您希望展示標準橫幅廣告，我們建議您直接使用 `VponAdSize.BANNER`
-
+ 
 
 
 # Tips
