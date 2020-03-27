@@ -173,7 +173,9 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
   728x90                     | IAB Leaderboard|  VponAdSize.IAB\_LEADERBOARD
   device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
 
-  We recommend that you can use the `VponAdSize.SMART_BANNER` constant.
+
+>**Note:** The resolution of the device might impact the layout of Smart Banner. If you are trying to display Standard, it is recommend to use `VponAdSize.BANNER` for request.
+
 
 
 # Tips

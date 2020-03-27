@@ -175,7 +175,9 @@ protected void onDestroy() {
 728x90                     | IAB 超級橫幅廣告 | VponAdSize.IAB\_LEADERBOARD
 device width x auto height | Smart Banner   | VponAdSize.SMART\_BANNER
 
->**Note:** 如無特定需求，我們建議您直接使用 `VponAdSize.SMART_BANNER` 即可
+>**Note:** Smart Banner 在不同解析度的手機上會產生不同的展示效果，如果您希望展示標準橫幅廣告，我們建議您直接使用 `VponAdSize.BANNER`
+
+
 
 # Tips
 ---
