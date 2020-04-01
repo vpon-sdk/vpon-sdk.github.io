@@ -3,7 +3,8 @@
 ## 5.0.4
 * Release Date: 1 Apr. 2020
 * Build Number: 20200401
-* 
+* Modify the string “UIWebView” in comments
+* Optimize the performance of Banner Ad
 
 ## 5.0.3
 * Release Date: 20 Mar. 2020

@@ -34,9 +34,9 @@ Fundamental SDK<br>| Framework SDK <br>|
 ## Sample Code Download
 ---
 
-|Fundamental     | Framework    | AdMob        | Google Ad Manager      |  MoPub      |  Smaato        |
-|:-------------: | :-----------:| :-----------:|:------------:|:-----------:|:--------------:|
-|[download][6]   | [download][7]| [download][8]|[download][9] |[download][11]|[download][13]|
+|Fundamental     | Framework    | AdMob        | Google Ad Manager | MoPub       | Smaato        |
+|:-------------: | :-----------:| :-----------:|:-----------------:|:-----------:|:-------------:|
+|[download][6]   | [download][7]| [download][8]|[download][9]      |[download][11]|[download][13]|
 
 
 
