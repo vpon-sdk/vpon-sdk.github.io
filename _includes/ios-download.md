@@ -40,8 +40,8 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.0.3-20200320-2003200959-3554b34.a
-[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-5.0.3.zip
+[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.0.4-20200401-2003311737-f001dc9.a
+[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-5.0.4.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter

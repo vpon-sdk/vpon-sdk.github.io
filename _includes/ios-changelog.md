@@ -1,5 +1,10 @@
 # Vpon iOS SDK Change Log
 
+## 5.0.4
+* Release Date: 1 Apr. 2020
+* Build Number: 20200401
+* 
+
 ## 5.0.3
 * Release Date: 20 Mar. 2020
 * Build Number: 20200320
