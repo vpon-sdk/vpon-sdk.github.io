@@ -1,5 +1,14 @@
 # Vpon Android SDK Change Log
 
+## 5.0.3
+* Release Date: 9 Apr. 2020
+* Build Number: 80400202
+* Add more null examination to prevent NPE
+* Add consumer-rule.pro for 3rd-party libraries
+* Code refactor and optimize
+* Bug fixed
+
+
 ## 5.0.2
 * Release Date: 10 Mar. 2020
 * Build Number: 90300202

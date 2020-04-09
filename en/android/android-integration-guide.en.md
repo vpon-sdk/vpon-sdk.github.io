@@ -48,7 +48,7 @@ Add the dependency with a specified version of Vpon SDK in the app-level `build.
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.0.2'
+    implementation 'com.vpon:vpadnSDK:5.0.3'
 }
 ```
 
@@ -162,7 +162,7 @@ dependencies {
 
 # Proguard Configuration
 ---
-If your app need obfuscateed before release, please add settings below：<br>
+If you are using Vpon Android SDK v5.0.2 or below version SDK in your app, please add the setting below in your Proguard Config:
 
 ```xml
 -dontwarn c.**

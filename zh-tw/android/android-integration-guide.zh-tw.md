@@ -48,7 +48,7 @@ allprojects {
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.0.2'
+    implementation 'com.vpon:vpadnSDK:5.0.3'
 }
 ```
 
@@ -155,7 +155,7 @@ dependencies {
 
 # Proguard Configuration
 ---
-如果您的 App 本身需要經過 Proguard 混淆，請增加下面的設定：<br>
+如果您的 App 使用 Vpon Android SDK v5.0.2 或以下版本的 SDK，請在 Proguuard Config 中增加以下設定：
 
 ```xml
 -dontwarn c.**
