@@ -273,9 +273,9 @@ Icon         | 128 x 128px <br>(enable scaling in proportion, without distortion
 :-----------:|:-----------:|
 CallToAction | Show completely
 :-----------:|:-----------:|
-BodyText     | Show at least 20 English alphabets or unshow it.
+BodyText     | Show at least 20 English characters or unshow it.
 :-----------:|:-----------:|
-SocialContext| Show completely
+SocialContext| Show completely <br> *Applicable Version: SDK v4.9.3 and below*
 :-----------:|:-----------:|
 RatingScale  | 5, might be null
 :-----------:|:-----------:|
