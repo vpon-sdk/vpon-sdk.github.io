@@ -169,10 +169,28 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
 
 >**Note:** 關於在使用目前版本的 SDK 送審 App Store 後，可能收到 Apple 官方關於 UIWebView 的 API 將被棄用警告 (ITMS-90809) 的狀況，目前該警告不會影響廣告的運作及審核的結果，Vpon 將盡速針對此狀況提供新版本 SDK，謝謝。
 
-
-# App Transport Security
+# Usage Description
 ---
-iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定
+
+Vpon SDK 支援多種表現形式廣告的呈現，為了展示特定類型廣告，以下為 Vpon SDK 中可能使用到的權限：
+    
+```xml
+<key>NSCalendarsUsageDescription</key>
+<key>NSCameraUsageDescription</key>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<key>NSLocationUsageDescription</key>
+<key>NSLocationWhenInUseUsageDescription</key>
+<key>NSPhotoLibraryUsageDescription</key>
+```
+
+>**Note:** 當您完成 Vpon SDK 的串接並將 App 送審 App Store 時，可能會需要針對上述權限功能的使用進行說明
+
+
+
+
+<!-- # App Transport Security
+---
+iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] 來修改部份設定 -->
 
 # Tips
 ---

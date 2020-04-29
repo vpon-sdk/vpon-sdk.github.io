@@ -181,9 +181,26 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 >**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap.
 
 
+# Usage Description
+---
+
+Vpon SDK have the ability to deliver diverse ad experience. To display specific types of ads, below permission might be required:
+    
+```xml
+<key>NSCalendarsUsageDescription</key>
+<key>NSCameraUsageDescription</key>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<key>NSLocationUsageDescription</key>
+<key>NSLocationWhenInUseUsageDescription</key>
+<key>NSPhotoLibraryUsageDescription</key>
+```
+
+>**Note:** You might need to describe the usage of above permission when you submit your App to App Store after you finish Vpon SDK integration.
+
+<!-- 
 # App Transport Security
 ---
-Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for your reference.
+Apple recently revised App Transport Security (ATS), to iOS9. Please refer to [iOS9 ATS] for your reference. -->
 
 # Tips
 ---
