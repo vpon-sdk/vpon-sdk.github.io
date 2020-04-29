@@ -195,7 +195,7 @@ Vpon SDK have the ability to deliver diverse ad experience. To display specific 
 <key>NSPhotoLibraryUsageDescription</key>
 ```
 
->**Note:** You might need to describe the usage of above permission when you submit your App to App Store after you finish Vpon SDK integration.
+>**Note:** You might need to describe the usage of above permission when you submit your App to App Store after you finish Vpon SDK integration. For example, you might need to add the usage description of Calendar with: We might need to add some events to Calendar.
 
 <!-- 
 # App Transport Security
