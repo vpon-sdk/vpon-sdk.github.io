@@ -183,7 +183,7 @@ Vpon SDK 支援多種表現形式廣告的呈現，為了展示特定類型廣�
 <key>NSPhotoLibraryUsageDescription</key>
 ```
 
->**Note:** 當您完成 Vpon SDK 的串接並將 App 送審 App Store 時，可能會需要針對上述權限功能的使用增加對應的描述，例如：App 中有內容需要記錄在行事曆上
+>**Note:** 當您完成 Vpon SDK 的串接並將 App 送審 App Store 時，可能會需要針對上述權限功能的使用增加對應的描述，以 Calendar 為例，可以描述為：App 中有內容需要記錄在行事曆上
 
 
 

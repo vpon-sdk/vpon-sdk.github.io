@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+## 5.0.4
+* Release Date: 6 May. 2020
+* Build Number: 60500202
+* Bug fixed
+
 ## 5.0.3
 * Release Date: 9 Apr. 2020
 * Build Number: 80400202
