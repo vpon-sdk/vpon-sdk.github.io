@@ -1,5 +1,11 @@
 # Vpon iOS DMP SDK Change Log
 
+## 1.2.2
+
+* Release Date: 28 May. 2020
+* Adjust the field of data collection
+
+
 ## 1.2.1
 
 * Release Date: 24 May. 2019

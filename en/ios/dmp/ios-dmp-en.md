@@ -103,9 +103,9 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-iOS-Analytics
 # Download
 ---
 
-|DMP 1.2.1|
+|DMP 1.2.2|
 |:-------:|
-|[Download]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.1-146c03b.tar.gz)|
+|[Download]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.2-a6a9c68.tar.gz)|
 
 # Change Log
 ---
