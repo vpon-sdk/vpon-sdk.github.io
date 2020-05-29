@@ -256,6 +256,8 @@ visibility: hidden;
 2. 在廣告單元中完成名稱、大小等設定後儲存
 3. 產生廣告代碼
 
+>**Note:** Vpon 目前不支援 `Fluid`，請依照廣告在頁面上要呈現的大小選擇尺吋
+
 新增廣告單元後，選擇廣告單元，並點擊「產生廣告代碼」
 <img src="{{site.imgurl}}/WebAdManager_01.png" alt="" class="width-600" />
 選取代碼類型為「Google 發佈商廣告代碼」
@@ -351,7 +353,7 @@ visibility: hidden;
 [原生廣告版型]: {{site.baseurl}}/zh-tw/web/native/#layout
 [Advanced Setup]: {{site.baseurl}}/zh-tw/web/native/#advanced
 [Callback]: {{site.baseurl}}/zh-tw/web/native/#callback
-[Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout.png
+[Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout_02.png
 [Native Ad Spec]: {{site.baseurl}}/zh-tw/web/native/#nativeAdSpec
 [Vpon FAE]: mailto:fae@vpon.com
 [Google Ad Manager]: https://admanager.google.com/

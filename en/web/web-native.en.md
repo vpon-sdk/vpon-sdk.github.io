@@ -254,6 +254,8 @@ Please finish below setting in [Google Ad Manager]:
 2. Set up Name, Size, and other items for the ad unit.
 3. Generate publisher tag
 
+>**Note:** `Fluid` is not available for Vpon Web SDK currently, please choose the ad size that you would like to display on the site.
+
 Select an ad unit, click "GENERATE TAGS" to generate publisher tag.
 <img src="{{site.imgurl}}/WebAdManager_19.png" alt="" class="width-600" />
 Choose "Google Publisher Tag" as tag type.
@@ -350,7 +352,7 @@ Turn on the debug mode and send all of  "Vpadn-" messages to [Vpon FAE]
 [Native Ad layouts]: {{site.baseurl}}/web/native/#layout
 [Advanced Setup]: {{site.baseurl}}/web/native/#advanced
 [Callback]: {{site.baseurl}}/web/native/#callback
-[Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout.png
+[Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout_02.png
 [Native Ad Spec]: {{site.baseurl}}/web/native/#nativeAdSpec
 [Vpon FAE]: mailto:fae@vpon.com
 [Google Ad Manager]: https://admanager.google.com/

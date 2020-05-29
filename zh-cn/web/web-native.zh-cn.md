@@ -253,6 +253,8 @@ visibility: hidden;
 2. 在广告单元中完成名称、 大小等设定后储存
 3. 生成广告代码
 
+>**Note:** Vpon 目前不支援 `Fluid`，请依照广告在页面上要呈现的大小选择尺吋
+
 新增广告单元后，选择广告单元，并点击「生成代码」
 <img src="{{site.imgurl}}/WebAdManager_10.png" alt="" class="width-600" />
 选取代码类型为「Google 发布商代码」
@@ -347,7 +349,7 @@ visibility: hidden;
 [原生广告版型]: {{site.baseurl}}/zh-cn/web/native/#layout
 [Advanced Setup]: {{site.baseurl}}/zh-cn/web/native/#advanced
 [Callback]: {{site.baseurl}}/zh-cn/web/native/#callback
-[Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout.png
+[Web_Native_Layout]: {{site.imgurl}}/Web_Native_Layout_02.png
 [Native Ad Spec]: {{site.baseurl}}/zh-cn/web/native/#nativeAdSpec
 [Vpon FAE]: mailto:fae@vpon.com
 [Google Ad Manager]: https://admanager.google.com/
