@@ -15,7 +15,7 @@ lang:            "en"
 Deployment target 9.0 above.
 
 ### Import SDK
-You can [download Vpon DMP SDK here]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.0-9ba172b.tar.gz). A Objective-c Header file and a lib file will included. Please follow the steps below to integrate Vpon DMP SDK to your Xcode project.
+You can [download Vpon DMP SDK here]({{site.dnldurl}}/vpadn-dmp-iOS-1.2.2-a6a9c68.tar.gz). A Objective-c Header file and a lib file will included. Please follow the steps below to integrate Vpon DMP SDK to your Xcode project.
 
 1. Add the lib (.a file) to your project:
 2. Add the Header file below to your project:
