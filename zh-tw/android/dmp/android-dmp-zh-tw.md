@@ -116,8 +116,7 @@ public void onClick(View v) {
 		} catch (JSONException e) {
 		e.printStackTrace();
 	        }
-	tracker.sendEvent("item_view", payloadJsonObj);
-        }
+	tracker.sendEvent("item_view", payloadJsonObj, "yourCustomName");
 }
 ```
 
