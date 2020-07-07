@@ -12,7 +12,7 @@ lang:           "zh-tw"
 ---
 Vpon DMP SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SDK 前，請確保您的 App 符合以下條件：
 
-* Android：`Android 4.3 以上`
+* Android：`Android 5.0 以上`
 
 ### 匯入 Vpon DMP SDK
 請先[下載 Vpon DMP SDK][1]，並將 SDK 加到您的 Android Studio 專案中。
@@ -35,6 +35,8 @@ dependencies {
 <!-- Required permissions -->
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 ```
 
 請依據資料收集及分析的目標，選擇性加入以下 Permissions：
@@ -44,9 +46,6 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-<uses-permission android:name="android.permission.READ_CALL_LOG"/>
 ```
 
 ### Proguard Configuration
@@ -145,7 +144,7 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.2.4|
+|DMP 1.3.0|
 |:-------:|
 |[Download][1]|
 
@@ -154,4 +153,4 @@ public void onClick(View v) {
 關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/android/dmp/changelog)
 
 
-[1]: {{site.dnldurl}}/vpon-analytics-obf1.2.4-release-20200521.aar
+[1]: {{site.dnldurl}}/vpon-analytics-obf1.3.0-release-20200707.aar

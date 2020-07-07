@@ -12,7 +12,7 @@ lang: "zh-tw"
 ---
 
 ### 系統版本需求
-Deployment target 9.0 以上
+Deployment target 10.0 以上
 
 ### 匯入 Vpon DMP SDK 
 請先[下載 Vpon DMP SDK][1]，解壓縮後的 SDK 包含Objective-C 標頭、一個執行期間程式庫，要在應用程式中匯入 Vpon DMP SDK，您必須完成二個步驟：
@@ -103,7 +103,7 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 # Download
 ---
 
-|DMP 1.2.2|
+|DMP 1.3.0|
 |:-------:|
 |[Download][1]|
 
@@ -112,4 +112,4 @@ NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity
 關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/ios/dmp/changelog)
 
 
-[1]: {{site.dnldurl}}/vpadn-dmp-iOS-1.2.2-a6a9c68.tar.gz
+[1]: {{site.dnldurl}}/vpadn-dmp-iOS-1.3.0-6b3f71d.tar.gz
