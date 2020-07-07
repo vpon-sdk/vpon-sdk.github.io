@@ -12,7 +12,7 @@ lang:           "en"
 ---
 Vpon DMP SDK support:
 
-* Android：`Android 4.3 or later`
+* Android：`Android 5.0 or later`
 
 Before you start to integrate Vpon SDK, make sure your app is compatible.
 
@@ -38,6 +38,8 @@ Please add the Permissions below in your `AndroidManifest.xml`
 <!-- Required permissions -->
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 ```
 
 (Optional) Please add below permissions for additional data collection and analysis:
@@ -47,9 +49,6 @@ Please add the Permissions below in your `AndroidManifest.xml`
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
-<uses-permission android:name="android.permission.READ_CALL_LOG"/>
 ```
 
 ### Proguard Configuration
@@ -147,7 +146,7 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 # Download
 ---
 
-|DMP 1.2.4|
+|DMP 1.3.0|
 |:-------:|
 |[Download][1]|
 
@@ -155,4 +154,4 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 ---
 For DMP SDK change Log, please refer to [DMP SDK Change Log]({{ site.baseurl }}/android/dmp/changelog)
 
-[1]: {{site.dnldurl}}/vpon-analytics-obf1.2.4-release-20200521.aar
+[1]: {{site.dnldurl}}/vpon-analytics-obf1.3.0-release-20200707.aar

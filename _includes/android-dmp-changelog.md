@@ -1,5 +1,11 @@
 # Vpon Android DMP SDK Change Log
 
+## 1.3.0
+
+* Release Date: 7 Jul. 2020
+* Adjust the field of data collection
+
+
 ## 1.2.4
 
 * Release Date: 21 May. 2020

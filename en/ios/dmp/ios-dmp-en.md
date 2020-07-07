@@ -12,7 +12,7 @@ lang:            "en"
 ---
 
 ### System requirement
-Deployment target 9.0 above.
+Deployment target 10.0 above.
 
 ### Import SDK
 You can [download Vpon DMP SDK here][1]. A Objective-c Header file and a lib file will included. Please follow the steps below to integrate Vpon DMP SDK to your Xcode project.
@@ -103,7 +103,7 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-iOS-Analytics
 # Download
 ---
 
-|DMP 1.2.2|
+|DMP 1.3.0|
 |:-------:|
 |[Download][1]|
 
@@ -111,4 +111,4 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-iOS-Analytics
 ---
 For DMP SDK change Log, please refer to [DMP SDK Change Log]({{ site.baseurl }}/ios/dmp/changelog)
 
-[1]: {{site.dnldurl}}/vpadn-dmp-iOS-1.2.2-a6a9c68.tar.gz
+[1]: {{site.dnldurl}}/vpadn-dmp-iOS-1.3.0-6b3f71d.tar.gz
