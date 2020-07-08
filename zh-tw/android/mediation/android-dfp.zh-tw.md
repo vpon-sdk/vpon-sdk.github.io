@@ -79,6 +79,9 @@ lang:           "zh-tw"
 7. 儲存您的設定
 
 
+>**Note**: 使用 GAM Mediation 搭配 Vpon Adapter 串接原生廣告時，adListener 的行為可能會與單獨使用 GAM 不一致。<br>
+可能會受到影響的 adListener: `onAdLeftApplication`、`onAdClosed`
+
 
 # Tips
 ---

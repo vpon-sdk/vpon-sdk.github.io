@@ -157,6 +157,34 @@ dependencies {
 }
 ```
 
+# 初始化 SDK {#initial-sdk}
+---
+为了提高 SDK 的效能，请在 Application 或 MainActivity 初始化 SDK：
+
+```java
+// Initial SDK in Application
+public class CustomApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        VponMobileAds.initialize(getBaseContext());
+    }
+}
+
+// Initial SDK in MainActivity
+public class MainActivity extends AppCompatActivity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        VponMobileAds.initialize(this);
+    }
+}
+```
+
+
 # Proguard Configuration
 ---
 如果您的 App 使用 Vpon Android SDK v5.0.2 或以下版本的 SDK，请在 Proguard Config 中增加以下设定：

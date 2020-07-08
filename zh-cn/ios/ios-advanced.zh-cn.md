@@ -63,6 +63,33 @@ request.setTagForChildDirectedTreatment(.false)
 request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 ```
+
+# 回传内容资讯
+---
+您可以透过 `setContentUrl` 及 `setContentData` 将页面内容资讯透过 SDK 发给 Vpon
+
+>**Note:** 此功能适用于 `Vpon SDK v5.1.1` 及以上版本
+
+
+### Objective-C
+
+```objc
+[request setContentUrl:@"https://www.vpon.com.tw/"];
+// Set content page url
+[request setContentData:@{@"key1": @(1), @"key2": @(YES), @"key3": @"name", @"key4": @(123.31)}];
+// Set content page data with an array of key-value
+```
+
+### Swift
+
+```swift
+request.setContentUrl("https://www.google.com.tw/")
+// Set content page url
+request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]) 
+// Set content page data with an array of key-value
+```
+
+
 <!-- 
 >**Note:** 关于自定义参数值的定义，请参考以下说明
 

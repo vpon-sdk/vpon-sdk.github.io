@@ -63,6 +63,10 @@ Please insert the Class Name of CustomEvent as below. For example, if you are in
 <img src="{{site.imgurl}}/AdMob_033.png" alt="" class=""/>
 
 
+>**Note**: Please note that if you are using Vpon Adapter to integrate Native Ad via AdMob Mediation, the behavior of adListener might be different if Vpon Native Ad shows. <br>
+Following adListener might be impacted: `onAdLeftApplication`, `onAdClosed`
+
+
 # Tips
 ---
 

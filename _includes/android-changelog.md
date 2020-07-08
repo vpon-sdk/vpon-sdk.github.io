@@ -1,9 +1,28 @@
 # Vpon Android SDK Change Log
 
+## 5.1.1
+* Release Date: 8 Jul. 2020
+* Build Number: 
+* Upgrade OM SDK from v1.2.8 to v1.3.4
+* Adjust the behavior of adListener to align with AdMob
+* Added contentUrl and contentData for data transmission (compatible with AdMob / MoPub)
+* Fix OM session send unsuccessfully when webview was destoryed too early
+* Fix OM impression send unsuccessfully when onImpression was triggered before onPageFinish
+* Fix impression of Native Ad might be sent unsuccessfully if setAdView was called after onReceived
+* Add a method of [SDK initialization] to enhace the performance
+* Bug fixed
+
+
+
 ## 5.0.4
 * Release Date: 6 May. 2020
 * Build Number: 60500202
-* Bug fixed
+* Support OM SDK v1.3.4
+* Support multiple verifications within OM framework
+* Adjust the behavior of adListener to align with AdMob
+* Added contentUrl and contentData for data transmission (Compatible with AdMob / MoPub)
+
+
 
 ## 5.0.3
 * Release Date: 9 Apr. 2020
@@ -303,3 +322,5 @@
 
 * Build Number: 20130606
 * Fix Crazy Ad 會被 Android system status bar 遮住部分的問題
+
+[SDK initialization]:{{site.baseurl}}/android/integration-guide/#initial-sdk

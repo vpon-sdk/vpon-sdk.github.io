@@ -9,7 +9,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 >* You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. -->
 
->**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap.
+<!-- >**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap. -->
 
 ## Header Download
 
@@ -24,8 +24,9 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 | Mediation Platform | Adapter | Note|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager | [download][4] | Compatible with Vpon SDK 5.0.2 ↑ <br> Compatible with AdMob SDK 4.47.0 ↑| 
-| MoPub | [download][5] | Compatible with Vpon SDK 5.0.2 ↑ <br> Compatible with MoPub SDK 5.10.0 ↑|
+| AdMob <br> Google Ad Manager | [download][4] | Compatible with Vpon SDK 5.1.1 ↑ <br> Compatible with AdMob SDK 4.47.0 ↑| 
+| MoPub <br> (v2.0.2)| [download][5] | Compatible with `MoPub SDK 5.12.0` ↓ <br> Compatible with Vpon SDK 5.1.1 ↑|
+| MoPub <br> (v2.0.3)| [download][14] | Compatible with `MoPub SDK 5.13.0` ↑ <br> Compatible with Vpon SDK 5.1.1 ↑|
 | Smatto | [download][12] | |
 
 
@@ -40,8 +41,9 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 
 
-[1]: http://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.0.5-20200427-2004270913-da3488b.a
-[2]: {{site.dnldurl}}/sdk/VpadnSDKiOS-5.0.5.zip
+[1]: https://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.1.1-20200702-2007031009-11bf917.a
+[2]: https://m.vpon.com/sdk/VponSDK-iOS/VpadnSDKiOS-5.1.1.zip
+http://m.vpon.com/sdk/VponSDK-iOS/
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter
@@ -54,3 +56,4 @@ Fundamental SDK<br>| Framework SDK <br>|
 [11]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/MoPubExample
 [12]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/SOMAVpadnPlugin
 [13]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/SmaatoSample/
+[14]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/MoPubExample/

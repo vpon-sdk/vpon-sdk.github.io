@@ -160,6 +160,35 @@ dependencies {
 }
 ```
 
+# SDK Initialization {#initial-sdk}
+---
+
+In order to enhance SDK performance, please follow the instruction below to initialize SDK
+
+```java
+// Initial SDK in Application
+public class CustomApplication extends Application {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        VponMobileAds.initialize(getBaseContext());
+    }
+}
+
+// Initial SDK in MainActivity
+public class MainActivity extends AppCompatActivity {
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        VponMobileAds.initialize(this);
+    }
+}
+```
+
+
 # Proguard Configuration
 ---
 If you are using Vpon Android SDK v5.0.2 or below version SDK in your app, please add the setting below in your Proguard Config:

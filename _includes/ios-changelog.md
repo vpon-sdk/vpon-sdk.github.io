@@ -1,5 +1,12 @@
 # Vpon iOS SDK Change Log
 
+## 5.1.1
+* Release Date: 8 Jul. 2020
+* Build Number: 
+* Upgrade OM SDK from v1.2.8 to v1.3.4
+* Totally replace UIWebView with WKWebView
+* Added contentUrl and contentData for data transmission (compatible with AdMob / MoPub)
+
 ## 5.0.5
 * Release Date: 27 Apr. 2020
 * Build Number: 20200427

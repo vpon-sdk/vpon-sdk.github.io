@@ -76,6 +76,10 @@ lang:           "zh-cn"
 * 串接`原生广告`，请选择`自订事件中介服务`，并在 Class Name 的栏位填入 `com.vpadn.mediation.VpadnAdapter`，在 Parameter 的栏位填入 `Vpon License Key`
 7. 储存您的设定
 
+
+>**Note**: 使用 GAM Mediation 搭配 Vpon Adapter 串接原生广告时，adListener 的行为可能会与单独使用 GAM 不一致<br>
+可能会受到影响的 adListener: `onAdLeftApplication`、`onAdClosed`
+
 # Tips
 ---
 

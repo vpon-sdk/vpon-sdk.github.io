@@ -65,6 +65,10 @@ lang:           "zh-cn"
 <img src="{{site.imgurl}}/AdMob_022.png" alt="" class=""/>
 
 
+>**Note**: 使用 AdMob Mediation 搭配 Vpon Adapter 串接原生广告时，adListener 的行为可能会与单独使用 AdMob 不一致。<br>
+可能会受到影响的 adListener: `onAdLeftApplication`、`onAdClosed`
+
+
 # Tips
 ---
 

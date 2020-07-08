@@ -64,6 +64,32 @@ request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 ```
 
+
+# How To Send Content Data To Vpon
+---
+You can use `setContentUrl` and `setContentData` to send content information to Vpon via SDK.
+
+>**Note:** `setContentUrl` and `setContentData` only available in Vpon SDK v5.1.1 and above.
+
+
+### Objective-C
+
+```objc
+[request setContentUrl:@"https://www.vpon.com.tw/"];
+// Set content page url
+[request setContentData:@{@"key1": @(1), @"key2": @(YES), @"key3": @"name", @"key4": @(123.31)}];
+// Set content page data with an array of key-value
+```
+
+### Swift
+
+```swift
+request.setContentUrl("https://www.google.com.tw/")
+// Set content page url
+request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]) 
+// Set content page data with an array of key-value
+```
+
 <!-- >**Note:** Please refer to the reference below for the description of specific custom parameters -->
 
 <!-- 需要以下參數的 defination -->

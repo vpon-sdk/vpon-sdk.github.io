@@ -74,6 +74,9 @@ Please refer to the instruction below to finish the Yield Group setting:
 7. Save your change
 
 
+>**Note**: Please note that if you are using Vpon Adapter to integrate Native Ad via GAM Mediation, the behavior of adListener might be different if Vpon Native Ad shows. <br>
+Following adListener might be impacted: `onAdLeftApplication`, `onAdClosed`
+
 
 # Tips
 ---

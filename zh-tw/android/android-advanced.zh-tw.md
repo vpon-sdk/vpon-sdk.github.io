@@ -37,6 +37,27 @@ builder.tagForChildDirectedTreatment(-1);
 builder.addKeyword(String);
 builder.addKeywords(Set<String>);
 ```
+
+# 回傳內容資訊
+---
+您可以透過 `setContentUrl` 及 `setContentData` 將頁面內容資訊透過 SDK 發給 Vpon
+
+>**Note:** 此功能適用於 `Vpon SDK v5.1.1` 及以上版本
+
+```java
+VponAdRequest.Builder builder = new VponAdRequest.Builder();
+
+HashMap<String, Object> contentData = new HashMap<>();
+contentData.put("key1", "Vpon");
+contentData.put("key2", 1.2);
+contentData.put("key3", true);
+
+builder.setContentData(contentData);
+builder.setContentUrl("https://www.vpon.com/zh-hant/");
+```
+
+
+
 <!-- 
 >**Note:** 關於自定義參數值的參考值，請參考以下說明
 

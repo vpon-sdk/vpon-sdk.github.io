@@ -64,6 +64,33 @@ request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 ```
 
+# 回傳內容資訊
+---
+您可以透過 `setContentUrl` 及 `setContentData` 將頁面內容資訊透過 SDK 發給 Vpon
+
+>**Note:** 此功能適用於 `Vpon SDK v5.1.1` 及以上版本
+
+
+### Objective-C
+
+```objc
+[request setContentUrl:@"https://www.vpon.com.tw/"];
+// Set content page url
+[request setContentData:@{@"key1": @(1), @"key2": @(YES), @"key3": @"name", @"key4": @(123.31)}];
+// Set content page data with an array of key-value
+```
+
+### Swift
+
+```swift
+request.setContentUrl("https://www.google.com.tw/")
+// Set content page url
+request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]) 
+// Set content page data with an array of key-value
+```
+
+
+
 <!-- >**Note:** 關於自定義參數值的參考值，請參考以下說明 -->
 
 <!-- 需要以下參數的 defination -->

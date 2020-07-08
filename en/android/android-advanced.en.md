@@ -38,6 +38,26 @@ builder.tagForChildDirectedTreatment(-1);
 builder.addKeyword(String);
 builder.addKeywords(Set<String>);
 ```
+
+# How To Send Content Data To Vpon
+---
+You can use `setContentUrl` and `setContentData` to send content information to Vpon via SDK.
+
+>**Note:** `setContentUrl` and `setContentData` only available in Vpon SDK v5.1.1 and above.
+
+
+```java
+VponAdRequest.Builder builder = new VponAdRequest.Builder();
+
+HashMap<String, Object> contentData = new HashMap<>();
+contentData.put("key1", "Vpon");
+contentData.put("key2", 1.2);
+contentData.put("key3", true);
+
+builder.setContentData(contentData);
+builder.setContentUrl("https://www.vpon.com/zh-hant/");
+```
+
 <!-- 
 >**Note:** Please refer to the reference below for the description of specific custom parameters
 
