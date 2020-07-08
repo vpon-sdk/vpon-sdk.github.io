@@ -31,8 +31,8 @@ Fundamental SDK   | AdMob        | Google Ad Manager         | MoPub       | Sma
 [4]: https://github.com/vpon-sdk/Vpon-android-examples
 
 [6]: https://github.com/vpon-sdk/Vpon-android-examples
-[7]: https://github.com/vpon-sdk/Vpon-android-examples
-[8]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/MoPubExample
-[9]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/SmaatoCustomEvents
+[7]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admobexample
+[8]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.0.0
+[9]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.1.0
 [10]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/SmaatoExample
-[11]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Mediation/MoPubExample
+[11]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/mopubexample
