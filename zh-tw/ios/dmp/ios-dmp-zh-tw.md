@@ -50,18 +50,8 @@ Deployment target 10.0 以上
 
 
 ### 回傳資料
-Vpon DMP SDK 提供兩種回傳資料的方法：
+Vpon DMP SDK 提供以下回傳資料的方法：
 
-#### sendLaunchEvent()
-在使用者開啟 App 時，回報開啟的事件。建議將此方法建立在 AppDelegate 中的 didFinishLaunchingWithOptions，請參考以下範例：
-
-```objc
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    [[VpadnAnalytics sharedInstance] setLicenseKey:@""];
-    [[VpadnAnalytics sharedInstance].defaultTracker sendLaunchEvent:@"customID"];
-    return YES;
-}
-```
 
 #### send()
 根據使用者行為觸發回傳資料的事件，適用於常用的事件傳送。請參考以下範例，分為有 payload 和無 payload 的呼叫方式：
@@ -69,31 +59,23 @@ Vpon DMP SDK 提供兩種回傳資料的方法：
 * 無 payload：
 
 ```objc
-[[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventType: Event_Custom customID:nil extraData:nil]build]];
+[[VpadnAnalytics sharedInstance].defaultTracker send:[VpadnDictionaryBuilder createEventWithEventName:@"custom" customID:customID extraData:nil] build]];
 ```
 
 * 有 payload：
 
 ```objc
 NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity:1];
-    [dicExtraData setObject:@"just for test" forKey:@"testInfo"];
-    NSDictionary* dicJSONData = [[NSDictionary alloc]initWithObjectsAndKeys:@"VponInc", @"facebook", @"testValue", @"custom",nil];
-    [dicExtraData setObject:dicJSONData forKey:@"member_id"];
-    [[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventType:Event_Login customID:@"testKey" extraData:dicExtraData]build]];
-    dicJSONData = nil;
-    dicExtraData = nil;
+[dicExtraData setObject:@"just for test" forKey:@"testInfo"];
+
+NSDictionary* dicJSONData = [[NSDictionary alloc]initWithObjectsAndKeys:@"VponInc", @"facebook", @"testValue", @"custom",nil];
+ [dicExtraData setObject:dicJSONData forKey:@"member_id"];
+
+[[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventName:@"login" customID:customID extraData:dicExtraData] build]];
+
+dicJSONData = nil;
+dicExtraData = nil;
 ```
-
-* 如有特殊的 event 則可以使用下列方式呼叫，此方式適用於所有事件的傳送：
-
-```objc
-[[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventName:@"testEvent" customID:nil extraData:nil]build]];
-```
-
-> **Note：**
->
-> 1. 請參考 VpadnDictionaryBuilder 內的 EventType 來實作 createEventWithName 中的參數
-> 2. 如果需要在 console log 內印出 debug log，請在環境變數的地方新增一個環境變數，key 為 SHOW_VPON_LOG 值為 "1"
 
 
 # Sample Code
