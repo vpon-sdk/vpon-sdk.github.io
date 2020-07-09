@@ -2,7 +2,7 @@
 
 ## 5.1.1
 * Release Date: 8 Jul. 2020
-* Build Number: 
+* Build Number: 90700202
 * Upgrade OM SDK from v1.2.8 to v1.3.4
 * Adjust the behavior of adListener to align with AdMob
 * Added contentUrl and contentData for data transmission (compatible with AdMob / MoPub)
