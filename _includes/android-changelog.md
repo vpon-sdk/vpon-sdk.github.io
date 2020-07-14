@@ -1,8 +1,8 @@
 # Vpon Android SDK Change Log
 
-<!-- ## 5.1.1
-* Release Date: 8 Jul. 2020
-* Build Number: 90700202
+## 5.1.1
+* Release Date: 14 Jul. 2020
+* Build Number: 41700202
 * Upgrade OM SDK from v1.2.8 to v1.3.4
 * Adjust the behavior of adListener to align with AdMob
 * Added contentUrl and contentData for data transmission (compatible with AdMob / MoPub)
@@ -10,7 +10,7 @@
 * Fix OM impression send unsuccessfully when onImpression was triggered before onPageFinish
 * Fix impression of Native Ad might be sent unsuccessfully if setAdView was called after onReceived
 * Add a method of [SDK initialization] to enhace the performance
-* Bug fixed -->
+* Bug fixed
 
 
 

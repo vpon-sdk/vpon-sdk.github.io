@@ -13,9 +13,12 @@ Before you start to integrate Vpon SDK, please make sure you already have your o
 
 Once you have your own Publisher Account, follow the instruction below to integrate Vpon Android SDK:
 
-1. Import SDK to your project.
-2. Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml
-3. Add required Permission to your AndroidManifest.xml
+1. Import SDK to your project
+2. Import required 3rd-party Library
+3. Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml
+4. Add required Permission to your AndroidManifest.xml
+5. Initialize SDK in your Application or MainActivity
+
 
 # Import SDK to your project
 ---
@@ -89,6 +92,27 @@ dependencies {
 Please check the build.gradle to see if the .jar / .aar file show in the dependencies as the picture below:
 ![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
+
+# 3rd-party Library
+---
+Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follow the steps below to import Retrofit:
+
+1. Import Retrofit manually: [Download Retrofit here] and import the .jar file to your project.
+2. Import Retrofit with Maven: Please add the snippet below to your build.gradle in App-level to import Retrofit. 
+
+```xml
+dependencies {
+    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    <!-- Import required Google Play Service -->
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+}
+```
+
+
 # VpadnActivity
 ---
 Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
@@ -110,22 +134,6 @@ android:hardwareAccelerated="true"/>
 > **Note**: **EVERY** attribute is required!
 
 
-# Permission
----
-Add permissions below to your AndroidManifest.xml.
-
-```xml
-<!-- Required Permissions -->
-<uses-permission android:name="android.permission.INTERNET"/>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
-<!-- Optional Permissions. Use for optimize ad performance -->
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-```
-
 Since we started to support Video ads from Vpon SDK 4, we recommend that you can add the scripts below to your Activity which contain ads to accelerate hardward performance.
 
 ```xml
@@ -141,23 +149,21 @@ Since we started to support Video ads from Vpon SDK 4, we recommend that you can
 </activity>
 ```
 
-# 3rd-party Library
----
-Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follow the steps below to import Retrofit:
 
-1. Import Retrofit manually: [Download Retrofit here] and import the .jar file to your project.
-2. Import Retrofit with Maven: Please add the snippet below to your build.gradle in App-level to import Retrofit. 
+# Permission
+---
+Add permissions below to your AndroidManifest.xml.
 
 ```xml
-dependencies {
-    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+<!-- Required Permissions -->
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-    <!-- Import required Google Play Service -->
-    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-}
+<!-- Optional Permissions. Use for optimize ad performance -->
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 ```
 
 # SDK Initialization {#initial-sdk}

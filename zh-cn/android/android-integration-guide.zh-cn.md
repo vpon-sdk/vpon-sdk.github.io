@@ -15,8 +15,10 @@ lang:           "zh-cn"
 取得 Vpon 开发商帐号后，请参考以下说明完成 Vpon Android SDK 的串接：
 
 1. 导入 SDK 到您的专案中
-2. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VponActivity
-3. 在 AndroidManifest.xml 中设定必要的 Permission
+2. 加入所需的 3rd-party Library
+3. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VponActivity
+4. 在 AndroidManifest.xml 中设定必要的 Permission
+5. 在 Application 或 MainActivity 初始化 SDK
 
 # 导入 SDK
 ----------
@@ -84,6 +86,27 @@ dependencies {
 如下图所示，如果 jar / aar 档被读到了，将显示在 dependencies 中
 ![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
+
+# 3rd-party Library
+---
+从 `4.8.0` 版开始，Vpon SDK 引入第三方的 Library － Retrofit，请参考以下方法导入 Retrofit：
+
+1. 手动下载导入：[由此直接下载] Retrofit 的 jar 档并导入专案中
+2. 透过 Maven 导入：在 App 层级下的 build.gradle 的 dependencies 中加入以下内容导入 Retrofit:
+
+```xml
+dependencies {
+    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    <!-- Import required Google Play Service -->
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+}
+```
+
+
 # 宣告 VpadnActivity
 ---
 请在您的 AndroidManifest.xml 加入以下内容：
@@ -104,6 +127,24 @@ android:hardwareAccelerated="true"/>
 
 > **Note**： 上面**每一个**属性都不能少,其值都需要相同！
 
+
+此外，由于 Vpon SDK 4 开始支援影音形式的广告，建议您在放广告的 Activity 中加入硬体加速，请参考如下：
+
+
+```xml
+<activity
+  android:name="com.vpadn.example.MainActivity"
+  android:label="@string/app_name"
+  android:configChanges="keyboardHidden|orientation"
+  android:hardwareAccelerated="true">
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN"/>
+    <category android:name="android.intent.category.LAUNCHER"/>
+  </intent-filter>
+</activity>
+```
+
+
 <br>
 
 # 加入 Permission
@@ -122,40 +163,7 @@ android:hardwareAccelerated="true"/>
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 ```
 
-此外，由于 Vpon SDK 4 开始支援影音形式的广告，建议您在放广告的 Activity 中加入硬体加速，请参考如下：
 
-
-```xml
-<activity
-  android:name="com.vpadn.example.MainActivity"
-  android:label="@string/app_name"
-  android:configChanges="keyboardHidden|orientation"
-  android:hardwareAccelerated="true">
-  <intent-filter>
-    <action android:name="android.intent.action.MAIN"/>
-    <category android:name="android.intent.category.LAUNCHER"/>
-  </intent-filter>
-</activity>
-```
-
-# 3rd-party Library
----
-从 `4.8.0` 版开始，Vpon SDK 引入第三方的 Library － Retrofit，请参考以下方法导入 Retrofit：
-
-1. 手动下载导入：[由此直接下载] Retrofit 的 jar 档并导入专案中
-2. 透过 Maven 导入：在 App 层级下的 build.gradle 的 dependencies 中加入以下内容导入 Retrofit:
-
-```xml
-dependencies {
-    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
-    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-
-    <!-- Import required Google Play Service -->
-    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-}
-```
 
 # 初始化 SDK {#initial-sdk}
 ---
