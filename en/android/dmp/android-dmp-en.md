@@ -96,10 +96,7 @@ public class MainActivity extends Activity {
 
 
 ### Send Message
-Vpon DMP SDK provide two method to send messages as below:
-
-#### tracker.sendLaunchEvent()
-tracker.sendLaunchEvent() can be used when user launch the App. We recommend that you can add this method in the launch page of your application.
+Vpon DMP SDK provide below method to send messages as below:
 
 #### tracker.sendEvent()
 tracker.sendEvent() can be used when a specific event be triggered. Please refer to the sample code below to send a message when onClick() event be triggered:

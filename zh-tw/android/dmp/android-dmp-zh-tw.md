@@ -93,10 +93,8 @@ public class MainActivity extends Activity {
 
 
 ### 回傳資料
-Vpon DMP SDK 提供兩種回傳資料的方法：
+Vpon DMP SDK 提供以下回傳資料的方法：
 
-#### tracker.sendLaunchEvent()
-在使用者開啟 App 時，回報開啟的事件。請將此方法建立在 App 的起始頁面。
 
 #### tracker.sendEvent()
 根據使用者行為觸發回傳資料的事件，請參考以下範例，建立物件儲存商品名稱 ("name", 您要回傳的參數) 等資料，在 onClick() 事件後觸發：
