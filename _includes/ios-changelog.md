@@ -1,9 +1,9 @@
 # Vpon iOS SDK Change Log
 
 ## 5.1.2
-* Release Date: 21 Jul. 2020
-* Build Number: 20200721
-* Fix the issue that audio will be interrupted if the ad display
+* Release Date: 22 Jul. 2020
+* Build Number: 20200722
+* Fix the issue that audio will be interrupted if ad display
 * Fix the issue that 3rd-party tracking of Native Ad might be sent unsuccessfully
 
 ## 5.1.1
