@@ -196,6 +196,15 @@ vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loa
 # Tips
 ---
 
+### Make Sure If The Ad Display Successfully
+
+Please help to check if below log printed after the ad display and match the viewability standard:
+
+```
+<VPON> [NOTE] Send impression successfully
+```
+
+
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 

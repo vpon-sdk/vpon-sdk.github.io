@@ -276,7 +276,20 @@ RatingScale  | 5
 Rating Min/Max| 1/5
 :-----------:|:-----------:|
 
-# 下载范例
+
+
+# Tips
+---
+
+### 确认广告曝光是否成功发送
+当广告露出在页面上并达到曝光标准后，会印出以下的 Log 代表有送出广告曝光：
+
+```
+<VPON> [NOTE] Send impression successfully
+```
+
+
+### 下载范例
 --------
 本页以基本的 Native Ad 为例进行说明， [Sample Code] 中另有 Table View 的范例以供参考。<br>
 

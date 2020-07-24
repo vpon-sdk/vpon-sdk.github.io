@@ -345,6 +345,16 @@ Rating Min/Max| 1/5, might be null
 # Tips
 ---
 
+
+### Make Sure If The Ad Display Successfully
+
+Please help to check if below log printed after the ad display and match the viewability standard:
+
+```
+I/VPON: [::Impression::]  response.code : 200
+```
+
+
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 

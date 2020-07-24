@@ -282,6 +282,14 @@ Rating Min/Max| 1/5，可能為空值
 # Tips
 ---
 
+### 確認廣告曝光是否成功發送
+當廣告露出在頁面上並達到曝光標準後，會印出以下的 Log 代表有送出廣告曝光：
+
+```
+<VPON> [NOTE] Send impression successfully
+```
+
+
 ### Sample Code
 本頁以基本的 Native Ad 為例進行說明，如果您想看到完整的串接實例或 `Table View` 的範例，請參考我們的 [Sample Code]
 

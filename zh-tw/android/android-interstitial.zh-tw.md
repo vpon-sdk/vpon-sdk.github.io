@@ -166,6 +166,15 @@ protected void onDestroy() {
 * <span style="line-height:2em"> **請避免在發出廣告請求前，就要求顯示廣告** <br> </span>
 * <span style="line-height:2em"> **請務必參考[串接說明]，在 AndroidManifest.xml 中加入 VponAdActivity**</span>
 
+
+### 確認廣告曝光是否成功發送
+當廣告露出在頁面上並達到曝光標準後，會印出以下的 Log 代表有送出廣告曝光：
+
+```
+I/VPON: [::Impression::]  response.code : 200
+```
+
+
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 

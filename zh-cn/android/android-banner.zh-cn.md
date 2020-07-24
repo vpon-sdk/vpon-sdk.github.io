@@ -183,6 +183,14 @@ device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
 # Tips
 ---
 
+### 确认广告曝光是否成功发送
+当广告露出在页面上并达到曝光标准后，会印出以下的 Log 代表有送出广告曝光：
+
+```
+I/VPON: [::Impression::]  response.code : 200
+```
+
+
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
