@@ -27,6 +27,7 @@ Deployment target 10.0 以上
 * `CoreLocation.framework`
 * `SystemConfiguration.framework`
 * `CoreTelephony.framework`
+* `WebKit.framework`
 
 # 開始串接 Vpon DMP SDK
 ---
