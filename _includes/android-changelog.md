@@ -1,5 +1,13 @@
 # Vpon Android SDK Change Log
 
+## 5.1.3
+* Release Date: 12 Aug. 2020
+* Build Number: 21800202
+* Add a new Banner Ad size 320x480 (Not available for mediation case)
+* Support video content in 320x480 and 300x250 Banner Ad
+* Fix the creative of Banner Ad might be displayed unsuccessfully after auto refresh 
+
+
 ## 5.1.1
 * Release Date: 14 Jul. 2020
 * Build Number: 41700202

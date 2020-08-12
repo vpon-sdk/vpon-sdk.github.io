@@ -171,6 +171,7 @@ protected void onDestroy() {
 :------------------------: | :-------------:| :-----------------------------:
 320x50                     | 标准横幅广告     | VponAdSize.BANNER
 300x250                    | IAB 中矩形广告     | VponAdSize.IAB\_MRECT
+320x480                    | 大型横幅广告 | VponAdSize.LARGE\_RECTANGLE
 468x60                     | IAB 全横幅广告   | VponAdSize.IAB\_BANNER
 728x90                     | IAB 超级横幅广告 |  VponAdSize.IAB\_LEADERBOARD
 device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER

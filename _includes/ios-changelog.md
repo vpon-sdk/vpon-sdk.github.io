@@ -1,5 +1,11 @@
 # Vpon iOS SDK Change Log
 
+## 5.1.3
+* Release Date: 12 Aug. 2020
+* Build Number: 20200811
+* Add a new Banner Ad size 320x480 (Not available for mediation case)
+* Support video content in 320x480 and 300x250 Banner Ad
+
 ## 5.1.2
 * Release Date: 22 Jul. 2020
 * Build Number: 20200722
