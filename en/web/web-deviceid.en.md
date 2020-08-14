@@ -52,7 +52,7 @@ Take Banner Ad as an example, please refer to the sample code below and create a
 >* For Google Ad Manager Marco, please refer to: [Google Ad Manager Macro]
 
 
-## Relative Interface Spec
+## Related Interface Spec
 ---
 
 | Name          | Description              | Required    | Example                      |
