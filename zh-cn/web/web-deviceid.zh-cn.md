@@ -50,7 +50,7 @@ Vpon Web SDK 提供介面可以让您将行动装置广告 ID 回传给 Vpon Ad 
 ```
 
 >**Notes:**
->* 请将 License Key 置换为您自己申请的 License Key
+>* 请将 License Key 置换为您在 Vpon 后台对应的版位 ID
 >* 广告素材请勿勾选`放送至 SafeFrame`
 >* 针对范例中所使用的 Google Ad Manager Macro 说明，请参考： [Google Ad Manager 巨集]
 

@@ -50,7 +50,7 @@ Vpon Web SDK 提供介面可以讓您將行動裝置廣告 ID 回傳給 Vpon Ad 
 ```
 
 >**Notes:** 
->* 請將 License Key 置換為您自己申請的 License Key
+>* 請將 License Key 置換為您在 Vpon 後台對應的版位 ID
 >* 廣告素材請勿勾選`放送至 SafeFrame`
 >* 針對範例中所使用的 Google Ad Manager Macro 說明，請參考：[Google Ad Manager 巨集]
 

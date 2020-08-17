@@ -47,7 +47,7 @@ Take Banner Ad as an example, please refer to the sample code below and create a
 ```
 
 >**Note:**
->* Please replace the License Key with your own one
+>* Please replace the Banner ID with your own one
 >* Please disable `Serve as SafeFrame` for this creative
 >* For Google Ad Manager Marco, please refer to: [Google Ad Manager Macro]
 
