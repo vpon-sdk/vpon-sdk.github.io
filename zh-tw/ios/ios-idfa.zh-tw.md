@@ -9,7 +9,7 @@ lang: "zh-tw"
 ---
 # 概覽
 ---
-根據 [App Store 對於自 iOS 14 起隱私及數據使用政策的說明]，自 iOS 14 起，將會限制 App 取得 IDFA 的方式，App 必須透過呼叫 [App Tracking Transparency framework]，向用戶發出允許 App Tracking 授權的請求。本文將說明如何在 App 中實作 ATT framework 以取得 IDFA。
+根據 [App Store 對於自 iOS 14 起隱私及數據使用政策的說明]，自 iOS 14 起，將會限制 App 取得 IDFA 的方式，App 必須透過呼叫 [App Tracking Transparency framework]，向用戶發出允許 App Tracking 授權的請求。本文將說明如何在 App 中實作 ATT framework 以取得用戶授權。
 
 >**Note:** 如果沒有實作 ATT framework，將會完全無法取得 IDFA，間接影響您的廣告收益
 
@@ -41,7 +41,7 @@ if (@available(iOS 14, *)) {
 ```
 
 
-### Switft
+### Swift
 
 ```swift
 if #available(iOS 14, *) {
@@ -51,7 +51,6 @@ if #available(iOS 14, *) {
             // Fallback on earlier versions
 }
 ```
-
 
 >**Note:** 為了避免影響廣告收益，我們建議您在初次發出廣告請求前，先向用戶取得允許 App Tracking 的授權
 

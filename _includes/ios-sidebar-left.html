@@ -3,8 +3,9 @@
 {% case langs %}
 {% when "en" %}
   {% assign urlGettingStarted = v | append:"/ios" %}
-  {% assign urlIntegrationGuide = v | append:"/ios/integration-guide" %}
   {% assign urlRegistration = v | append:"/ios/registration" %}
+  {% assign urlIntegrationGuide = v | append:"/ios/integration-guide" %}
+  {% assign urlIDFA = v | append:"/ios/idfa" %}
   {% assign urlBanner = v | append:"/ios/banner" %}
   {% assign urlInterstitial = v | append:"/ios/interstitial" %}
   {% assign urlNative = v | append:"/ios/native" %}
@@ -19,6 +20,7 @@
   {% assign getting-started = "Getting Started" %}
   {% assign registration = "Registration" %}
   {% assign integration-guide = "Integration Guide" %}
+  {% assign idfa = "Get IDFA in iOS 14+" %}
   {% assign sidebar-title2 = "Ad Type Choices" %}
   {% assign banner-id = "Banner Ad" %}
   {% assign interstitial-id = "Interstitial Ad" %}
@@ -33,8 +35,9 @@
   {% assign faq = "FAQ" %}
 {% else %}
   {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/ios" %}
-  {% assign urlIntegrationGuide = v | append:"/" | append: langs | append: "/ios/integration-guide" %}
   {% assign urlRegistration = v | append:"/" | append: langs | append: "/ios/registration" %}
+  {% assign urlIntegrationGuide = v | append:"/" | append: langs | append: "/ios/integration-guide" %}
+  {% assign urlIDFA = v | append:"/" | append: langs | append: "/ios/idfa" %}
   {% assign urlBanner = v | append:"/" | append: langs | append: "/ios/banner" %}
   {% assign urlInterstitial = v | append:"/" | append: langs | append: "/ios/interstitial" %}
   {% assign urlNative = v | append:"/" | append: langs | append: "/ios/native" %}
@@ -52,6 +55,7 @@
   {% assign getting-started = "開始使用" %}
   {% assign registration = "註冊帳號" %}
   {% assign integration-guide = "串接說明" %}
+  {% assign idfa = "取得 IDFA" %}
   {% assign sidebar-title2 = "廣告型態選擇" %}
   {% assign banner-id = "橫幅廣告" %}
   {% assign interstitial-id = "插頁廣告" %}
@@ -69,6 +73,7 @@
   {% assign getting-started = "开始使用" %}
   {% assign registration = "注册帐号" %}
   {% assign integration-guide = "串接说明" %}
+  {% assign idfa = "取得 IDFA" %}
   {% assign sidebar-title2 = "广告型态选择" %}
   {% assign banner-id = "横幅广告" %}
   {% assign interstitial-id = "插页广告" %}
@@ -104,6 +109,7 @@
   <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
   <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
   <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
+  <li><a id= "idfa" href="{{urlIDFA}}">{{idfa}}</a></li>
   <span id= "sidebar-title2">{{sidebar-title2}}</span>
   <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
   <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
@@ -124,6 +130,7 @@
       <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
       <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
       <li><a id= "integration-guide" href="{{urlIntegrationGuide}}">{{integration-guide}}</a></li>
+      <li><a id= "idfa" href="{{urlIDFA}}">{{idfa}}</a></li>
   </div>
   <div class="nav nav-sidebar">
       <span id="sidebar-title2">{{sidebar-title2}}</span>
