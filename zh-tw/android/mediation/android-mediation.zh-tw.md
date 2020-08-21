@@ -79,7 +79,7 @@ adLoader.loadAd(builder.build());
 
 * `Vpon SDK v5.1.1` 及以上版本
 * `MoPub SDK v5.13.0` 及以上版本
-* `Vpon MoPub Adapter v2.0.1` 及以上版本
+* `Vpon MoPub Adapter v1.1.0` 及以上版本
 
 ```java
 Map<String, Object> contentData = new HashMap<>();

@@ -79,7 +79,7 @@ Please check your SDK and Adapter version first if you are using Mopub, the SDK 
 
 * `Vpon SDK v5.1.1` and above
 * `MoPub SDK v5.13.0` and above
-* `Vpon MoPub Adapter v2.0.1` and above
+* `Vpon MoPub Adapter v1.1.0` and above
 
 ```java
 Map<String, Object> contentData = new HashMap<>();
