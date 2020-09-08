@@ -151,4 +151,4 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 ---
 For DMP SDK change Log, please refer to [DMP SDK Change Log]({{ site.baseurl }}/android/dmp/changelog)
 
-[1]: {{site.dnldurl}}/vpon-analytics-sdk-obf32-80900202-2009081517-9d51286.aar
+[1]: {{site.dnldurl}}/vpon-analytics-sdk-obf132-80900202-2009081517-9d51286.aar
