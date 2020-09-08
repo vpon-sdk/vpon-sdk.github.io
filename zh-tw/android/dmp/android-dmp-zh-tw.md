@@ -142,7 +142,7 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.3.0|
+|DMP 1.3.2|
 |:-------:|
 |[Download][1]|
 
@@ -151,4 +151,4 @@ public void onClick(View v) {
 關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/android/dmp/changelog)
 
 
-[1]: {{site.dnldurl}}/vpon-analytics-obf1.3.0-release-20200707.aar
+[1]: {{site.dnldurl}}/vpon-analytics-sdk-obf32-80900202-2009081517-9d51286.aar

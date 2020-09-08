@@ -1,5 +1,11 @@
 # Vpon Android DMP SDK Change Log
 
+## 1.3.2
+
+* Release Date: 8 Sept. 2020
+* Add timezone to schema
+
+
 ## 1.3.0
 
 * Release Date: 7 Jul. 2020

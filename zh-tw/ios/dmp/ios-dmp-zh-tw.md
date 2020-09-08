@@ -86,7 +86,7 @@ dicExtraData = nil;
 # Download
 ---
 
-|DMP 1.3.0|
+|DMP 1.3.2|
 |:-------:|
 |[Download][1]|
 
@@ -95,4 +95,4 @@ dicExtraData = nil;
 關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/ios/dmp/changelog)
 
 
-[1]: {{site.dnldurl}}/vpadn-dmp-iOS-1.3.0-3f6d42d.tar.gz
+[1]: {{site.dnldurl}}/i-dmp-sdk-2009081437-20200909-84b3c15-v1.3.2.tar.gz
