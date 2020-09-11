@@ -25,7 +25,7 @@ Fundamental SDK   | AdMob        | Google Ad Manager         | MoPub       | Sma
 [download][6]       |[download][7]|[download][7]|[download][8]| [download][9]|
 
 
-[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf514-82800202-2008281712-793209b.aar
+[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf513-21800202-2008120943-748d88d.aar
 [2]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter
 [3]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.0.0
 [4]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.1.0
