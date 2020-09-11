@@ -1,6 +1,15 @@
 # Vpon Android SDK Change Log
 
-<!-- ## 5.1.4
+
+## 5.1.5
+* Release Date: 11 Sept. 2020
+* Build Number: 11900202
+* Add permission check to avoid potential crash in application target sdk-30
+* Enhance the stability of ad request
+* Bug fix
+
+
+<!-- ## 5.1.4 (Deprecated)
 * Release Date: 31 Aug. 2020
 * Build Number: 82800202
 * Add permission check to avoid potential crash in application target sdk-30
