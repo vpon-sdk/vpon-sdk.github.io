@@ -4,7 +4,7 @@ title:          "iOS - addFriendlyObstruction"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/addFriendlyObstruction/
+permalink:       ios/addfriendlyobstruction/
 lang:            "en"
 
 ---
