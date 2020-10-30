@@ -49,7 +49,6 @@
 ## 5.0.4
 * Release Date: 6 May. 2020
 * Build Number: 60500202
-* Support OM SDK v1.3.4
 * Support multiple verifications within OM framework
 * Adjust the behavior of adListener to align with AdMob
 * Added contentUrl and contentData for data transmission (Compatible with AdMob / MoPub)
