@@ -30,7 +30,6 @@ lang:            "zh-tw"
 當 adview 因為被其它 view(s) 覆蓋住而造成無法成功送出 Impression 時，您會看到類似以下的 Log 提示您覆蓋住廣告的 view(s)：
 
 ```
-
 W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
 {
 OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
@@ -41,7 +40,6 @@ OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageVie
 
 
 ```java
-
 import com.vpon.ads.*;
 
 public class MainActivity extends AppCompatActivity {
@@ -69,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
             mainLayout.addView(vponBanner);
   	}
 }
-
 ```
 
 設置完成後，請確認當廣告露出在頁面上並達到曝光標準後，有印出以下的 Log 代表廣告有成功曝光：
@@ -78,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 I/VPON: [::Impression::]  response.code : 200
 ```
 
-<!-- ## 透過 AdMob Mediation 的設定方式 {#admob}
+## 透過 AdMob Mediation 的設定方式 {#admob}
 ---
 
 * 本介面適用於 `Vpon SDK v5.1.7` 及以上版本
@@ -87,66 +84,56 @@ I/VPON: [::Impression::]  response.code : 200
 當 adview 因為被其它 view(s) 覆蓋住而造成無法成功送出 Impression 時，您會看到類似以下的 Log 提示您覆蓋住廣告的 view(s)：
 
 ```
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: OnScreen ratio (2.67%) is not reach.
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
+W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
+{
+OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
+}
 ```
 
-請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction。如果您請求的是橫幅廣告或插頁廣告：
+請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction：
 
-### Objective-c
+```java
+import com.vpon.ads.*;
 
-```objc
-GADRequest *request = [GADRequest request];
-GADExtras *extra = [[GADExtras alloc] init];
-extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[request registerAdNetworkExtras:extra];
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+public class MainActivity extends AppCompatActivity {
+        
+        private RelativeLayout mainLayout;
+
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
+
+            List<VponObstructView> vponObstructViews = new ArrayList<>();
+            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            VpadnAdapter.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
+            // !!! Must implement before load ad !!!
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // VponLicenseKey: insert Vpon License Key of this ad position
+
+            ...
+            mAdView = findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+            // Load AdMob Ad            
+  	}
+}
 ```
 
-### Swift
+>**Note:** 
+>* 請務必在向 AdMob 請求廣告前完成 Friendly Obstruction 的設置
+>* 請將 VponLicenseKey 換成該版位所使用的 VponLicenseKey (與 AdMob 中的設定一致)
 
-```swift
-let extra = GADExtras()
-extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
-request.register(extra)
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+
+設置完成後，請確認當廣告露出在頁面上並達到曝光標準後，有印出以下的 Log 代表廣告有成功曝光：
+
 ```
-
-如果您請求的是原生廣告，請先參考[透過 AdMob 串接 Vpon Native Ad] 完成自訂事件設定，再參考以下範例，完成實作：
-
-### Objective-c
-
-```objc
-GADRequest *request = [GADRequest request];
-GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
-extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[request registerAdNetworkExtras:extra];
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
-```
-
-### Swift
-
-```swift
-let extra = GADCustomEventExtras()
-extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
-request.register(extra)
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+I/VPON: [::Impression::]  response.code : 200
 ```
 
 
-## 透過 MoPub Mediation 的設定方式 {#mopub}
+<!-- ## 透過 MoPub Mediation 的設定方式 {#mopub}
 ---
 
 * 本介面適用於 `Vpon SDK v5.1.7` 及以上版本
@@ -156,9 +143,10 @@ request.register(extra)
 當 adview 因為被其它 view(s) 覆蓋住而造成無法成功送出 Impression 時，您會看到類似以下的 Log 提示您覆蓋住廣告的 view(s)：
 
 ```
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: OnScreen ratio (2.67%) is not reach.
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
-```
+W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
+{
+OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
+}
 
 請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction：
 
@@ -222,6 +210,12 @@ targeting?.localExtras = [
 // purpose: define the purpose of Friendly Obstruction
 ```
 
+設置完成後，請確認當廣告露出在頁面上並達到曝光標準後，有印出以下的 Log 代表廣告有成功曝光：
+
+```
+I/VPON: [::Impression::]  response.code : 200
+```
+
 
 
 ## Purpose of Friendly Obstruction
@@ -233,7 +227,8 @@ targeting?.localExtras = [
 | 0 | VpadnFriendlyObstructionMediaControls |
 | 1 | VpadnFriendlyObstructionCloseAd |
 | 2 | VpadnFriendlyObstructionNotVisible |
-| 3 | VpadnFriendlyObstructionOther | -->
+| 3 | VpadnFriendlyObstructionOther |  -->
+
 
 
 

@@ -30,8 +30,10 @@ Please select the instruction base on the way you integrate Vpon SDK to finish t
 When the ad can't send impression successfully after displayed since that the adview is cover by other view(s), you might see the log as below. This log will tell you the view(s) info which covered the adview.
 
 ```
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: OnScreen ratio (2.67%) is not reach.
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
+W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
+{
+OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
+}
 ```
 
 Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction when you create VpadnRequest.
@@ -76,7 +78,7 @@ I/VPON: [::Impression::]  response.code : 200
 ```
 
 
-<!-- ## Integrate Vpon SDK Via AdMob {#admob}
+## Integrate Vpon SDK Via AdMob {#admob}
 ---
 
 * Available in `Vpon SDK v5.1.7` and above
@@ -85,65 +87,56 @@ I/VPON: [::Impression::]  response.code : 200
 When the ad can't send impression successfully after displayed since that the adview is cover by other view(s), you might see the log as below. This log will tell you the view(s) info which covered the adview.
 
 ```
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: OnScreen ratio (2.67%) is not reach.
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
+W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
+{
+OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
+}
 ```
 
-Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction. If you are trying to request Banner Ad or Interstitial Ad:
+Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction.
 
-### Objective-c
 
-```objc
-GADRequest *request = [GADRequest request];
-GADExtras *extra = [[GADExtras alloc] init];
-extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[request registerAdNetworkExtras:extra];
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+```java
+import com.vpon.ads.*;
+
+public class MainActivity extends AppCompatActivity {
+        
+        private RelativeLayout mainLayout;
+
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
+
+            List<VponObstructView> vponObstructViews = new ArrayList<>();
+            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            VpadnAdapter.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
+            // !!! Must implement before load ad !!!
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // VponLicenseKey: insert Vpon License Key of this ad position
+
+            ...
+            mAdView = findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+            // Load AdMob Ad            
+  	}
+}
 ```
 
-### Swift
+>**Note:** 
+>* You `MUST` finish the implementation before loadAd()
+>* Please replace "VponLicenseKey" with the Vpon License Key you set on AdMob Mediation
 
-```swift
-let extra = GADExtras()
-extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
-request.register(extra)
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+
+Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
+
+```
+I/VPON: [::Impression::]  response.code : 200
 ```
 
-If you are trying to request Native ad, please refer to [Integrate Vpon Native Ad via AdMob] to finish the setting of custom event first and follow the instruction below to set the view as Friendly Obstruction.
-
-### Objective-c
-
-```objc
-GADRequest *request = [GADRequest request];
-GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
-extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[request registerAdNetworkExtras:extra];
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
-```
-
-### Swift
-
-```swift
-let extra = GADCustomEventExtras()
-extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
-request.register(extra)
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
-```
-
-
+<!-- 
 ## Integrate Vpon SDK Via MoPub {#mopub}
 ---
 
@@ -161,79 +154,13 @@ When the ad can't send impression successfully after displayed since that the ad
 
 Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction.
 
-### Objective-c
+Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
 
-```objc
-// For Banner Ads
-self.mpBannerView = [[MPAdView alloc] initWithAdUnitId:MOPUB_BANNER_ID];
-self.mpBannerView.delegate = self;
-self.mpBannerView.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[self.mpBannerView loadAd];
-
-// For Interstitial Ads
-self.mpInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:MOPUB_INTERSTITIAL_ID];
-self.mpInterstitial.delegate = self;
-self.mpInterstitial.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[self.mpInterstitial loadAd];
-
-// For Native Ads
-MPNativeAdRequestTargeting *targeting = [MPNativeAdRequestTargeting targeting];
-targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey, kAdTextKey, kAdCTATextKey, kAdIconImageKey, kAdMainImageKey, kAdStarRatingKey, nil];
-targeting.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-adRequest.targeting = targeting;
-
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
 ```
-
-### Swift
-
-```swift
-// For Banner Ads
-mpBannerView = MPAdView(adUnitId: "e036eb60cb694fe7b987f1af41a76eb9")
-mpBannerView.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-mpBannerView.delegate = self
-mpBannerView.loadAd()
-
-// For Interstitial Ads
-mpInterstitial = MPInterstitialAdController(forAdUnitId: "848bf4d03e7b4fdda02be232f8e6b4d1")
-mpInterstitial.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-mpInterstitial.delegate = self
-mpInterstitial.loadAd()
-
-// For Native Ads
-let targeting = MPNativeAdRequestTargeting()
-targeting?.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+I/VPON: [::Impression::]  response.code : 200
 ```
-
-
-
-## Purpose of Friendly Obstruction
----
-Please refer to the table below for the type of Friendly Obstruction:
-
-| Constant| Purpose |
-|:--------|:--------|
-| 0 | VpadnFriendlyObstructionMediaControls |
-| 1 | VpadnFriendlyObstructionCloseAd |
-| 2 | VpadnFriendlyObstructionNotVisible |
-| 3 | VpadnFriendlyObstructionOther |
  -->
+
 
 
 ---
