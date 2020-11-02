@@ -135,21 +135,90 @@ I/VPON: [::Impression::]  response.code : 200
 ```
 
 
-<!-- ## 透过 MoPub Mediation 的设定方式 {#mopub}
+## 透过 MoPub Mediation 的设定方式 {#mopub}
 ---
 
 * 本介面适用于 `Vpon SDK v5.1.7` 及以上版本
 * 本介面适用于 `MoPub SDK v5.13.0` 及以上版本
-* 本介面适用于 `Vpon MoPub Adapter v2.0.4` 及以上版本
+* 本介面适用于 `Vpon MoPub Adapter v1.2.0` 及以上版本
 
 当 adview 因为被其它 view(s) 覆盖住而造成无法成功送出 Impression 时，您会看到类似以下的 Log 提示您覆盖住广告的 view(s)：
 
+
 ```
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: OnScreen ratio (2.67%) is not reach.
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
+W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
+{
+OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
+}
 ```
 
-请先根据以上 Log，确认覆盖住广告的 view(s) 是否可以进行调整，如果确实无法修改，请确认该 view 在视觉上不会影响广告展示 (alpha = 0, Hidden)，再参考以下范例，将该 view 设为 Friendly Obstruction：
+请先根据以上 Log，确认覆盖住广告的 view(s) 是否可以进行调整，如果确实无法修改，请确认该 view 在视觉上不会影响广告展示 (alpha = 0, Hidden)，再参考以下范例，将该 view 设为 Friendly Obstruction。如果您是串接横幅广告，请参考以下范例：
+
+```java
+import com.vpon.ads.*;
+
+public class MainActivity extends AppCompatActivity {
+        
+        private RelativeLayout mainLayout;
+
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
+
+            List<VponObstructView> vponObstructViews = new ArrayList<>();
+            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            VponBannerCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
+            // !!! Must implement before load ad !!!
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // VponLicenseKey: insert Vpon License Key of this ad position
+
+            moPubView = (MoPubView) findViewById(R.id.adview);
+            ...
+            moPubView.loadAd();
+            // Load AdMob Ad            
+  	}
+}
+```
+
+如果您是串接原生广告，请参考以下范例：
+
+```java
+import com.vpon.ads.*;
+
+public class MainActivity extends AppCompatActivity {
+        
+        private RelativeLayout mainLayout;
+
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
+
+            moPubView = (MoPubView) findViewById(R.id.adview);
+            moPubView.setAdUnitId("xxxxxxxxxxx");
+            moPubView.setAdSize(MoPubAdSize);
+
+            List<VponObstructView> vponObstructViews = new ArrayList<>();
+            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            VponNativeCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
+            // !!! Must implement before load ad !!!
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // VponLicenseKey: insert Vpon License Key of this ad position
+
+            moPubView = (MoPubView) findViewById(R.id.adview);
+            ...
+            moPubView.loadAd();
+            // Load AdMob Ad            
+  	}
+}
+```
+
+>**Note:** 
+>* 请务必在向 AdMob 请求广告前完成 Friendly Obstruction 的设置
+>* 请将 VponLicenseKey 换成该版位所使用的 VponLicenseKey (与 MoPub 中的设定一致)
 
 设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下的 Log 代表广告有成功曝光：
 
@@ -157,7 +226,7 @@ I/VPON: [::Impression::]  response.code : 200
 I/VPON: [::Impression::]  response.code : 200
 ```
 
--->
+
 
 
 

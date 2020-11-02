@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 >**Note:** 
->* 請務必在向 AdMob 請求廣告前完成 Friendly Obstruction 的設置
+>* 請務必在請求廣告前完成 Friendly Obstruction 的設置
 >* 請將 VponLicenseKey 換成該版位所使用的 VponLicenseKey (與 AdMob 中的設定一致)
 
 
@@ -133,12 +133,12 @@ I/VPON: [::Impression::]  response.code : 200
 ```
 
 
-<!-- ## 透過 MoPub Mediation 的設定方式 {#mopub}
+## 透過 MoPub Mediation 的設定方式 {#mopub}
 ---
 
 * 本介面適用於 `Vpon SDK v5.1.7` 及以上版本
 * 本介面適用於 `MoPub SDK v5.13.0` 及以上版本
-* 本介面適用於 `Vpon MoPub Adapter v2.0.4` 及以上版本
+* 本介面適用於 `Vpon MoPub Adapter v1.2.0` 及以上版本
 
 當 adview 因為被其它 view(s) 覆蓋住而造成無法成功送出 Impression 時，您會看到類似以下的 Log 提示您覆蓋住廣告的 view(s)：
 
@@ -147,68 +147,76 @@ W/VPON: [::AbsExposureListener::]  <VPON> [ERROR] [AD VIEWABILITY] 8a80854b6a90b
 {
 OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
 }
-
-請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction：
-
-### Objective-c
-
-```objc
-// For Banner Ads
-self.mpBannerView = [[MPAdView alloc] initWithAdUnitId:MOPUB_BANNER_ID];
-self.mpBannerView.delegate = self;
-self.mpBannerView.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[self.mpBannerView loadAd];
-
-// For Interstitial Ads
-self.mpInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:MOPUB_INTERSTITIAL_ID];
-self.mpInterstitial.delegate = self;
-self.mpInterstitial.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[self.mpInterstitial loadAd];
-
-// For Native Ads
-MPNativeAdRequestTargeting *targeting = [MPNativeAdRequestTargeting targeting];
-targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey, kAdTextKey, kAdCTATextKey, kAdIconImageKey, kAdMainImageKey, kAdStarRatingKey, nil];
-targeting.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-adRequest.targeting = targeting;
-
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
 ```
 
-### Swift
+請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction。如果您是串接橫幅廣告，請參考以下範例：
 
-```swift
-// For Banner Ads
-mpBannerView = MPAdView(adUnitId: "e036eb60cb694fe7b987f1af41a76eb9")
-mpBannerView.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-mpBannerView.delegate = self
-mpBannerView.loadAd()
+```java
+import com.vpon.ads.*;
 
-// For Interstitial Ads
-mpInterstitial = MPInterstitialAdController(forAdUnitId: "848bf4d03e7b4fdda02be232f8e6b4d1")
-mpInterstitial.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-mpInterstitial.delegate = self
-mpInterstitial.loadAd()
+public class MainActivity extends AppCompatActivity {
+        
+        private RelativeLayout mainLayout;
 
-// For Native Ads
-let targeting = MPNativeAdRequestTargeting()
-targeting?.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
 
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
+            List<VponObstructView> vponObstructViews = new ArrayList<>();
+            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            VponBannerCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
+            // !!! Must implement before load ad !!!
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // VponLicenseKey: insert Vpon License Key of this ad position
+
+            moPubView = (MoPubView) findViewById(R.id.adview);
+            ...
+            moPubView.loadAd();
+            // Load AdMob Ad            
+  	}
+}
 ```
+
+如果您是串接原生廣告，請參考以下範例：
+
+```java
+import com.vpon.ads.*;
+
+public class MainActivity extends AppCompatActivity {
+        
+        private RelativeLayout mainLayout;
+
+        @Override
+  	    protected void onCreate(Bundle savedInstanceState) {
+            setContentView(R.layout.activity_main);
+            mainLayout = findViewById(R.id.main_layout);
+
+            moPubView = (MoPubView) findViewById(R.id.adview);
+            moPubView.setAdUnitId("xxxxxxxxxxx");
+            moPubView.setAdSize(MoPubAdSize);
+
+            List<VponObstructView> vponObstructViews = new ArrayList<>();
+            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
+            VponNativeCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
+            // !!! Must implement before load ad !!!
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // VponLicenseKey: insert Vpon License Key of this ad position
+
+            moPubView = (MoPubView) findViewById(R.id.adview);
+            ...
+            moPubView.loadAd();
+            // Load AdMob Ad            
+  	}
+}
+```
+
+>**Note:** 
+>* 請務必在請求廣告前完成 Friendly Obstruction 的設置
+>* 請將 VponLicenseKey 換成該版位所使用的 VponLicenseKey (與 MoPub 中的設定一致)
+
 
 設置完成後，請確認當廣告露出在頁面上並達到曝光標準後，有印出以下的 Log 代表廣告有成功曝光：
 
@@ -216,18 +224,6 @@ targeting?.localExtras = [
 I/VPON: [::Impression::]  response.code : 200
 ```
 
-
-
-## Purpose of Friendly Obstruction
----
-以下為可以選擇的 Friendly Obstruction 類型：
-
-| Constant| Purpose |
-|:--------|:--------|
-| 0 | VpadnFriendlyObstructionMediaControls |
-| 1 | VpadnFriendlyObstructionCloseAd |
-| 2 | VpadnFriendlyObstructionNotVisible |
-| 3 | VpadnFriendlyObstructionOther |  -->
 
 
 
