@@ -235,6 +235,6 @@ I/VPON: [::Impression::]  response.code : 200
 
 ---
 [Integrate Vpon SDK Directly]: {{ site.baseurl }}/android/addfriendlyobstruction/#vponsdk
-[Integrate Vpon Native Ad via AdMob]: {{ site.baseurl }}/android/addfriendlyobstruction/#admob
-[Integrate Vpon SDK Via AdMob]: {{ site.baseurl }}/android/mediation/admob/#customevent
+[Integrate Vpon Native Ad via AdMob]: {{ site.baseurl }}/android/mediation/admob/#customevent
+[Integrate Vpon SDK Via AdMob]: {{ site.baseurl }}/android/addfriendlyobstruction/#admob
 [Integrate Vpon SDK Via MoPub]: {{ site.baseurl }}/android/addfriendlyobstruction/#mopub
