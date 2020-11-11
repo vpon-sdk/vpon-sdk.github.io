@@ -157,12 +157,27 @@ public class MainActivity extends Activity implements VpadnAdListener {
 
 # Tips
 ---
-
 * <span style="line-height:2.5em">**我们不建议您在程式开啓时直接拉取插頁廣告并立即显示**<br></span>
 為了避免拖慢程式开啓时的执行速度，我们建议您可以先 loadAd()，但不立即显示廣告，等待特定事件(e.g. 使用者过关、停留在某个画面超过特定时间、按下某个 button 或离开 app 之前...)发生再呼叫 show() 显示廣告。
 
 * <span style="line-height:2em"> **请避免没有 loadAd() 就要求显示广告** <br> </span>
-請務必參考[串接說明]，在 AndroidManifest.xml 中加入 VpadnActivity。如果您沒有在 VpadnActivity 中加上 `android:configChanges=“orientation|screenSize”`，請避刷在 onCreate 時 loadAd() 並立即顯示插頁廣告。
+請務必參考[串接說明]，在 AndroidManifest.xml 中加入 VpadnActivity。如果您沒有在 VpadnActivity 中加上 `android:configChanges=“orientation|screenSize”`，請避免在 onCreate 時 loadAd() 並立即顯示插頁廣告。
+
+
+### 确认广告曝光是否成功发送
+请注意，Vpon SDK 不允许广告以以下方式呈现，致使广告在画面上可能不可见：
+
+* 将 AdView 设为 Invisible
+* 将 AdView 的 Alpha 值设为 < 100%
+* AdView 被其它 View(s) 遮盖住
+
+当广告露出在页面上并达到曝光标准后，会印出以下的 Log 代表有送出广告曝光：
+
+
+```
+I/VPON: [::Impression::]  response.code : 200
+```
+
 
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]

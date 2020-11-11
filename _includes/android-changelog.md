@@ -1,5 +1,14 @@
 # Vpon Android SDK Change Log
 
+## 5.1.7
+* Release Date: 11 Nov. 2020
+* Build Number: 01110202
+* Add addFriendlyObstruction interface base on OM Framework for Publisher to declare those overlay views which won't block the ad visibility as friendly obstruction
+* Support HTML type creatives in Native Ad MediaView
+* Support to resize the Banner Adview responsively to fit the ad container
+* Add log to describe the overlay views info when the ad viewable detection failed
+* Bug fix
+
 ## 5.1.6
 * Release Date: 15 Sept. 2020
 * Build Number: 51900202

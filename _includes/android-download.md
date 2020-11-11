@@ -9,25 +9,32 @@
 ## Adapter Download
 ---
 
-| Mediation Platform | Adapter | Note|
+| Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager | [download][2] | Compatible with Vpon SDK 5.1.1 ↑ <br> Compatible with GMA SDK 18.3 ↑ | 
-| MoPub <br> (v1.0.0)| [download][3] | Compatible with `MoPub SDK 5.12.0` ↓ <br> Compatible with Vpon SDK 5.1.1 ↑|
-| MoPub <br> (v1.1.0)| [download][4] | Compatible with `MoPub SDK 5.13.0` ↑ <br> Compatible with Vpon SDK 5.1.1 ↑|
-| Smatto | [download][5] | |
+| AdMob <br> Google Ad Manager <br> (v2.0.2) | [download][2] | Vpon SDK 5.1.7 ↑ <br> GMA SDK 18.3 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.0.1) | [download][2] | Vpon SDK 5.1.1 ↑ <br> GMA SDK 18.3 ↑ | 
+| MoPub <br> (v1.3.0)| [download][3] | Vpon SDK 5.1.7 ↑ <br> MoPub SDK 5.13.0 ↑ |
+| MoPub <br> (v1.1.0)| [download][4] | Vpon SDK 5.1.1 ↑ <br> MoPub SDK 5.13.0 ↑ |
+
+<!-- | Smatto | [download][5] | | -->
 
 
 ## Sample Code Download
 ---
 
-Fundamental SDK   | AdMob        | Google Ad Manager         | MoPub       | Smaato        |
-:------------------:| :-----------:|:-----------:|:-----------:| :------------:|
-[download][6]       |[download][7]|[download][7]|[download][8]| [download][9]|
+| Fundamental SDK    | AdMob         | Google Ad Manager | MoPub       |
+|:------------------:|:-------------:|:-----------------:|:------------:|
+| [download][6]      | [download][7] | [download][7]     | [download][8]| 
+
+<!-- 
+Smaato        |
+:-------------:|
+[download][9] | -->
 
 
-[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf516-51900202-2009151708-9051f91.aar
+[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf517-01110202-2011101607-b0c6a95.aar
 [2]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter
-[3]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.0.0
+[3]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.3.0
 [4]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.1.0
 [5]: https://github.com/vpon-sdk/Vpon-mobile-android-examples/tree/master/Adapter/SmaatoCustomEvents
 [6]: https://github.com/vpon-sdk/Vpon-android-examples

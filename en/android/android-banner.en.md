@@ -184,6 +184,13 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
 
 ### Make Sure If The Ad Display Successfully
 
+Please note that following settings which might cause the ad invisible on the screen are not allowed:
+
+* Set AdView as Invisible
+* Set the Alpha value of AdView < 100%
+* Overlays that cover the AdView
+
+
 Please help to check if below log printed after the ad display and match the viewability standard:
 
 ```

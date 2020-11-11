@@ -14,9 +14,76 @@ Please make sure you've added following files in your project:
 
 1. MoPub SDK
 2. Vpon SDK
-3. Vpon MoPub Custom Events
+3. Vpon MoPub Custom Event
 
->**Note:** For Vpon SDK and Vpon MoPub Custom Events, please [download here][13].
+>**Note:** For Vpon SDK and Vpon MoPub Custom Event, please [download here][13].
+
+
+# Native Ad Integration
+---
+Please follow the instruction below to integrate Vpon Native Ad via MoPub Mediation.
+
+This instruction is compatible with `Vpon MoPub Custom Event v1.3.0 and above version`.
+
+
+## Set Up Native Ad Layout
+---
+Please use `VponViewBinder` and `VponNativeAdRenderer` to set up Native Ad Layout.
+
+
+```java
+...
+moPubNative = new MoPubNative(this, MY_NATIVE_UNIT_ID, moPubNativeNetworkListener);
+VponViewBinder vponViewBinder = new VponViewBinder.Builder(R.layout.mopub_native_layout)
+        .mainImageId(R.id.native_main_image)
+        .iconImageId(R.id.native_icon_image)
+        .titleId(R.id.native_title)
+        .textId(R.id.native_text)
+        .callToActionId(R.id.native_cta)
+        .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+        .build();
+
+VponNativeAdRenderer vponNativeAdRenderer = new VponNativeAdRenderer(vponViewBinder);
+moPubNative.registerAdRenderer(vponNativeAdRenderer);
+moPubNative.makeRequest();
+...
+```
+
+>**Note:** If you are using `Vpon MoPub Custom Event v1.1.0 or below version`, please use `ViewBinder` and `MoPubStaticNativeAdRenderer` to set up Native Ad Layout.
+
+## Use VponMediaView To Display Ad Creatives
+---
+
+Replace ImageView with VponMediaView to display more diverse creatives.
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/native_outer_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:textDirection="locale">
+...
+
+    <com.vpon.ads.VponMediaView
+        android:id="@+id/native_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/native_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:contentDescription="native_main_image"
+        android:scaleType="fitCenter" />
+...
+```
+
 
 # MoPub Settings
 ---

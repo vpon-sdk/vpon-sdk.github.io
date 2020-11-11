@@ -185,7 +185,14 @@ device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
 ---
 
 ### 确认广告曝光是否成功发送
+请注意，Vpon SDK 不允许广告以以下方式呈现，致使广告在画面上可能不可见：
+
+* 将 AdView 设为 Invisible
+* 将 AdView 的 Alpha 值设为 < 100%
+* AdView 被其它 View(s) 遮盖住
+
 当广告露出在页面上并达到曝光标准后，会印出以下的 Log 代表有送出广告曝光：
+
 
 ```
 I/VPON: [::Impression::]  response.code : 200

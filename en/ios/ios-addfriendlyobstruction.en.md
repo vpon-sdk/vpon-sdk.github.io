@@ -236,6 +236,6 @@ Please refer to the table below for the type of Friendly Obstruction:
 
 ---
 [Integrate Vpon SDK Directly]: {{ site.baseurl }}/ios/addfriendlyobstruction/#vponsdk
-[Integrate Vpon Native Ad via AdMob]: {{ site.baseurl }}/ios/addfriendlyobstruction/#admob
-[Integrate Vpon SDK Via AdMob]: {{ site.baseurl }}/ios/mediation/admob/#customevent
+[Integrate Vpon Native Ad via AdMob]: {{ site.baseurl }}/ios/mediation/admob/#customevent
+[Integrate Vpon SDK Via AdMob]: {{ site.baseurl }}/ios/addfriendlyobstruction/#admob
 [Integrate Vpon SDK Via MoPub]: {{ site.baseurl }}/ios/addfriendlyobstruction/#mopub

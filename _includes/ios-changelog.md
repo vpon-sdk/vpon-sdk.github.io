@@ -1,5 +1,15 @@
 # Vpon iOS SDK Change Log
 
+## 5.1.7
+* Release Date: 11 Nov. 2020
+* Build Number: 20201111
+* Add addFriendlyObstruction interface base on OM Framework for Publisher to declare those overlay views which won't block the ad visibility as friendly obstruction
+* Support HTML type creatives in Native Ad MediaView
+* Support to resize the Banner Adview responsively to fit the ad container
+* Fix Video Banner can't be played automatically in specific scenario
+* Bug fix
+
+
 ## 5.1.3
 * Release Date: 12 Aug. 2020
 * Build Number: 20200811

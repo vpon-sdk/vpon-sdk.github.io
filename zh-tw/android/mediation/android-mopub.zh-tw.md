@@ -14,12 +14,77 @@ lang:           "zh-tw"
 
 1. MoPub SDK
 2. Vpon SDK
-3. Vpon MoPub Custom Events
+3. Vpon MoPub Custom Event
 
->**Note:** 您可以[由此下載][10] Vpon SDK 及 Vpon MoPub Custom Events。
+>**Note:** 您可以[由此下載][10] Vpon SDK 及 Vpon MoPub Custom Event。
 
 
-# MoPub 設定
+# 原生廣告串接設定
+---
+如果您選擇透過 MoPub 串接 Vpon 原生廣告，請務必按照以下範例實作以成功展示廣告。
+
+以下方式適用於 `Vpon MoPub Custom Event v1.3.0 及以上版本`
+
+## 設置原生廣告 Layout
+---
+請使用 `VponViewBinder` 及 `VponNativeAdRenderer` 建立原生廣告 Layout。
+
+```java
+...
+moPubNative = new MoPubNative(this, MY_NATIVE_UNIT_ID, moPubNativeNetworkListener);
+VponViewBinder vponViewBinder = new VponViewBinder.Builder(R.layout.mopub_native_layout)
+        .mainImageId(R.id.native_main_image)
+        .iconImageId(R.id.native_icon_image)
+        .titleId(R.id.native_title)
+        .textId(R.id.native_text)
+        .callToActionId(R.id.native_cta)
+        .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+        .build();
+
+VponNativeAdRenderer vponNativeAdRenderer = new VponNativeAdRenderer(vponViewBinder);
+moPubNative.registerAdRenderer(vponNativeAdRenderer);
+moPubNative.makeRequest();
+...
+```
+
+>**Note:** 如果您使用的 `Vpon MoPub Custom Event 版本為 v1.1.0 或以下版本`，則使用 MoPub 的 `ViewBinder` 及 `MoPubStaticNativeAdRenderer` Method 即可
+
+## 使用 VponMediaView 展示廣告素材
+---
+
+使用 VponMediaView 取代原本的 ImageView，以展示更多元化的廣告素材。
+
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/native_outer_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:textDirection="locale">
+...
+
+    <com.vpon.ads.VponMediaView
+        android:id="@+id/native_main_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/native_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:contentDescription="native_main_image"
+        android:scaleType="fitCenter" />
+...
+```
+
+
+
+# MoPub 後台設定
 ---
 Mopub 後台設定請參考下列步驟:
 

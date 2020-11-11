@@ -179,11 +179,16 @@ device width x auto height | Smart Banner   | VponAdSize.SMART\_BANNER
 >**Note:** Smart Banner 在不同解析度的手機上會產生不同的展示效果，如果您希望展示標準橫幅廣告，我們建議您直接使用 `VponAdSize.BANNER`
 
 
-
 # Tips
 ---
 
 ### 確認廣告曝光是否成功發送
+請注意，Vpon SDK 不允許廣告以以下方式呈現，致使廣告在畫面上可能不可見：
+
+* 將 AdView 設為 Invisible
+* 將 AdView 的 Alpha 值設為 < 100%
+* AdView 被其它 View(s) 遮蓋住
+
 當廣告露出在頁面上並達到曝光標準後，會印出以下的 Log 代表有送出廣告曝光：
 
 ```
