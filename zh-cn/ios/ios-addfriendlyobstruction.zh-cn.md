@@ -43,6 +43,7 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 [request addFriendlyObstruction:_obstructView purpose:VpadnFriendlyObstructionNotVisible description:@"not visible"];
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -52,6 +53,7 @@ let request = VpadnAdRequest.init()
 request.addFriendlyObstruction(_obstructView, purpose: .NotVisible, description: “not visible”)
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下 Log 代表广告有成功曝光：
@@ -87,6 +89,7 @@ extra.additionalParameters = @{
 [request registerAdNetworkExtras:extra];
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -114,6 +117,7 @@ extra.additionalParameters = @{
 [request registerAdNetworkExtras:extra];
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -126,6 +130,7 @@ extra.additionalParameters = [
 request.register(extra)
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下 Log 代表广告有成功曝光：
@@ -180,6 +185,7 @@ adRequest.targeting = targeting;
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -209,6 +215,7 @@ targeting?.localExtras = [
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下 Log 代表广告有成功曝光：

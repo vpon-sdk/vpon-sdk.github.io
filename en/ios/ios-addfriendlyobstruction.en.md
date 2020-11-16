@@ -44,6 +44,7 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 [request addFriendlyObstruction:_obstructView purpose:VpadnFriendlyObstructionNotVisible description:@"not visible"];
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -53,6 +54,7 @@ let request = VpadnAdRequest.init()
 request.addFriendlyObstruction(_obstructView, purpose: .NotVisible, description: “not visible”)
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
@@ -88,6 +90,7 @@ extra.additionalParameters = @{
 [request registerAdNetworkExtras:extra];
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -100,6 +103,7 @@ extra.additionalParameters = [
 request.register(extra)
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 If you are trying to request Native ad, please refer to [Integrate Vpon Native Ad via AdMob] to finish the setting of custom event first and follow the instruction below to set the view as Friendly Obstruction.
@@ -115,6 +119,7 @@ extra.additionalParameters = @{
 [request registerAdNetworkExtras:extra];
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -127,6 +132,7 @@ extra.additionalParameters = [
 request.register(extra)
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
@@ -182,6 +188,7 @@ adRequest.targeting = targeting;
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -211,6 +218,7 @@ targeting?.localExtras = [
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 

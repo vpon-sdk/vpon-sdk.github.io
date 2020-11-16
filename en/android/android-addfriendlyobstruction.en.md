@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             VponAdRequest.Builder builder = new VponAdRequest.Builder();
             builder.addFriendlyObstruction(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "for demo");
             // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 
             vponBanner.loadAd(builder.build());
             // Set ad request and load ad
@@ -110,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
 
             List<VponObstructView> vponObstructViews = new ArrayList<>();
             vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
-            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
             VpadnAdapter.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
             // !!! Must implement before load ad !!!
             // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
             // VponLicenseKey: insert Vpon License Key of this ad position
 
             ...
@@ -170,10 +171,10 @@ public class MainActivity extends AppCompatActivity {
 
             List<VponObstructView> vponObstructViews = new ArrayList<>();
             vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
-            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
             VponBannerCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
             // !!! Must implement before load ad !!!
             // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
             // VponLicenseKey: insert Vpon License Key of this ad position
 
             moPubView = (MoPubView) findViewById(R.id.adview);
@@ -204,10 +205,10 @@ public class MainActivity extends AppCompatActivity {
 
             List<VponObstructView> vponObstructViews = new ArrayList<>();
             vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
-            vponObstructViews.add(new VponObstructView(obstructionView2, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
             VponNativeCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
             // !!! Must implement before load ad !!!
             // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
             // VponLicenseKey: insert Vpon License Key of this ad position
 
             moPubView = (MoPubView) findViewById(R.id.adview);
