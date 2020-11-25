@@ -1,5 +1,11 @@
 # Vpon Android SDK Change Log
 
+<!-- ## 5.1.8
+* Release Date: 27 Nov. 2020
+* Build Number: 
+* Bypass ad request from Android 5.0 (Lollipop) device to prevent potential crash while using WebView
+* Enhance ad viewable detection mechanism -->
+
 ## 5.1.7
 * Release Date: 11 Nov. 2020
 * Build Number: 01110202

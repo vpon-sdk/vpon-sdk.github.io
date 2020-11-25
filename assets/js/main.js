@@ -20,3 +20,4 @@ $(document).ready(function() {
     document.getElementById('burgericon').classList.toggle('open');
   });
 });
+

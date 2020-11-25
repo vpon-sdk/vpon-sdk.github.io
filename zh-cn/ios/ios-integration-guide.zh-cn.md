@@ -165,8 +165,12 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
         return true
     }
 ```
-
->**Note:** 关于在使用目前版本的 SDK 送审 App Store 后，可能收到 Apple 官方关于 UIWebView 的 API 将被弃用警告 (ITMS-90809) 的状况，目前该警告不会影响广告的运作及审核的结果，Vpon 将尽速针对此状况提供新版本的 SDK，谢谢。
+<!-- 
+>**Note:**
+>
+>为配合第三方追踪要求，Vpon SDK 会在初始化时，将 App 的 Audio Session Category 设为`AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (当有音乐要播放时，App 将以混音形式播放音乐，且不会受实体音量键的影响)。您可以在初始化后，重新指定及启用 Audio Session Category。
+>
+>如果您不希望 Vpon SDK 更动 Audio Session Category，请参考[进阶设定]进行对应调整。 -->
 
 
 # Usage Description
@@ -213,3 +217,4 @@ iOS9 更新了安全条款 App Transport Security (ATS)，请参考 [iOS9 ATS] �
 [3]:{{ site.baseurl }}/zh-cn/ios/native/
 [4]:{{ site.baseurl }}/zh-cn/ios/mediation/
 [5]:{{ site.baseurl }}/zh-cn/ios/outstream/
+[进阶设定]:{{ site.baseurl }}/zh-cn/ios/advanced/#audio

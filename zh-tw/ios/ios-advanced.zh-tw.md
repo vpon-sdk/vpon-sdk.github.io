@@ -1,12 +1,65 @@
 ---
 layout: "ios"
 title: "iOS - 進階設定"
-lead: "幫助您取得更多廣告功能與資料收集"
+lead: "幫助您取得更多廣告功能"
 description:
 keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/advanced/
 lang: "zh-tw"
 ---
+
+<!-- # 設定 Audio Session {#audio}
+---
+
+為配合第三方追蹤要求，Vpon SDK 會在初始化時，將 App 的 Audio Session Category 設為 `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (當有音樂要播放時，App 將以混音形式播放音樂，且不會受實體靜音鍵的影響)。您可以在 SDK 初始化後，重新指定及啟用其它 Audio Session Category。
+
+如果您不希望 Vpon SDK 更動 Audio Session，請在初始化時，加入以下程式片段。
+
+## Objective-C
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Vpon SDK initialization
+    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
+    config.logLevel = VpadnLogLevelDefault;
+    config.audioManager.isAudioApplicationManaged = YES;
+    // set YES, SDK won't set and activate the audio session
+    [config initializeSdk];
+
+    return YES;
+}
+```
+
+## Switft
+
+```swift
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.sharedInstance()
+        config.logLevel = .default
+        config.audioManager.isAudioApplicationManaged = true
+        // set true, SDK won't set and activate the audio session
+        config.initializeSdk()
+
+        return true
+    }
+```
+
+在 Vpon SDK 設置並啟用 Audio Session 後，如果您需要再重新指定並啟用 Audio Session Category，我們建議您在重新指定 Audio Session Category 及結束影音播放時，呼叫以下 Function，讓 SDK 知道您是否正在控制 Audio Session。
+
+```objc
+- (void) noticeApplicationAudioWillStart;
+// Call this function to let SDK know that you will set and activate a new Audio Session Category
+
+- (void) noticeApplicationAudioDidEnded;
+// Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
+```
+
+>**Note:** 以上方法不適用於透過 Mediation 串接 Vpon SDK 者。 -->
+
 
 # 自定義廣告請求參數
 ---

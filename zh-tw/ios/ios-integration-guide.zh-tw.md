@@ -167,7 +167,12 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
     }
 ```
 
->**Note:** 關於在使用目前版本的 SDK 送審 App Store 後，可能收到 Apple 官方關於 UIWebView 的 API 將被棄用警告 (ITMS-90809) 的狀況，目前該警告不會影響廣告的運作及審核的結果，Vpon 將盡速針對此狀況提供新版本 SDK，謝謝。
+<!-- >**Note:**
+>
+>為配合第三方追蹤要求，Vpon SDK 會在初始化時，將 App 的 Audio Session Category 設為 `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (當有音樂要播放時，App 將以混音形式播放音樂，且不會受實體音量鍵的影響)。您可以在初始化後，重新指定及啟用 Audio Session Category。
+>
+>如果您不希望 Vpon SDK 更動 Audio Session Category，請參考[進階設定]進行對應調整。 -->
+
 
 # Usage Description
 ---
@@ -215,6 +220,7 @@ iOS9 更新了安全條款 App Transport Security (ATS)，請參考 [iOS9 ATS] �
 [3]:{{ site.baseurl }}/zh-tw/ios/native/
 [4]:{{ site.baseurl }}/zh-tw/ios/mediation/
 [5]:{{ site.baseurl }}/zh-tw/ios/outstream/
+[進階設定]:{{ site.baseurl }}/zh-tw/ios/advanced/#audio
 
 <!--
 3. 串接**橫幅廣告**時會進行`遮蔽偵測`，若部分廣告被遮蔽而使廣告無法通過遮蔽偵測，會無法顯示`didImpression`，請注意！看到 `didImpression`的log才是正確的串接完成。

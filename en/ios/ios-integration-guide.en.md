@@ -178,7 +178,12 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
     }
 ```
 
->**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap.
+<!-- 
+>**Note:**
+>
+>To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization.
+>
+>To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction. -->
 
 
 # Usage Description
@@ -226,3 +231,4 @@ For more ad types, please refer to:
 [3]:{{ site.baseurl }}/ios/native/
 [4]:{{ site.baseurl }}/ios/mediation/
 [5]:{{ site.baseurl }}/ios/outstream/
+[Advanced Setting]:{{ site.baseurl }}/ios/advanced/#audio

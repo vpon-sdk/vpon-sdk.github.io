@@ -6,6 +6,61 @@ description:    ""
 keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/advanced/
 lang:            "en"
+---
+
+<!-- # Set Up Audio Session {#audio}
+---
+To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization.
+
+
+To ask SDK not to change the audio session category, please follow the instruction below.
+
+## Objective-C
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Vpon SDK initialization
+    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
+    config.logLevel = VpadnLogLevelDefault;
+    config.audioManager.isAudioApplicationManaged = YES;
+    // set YES, SDK won't set and activate the audio session
+    [config initializeSdk];
+
+    return YES;
+}
+```
+
+## Switft
+
+```swift
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.sharedInstance()
+        config.logLevel = .default
+        config.audioManager.isAudioApplicationManaged = true
+        // set true, SDK won't set and activate the audio session
+        config.initializeSdk()
+
+        return true
+    }
+```
+
+After Vpon SDK set and activate the Audio Session, we recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session. 
+
+```objc
+- (void) noticeApplicationAudioWillStart;
+// Call this function to let SDK know that you will set and activate a new Audio Session Category
+
+- (void) noticeApplicationAudioDidEnded;
+// Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
+```
+
+>**Note:** These functions are only compatible with the integration without Mediation.
+ -->
+
 
 ---
 # Custom Ad Request Parameters
