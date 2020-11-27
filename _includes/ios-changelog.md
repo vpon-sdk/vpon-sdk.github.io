@@ -1,9 +1,9 @@
 # Vpon iOS SDK Change Log
 
-<!-- ## 5.1.8
+## 5.1.8
 * Release Date: 27 Nov. 2020
-* Build Number: 
-* Add a new interface VpadnAdAudioManager to manage the Audio Session setting, SDK will set and activate the Audio Session by default when intilizing SDK. For more information, please check [Advanced]  -->
+* Build Number: 20201127
+* Add a new interface VpadnAdAudioManager to manage the Audio Session setting, SDK will set and activate the Audio Session by default when intilizing SDK. For more information, please check [Advanced] 
 
 
 ## 5.1.7

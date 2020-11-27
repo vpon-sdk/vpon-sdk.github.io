@@ -167,11 +167,11 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
     }
 ```
 
-<!-- >**Note:**
+>**Note:**
 >
 >為配合第三方追蹤要求，Vpon SDK 會在初始化時，將 App 的 Audio Session Category 設為 `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (當有音樂要播放時，App 將以混音形式播放音樂，且不會受實體音量鍵的影響)。您可以在初始化後，重新指定及啟用 Audio Session Category。
 >
->如果您不希望 Vpon SDK 更動 Audio Session Category，請參考[進階設定]進行對應調整。 -->
+>如果您不希望 Vpon SDK 更動 Audio Session Category，請參考[進階設定]進行對應調整。
 
 
 # Usage Description

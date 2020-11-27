@@ -178,12 +178,12 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
     }
 ```
 
-<!-- 
+
 >**Note:**
 >
 >To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization.
 >
->To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction. -->
+>To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction.
 
 
 # Usage Description

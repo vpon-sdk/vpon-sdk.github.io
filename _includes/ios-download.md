@@ -46,8 +46,8 @@ Smaato        |
 :-------------:|
 [download][13]| -->
 
-[1]: https://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.1.7-20201111-2011111201-75db645.a
-[2]: https://m.vpon.com/sdk/VponSDK-iOS/VpadnSDKiOS-5.1.7.zip
+[1]: https://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.1.8-20201127-2011261630-ca6e616.a
+[2]: https://m.vpon.com/sdk/VponSDK-iOS/VpadnSDKiOS-5.1.8.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter

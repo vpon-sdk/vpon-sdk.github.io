@@ -8,7 +8,7 @@ permalink: /zh-cn/ios/advanced/
 lang: "zh-cn"
 ---
 
-<!-- # 设定 Audio Session {#audio}
+# 设定 Audio Session {#audio}
 ---
 
 为配合第三方追踪要求，Vpon SDK 会在初始化时，将 App 的Audio Session Category 设为`AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (当有音乐要播放时，App 将以混音形式播放音乐，且不会受实体静音键的影响)。您可以在SDK初始化后，重新指定及启用其他 Audio Session Category。
@@ -58,7 +58,7 @@ lang: "zh-cn"
 // Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
 ```
 
->**Note:** 以上方法不适用于透过 Mediation 串接 Vpon SDK 者。 -->
+>**Note:** 以上方法不适用于透过 Mediation 串接 Vpon SDK 者。
 
 
 # 自定义广告请求参数
