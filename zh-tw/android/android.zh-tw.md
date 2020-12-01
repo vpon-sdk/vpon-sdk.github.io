@@ -36,8 +36,8 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 在您完成 Vpon 開發商帳號申請流程之前，如果您需要進行廣告串接測試，可以使用以下 License Key 進行測試。請依照您要展示的廣告型態，選擇對應的 License Key 進行測試。
 
 | **Ad Type** | **License Key** |
-| Android_Banner | 8a80854b6a90b5bc016ad81c2a136532 |
-| Android_Interstitial | 8a80854b6a90b5bc016ad81c64786533 |
+| Android_Banner | 8a80854b75ab2b0101761cfb398671c6 |
+| Android_Interstitial | 8a80854b75ab2b0101761cfb968d71c7 |
 | Android_Native | 8a80854b6a90b5bc016ad81ca1336534 |
 
 > **Note**：``在測試完成後，請務必將測試用的 License Key 換成您自行申請並通過審核的 License Key，以免影響您的廣告收益。``

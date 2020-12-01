@@ -38,8 +38,8 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 Here are sample Vpon License Keys for testing. Please implement the one that match the ad type you're testing if you haven't finished the publisher registration process.
 
 | **Ad Type** | **License Key** |
-| Android_Banner | 8a80854b6a90b5bc016ad81c2a136532 |
-| Android_Interstitial | 8a80854b6a90b5bc016ad81c64786533 |
+| Android_Banner | 8a80854b75ab2b0101761cfb398671c6 |
+| Android_Interstitial | 8a80854b75ab2b0101761cfb968d71c7 |
 | Android_Native | 8a80854b6a90b5bc016ad81ca1336534 |
 
 > **Note**: ``Please note that you must replace the Testing License Key with your own one before you update the ad setting to the production environment.``
