@@ -96,7 +96,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
 名称                  | 描述                              | 必要  | 范例
 :--------------------:|:---------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| 广告版位 ID                           | Y    |<font color="red">输入 Vpon License Key</font>
-vpon\_ad\_format      | 横幅广告格式<br>(1)320x50\_mb <br>(2)300x250\_mb| Y   | "320x50\_mb"
+vpon\_ad\_format      | Format<br>(1)320x50\_mb <br>(2)300x250\_mb <br> (3)320x480\_mb | Y         | "320x50\_mb"
 vpon\_ad\_test        | 是否拉取测试广告                    | N    | 1(是)/0(否)<br>预设为 "1"
 debug                 | 是否在 console 显示 debug 资讯      | N    | true/false<br>预设为 false
 openTab               | 是否开启新tab 显示 广告内容           | N    | true/false<br>预设为 true

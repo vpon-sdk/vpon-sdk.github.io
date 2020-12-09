@@ -97,7 +97,7 @@ Use our Callback Function rationally when there is no proper ad fill.
 Name                  | Description                              | Reuqired  | Example
 :--------------------:|:----------------------------------------:|:----------:|:------------------------:
 vpon\_ad\_licensy\_key| License Key from Vpon                    | Y          | <font color="red">Fill in with your Vpon License Key</font>
-vpon\_ad\_format      | Format<br>(1)320x50\_mb <br>(2)300x250\_mb| Y         | "320x50\_mb"
+vpon\_ad\_format      | Format<br>(1)320x50\_mb <br>(2)300x250\_mb <br> (3)320x480\_mb | Y         | "320x50\_mb"
 vpon\_ad\_test        | Test Ad                                  | N          | 1(Yes)/0(No)<br>Default = "1"
 debug                 | Debugging information in console         | N          | true/false<br>Default = "false"
 openTab               | If open a new tab to show ad's contents  | N          | true/false<br>Default = "true"
