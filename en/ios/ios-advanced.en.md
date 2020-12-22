@@ -50,6 +50,8 @@ To ask SDK not to change the audio session category, please follow the instructi
 
 After Vpon SDK set and activate the Audio Session, we recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session. 
 
+>**Note:** These functions below are only compatible with the integration without Mediation.
+
 ```objc
 - (void) noticeApplicationAudioWillStart;
 // Call this function to let SDK know that you will set and activate a new Audio Session Category
@@ -58,7 +60,7 @@ After Vpon SDK set and activate the Audio Session, we recommend that you should 
 // Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
 ```
 
->**Note:** These functions are only compatible with the integration without Mediation.
+
 
 
 
