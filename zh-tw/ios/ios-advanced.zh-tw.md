@@ -50,7 +50,6 @@ lang: "zh-tw"
 
 在 Vpon SDK 設置並啟用 Audio Session 後，如果您需要再重新指定並啟用 Audio Session Category，我們建議您在重新指定 Audio Session Category 及結束影音播放時，呼叫以下 Function，讓 SDK 知道您是否正在控制 Audio Session。
 
->**Note:** 以下方法不適用於透過 Mediation 串接 Vpon SDK 者。
 
 ```objc
 - (void) noticeApplicationAudioWillStart;
@@ -60,6 +59,7 @@ lang: "zh-tw"
 // Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
 ```
 
+>**Note:** noticeApplicationAudioWillStart 及 noticeApplicationAudioDidEnded 不適用於透過 Mediation 串接 Vpon SDK 者。
 
 
 # 自定義廣告請求參數
