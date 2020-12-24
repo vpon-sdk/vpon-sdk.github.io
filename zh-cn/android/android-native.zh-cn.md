@@ -193,6 +193,9 @@ public class MainActivity extends AppCompatActivity {
             public void onNativeAdLoaded(VponNativeAd.NativeAdData nativeAdData) {
                 setNativeAdDatas(nativeAdData, adContainer);
                 // Set ad datas to your custom ad layout
+                //TODO set native ad datas to view, registerViewForInteraction
+                //TODO VpadnNativeAd.Rating is change to VponNativeAd.NativeAdData.Rating
+                //TODO VponMediaView.setNativeAd(vponNativeAd, localNativeAdData)
             }
         });
 
@@ -266,12 +269,6 @@ vponNativeAd.setAdListener(new VponAdListener() {
         // Invoked if user leave the app and the current app was backgrounded
     }
 
-    @Override
-    public void onNativeAdLoaded(VponNativeAd.NativeAdData localNativeAdData) {
-        //TODO set native ad datas to view, registerViewForInteraction
-        //TODO VpadnNativeAd.Rating is change to VponNativeAd.NativeAdData.Rating
-        //TODO VponMediaView.setNativeAd(vponNativeAd, localNativeAdData)
-    }
 });
 ```
 
