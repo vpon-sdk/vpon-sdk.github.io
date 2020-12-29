@@ -161,7 +161,7 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 # Download
 ---
 
-|VDA 1.3.2|
+|VDA 2.0.0|
 |:-------:|
 |[Download][1]|
 
