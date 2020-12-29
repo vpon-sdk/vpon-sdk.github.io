@@ -110,7 +110,7 @@ public class MainActivity extends Activity {
 
 ```
 
-> **Note**：vpdataAnalytics.setDebugMode(true); as `false` before you launch the App.
+> **Note**：Set vpdataAnalytics.setDebugMode(true); as `false` before you launch the App.
 
 
 
