@@ -9,7 +9,7 @@ lang:            "en"
 ---
 
 # Prerequisites
----
+--- 
 
 ## System requirement
 Deployment target 10.0 above.

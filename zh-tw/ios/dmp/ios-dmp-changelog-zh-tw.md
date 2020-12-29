@@ -1,6 +1,6 @@
 ---
 layout:         "ios-dmp-changelog"
-title:          "iOS - DMP Change Log"
+title:          "iOS - VDA Change Log"
 lead:           ""
 description:    ""
 keywords:       ""

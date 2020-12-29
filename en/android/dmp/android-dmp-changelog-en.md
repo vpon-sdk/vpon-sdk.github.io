@@ -1,6 +1,6 @@
 ---
 layout:         "android-dmp-changelog"
-title:          "Android - DMP Change Log"
+title:          "Android - VDA Change Log"
 lead:           ""
 description:    ""
 keywords:       ""
