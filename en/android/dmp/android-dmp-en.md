@@ -1,6 +1,6 @@
 ---
 layout:         "android"
-title:          "Android - DMP SDK"
+title:          "Android - VDA SDK"
 lead:           ""
 description:    "dmp"
 keywords:       ""
@@ -10,7 +10,7 @@ lang:           "en"
 
 # Prerequisites
 ---
-Vpon DMP SDK support:
+VDA SDK support:
 
 * Android：`Android 5.0 or later`
 
@@ -18,14 +18,19 @@ Before you start to integrate Vpon SDK, make sure your app is compatible.
 
 
 ### Import SDK
-You can [download Vpon DMP SDK here][1] and import the SDK file into your Android Studio project.
+You can [download VDA SDK here][1] and import the SDK file into your Android Studio project.
 
 Open build.gradle in App-level, modify dependencies as below:
 
 ```xml
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     ...
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 }
 ```
 
@@ -51,52 +56,66 @@ Please add the Permissions below in your `AndroidManifest.xml`
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
-### Proguard Configuration
-If your app need obfuscateed before release, please add settings below:<br>
 
-```xml
--dontwarn c.**
--dontwarn com.vpon.**
--dontwarn vpadn.**
--keep class c.**{ *; }
--keep class com.vpon.** { *; }
--keep class vpon.** { *; }
--keep class com.vpadn.** { *; }
--keep class vpadn.** { *; }
-```
-
-# Start To Implement Vpon DMP SDK
+# Start To Implement VDA SDK
 ---
-Please follow the steps below to integrate Vpon DMP SDK in your application.
+Please follow the steps below to integrate VDA SDK in your application.
 
-### Import Vpon DMP SDK
+### Import VDA SDK
 
 ```java
-import com.vpadn.dmp.VpadnAnalytics;
+import com.vpon.sdk.VpdataAnalytics;
 ```
 
-### Declare VpadnAnalytics and Indicate A License Key
+### Declare VpadnAnalytics and Indicate A License Key and Custom ID
 
 ```java
 public class MainActivity extends Activity {
 
-	private static final String licenseKey = "License Key";
-	private static VpadnAnalytics analytics;
-	VpadnAnalytics.Tracker tracker;
+    // TODO set your licenseKey & customerId
+    private String licenseKey = "mock_license_key";
+    private String customerId = "mock_custom_id";
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		analytics = VpadnAnalytics.getInstance(MainActivity.this, licenseKey);
-		tracker = analytics.newTracker();
-	}
+    private String payload = DEFAULT_EXTRA_DATA;
+    
+    private static final String DEFAULT_EXTRA_DATA = "{\"Key1\":\"value1\",\"Key2\":\"value2\"}";
+    private VpdataAnalytics vpdataAnalytics;
+
+    private VpdataAnalytics.Tracker tracker = null;
+
+    private final int PERMISSION_REQUEST_CODE = 2001;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Request optional permission
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_PHONE_STATE}, PERMISSION_REQUEST_CODE);
+        }
+
+        vpdataAnalytics = VpdataAnalytics.INSTANCE;
+
+        // Set true to enable debug mode, set false before app release
+        // Set up before vpdataAnalytics.initialize
+        vpdataAnalytics.setDebugMode(true);
+
+        vpdataAnalytics.initialize(this, licenseKey, customerId);
+
+        // Construct a Tracker for sending event
+        tracker = new VpdataAnalytics.Tracker();
+    }
 }
+
 ```
 
-> **Note:** Please replace the License Key with your own one.
+> **Note**：vpdataAnalytics.setDebugMode(true); as `false` before you launch the App.
+
 
 
 ### Send Message
-Vpon DMP SDK provide below method to send messages as below:
+VDA SDK provide below method to send messages as below:
 
 #### tracker.sendEvent()
 tracker.sendEvent() can be used when a specific event be triggered. Please refer to the sample code below to send a message when onClick() event be triggered:
@@ -115,7 +134,7 @@ public void onClick(View v) {
 		} catch (JSONException e) {
 		e.printStackTrace();
 	        }
-	tracker.sendEvent("item_view", payloadJsonObj, "yourCustomName");
+	tracker.sendEvent("item_view", payloadJsonObj);
         }
 }
 ```
@@ -131,11 +150,10 @@ public void onClick(View v) {
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}
-	tracker.sendEvent("page_view", payloadJsonObj, "yourCustomName");
+	tracker.sendEvent("page_view", payloadJsonObj);
 }
 ```
 
-> **Note:** Please replace yourCustomName in the sample code with your custom name.
 
 # Sample Code
 Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analytics) for a complete integration sample.
@@ -143,12 +161,12 @@ Please refer to our [Sample Code](https://github.com/vpon-sdk/Vpon-Android-Analy
 # Download
 ---
 
-|DMP 1.3.2|
+|VDA 1.3.2|
 |:-------:|
 |[Download][1]|
 
 # Change Log
 ---
-For DMP SDK change Log, please refer to [DMP SDK Change Log]({{ site.baseurl }}/android/dmp/changelog)
+For VDA SDK change Log, please refer to [VDA SDK Change Log]({{ site.baseurl }}/android/dmp/changelog)
 
-[1]: {{site.dnldurl}}/vpon-analytics-sdk-obf132-80900202-2009081517-9d51286.aar
+[1]: {{site.dnldurl}}/vpon-data-sdk-v200-release.aar

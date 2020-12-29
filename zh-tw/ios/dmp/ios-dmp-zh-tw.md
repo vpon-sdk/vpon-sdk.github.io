@@ -1,6 +1,6 @@
 ---
 layout: "ios"
-title: "iOS - DMP SDK"
+title: "iOS - VDA SDK"
 lead: ""
 description: ""
 keywords: "dmp"
@@ -11,28 +11,16 @@ lang: "zh-tw"
 # 串接準備
 ---
 
-### 系統版本需求
+## 系統版本需求
 Deployment target 10.0 以上
 
-### 匯入 Vpon DMP SDK 
-請先[下載 Vpon DMP SDK][1]，解壓縮後的 SDK 包含Objective-C 標頭、一個執行期間程式庫，要在應用程式中匯入 Vpon DMP SDK，您必須完成二個步驟：
+## 匯入 VDA SDK 
+請先[下載 VDA SDK][1]，將 .framework 檔放入您的 Project 中。
 
-1. 在專案中加入 lib 檔 (.a)
-2. 在專案中加入以下 Header：
-* `VpadnAnalytics.h`
-* `VATracker.h`
-* `VpadnDictionaryBuilder.h`
-3. 在專案中手動加入以下 framework：
-* `AdSupport.framework`
-* `CoreLocation.framework`
-* `SystemConfiguration.framework`
-* `CoreTelephony.framework`
-* `WebKit.framework`
-
-# 開始串接 Vpon DMP SDK
+# 開始串接 VDA SDK
 ---
 
-### Import Vpon DMP SDK
+## Import VDA SDK
 
 請在每個要加入 Vpon Analytics 的頁面中 import VpadnAnalytics.h
 
@@ -40,44 +28,91 @@ Deployment target 10.0 以上
 #import "VpadnAnalytics.h";
 ```
 
-### 宣告 VpadnAnalytics 物件，並指定 License Key
+## VDA SDK Initialization
 
-在第一次呼叫 VpadnAnalytics sharedInstance 時需要先填入 License Key，請參考以下範例：
+請參考以下指示初始化 VDA SDK
 
-```objc
-[[VpadnAnalytics sharedInstance] setLicenseKey:@"License Key"];
-```
-> **Note**：請將 License Key 替換成您專屬的 License Key
-
-
-### 回傳資料
-Vpon DMP SDK 提供以下回傳資料的方法：
-
-
-#### send()
-根據使用者行為觸發回傳資料的事件，適用於常用的事件傳送。請參考以下範例，分為有 payload 和無 payload 的呼叫方式：
-
-* 無 payload：
+### Objective-c
 
 ```objc
-[[VpadnAnalytics sharedInstance].defaultTracker send:[VpadnDictionaryBuilder createEventWithEventName:@"custom" customID:customID extraData:nil] build]];
+#import <VponDataAnalytics/VponDataAnalytics.h>
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    VDAConfiguration *config = [VDAConfiguration sharedInstance];
+    [config setLicenseKey:@"testKey" withCustomID:@"customID" withOptIn:VDAOptInDefault];
+    [config setDebugMode:NO];
+    [config initialize];
+}
 ```
 
-* 有 payload：
+### Swift
+
+```swift
+import VponDataAnalytics
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let config = VDAConfiguration.sharedInstance
+        config.setLicenseKey("testkey", withCustomID: "customID", withOptIn: .default)
+        config.setDebugMode(false)
+        config.initialize()
+}
+```
+
+
+# 回傳資料
+VDA SDK 提供以下回傳資料的方法：
+
+
+## send()
+當您需要向 Vpon 發送事件時，使用 send()，並可以透過 extraData 來傳送 payload 給 Vpon：
+
+
+### Objective-c
 
 ```objc
-NSMutableDictionary* dicExtraData = [[NSMutableDictionary alloc]initWithCapacity:1];
-[dicExtraData setObject:@"just for test" forKey:@"testInfo"];
-
-NSDictionary* dicJSONData = [[NSDictionary alloc]initWithObjectsAndKeys:@"VponInc", @"facebook", @"testValue", @"custom",nil];
- [dicExtraData setObject:dicJSONData forKey:@"member_id"];
-
-[[VpadnAnalytics sharedInstance].defaultTracker send:[[VpadnDictionaryBuilder createEventWithEventName:@"login" customID:customID extraData:dicExtraData] build]];
-
-dicJSONData = nil;
-dicExtraData = nil;
+VDATracker *tracker = [[VDATracker alloc] init];
+VDABuilder *builder = [VDABuilder createEventWithEventName:@"login" extraData:@{@"key": @"value"}];
+[tracker send:builder];
 ```
 
+
+### Swift
+
+```swift
+let tracker = VDATracker()
+let builder = VDABuilder.createEventWithEventName("login", extraData: ["key": "value"])
+tracker.send(builder)
+```
+
+# Debug Mode
+---
+Config debug mode with setDebugMode when initilizing VDA SDK to enable or disable debug log when you implement the SDK.
+
+
+```objc
+#import <VponDataAnalytics/VponDataAnalytics.h>
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    VDAConfiguration *config = [VDAConfiguration sharedInstance];
+    ...
+    [config setDebugMode:NO];
+    ...
+}
+```
+
+### Swift
+
+```swift
+import VponDataAnalytics
+
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        ...
+        config.setDebugMode(false)
+        ...
+}
+```
 
 # Sample Code
 ---
@@ -86,13 +121,13 @@ dicExtraData = nil;
 # Download
 ---
 
-|DMP 1.3.2|
+|VDA 2.0.0|
 |:-------:|
 |[Download][1]|
 
 # Change Log
 ---
-關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/ios/dmp/changelog)
+關於 VDA SDK 的更新記錄，請參考 [VDA SDK Change Log]({{ site.baseurl }}/zh-tw/ios/dmp/changelog)
 
 
-[1]: {{site.dnldurl}}/i-dmp-sdk-2009081437-20200909-84b3c15-v1.3.2.tar.gz
+[1]: {{site.dnldurl}}/i-vda-20201225-9fd4af0-v2.0.0.tar.gz

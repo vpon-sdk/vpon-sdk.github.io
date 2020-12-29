@@ -1,4 +1,12 @@
-# Vpon iOS DMP SDK Change Log
+# Vpon iOS VDA SDK Change Log
+
+## 2.0.0
+
+* Release Date: 29 Dec. 2020
+* Add a method to initialize VDA SDK
+* Add Debug Mode for debugging
+* Optimize the SDK framework
+
 
 ## 1.3.2
 

@@ -1,6 +1,6 @@
 ---
 layout:         "android"
-title:          "Android - DMP"
+title:          "Android - VDA SDK"
 lead:           ""
 description:    ""
 keywords:       "dmp"
@@ -10,19 +10,24 @@ lang:           "zh-tw"
 
 # 串接準備
 ---
-Vpon DMP SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SDK 前，請確保您的 App 符合以下條件：
+VDA SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SDK 前，請確保您的 App 符合以下條件：
 
 * Android：`Android 5.0 以上`
 
-### 匯入 Vpon DMP SDK
-請先[下載 Vpon DMP SDK][1]，並將 SDK 加到您的 Android Studio 專案中。
+### 匯入 VDA SDK
+請先[下載 VDA SDK][1]，並將 SDK 加到您的 Android Studio 專案中。
 
 再到 App 層級下的 build.gradle，將 dependencies 的部份修改如下：
 
 ```xml
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     ...
-    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 }
 ```
 
@@ -48,52 +53,65 @@ dependencies {
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
-### Proguard Configuration
-如果您的 App 本身需要經過 Proguard 混淆，請增加下面的設定：<br>
 
-```xml
--dontwarn c.**
--dontwarn com.vpon.**
--dontwarn vpadn.**
--keep class c.**{ *; }
--keep class com.vpon.** { *; }
--keep class vpon.** { *; }
--keep class com.vpadn.** { *; }
--keep class vpadn.** { *; }
-```
-
-# 開始串接 Vpon DMP SDK
+# 開始串接 VDA SDK
 ---
 請參考以下說明，完成 Vpom DMP SDK 串接。
 
-### Import Vpon DMP SDK
+### Import VDA SDK
 
 ```java
-import com.vpadn.dmp.VpadnAnalytics;
+import com.vpon.sdk.VpdataAnalytics;
 ```
 
-### 宣告 VpadnAnalytics 物件，並指定 License Key
+### 宣告 VpadnAnalytics 物件，並指定 License Key 與 Custom Id
 
 ```java
 public class MainActivity extends Activity {
 
-	private static final String licenseKey = "License Key";
-	private static VpadnAnalytics analytics;
-	VpadnAnalytics.Tracker tracker;
+    // TODO set your licenseKey & customerId
+    private String licenseKey = "mock_license_key";
+    private String customerId = "mock_custom_id";
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		analytics = VpadnAnalytics.getInstance(MainActivity.this, licenseKey);
-		tracker = analytics.newTracker();
-	}
+    private String payload = DEFAULT_EXTRA_DATA;
+    
+    private static final String DEFAULT_EXTRA_DATA = "{\"Key1\":\"value1\",\"Key2\":\"value2\"}";
+    private VpdataAnalytics vpdataAnalytics;
+
+    private VpdataAnalytics.Tracker tracker = null;
+
+    private final int PERMISSION_REQUEST_CODE = 2001;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        // Request optional permission
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, READ_PHONE_STATE}, PERMISSION_REQUEST_CODE);
+        }
+
+        vpdataAnalytics = VpdataAnalytics.INSTANCE;
+
+        // Set true to enable debug mode, set false before app release
+        // Set up before vpdataAnalytics.initialize
+        vpdataAnalytics.setDebugMode(true);
+
+        vpdataAnalytics.initialize(this, licenseKey, customerId);
+
+        // Construct a Tracker for sending event
+        tracker = new VpdataAnalytics.Tracker();
+    }
 }
+
 ```
 
-> **Note**：請將 License Key 替換成您專屬的 License Key。
+> **Note**：在 App 發佈前，請務必將 vpdataAnalytics.setDebugMode(true); 改為 `false`
 
 
 ### 回傳資料
-Vpon DMP SDK 提供以下回傳資料的方法：
+VDA SDK 提供以下回傳資料的方法：
 
 
 #### tracker.sendEvent()
@@ -113,7 +131,7 @@ public void onClick(View v) {
 		} catch (JSONException e) {
 		e.printStackTrace();
 	        }
-	tracker.sendEvent("item_view", payloadJsonObj, "yourCustomName");
+	tracker.sendEvent("item_view", payloadJsonObj);
 }
 ```
 
@@ -128,11 +146,10 @@ public void onClick(View v) {
 	} catch (JSONException e) {
 		e.printStackTrace();
 	}
-	tracker.sendEvent("page_view", payloadJsonObj, "yourCustomName");
+	tracker.sendEvent("page_view", payloadJsonObj);
 }
 ```
 
-> **Note**：請將範例中的 yourCustomName 改為您自定義的名稱
 
 # Sample Code
 ---
@@ -142,13 +159,13 @@ public void onClick(View v) {
 # Download
 ---
 
-|DMP 1.3.2|
+|VDA 2.0.0|
 |:-------:|
 |[Download][1]|
 
 # Change Log
 ---
-關於 DMP SDK 的更新記錄，請參考 [DMP SDK Change Log]({{ site.baseurl }}/zh-tw/android/dmp/changelog)
+關於 VDA SDK 的更新記錄，請參考 [VDA SDK Change Log]({{ site.baseurl }}/zh-tw/android/dmp/changelog)
 
 
-[1]: {{site.dnldurl}}/vpon-analytics-sdk-obf132-80900202-2009081517-9d51286.aar
+[1]: {{site.dnldurl}}/vpon-data-sdk-v200-release.aar
