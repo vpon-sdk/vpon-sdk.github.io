@@ -4,7 +4,7 @@ title: "Android - 插頁廣告"
 lead: "適用於 SDK v4.9 及以下版本的插頁廣告串接說明"
 description:
 keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-tw/android/interstitial/
+permalink: /zh-tw/android/interstitial-under5/
 lang: zh-tw
 ---
 # 概要
