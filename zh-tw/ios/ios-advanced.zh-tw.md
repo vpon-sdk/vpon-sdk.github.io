@@ -62,7 +62,7 @@ lang: "zh-tw"
 >**Note:** noticeApplicationAudioWillStart 及 noticeApplicationAudioDidEnded 不適用於透過 Mediation 串接 Vpon SDK 者。
 
 
-# 自定義廣告請求參數
+# 自定義廣告請求參數 {#custeq}
 ---
 您可以在建立廣告請求時，選擇性地加入以下自定義的參數，讓 Vpon 可以用更精準的方式投放廣告
 
