@@ -4,7 +4,7 @@ title: "iOS - App Privacy Details"
 lead: ""
 description: "App Privacy Details on App Store"
 keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-cn/ios/demo1/
+permalink: /zh-cn/ios/app-privacy-details/
 lang: "zh-cn"
 ---
 # 概览
