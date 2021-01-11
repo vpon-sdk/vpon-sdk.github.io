@@ -23,7 +23,7 @@ lang: "zh-cn"
 <string>Your data will be used to deliver personalized ads to you.</string>
 ```
 
->**Note:** 在文案撰写上，建议可以先说明该权限及数据用途，以提高用户允许的意愿
+>**Note:** 在文案撰写上，建议可以先说明该权限及数据用途，以提高用户允许的意愿。例如：这项资料会被用来提供个人化广告给您 (Your data will be used to deliver personalized ads to you.)。
 
 
 ## Step2. 实作 ATT Framework

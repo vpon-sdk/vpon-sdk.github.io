@@ -25,7 +25,7 @@ Please add `NSUserTrackingUsageDescription` in the Info.plist of your project to
 <string>Your data will be used to deliver personalized ads to you.</string>
 ```
 
->**Note:** We recommend that you can add some explanation of the App Tracking permission and data usage to increase user's willingness to grant the permission.
+>**Note:** We recommend that you can add some explanation of the App Tracking permission and data usage to increase user's willingness to grant the permission. For example, `"This identifier will be used to deliver personalized ads to you."`
 
 
 ## Step2. ATT Framework Implementation

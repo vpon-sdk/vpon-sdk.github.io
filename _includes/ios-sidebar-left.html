@@ -32,7 +32,7 @@
   {% assign download = "Download" %}
   {% assign latest-news = "Latest News" %}
   {% assign changelog = "Change Log" %}
-  <!-- {% assign appprivacydetails = "App Privacy Details" %} -->
+  {% assign appprivacydetails = "App Privacy Details" %}
   {% assign faq = "FAQ" %}
 {% else %}
   {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/ios" %}
@@ -48,7 +48,7 @@
   {% assign urlLatestNews = v | append:"/" | append: langs | append: "/ios/latest-news" %}
   {% assign urlDownload = v | append:"/" | append: langs | append: "/ios/download" %}
   {% assign urlChangelog = v | append:"/" | append: langs | append: "/ios/changelog" %}
-  <!-- {% assign urlAppPrivacyDetails = v | append:"/" | append: langs | append: "/ios/app-privacy-details" %} -->
+  {% assign urlAppPrivacyDetails = v | append:"/" | append: langs | append: "/ios/app-privacy-details" %}
   {% assign urlFaq = v | append:"/" | append: langs | append: "/ios/faq" %}
 {% endcase %}
 {% case langs %}
@@ -69,7 +69,7 @@
   {% assign download = "下載 SDK" %}
   {% assign latest-news = "最新消息" %}
   {% assign changelog = "更新日誌" %}
-  <!-- {% assign appprivacydetails = "App Privacy Details" %} -->
+  {% assign appprivacydetails = "App Privacy Details" %}
   {% assign faq = "常見問題" %}
 {% when "zh-cn" %}
   {% assign sidebar-title1 = "iOS 广告串接" %}
@@ -89,7 +89,7 @@
   {% assign download = "下载 SDK" %}
   {% assign latest-news = "最新消息" %}
   {% assign changelog = "更新日志" %}
-  <!-- {% assign appprivacydetails = "App Privacy Details" %} -->
+  {% assign appprivacydetails = "App Privacy Details" %}
   {% assign faq = "常见问题" %}
 {% when "jp" %}
   {% assign sidebar-title1 = "iOS 広告串接" %}
@@ -126,7 +126,7 @@
   <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
   <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
   <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
-  <!-- <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li> -->
+  <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li>
   <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
 </ul>
 
@@ -152,7 +152,7 @@
         <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
         <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
         <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
-        <!-- <li><a id= "appprivacydetails" href="{{urlAppStoreDataDisclosure}}">{{appprivacydetails}}</a></li> -->
+        <li><a id= "appprivacydetails" href="{{urlAppStoreDataDisclosure}}">{{appprivacydetails}}</a></li>
         <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
   </div>
 </div>

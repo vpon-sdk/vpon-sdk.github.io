@@ -23,7 +23,7 @@ lang: "zh-tw"
 <string>Your data will be used to deliver personalized ads to you.</string>
 ```
 
->**Note:** 在文案撰寫上，建議可以先說明該權限及數據用途，以提高用戶允許的意願
+>**Note:** 在文案撰寫上，建議可以先說明該權限及數據用途，以提高用戶允許的意願。例如：這項資料會被用來提供個人化廣告給您 (Your data will be used to deliver personalized ads to you.)。
 
 
 ## Step2. 實作 ATT Framework
@@ -53,6 +53,7 @@ if #available(iOS 14, *) {
 ```
 
 >**Note:** 為了避免影響廣告收益，我們建議您在初次發出廣告請求前，先向用戶取得允許 App Tracking 的授權
+
 
 
 
