@@ -48,7 +48,7 @@
   {% assign urlLatestNews = v | append:"/" | append: langs | append: "/ios/latest-news" %}
   {% assign urlDownload = v | append:"/" | append: langs | append: "/ios/download" %}
   {% assign urlChangelog = v | append:"/" | append: langs | append: "/ios/changelog" %}
-  <!-- {% assign urlAppPrivacyDetails = v | append:"/" | append: langs | append: "/ios/app-privacy-details" %} -->
+  {% assign urlAppPrivacyDetails = v | append:"/" | append: langs | append: "/ios/app-privacy-details" %}
   {% assign urlFaq = v | append:"/" | append: langs | append: "/ios/faq" %}
 {% endcase %}
 {% case langs %}
@@ -126,7 +126,7 @@
   <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
   <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
   <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
-  <!-- <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li> -->
+  <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li>
   <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
 </ul>
 
@@ -152,7 +152,7 @@
         <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
         <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
         <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
-        <!-- <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li> -->
+        <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li>
         <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
   </div>
 </div>
