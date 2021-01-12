@@ -26,7 +26,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 |:------------------:|:-------:|:---:|
 | AdMob <br> Google Ad Manager <br> (v2.0.4) | [download][4] | Vpon SDK 5.1.7 ↑ <br> GMA SDK 4.47.0 ↑ | 
 | AdMob <br> Google Ad Manager <br> (v2.0.1) | [download][4] | Vpon SDK 5.1.1 ↑ <br> GMA SDK 4.47.0 ↑ | 
-| MoPub <br> (v2.0.4)| [download][14] | Vpon SDK 5.1.7 ↑  <br> MoPub SDK 5.13.0 ↑ |
+| MoPub <br> (v2.0.5)| [download][14] | Vpon SDK 5.1.7 ↑  <br> MoPub SDK 5.13.0 ↑ |
 | MoPub <br> (v2.0.2)| [download][5]  | Vpon SDK 5.1.1 ↑  <br> MoPub SDK 5.12.0 ↓ |
 
 <!-- | Smatto | [download][12] | | -->
@@ -46,8 +46,8 @@ Smaato        |
 :-------------:|
 [download][13]| -->
 
-[1]: https://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.1.8-20201127-2011261630-ca6e616.a
-[2]: https://m.vpon.com/sdk/VponSDK-iOS/VpadnSDKiOS-5.1.8.zip
+[1]: https://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.1.9-20210112-2101111055-2d7f5bc.a
+[2]: https://m.vpon.com/sdk/VponSDK-iOS/VpadnSDKiOS-5.1.9.zip
 
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter

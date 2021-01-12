@@ -1,10 +1,10 @@
 # Vpon iOS SDK Change Log
 
-<!-- ## 5.1.9
+## 5.1.9
 * Release Date: 12 Jan. 2021
-* Build Number: 
+* Build Number: 20210112
 * Support video creatives in VpadnAdSizeLargeRectangle
-* Adjust the variable type of JSON sent through Mraid -->
+* Adjust the variable type of JSON sent through Mraid
 
 
 ## 5.1.8
