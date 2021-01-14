@@ -1,6 +1,6 @@
 ---
 layout:         "web"
-title:          "Web - Return Advertising ID To Vpon"
+title:          "Web - Send Advertising ID To Vpon"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
