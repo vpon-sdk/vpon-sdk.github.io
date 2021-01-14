@@ -1,5 +1,11 @@
 # Vpon Android SDK Change Log
 
+## 5.1.10
+* Release Date: 14 Jan. 2021
+* Build Number: 31101202
+* Support video creatives in VponAdSize.LARGE_RECTANGLE
+* Optimize viewable detection mechanism
+* Bug fix
 
 ## 5.1.9 (Deprecated)
 * Release Date: 12 Jan. 2021
