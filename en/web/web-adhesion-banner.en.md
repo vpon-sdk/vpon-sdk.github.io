@@ -45,7 +45,7 @@ Just like the setups in original banner, you should put following code snippet i
 
 > **Note**:
 >
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
+>* Vpon Web SDK supports `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
 >* You only allow to use 3 ads at most in each page and please use different License Key for every ad.
 >

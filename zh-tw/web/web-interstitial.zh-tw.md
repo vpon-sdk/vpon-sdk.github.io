@@ -35,7 +35,7 @@ Vpon Mobile Web SDK 提供`插頁廣告`，插頁式廣告是互動式多媒體 
 
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
 >
 >* 同一網頁最多嵌入 `1` 個插頁廣告 (如範例所示)，每個版位請使用不同的 License Key。
 >

@@ -39,7 +39,7 @@ Vpon Mobile Web SDK 提供`原生广告`。有别于横幅广告、插页广告�
 
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTP` & `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
 >
 >* 您可以利用 vpon_na_min 的参数指定广告图片尺吋，如不指定，系统会依使用者的屏幕尺吋回传相应大小的图片。vpon_na_min 的参数选择，请参考 [Advanced Setup]。
 >

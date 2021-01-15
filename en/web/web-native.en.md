@@ -40,7 +40,7 @@ You should put following code snippet in the <body> section of the page that you
 
 > **Note**:
 >
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
+>* Vpon Web SDK supports `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
 >* Change the parameter of vpon_na_min to specify the size of image or we’ll return a proper one that depends on the screensize of users.
 >
