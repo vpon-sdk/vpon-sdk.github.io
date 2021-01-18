@@ -24,8 +24,8 @@ Fundamental SDK<br>| Framework SDK <br>|
 
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.0.4) | [download][4] | Vpon SDK 5.1.7 ↑ <br> GMA SDK 4.47.0 ↑ | 
-| AdMob <br> Google Ad Manager <br> (v2.0.1) | [download][4] | Vpon SDK 5.1.1 ↑ <br> GMA SDK 4.47.0 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.0.4) | [download][4] | Vpon SDK 5.1.7 ↑ <br> GMA SDK 7.67.0 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.0.1) | [download][4] | Vpon SDK 5.1.1 ↑ <br> GMA SDK 7.67.0 ↑ | 
 | MoPub <br> (v2.0.5)| [download][14] | Vpon SDK 5.1.7 ↑  <br> MoPub SDK 5.13.0 ↑ |
 | MoPub <br> (v2.0.2)| [download][5] | Vpon SDK 5.1.1 ↑  <br> MoPub SDK 5.12.0 ↓ |
 
