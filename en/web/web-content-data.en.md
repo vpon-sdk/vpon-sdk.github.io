@@ -23,7 +23,7 @@ Please add at least one Key-value info to your Ad Unit in your [Google Ad Manage
 <script>
       window.googletag = window.googletag || {cmd: []};
       googletag.cmd.push(function() {
-        googletag.defineSlot('/43888021/GAM_KV', [300, 250], 'div-gpt-ad-1604460699018-0').addService(googletag.pubads());
+        googletag.defineSlot('/Publisher ID/Ad Unit ID', [300, 250], 'div-gpt-ad-1604460699018-0').addService(googletag.pubads());
         googletag.pubads().enableSingleRequest();
         googletag.pubads().setTargeting('g', ['male']);
         googletag.enableServices();
