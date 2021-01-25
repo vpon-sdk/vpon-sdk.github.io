@@ -251,7 +251,7 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
 --------
 Vpon SDK 提供原生广告管理器( Native Ads Manager )。当您设计的 App 中会在短时间内在数个地方显示原生广告，原生广告管理器可以协助您一次请求并管理多笔原生广告。如何使用原生广告管理器请直接参考 [Sample Code]。 -->
 
-# Navive Ad Spec {#nativeAdSpec}
+# Native Ad Spec {#nativeAdSpec}
 --------
 `红色`表示您必须显示的原生广告元件，其中 CoverImage 与 Icon 必须至少显示其中一个。
 

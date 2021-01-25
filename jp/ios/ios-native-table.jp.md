@@ -170,7 +170,7 @@ Method `setNativeAd` in CustomCell will determine whether there exists native ad
 }
 ```
 
-# Navive Ad Spec {#nativeAdSpec}
+# Native Ad Spec {#nativeAdSpec}
 --------
 `Red Color` indicates the required element in the Native Ad. CoverImage and Icon, at least one of them must be shown.
 

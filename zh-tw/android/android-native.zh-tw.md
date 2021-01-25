@@ -315,7 +315,7 @@ Vpon SDK 提供原生廣告管理器 (Native Ads Manager)，如果您想在短�
 關於原生廣告管理器的使用方式，請直接參考 [Sample Code]。 -->
 
 
-# Navive Ad Spec {#nativeAdSpec}
+# Native Ad Spec {#nativeAdSpec}
 --------
 下表為 Vpon 提供的原生廣告元件列表，`紅字`部份表示您必須顯示的原生廣告元件，其中 CoverImage 與 Icon 必須至少顯示其中一個。
 

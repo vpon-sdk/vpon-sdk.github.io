@@ -106,7 +106,7 @@ ad\_request\_callback | Callback Function for no ad fill         | N          | 
 
 <br>
 
-# Navive Ad Spec {#nativeAdSpec}
+# Native Ad Spec {#nativeAdSpec}
 --------
 We will return the creatives that depends on the parameter of `vpon_na_layout`. The form below shows the creatives you might get. The properties in `red` must show on the ads.
 

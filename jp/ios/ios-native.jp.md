@@ -173,7 +173,7 @@ If you want to re-use the view to show different ads over time, make sure to cal
 ---
 The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager.
 
-# Navive Ad Spec {#nativeAdSpec}
+# Native Ad Spec {#nativeAdSpec}
 --------
 `Red Color` indicates the required element in the Native Ad. CoverImage and Icon, at least one of them must be shown.
 

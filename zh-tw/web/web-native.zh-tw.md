@@ -103,7 +103,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 <br>
 
-## Navive Ad Spec {#nativeAdSpec}
+## Native Ad Spec {#nativeAdSpec}
 --------
 系統會根據您選擇的原生廣告版型回傳對應的原生廣告素材，下表`紅字`表示您必須顯示的原生廣告元件。
 

@@ -170,7 +170,7 @@ static NSString *const kAdCellIdentifier = @"adIdentifier";
 }
 ```
 
-# Navive Ad Spec {#nativeAdSpec}
+# Native Ad Spec {#nativeAdSpec}
 --------
 `紅色`表示您必須顯示的原生廣告元件，其中 CoverImage 與 Icon 必須至少顯示其中一個。
 

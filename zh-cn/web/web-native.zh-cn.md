@@ -104,7 +104,7 @@ ad\_request\_callback | 没有广告回传时的 Callback Function        | N   
 <br>
 
 
-## Navive Ad Spec {#nativeAdSpec}
+## Native Ad Spec {#nativeAdSpec}
 --------
 系统会根据您选择的原生广告版型回传对应的原生广告素材，下表`红字`表示您必须显示的原生广告元件。
 
