@@ -48,7 +48,10 @@ To ask SDK not to change the audio session category, please follow the instructi
     }
 ```
 
-After Vpon SDK set and activate the Audio Session, we recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session. 
+## (Optional) SDK Audio Session Usage
+---
+
+We recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session. 
 
 ```objc
 - (void) noticeApplicationAudioWillStart;

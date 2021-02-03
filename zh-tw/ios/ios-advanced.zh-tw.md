@@ -15,7 +15,7 @@ lang: "zh-tw"
 
 如果您不希望 Vpon SDK 更動 Audio Session，請在初始化時，加入以下程式片段。
 
-## Objective-C
+### Objective-C
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -31,7 +31,7 @@ lang: "zh-tw"
 }
 ```
 
-## Switft
+### Switft
 
 ```swift
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
@@ -48,7 +48,10 @@ lang: "zh-tw"
     }
 ```
 
-在 Vpon SDK 設置並啟用 Audio Session 後，如果您需要再重新指定並啟用 Audio Session Category，我們建議您在重新指定 Audio Session Category 及結束影音播放時，呼叫以下 Function，讓 SDK 知道您是否正在控制 Audio Session。
+## (Optional) 通知 SDK Audio Session 使用狀況
+---
+
+我們建議您在重新指定 Audio Session Category 及結束影音播放時，呼叫以下 Function，讓 SDK 知道您是否正在控制 Audio Session。
 
 
 ```objc
