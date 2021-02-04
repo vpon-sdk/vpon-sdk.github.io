@@ -1,5 +1,10 @@
 # Vpon iOS SDK Change Log
 
+## 5.1.10
+* Release Date: 4 Feb. 2021
+* Build Number: 20210203
+* Bug fix
+
 ## 5.1.9
 * Release Date: 12 Jan. 2021
 * Build Number: 20210112
