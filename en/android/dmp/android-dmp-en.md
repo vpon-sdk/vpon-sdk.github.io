@@ -76,9 +76,6 @@ public class MainActivity extends Activity {
     private String licenseKey = "mock_license_key";
     private String customerId = "mock_custom_id";
 
-    private String payload = DEFAULT_EXTRA_DATA;
-    
-    private static final String DEFAULT_EXTRA_DATA = "{\"Key1\":\"value1\",\"Key2\":\"value2\"}";
     private VpdataAnalytics vpdataAnalytics;
 
     private VpdataAnalytics.Tracker tracker = null;
@@ -153,6 +150,23 @@ public void onClick(View v) {
 	tracker.sendEvent("page_view", payloadJsonObj);
 }
 ```
+
+
+# Debug Mode
+---
+Config debug mode with setDebugMode when initilizing VDA SDK to enable or disable debug log when you implement the SDK.
+
+
+```java
+
+VpdataAnalytics vpdataAnalytics = VpdataAnalytics.INSTANCE;
+
+vpdataAnalytics.setDebugMode(true);
+// Set true to enable Debug Mode, remember to disable this setting before app release!
+// Must be set before vpdataAnalytics.initialize()
+
+vpdataAn
+
 
 
 # Sample Code

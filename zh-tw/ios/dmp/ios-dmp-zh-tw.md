@@ -87,7 +87,7 @@ tracker.send(builder)
 
 # Debug Mode
 ---
-Config debug mode with setDebugMode when initilizing VDA SDK to enable or disable debug log when you implement the SDK.
+您可以在初始化 VDA SDK 時，透過設定 setDebugMode 來啟用或停用 Debug Log，請見以下範例：
 
 
 ```objc
