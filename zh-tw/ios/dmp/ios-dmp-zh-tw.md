@@ -22,10 +22,16 @@ Deployment target 10.0 以上
 
 ## Import VDA SDK
 
-請在每個要加入 Vpon Analytics 的頁面中 import VpadnAnalytics.h
+請在每個要加入 Vpon Analytics 的頁面中 import VponDataAnalytics
 
 ```objc
-#import "VpadnAnalytics.h";
+#import <VponDataAnalytics/VponDataAnalytics.h>
+```
+
+### Swift
+
+```swift
+import VponDataAnalytics
 ```
 
 ## VDA SDK Initialization

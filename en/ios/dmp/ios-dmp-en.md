@@ -23,10 +23,18 @@ Please follow the steps below to integrate VDA SDK in your application.
 
 ## Import VDA SDK
 
-Please import VpadnAnalytics.h in every page that will integrate with Vpon Analytics.
+Please import VponDataAnalytics in every page that will integrate with Vpon Analytics.
+
+### Objective-c
 
 ```objc
-#import "VpadnAnalytics.h";
+#import <VponDataAnalytics/VponDataAnalytics.h>
+```
+
+### Swift
+
+```swift
+import VponDataAnalytics
 ```
 
 ## VDA SDK Initialization
