@@ -56,7 +56,7 @@ dependencies {
 
 # 開始串接 VDA SDK
 ---
-請參考以下說明，完成 Vpom DMP SDK 串接。
+請參考以下說明，完成 Vpon Data SDK 串接。
 
 ### Import VDA SDK
 
@@ -64,7 +64,7 @@ dependencies {
 import com.vpon.sdk.VpdataAnalytics;
 ```
 
-### 宣告 VpadnAnalytics 物件，並指定 License Key 與 Custom Id
+### 宣告 VpdataAnalytics 物件，並指定 License Key 與 Custom Id
 
 ```java
 public class MainActivity extends Activity {

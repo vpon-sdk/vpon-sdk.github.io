@@ -37,7 +37,7 @@ dependencies {
 ### Permission
 Please add the Permissions below in your `AndroidManifest.xml`
 
-(Required) Please add below premissions for DMP SDK:
+(Required) Please add below premissions for Data SDK:
 
 ```xml
 <!-- Required permissions -->
@@ -165,7 +165,8 @@ vpdataAnalytics.setDebugMode(true);
 // Set true to enable Debug Mode, remember to disable this setting before app release!
 // Must be set before vpdataAnalytics.initialize()
 
-vpdataAn
+vpdataAnalytics.initialize(this, licenseKey, customerId);
+```
 
 
 
