@@ -56,7 +56,7 @@ iOS 3.0 以上的版本
 ## 3. 串接 ATS SDK
 在 AppDelegate 中加入必要的頭文件( #import "VponAts.h" ) 及 Delegate (VponAtsDelegate)
 
-```objective-c
+```Objective-C
 #import <UIKit/UIKit.h>
 #import "VponAts.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,VponAtsDelegate>{
@@ -65,14 +65,14 @@ iOS 3.0 以上的版本
 ## 4. 實作 tracking code
 對應窗口的 `.m` 文件中實現 ATS SDK 的接口, 設定 Inside code
 
-```objective-c
+```Objective-C
 goalID = [[NSString alloc] initWithString:@" Change here to your Goal ID "];
 ats = [[VponAts alloc] initWithGoalId:goalID andDelegate:self setLocationOnOff:YES];
 ```
 
 ## 5. 送出 tracker
 
-```objective-c
+```Objective-C
   - (void)applicationDidBecomeActive:(UIApplication *)application
   {
       // Restart any tasks that were paused (or not yet started) while the application

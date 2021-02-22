@@ -30,7 +30,7 @@ lang: "zh-cn"
 ---
 请参考以下范例实作 ATT Framework，询问用户是否允许 App 透过 IDFA 进行追踪。
 
-### Objective-c
+### Objective-C
 
 ```objc
 if (@available(iOS 14, *)) {

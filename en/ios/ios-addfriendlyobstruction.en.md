@@ -37,7 +37,7 @@ When the ad can't send impression successfully after displayed since that the ad
 Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction when you create VpadnRequest.
 
 
-### Objective-c
+### Objective-C
 
 ```objc
 VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
@@ -79,7 +79,7 @@ When the ad can't send impression successfully after displayed since that the ad
 
 Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction. If you are trying to request Banner Ad or Interstitial Ad:
 
-### Objective-c
+### Objective-C
 
 ```objc
 GADRequest *request = [GADRequest request];
@@ -108,7 +108,7 @@ request.register(extra)
 
 If you are trying to request Native ad, please refer to [Integrate Vpon Native Ad via AdMob] to finish the setting of custom event first and follow the instruction below to set the view as Friendly Obstruction.
 
-### Objective-c
+### Objective-C
 
 ```objc
 GADRequest *request = [GADRequest request];
@@ -159,7 +159,7 @@ When the ad can't send impression successfully after displayed since that the ad
 
 Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction.
 
-### Objective-c
+### Objective-C
 
 ```objc
 // For Banner Ads

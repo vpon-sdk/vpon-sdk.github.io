@@ -25,7 +25,7 @@ Please follow the steps below to integrate VDA SDK in your application.
 
 Please import VponDataAnalytics in every page that will integrate with Vpon Analytics.
 
-### Objective-c
+### Objective-C
 
 ```objc
 #import <VponDataAnalytics/VponDataAnalytics.h>
@@ -41,7 +41,7 @@ import VponDataAnalytics
 
 Please follow the tips below to initialize VDA SDK in the AppDelegae.h
 
-### Objective-c
+### Objective-C
 
 ```objc
 #import <VponDataAnalytics/VponDataAnalytics.h>
@@ -78,7 +78,7 @@ VDA SDK provide below method to send messages:
 Call send() and add payload with extraData if necessary when you trying to send data to Vpon.
 
 
-### Objective-c
+### Objective-C
 
 ```objc
 VDATracker *tracker = [[VDATracker alloc] init];

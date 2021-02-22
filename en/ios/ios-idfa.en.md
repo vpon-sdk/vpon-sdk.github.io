@@ -32,7 +32,7 @@ Please add `NSUserTrackingUsageDescription` in the Info.plist of your project to
 ---
 Please refer to the sample below to implement the ATT framework to ask if user allow to be tracked through IDFA.
 
-### Objective-c
+### Objective-C
 
 ```objc
 if (@available(iOS 14, *)) {

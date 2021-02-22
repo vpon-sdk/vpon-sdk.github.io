@@ -57,7 +57,7 @@ In order to present you with better analytics information, the SDK needs additio
 ## 3. Integrate ATS SDK
 Add include header (VponAts.h) and Delegate (VponAtsDelegate) into AppDelegate
 
-```objective-c
+```Objective-C
 #import <UIKit/UIKit.h>
 #import "VponAts.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,VponAtsDelegate>{
@@ -66,7 +66,7 @@ Add include header (VponAts.h) and Delegate (VponAtsDelegate) into AppDelegate
 ## 4. Implement tracking code
 Implement tracking code in the corresponding `.m` file.
 
-```objective-c
+```Objective-C
 goalID = [[NSString alloc] initWithString:@" Change here to your Goal ID "];
 ats = [[VponAts alloc] initWithGoalId:goalID andDelegate:self setLocationOnOff:YES];
 ```
@@ -74,7 +74,7 @@ ats = [[VponAts alloc] initWithGoalId:goalID andDelegate:self setLocationOnOff:Y
 ## 5. Add send tracker event
 Add 'send tracker event' in the `applicationDidBecomeActive` function.
 
-```objective-c
+```Objective-C
   - (void)applicationDidBecomeActive:(UIApplication *)application
   {
       // Restart any tasks that were paused (or not yet started) while the application

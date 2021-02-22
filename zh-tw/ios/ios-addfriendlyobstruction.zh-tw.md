@@ -36,7 +36,7 @@ lang: "zh-tw"
 請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，在建立 VpadnRequest 物件時，將該 view 設為 Friendly Obstruction：
 
 
-### Objective-c
+### Objective-C
 
 ```objc
 VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
@@ -79,7 +79,7 @@ request.addFriendlyObstruction(_obstructView, purpose: .NotVisible, description:
 
 請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction。如果您請求的是橫幅廣告或插頁廣告：
 
-### Objective-c
+### Objective-C
 
 ```objc
 GADRequest *request = [GADRequest request];
@@ -108,7 +108,7 @@ request.register(extra)
 
 如果您請求的是原生廣告，請先參考[透過 AdMob 串接 Vpon Native Ad] 完成自訂事件設定，再參考以下範例，完成實作：
 
-### Objective-c
+### Objective-C
 
 ```objc
 GADRequest *request = [GADRequest request];
@@ -158,7 +158,7 @@ request.register(extra)
 
 請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，將該 view 設為 Friendly Obstruction：
 
-### Objective-c
+### Objective-C
 
 ```objc
 // For Banner Ads

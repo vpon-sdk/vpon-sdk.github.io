@@ -24,6 +24,8 @@ Deployment target 10.0 以上
 
 請在每個要加入 Vpon Analytics 的頁面中 import VponDataAnalytics
 
+### Objective-C
+
 ```objc
 #import <VponDataAnalytics/VponDataAnalytics.h>
 ```
@@ -38,7 +40,7 @@ import VponDataAnalytics
 
 請參考以下指示初始化 VDA SDK
 
-### Objective-c
+### Objective-C
 
 ```objc
 #import <VponDataAnalytics/VponDataAnalytics.h>
@@ -74,7 +76,7 @@ VDA SDK 提供以下回傳資料的方法：
 當您需要向 Vpon 發送事件時，使用 send()，並可以透過 extraData 來傳送 payload 給 Vpon：
 
 
-### Objective-c
+### Objective-C
 
 ```objc
 VDATracker *tracker = [[VDATracker alloc] init];
