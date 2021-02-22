@@ -67,7 +67,7 @@ Please follow the steps below to integrate VDA SDK in your application.
 import com.vpon.sdk.VpdataAnalytics;
 ```
 
-### Declare VpadnAnalytics and Indicate A License Key and Custom ID
+### Declare VpdataAnalytics and Indicate A License Key and Custom ID
 
 ```java
 public class MainActivity extends Activity {
