@@ -148,6 +148,12 @@ Vpon 提供測試廣告，請參考 [Android 測試廣告]呼叫測試廣告，�
 # iOS
 ---
 
+### Vpon SDK 支援在配備 M1 Chip 的 Mac 模擬器上執行嗎？
+---
+
+Vpon SDK 目前不支援在配備 M1 Chip 的 Mac 模擬器上執行。如果您計畫在配備 M1 Chip 的 MBP 上進行開發，建議您透過實機進行測試。
+
+
 ### Vpon 支援 AdMob (Google Ad Manager) Native Ad Mediation 嗎？
 ---
 

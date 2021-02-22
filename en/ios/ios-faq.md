@@ -151,6 +151,11 @@ Please try to request Vpon Test Ads for your testing. To display Vpon Test Ads, 
 # iOS
 ---
 
+### Can I Build My App With Vpon SDK On The Simulator On Mac With M1 Chip?
+---
+
+Vpon SDK isn't compatible with the simulator on Mac with M1 chip. If you are trying to develop your App on Mac with M1 chip, we recommend that it would better to test with a real device.
+
 ### Can I Display Native Ad Via AdMob (Google Ad Manager)?
 
 ---
