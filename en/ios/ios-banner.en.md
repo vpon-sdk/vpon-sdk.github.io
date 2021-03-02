@@ -211,7 +211,6 @@ Please help to check if below log printed after the ad display and match the vie
 
 ```
 <VPON> [NOTE] Send impression successfully
-``` [NOTE] Send impression successfully
 ```
 
 
