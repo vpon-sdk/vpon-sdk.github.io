@@ -50,7 +50,7 @@ allprojects {
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.1.5'
+    implementation 'com.vpon:vpadnSDK:5.2.0'
 }
 ```
 

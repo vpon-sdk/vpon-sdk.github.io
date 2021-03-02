@@ -11,7 +11,7 @@
 
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.0.3) | [download][2] | Vpon SDK 5.1.7 ↑ <br> GMA SDK 18.3 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.0.4) | [download][2] | Vpon SDK 5.1.7 ↑ <br> GMA SDK 18.3 ↑ | 
 | AdMob <br> Google Ad Manager <br> (v2.0.1) | [download][2] | Vpon SDK 5.1.1 ↑ <br> GMA SDK 18.3 ↑ | 
 | MoPub <br> (v1.3.1)| [download][3] | Vpon SDK 5.1.7 ↑ <br> MoPub SDK 5.13.0 ↑ |
 | MoPub <br> (v1.1.0)| [download][4] | Vpon SDK 5.1.1 ↑ <br> MoPub SDK 5.13.0 ↑ |
@@ -32,7 +32,7 @@ Smaato        |
 [download][9] | -->
 
 
-[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf5112-30201202-2102031504-a32c69d.aar
+[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf520-62201202-2102261154-ff760b4.aar
 [2]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter
 [3]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.3.0
 [4]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.1.0

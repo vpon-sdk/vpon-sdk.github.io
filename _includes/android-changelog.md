@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+## 5.2.0
+* Release Date: 2 Mar. 2021
+* Build Number: 62201202
+* Add new ad format: VponAdSize.LARGE_BANNER (320x100 Banner)
+
 ## 5.1.12
 * Release Date: 3 Feb. 2021
 * Build Number: 30201202

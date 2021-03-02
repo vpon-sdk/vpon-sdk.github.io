@@ -21,11 +21,12 @@ Vpon Mobile Web SDK 提供`一般横幅广告`，可让开发者将横幅广告�
 Vpon Mobile Web SDK 支援以下`一般横幅广告格式` :
 
 
-| 名称               |    Size(WxH)  |
+| 名称                |   Size(WxH)   |
 | :----------------: | :------------:|
 | Banner             |    320x50     |
+| Large Banner       |    320x100    |
 | Medium Rectangle   |    300x250    |
-| Large Rectangle   |    320x480    |
+| Large Rectangle    |    320x480    |
 
 # 嵌入广告程式码
 ---

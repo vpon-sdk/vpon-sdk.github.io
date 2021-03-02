@@ -51,12 +51,12 @@ Add the dependency with a specified version of Vpon SDK in the app-level `build.
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.1.5'
+    implementation 'com.vpon:vpadnSDK:5.2.0'
 }
 ```
 
 > **Note**
->* You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.9.+'`` to import the latest SDK in version 4.7.
+>* You can revise ``'com.vpon:vpadnSDK:4.7.0'`` to ``'com.vpon:vpadnSDK:4.9.+'`` to import the latest SDK in version 4.9.
 >* If you already set targetSdkVersion to 30 in your app, please use SDK v5.1.5 and above version.
 
 

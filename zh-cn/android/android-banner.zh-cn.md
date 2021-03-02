@@ -170,6 +170,7 @@ protected void onDestroy() {
 大小 (宽度x高度)             |     说明       |  VponAdSize 常数值
 :------------------------: | :-------------:| :-----------------------------:
 320x50                     | 标准横幅广告     | VponAdSize.BANNER
+320x100                    | 大型横幅广告     | VponAdSize.LARGE_BANNER
 300x250                    | IAB 中矩形广告     | VponAdSize.IAB\_MRECT
 320x480                    | 大型横幅广告 | VponAdSize.LARGE\_RECTANGLE
 468x60                     | IAB 全横幅广告   | VponAdSize.IAB\_BANNER

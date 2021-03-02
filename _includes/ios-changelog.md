@@ -1,5 +1,10 @@
 # Vpon iOS SDK Change Log
 
+## 5.2.0
+* Release Date: 2 Mar. 2021
+* Build Number: 20210301
+* Add new ad format: VpadnAdSizeLARGEBANNER (320x100 Banner)
+
 ## 5.1.10
 * Release Date: 4 Feb. 2021
 * Build Number: 20210203
