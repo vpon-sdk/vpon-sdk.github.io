@@ -49,7 +49,7 @@ Take Banner Ad as an example, please refer to the sample code below and create a
 >**Note:**
 >* Please replace the Banner ID with your own one
 >* Please disable `Serve as SafeFrame` for this creative
->* For Google Ad Manager Marco, please refer to: [Google Ad Manager Macro]
+>* For Google Ad Manager Macro, please refer to: [Google Ad Manager Macro]
 
 
 ## Related Interface Spec
