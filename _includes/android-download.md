@@ -32,7 +32,7 @@ Smaato        |
 [download][9] | -->
 
 
-[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf520-62201202-2102261154-ff760b4.aar
+[1]: https://m.vpadn.com/sdk/vpadn-sdk-obf521-42301202-2103241636-6b6c33c.aar
 [2]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter
 [3]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.3.0
 [4]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.1.0
