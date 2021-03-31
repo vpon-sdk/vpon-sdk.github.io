@@ -20,11 +20,12 @@ Vpon Mobile Web SDK provides Original Banner which can be placed your mobile web
 Vpon Mobile Web SDK supports the following `original banner ad formats`:
 
 | Name              |    Size(WxH)  |
-| :---------------: | :------------:|
+| :--------------- :| :------------:|
 | Banner            |    320x50     |
-| Large Banner      |    320x100    |
 | Medium Rectangle  |    300x250    |
 | Large Rectangle   |    320x480    |
+
+<!-- | Large Banner      |    320x100    | -->
 
 # Setups
 ---
