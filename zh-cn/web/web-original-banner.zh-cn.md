@@ -23,10 +23,11 @@ Vpon Mobile Web SDK 支援以下`一般横幅广告格式` :
 
 | 名称                |   Size(WxH)   |
 | :----------------: | :------------:|
-| Banner             |    320x50     |
-| Large Banner       |    320x100    |
-| Medium Rectangle   |    300x250    |
-| Large Rectangle    |    320x480    |
+| Banner            |    320x50     |
+| Medium Rectangle  |    300x250    |
+| Large Rectangle   |    320x480    |
+
+<!-- | Large Banner      |    320x100    | -->
 
 # 嵌入广告程式码
 ---

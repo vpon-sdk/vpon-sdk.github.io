@@ -168,13 +168,14 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
 |      Size (WxH)            | Description    |  VponAdSize Constant            |
   :------------------------: | :-------------:| :-----------------------------:
   320x50                     | Standard Banner| VponAdSize.BANNER
-  320x100                    | Large Banner   | VponAdSize.LARGE_BANNER
   300x250                    |IAB Medium Rectangle| VponAdSize.IAB\_MRECT
   320x480                    | Large Rectangle Banner| VponAdSize.LARGE\_RECTANGLE
   468x60                     |IAB Full-Size Banner| VponAdSize.IAB\_BANNER
   728x90                     | IAB Leaderboard|  VponAdSize.IAB\_LEADERBOARD
   device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
 
+
+<!--   320x100                    | Large Banner   | VponAdSize.LARGE_BANNER -->
 
 >**Note:** The resolution of the device might impact the layout of Smart Banner. If you are trying to display Standard, it is recommend to use `VponAdSize.BANNER` for request.
 

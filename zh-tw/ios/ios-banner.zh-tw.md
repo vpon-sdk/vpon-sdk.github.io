@@ -181,7 +181,6 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
 尺吋<br>(寬x高)             |     說明       |  VponAdSize 常數值              | 適用裝置
 :------------------------: | :-------------:| :-----------------------------:|:-----------:
 320x50                     | 標準橫幅廣告     | VpadnAdSizeBANNER              |iPhone<br>iPad
-320x100                    | 大型橫幅廣告     | VpadnAdSizeLARGEBANNER         |iPhone<br>iPad
 468x60                     | IAB 全橫幅廣告   | VpadnAdSizeFullBanner          |iPad
 728x90                     | IAB 超級橫幅廣告 | VpadnAdSizeLeaderboard         |iPad
 300x250                    | IAB 中矩形廣告   | VpadnAdSizeMediumRectangle     |iPhone<br>iPad
@@ -189,6 +188,8 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
 device width x auto height | Smart Banner Portrait | VpadnAdSizeSmartBannerPortrait |iPhone<br>iPad
 device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLandscape  |iPhone<br>iPad
 
+
+<!-- 320x100                    | 大型橫幅廣告     | VpadnAdSizeLARGEBANNER         |iPhone<br>iPad? -->
 
 # Tips
 ---

@@ -170,12 +170,13 @@ protected void onDestroy() {
 大小 (宽度x高度)             |     说明       |  VponAdSize 常数值
 :------------------------: | :-------------:| :-----------------------------:
 320x50                     | 标准横幅广告     | VponAdSize.BANNER
-320x100                    | 大型横幅广告     | VponAdSize.LARGE_BANNER
 300x250                    | IAB 中矩形广告     | VponAdSize.IAB\_MRECT
 320x480                    | 大型横幅广告 | VponAdSize.LARGE\_RECTANGLE
 468x60                     | IAB 全横幅广告   | VponAdSize.IAB\_BANNER
 728x90                     | IAB 超级横幅广告 |  VponAdSize.IAB\_LEADERBOARD
 device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
+
+<!-- 320x100                    | 大型横幅广告     | VponAdSize.LARGE_BANNER -->
 
 >**Note:** Smart Banner 在不同解析度的手机上会产生不同的展示效果，如果您希望展示标准横幅广告，我们建议您直接使用 `VponAdSize.BANNER`
 
