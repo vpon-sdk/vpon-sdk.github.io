@@ -39,7 +39,7 @@ allprojects {
     repositories {
         jcenter()
         maven{
-            url 'https://dl.bintray.com/vpon-sdk/maven'
+            url 'https://m.vpon.com/sdk/android/maven'
         }
     }
 }
