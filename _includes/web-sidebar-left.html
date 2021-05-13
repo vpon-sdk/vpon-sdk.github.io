@@ -3,6 +3,7 @@
 {% case langs %}
 {% when "en" %}
   {% assign urlGettingStarted = v | append:"/web" %}
+  {% assign urlRegistration = v | append:"/web/registration" %}
   {% assign urlOriginalBanner = v | append:"/web/original-banner" %}
   {% assign urlAdhesionBanner = v | append:"/web/adhesion-banner" %}
   {% assign urlInterstitial = v | append:"/web/interstitial" %}
@@ -12,6 +13,7 @@
   {% assign urlFaq = v | append:"/web/faq" %}
   {% assign sidebar-title1 = "Web Integration" %}
   {% assign getting-started = "Getting Started" %}
+  {% assign registration = "Registration" %}
   {% assign sidebar-title2 = "Ad Type Choices" %}
   {% assign original-banner-id = "Original Banner Ad" %}
   {% assign adhesion-banner-id = "Adhesion Banner Ad" %}
@@ -22,6 +24,7 @@
 
 {% else %}
   {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/web" %}
+  {% assign urlRegistration = v | append:"/" | append: langs | append: "/web/registration" %}
   {% assign urlOriginalBanner = v | append:"/" | append: langs | append: "/web/original-banner" %}
   {% assign urlAdhesionBanner = v | append:"/" | append: langs | append: "/web/adhesion-banner" %}
   {% assign urlInterstitial = v | append:"/" | append: langs | append: "/web/interstitial" %}
@@ -34,6 +37,7 @@
 {% when "zh-tw" %}
   {% assign sidebar-title1 = "Web 串接" %}
   {% assign getting-started = "開始使用" %}
+  {% assign registration = "註冊帳號" %}
   {% assign sidebar-title2 = "廣告型態選擇" %}
   {% assign original-banner-id = "一般橫幅廣告" %}
   {% assign adhesion-banner-id = "置頂/置底橫幅廣告" %}
@@ -45,6 +49,7 @@
 {% when "zh-cn" %}
   {% assign sidebar-title1 = "Web 串接" %}
   {% assign getting-started = "开始使用" %}
+  {% assign registration = "注册帐号" %}
   {% assign sidebar-title2 = "广告型态选择" %}
   {% assign original-banner-id = "一般横幅广告" %}
   {% assign adhesion-banner-id = "置顶/置底横幅广告" %}
@@ -56,6 +61,7 @@
 {% when "jp" %}
   {% assign sidebar-title1 = "Web 串接" %}
   {% assign getting-started = "スタートガイド" %}
+  {% assign registration = "Vponへの登録" %}
   {% assign sidebar-title2 = "広告パターンとを選択" %}
   {% assign original-banner-id = "バナー広告" %}
   {% assign adhesion-banner-id = "(adhesion)バナー広告" %}
@@ -69,6 +75,7 @@
 <ul class= "nav nav-sidebar nav-left hidden-xs hidden-sm">
   <span id= "sidebar-title1">{{sidebar-title1}}</span>
   <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+  <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
   <span id= "sidebar-title2">{{sidebar-title2}}</span>
   <li><a id= "banner-id" href="{{urlOriginalBanner}}">{{original-banner-id}}</a></li>
   <li><a id= "banner-id" href="{{urlAdhesionBanner}}">{{adhesion-banner-id}}</a></li>
@@ -82,6 +89,7 @@
   <div class="nav nav-sidebar" style="float:left">
       <span id= "sidebar-title1">{{sidebar-title1}}</span>
       <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+      <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
   </div>
   <div class="nav nav-sidebar">
       <span id="sidebar-title2">{{sidebar-title2}}</span>
