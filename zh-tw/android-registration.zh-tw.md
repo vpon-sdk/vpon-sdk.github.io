@@ -45,6 +45,7 @@ URL。<br>
 
 進入版位列表頁面後，您將會看見您的版位審核狀態與應用程式的 License Key。
 ![][2]
+![][4]
 
 按下左選單的【軟體列表】即可進入軟體列表頁面。在軟體列表頁面中，會看到您所建立的應用程式、應用程式的審核狀態與相關設定。
 ![][3]
@@ -57,4 +58,5 @@ URL。<br>
   [1]: {{site.imgurl}}/Console_zh-tw_02.png
   [2]: {{site.imgurl}}/Console_zh-tw_03.png
   [3]: {{site.imgurl}}/Console_zh-tw_04.png
+  [4]: {{site.imgurl}}/Ad Position.001.png
   [5]: mailto:partner.service@vpon.com
