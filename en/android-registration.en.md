@@ -42,9 +42,10 @@ Click "Send" button after you finish it.
 
 
 Please refer to the sample below if you are not sure which ad type and ad size to choose:
-![][4]
-![][6]
-![][7]
+
+![][1]
+![][2]
+![][3]
 
 
 
