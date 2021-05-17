@@ -4,7 +4,7 @@ title:          "注册开发商"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       zh-cn/android/registration/
+permalink:       zh-cn/web/registration/
 lang:           "zh-cn"
 ---
 

@@ -34,13 +34,19 @@ Key，可以帮助您横跨大中华区的行动广告市场。 -->
 
 进入新增版位页面，请依据图示完成相关资讯的填写：
 
-1.  输入您的广告版位名称、选择您的广告种类，选择是否使用平台广告与是否使用混合曝光平台广告。<font color="red">建议使用选择开启使用平台广告及关闭使用混合曝光平台广告</font>
-2.  设定广告过滤
+1.  输入您的广告版位名称、选择您的广告种类及尺
+2.  如有需要的话，可以设定广告过滤
 
 
 按下【送出】键进入版位列表页面。
 
 ![][1]
+
+
+如果您不知道如何选择广告尺吋，请参考以下图示说明：
+![][4]
+![][6]
+![][7]
 
 进入版位列表页面后，将会看见您的版位审核状态与应用程式的 License Key。
 
@@ -58,4 +64,7 @@ Key，可以帮助您横跨大中华区的行动广告市场。 -->
   [1]: {{site.imgurl}}/Console_zh-cn_02.png
   [2]: {{site.imgurl}}/Console_zh-cn_03.png
   [3]: {{site.imgurl}}/Console_zh-cn_04.png
+  [4]: {{site.imgurl}}/Ad Position.002.png
+  [6]: {{site.imgurl}}/Ad Position.005.png
+  [7]: {{site.imgurl}}/Ad Position.008.png
   [5]: mailto:partner.service@vpon.com

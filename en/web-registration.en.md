@@ -1,10 +1,10 @@
 ---
-layout:         "android"
-title:          "Vpon - Registration"
+layout:         "ios"
+title:          "Registration"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       android/registration/
+permalink:       web/registration/
 lang:           "en"
 ---
 # Register As A Vpon Publisher

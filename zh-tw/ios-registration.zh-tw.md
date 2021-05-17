@@ -35,13 +35,17 @@ URL。<br>
 
 進入新增版位頁面，請依據圖示完成相關資訊的填寫：
 
-1.  輸入您的廣告版位名稱、選擇您的廣告種類，選擇是否使用平台廣告與是否使用混合曝光平台廣告。<font color="red">建議使用選擇開啟使用平台廣告及關閉使用混合曝光平台廣告</font>
-2.  設定廣告過濾
+1.  輸入您的廣告版位名稱、選擇您的廣告種類及尺吋
+2.  如有需要的話，可以設定廣告過濾
 
+![][1]
 
 按下【送出】鍵進入版位列表頁面。
 
-![][1]
+如果您不知道如何選擇廣告尺吋，請參考以下圖示說明：
+![][4]
+![][6]
+![][7]
 
 進入版位列表頁面後，您將會看見您的版位審核狀態與應用程式的 License Key。
 ![][2]
@@ -57,4 +61,7 @@ URL。<br>
   [1]: {{site.imgurl}}/Console_zh-tw_02.png
   [2]: {{site.imgurl}}/Console_zh-tw_03.png
   [3]: {{site.imgurl}}/Console_zh-tw_04.png
+  [4]: {{site.imgurl}}/Ad Position.001.png
+  [6]: {{site.imgurl}}/Ad Position.004.png
+  [7]: {{site.imgurl}}/Ad Position.007.png
   [5]: mailto:partner.service@vpon.com
