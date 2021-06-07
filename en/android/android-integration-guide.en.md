@@ -38,7 +38,6 @@ Add Vpon's Maven repository in `allprojects` section in the project-level `build
 ```javascript
 allprojects {
     repositories {
-        jcenter()
         maven{
             url 'https://m.vpon.com/sdk/android/maven'
         }

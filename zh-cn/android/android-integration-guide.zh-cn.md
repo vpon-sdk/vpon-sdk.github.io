@@ -38,7 +38,6 @@ Vpon 提供以下两种串接广告 SDK 的方式：
 ```javascript
 allprojects {
     repositories {
-        jcenter()
         maven{
             url 'https://m.vpon.com/sdk/android/maven'
         }
