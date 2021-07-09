@@ -209,6 +209,22 @@ You must implement `WKUIDelegate` to handle the click action if you're trying to
 Please try to request Vpon Test Ads for your testing. To display Vpon Test Ads, please refer to [iOS Test Ads].
 
 
+<br>
+
+### Error Occur When Using SDK v5.3.0 Or Above
+---
+
+If you see an error as below
+
+![FAQ_01.png]
+
+Please try to modify the Embed setting of VpadnSDKAdKit.framework from Do Not Embed to Embed & Sign in the Project Setting.
+
+![FAQ_02.png]
+
+
+
+
 
 # Web
 ---
@@ -263,3 +279,5 @@ Please refer to [Web SDK Callback Function] to implement the Passback Ad.
 [iOS Test Ads]: {{site.baseurl}}/ios/banner/#request-for-test-ad
 [Web SDK Callback Function]: {{site.baseurl}}/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
+[FAQ_01.png]: {{site.imgurl}}/FAQ_01.png
+[FAQ_02.png]: {{site.imgurl}}/FAQ_02.png
