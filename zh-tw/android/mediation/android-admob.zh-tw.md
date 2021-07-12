@@ -15,7 +15,11 @@ lang:           "zh-tw"
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
->**Note:** 您可以[由此下載][2] Vpon SDK 及 Vpon AdMob Adapter。
+>**Note:** 
+>
+>* 除了實作廣告串接的部份外，為使廣告正常運作，並在適當的時機釋放資源，我們建議可以在 Activity 生命週期中呼叫對應的方法 (請參考 [Google Ads API])
+>
+>* 您可以[由此下載][2] Vpon SDK 及 Vpon AdMob Adapter。
 
 
 # 廣告單元設定
@@ -79,3 +83,4 @@ lang:           "zh-tw"
 [1]:https://apps.admob.com
 [Sample Code]: {{site.baseurl}}/zh-tw/android/download
 [2]: {{site.baseurl}}/zh-tw/android/download
+[Google Ads API]: https://developers.google.com/android/reference/com/google/android/gms/ads/BaseAdView#pause()

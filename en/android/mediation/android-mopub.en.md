@@ -16,7 +16,11 @@ Please make sure you've added following files in your project:
 2. Vpon SDK
 3. Vpon MoPub Custom Event
 
->**Note:** For Vpon SDK and Vpon MoPub Custom Event, please [download here][13].
+>**Note:** 
+>
+>* Besides ad integration, to make the Ads work more smoothly and release resource appropriately, we recommend that you should implement Activity method in the Activity Lifacycle. (Please refer to [MoPub API)])
+>
+>* For Vpon SDK and Vpon MoPub Custom Event, please [download here][13].
 
 
 # Native Ad Integration
@@ -131,3 +135,4 @@ After filling in the data above, click "Segments" tab and choose "Global Segment
   [8]: {{site.imgurl}}/Mopub_013.png
   [9]: {{site.imgurl}}/Mopub_009.png
 [13]: {{site.baseurl}}/android/download
+[MoPub API]: https://developers.mopub.com/publishers/reference/android/LifeCycleListener/#public-void-onpauseactivity-activity

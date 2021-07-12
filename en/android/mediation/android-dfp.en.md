@@ -20,7 +20,12 @@ Please make sure you've added following files in your project:
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
->**Note:** For Vpon SDK and Vpon AdMob Adapter, please [download here][1].
+
+>**Note:** 
+>
+>* Besides ad integration, to make the Ads work more smoothly and release resource appropriately, we recommend that you should implement Activity method in the Activity Lifacycle. (Please refer to [Google Ads API)])
+>
+>* For Vpon SDK and Vpon AdMob Adapter, please [download here][1].
 
 
 # Set Up Ad Unit
@@ -96,3 +101,4 @@ Please refer to our [Sample Code] for a complete integration sample.
 [插頁尺寸]: {{site.imgurl}}/dfp_interstitial.png
 
 [1]: {{site.baseurl}}/android/download
+[Google Ads API]: https://developers.google.com/android/reference/com/google/android/gms/ads/BaseAdView#pause()
