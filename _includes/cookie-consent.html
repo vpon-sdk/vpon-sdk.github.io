@@ -32,11 +32,11 @@
     }
 
     if(readCookie('cookie-notice-dismissed')=='true') {
-        // {% include tracking.html %}
-        
+        // {% include ga.js %}
     } else {
         document.getElementById('cookie-notice').style.display = 'block';
     }
+
     document.getElementById('cookie-notice-accept').addEventListener("click",function() {
         createCookie('cookie-notice-dismissed','true',31);
         document.getElementById('cookie-notice').style.display = 'none';
