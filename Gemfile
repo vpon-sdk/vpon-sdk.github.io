@@ -1,7 +1,7 @@
 #
 source "https://rubygems.org"
 gem "jekyll"
-#gem 'pygments.rb'
+# gem 'pygments.rb'
 gem "kramdown", ">= 2.3.0"
 
 
