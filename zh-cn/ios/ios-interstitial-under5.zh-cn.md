@@ -7,7 +7,7 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-cn/ios/interstitial-under5/
 lang: "zh-cn"
 ---
-
+ 
 # 总览
 ---
 插页式广告是互动式多媒体 HTML5 或「网络应用程式」，在应用程式的正常转换点显示 (例如启动、影片播放前或游戏关卡载入时)。网路应用程式使用上就像在应用程式内浏览一样，只有简单的关闭按钮，而没有任何导览列，因为导览配置就包含在内容本身。这类广告由于内容更丰富、更吸引人，因此製作起来更昂贵，而曝光机会相对有限。
