@@ -58,20 +58,8 @@
 
     if (readCookie('cookie-notice-dismissed') == 'true') {
         addGA();
-        addGA4();
         
         function addGA() {
-            var gaSrc = document.createElement('script');
-            gaSrc.async = true;
-            gaSrc.src = "https://www.googletagmanager.com/gtag/js?id=UA-201430036-1";
-            document.body.appendChild(gaSrc);
-            window.dataLayer = window.dataLayer || [];
-            dataLayer.push(arguments);
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'UA-201430036-1');
-        }
-        function addGA4() {
             var ga4Src = document.createElement('script');
             ga4Src.async = true;
             ga4Src.src = "https://www.googletagmanager.com/gtag/js?id=G-8R8WYZBSJH";
@@ -81,6 +69,7 @@
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
             gtag('config', 'G-8R8WYZBSJH');
+            gtag('config', 'UA-201430036-1');
         }
     } else {
         document.getElementById('cookie-notice').style.display = 'block';
