@@ -1,8 +1,8 @@
 # Vpon iOS SDK Change Log
 
 ## 5.3.0
-* Release Date: 
-* Build Number: 
+* Release Date: 20210802
+* Build Number: 20210702
 * Add new video tracking event Progress
 * Support OM SDK v1.3.20
 * Support xcframework
