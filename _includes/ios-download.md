@@ -5,7 +5,7 @@ Fundamental SDK<br>| Framework SDK <br>|
 :-------------: | :------------:|
 [download][1]   | [download][2] |
 
-> ** Note**: Vpon will stop support Fundamental SDK from SDK v5.3.1, if you are integrating with the Fundamental SDK, we recommend that you can replace it with Framework SDK.
+> **Note**: Vpon will stop support Fundamental SDK from SDK v5.3.1, if you are integrating with the Fundamental SDK, we recommend that you can replace it with Framework SDK.
 
 
 <!-- > **Note**:
