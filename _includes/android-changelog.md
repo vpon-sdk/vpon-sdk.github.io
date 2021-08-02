@@ -1,5 +1,11 @@
 # Vpon Android SDK Change Log
 
+## 5.3.0
+* Release Date: 20210802
+* Build Number: 20701202
+* Add new video tracking event Progress
+* Bug fix
+
 ## 5.2.2
 * Release Date: 6 Apr. 2021
 * Build Number: 60401202

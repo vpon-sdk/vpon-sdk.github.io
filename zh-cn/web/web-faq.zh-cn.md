@@ -205,6 +205,21 @@ Vpon 目前以自订事件的方式支援 AdMob (Google Ad Manager) Native Ad Me
 
 Vpon 提供测试广告，请参考 [iOS 测试广告]呼叫测试广告，以便测试。
 
+<br>
+
+### 使用 SDK v5.3.0 以上的版本，出现错误讯息
+---
+
+如果您在使用 SDK v5.3.0 及以上版本时发生以下错误：
+
+
+![FAQ_01.png]
+
+请尝试在 Project 的 Framework, Libraries, and Embedded Content 中，将 VpadnSDKAdKit.framework 由 Do Not Embed 改为 Embed & Sign。
+
+![FAQ_02.png]
+
+
 
 
 # Web
@@ -259,3 +274,5 @@ Vpon 提供没有广告回传时的 Callback Function，请参考 [Web SDK Callb
 [iOS 测试广告]: {{site.baseurl}}/zh-cn/ios/banner/#测试广告
 [Web SDK Callback Function]: {{site.baseurl}}/zh-cn/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
+[FAQ_01.png]: {{site.imgurl}}/FAQ_01.png
+[FAQ_02.png]: {{site.imgurl}}/FAQ_02.png

@@ -84,6 +84,9 @@ Framewrok 及 Fundamental SDK 提供一樣的功能，主要的差別在於對 i
 
 
 ### Fundamental SDK
+
+**Note:** Vpon 將從 SDK v5.3.1 後停止支援 Fundamental SDK，如果您仍在使用 Fundamental SDK，我們建議您盡快改為使用 Framework SDK。
+
 解壓縮後的 Fundamental SDK 包含 Objective-C 標頭、一個執行期間程式庫。要在應用程式中加入 Vpon 廣告，您必須完成三個步驟：
 
 1. 在專案中加入 `ios-vpadn-sdk.a` 及 Header 檔

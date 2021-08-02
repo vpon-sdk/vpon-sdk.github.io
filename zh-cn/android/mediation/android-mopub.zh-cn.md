@@ -16,7 +16,11 @@ lang:           "zh-cn"
 2. Vpon SDK
 3. Vpon MoPub Custom Event
 
->**Note:** 您可以[由此下载][10] Vpon SDK 及 Vpon MoPub Custom Event。
+>**Note:** 
+>
+>* 除了实作广告串接的部份外，为使广告正常运作，并在适当的时机释放资源，我们建议可以在 Activity 生命中期中呼叫对应的方法 (请参考 [MoPub API])
+>
+>* 您可以[由此下载][10] Vpon SDK 及 Vpon MoPub Custom Event。
 
 
 # 原生广告串​​接设定
@@ -129,3 +133,4 @@ Mopub后台设定请参考下列步骤:
 [8]: {{site.imgurl}}/Mopub_013.png
 [9]: {{site.imgurl}}/Mopub_009.png
 [10]: {{site.baseurl}}/zh-tw/android/download
+[MoPub API]: https://developers.mopub.com/publishers/reference/android/LifeCycleListener/#public-void-onpauseactivity-activity

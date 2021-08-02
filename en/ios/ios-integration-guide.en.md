@@ -90,6 +90,9 @@ Finally, import the framework:
 
 ### Fundamental SDK
 ---
+
+** Note**: Vpon will stop support Fundamental SDK from SDK v5.3.1, if you are integrating with the Fundamental SDK, we recommend that you can replace it with Framework SDK.
+
 The decompressed SDK consists of Objective-C, a runtime library and a README. Show Vpadn banner on your Android App, you must complete three steps:
 
 1. Import `libAdOn.a` and Headers
