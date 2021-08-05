@@ -2,7 +2,7 @@
 
 ## 5.3.0
 * Release Date: 20210802
-* Build Number: 20701202
+* Build Number: 50801202
 * Add new video tracking event Progress
 * Support OM SDK v1.3.20
 * Bug fix
