@@ -49,12 +49,11 @@ allprojects {
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK'
+    implementation 'com.vpon:vpadnSDK:5.3.0'
 }
 ```
 
 > **Note**
->* 若要更新 SDK，可改為 implementation ``'com.vpon:vpadnSDK:4.9.+'``，即可獲取 SDK 版本號 4.9 中最新的版本
 >* 若您的 App 支援 targetSdkVersion 30+，請務必使用 SDK v5.1.5 以上版本
 
 
