@@ -50,7 +50,7 @@ Add the dependency with a specified version of Vpon SDK in the app-level `build.
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.2.0'
+    implementation 'com.vpon:vpadnSDK'
 }
 ```
 
