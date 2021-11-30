@@ -1,11 +1,11 @@
 # Vpon iOS SDK Change Log
 
 ## 5.3.2
-* Release Date: 20211130
+* Release Date: 30 Nov. 2021
 * Adjust minimum support OS version to iOS 11.0
 
 ## 5.3.0
-* Release Date: 20210802
+* Release Date: 2 Aug. 2021
 * Build Number: 20210702
 * Add new video tracking event Progress
 * Support OM SDK v1.3.20
