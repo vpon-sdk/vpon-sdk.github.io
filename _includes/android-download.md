@@ -16,7 +16,6 @@
 | MoPub <br> (v1.3.1)| [download][3] | Vpon SDK 5.1.7 ↑ <br> MoPub SDK 5.13.0 ↑ |
 | MoPub <br> (v1.1.0)| [download][4] | Vpon SDK 5.1.1 ↑ <br> MoPub SDK 5.13.0 ↑ |
 
-<!-- | Smatto | [download][5] | | -->
 
 
 ## Sample Code Download
@@ -26,13 +25,9 @@
 |:------------------:|:-------------:|:-----------------:|:------------:|
 | [download][6]      | [download][7] | [download][7]     | [download][8]| 
 
-<!-- 
-Smaato        |
-:-------------:|
-[download][9] | -->
 
 
-[1]: https://m.vpon.com/sdk/android/maven/com/vpon/vpadnSDK/5.3.0/vpadnSDK-5.3.0.aar
+[1]: https://m.vpon.com/sdk/android/maven/com/vpon/vpadnSDK/5.3.2/vpadnSDK-5.3.2.aar
 [2]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter
 [3]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.3.0
 [4]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/adapter/MoPub%20Adapter/v1.1.0

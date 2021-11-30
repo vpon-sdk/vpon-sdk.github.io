@@ -109,6 +109,8 @@ dependencies {
 
     <!-- Import required Google Play Service -->
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+    <!-- Import required Google Play Service if you are using Vpon SDK v5.3.2 and above -->
+    implementation 'com.google.android.gms:play-services-appset:16.0.0'
 }
 ```
 

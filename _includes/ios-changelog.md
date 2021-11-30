@@ -1,5 +1,9 @@
 # Vpon iOS SDK Change Log
 
+## 5.3.2
+* Release Date: 20211130
+* Adjust minimum support OS version to iOS 11.0
+
 ## 5.3.0
 * Release Date: 20210802
 * Build Number: 20210702

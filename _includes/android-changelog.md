@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+## 5.3.2
+* Release Date: 20211130
+* Adjust support minSdkVersion to API 21 (Android 5.0)
+* Bug fix
+
 ## 5.3.0
 * Release Date: 20210802
 * Build Number: 50801202

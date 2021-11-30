@@ -1,24 +1,9 @@
 ## SDK Download (Version: {{site.i_version}})
 ---
 
-Fundamental SDK<br>| Framework SDK <br>|
-:-------------: | :------------:|
-[download][1]   | [download][2] |
-
-> **Note**: Vpon will stop support Fundamental SDK from SDK v5.3.1, if you are integrating with the Fundamental SDK, we recommend that you can replace it with Framework SDK.
-
-
-<!-- > **Note**:
-
->* You can choose either fundamental SDK or framework SDK for ad integration. If using Framework SDK, you don't have to reference necessary frameworks, one by one, and it's lighter than fundamental SDK. -->
-
-<!-- >**Note:** You might receive an alert (ITMS-90809) from App Store if you are using the latest Vpon SDK. It won't cause any impact on the ad serving and the result of the review currently. Vpon will deliver a new version of SDK to figure it out asap. -->
-
-## Header Download
-
-|VpadnBanner.h <br> VpadnInterstitial.h <br> VpadnNativeAd.h <br> VpadnNativeAdsManager.h <br> VpadnNativeAdTableViewAdProvider.h |
-|:-------------:|
-|[download][3]|
+| Framework SDK <br>|
+| :------------:|
+| [download][2] |
 
 
 
@@ -30,27 +15,17 @@ Fundamental SDK<br>| Framework SDK <br>|
 | AdMob <br> Google Ad Manager <br> (v2.0.5) | [download][4] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 7.47.0 ↑ | 
 | MoPub <br> (v2.0.5)| [download][14] | Vpon SDK 5.1.7 ↑  <br> MoPub SDK 5.13.0 ↑ |
 | MoPub <br> (v2.0.2)| [download][5] | Vpon SDK 5.1.1 ↑  <br> MoPub SDK 5.12.0 ↓ |
-
-<!-- | Smatto | [download][12] | | -->
-
-
-
+ 
  
 ## Sample Code Download
 ---
 
-| Fundamental   | Framework     | AdMob         | Google Ad Manager | MoPub          |
-|:-------------:|:-------------:|:-------------:|:-----------------:|:--------------:|
-| [download][6] | [download][7] | [download][8] | [download][9]     | [download][11] |
+| Framework     | AdMob         | Google Ad Manager | MoPub          |
+|:-------------:|:-------------:|:-------------:|:-----------------:|
+| [download][7] | [download][8] | [download][9]     | [download][11] |
 
-<!-- 
-Smaato        |
-:-------------:|
-[download][13]| -->
 
-[1]: https://m.vpon.com/sdk/VponSDK-iOS/ios-vpadn-sdk-v5.3.0-20210702-2107030143-4b49ddf.a
-[2]: https://m.vpon.com/sdk/ios/VpadnSDKiOS-5.3.0.zip
-
+[2]: https://m.vpon.com/sdk/ios/VpadnSDKiOS-5.3.2.zip
 [3]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FundamentalExample/Headers
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter
 [5]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/MopubCustomEvents-2.0.2
