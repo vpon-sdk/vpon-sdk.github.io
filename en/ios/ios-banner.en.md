@@ -16,7 +16,7 @@ Vpon Banner can be embedded to part of your app layout. It consists of a multime
 
 # Prerequisites
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
 # Start To Implement Banner Ad
 ---
@@ -140,11 +140,14 @@ After finishing ad request, implement the delegate protocol as below to listen a
 - (void) onVpadnAd:(VpadnBanner *)banner failedToLoad:(NSError *)error {
     // Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
+- (void) onVpadnAdClicked:(VpadnBanner *)banner {
+    // Invoked if ad was clicked
+}
 - (void) onVpadnAdWillLeaveApplication:(VpadnBanner *)banner {
     // Invoked if user leave the app and the current app was backgrounded
 }
 - (void) onVpadnAdRefreshed:(VpadnBanner *)banner {
-   // Invoked if the Banner Ad will be refresh
+    // Invoked if the Banner Ad will be refresh
 }
 ```
 
@@ -161,6 +164,9 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
     }
     func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
       // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+    }
+    func onVpadnAdClicked()_ banner: VpadnBanner) {
+      // Invoked if ad was clicked
     }
     func onVpadnAdWillLeaveApplication(_ banner: VpadnBanner) {
       // Invoked if user leave the app and the current app was backgrounded
