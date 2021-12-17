@@ -24,7 +24,7 @@ Vpon Web SDK 提供 `use_custom_z_index` 參數，用來自定義 Vpon 插頁廣
         debug="true"
         use_custom_z_index="100001"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
 </body>
 ```

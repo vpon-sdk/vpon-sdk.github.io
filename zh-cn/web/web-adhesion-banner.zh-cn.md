@@ -48,13 +48,13 @@ Vpon Mobile Web SDK 提供`置页/置底横幅广告`，让横幅广告可固定
             vpon_ad_adhesion="top"
             debug="true"></vpon>
 ...
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   </body>
 ```
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `https://m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
 >
 >* 同一网页最多嵌入 3 个广告版面 (如范例所示)，每个版面请用不同 License Key。
 >

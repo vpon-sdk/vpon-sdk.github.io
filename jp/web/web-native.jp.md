@@ -33,14 +33,14 @@ You should put following code snippet in the <body> section of the page that you
         vpon_na_min="1200x627"
         debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
 </body>
 ```
 
 > **Note**:
 >
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
+>* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `https://m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
 >* Change the parameter of vpon_na_min to specify the size of image or we’ll return a proper one that depends on the screensize of users.
 >
@@ -76,7 +76,7 @@ Use our Callback Function rationally when there is no proper ad fill.
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   <script>
         function vponCallBackMethod(adStatus) {
@@ -193,7 +193,7 @@ CallToAction | vpon-action| Show comletely <br> Max length: 20 English character
             debug="true"></vpon>
     </div>
 
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 </html>
 ```
@@ -275,7 +275,7 @@ Input the Vpon ad tag and the CSS style for Native Ad Layout:
        vpon_ad_licensy_key="Your License Key for Banner"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 <style>
       .vpon-native-ad{
         border: 1px solid #dcdcdc;

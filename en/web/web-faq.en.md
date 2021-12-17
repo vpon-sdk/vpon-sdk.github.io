@@ -238,7 +238,7 @@ Please follow the sample code below to replace the parameter of vpon_ad_test fro
           vpon_ad_licensy_key="License Key"
           vpon_ad_format="320x50_mb"
           debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 
 <br>
@@ -254,7 +254,7 @@ Please refer to [Web SDK Callback Function] to implement the Passback Ad.
         vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   <script>
         function vponCallBackMethod(adStatus) {
           if (adStatus != 0) {

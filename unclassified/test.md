@@ -45,13 +45,13 @@ Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
             vpon_ad_adhesion="bottom"
             debug="true"></vpon>
 ...
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   </body>
 ```
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `https://m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
 >
 >* 同一網頁最多嵌入 `3` 個廣告版面 (如範例所示)，每個版位請使用不同的 License Key。
 >
@@ -101,5 +101,5 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 
 
 <vpon vpon_ad_test="0" vpon_ad_licensy_key="8a80854b668a2bb90166a05e02371841" vpon_ad_format="mi" debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
-            <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"></script>
+            <script type="text/javascript" src="https:https://m.vpon.com/sdk/vpadn-sdk.js"></script>
 

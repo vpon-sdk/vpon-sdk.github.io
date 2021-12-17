@@ -32,14 +32,14 @@ Vpon Mobile Web SDK 提供`原生广告`。有别于横幅广告、插页广告�
         vpon_na_min="1200x627"
         debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
 </body>
 ```
 
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在将 SDK 档案引入时请如如范例所示使用 `https://m.vpon.com/sdk/vpadn-sdk.js` 让浏览器在载入页面时可依照当前页面自动判断并引用适当资源，每个页面只需引入一次，必须加在 </body> 前。
 >
 >* 您可以利用 vpon_na_min 的参数指定广告图片尺吋，如不指定，系统会依使用者的屏幕尺吋回传相应大小的图片。vpon_na_min 的参数选择，请参考 [Advanced Setup]。
 >
@@ -69,7 +69,7 @@ Vpon Mobile Web SDK 提供没有广告回传时的 Callback Function，让您能
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   <script>
         function vponCallBackMethod(adStatus) {
@@ -229,7 +229,7 @@ visibility: hidden;
             debug="true"></vpon>
     </div>
 
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 </html>
 ```
@@ -313,7 +313,7 @@ visibility: hidden;
        vpon_ad_licensy_key="Your License Key for Banner"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 <style>
       .vpon-native-ad{
         border: 1px solid #dcdcdc;

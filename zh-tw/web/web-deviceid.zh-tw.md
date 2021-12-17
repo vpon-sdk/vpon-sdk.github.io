@@ -46,7 +46,7 @@ Vpon Web SDK 提供介面可以讓您將行動裝置廣告 ID 回傳給 Vpon Ad 
       ad_id_type="%%ADVERTISING_IDENTIFIER_TYPE%%"
       ad_is_lat="%%ADVERTISING_IDENTIFIER_IS_LAT%%"></vpon>
 
-<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"></script>
+<script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"></script>
 ```
 
 >**Notes:** 

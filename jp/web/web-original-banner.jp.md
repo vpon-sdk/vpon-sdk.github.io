@@ -48,13 +48,13 @@ You should put following code snippet in the <body> section of the page that you
         vpon_ad_format="320x480_mb"
         debug="true"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 </body>
 ```
 
 > **Note**:
 >
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
+>* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `https://m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
 >* You only allow to use 3 ads at most in each page and please use different License Key for every ad.
 >
@@ -75,7 +75,7 @@ Use our Callback Function rationally when there is no proper ad fill.
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   <script>
         function vponCallBackMethod(adStatus) {
@@ -126,7 +126,7 @@ ad\_request\_callback | Callback Function for no ad fill         | N          | 
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 
@@ -205,7 +205,7 @@ Input the snippet of code:
        vpon_ad_licensy_key="License Key"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 > **Note**: vpon_ad_test="1" for test ads，vpon_ad_test="0" for normal ads.
 
@@ -238,7 +238,7 @@ snippet of code is provided below:
 
 <vpon vpon_ad_test="1" vpon_ad_licensy_key="License Key" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
+<script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js">
 </script>
 ```
 > **Note**：

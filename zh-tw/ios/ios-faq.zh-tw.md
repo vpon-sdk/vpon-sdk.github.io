@@ -233,7 +233,7 @@ Vpon 提供測試廣告，請參考以下範例，將 vpon_ad_test 的參數設�
           vpon_ad_licensy_key="License Key"
           vpon_ad_format="320x50_mb"
           debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 
 <br>
@@ -249,7 +249,7 @@ Vpon 提供沒有廣告回傳時的 Callback Function，請參考 [Web SDK Callb
         vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   <script>
         function vponCallBackMethod(adStatus) {
           if (adStatus != 0) {

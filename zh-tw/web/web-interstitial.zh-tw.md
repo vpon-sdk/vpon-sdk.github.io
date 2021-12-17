@@ -28,14 +28,14 @@ Vpon Mobile Web SDK 提供`插頁廣告`，插頁式廣告是互動式多媒體 
             vpon_ad_format="mi"
             debug="true"></vpon>
 ...
-      <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   </body>
 ```
 
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `https://m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
 >
 >* 同一網頁最多嵌入 `1` 個插頁廣告 (如範例所示)，每個版位請使用不同的 License Key。
 >
@@ -58,7 +58,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   <script>
         function vponCallBackMethod(adStatus) {
@@ -165,7 +165,7 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function       | N    
   window.top.document.body.appendChild(vponTag)
   var vponWebSDK = document.createElement('script')
   vponWebSDK.type = 'text/javascript'
-  vponWebSDK.src = '//m.vpon.com/sdk/vpadn-sdk.js'
+  vponWebSDK.src = 'https://m.vpon.com/sdk/vpadn-sdk.js'
   window.top.document.body.appendChild(vponWebSDK)
   var up = window.parent;
   var s = up.document.createElement('script');

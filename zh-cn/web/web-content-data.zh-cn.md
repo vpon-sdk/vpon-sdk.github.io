@@ -49,7 +49,7 @@ Vpon Web SDK 提供介面可以让您将自定义的内容资讯回传给 Vpon A
       debug='true'
       vpon_content_data ='%%PATTERN:TARGETINGMAP%%'></vpon>
 
-<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"></script>
+<script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"></script>
 ```
 
 >**Notes:**

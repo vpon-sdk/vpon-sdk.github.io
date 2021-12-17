@@ -49,12 +49,12 @@ Vpon Mobile Web SDK 支援以下`一般橫幅廣告格式`：<br>
           vpon_ad_format="320x50_mb"
           debug="true"></vpon>
 ...
-    <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 ```
 > **Note**:
 >
->* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `//m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
+>* Vpon Web SDK 支援 `HTTPS`，在將 SDK 檔案引入時請如範例所示使用 `https://m.vpon.com/sdk/vpadn-sdk.js` 讓瀏覽器在載入頁面時可依照當前頁面自動判斷並引用適當資源，每個頁面只需引入一次，必須加在 </body> 前。
 >
 >* 同一網頁最多嵌入 `3` 個廣告版面 (如範例所示)，每個版位請使用不同的 License Key。
 >
@@ -75,7 +75,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   <script>
         function vponCallBackMethod(adStatus) {
@@ -126,7 +126,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
             vpon_ad_format="300x250_mb"
             debug="true"></vpon>
     </div>
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   </body>
 </html>
 ```
@@ -207,7 +207,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
        vpon_ad_licensy_key="Your License Key for Banner"
        vpon_ad_format="320x50_mb"
        debug="true"></vpon>
-      <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+      <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 > **Note**: vpon_ad_test="1" 為開啓測試廣告， vpon_ad_test="0"為拉取正式廣告。
 
@@ -240,7 +240,7 @@ Vpon Mobile Web SDK 提供沒有廣告回傳時的 Callback Function，讓您能
 
 <vpon vpon_ad_test="1" vpon_ad_licensy_key="Your License Key for Banner" vpon_ad_format="320x50_mb" debug="true" ad_request_callback="vponCallBackMethod" is_rotate="false"></vpon>
 
-<script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js">
+<script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js">
 </script>
 ```
 > **Note**：

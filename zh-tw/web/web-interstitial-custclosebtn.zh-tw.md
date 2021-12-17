@@ -47,7 +47,7 @@ Vpon Web SDK 提供 `use_custom_close` 及 `use_custom_close_id` 參數，用來
         <!-- use_custom_close 的參數內容請填入您自定義 Close Button 對應的 js function -->
         <!-- use_custom_close_id 的參數內容請填入您自定義 Close Button 的 ID -->
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
 </body>
 ```

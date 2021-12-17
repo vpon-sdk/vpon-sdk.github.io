@@ -235,7 +235,7 @@ Vpon 提供测试广告，请参考以下范例，将 vpon_ad_test 的参数设�
           vpon_ad_licensy_key="License Key"
           vpon_ad_format="320x50_mb"
           debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ```
 
 <br>
@@ -251,7 +251,7 @@ Vpon 提供没有广告回传时的 Callback Function，请参考 [Web SDK Callb
         vpon_ad_format="320x50_mb"
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
   <script>
         function vponCallBackMethod(adStatus) {
           if (adStatus != 0) {

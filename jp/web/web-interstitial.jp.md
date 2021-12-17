@@ -27,14 +27,14 @@ You should put following code snippet in the <body> section of the page that you
             vpon_ad_format="mi"
             debug="true"></vpon>
 ...
-    <script type="text/javascript" src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+    <script type="text/javascript" src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   </body>
 ```
 
 > **Note**:
 >
->* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `//m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
+>* Vpon Web SDK supports `HTTP` & `HTTPS`. Please use `https://m.vpon.com/sdk/vpadn-sdk.js` as the source and put it before "</body>" while importing SDK. Browsers will import the suitable one base on the protocol of the page. Besides, you only need to import it <font color="red">once</font>.
 >
 >* You only allow to use 1 ads at most in each page and please use different License Key for every ad.
 >
@@ -57,7 +57,7 @@ Use our Callback Function rationally when there is no proper ad fill.
         debug="true"
         ad_request_callback="vponCallBackMethod"></vpon>
 ...
-  <script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+  <script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 ...
   <script>
         function vponCallBackMethod(adStatus) {
@@ -160,7 +160,7 @@ Input the snippet of code:
        vpon_ad_licensy_key="License Key"
        vpon_ad_format="mi"
        debug="true"></vpon>
-<script type="text/javascript"  src="//m.vpon.com/sdk/vpadn-sdk.js"> </script>
+<script type="text/javascript"  src="https://m.vpon.com/sdk/vpadn-sdk.js"> </script>
 <script>
 //%%CLICK_URL_UNESC%%
 //%%VIEW_URL_UNESC%%
