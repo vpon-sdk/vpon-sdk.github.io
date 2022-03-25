@@ -15,7 +15,7 @@ lang:           "zh-tw"
 ---
 在開始進行設定之前，請先參考以下串接說明，將 `Vpon SDK` 及 `Vpon AdMob Adapter` 加到您的專案中。
 
-* [Android 串接說明]
+* [Android 串接說明]
 * [iOS 串接說明]
 
 
@@ -138,7 +138,7 @@ interstitialAd = InterstitialAd(
 ```dart
 showBanner() {
     bannerAd.show(anchorOffset: 0.0, anchorType: AnchorType.bottom);
-    // Show Banner Ad
+    // Show Banner Ad
   }
 
 showInterstitial() {

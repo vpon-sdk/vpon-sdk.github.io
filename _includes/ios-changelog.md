@@ -1,6 +1,11 @@
 # Vpon iOS SDK Change Log
 
-## 5.3.2
+## 5.3.4
+* Release Date: 25 Mar. 2022
+* Officially deprecate VpadnAdSizeSmartBannerPortrait and VpadnAdSizeSmartBannerLandscape
+* Unified the logic of OM Ad Session creation and creativeType
+
+## 5.3.2 (Deprecated)
 * Release Date: 30 Nov. 2021
 * Adjust minimum support OS version to iOS 11.0
 

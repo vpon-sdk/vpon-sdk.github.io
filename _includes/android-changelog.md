@@ -1,6 +1,12 @@
 # Vpon Android SDK Change Log
 
-## 5.3.2
+## 5.3.4
+* Release Date: 25 Mar. 2022
+* Officially deprecate VponAdSize.SMART_BANNER
+* Unified the logic of OM Ad Session creation and creativeType
+* Bug fix
+
+## 5.3.2 (Deprecated)
 * Release Date: 30 Nov. 2021
 * Adjust support minSdkVersion to API 21 (Android 5.0)
 * Bug fix
