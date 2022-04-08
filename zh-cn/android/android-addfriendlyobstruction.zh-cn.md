@@ -79,6 +79,7 @@ I/VPON: [::Impression::]  response.code : 200
 
 
 
+
 ## 透过 AdMob Mediation 的设定方式 {#admob}
 ---
 
@@ -227,7 +228,11 @@ public class MainActivity extends AppCompatActivity {
 I/VPON: [::Impression::]  response.code : 200
 ```
 
+在广告 Destory 时，建议呼叫以下方法，避免造成 Memory Leak
 
+```java
+VpadnAdapter.getVponObstruction().removeViews(licenseKey);
+```
 
 
 

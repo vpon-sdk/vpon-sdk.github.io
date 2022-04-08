@@ -137,98 +137,10 @@ Please help to check if below log printed after you implement addFriendlyObstruc
 I/VPON: [::Impression::]  response.code : 200
 ```
 
-
-## Integrate Vpon SDK Via MoPub {#mopub}
----
-
-* Available in `Vpon SDK v5.1.7` and above
-* Available in `MoPub SDK v5.13.0` and above
-* Available in `Vpon MoPub Adapter v1.3.0` and above
-
-
-When the ad can't send impression successfully after displayed since that the adview is cover by other view(s), you might see the log as below. This log will tell you the view(s) info which covered the adview.
-
-```
-W/VPON: [::AbsExposureListener::] 8a80854b6a90b5bc016ad81c2a136532: Visible ratio (0.00%) is not reach. Because:
-{
-OnScreen(100.00%) - Overlap(100.00%, androidx.appcompat.widget.AppCompatImageView{e98b07c V.ED..... ........ -833,138-1917,2888 #7f080113 app:id/obstruction} = 0.00%
-}
-```
-
-Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction. For Banner Ads,
+To avoid memory leaking, we recommend to call below method when destory ad:
 
 ```java
-import com.vpon.ads.*;
-
-public class MainActivity extends AppCompatActivity {
-        
-        private RelativeLayout mainLayout;
-
-        @Override
-  	    protected void onCreate(Bundle savedInstanceState) {
-            setContentView(R.layout.activity_main);
-            mainLayout = findViewById(R.id.main_layout);
-
-            List<VponObstructView> vponObstructViews = new ArrayList<>();
-            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
-            VponBannerCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
-            // !!! Must implement before load ad !!!
-            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
-            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
-            // VponLicenseKey: insert Vpon License Key of this ad position
-
-            moPubView = (MoPubView) findViewById(R.id.adview);
-            ...
-            moPubView.loadAd();
-            // Load AdMob Ad            
-  	}
-}
-```
-
-For Native Ads,
-
-```java
-import com.vpon.ads.*;
-
-public class MainActivity extends AppCompatActivity {
-        
-        private RelativeLayout mainLayout;
-
-        @Override
-  	    protected void onCreate(Bundle savedInstanceState) {
-            setContentView(R.layout.activity_main);
-            mainLayout = findViewById(R.id.main_layout);
-
-            moPubView = (MoPubView) findViewById(R.id.adview);
-            moPubView.setAdUnitId("xxxxxxxxxxx");
-            moPubView.setAdSize(MoPubAdSize);
-
-            List<VponObstructView> vponObstructViews = new ArrayList<>();
-            vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
-            VponNativeCustomEvent.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
-            // !!! Must implement before load ad !!!
-            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
-            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
-            // VponLicenseKey: insert Vpon License Key of this ad position
-
-            moPubView = (MoPubView) findViewById(R.id.adview);
-            ...
-            moPubView.loadAd();
-            // Load AdMob Ad            
-  	}
-}
-```
-
-
->**Note:** 
->* You `MUST` finish the implementation before loadAd()
->* Please replace "VponLicenseKey" with the Vpon License Key you set on AdMob Mediation
-
-
-Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
-
-```
-I/VPON: [::Impression::]  response.code : 200
+VpadnAdapter.getVponObstruction().removeViews(licenseKey);
 ```
 
 
