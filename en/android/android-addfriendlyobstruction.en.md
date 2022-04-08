@@ -13,7 +13,7 @@ lang:           "en"
 
 To make sure the ad display successfully and meet the Advertising Viewability Standards created by Interactive Advertising Bureau (IAB) and Media Rating Council (MRC), Vpon SDK would not allow any views in the app cover the adview.
 
-Since that it might be necessary for Publishers to construct their App layout via some transparent or invisible view(s), Vpon SDK release a new interface addFriendlyObstruction that base on OM (Open Measurement) SDK Framework. In some inevitable scenario, you can set up `the view(s) which is necessary for the App but but won't coever the ad visually (the attribute of the cover view should be alpha = 0, Hidden)` as Friendly Obstruction.
+Since that it might be necessary for Publishers to construct their App layout via some transparent or invisible view(s), Vpon SDK release a new interface addFriendlyObstruction that base on OM (Open Measurement) SDK Framework. In some inevitable scenario, you can set up `the view(s) which is necessary for the App but but won't coever the ad visually (the attribute of the cover view should be alpha = 0, Hidden)` as Friendly Obstruction.
 
 Please select the instruction base on the way you integrate Vpon SDK to finish the implementation of addFriendlyObstruction.
 
@@ -56,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
             mainLayout = findViewById(R.id.main_layout);
 
             VponBanner vponBanner = new VponBanner(context, bannerId, adSize);
-            View obstructionView = findViewById(R.id.obstruction_view);
+            View obstructionView = findViewById(R.id.obstruction_view);
 
             VponAdRequest.Builder builder = new VponAdRequest.Builder();
             builder.addFriendlyObstruction(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "for demo");
-            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
-            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 
             vponBanner.loadAd(builder.build());
             // Set ad request and load ad
@@ -113,9 +113,9 @@ public class MainActivity extends AppCompatActivity {
             vponObstructViews.add(new VponObstructView(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "reason"));
             VpadnAdapter.getVponObstruction().addViews("VponLicenseKey", vponObstructViews);
             // !!! Must implement before load ad !!!
-            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
-            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
-            // VponLicenseKey: insert Vpon License Key of this ad position
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+            // VponLicenseKey: insert Vpon License Key of this ad position
 
             ...
             mAdView = findViewById(R.id.adView);
