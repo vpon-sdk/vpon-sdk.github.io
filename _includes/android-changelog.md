@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+
+## 5.3.6
+* Release Date: 29 Apr. 2022
+* Bug fix
+
 ## 5.3.4
 * Release Date: 25 Mar. 2022
 * Officially deprecate VponAdSize.SMART_BANNER
