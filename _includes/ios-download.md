@@ -12,7 +12,7 @@
 
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.0.7) | [download][4] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 9.0.0 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.0.9) | [download][4] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 9.0.0 ↑ | 
  
  
 ## Sample Code Download
