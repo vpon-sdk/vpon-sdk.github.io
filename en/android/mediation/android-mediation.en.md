@@ -19,9 +19,9 @@ AdMob Mediation is a feature that lets you serve ads to your apps from multiple 
 # Mediation Platforms
 ---
 
-| AdMob         | Ad Manager | MoPub        | Smaato         |
-| :-----------: | :---------:| :-----------:| :------------: |
-| [![admob]][1] | [![dfp]][2]| [![mopub]][3]| [![smaato]][4] |
+| AdMob         | Ad Manager |
+| :-----------: | :---------:|
+| [![admob]][1] | [![dfp]][2]|
 
 
 
@@ -73,7 +73,7 @@ builder.addCustomEventExtrasBundle(VpadnAdapter.class, bundle);
 adLoader.loadAd(builder.build());
 ```
 
-## MoPub {#mopub}
+<!-- ## MoPub {#mopub}
 
 Please check your SDK and Adapter version first if you are using Mopub, the SDK and Adapter version must be:
 
@@ -92,7 +92,7 @@ localExtras.put(AD_CONTENT_DATA, contentData);
 localExtras.put(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
 
 adView.setLocalExtras(localExtras);
-```
+``` -->
 
 
 

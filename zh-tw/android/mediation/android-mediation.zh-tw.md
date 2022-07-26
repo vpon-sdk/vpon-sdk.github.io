@@ -19,9 +19,9 @@ lang:           "zh-tw"
 # 中介服務平台
 ---
 
-| AdMob         | Ad Manager | MoPub        | Smaato         |
-| :-----------: | :---------:| :-----------:| :------------: |
-| [![admob]][1] | [![dfp]][2]| [![mopub]][3]| [![smaato]][4] |
+| AdMob         | Ad Manager |
+| :-----------: | :---------:|
+| [![admob]][1] | [![dfp]][2]|
 
 
 # 透過 Mediation 回傳內容資訊
@@ -73,7 +73,7 @@ adLoader.loadAd(builder.build());
 ```
 
 
-## MoPub {#mopub}
+<!-- ## MoPub {#mopub}
 
 若您是使用 MoPub 來進行 Mediation，請確認您所使用的 SDK 及 Adapter 版本：
 
@@ -92,7 +92,7 @@ localExtras.put(AD_CONTENT_DATA, contentData);
 localExtras.put(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
 
 adView.setLocalExtras(localExtras);
-```
+``` -->
 
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/

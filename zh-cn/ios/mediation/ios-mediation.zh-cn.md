@@ -19,9 +19,9 @@ lang: "zh-cn"
 # 中介平台
 ---
 
-| AdMob         | Ad Manager | MoPub        | Smaato         |
-| :-----------: | :---------:| :-----------:| :------------: |
-| [![admob]][1] | [![dfp]][2]| [![mopub]][3]| [![smaato]][4] |
+| AdMob         | Ad Manager |
+| :-----------: | :---------:|
+| [![admob]][1] | [![dfp]][2]|
 
 
 # 透过 Mediation 回传内容资讯
@@ -33,7 +33,7 @@ lang: "zh-cn"
 
 ## AdMob / Google Ad Manager {#admob}
 
-若您是使用 AdMob / Google Ad Manager 来进行 Mediation，请确认您所使用的 SDK 及 Adapter 版本：
+若您是使用 AdMob / Google Ad Manager 来进行 Mediation，请确认您所使用的 SDK 及 Adapter 版本：
 
 * `Vpon SDK v5.1.1` 及以上版本
 * `Vpon AdMob Adapter v2.0.1` 及以上版本
@@ -93,7 +93,7 @@ request.register(extra)
 // forLabel string must be the same as the one you set for AdMob / GAM custom event
 ```
 
-## MoPub {#mopub}
+<!-- ## MoPub {#mopub}
 
 若您是使用 MoPub 来进行 Mediation，请务必依据您使用的 MoPub SDK 版本选择对应的 Adapter 版本：
 
@@ -175,7 +175,7 @@ adRequest.targeting = targeting;
 let targeting = MPNativeAdRequestTargeting()
 targeting?.localExtras = ["contentURL":"https://www.vpon.com", "contentData": ["key1": "Mopub", "key2": 1.2, "key3": true]]
 // Set content page url and data with an array of key-value
-```
+``` -->
 
 
 [串接说明]: ../integration-guide/

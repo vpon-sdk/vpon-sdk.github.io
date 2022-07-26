@@ -20,9 +20,9 @@ Mediation is a feature that lets you serve ads to your apps from multiple source
 # Mediation Platforms
 ---
 
-| AdMob         | Ad Manager | MoPub        | Smaato         |
-| :-----------: | :---------:| :-----------:| :------------: |
-| [![admob]][1] | [![dfp]][2]| [![mopub]][3]| [![smaato]][4] |
+| AdMob         | Ad Manager |
+| :-----------: | :---------:|
+| [![admob]][1] | [![dfp]][2]|
 
 
 
@@ -95,7 +95,7 @@ request.register(extra)
 // forLabel string must be the same as the one you set for AdMob / GAM custom event
 ```
 
-## MoPub {#mopub}
+<!-- ## MoPub {#mopub}
 
 Please check your SDK and Adapter version first if you are using Mopub, the SDK and Adapter version must be:
 
@@ -178,7 +178,7 @@ adRequest.targeting = targeting;
 let targeting = MPNativeAdRequestTargeting()
 targeting?.localExtras = ["contentURL":"https://www.vpon.com", "contentData": ["key1": "Mopub", "key2": 1.2, "key3": true]]
 // Set content page url and data with an array of key-value
-```
+``` -->
 
 
 
