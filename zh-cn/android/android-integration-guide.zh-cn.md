@@ -45,12 +45,12 @@ allprojects {
 }
 ```
 
-加入 Maven Repository 后，即可在 App 层级下的 `build.gradle` 加入 Vpon SDK 指定版本的编译相依性( 此处以 SDK 4.9.1为例)
+加入 Maven Repository 后，即可在 App 层级下的 `build.gradle` 加入 Vpon SDK 指定版本的编译相依性
 
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.3.0'
+    implementation 'com.vpon:vpadnSDK:latest.release'
 }
 ```
 

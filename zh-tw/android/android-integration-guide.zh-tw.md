@@ -26,7 +26,7 @@ Vpon 提供以下兩種串接廣告 SDK 的方式：
 * [精簡 (搭配 Maven)](#maven)
 * [手動 (手動下載並串接)](#manual-sdk)
 
-> **Note**：若您曾使用過舊版 SDK，請先閱讀: [如何升級 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
+> **Note**：若您曾使用過舊版 SDK，請先閱讀: [如何升級 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
 
 ## 精簡 (搭配 Maven) {#maven}
 ---
@@ -44,12 +44,12 @@ allprojects {
 }
 ```
 
-加入 Maven Repository 後，開啟 App 層級下的 `build.gradle` 加入 Vpon SDK 指定版本的編譯相依性 (此處以 SDK 4.9.0為例)
+加入 Maven Repository 後，開啟 App 層級下的 `build.gradle` 加入 Vpon SDK 指定版本的編譯相依性
 
 ```javascript
 dependencies {
     ...
-    implementation 'com.vpon:vpadnSDK:5.3.0'
+    implementation 'com.vpon:vpadnSDK:latest.release'
 }
 ```
 
