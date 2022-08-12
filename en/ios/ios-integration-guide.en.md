@@ -44,36 +44,25 @@ Make sure your current directory in terminal is the same as your Xcode project. 
 
 You'll see a new project file (.xcoworkspace) in your Xcode project directory. A Pods project with new dependencies for VpadnSDK will included. 
 
-![]({{site.imgurl}}/cocoapods_2.png)
+![]({{site.imgurl}}/cocoapods_3.png)
 
 > **Note**: To update to the latest SDK, please change your directory in terminal to your Xcode project. Run `pod repo update` to refresh the podspec and use `pod install` again to install SDK.
 
 
 ## Integrate SDK Manually {#manual-sdk}
 
-Vpon provides two SDK types with the same function for our publishers. Choose one of them to integrate to your project.
+Please [download latest Vpon SDK here](../download) before you start your integration.
 
-* [Framework SDK](#framework-sdk)
-* [Fundamental SDK](#fundamental-sdk)
-
-There is slight difference between these two SDKs, which we will explain in introduction of Framework SDK.
-
-### Framework SDK
----
-Framework SDK is a dynamic library, our latest SDK within any necessary references, headers and lib, needs fewer steps, and is lighter than Fundamental SDK.
-
-However, this convenient way is only for apps designed for iOS version higher than `7.0`. If you are targeting at users with devices OS version lower than `7.0`, you should definitely choose [Fundamental SDK](#fundamental-sdk) instead.
-
-#### Import Framework SDK
+### Import Framework SDK
 
 First, right click on your project and choose `Add Files to your_project`
-<img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
+<img src="{{site.imgurl}}/ios_framework_8.png" alt="" class="width-300" />
 
-Second, add `VpadnSDKAdKit.framework` into your project.
-![]({{site.imgurl}}/ios_framework_2.png)
+Second, add `VpadnSDKAdKit.xframework` into your project.
+![]({{site.imgurl}}/ios_framework_9.png)
 
 Remember to check whether the framework  in `Linked Frameworks and Libraries` under `General` has been added.
-![]({{site.imgurl}}/ios_framework_7.png)
+![]({{site.imgurl}}/ios_framework_10.png)
 
 Third, find `Other Linker Flags` under `Build Settings` and input `-ObjC`
 ![]({{site.imgurl}}/ios_framework_6.png)
@@ -88,14 +77,14 @@ Finally, import the framework:
 > **Note**: Remind again that the Framework SDK only support devices in iOS version higher than `7.0`. Do not use this SDK if your app targets at users with devices OS version lower than `7.0`.
 
 
-### Fundamental SDK
+<!-- ### Fundamental SDK
 ---
 
 ** Note**: Vpon will stop support Fundamental SDK from SDK v5.3.1, if you are integrating with the Fundamental SDK, we recommend that you can replace it with Framework SDK.
 
 The decompressed SDK consists of Objective-C, a runtime library and a README. Show Vpadn banner on your Android App, you must complete three steps:
 
-1. Import `libAdOn.a` and Headers
+1. Import `libAdOn.a` and Headers
 2. Add all iOS development frameworks
 3. Modify Build Settings
 
@@ -139,7 +128,7 @@ To add these frameworks, double-click the project name. Open the Link Binary Wit
 
 #### 3. Modify Build Settings
 
-Add  `-all_load` and `-ObjC` under `Other Linker Flags` of `Build Settings`. Click the `Build Phases` and set the `AdSupport` framework to `Optional`.
+Add  `-all_load` and `-ObjC` under `Other Linker Flags` of `Build Settings`. Click the `Build Phases` and set the `AdSupport` framework to `Optional`. -->
 
 
 # SDK Initialization {#initial-sdk}
@@ -194,7 +183,7 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 
 Vpon SDK have the ability to deliver diverse ad experience. To display specific types of ads, below permission might be required:
     
-```xml
+```xml
 <key>NSCalendarsUsageDescription</key>
 <key>NSCameraUsageDescription</key>
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

@@ -1,5 +1,11 @@
 # Vpon iOS SDK Change Log
 
+## 5.4.0
+* Release Date: 11 Aug. 2022
+* Upgrade OM SDK to v1.3.34
+* Adjust video event sending logic to fulfill OM SDK spec
+* Fix unexpected layout shifting on Interstitial Ad while changing the device orientation
+
 ## 5.3.4
 * Release Date: 25 Mar. 2022
 * Officially deprecate VpadnAdSizeSmartBannerPortrait and VpadnAdSizeSmartBannerLandscape

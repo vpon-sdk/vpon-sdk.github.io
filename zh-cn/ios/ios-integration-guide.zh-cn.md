@@ -41,35 +41,24 @@ Vpon 提供以下两种串接广告 SDK的方式：
 修改完 PodFile 后，`请关闭专案 (.xcodeproj)`，将终端机路径移至与 Podfile 相同的目录中，执行 `pod install`。
 安装完成后，专案资料夹中多了新的专案档 (.xcworkspace)，点击专案档(.xcworkspace)即可重新开启专案，专案中应会包含 Pods 专案及 Pods/VpadnSDK 目录。
 
-![]({{site.imgurl}}/cocoapods_2.png)
+![]({{site.imgurl}}/cocoapods_3.png)
 
 > **Note**：若要更新至最新的 SDK，请将终端机路径移至 Podfile 相同的目录中，执行 `pod repo update` 撷取最新的 Pods，再执行 `pod install` 重新安装 SDK。
 
 ## 手动 (手动下载并串接) {#manual-sdk}
 
-Vpon 提供以下两种手动串接的广告 SDK，请择一使用即可：
-
-* [Framework SDK](#framework-sdk)
-* [Fundamental SDK](#fundamental-sdk)
-
-Framewrok 及 Fundamental SDK 提供一样的功能，主要的差别在于对 iOS 版本需求较高的 Framework SDK 串接较简单、轻便。
-
 在开始进行手动串接前，请先[由此下载最新版本的 Vpon SDK](../download)。
 
-### Framework SDK
-
-我们建议您使用 Framework SDK，因为 Framework SDK 是一包 dynamic library，它会动态抓取 framework reference, headers 还有 Fundamental SDK 内的程式码，对您的广告串接而言：维护容易、步骤少、容量也小。
-
-#### 1. 导入 Framework SDK
+### 导入 Framework SDK
 
 首先，对专案按下右键，选择 `Add Files to your_project`
-<img src="{{site.imgurl}}/ios_framework_1.png" alt="" class="width-300" />
+<img src="{{site.imgurl}}/ios_framework_8.png" alt="" class="width-300" />
 
-接着，将 `VpadnSDKAdKit.framework` 加至专案中
-![]({{site.imgurl}}/ios_framework_2.png)
+接着，将 `VpadnSDKAdKit.xframework` 加至专案中
+![]({{site.imgurl}}/ios_framework_9.png)
 
 请至专案设定选项中的 `General` 标签下确认 `Linked Frameworks and Libraries` 内是否已加入此 framework
-![]({{site.imgurl}}/ios_framework_7.png)
+![]({{site.imgurl}}/ios_framework_10.png)
 
 再切换到专案设定选项中的 `Build Settings`标签，在 `Other Linker Flags`输入`-ObjC`
 ![]({{site.imgurl}}/ios_framework_6.png)
@@ -82,7 +71,7 @@ Framewrok 及 Fundamental SDK 提供一样的功能，主要的差别在于对 i
 ![]({{site.imgurl}}/ios_framework_5.png)
 
 
-### Fundamental SDK
+<!-- ### Fundamental SDK
 
 **Note:** Vpon 将从 SDK v5.3.1 后停止支援 Fundamental SDK，如果您仍在使用 Fundamental SDK，我们建议您尽快改为使用 Framework SDK。
 
@@ -129,7 +118,7 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 
 #### 3. 修改 Building Settings 中的设定
 
-在 `Build Settings` 内 `Other Linker Flags` 请填入 `-all_load` 与 `-ObjC`，并把 `Summary` 下的 `AdSupport` 设为 `Optional`
+在 `Build Settings` 内 `Other Linker Flags` 请填入 `-all_load` 与 `-ObjC`，并把 `Summary` 下的 `AdSupport` 设为 `Optional` -->
 
 
 # 初始化 SDK {#initial-sdk}
@@ -181,7 +170,7 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 
 Vpon SDK 支援多种表现形式广告的呈现，为了展示特定类型广告，以下为 Vpon SDK 中可能使用到的权限：
     
-```xml
+```xml
 <key>NSCalendarsUsageDescription</key>
 <key>NSCameraUsageDescription</key>
 <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

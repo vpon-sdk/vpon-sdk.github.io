@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+## 5.4.0
+* Release Date: 11 Aug. 2022
+* Upgrade OM SDK to v1.3.34
+* Adjust video event sending logic to fulfill OM SDK spec
+* Bug fix
 
 ## 5.3.6
 * Release Date: 29 Apr. 2022
