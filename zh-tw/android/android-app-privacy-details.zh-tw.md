@@ -17,46 +17,113 @@ lang:           "zh-tw"
 # 資料收集及使用狀況
 ---
 
+## 位置
+
 | <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
 |:--------------------|:------------------------|:------------------|
-|PSL_NAME|N| |
-|PSL_EMAIL|N| |
-|PSL_USER_ACCOUNT|N| |
-|PSL_ADDRESS|N| |
-|PSL_PHONE|N| |
-|PSL_RACE_ETHNICITY|N| |
-|PSL_POLITICAL_RELIGIOUS|N| |
-|PSL_SEXUAL_ORIENTATION_GENDER_IDENTITY|N| |
-|PSL_OTHER_PERSONAL|N| |
-|PSL_PURCHASE_HISTORY|N| |
-|PSL_CREDIT_SCORE|N| |
-|PSL_CREDIT_DEBIT_BANK_ACCOUNT_NUMBER|N| |
-|PSL_OTHER|N| |
-|PSL_APPROX_LOCATION|Y|PSL_ADVERTISING|
-|PSL_PRECISE_LOCATION|Y|PSL_ADVERTISING|
-|PSL_WEB_BROWSING_HISTORY|N| |
-|PSL_EMAILS|N| |
-|PSL_SMS_CALL_LOG|N| |
-|PSL_OTHER_MESSAGES|N| |
-|PSL_PHOTOS|Y|PSL_ADVERTISING|
-|PSL_VIDEOS|Y|PSL_ADVERTISING|
-|PSL_AUDIO|N| |
-|PSL_MUSIC|N| |
-|PSL_OTHER_AUDIO|N| |
-|PSL_HEALTH|N| |
-|PSL_FITNESS|N| |
-|PSL_CONTACTS|N| |
-|PSL_CALENDAR|N| |
-|PSL_CRASH_LOGS|N| |
-|PSL_PERFORMANCE_DIAGNOSTICS|N| |
-|PSL_OTHER_PERFORMANCE|N| |
-|PSL_FILES_AND_DOCS|N| |
-|PSL_USER_INTERACTION|N| |
-|PSL_IN_APP_SEARCH_HISTORY|N| |
-|PSL_APPS_ON_DEVICE|Y|PSL_ADVERTISING|
-|PSL_USER_GENERATED_CONTENT|N| |
-|PSL_OTHER_APP_ACTIVITY|N| |
-|PSL_DEVICE_ID|Y|PSL_ADVERTISING|
+| 大概位置 | Y | 廣告或行銷 |
+| 精確位置 | Y | 廣告或行銷 |
+
+## 個人資訊
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 名稱 | N | |
+| 電子郵件地址 | N | |
+| 使用者 ID | N | |
+| 地址 | N | |
+| 電話號碼 | N | |
+| 種族和族裔 | N | |
+| 政治或宗教信仰 | N | |
+| 性傾向 | N | |
+| 其他資訊 | N | |
+
+## 財務資訊
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 使用者付款資訊 | N | |
+| 購買記錄 | N | |
+| 信用評分 | N | |
+| 其他財務資訊 | N | |
+
+## 健康與健身
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 健康資訊 | N | |
+| 健身資訊 | N | |
+
+## 訊息
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 電子郵件 | N | |
+| 簡訊或多媒體訊息 | N | |
+| 其他應用程式內通訊訊息 | N | |
+
+## 相片和影片
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 相片 | Y | 廣告或行銷 |
+| 影片 | Y | 廣告或行銷 |
+
+## 音訊檔案
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 錄音內容 | N | |
+| 音樂檔案 | N | |
+| 其他音訊檔案 | N | |
+
+## 檔案和文件
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 檔案和文件 | N | |
+
+## 日曆
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 日曆活動 | N | |
+
+## 聯洛人
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 聯絡人 | N | |
+
+## 應用程式活動
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 應用程式互動 | N | |
+| 應用程式內搜尋記錄 | N | |
+| 已安裝的應用程式 | Y | 廣告或行銷 |
+| 其他的使用者自製內容 | N | |
+| 其他動作 | N | |
+
+## 網路瀏覽
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 網路瀏覽記錄 | N | |
+
+## 應用程式資訊與效能
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 當機記錄 | N | |
+| 診斷 | N | |
+| 其他的應用程式效能資料 | N | |
+
+## 裝置 ID 或其他 ID
+
+| <b>Type of Data</b> | <b>Vpon SDK Collect</b> | <b>Data Usage</b> |
+|:--------------------|:------------------------|:------------------|
+| 裝置 ID 或其他 ID | Y | 廣告或行銷 |
 
 
 [Google Play 的政策更新]: https://support.google.com/googleplay/android-developer/answer/10787469?hl=zh-Hant#
