@@ -11,7 +11,7 @@ lang:            "en"
 ---
 According to [App privacy details on the App Store], Apple requires that Developers disclose certain information usage regarding to the App since Decemeber 8, 2020. This guideline explains the Vpon SDK's data collection and usage for a reference to answer the question in App Store Connect.
 
-Please note that this is a general guideline for the data that Vpon SDK might collect. The precise data collection and usage will depend on your specific implemenation (e.g. [custome ad request parameters]) of the Vpon SDK.
+Please note that this is a general guideline for the data that Vpon SDK might collect. The precise data collection and usage will depend on your specific implemenation (e.g. [custom ad request parameters]) of the Vpon SDK.
 
 # Data Collection And Usage
 ---
@@ -136,4 +136,4 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 
 
 [App privacy details on the App Store]: https://developer.apple.com/app-store/app-privacy-details/
-[custome ad request parameters]: https://wiki.vpon.com/ios/advanced/#custom-ad-request-parameters
+[custom ad request parameters]: https://wiki.vpon.com/ios/advanced/#custom-ad-request-parameters
