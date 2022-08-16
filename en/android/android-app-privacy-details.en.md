@@ -126,5 +126,5 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 | Device or other IDs | Identifiers that relate to an individual device, browser or app. For example, an IMEI number, MAC address, Widevine Device ID, Firebase installation ID, or advertising identifier. | Y | Advertising or marketing (with user consent) |
 
 
-[Google Play Pocicy Annoucement]: https://support.google.com/googleplay/android-developer/answer/10787469
+[Google Play Policy Annoucement]: https://support.google.com/googleplay/android-developer/answer/10787469
 [custom ad request parameters]: https://wiki.vpon.com/android/advanced/
