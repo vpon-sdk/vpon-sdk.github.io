@@ -14,7 +14,7 @@ lang:           "en"
 ---
 Vpon SDK support:
 
-* Android：`Android 4.3 or later`
+* Android：`Android 5 or later`
 
 Before you start to integrate Vpon SDK, make sure your app is compatible.
 

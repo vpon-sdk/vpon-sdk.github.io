@@ -14,7 +14,7 @@ lang:            "en"
 ---
 Vpon SDK support:
 
-* `iOS 9.0 or later & Xcode 9.0 or later`
+* `iOS 11 or later`
 
 Before you start to integrate Vpon SDK, make sure your app is compatible.
 

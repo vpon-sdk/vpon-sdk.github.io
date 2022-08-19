@@ -13,7 +13,7 @@ lang: "zh-cn"
 ---
 Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SDK 前，请确保您的 App 符合以下条件：
 
-* `iOS 9.0 以上 & Xcode 9.0 以上`
+* `iOS 11.0 以上`
 
 ## Step2: 成为 Vpon 开发商伙伴
 ---
