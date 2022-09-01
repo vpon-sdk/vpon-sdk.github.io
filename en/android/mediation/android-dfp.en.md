@@ -16,7 +16,7 @@ According to [Google Ad Manager's announcement](https://support.google.com/adma
 ---
 Please make sure you've added following files in your project:
 
-1. Google Mobile Ads SDK
+1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
@@ -75,7 +75,7 @@ Please refer to the instruction below to finish the Yield Group setting:
 5. Choose to add additional third-party yield partners, and add Vpon from the drop list
 6. Determine the integration type:
 * Choose `Mobile SDK` if you are trying to integrate `Banner Ad` or `Interstitial Ad`. Please insert `TW` in the Zone column, and insert your `Vpon License Key` in the Vpon Ad ID column.
-* Chhose `Custom Event` if you are trying to integrate `Native Ad`. Please insert `GADVpadnNativeAdCustomEvent` in the Class Name column, and insert your `Vpon License Key` in the Parameter column.
+* Chhose `Custom Event` if you are trying to integrate `Native Ad`. Please insert `com.vpadn.mediation.VpadnAdapter` in the Class Name column, and insert your `Vpon License Key` in the Parameter column.
 7. Save your change
 
 

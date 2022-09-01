@@ -11,7 +11,7 @@ lang:           "en"
 ---
 Please make sure you've added following files in your project:
 
-1. Google Mobile Ads SDK
+1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
 

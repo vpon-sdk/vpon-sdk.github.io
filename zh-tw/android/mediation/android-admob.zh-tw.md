@@ -11,7 +11,7 @@ lang:           "zh-tw"
 ---
 以下為搭配 Google AdMob 進行廣告串接的設定方式。在開始進行設定之前，請先參考[串接說明]將 Vpon SDK 加到您的專案中。請注意，要使用 Google AdMob 進行廣告串接的話，請務必確認您的專案中包含以下三個檔案：
 
-1. Google Mobile Ads SDK
+1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
