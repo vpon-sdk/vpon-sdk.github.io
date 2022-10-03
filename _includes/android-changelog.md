@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.4.2
+* Release Date: 3 Oct. 2022
+* Support ad lifecycle for Native Ad webview case
+
 ## 5.4.0
 * Release Date: 11 Aug. 2022
 * Upgrade OM SDK to v1.3.34
