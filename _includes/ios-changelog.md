@@ -1,5 +1,9 @@
 # Vpon iOS SDK Change Log
 
+## 5.4.4
+* Release Date: 12 Dec. 2022
+* Trim url string to prevent potential error occured while parsing urls
+
 ## 5.4.2
 * Release Date: 3 Oct. 2022
 * Fix the runtime warning message to compatible with Xcode 14 Beta 5 and iOS 16 (simulator)

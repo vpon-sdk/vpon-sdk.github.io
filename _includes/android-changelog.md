@@ -1,6 +1,11 @@
 # Vpon Android SDK Change Log
 
-## 5.4.2
+## 5.4.4
+* Release Date: 12 Dec. 2022
+* Trim url string to prevent potential error occured while parsing urls
+* Fix potential logic bug in Android 13
+
+# 5.4.2
 * Release Date: 3 Oct. 2022
 * Support ad lifecycle for Native Ad webview case
 
