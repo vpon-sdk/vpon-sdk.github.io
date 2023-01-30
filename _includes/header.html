@@ -68,3 +68,31 @@
 
   gtag('config', 'UA-201430036-1');
 </script> -->
+
+<!-- Add Universal Pixel -->
+<script> (function() {
+  const VponPixelScript = document.createElement('script');
+  VponPixelScript.src = 'https://a2.vpon.com/img/mi/Max/universal_pixel/js/VponPixel.js';
+  document.head.appendChild(VponPixelScript);
+  VponPixelScript.onload = function() {
+      VponPixel('init', '00000000-0000-0000-0000-000000000000');
+      VponPixel('track', 'PageView');
+  }
+  function handleScrollEvent() {
+      const scrollTopPercentage = (window.scrollY + window.innerHeight) * 100 / document.body.clientHeight;
+      if (scrollTopPercentage >= 25 && scrollTopPercentage < 50) {
+          VponPixel('track', 'Scroll_25');
+      }
+      if (scrollTopPercentage >= 50 && scrollTopPercentage < 75) {
+          VponPixel('track', 'Scroll_50');
+      }
+      if (scrollTopPercentage >= 75 && scrollTopPercentage < 95) {
+          VponPixel('track', 'Scroll_75');
+      }
+      if (scrollTopPercentage >= 95) {
+          VponPixel('track', 'Scroll_95');
+      }
+  }
+  document.addEventListener('scroll', handleScrollEvent);
+})();
+</script>
