@@ -15,11 +15,37 @@ This instruction is for Flutter publisher to integrate Vpon SDK. Please follow t
 ---
 Please follow the integration guide below to add `Vpon SDK` and `Vpon AdMob Adapate` to your project.
 
-* [Android Integration Guide]
+* [Android Integration Guide]
 * [iOS Integration Guide]
 
+# Display Ad Through AdMob Mediation
+---
+We recommend that you can manage your ad setting through AdMob. After you add Vpon SDK and Vpon AdMob Adapter into your project, you can:
 
-## Add Required Plugins
+* Follow [AdMob Flutter SDK Integration Guide] to finish the ad integartion
+* Follow [AdMob Mediation Setting] to add Vpon into your mediation group
+
+
+# Tips
+---
+
+### Make Sure If The Ad Display Successfully
+
+Please note that following settings which might cause the ad invisible on the screen are not allowed:
+
+* Set AdView as Hidden
+* Set the Alpha value of AdView < 100%
+* Overlays that cover the AdView
+
+
+Please help to check if below log printed after the ad display and match the viewability standard:
+
+```
+<VPON> [NOTE] Send impression successfully
+```
+
+
+<!-- ## Add Required Plugins
 Please add required plugins in your `pubspec.yaml` as below:
 
 ```yaml
@@ -137,7 +163,7 @@ Please call show() to show ad after ad initialization.
 ```dart
 showBanner() {
     bannerAd.show(anchorOffset: 0.0, anchorType: AnchorType.bottom);
-    // Show Banner Ad
+    // Show Banner Ad
   }
 
 showInterstitial() {
@@ -159,7 +185,7 @@ interstitialAd.dispose();
 * [Flutter AdMob Plugin Integration Guide]
 
 ### Sample Code
-Please refer to our [Sample Code] for a complete integration sample.
+Please refer to our [Sample Code] for a complete integration sample. -->
 
 
 [iOS Integration Guide]:http://wiki.vpon.com/ios/integration-guide/
@@ -167,3 +193,5 @@ Please refer to our [Sample Code] for a complete integration sample.
 [AdMob]: https://apps.admob.com/
 [Sample Code]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/flutterexample
 [Flutter AdMob Plugin Integration Guide]: https://pub.dartlang.org/packages/firebase_admob
+[AdMob Flutter SDK Integration Guide]: https://developers.google.com/admob/flutter/quick-start
+[AdMob Mediation Setting]: https://wiki.vpon.com/zh-tw/ios/mediation/

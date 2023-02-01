@@ -19,12 +19,35 @@ lang:           "zh-tw"
 * [iOS 串接說明]
 
 
-## 加入所需 Plugin
+# 透過 AdMob Mediation 展示廣告
+---
+我們建議您可以透過 AdMob 來管理廣告。在將 Vpon SDK 及 Vpon AdMob Adapter 加入您的專案後，您可以：
+
+* 參考 [AdMob Flutter SDK Integration Guide] 完成廣告程式碼串接
+* 參考 [AdMob 中介服務設定]，在 AdMob 後台將 Vpon 加入中介服務群組
+
+
+# Tips
+---
+
+### 確認廣告曝光是否成功發送
+請注意，Vpon SDK 不允許廣告以以下方式呈現，致使廣告在畫面上可能不可見：
+
+* 將 AdView 設為 Hidden
+* 將 AdView 的 Alpha 值設為 < 100%
+* AdView 被其它 View(s) 遮蓋住
+
+當廣告露出在頁面上並達到曝光標準後，會印出以下的 Log 代表有送出廣告曝光：
+
+```
+<VPON> [NOTE] Send impression successfully
+```
+
+<!-- ## 加入所需 Plugin
 請開啟您的 Flutter 專案中的 `pubspec.yaml`，並加入所需的 Plugin。
 
 ```yaml
-cloud_firestore: ^0.8.2+3
-firebase_admob: ^0.7.0
+google_mobile_ads: ^2.3.0
 ```
 
 <img src="{{site.imgurl}}/Flutter-admob_01.png" alt="" class=""/>
@@ -160,7 +183,7 @@ interstitialAd.dispose();
 * [Flutter AdMob Plugin Integration Guide]
 
 ### Sample Code
-Vpon 提供了一個 Flutter 串接 Vpon SDK 的範例，請參考我們的 [Sample Code]
+Vpon 提供了一個 Flutter 串接 Vpon SDK 的範例，請參考我們的 [Sample Code] -->
 
 
 [iOS 串接說明]:http://wiki.vpon.com/zh-tw/ios/integration-guide/
@@ -168,3 +191,5 @@ Vpon 提供了一個 Flutter 串接 Vpon SDK 的範例，請參考我們的 [Sam
 [AdMob 後台]: https://apps.admob.com/
 [Sample Code]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/flutterexample
 [Flutter AdMob Plugin Integration Guide]: https://pub.dartlang.org/packages/firebase_admob
+[AdMob Flutter SDK Integration Guide]: https://developers.google.com/admob/flutter/quick-start
+[AdMob 中介服務設定]: https://wiki.vpon.com/zh-tw/ios/mediation/
