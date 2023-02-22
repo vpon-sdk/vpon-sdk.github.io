@@ -22,16 +22,7 @@ Once you have your own Publisher Account, follow the instruction below to integr
 
 # Import SDK to your project
 ---
-Vpon provides two ways to integrate our SDK. Choose one of the following two options:
-
-* [Integrate SDK with Maven (Streamlined simple)](#maven)
-* [Integrate SDK manually](#manual-sdk)
-
-> **Note**: If you've integrated Vpon SDK before, check [How to update SDK](../../android/latest-news/update-to-SDK4_5_1+/) first.
-
-## Integrate SDK with Maven {#maven}
----
-> **Note**: Maven is a build automation tool used primarily for Java projects. If you haven't installed Maven in your device for development, please refer to [Maven Introduction](https://maven.apache.org/).
+You can install Vpon SDK throught Gradle.
 
 Add Vpon's Maven repository in `allprojects` section in the project-level `build.gradle` file.
 
@@ -54,11 +45,8 @@ dependencies {
 }
 ```
 
-> **Note**
->* If you already set targetSdkVersion to 30 in your app, please use SDK v5.1.5 and above version.
 
-
-## Integrate SDK manually {#manual-sdk}
+<!-- ## Integrate SDK manually {#manual-sdk}
 ---
 Please follow the instruction below to integrate Vpon SDK to your application manually:
 
@@ -90,7 +78,7 @@ dependencies {
 ```
 
 Please check the build.gradle to see if the .jar / .aar file show in the dependencies as the picture below:
-![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg) -->
 
 
 # 3rd-party Library
@@ -102,10 +90,9 @@ Vpon SDK start to import 3rd-party Library - Retrofit from `4.8.0`, please follo
 
 ```xml
 dependencies {
-    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     <!-- Import required Google Play Service -->
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
@@ -154,7 +141,7 @@ Since we started to support Video ads from Vpon SDK 4, we recommend that you can
 
 # Permission
 ---
-Add permissions below to your AndroidManifest.xml.
+Add permissions below to your AndroidManifest.xml.
 
 ```xml
 <!-- Required Permissions -->

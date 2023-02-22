@@ -15,15 +15,9 @@ lang: "zh-tw"
 
 # 導入 SDK
 ---
+您可以使用 CocoaPods 來導入 Vpon SDK。
 
-Vpon 提供以下兩種串接廣告 SDK 的方式：
-
-* [精簡 (使用 CocoaPods)](#cocoapods)
-* [手動 (手動下載並串接)](#manual-sdk)
-
-## 精簡 (使用 CocoaPods) {#cocoapods}
----
-> **Note**： CocoaPods 負責管理 Xcode 專案的程式庫相依性，開發者可以利用此方式快速的串接 SDK。如果您還未在開發用的裝置上安裝 CocoaPods，請參閱 [CocoaPods 安裝指南](https://cocoapods.org/)。
+CocoaPods 負責管理 Xcode 專案的程式庫相依性，開發者可以利用此方式快速的串接 SDK。如果您還未在開發用的裝置上安裝 CocoaPods，請參閱 [CocoaPods 安裝指南](https://cocoapods.org/)。
 
 ### 1. 建立 Podfile
 
@@ -46,7 +40,7 @@ Vpon 提供以下兩種串接廣告 SDK 的方式：
 
 > **Note**：若要更新至最新版本的 SDK，請將終端機路徑移至與 Podfile 相同的目錄中，執行 `pod repo update` 擷取最新的 Pods，再執行 `pod install` 重新安裝 SDK。
 
-## 手動 (手動下載並串接) {#manual-sdk}
+<!-- ## 手動 (手動下載並串接) {#manual-sdk}
 ---
 
 在開始進行手動串接前，請先[由此下載最新版本的 Vpon SDK](../download)。
@@ -68,7 +62,7 @@ Vpon 提供以下兩種串接廣告 SDK 的方式：
 ```objc
 @import VpadnSDKAdKit
 ```
-![]({{site.imgurl}}/ios_framework_5.png)
+![]({{site.imgurl}}/ios_framework_5.png) -->
 
 
 <!-- ### Fundamental SDK
@@ -160,9 +154,9 @@ SDK lib 會參照 iOS 的 framework，因此您必須加入必要的 framework�
 
 >**Note:**
 >
->為配合第三方追蹤要求，Vpon SDK 會在初始化時，將 App 的 Audio Session Category 設為 `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (當有音樂要播放時，App 將以混音形式播放音樂，且不會受實體音量鍵的影響)。您可以在初始化後，重新指定及啟用 Audio Session Category。
+>* 為配合第三方追蹤要求，Vpon SDK 會在初始化時，將 App 的 Audio Session Category 設為 `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (當有音樂要播放時，App 將以混音形式播放音樂，且不會受實體音量鍵的影響)。您可以在初始化後，重新指定及啟用 Audio Session Category。如果您不希望 Vpon SDK 更動 Audio Session Category，請參考[進階設定]進行對應調整。
 >
->如果您不希望 Vpon SDK 更動 Audio Session Category，請參考[進階設定]進行對應調整。
+>* 自 v5.4.6 起，Vpon SDK 將逐步停止支援已棄用的 v4 SDK 方法，請依照本站文件指引完成 SDK 串接，且不要使用未在文件中描述如何使用的介面，以免發生錯誤
 
 
 # Usage Description

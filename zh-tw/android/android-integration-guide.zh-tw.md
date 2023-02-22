@@ -21,16 +21,7 @@ lang:           "zh-tw"
 
 # 導入 SDK
 ---
-Vpon 提供以下兩種串接廣告 SDK 的方式：
-
-* [精簡 (搭配 Maven)](#maven)
-* [手動 (手動下載並串接)](#manual-sdk)
-
-> **Note**：若您曾使用過舊版 SDK，請先閱讀: [如何升級 SDK 版本](../../android/latest-news/update-to-SDK4_5_1+/)
-
-## 精簡 (搭配 Maven) {#maven}
----
-> **Note**：Maven 是一個項目管理及項目自動建構的工具，如果您還沒在開發用的裝置中安裝過 Maven，請參考 [Maven 安裝指南](https://maven.apache.org/)。
+您可以使用 Gradle 來導入 Vpon SDK。
 
 開啟 Android Studio Project 層級的 `build.gradle` 檔案，在下方所示 allprojects 的 repositories 加入 Maven Repository
 
@@ -53,11 +44,8 @@ dependencies {
 }
 ```
 
-> **Note**
->* 若您的 App 支援 targetSdkVersion 30+，請務必使用 SDK v5.1.5 以上版本
 
-
-## 手動 (手動下載並串接) {#manual-sdk}
+<!-- ## 手動 (手動下載並串接) {#manual-sdk}
 ---
 要手動在應用程式中加入 Vpon SDK，您需要完成以下步驟：
 
@@ -84,7 +72,7 @@ dependencies {
 ```
 
 如下圖所示，如果 jar /aar 檔被讀到了，將顯示在 dependencies 中
-![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg) -->
 
 
 # 3rd-party Library
@@ -96,10 +84,9 @@ dependencies {
 
 ```xml
 dependencies {
-    <!-- Import Retrofit v2.6.2 if you are using Vpon SDK v5.0.2 and above -->
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    <!-- Import Retrofit v2.4.0 if you are using Vpon SDK v4.9.1 and below -->
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     <!-- Import required Google Play Service -->
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'

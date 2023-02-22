@@ -16,15 +16,9 @@ Once you have your own Publisher Account, follow the instruction below to integr
 
 # Import SDK
 ---
+You can install Vpon SDK through CocoaPods.
 
-Vpon provides two ways to integrate our SDK. Choose one of the following two options:
-
-* [Integrate SDK with CocoaPods (Streamlined simple)](#cocoapods)
-* [Integrate SDK Manually](#manual-sdk)
-
-## Integrate SDK with CocoaPods {#cocoapods}
-
-> **Note**: CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. If you haven't installed CocoaPods in your device for development, please refer to [CocoaPods Introduction](https://cocoapods.org/)
+CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. If you haven't installed CocoaPods in your device for development, please refer to [CocoaPods Introduction](https://cocoapods.org/)
 
 ### 1. Create Podfile
 
@@ -49,7 +43,7 @@ You'll see a new project file (.xcoworkspace) in your Xcode project directory. A
 > **Note**: To update to the latest SDK, please change your directory in terminal to your Xcode project. Run `pod repo update` to refresh the podspec and use `pod install` again to install SDK.
 
 
-## Integrate SDK Manually {#manual-sdk}
+<!-- ## Integrate SDK Manually {#manual-sdk}
 
 Please [download latest Vpon SDK here](../download) before you start your integration.
 
@@ -74,7 +68,7 @@ Finally, import the framework:
 ```
 ![]({{site.imgurl}}/ios_framework_5.png)
 
-> **Note**: Remind again that the Framework SDK only support devices in iOS version higher than `7.0`. Do not use this SDK if your app targets at users with devices OS version lower than `7.0`.
+> **Note**: Remind again that the Framework SDK only support devices in iOS version higher than `7.0`. Do not use this SDK if your app targets at users with devices OS version lower than `7.0`. -->
 
 
 <!-- ### Fundamental SDK
@@ -173,9 +167,9 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 
 >**Note:**
 >
->To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization.
+>* To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization. To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction.
 >
->To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction.
+>* Vpon SDK will stop supporting deprecated v4 method. Please follow the integration guide on this site and do not use any method that are not described on the site.
 
 
 # Usage Description

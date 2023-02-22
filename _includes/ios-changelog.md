@@ -1,5 +1,10 @@
 # Vpon iOS SDK Change Log
 
+## 5.4.6
+* Release Date: 22 Feb. 2023
+* Stop supporting deprecated VpadnNativeAdDelegate, warning message will show in the IDE if Publisher use the deprecated callback
+* Remove the implementation in VpadnNativeAdsManager.m (keep the .h file in the meanwhile) and deprecate the initializer, warning message will show in the IDE if Publisher use the deprecated initializer
+
 ## 5.4.4
 * Release Date: 12 Dec. 2022
 * Trim url string to prevent potential error occured while parsing urls
