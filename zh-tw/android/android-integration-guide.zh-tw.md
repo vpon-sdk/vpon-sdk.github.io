@@ -85,8 +85,6 @@ dependencies {
 ```xml
 dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     <!-- Import required Google Play Service -->
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
