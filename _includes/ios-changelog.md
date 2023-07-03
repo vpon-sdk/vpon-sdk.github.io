@@ -1,7 +1,7 @@
 # Vpon iOS SDK Change Log
 
 ## 5.4.8
-* Release Date: 30 Jun. 2023
+* Release Date: 03 Jul. 2023
 * Fix Native Ad component loss issue
 
 ## 5.4.6
