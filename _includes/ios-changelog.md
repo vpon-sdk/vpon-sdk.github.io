@@ -1,5 +1,9 @@
 # Vpon iOS SDK Change Log
 
+## 5.4.8
+* Release Date: 30 Jun. 2023
+* Fix Native Ad component loss issue
+
 ## 5.4.6
 * Release Date: 22 Feb. 2023
 * Stop supporting deprecated VpadnNativeAdDelegate, warning message will show in the IDE if Publisher use the deprecated callback
