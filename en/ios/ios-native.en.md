@@ -17,10 +17,10 @@ While using the Native Ad API, you will receive a group of ad properties such as
 
 # Prerequisites
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 
 
-# Start To Implement Interstitial Ad
+# Start To Implement Native Ad
 ---
 There are five actions you will need to take to implement this in your app:
 
