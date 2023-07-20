@@ -110,7 +110,7 @@ vpadnBanner.loadRequest(request)
 
 ### Set Up Delegate Protocol
 
-#### O### Objective-C
+#### Objective-C
 
 No code change.
 
