@@ -4,7 +4,7 @@ title:          "iOS - Update To SDK v5.5.0 "
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/
+permalink:       ios/latest-news/ios-update-to-sdk550
 lang:            "en"
 
 ---
