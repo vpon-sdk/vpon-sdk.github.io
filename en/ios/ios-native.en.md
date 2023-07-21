@@ -137,7 +137,7 @@ vpadnNative.load(request())
 
 ## Set Up Custom Native Ad Layout
 ---
-Please refer to the sample below to set up custom Native Ad Layout when onVpadnNativeAdReceived triggered:
+Please refer to the sample below to set up custom Native Ad Layout when onVpadnNativeAdLoaded triggered:
 
 
 ### Objective-C
@@ -204,7 +204,7 @@ After finishing ad request, implement the delegate protocol as below to listen a
 
 ```objc
 - (void) onVpadnNativeAdLoaded:(VpadnNativeAd *)nativeAd {
-    // Invoked if receive Banner Ad successfully
+    // Invoked if receive Native Ad successfully
 
     [self setNativeAd];
     // Construct Native Ad with returned components
@@ -229,7 +229,7 @@ After finishing ad request, implement the delegate protocol as below to listen a
 extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDelegate {
     
     func onVpadnNativeAdLoaded(_ nativeAd: VpadnNativeAd) {
-        // Invoked if receive Banner Ad successfully
+        // Invoked if receive Native Ad successfully
 
         self.setNativeAd()
         // Construct Native Ad with returned components

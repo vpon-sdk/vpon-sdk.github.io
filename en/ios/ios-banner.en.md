@@ -203,7 +203,7 @@ vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loa
 Please note that following settings which might cause the ad invisible on the screen are not allowed:
 
 * Set AdView as Hidden
-* Set the Alpha value of AdView < 100%
+* Set the Alpha value of AdView < 1.0
 * Overlays that cover the AdView
 
 

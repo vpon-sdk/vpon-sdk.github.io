@@ -137,7 +137,7 @@ vpadnNative.load(request())
 
 ## 自訂原生廣告 UI
 ---
-當 onVpadnNativeAdReceived 被觸發時，即取得可用的廣告資料，此時可將資料佈局至自定義的UI，請參考以下程式碼：
+當 onVpadnNativeAdLoaded 被觸發時，即取得可用的廣告資料，此時可將資料佈局至自定義的UI，請參考以下程式碼：
 
 ### Objective-C
 
@@ -203,7 +203,7 @@ func setNativeAd() {
 
 ```objc
 - (void) onVpadnNativeAdLoaded:(VpadnNativeAd *)nativeAd {
-    // Invoked if receive Banner Ad successfully
+    // Invoked if receive Native Ad successfully
 
     [self setNativeAd];
     // Construct Native Ad with returned components
@@ -228,7 +228,7 @@ func setNativeAd() {
 extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDelegate {
     
     func onVpadnNativeAdLoaded(_ nativeAd: VpadnNativeAd) {
-        // Invoked if receive Banner Ad successfully
+        // Invoked if receive Native Ad successfully
 
         self.setNativeAd()
         // Construct Native Ad with returned components

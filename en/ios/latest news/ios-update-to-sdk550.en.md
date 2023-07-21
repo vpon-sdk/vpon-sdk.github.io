@@ -318,3 +318,26 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
     }
 }
 ```
+
+
+## Advanced
+
+### Set Up Audio Session
+
+No code change for both Objective-C and Swift.
+
+### SDK Audio Session Usage
+
+```objc
+// Using Vpon SDK v550 below
+- (void) noticeApplicationAudioWillStart;
+// Call this function to let SDK know that you will set and activate a new Audio Session Category
+
+- (void) noticeApplicationAudioDidEnded;
+// Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
+
+// Using Vpon SDK v550 and above
+VpadnAdAudioManager.shared.noticeApplicationAudioWillStart()
+
+VpadnAdAudioManager.shared.noticeApplicationAudioDidEnded()
+```

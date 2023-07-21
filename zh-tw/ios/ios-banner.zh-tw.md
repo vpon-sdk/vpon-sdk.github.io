@@ -198,7 +198,7 @@ device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLand
 請注意，Vpon SDK 不允許廣告以以下方式呈現，致使廣告在畫面上可能不可見：
 
 * 將 AdView 設為 Hidden
-* 將 AdView 的 Alpha 值設為 < 100%
+* 將 AdView 的 Alpha 值設為 < 1.0
 * AdView 被其它 View(s) 遮蓋住
 
 當廣告露出在頁面上並達到曝光標準後，會印出以下的 Log 代表有送出廣告曝光：
