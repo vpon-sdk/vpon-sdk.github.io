@@ -15,14 +15,14 @@ lang: "zh-cn"
 
 如果您不希望 Vpon SDK 更动 Audio Session，请在初始化时，加入以下程式片段。
 
-## Objective-C
+### Objective-C
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
-    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
-    config.logLevel = VpadnLogLevelDefault;
+    VpadnAdConfiguration *config = VpadnAdConfiguration.shared;
+    config.logLevel = VpadnLogLevelDefaultLevel;
     config.audioManager.isAudioApplicationManaged = YES;
     // set YES, SDK won't set and activate the audio session
     [config initializeSdk];
@@ -31,15 +31,15 @@ lang: "zh-cn"
 }
 ```
 
-## Switft
+### Switft
 
 ```swift
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Vpon SDK initialization
-        let config = VpadnAdConfiguration.sharedInstance()
-        config.logLevel = .default
+        let config = VpadnAdConfiguration.shared
+        config.logLevel = .defaultLevel
         config.audioManager.isAudioApplicationManaged = true
         // set true, SDK won't set and activate the audio session
         config.initializeSdk()
@@ -54,12 +54,13 @@ lang: "zh-cn"
 我们建议您在重新指定 Audio Session Category 及结束影音播放时，呼叫以下 Function，让 SDK 知道您是否正在控制 Audio Session 。
 
 ```objc
-- (void) noticeApplicationAudioWillStart;
+VpadnAdAudioManager.shared.noticeApplicationAudioWillStart()
 // Call this function to let SDK know that you will set and activate a new Audio Session Category
 
-- (void) noticeApplicationAudioDidEnded;
+VpadnAdAudioManager.shared.noticeApplicationAudioDidEnded()
 // Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
 ```
+
 >**Note:** noticeApplicationAudioWillStart 及 noticeApplicationAudioDidEnded 不适用于透过 Mediation 串接 Vpon SDK 者。
 
 
@@ -77,12 +78,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 [request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-[request setUserInfoGender:VpadnGenderUnspecified];
+[request setUserInfoGender: VpadnUserGenderUnspecified];
 // Set user's gender if available
-[request setUserInfoBirthdayWithYear:2000 Month:1 andDay:1];
+[request setUserInfoBirthdayWithYear:2000 month:1 day:1];
 // Set user's birthday if available
 
-[request setMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
+[request setTagForMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
 // To set up the maximum content rating filter
 [request setTagForUnderAgeOfConsent:VpadnTagForUnderAgeOfConsentUnspecified];
 // To set up if the ads will be displayed only to the specific ages of audience
@@ -96,23 +97,23 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VpadnAdRequest()
 
-request.setAutoRefresh(true)
+request.autoRefresh(true)
 // Only available for Banner Ad, will auto refresh ad if set true
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-request.setUserInfoGender(.genderUnspecified)
+request.setUserInfoGender(.unspecified)
 // Set user's gender if available
-request.setUserInfoBirthdayWithYear(2000, month: 01, andDay: 01)
+request.setUserInfoBirthday(year: 2000, month: 1, day: 1)
 // Set user's birthday if available
 
-request.setMaxAdContentRating(.general)
+request.setTagFor(maxAdContentRating: .general)
 // To set up the maximum content rating filter
-request.setTagForUnderAgeOfConsent(.false)
+request.setTagFor(underAgeOfConsent: .notForUnderAgeOfConsent)
 // To set up if the ads will be displayed only to the specific ages of audience
-request.setTagForChildDirectedTreatment(.false)
+request.setTagFor(childDirectedTreatment: .notForChildDirectedTreatment)
 // To set up if the ads will be displayed to childern specific
 
 request.addKeyword("keywordA")
@@ -123,7 +124,7 @@ request.addKeyword("keyword1:value1")
 ---
 您可以透过 `setContentUrl` 及 `setContentData` 将页面内容资讯透过 SDK 发给 Vpon
 
->**Note:** 此功能适用于 `Vpon SDK v5.1.1` 及以上版本
+>**Note:** 此功能适用于 `Vpon SDK v5.1.1` 及以上版本
 
 
 ### Objective-C

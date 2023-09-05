@@ -128,13 +128,23 @@ Add  `-all_load` and `-ObjC` under `Other Linker Flags` of `Build Settings`. Cli
 # SDK Initialization {#initial-sdk}
 ---
 
-Please follow the tips below to initialize Vpon SDK if you are using Vpon SDK v4.9.3 or above version.
+Please follow the tips below to initialize Vpon SDK.
 
 ### Objective-C
 
-Please add below code snipet in your AppDelegate.m if you are using Objective-C:
-
 ```objc
+// Using Vpon SDK v550 and above
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Vpon SDK initialization
+    VpadnAdConfiguration *config = VpadnAdConfiguration.shared;
+    config.logLevel = VpadnLogLevelDefaultLevel;
+    [config initializeSdk];
+
+    return YES;
+}
+
+// Using Vpon SDK v550 below
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
@@ -152,6 +162,19 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 
 
 ```swift
+// Using Vpon SDK v550 and above
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.shared
+        config.logLevel = .defaultLevel
+        config.initializeSdk()
+
+        return true
+    }
+
+// Using Vpon SDK v550 below
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 

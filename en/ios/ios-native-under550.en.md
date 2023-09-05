@@ -4,7 +4,7 @@ title:          "iOS - Native Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/native/
+permalink:       ios/native-under550/
 lang:            "en"
 ---
 
@@ -95,7 +95,7 @@ _nativeAd.delegate = self;
 ### Swift
 
 ```swift
-vpadnNative = VpadnNativeAd(licenseKey: "License Key")
+vpadnNative = VpadnNativeAd.init(licenseKey: "License Key")
 // initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnNative.delegate = self
@@ -120,12 +120,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnNative.loadRequest(request)
+vpadnNative.load(request())
 // start to load ad
 ```
 
@@ -174,9 +174,9 @@ Please refer to the sample below to set up custom Native Ad Layout when onVpadnN
 func setNativeAd() {
         adIcon.image = nil
             
-        vpadnNative.icon.loadImageAsync(withBlock: { image in
+        vpadnNative.icon.loadAsync { (image) in
             self.adIcon.image = image
-        })
+        }
         
         adMediaView.nativeAd = vpadnNative
         adMediaView.delegate = self
@@ -218,7 +218,7 @@ After finishing ad request, implement the delegate protocol as below to listen a
 - (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
     // Invoked if the media creatives load sucessfully
 }
-- (void)mediaViewDidFail:(VpadnMediaView *)mediaView error:(NSError *)error {
+- (void) mediaViewDidFailed:(VpadnMediaView *)mediaView error:(NSError *)error {
     // Invoked if the media creatives load fail
 }
 ```
@@ -243,7 +243,7 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
     func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
         // Invoked if the media creatives load sucessfully
     }
-    func mediaViewDidFail(_ mediaView: VpadnMediaView, error: Error) {
+    func mediaViewDidFailed(_ mediaView: VpadnMediaView, error: Error) {
         // Invoked if the media creatives load fail  
     }
 }
@@ -279,6 +279,8 @@ SocialContext| Show completely <br> *Applicable Version: SDK v4.9.3 and below*
 :-----------:|:-----------:|
 RatingScale  | 5, might be null
 :-----------:|:-----------:|
+Rating Min/Max| 1/5, might be null
+:-----------:|:-----------:|
 
 
 # Tips
@@ -303,15 +305,15 @@ Please help to check if below log printed after the ad display and match the vie
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Native Ad Integration Guide](../native-under550) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
+### Integration Guide For Vpon SDK v4.9
+Please refer to [Native Ad Integration Guide](../native-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
 
 ### Mediation
 ---
 Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.<br>
 - [AdMob]<br>
-<!-- - [Mopub]<br>
-- [Smaato] -->
+- [Mopub]<br>
+- [Smaato]
 
 
 [settings here]: ../integration-guide/

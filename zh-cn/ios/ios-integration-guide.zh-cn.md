@@ -117,13 +117,23 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 
 # 初始化 SDK {#initial-sdk}
 ---
-若您使用 Vpon SDK 4.9.3 之后的版本，请务必参考以下指示初始化 SDK。
+请务必参考以下指示初始化 SDK。
 
 ### Objective-C
 
-若您是使用 Objective-C，请在您的 AppDelegate.m 中，加入以下程式码：
-
 ```objc
+// Using Vpon SDK v550 and above
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    // Vpon SDK initialization
+    VpadnAdConfiguration *config = VpadnAdConfiguration.shared;
+    config.logLevel = VpadnLogLevelDefaultLevel;
+    [config initializeSdk];
+
+    return YES;
+}
+
+// Using Vpon SDK v550 below
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
@@ -140,6 +150,19 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 若您是使用 Swift，请在您的 AppDelegate.swift 中，加入以下程式码：
 
 ```swift
+// Using Vpon SDK v550 and above
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
+    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        // Vpon SDK initialization
+        let config = VpadnAdConfiguration.shared
+        config.logLevel = .defaultLevel
+        config.initializeSdk()
+
+        return true
+    }
+
+// Using Vpon SDK v550 below
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 

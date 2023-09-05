@@ -1,41 +1,41 @@
 ---
-layout:         "ios"
-title:          "iOS - Native Ad"
-lead:           ""
-description:    ""
-keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/native/
-lang:            "en"
+layout: "ios"
+title: "iOS - 原生广告"
+lead: ""
+description:
+keywords: 'Keywords for this page, in the meta data'
+permalink: /zh-cn/ios/native-under550/
+lang: "zh-cn"
 ---
 
-# Overview
----
-While using the Native Ad API, you will receive a group of ad properties such as a title, an image, and you will have to use them to construct a custom UIView where the ad is shown. The Native Ad, an innovated type of ad, allows you to build a customized experience for the ads you show in your app.
+# 概要
+--------
+原生广告不同于以往横幅广告、插页广告会直接提供可立即呈现的广告内容，原生广告 API 提供了标题、图像等广告内容的组合，您可以透过这些属性的编排打造出最理想的原生广告风格。原生广告更打破以往对于广告的刻板印象，以最自然的方式呈现，提供更符合需求的广告体验。
 
 <img src="{{site.imgurl}}/Native_iOS.PNG" alt="" class="width-300"/>
 
-
-# Prerequisites
+# 完成串接准备
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
+在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
 
-
-# Start To Implement Native Ad
----
-There are five actions you will need to take to implement this in your app:
+# 开始撰写 Native Ad
+--------
+在应用程式中建立原生广告需要执行以下五个步骤：
 
 1. Import VpadnSDKAdKit
-2. Declare a VpadnNativeAd instance
-3. Initialize VpadnNativeAd object and indicate an License Key
-4. Set up VpadnRequest object and send ad request
-5. Set up custom Native Ad layout
-6. Set up Delegate protocol
+2. 宣告 VpadnNativeAd 及自定义 UI
+3. 初始化 VpadnNativeAd 物件，并指定 License Key
+4. 建立 VpadnRequest 物件，并请求广告
+4. 利用回传的资料建置自订的原生 UI
+5. 实作 Delegate protocol
 
-The best place to do all this is in your app's ViewController.
+建议您最好在应用程式的 ViewController 内执行上述所有步骤。
 
-## Import VpadnSDKAdKit And Declare A VpadnNativeAd Instance
+
+## Import VpadnSDKAdKit 并宣告 VpadnNativeAd
 ---
-First, in your View Controller header file, import Vpon SDK and declare that you implement the VpadnNativeAdDelegate protocol as well as declare and connect instance variables to your UI. (Please follow the [Natie Ad Spec](#nativeAdSpec))
+
+首先汇入 SDK ，宣告实作了 VpadnNativeAdDelegate, VpadnMediaViewDelegate protocol 以接收广告状态，同时也宣告了欲在原生广告中呈现的各种元件。(原生广告呈现元件规范请参照[Native Ad Spec](#nativeAdSpec))
 
 ### Objective-C
 
@@ -78,10 +78,9 @@ class VponSdkNativeViewController: UIViewController {
 }
 ```
 
-
-## Initialize VpadnNativeAd Object And Indicate A License Key
----
-Please follow the instrcution below to initialize VpadnNativeAd and indicate a License Key for it.
+## 初始化 VpadnNativeAd 物件
+--------
+请参考以下程式码初始化原生广告，并指定 License Key
 
 ### Objective-C
 
@@ -95,15 +94,15 @@ _nativeAd.delegate = self;
 ### Swift
 
 ```swift
-vpadnNative = VpadnNativeAd(licenseKey: "License Key")
+vpadnNative = VpadnNativeAd.init(licenseKey: "License Key")
 // initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnNative.delegate = self
 ```
 
-## Set Up VpadnAdRequest and Send Ad Request
+## 建立 VpadnRequest 物件，并请求广告
 ---
-Set up VpadnAdRequest before you send ad request:
+在发出广告请求前，请先建立 VpadnRequest 物件：
 
 ### Objective-C
 
@@ -120,25 +119,24 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnNative.loadRequest(request)
+vpadnNative.load(request())
 // start to load ad
 ```
 
->**Note:**
+>**Note**
 >
->* Besides of setting up VpadnRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
->* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
+>* 您可以为每种类型的广告都建立不同的 VpadnRequest 物件，或是在所有的广告请求中都使用同一个 VpadnRequest 物件
+>* 如果您想要指定更多投放条件，请参考[进阶设定](../advanced)
 
 
-## Set Up Custom Native Ad Layout
+## 自订原生广告 UI
 ---
-Please refer to the sample below to set up custom Native Ad Layout when onVpadnNativeAdLoaded triggered:
-
+当 onVpadnNativeAdLoaded 被触发时，即取得可用的广告资料，此时可将资料布局至自定义 UI，请参考以下程式码：
 
 ### Objective-C
 
@@ -174,9 +172,9 @@ Please refer to the sample below to set up custom Native Ad Layout when onVpadnN
 func setNativeAd() {
         adIcon.image = nil
             
-        vpadnNative.icon.loadImageAsync(withBlock: { image in
+        vpadnNative.icon.loadAsync { (image) in
             self.adIcon.image = image
-        })
+        }
         
         adMediaView.nativeAd = vpadnNative
         adMediaView.delegate = self
@@ -196,9 +194,9 @@ func setNativeAd() {
 
 ```
 
-## Set Up Delegate Protocol
+## 实作 Delegate protocol
 ---
-After finishing ad request, implement the delegate protocol as below to listen ad status.
+完成广告请求后，您可以实下以下函数监听广告状态：
 
 ### Objective-C
 
@@ -218,7 +216,7 @@ After finishing ad request, implement the delegate protocol as below to listen a
 - (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
     // Invoked if the media creatives load sucessfully
 }
-- (void)mediaViewDidFail:(VpadnMediaView *)mediaView error:(NSError *)error {
+- (void) mediaViewDidFailed:(VpadnMediaView *)mediaView error:(NSError *)error {
     // Invoked if the media creatives load fail
 }
 ```
@@ -243,84 +241,71 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
     func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
         // Invoked if the media creatives load sucessfully
     }
-    func mediaViewDidFail(_ mediaView: VpadnMediaView, error: Error) {
+    func mediaViewDidFailed(_ mediaView: VpadnMediaView, error: Error) {
         // Invoked if the media creatives load fail  
     }
 }
 ```
 
-
-<!-- # Native Ads Manager
----
-The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager. -->
+<!-- # 原生广告管理器
+--------
+Vpon SDK 提供原生广告管理器( Native Ads Manager )。当您设计的 App 中会在短时间内在数个地方显示原生广告，原生广告管理器可以协助您一次请求并管理多笔原生广告。如何使用原生广告管理器请直接参考 [Sample Code]。 -->
 
 # Native Ad Spec {#nativeAdSpec}
 --------
-Please check to table below to find the Native Ad component provided by Vpon.
-
-* Components in red are required to show in Native Ad layout. 
-* Show at least one image (CoverImage or Icon) in Native Ad layout.
+`红色`表示您必须显示的原生广告元件，其中 CoverImage 与 Icon 必须至少显示其中一个。
 
 Properties   |   Description
 :-----------:|:-----------:|
-<font color="red">AdLabel</font>      | Let user know it is ad ( Sponsor, Ad, and so on ).
+<font color="red">AdLabel</font>      | 让使用者了解此为广告 (例如： 赞助、广告 等等)
 :-----------:|:-----------:|
-<font color="red">Title</font>  | Show at least 16 English alphabets. <br>Show `...` while it's out of space.
+<font color="red">Title</font>  | 最少需显示8个中文字, 放不下时须显示`...`
 :-----------:|:-----------:|
-CoverImage   | 1200 x 627px <br>(enable scaling in proportion, without distortion and clipping)
+CoverImage   | 1200 x 627px (可等比例缩放，不可变形，不可裁切)
 :-----------:|:-----------:|
-Icon         | 128 x 128px <br>(enable scaling in proportion, without distortion and clipping)
+Icon         | 128 x 128px (可等比例缩放，不可变形，不可裁切)
 :-----------:|:-----------:|
-CallToAction | Show completely
+CallToAction | 需要完整显示
 :-----------:|:-----------:|
-BodyText     | Show at least 20 English characters or unshow it.
+BodyText     | 最少显示20个中文字，或不要显示
 :-----------:|:-----------:|
-SocialContext| Show completely <br> *Applicable Version: SDK v4.9.3 and below*
+SocialContext| 需要完整显示 <br> *适用于 SDK v4.9.3 及以下版本*
 :-----------:|:-----------:|
-RatingScale  | 5, might be null
+RatingScale  | 5
 :-----------:|:-----------:|
+Rating Min/Max| 1/5
+:-----------:|:-----------:|
+
 
 
 # Tips
 ---
 
-### Make Sure If The Ad Display Successfully
+### 确认广告曝光是否成功发送
+请注意，Vpon SDK 不允许广告以以下方式呈现，致使广告在画面上可能不可见：
 
-Please note that following settings which might cause the ad invisible on the screen are not allowed:
+* 将 AdView 设为 Hdden
+* 将 AdView 的 Alpha 值设为 < 100%
+* AdView 被其它 View(s) 遮盖住
 
-* Set AdView as Hidden
-* Set the Alpha value of AdView < 100%
-* Overlays that cover the AdView
-
-
-Please help to check if below log printed after the ad display and match the viewability standard:
+当广告露出在页面上并达到曝光标准后，会印出以下的 Log 代表有送出广告曝光：
 
 ```
 <VPON> [NOTE] Send impression successfully
 ```
 
 
-### Sample Code
-Please refer to our [Sample Code] for a complete integration sample.
+### 下载范例
+--------
+本页以基本的 Native Ad 为例进行说明， [Sample Code] 中另有 Table View 的范例以供参考。<br>
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Native Ad Integration Guide](../native-under550) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
+### 适用于 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[原生广告](../native-under5)
 
-### Mediation
----
-Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.<br>
-- [AdMob]<br>
-<!-- - [Mopub]<br>
-- [Smaato] -->
-
-
-[settings here]: ../integration-guide/
-[here]: {{ site.baseurl }}/ios/registration/
-[Sample Code]: {{ site.baseurl }}/ios/download/
-[Click here]: {{ site.baseurl }}/ios/mediation/mopub
-[AdMob]: {{ site.baseurl }}/ios/mediation/admob/#customevent
-[MoPub]: {{ site.baseurl }}/ios/mediation/mopub
-[Smaato]: {{ site.baseurl }}/ios/native/mediation/smaato
-[Basic Native Ad]: #
-[Native Ad - Table View]: {{ site.baseurl }}/ios/native/table/
-[this link]: ../latest-news/ios9ats/
+[串接说明]: ../integration-guide/
+[说明]: {{ site.baseurl }}/zh-cn/ios/registration/
+[Sample Code]: {{ site.baseurl }}/zh-cn/ios/download/
+[使用 AdMob]: {{ site.baseurl }}/zh-cn/ios/mediation/admob/#customevent
+[使用 MoPub]: {{ site.baseurl }}/zh-cn/ios/mediation/mopub
+[使用 Smaato]: {{ site.baseurl }}/zh-cn/ios/native/mediation/smaato
+[这篇]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/

@@ -74,7 +74,7 @@ _vpadnInterstitial.delegate = self;
 ### Swift
 
 ```swift
-vpadnInterstitial = VpadnInterstitial.init(licenseKey:"License Key")
+vpadnInterstitial = VpadnInterstitial(licenseKey:"License Key")
 // licenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnInterstitial.delegate = self
@@ -99,12 +99,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VpadnAdRequest()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnInterstitial.load(request)
+vpadnInterstitial.loadRequest(request)
 // start to load ad
 ```
 
@@ -121,7 +121,7 @@ vpadnInterstitial.load(request)
 ### Objective-C
 
 ```objc
-- (void) onVpadnInterstitialAdReceived:(UIView *)bannerView {
+- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
     [self.vpadnInterstitial showFromRootViewController:self];
 }
 ```
@@ -129,8 +129,8 @@ vpadnInterstitial.load(request)
 ### Swift
 
 ```swift
-func onVpadnInterstitialAdReceived(_ bannerView: UIView!) {
-    vpadnInterstitial.show(fromRootViewController: self)
+func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
+    vpadnInterstitial.showFromRootViewController(self)
 }
 ```
 
@@ -203,8 +203,8 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
-### 適用於 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.4 或以下版本的串接方法，請參考[插頁廣告](../interstitial-under5)
+### 適用於 Vpon SDK v5.5.0 以下版本的串接方法
+如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，請參考[插頁廣告](../interstitial-under550)
 
 
 [串接說明]: ../integration-guide/

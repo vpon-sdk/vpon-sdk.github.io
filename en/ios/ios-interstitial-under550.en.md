@@ -4,7 +4,7 @@ title:          "iOS - Interstitial Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/interstitial/
+permalink:       ios/interstitial-under550/
 lang:            "en"
 ---
 
@@ -78,7 +78,7 @@ _vpadnInterstitial.delegate = self;
 ### Swift
 
 ```swift
-vpadnInterstitial = VpadnInterstitial(licenseKey:"License Key")
+vpadnInterstitial = VpadnInterstitial.init(licenseKey:"License Key")
 // licenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnInterstitial.delegate = self
@@ -103,12 +103,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnInterstitial.loadRequest(request)
+vpadnInterstitial.load(request)
 // start to load ad
 ```
 
@@ -126,7 +126,7 @@ You can only show the interstitial ad after ad initializaion and ad receviced. F
 ### Objective-C
 
 ```objc
-- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
+- (void) onVpadnInterstitialAdReceived:(UIView *)bannerView {
     [self.vpadnInterstitial showFromRootViewController:self];
 }
 ```
@@ -134,8 +134,8 @@ You can only show the interstitial ad after ad initializaion and ad receviced. F
 ### Swift
 
 ```swift
-func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
-    vpadnInterstitial.showFromRootViewController(self)
+func onVpadnInterstitialAdReceived(_ bannerView: UIView!) {
+    vpadnInterstitial.show(fromRootViewController: self)
 }
 ```
 
@@ -181,11 +181,11 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
     func onVpadnInterstitialWillOpen(_ interstitial: VpadnInterstitial) {
         // Invoked if the Interstitial Ad is going to be displayed
     }
-    func onVpadnInterstitialClosed(_ interstitial: VpadnInterstitial) {
-        // Invoked if the Interstitial Ad was dismissed
-    }
     func onVpadnInterstitialWillLeaveApplication(_ interstitial: VpadnInterstitial) {
         // Invoked if user leave the app and the current app was backgrounded
+    }
+    func onVpadnInterstitialClicked(_ interstitial: VpadnInterstitial) {
+        // Invoked if the Banner Ad was clicked
     }
 }
 ```
@@ -214,8 +214,8 @@ Please help to check if below log printed after the ad display and match the vie
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Interstitial Ad Integration Guide](../interstitial-under550) if you want to know more about the integration compatible with the Vpon SDK version below v5.5.0.
+### Integration Guide For Vpon SDK v4.9
+Please refer to [Interstitial Ad Integration Guide](../interstitial-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

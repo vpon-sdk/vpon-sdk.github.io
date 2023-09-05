@@ -1,5 +1,11 @@
 # Vpon Android SDK Change Log
 
+## 5.5.0
+* Release Date: 5 Sept. 2023
+* Compliant with IAB OM SDK v1.4.4
+* Code language change from Java to Kotlin
+* Efficiency enhancement
+
 ## 5.4.6
 * Release Date: 22 Feb. 2023
 * Update compileSdkVersion and targetSdkVersion to 33

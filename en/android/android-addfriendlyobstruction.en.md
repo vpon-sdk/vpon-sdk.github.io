@@ -19,7 +19,6 @@ Please select the instruction base on the way you integrate Vpon SDK to finish t
 
 * [Integrate Vpon SDK Directly]
 * [Integrate Vpon SDK Via AdMob]
-* [Integrate Vpon SDK Via MoPub]
 
 
 ## Integrate Vpon SDK Directly {#vponsdk}

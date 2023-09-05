@@ -68,7 +68,7 @@ contentData.put("key2", 1.2);
 contentData.put("key3", true);
 bundle.putSerializable(AD_CONTENT_DATA, contentData);
 bundle.putSerializable(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
-builder.addCustomEventExtrasBundle(VpadnAdapter.class, bundle);
+builder.addNetworkExtrasBundle(VpadnAdapter.class, bundle);
 
 adLoader.loadAd(builder.build());
 ```

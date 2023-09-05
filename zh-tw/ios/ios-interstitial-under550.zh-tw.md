@@ -1,37 +1,38 @@
 ---
 layout: "ios"
-title: "iOS - 插页广告"
+title: "iOS - 插頁廣告"
 lead: ""
 description:
 keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-cn/ios/interstitial/
-lang: "zh-cn"
+permalink: /zh-tw/ios/interstitial-under550/
+lang: "zh-tw"
 ---
-# 总览
+
+# 總覽
 ---
-插页式广告是互动式多媒体 HTML5 或「网络应用程式」，在应用程式的正常转换点显示 (例如启动、影片播放前或游戏关卡载入时)。网路应用程式使用上就像在应用程式内浏览一样，只有简单的关闭按钮，而没有任何导览列，因为导览配置就包含在内容本身。这类广告由于内容更丰富、更吸引人，因此製作起来更昂贵，而曝光机会相对有限。
+插頁式廣告是互動式多媒體 HTML5 或「網路應用程式」，在應用程式的正常轉換點顯示 (例如啟動、影片播放前或遊戲關卡載入時)。網路應用程式使用上就像在應用程式內瀏覽一樣，只有簡單的關閉按鈕，而沒有任何導覽列，因為導覽配置就包含在內容本身。這類廣告由於內容更豐富、更吸引人，因此製作起來更昂貴，而曝光機會相對有限。
 
 ![]({{site.imgurl}}/Interstitial.png)
 
-# 完成串接准备
+# 完成串接準備
 ---
-在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的 Xcode 专案中。若您尚未完成，请先参考[串接说明]完成相关设定。
+在開始串接廣告之前，請確認您已經將 Vpon SDK 導入您的 Xcode 專案中。若您尚未完成，請先參考[串接說明]完成相關設定。
 
-# 开始撰写 interstitial
+# 開始撰寫 Interstitial
 ---
-Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实例化、载入和显示步骤的 Object，而不是 View。
-
+Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。
+不過，它的用法與 Vpadn Banner 非常類似：
 
 1. Import VpadnSDKAdKit
 2. 宣告 VpadnInterstitial
-3. 初始化 VpadnInterstitial 物件，并指定 License Key
-4. 建立 VpadnRequest 物件，并请求广告
-5. 展示广告
-6. 实作 Delegate protocol
+3. 初始化 VpadnInterstitial 物件，並指定 License Key
+4. 建立 VpadnRequest 物件，並請求廣告
+5. 展示廣告
+6. 實作 Delegate protocol
 
-建议您在应用程式的 ViewController 内执行上述步骤。
+建議您在應用程式的 ViewController 內執行上述步驟。
 
-## Import VpadnSDKAdKit 并宣告 VpadnInterstitial
+## Import VpadnSDKAdKit 並宣告 VpadnInterstitial
 ---
 
 ### Objective-C
@@ -59,7 +60,7 @@ class VponSdkInterstitialViewController: UIViewController {
 
 ## 初始化 VpadnInterstitial 物件
 ---
-请参考以下程式码始化插页广告，并指定 License Key
+請參考以下程式碼初始化插頁廣告，並指定 License Key
 
 ### Objective-C
 
@@ -73,15 +74,15 @@ _vpadnInterstitial.delegate = self;
 ### Swift
 
 ```swift
-vpadnInterstitial = VpadnInterstitial(licenseKey:"License Key")
+vpadnInterstitial = VpadnInterstitial.init(licenseKey:"License Key")
 // licenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnInterstitial.delegate = self
 ```
 
-## 建立 VpadnRequest 物件，并请求广告
+## 建立 VpadnRequest 物件，並請求廣告
 ---
-在发出广告请求前，请先建立 VpadnRequest 物件：
+在發出廣告請求前，請先建立 VpadnRequest 物件：
 
 ### Objective-C
 
@@ -98,30 +99,29 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnInterstitial.loadRequest(request)
+vpadnInterstitial.load(request)
 // start to load ad
 ```
 
 >**Note**
 >
->* 您可以为每种类型的广告都建立不同的 VpadnRequest 物件，或是在所有的广告请求中都使用同一个 VpadnRequest 物件
->* 如果您想要指定更多投放条件，请参考[进阶设定](../advanced)
+>* 您可以為每種類型的廣告都建立不同的 VpadnRequest 物件，或是在所有的廣告請求中都使用同一個 VpadnRequest 物件
+>* 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
 
 
-
-## 展示广告
+## 展示廣告
 ---
-在您完成 Interstitial 广告初始化设定并拉取广告后，您需要在广告请求成功后才能尝试显示广告。最简单的作法是当  onVpadnInterstitialAdReceived 被触发时时，例如：
+在您完成 Interstitial 廣告初始化設定並拉取廣告後，您需要在廣告請求成功後才能嘗試顯示廣告。最簡單的方式是當 onVpadnInterstitialAdReceived 被觸發時，展示廣告，例如：
 
 ### Objective-C
 
 ```objc
-- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
+- (void) onVpadnInterstitialAdReceived:(UIView *)bannerView {
     [self.vpadnInterstitial showFromRootViewController:self];
 }
 ```
@@ -129,16 +129,16 @@ vpadnInterstitial.loadRequest(request)
 ### Swift
 
 ```swift
-func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
-    vpadnInterstitial.showFromRootViewController(self)
+func onVpadnInterstitialAdReceived(_ bannerView: UIView!) {
+    vpadnInterstitial.show(fromRootViewController: self)
 }
 ```
 
-> **Note**：为了维持良好的用户体验，我们建议可先抓取插页广告，待特定时机再将其显示，尽量避免抓取后立即显示
+> **Note**：為了維持良好的使用者體驗，我們建議可先抓取插頁廣告，待特定時機再將其顯示，盡量避免抓取後立即顯示
 
-## 实作 Delegate protocol
+## 實作 Delegate protocol
 ---
-完成广告请求后，您可以实作以下函数监听广告状态
+完成廣告請求後，您可以實作以下函數監聽廣告狀態
 
 ### Objective-C
 
@@ -186,14 +186,14 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
 # Tips
 ---
 
-### 确认广告曝光是否成功发送
-请注意，Vpon SDK 不允许广告以以下方式呈现，致使广告在画面上可能不可见：
+### 確認廣告曝光是否成功發送
+請注意，Vpon SDK 不允許廣告以以下方式呈現，致使廣告在畫面上可能不可見：
 
-* 将 AdView 设为 Hdden
-* 将 AdView 的 Alpha 值设为 < 100%
-* AdView 被其它 View(s) 遮盖住
+* 將 AdView 設為 Hidden
+* 將 AdView 的 Alpha 值設為 < 100%
+* AdView 被其它 View(s) 遮蓋住
 
-当广告露出在页面上并达到曝光标准后，会印出以下的 Log 代表有送出广告曝光：
+當廣告露出在頁面上並達到曝光標準後，會印出以下的 Log 代表有送出廣告曝光：
 
 ```
 <VPON> [NOTE] Send impression successfully
@@ -201,12 +201,13 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
 
 
 ### Sample Code
-如果您想看到完整的串接实例，请参考我们的 [Sample Code]
+如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
-### 适用于 Vpon SDK v5.5.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，请参考[插页广告](../interstitial-under550)
+### 適用於 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.4 或以下版本的串接方法，請參考[插頁廣告](../interstitial-under5)
 
-[串接说明]: ../integration-guide/
+
+[串接說明]: ../integration-guide/
 [Sample Code]: ../download/
-[iOS9 ATS]: {{site.baseurl}}/zh-cn/ios/latest-news/ios9ats/
-[进阶设定]: ../advanced/
+[iOS9 ATS]: {{site.baseurl}}/zh-tw/ios/latest-news/ios9ats/
+[進階設定]: ../advanced/

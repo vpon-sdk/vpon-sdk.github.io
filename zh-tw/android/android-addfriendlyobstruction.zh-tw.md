@@ -19,7 +19,7 @@ lang:            "zh-tw"
 
 * [直接串接 Vpon SDK 的設定方式]
 * [透過 AdMob Mediation 的設定方式]
-* [透過 MoPub Mediation 的設定方式]
+
 
 
 ## 直接串接 Vpon SDK 的設定方式 {#vponsdk}

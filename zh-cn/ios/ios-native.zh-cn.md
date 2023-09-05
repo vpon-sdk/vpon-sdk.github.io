@@ -94,7 +94,7 @@ _nativeAd.delegate = self;
 ### Swift
 
 ```swift
-vpadnNative = VpadnNativeAd.init(licenseKey: "License Key")
+vpadnNative = VpadnNativeAd(licenseKey: "License Key")
 // initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnNative.delegate = self
@@ -119,12 +119,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VpadnAdRequest()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnNative.load(request())
+vpadnNative.loadRequest(request)
 // start to load ad
 ```
 
@@ -172,9 +172,9 @@ vpadnNative.load(request())
 func setNativeAd() {
         adIcon.image = nil
             
-        vpadnNative.icon.loadAsync { (image) in
+        vpadnNative.icon.loadImageAsync(withBlock: { image in
             self.adIcon.image = image
-        }
+        })
         
         adMediaView.nativeAd = vpadnNative
         adMediaView.delegate = self
@@ -216,7 +216,7 @@ func setNativeAd() {
 - (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
     // Invoked if the media creatives load sucessfully
 }
-- (void) mediaViewDidFailed:(VpadnMediaView *)mediaView error:(NSError *)error {
+- (void)mediaViewDidFail:(VpadnMediaView *)mediaView error:(NSError *)error {
     // Invoked if the media creatives load fail
 }
 ```
@@ -241,7 +241,7 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
     func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
         // Invoked if the media creatives load sucessfully
     }
-    func mediaViewDidFailed(_ mediaView: VpadnMediaView, error: Error) {
+    func mediaViewDidFail(_ mediaView: VpadnMediaView, error: Error) {
         // Invoked if the media creatives load fail  
     }
 }
@@ -273,8 +273,6 @@ SocialContext| 需要完整显示 <br> *适用于 SDK v4.9.3 及以下版本*
 :-----------:|:-----------:|
 RatingScale  | 5
 :-----------:|:-----------:|
-Rating Min/Max| 1/5
-:-----------:|:-----------:|
 
 
 
@@ -299,8 +297,8 @@ Rating Min/Max| 1/5
 --------
 本页以基本的 Native Ad 为例进行说明， [Sample Code] 中另有 Table View 的范例以供参考。<br>
 
-### 适用于 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[原生广告](../native-under5)
+### 适用于 Vpon SDK v5.5.0 以下版本的串接方法
+如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，请参考[原生广告](../native-under550)
 
 [串接说明]: ../integration-guide/
 [说明]: {{ site.baseurl }}/zh-cn/ios/registration/

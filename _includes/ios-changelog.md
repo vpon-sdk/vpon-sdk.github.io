@@ -1,5 +1,12 @@
 # Vpon iOS SDK Change Log
 
+## 5.5.0
+* Release Date: 5 Sept. 2023
+* Compliant with IAB OM SDK v1.4.4
+* Code language change from Objective-C to Swift
+* Deprecate unused interfaces and attributes
+* Potential crash while request multiple Banner ads in the same page
+
 ## 5.4.8
 * Release Date: 03 Jul. 2023
 * Fix Native Ad component loss issue

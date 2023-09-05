@@ -95,7 +95,7 @@ _nativeAd.delegate = self;
 ### Swift
 
 ```swift
-vpadnNative = VpadnNativeAd.init(licenseKey: "License Key")
+vpadnNative = VpadnNativeAd(licenseKey: "License Key")
 // initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnNative.delegate = self
@@ -120,12 +120,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VpadnAdRequest()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnNative.load(request())
+vpadnNative.loadRequest(request)
 // start to load ad
 ```
 
@@ -173,9 +173,9 @@ vpadnNative.load(request())
 func setNativeAd() {
         adIcon.image = nil
             
-        vpadnNative.icon.loadAsync { (image) in
+        vpadnNative.icon.loadImageAsync(withBlock: { image in
             self.adIcon.image = image
-        }
+        })
         
         adMediaView.nativeAd = vpadnNative
         adMediaView.delegate = self
@@ -217,7 +217,7 @@ func setNativeAd() {
 - (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
     // Invoked if the media creatives load sucessfully
 }
-- (void) mediaViewDidFailed:(VpadnMediaView *)mediaView error:(NSError *)error {
+- (void)mediaViewDidFail:(VpadnMediaView *)mediaView error:(NSError *)error {
     // Invoked if the media creatives load fail
 }
 ```
@@ -242,7 +242,7 @@ extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDele
     func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
         // Invoked if the media creatives load sucessfully
     }
-    func mediaViewDidFailed(_ mediaView: VpadnMediaView, error: Error) {
+    func mediaViewDidFail(_ mediaView: VpadnMediaView, error: Error) {
         // Invoked if the media creatives load fail  
     }
 }
@@ -276,8 +276,6 @@ SocialContext| 需要完整顯示 <br> *適用於 SDK v4.9.3 及以下版本*
 :-----------:|:-----------:|
 RatingScale  | 5，可能為空值
 :-----------:|:-----------:|
-Rating Min/Max| 1/5，可能為空值
-:-----------:|:-----------:|
 
 # Tips
 ---
@@ -302,11 +300,11 @@ Rating Min/Max| 1/5，可能為空值
 ### 中介服務
 透過中介服務，您的應用程式就能放送眾多來源的廣告，詳細請見說明：<br>
 - [使用 AdMob] <br>
-- [使用 MoPub] <br>
-- [使用 Smaato]
+<!-- - [使用 MoPub] <br>
+- [使用 Smaato] -->
 
-### 適用於 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.4 或以下版本的串接方法，請參考[原生廣告](../native-under5)
+### 適用於 Vpon SDK v5.5.0 以下版本的串接方法
+如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，請參考[原生廣告](../native-under550)
 
 [串接說明]: ../integration-guide/
 [Vpon PDMKT Team]: mailto:partner.service@vpon.com

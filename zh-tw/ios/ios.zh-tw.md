@@ -31,7 +31,7 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 | [橫幅廣告][4] |[插頁廣告][5] |[原生廣告][7]| [Out-stream 影音廣告][8]| [中介服務][6]|
 
 
-## License Key For Testing
+## License Key For Testing
 ---
 
 在您完成 Vpon 開發商帳號申請流程之前，如果您需要進行廣告串接測試，可以使用以下 License Key 進行測試。請依照您要展示的廣告型態，選擇對應的 License Key 進行測試。

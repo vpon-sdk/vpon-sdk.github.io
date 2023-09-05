@@ -15,7 +15,7 @@ Vpon Banner can be embedded to part of your app layout. It consists of a multime
 
 # Prerequisites
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
 
 # Start To Implement Banner Ad
 ---
@@ -108,7 +108,7 @@ vponBanner.setAdListener(new VponAdListener() {
 
     @Override
     public void onAdLoaded() {
-        // Invoked if receive ad successfully
+        // Invoked if receive ad successfully
     }
     
     @Override
@@ -172,7 +172,6 @@ Vpon Banner supports three tablet-only banner sizes in addition to the 320x50 sh
   320x480                    | Large Rectangle Banner| VponAdSize.LARGE\_RECTANGLE
   468x60                     |IAB Full-Size Banner| VponAdSize.IAB\_BANNER
   728x90                     | IAB Leaderboard|  VponAdSize.IAB\_LEADERBOARD
-  device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
 
 
 <!--   320x100                    | Large Banner   | VponAdSize.LARGE_BANNER -->

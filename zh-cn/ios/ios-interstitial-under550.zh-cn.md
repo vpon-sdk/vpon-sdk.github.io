@@ -4,7 +4,7 @@ title: "iOS - 插页广告"
 lead: ""
 description:
 keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-cn/ios/interstitial/
+permalink: /zh-cn/ios/interstitial-under550/
 lang: "zh-cn"
 ---
 # 总览
@@ -73,7 +73,7 @@ _vpadnInterstitial.delegate = self;
 ### Swift
 
 ```swift
-vpadnInterstitial = VpadnInterstitial(licenseKey:"License Key")
+vpadnInterstitial = VpadnInterstitial.init(licenseKey:"License Key")
 // licenseKey: Vpon License Key to get ad, please replace with your own one
 
 vpadnInterstitial.delegate = self
@@ -98,12 +98,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnInterstitial.loadRequest(request)
+vpadnInterstitial.load(request)
 // start to load ad
 ```
 
@@ -121,7 +121,7 @@ vpadnInterstitial.loadRequest(request)
 ### Objective-C
 
 ```objc
-- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
+- (void) onVpadnInterstitialAdReceived:(UIView *)bannerView {
     [self.vpadnInterstitial showFromRootViewController:self];
 }
 ```
@@ -129,8 +129,8 @@ vpadnInterstitial.loadRequest(request)
 ### Swift
 
 ```swift
-func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
-    vpadnInterstitial.showFromRootViewController(self)
+func onVpadnInterstitialAdReceived(_ bannerView: UIView!) {
+    vpadnInterstitial.show(fromRootViewController: self)
 }
 ```
 
@@ -203,8 +203,8 @@ extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
-### 适用于 Vpon SDK v5.5.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，请参考[插页广告](../interstitial-under550)
+### 适用于 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[插页广告](../interstitial-under5)
 
 [串接说明]: ../integration-guide/
 [Sample Code]: ../download/

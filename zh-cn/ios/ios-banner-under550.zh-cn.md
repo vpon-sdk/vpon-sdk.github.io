@@ -4,7 +4,7 @@ title: "iOS - 横幅广告"
 lead: ""
 description:
 keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-cn/ios/banner/
+permalink: /zh-cn/ios/banner-under550/
 lang: "zh-cn"
 ---
 # 概要
@@ -67,7 +67,7 @@ class VponSdkBannerViewController: UIViewController {
 ### Objective-C
 
 ```objc
-_vpadnBanner = [[VpadnBanner alloc]initWithLicenseKey:@"License Key" adSize:VpadnAdSize.banner];
+_vpadnBanner = [[VpadnBanner alloc] initWithLicenseKey:@"License Key" adSize: VpadnAdSizeBanner];
 // initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 // adSize: The Banner Ad size that will be displayed
 
@@ -77,7 +77,7 @@ _vpadnBanner.delegate = self;
 ### Swift
 
 ``` swift
-vpadnBanner = VpadnBanner(licenseKey: "License Key", adSize: .banner())
+vpadnBanner = VpadnBanner.init(licenseKey: "License Key", adSize: VpadnAdSizeBanner)
 // licenseKey: Vpon License Key to get ad, please replace with your own one
 // adSize: The Banner Ad size that will be displayed
 
@@ -106,15 +106,15 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
-request.autoRefresh = true
+request.setAutoRefresh(true)
 // Only available for Banner Ad, will auto refresh ad if set YES
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnBanner.loadRequest(request)
+vpadnBanner.load(request)
 // start to load ad
 ```
 
@@ -155,9 +155,9 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
 
     func onVpadnAdLoaded(_ banner: VpadnBanner) {
       // Invoked if receive Banner Ad successfully
-      if let adView = banner.getVpadnAdView() {
-            self.loadBannerView.addSubview(adView)            
-        }
+
+      self.loadBannerView.addSubview(banner.getVpadnAdView())
+      // Add ad view to your layout
     }
     func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
       // Invoked if received ad fail, check this callback to indicates what type of failure occurred
@@ -169,7 +169,6 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
       // Invoked if the Banner Ad will be refresh 
     }
 }
-```
 ```
 
 # 横幅广告大小
@@ -183,6 +182,8 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
 728x90                     | IAB 超级横幅广告 |  VpadnAdSizeLeaderboard        |iPad
 300x250                    |IAB 中矩形广告    |VpadnAdSizeMediumRectangle     |iPhone<br>iPad
 320x480                    | 大型横幅广告     | VpadnAdSizeLargeRectangle      |iPhone<br>iPad
+device width x auto height |Smart Banner Portrait |  VpadnAdSizeSmartBannerPortrait |iPhone<br>iPad
+device width x auto height |Smart Banner Landscape|VpadnAdSizeSmartBannerLandscape  |iPhone<br>iPad
 
 
 <!-- 320x100                    | 大型横幅广告     | VpadnAdSizeLARGEBANNER         |iPhone<br>iPad -->
@@ -214,8 +215,8 @@ vpadnBanner = [[VpadnBanner alloc] initWithAdSize:VpadnAdSizeFromCGSize(self.loa
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
-### 适用于 Vpon SDK v5.5.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，请参考[横幅广告](../banner-under550)
+### 适用于 Vpon SDK v4.9 的串接方法
+如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[横幅广告](../banner-under5)
 
 
 [串接说明]: ../integration-guide/

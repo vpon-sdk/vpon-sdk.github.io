@@ -221,39 +221,39 @@ Vpon Out-stream 影音廣告提供串流外的影音廣告服務，透過將影�
 完成廣告初始化後，您可以實作以下函數監聽廣告狀態：
 
 ```objc
-- (void)VpadnInReadAd:(VpadnInReadAd *)ad didFailLoading:(NSError *)error {
+- (void)vpadnInReadAd:(VpadnInReadAd *)ad didFailLoading:(NSError *)error {
 	NSLog(@"廣告抓取失敗");	
 }
 
-- (void)VpadnInReadAdDidLoad:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidLoad:(VpadnInReadAd *)ad {
 	NSLog(@"廣告抓取成功");
 }
 
-- (void)VpadnInReadAdDidStart:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidStart:(VpadnInReadAd *)ad {
 	NSLog(@"影片開始播放");
 }
 
-- (void)VpadnInReadAdDidStop:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidStop:(VpadnInReadAd *)ad {
 	NSLog(@"影片播放結束");
 }
 
-- (void)VpadnInReadAdDidMute:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidMute:(VpadnInReadAd *)ad {
 	NSLog(@"影片靜音");
 }
 
-- (void)VpadnInReadAdDidUnmute:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidUnmute:(VpadnInReadAd *)ad {
 	NSLog(@"影片取消靜音");
 }
 
-- (void)VpadnInReadAdWasClicked:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdWasClicked:(VpadnInReadAd *)ad {
 	NSLog(@"廣告被點擊");
 }
 
-- (void)VpadnInReadAdDidTakeOverFullScreen:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidTakeOverFullScreen:(VpadnInReadAd *)ad {
 	NSLog(@"影片全屏");
 }
 
-- (void)VpadnInReadAdDidDismissFullscreen:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidDismissFullscreen:(VpadnInReadAd *)ad {
 	NSLog(@"影片離開全屏");
 }
 ```

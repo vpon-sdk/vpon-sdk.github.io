@@ -8,21 +8,14 @@ permalink:       ios/advanced/
 lang:            "en"
 ---
 
-# Set Up Audio Session {#audio}
----
-To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization.
-
-
-To ask SDK not to change the audio session category, please follow the instruction below.
-
-## Objective-C
+### Objective-C
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
-    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
-    config.logLevel = VpadnLogLevelDefault;
+    VpadnAdConfiguration *config = VpadnAdConfiguration.shared;
+    config.logLevel = VpadnLogLevelDefaultLevel;
     config.audioManager.isAudioApplicationManaged = YES;
     // set YES, SDK won't set and activate the audio session
     [config initializeSdk];
@@ -31,15 +24,15 @@ To ask SDK not to change the audio session category, please follow the instructi
 }
 ```
 
-## Switft
+### Switft
 
 ```swift
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Vpon SDK initialization
-        let config = VpadnAdConfiguration.sharedInstance()
-        config.logLevel = .default
+        let config = VpadnAdConfiguration.shared
+        config.logLevel = .defaultLevel
         config.audioManager.isAudioApplicationManaged = true
         // set true, SDK won't set and activate the audio session
         config.initializeSdk()
@@ -54,10 +47,10 @@ To ask SDK not to change the audio session category, please follow the instructi
 We recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session. 
 
 ```objc
-- (void) noticeApplicationAudioWillStart;
+VpadnAdAudioManager.shared.noticeApplicationAudioWillStart()
 // Call this function to let SDK know that you will set and activate a new Audio Session Category
 
-- (void) noticeApplicationAudioDidEnded;
+VpadnAdAudioManager.shared.noticeApplicationAudioDidEnded()
 // Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
 ```
 
@@ -79,12 +72,12 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 [request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-[request setUserInfoGender:VpadnGenderUnspecified];
+[request setUserInfoGender: VpadnUserGenderUnspecified];
 // Set user's gender if available
-[request setUserInfoBirthdayWithYear:2000 Month:1 andDay:1];
+[request setUserInfoBirthdayWithYear:2000 month:1 day:1];
 // Set user's birthday if available
 
-[request setMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
+[request setTagForMaxAdContentRating:VpadnMaxAdContentRatingUnspecified];
 // To set up the maximum content rating filter
 [request setTagForUnderAgeOfConsent:VpadnTagForUnderAgeOfConsentUnspecified];
 // To set up if the ads will be displayed only to the specific ages of audience
@@ -98,23 +91,23 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VpadnAdRequest()
 
-request.setAutoRefresh(true)
+request.autoRefresh(true)
 // Only available for Banner Ad, will auto refresh ad if set true
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-request.setUserInfoGender(.genderUnspecified)
+request.setUserInfoGender(.unspecified)
 // Set user's gender if available
-request.setUserInfoBirthdayWithYear(2000, month: 01, andDay: 01)
+request.setUserInfoBirthday(year: 2000, month: 1, day: 1)
 // Set user's birthday if available
 
-request.setMaxAdContentRating(.general)
+request.setTagFor(maxAdContentRating: .general)
 // To set up the maximum content rating filter
-request.setTagForUnderAgeOfConsent(.false)
+request.setTagFor(underAgeOfConsent: .notForUnderAgeOfConsent)
 // To set up if the ads will be displayed only to the specific ages of audience
-request.setTagForChildDirectedTreatment(.false)
+request.setTagFor(childDirectedTreatment: .notForChildDirectedTreatment)
 // To set up if the ads will be displayed to childern specific
 
 request.addKeyword("keywordA")

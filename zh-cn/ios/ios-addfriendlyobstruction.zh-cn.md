@@ -18,7 +18,6 @@ lang: "zh-cn"
 
 * [直接串接 Vpon SDK 的设定方式]
 * [透过 AdMob Mediation 的设定方式]
-* [透过 MoPub Mediation 的设定方式]
 
 
 ## 直接串接 Vpon SDK 的设定方式 {#vponsdk}
@@ -40,20 +39,20 @@ lang: "zh-cn"
 
 ```objc
 VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
-[request addFriendlyObstruction:_obstructView purpose:VpadnFriendlyObstructionNotVisible description:@"not visible"];
+[request addFriendlyObstruction:_obstructView purpose:VpadnFriendlyObstructionTypeNotVisible description:@"not visible"];
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
 
 ```swift
 let request = VpadnAdRequest.init()
-request.addFriendlyObstruction(_obstructView, purpose: .NotVisible, description: “not visible”)
+request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: “not visible”)
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下 Log 代表广告有成功曝光：
@@ -89,7 +88,7 @@ extra.additionalParameters = @{
 [request registerAdNetworkExtras:extra];
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
@@ -111,26 +110,25 @@ request.register(extra)
 ```objc
 GADRequest *request = [GADRequest request];
 GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
-extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
+[extra setExtras:@{
+    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @'desc": @"not_visible"|]
+} forLabel:@"Vpon"];
 [request registerAdNetworkExtras:extra];
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 ### Swift
 
 ```swift
 let extra = GADCustomEventExtras()
-extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
+extra.setExtras([
+    "friendly Obstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"1] ], forLabel: "Vpon")
 request.register(extra)
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下 Log 代表广告有成功曝光：
@@ -139,90 +137,6 @@ request.register(extra)
 <VPON> [NOTE] Send impression successfully
 ```
 
-
-## 透过 MoPub Mediation 的设定方式 {#mopub}
----
-
-* 本介面适用于 `Vpon SDK v5.1.7` 及以上版本
-* 本介面适用于 `MoPub SDK v5.13.0` 及以上版本
-* 本介面适用于 `Vpon MoPub Adapter v2.0.4` 及以上版本
-
-当 adview 因为被其它 view(s) 覆盖住而造成无法成功送出 Impression 时，您会看到类似以下的 Log 提示您覆盖住广告的 view(s)：
-
-```
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: OnScreen ratio (2.67%) is not reach.
-<VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
-```
-
-请先根据以上 Log，确认覆盖住广告的 view(s) 是否可以进行调整，如果确实无法修改，请确认该 view 在视觉上不会影响广告展示 (alpha = 0, Hidden)，再参考以下范例，将该 view 设为 Friendly Obstruction：
-
-### Objective-C
-
-```objc
-// For Banner Ads
-self.mpBannerView = [[MPAdView alloc] initWithAdUnitId:MOPUB_BANNER_ID];
-self.mpBannerView.delegate = self;
-self.mpBannerView.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[self.mpBannerView loadAd];
-
-// For Interstitial Ads
-self.mpInterstitial = [MPInterstitialAdController interstitialAdControllerForAdUnitId:MOPUB_INTERSTITIAL_ID];
-self.mpInterstitial.delegate = self;
-self.mpInterstitial.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-[self.mpInterstitial loadAd];
-
-// For Native Ads
-MPNativeAdRequestTargeting *targeting = [MPNativeAdRequestTargeting targeting];
-targeting.desiredAssets = [NSSet setWithObjects:kAdTitleKey, kAdTextKey, kAdCTATextKey, kAdIconImageKey, kAdMainImageKey, kAdStarRatingKey, nil];
-targeting.localExtras = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
-};
-adRequest.targeting = targeting;
-
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
-```
-
-### Swift
-
-```swift
-// For Banner Ads
-mpBannerView = MPAdView(adUnitId: "e036eb60cb694fe7b987f1af41a76eb9")
-mpBannerView.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-mpBannerView.delegate = self
-mpBannerView.loadAd()
-
-// For Interstitial Ads
-mpInterstitial = MPInterstitialAdController(forAdUnitId: "848bf4d03e7b4fdda02be232f8e6b4d1")
-mpInterstitial.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-mpInterstitial.delegate = self
-mpInterstitial.loadAd()
-
-// For Native Ads
-let targeting = MPNativeAdRequestTargeting()
-targeting?.localExtras = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-]
-
-// friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
-// purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
-```
-
-设置完成后，请确认当广告露出在页面上并达到曝光标准后，有印出以下 Log 代表广告有成功曝光：
-
-```
-<VPON> [NOTE] Send impression successfully
-```
 
 
 ## Purpose of Friendly Obstruction

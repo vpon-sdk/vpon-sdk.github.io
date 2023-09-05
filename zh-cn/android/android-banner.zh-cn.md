@@ -108,7 +108,7 @@ vponBanner.setAdListener(new VponAdListener() {
 
     @Override
     public void onAdLoaded() {
-        // Invoked if receive ad successfully
+        // Invoked if receive ad successfully
     }
     
     @Override
@@ -174,7 +174,7 @@ protected void onDestroy() {
 320x480                    | 大型横幅广告 | VponAdSize.LARGE\_RECTANGLE
 468x60                     | IAB 全横幅广告   | VponAdSize.IAB\_BANNER
 728x90                     | IAB 超级横幅广告 |  VponAdSize.IAB\_LEADERBOARD
-device width x auto height | Smart Banner    |  VponAdSize.SMART\_BANNER
+
 
 <!-- 320x100                    | 大型横幅广告     | VponAdSize.LARGE_BANNER -->
 

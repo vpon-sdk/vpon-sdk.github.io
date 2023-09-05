@@ -4,7 +4,7 @@ title:          "iOS - Banner Ad"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/banner/
+permalink:       ios/banner-under550/
 lang:            "en"
 ---
 # Overview
@@ -67,7 +67,7 @@ Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of
 ### Objective-C
 
 ```objc
-_vpadnBanner = [[VpadnBanner alloc]initWithLicenseKey:@"License Key" adSize:VpadnAdSize.banner];
+_vpadnBanner = [[VpadnBanner alloc] initWithLicenseKey:@"License Key" adSize: VpadnAdSizeBanner];
 // initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
 // adSize: The Banner Ad size that will be displayed
 
@@ -77,7 +77,7 @@ _vpadnBanner.delegate = self;
 ### Swift
 
 ``` swift
-vpadnBanner = VpadnBanner(licenseKey: "License Key", adSize: .banner())
+vpadnBanner = VpadnBanner.init(licenseKey: "License Key", adSize: VpadnAdSizeBanner)
 // licenseKey: Vpon License Key to get ad, please replace with your own one
 // adSize: The Banner Ad size that will be displayed
 
@@ -107,15 +107,15 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VpadnAdRequest.init()
 
-request.autoRefresh = true
+request.setAutoRefresh(true)
 // Only available for Banner Ad, will auto refresh ad if set YES
 
 request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 
-vpadnBanner.loadRequest(request)
+vpadnBanner.load(request)
 // start to load ad
 ```
 
@@ -155,9 +155,9 @@ extension VponSdkBannerViewController : VpadnBannerDelegate {
 
     func onVpadnAdLoaded(_ banner: VpadnBanner) {
       // Invoked if receive Banner Ad successfully
-      if let adView = banner.getVpadnAdView() {
-            self.loadBannerView.addSubview(adView)            
-        }
+
+      self.loadBannerView.addSubview(banner.getVpadnAdView())
+      // Add ad view to your layout
     }
     func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
       // Invoked if received ad fail, check this callback to indicates what type of failure occurred
@@ -182,6 +182,8 @@ Size (WxH)                 |Description             |  VponAdSize Constant      
 728x90                     | IAB  Leaderboard       | VpadnAdSizeLeaderboard         |iPad
 300x250                    | IAB Medium Recangle    | VpadnAdSizeMediumRectangle     |iPhone<br>iPad
 320x480                    | Large Rectangle Banner | VpadnAdSizeLargeRectangle      |iPhone<br>iPad
+device width x auto height | Smart Banner Portrait  | VpadnAdSizeSmartBannerPortrait |iPhone<br>iPad
+device width x auto height | Smart Banner Landscape | VpadnAdSizeSmartBannerLandscape |iPhone<br>iPad
 
 
 <!-- 320x100                    | Large Banner           | VpadnAdSizeLARGEBANNER         |iPhone<br>iPad -->
@@ -215,8 +217,8 @@ Please help to check if below log printed after the ad display and match the vie
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Banner Ad Integration Guide](../banner-under550) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
+### Integration Guide For Vpon SDK v4.9
+Please refer to [Banner Ad Integration Guide](../banner-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

@@ -15,7 +15,7 @@ Vpon provide Out-stream Video Ad which served outside of a stream video. To opti
 ---
 Before you start to integrate Out-stream Video Ad, please make sure you already finished the items below:
 
-1. Import Vpon SDK to your Xcode project. If you haven't done yet, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
+1. Import Vpon SDK to your Xcode project. If you haven't done yet, please refer to our [Integration Guide]({{site.baseurl}}/ios/integration-guide/) to finish your setting.
 2. Contact [Vpon PDMKT Team] to set up your account and get your License Key.
 
 # Start To Implement Out-stream Video Ad
@@ -223,39 +223,39 @@ Please refer to the sample code below to finish your Out-stream Video Ad setting
 After finishing ad request, implement the delegate protocol as below to listen ad status.
 
 ```objc
-- (void)VpadnInReadAd:(VpadnInReadAd *)ad didFailLoading:(NSError *)error {
+- (void)vpadnInReadAd:(VpadnInReadAd *)ad didFailLoading:(NSError *)error {
 	NSLog(@"VpadnInReadAdFailed");	
 }
 
-- (void)VpadnInReadAdDidLoad:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidLoad:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidLoad");
 }
 
-- (void)VpadnInReadAdDidStart:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidStart:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidStart");
 }
 
-- (void)VpadnInReadAdDidStop:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidStop:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidStop");
 }
 
-- (void)VpadnInReadAdDidMute:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidMute:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidMute");
 }
 
-- (void)VpadnInReadAdDidUnmute:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidUnmute:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidUnmute");
 }
 
-- (void)VpadnInReadAdWasClicked:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdWasClicked:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdWasClicked");
 }
 
-- (void)VpadnInReadAdDidTakeOverFullScreen:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidTakeOverFullScreen:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidTakeOverFullScreen");
 }
 
-- (void)VpadnInReadAdDidDismissFullscreen:(VpadnInReadAd *)ad {
+- (void)vpadnInReadAdDidDismissFullscreen:(VpadnInReadAd *)ad {
 	NSLog(@"VpadnInReadAdDidDismissFullscreen");
 }
 ```
