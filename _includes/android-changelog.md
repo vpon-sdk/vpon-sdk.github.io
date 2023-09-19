@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.5.2
+* Release Date: 5 Sept. 2023
+* Bug fix
+
 ## 5.5.0
 * Release Date: 5 Sept. 2023
 * Compliant with IAB OM SDK v1.4.4
