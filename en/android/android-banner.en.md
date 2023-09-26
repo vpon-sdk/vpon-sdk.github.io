@@ -15,7 +15,7 @@ Vpon Banner can be embedded to part of your app layout. It consists of a multime
 
 # Prerequisites
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
+Please make sure you've imported Vpon SDK to your Android Studio project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
 
 # Start To Implement Banner Ad
 ---
