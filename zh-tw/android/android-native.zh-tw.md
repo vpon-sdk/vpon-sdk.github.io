@@ -26,7 +26,7 @@ lang:           "zh-tw"
 3. 建立 VponAdRequest，並請求廣告
 4. 建立原生廣告 Layout
 5. 建置原生廣告
-6. 實作 AdListener
+6. 實作 VponAdListener / VponNativeAd.OnNativeAdLoadedListener
 
 建議您在應用程式的 Activity 內進行上述步驟。
 
@@ -49,11 +49,12 @@ public class MainActivity extends AppCompatActivity {
         adContainer = findViewById(R.id.ad_container); 
 
         vponNativeAd = new VponNativeAd(this, nativeAdId);
+        VponAdLoader vponAdLoader = new VponAdLoader.Builder().build();
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
         builder.addTestDevice("your device advertising id");
         // Set your test device's GAID here if you're trying to get Vpon test ad
-        vponNativeAd.loadAd(builder.build());
+        vponAdLoader.loadAd(builder.build());
         // Set ad request and load ad
     }
 }
@@ -149,19 +150,6 @@ public class MainActivity extends AppCompatActivity {
         tools:layout_width="0dp" >
     </com.vpon.ads.VponMediaView>
     
-    <RatingBar
-        android:id="@+id/ad_stars"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:stepSize="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ad_media_view"
-        tools:rating="3" />
     
     <Button
         android:id="@+id/ad_call_to_action"
@@ -177,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## 建置原生廣告
 ---
-完成原生廣告請求後，您可以透過 VponAdListener 監聽廣告請求的狀態，在 `onAdLoaded` 之後，將回傳的素材建構成自定義的原生廣告樣式，並在完成設定後註冊檢視元件來綁定點擊事件。
+完成原生廣告請求後，您可以透過 OnNativeAdLoadedListener 監聽廣告請求的狀態，在 `onNativeAdLoaded` 之後，將回傳的素材建構成自定義的原生廣告樣式，並在完成設定後註冊檢視元件來綁定點擊事件。
 
 
 ```java
@@ -190,10 +178,10 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater.from(this).inflate(R.layout.layout_native_ad_template, adContainer, true);
         // Inflate your custom ad layout
 
-        vponNativeAd.withNativeAdLoadedListener(new VponNativeAd.OnNativeAdLoadedListener() {
+        vponAdLoader.forNativeAd(new VponNativeAd.OnNativeAdLoadedListener() {
             @Override
-            public void onNativeAdLoaded(VponNativeAd.NativeAdData nativeAdData) {
-                setNativeAdDatas(nativeAdData, adContainer);
+            public void onNativeAdLoaded(VponNativeAd nativeAd) {
+                setNativeAdDatas(nativeAd, adContainer);
                 // Set ad datas to your custom ad layout
                 //TODO set native ad datas to view, registerViewForInteraction
                 //TODO VpadnNativeAd.Rating is change to VponNativeAd.NativeAdData.Rating
@@ -202,42 +190,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
-        vponNativeAd.loadAd(builder.build());
+        vponAdLoader.loadAd(builder.build());
         // Set ad request and load ad
     }
     
-    private void setNativeAdDatas(VponNativeAd.NativeAdData adData, View adContainer) {
+    private void setNativeAdDatas(VponNativeAd nativeAd, View adContainer) {
         ImageView nativeAdIcon = adContainer.findViewById(R.id.ad_app_icon);
         TextView nativeAdTitle = adContainer.findViewById(R.id.ad_headline);
         TextView nativeAdBody = adContainer.findViewById(R.id.ad_body);
         VponMediaView nativeMediaView = adContainer.findViewById(R.id.ad_media_view);
         Button nativeAdCallToAction = adContainer.findViewById(R.id.ad_call_to_action);
-        RatingBar nativeAdStarRating = adContainer.findViewById(R.id.ad_stars);
 
-        VponNativeAd.downloadAndDisplayImage(adData.getIcon(), nativeAdIcon);
+        VponAdLoader.downloadAndDisplayImage(nativeAd.getIcon(), nativeAdIcon);
         // Use VponNativeAd.downloadAndDisplayImage to display icon in your custom ad layout
 
-        nativeAdTitle.setText(adData.getTitle());
-        if (adData.getBody() != null) {
-            nativeAdBody.setText(adData.getBody());
+        nativeAdTitle.setText(nativeAd.getTitle());
+        if (nativeAd.getBody() != null) {
+            nativeAdBody.setText(nativeAd.getBody());
         } else {
             nativeAdBody.setVisibility(View.INVISIBLE);
         }
 
-        nativeMediaView.setNativeAd(vponNativeAd ,adData);
+        nativeMediaView.setNativeAd(nativeAd);
 
-        if (adData.getCallToAction() != null) {
-            nativeAdCallToAction.setText(adData.getCallToAction());
+        if (nativeAd.getCallToAction() != null) {
+            nativeAdCallToAction.setText(nativeAd.getCallToAction());
         } else {
             nativeAdCallToAction.setVisibility(View.INVISIBLE);
-        }
-
-        VponNativeAd.NativeAdData.Rating rating = adData.getRating();
-        if (rating != null) {
-            nativeAdStarRating.setNumStars((int) rating.getScale());
-            nativeAdStarRating.setRating((float) rating.getValue());
-        } else {
-            nativeAdStarRating.setVisibility(View.INVISIBLE);
         }
 
         vponNativeAd.registerViewForInteraction(adContainer);
@@ -281,24 +260,6 @@ vponNativeAd.setAdListener(new VponAdListener() {
 
 ```java
 @Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponNativeAd != null) {
-        vponNativeAd.resume();
-    }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponNativeAd != null) {
-        vponNativeAd.pause();
-    }
-}
-
-@Override
 protected void onDestroy() {
     super.onDestroy();
     if (vponNativeAd != null) {
@@ -333,12 +294,7 @@ CallToAction | 需要完整顯示
 :-----------:|:-----------:|
 BodyText     | 最少顯示20個中文字，或不要顯示
 :-----------:|:-----------:|
-SocialContext| 需要完整顯示 <br> *適用於 SDK v4.9.1 及以下版本*
-:-----------:|:-----------:|
-RatingScale  | 5，可能為空值
-:-----------:|:-----------:|
-Rating Min/Max| 1/5，可能為空值
-:-----------:|:-----------:|
+
 
 # Tips
 ---
@@ -360,14 +316,11 @@ I/VPON: [::Impression::]  response.code : 200
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
-### 適用於 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，請參考[原生廣告](../native-under5)
 
 ### 中介服務
 透過中介服務，您的應用程式就能放送眾多廣告來源的廣告，詳細請見說明：
 
 * [使用 AdMob]
-* [使用 MoPub]
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/
 [Sample Code]: {{ site.baseurl }}/zh-tw/android/download/

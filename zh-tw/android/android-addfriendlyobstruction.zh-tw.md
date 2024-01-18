@@ -54,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mainLayout = findViewById(R.id.main_layout);
 
-            VponBanner vponBanner = new VponBanner(context, bannerId, adSize);
+            VponBanner vponBanner = new VponBanner(context);
+            vponBanner.setLicenseKey(bannerId);
+            vponBanner.setAdSize(adSize);
             View obstructionView = findViewById(R.id.obstruction_view);
 
             VponAdRequest.Builder builder = new VponAdRequest.Builder();
