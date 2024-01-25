@@ -35,8 +35,8 @@ lang: "zh-cn"
 
 若您是使用 AdMob / Google Ad Manager 来进行 Mediation，请确认您所使用的 SDK 及 Adapter 版本：
 
-* `Vpon SDK v5.1.1` 及以上版本
-* `Vpon AdMob Adapter v2.0.1` 及以上版本
+* `Vpon SDK v5.6.0` 及以上版本
+* `Vpon AdMob Adapter v2.1.0` 及以上版本
 
 
 若您串接的是横幅广告或插页广告，请参考以下范例：

@@ -23,16 +23,17 @@ lang: "zh-tw"
 在應用程式中建立原生廣告需要執行以下五個步驟：
 
 1. Import VpadnSDKAdKit
-2. 宣告 VpadnNativeAd 及自定義 UI
-3. 初始化 VpadnNativeAd 物件，並指定 License Key
-4. 建立 VpadnRequest 物件，並請求廣告
+2. 宣告 VponNativeAdView 及自定義 UI
+3. 初始化 VponNativeAdLoader 物件，並請求廣告
+4. 實作 VponNativeAdLoaderDelegate
 5. 利用回傳的資料建置自訂的原生 UI
-6. 實作 Delegate protocol
+6. （進階）訂閱 Native Ad 事件通知
+7. （進階）訂閱影片事件通知
 
 建議您可以在應用程式的 ViewController 內執行上述步驟。
 
 
-## Import VpadnSDKAdKit 並宣告 VpadnNativeAd
+## Import VpadnSDKAdKit
 ---
 
 首先匯入 SDK ，宣告實作了 VpadnNativeAdDelegate, VpadnMediaViewDelegate protocol 以接收廣告狀態，同時也宣告了欲在原生廣告中呈現的各種元件。( 原生廣告呈現元件規範請參照[Native Ad Spec](#nativeAdSpec) )
@@ -42,91 +43,164 @@ lang: "zh-tw"
 
 ```objc
 @import VpadnSDKAdKit;
-// Import Vpon SDK
-
-@interface ViewController () <VpadnMediaViewDelegate, VpadnNativeAdDelegate>
-
-@property (strong, nonatomic) VpadnNativeAd *nativeAd;
-
-@property (weak, nonatomic) IBOutlet UIView *contentView;
-
-@property (weak, nonatomic) IBOutlet UIImageView *adIcon;
-@property (weak, nonatomic) IBOutlet UILabel *adTitle;
-@property (weak, nonatomic) IBOutlet UILabel *adBody;
-@property (weak, nonatomic) IBOutlet UILabel *adSocialContext;
-@property (weak, nonatomic) IBOutlet UIButton *adAction;
-@property (weak, nonatomic) IBOutlet VpadnMediaView *adMediaView;
-
-@end
 ```
 
 ### Swift
 
 ```swift
 import VpadnSDKAdKit
-// Import Vpon SDK
+```
 
-class VponSdkNativeViewController: UIViewController {
-    
-    var vpadnNative: VpadnNativeAd!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var adIcon: UIImageView!
-    @IBOutlet weak var adTitle: UILabel!
-    @IBOutlet weak var adBody: UILabel!
-    @IBOutlet weak var adSocialContext: UILabel!
-    @IBOutlet weak var adAction: UIButton!
-    @IBOutlet weak var adMediaView: VpadnMediaView!
+## 宣告 VponNativeAdView 及自定義 UI
+---
+
+對於原生廣告，Vpon 提供了繼承 `UIView` 的 `VponNativeAdView` 型別作為 ad view，每個 `VponNativeAdView` 對應一個 `VponNativeAd` 物件。請使用 `VponNativeAdView` 來展示廣告，並且每個欲呈現的 `UIView` 元件（如：headline、body⋯⋯）都必須是它的 subview。
+
+請依序進行以下步驟來展示 native ad：
+
+1. 創建一個 `UIView` xib 檔案（以下用 `NativeAdView` 為範例），在右上角 Identity inspector 指定 Custom Class 為 `VponNativeAdView`、Module 指定為 `VpadnSDKAdKit`，如圖：
+
+<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-300"/>
+
+2. 在 .xib 檔案中佈局您想要的 UI，並將各個 UI 元件（例如：欲呈現 headline 的 `UILabel`）連接 IBOutlet 到 `VponNativeAdView` 的對應屬性，設定方式如圖：
+<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-300"/>
+    *原生廣告呈現元件規範請參照 [Native Ad Spec](https://wiki.vpon.com/zh-tw/ios/native/#nativeAdSpec)  
+
+    如果無法順利連接 IBOutlet 到 `VponNativeAdView` 的對應屬性，我們提供一個解決方案供參：
+    Objective-C 專案請新創一個 .h 檔案 / Swift 專案請新創一個 .swift 檔案，並把 `VponNativeAdView` header 內容貼上如下：
+
+### Obejctive-C (VponNativeAdViewCopy.h)
+
+```objc
+#ifndef VponNativeAdViewCopy_h
+#define VponNativeAdViewCopy_h
+#endif /* VponNativeAdViewCopy_h */
+
+SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
+@interface  VponNativeAdView : UIView
+@property (nonatomic, weak) IBOutlet UIView * _Nullable iconView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingScaleView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable headlineView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable bodyView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable socialContextView;
+@property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
+
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+
+@end
+```
+
+### Swift (VponNativeAdViewCopy.swift)
+
+```swift
+import UIKit
+import VpadnSDKAdKit
+
+@MainActor @objc @objcMembers open class VponNativeAdView: UIView {
+	@MainActor @objc @IBOutlet weak public var iconView: UIView?
+	@MainActor @objc @IBOutlet weak public var coverImageView: UIView?
+	@MainActor @objc @IBOutlet weak public var ratingValueView: UIView?
+	@MainActor @objc @IBOutlet weak public var ratingScaleView: UIView?
+	@MainActor @objc @IBOutlet weak public var headlineView: UIView?
+	@MainActor @objc @IBOutlet weak public var bodyView: UIView?
+	@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
+	@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
+	@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+	@MainActor @objc public var nativeAd: VpadnSDKAdKit.VponNativeAd?
 }
 ```
 
-## 初始化 VpadnNativeAd 物件
+此時回到 xib 檔案，應該就能在右側欄 Outlets 面板看見 IBOutlet 並且連接。連結成功後即可視需求移除上述的 header copy 檔案。
+
+3. 確認欲作為 mediaView 的 `UIView` 於右上角 Custom Class 指定型別為 `VponMediaView`：
+   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-300"/>
+4. 在您的 view controller 參考下方程式碼讓 `NativeAdView` 正確添加到畫面上：
+
+### Objective-C
+
+```objc
+#import "VponSdkNativeViewController.h"
+#import <VpadnSDKAdKit/VpadnSDKAdKit.h>
+
+@interface VponSdkNativeViewController () <VponNativeAdLoaderDelegate, VponNativeAdDelegate, VponVideoControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIView *adContainerView;
+@property(nonatomic, strong) VponNativeAdView *nativeAdView;
+@end
+
+@implementation  VponSdkNativeViewController
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	_nativeAdView = [[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil].firstObject;
+	[_adContainerView addSubview:_nativeAdView];
+	_nativeAdView.translatesAutoresizingMaskIntoConstraints = NO;
+	[NSLayoutConstraint activateConstraints:@[
+		[_nativeAdView.heightAnchor constraintEqualToAnchor: _adContainerView.heightAnchor],
+		[_nativeAdView.widthAnchor constraintEqualToAnchor: _adContainerView.widthAnchor]
+	]];
+}
+```
+
+### Swift
+
+```swift
+class VponSdkNativeViewController: UIViewController {
+
+var nativeAdView: VponNativeAdView!
+@IBOutlet weak var adContainer: UIView!
+
+override func viewDidLoad() {
+	super.viewDidLoad()
+
+	guard let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
+		  let adView = nibObjects.first as? VponNativeAdView else {
+		fatalError("Could not load nib file for nativeAdView")
+	}
+
+	nativeAdView = adView
+	adContainer.addSubview(adView)
+	nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+	NSLayoutConstraint.activate([
+		nativeAdView.widthAnchor.constraint(equalTo: adContainer.widthAnchor),
+		nativeAdView.heightAnchor.constraint(equalTo: adContainer.heightAnchor)
+	])
+}
+```
+
+## 初始化 VponNativeAdLoader 物件，並請求廣告
 --------
-請參考以下程式碼初始化原生廣告，並指定 License Key
+要發出廣告請求，請按照以下步驟：
+
+  1. 宣告並初始化 `VponNativeAdLoader` 物件
+  2. 設定 adLoader 的 `delegate` 屬性，以便收到請求結果
+  3. 呼叫 `load(_ request: VponAdRequest)` 方法，帶入 `VponAdRequest` 參數
+
+**請注意：`VponNativeAdLoader` 物件在廣告載入過程一定要保持 strong reference 以免發生錯誤。**
 
 ### Objective-C
 
 ```objc
-_nativeAd = [[VpadnNativeAd alloc] initWithLicenseKey:@"License Key"];
-// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
-
-_nativeAd.delegate = self;
+// Must keep a strong reference
+@property(nonatomic, strong) VponNativeAdLoader *adLoader;
+_adLoader = [[VponNativeAdLoader alloc] initWithLicenseKey:@"License Key" 				
+										rootViewController:self];
+_adLoader.delegate = self;
+[_adLoader load:request];
 ```
 
 ### Swift
 
 ```swift
-vpadnNative = VpadnNativeAd(licenseKey: "License Key")
-// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
-
-vpadnNative.delegate = self
-```
-
-## 建立 VpadnRequest 物件，並請求廣告
----
-在發出廣告請求前，請先建立 VpadnRequest 物件：
-
-### Objective-C
-
-```objc
-VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
-
-[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
-// Set your test device's IDFA here if you're trying to get Vpon test ad
-
-[_nativeAd loadRequest:request];
-// Start to load ad
-```
-
-### Swift
-
-```swift
-let request = VpadnAdRequest()
-
-request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
-// Set your test device's IDFA here if you're trying to get Vpon test ad
-
-vpadnNative.loadRequest(request)
-// start to load ad
+// Must keep a strong reference
+var adLoader: VponNativeAdLoader?
+adLoader = VponNativeAdLoader(licenseKey: "License Key", rootViewController: self)
+adLoader?.delegate = self
+adLoader?.load(request)
 ```
 
 >**Note**
@@ -135,122 +209,176 @@ vpadnNative.loadRequest(request)
 >* 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
 
 
-## 自訂原生廣告 UI
+## 實作 VponNativeAdLoaderDelegate
 ---
-當 onVpadnNativeAdLoaded 被觸發時，即取得可用的廣告資料，此時可將資料佈局至自定義的UI，請參考以下程式碼：
+
+發出廣告請求後，實作 `VponNativeAdLoaderDelegate` protocol 來處理請求成功與失敗的情況。
+
+* 請求成功時，Vpon SDK 會呼叫 `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` 並回傳 native ad 物件，如想收到 native ad 相關事件通知，可以設定 `delegate` 屬性，詳情參考 [訂閱 native ad 事件通知](#notifyNative)。
+* 請求失敗時，Vpon SDK 會呼叫 `adLoader(_ adLoader: VponNativeAdLoader, didFailToReceiveAdWithError error: Error)` 並回傳對應的 error。
 
 ### Objective-C
 
 ```objc
-- (void)setNativeAd {
-    _adIcon.image = nil;
-    
-    __block typeof(self) safeSelf = self;
-    [_nativeAd.icon loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
-        safeSelf.adIcon.image = image;
-    }];
-    
-    [_adMediaView setNativeAd:_nativeAd];
-    _adMediaView.delegate = self;
-    
-    _adTitle.text = [_nativeAd.title copy];
-    _adBody.text = [_nativeAd.body copy];
-    _adSocialContext.text = [_nativeAd.socialContext copy];
-    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateNormal];
-    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateHighlighted];
-    
-    [_nativeAd registerViewForInteraction:_contentView withViewController:self];
-    // You must register the Ad View to make the ad clickable
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.delegate = self;
+}
 
-    // [_nativeAd registerViewForInteraction:withViewController:withClickableViews:self._adAction];
-    // You can also register a specific ad component to make the Ad View to be clickable partly
+- (void)adLoader:(VponNativeAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
+	// Handle error
 }
 ```
 
 ### Swift
 
 ```swift
-func setNativeAd() {
-        adIcon.image = nil
-            
-        vpadnNative.icon.loadImageAsync(withBlock: { image in
-            self.adIcon.image = image
-        })
-        
-        adMediaView.nativeAd = vpadnNative
-        adMediaView.delegate = self
-            
-        adTitle.text = vpadnNative.title
-        adBody.text = vpadnNative.body
-        adSocialContext.text = vpadnNative.socialContext
-        adAction.setTitle(vpadnNative.callToAction, for: .normal)
-        adAction.setTitle(vpadnNative.callToAction, for: .highlighted)
-        
-        vpadnNative.registerView(forInteraction: contentView, with: self)
-        // You must register the Ad View to make the ad clickable
+extension VponSdkNativeViewController: VponNativeAdLoaderDelegate {
+	func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+		nativeAd.delegate = self
+	}
 
-        vpadnNative.registerView(forInteraction: withViewController, with: self.adAction)
-        // You can also register a specific ad component to make the Ad View to be clickable partly
-    }
-
+	func adLoader(_ adLoader: VponNativeAdLoader, didFailToReceiveAdWithError error: Error) {
+		// Handle error
+	}
+}
 ```
+## 利用回傳的資料建置自訂的原生 UI
 
-## 實作 Delegate protocol
----
-完成廣告請求後，您可以實作以下函數監聽廣告狀態：
+當 `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` 被觸發時，即取得可用的廣告資料，此時可利用回傳的 nativeAd 設定您原生廣告的標題、內文等文案內容，將資料佈局至自定義的 UI。設定完廣告資料後，**請務必設定您 nativeAdView 的 `nativeAd` 屬性**，才能讓廣告正常展示、被點擊。
+
+以下為建議的實作方式：
 
 ### Objective-C
 
 ```objc
-- (void) onVpadnNativeAdLoaded:(VpadnNativeAd *)nativeAd {
-    // Invoked if receive Native Ad successfully
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.delegate = self;
 
-    [self setNativeAd];
-    // Construct Native Ad with returned components
-}
-- (void) onVpadnNativeAd:(VpadnNativeAd *)nativeAd failedToLoad:(NSError *)error {
-    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-}
-- (void) onVpadnNativeAdWillLeaveApplication:(VpadnNativeAd *)nativeAd {
-    // Invoked if user leave the app and the current app was backgrounded
-}
-- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
-    // Invoked if the media creatives load sucessfully
-}
-- (void)mediaViewDidFail:(VpadnMediaView *)mediaView error:(NSError *)error {
-    // Invoked if the media creatives load fail
+	((UILabel *)_nativeAdView.headlineView).text = nativeAd.headline;
+	_nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
+	if (nativeAd.mediaContent.hasVideoContent) {
+		nativeAd.mediaContent.videoController.delegate = self;
+	}
+	((UILabel *)_nativeAdView.bodyView).text = nativeAd.body;
+	[((UIButton *)_nativeAdView.callToActionView) setTitle:nativeAd.callToAction
+	forState:UIControlStateNormal];
+	((UIImageView *)_nativeAdView.iconView).image = nativeAd.icon.image;
+	// Necessary to show media content and make it clickable!
+	_nativeAdView.nativeAd = nativeAd;
 }
 ```
 
 ### Swift
 
 ```swift
-extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDelegate {
-    
-    func onVpadnNativeAdLoaded(_ nativeAd: VpadnNativeAd) {
-        // Invoked if receive Native Ad successfully
+extension VponSdkNativeViewController: VponNativeAdLoaderDelegate {
+	func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+		nativeAd.delegate = self
 
-        self.setNativeAd()
-        // Construct Native Ad with returned components
-    }
-    func onVpadnNativeAd(_ nativeAd: VpadnNativeAd, failedToLoad error: Error) {
-        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-    }
-    func onVpadnNativeAdWillLeaveApplication(_ nativeAd: VpadnNativeAd) {
-        // Invoked if user leave the app and the current app was backgrounded
-    }
-    func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
-        // Invoked if the media creatives load sucessfully
-    }
-    func mediaViewDidFail(_ mediaView: VpadnMediaView, error: Error) {
-        // Invoked if the media creatives load fail  
-    }
+		(nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+		(nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
+		(nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
+		(nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+		nativeAdView.callToActionView?.isUserInteractionEnabled = false
+		nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+		if nativeAd.mediaContent?.hasVideoContent ?? false {
+			nativeAd.mediaContent?.videoController?.delegate = self
+		}
+		// Necessary to show media content and make it clickable!
+		nativeAdView.nativeAd = nativeAd
+	}
 }
 ```
-<!-- 
-# 原生廣告管理器
---------
-Vpon SDK 提供原生廣告管理器( Native Ads Manager )。當您設計的 App 中會在短時間內在數個地方顯示原生廣告，原生廣告管理器可以協助您一次請求並管理多筆原生廣告。如何使用原生廣告管理器請直接參考 [Sample Code]。 -->
+
+## （進階）訂閱 Native Ad 事件通知 {#notifyNative}
+---
+
+要監聽 Native Ad 事件，在 `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` 設定 nativeAd 的 `delegate` 屬性，並實作 `VponNativeAdDelegate`：
+
+
+### Objective-C
+
+```objc
+// MARK: - VponNativeAdLoaderDelegate
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.delegate = self;
+}
+
+// MARK: - VponNativeAdDelegate
+
+- (void)nativeAdDidRecordImpression:(VponNativeAd *)nativeAd {
+	// Invoked if an impression has been recorded for an ad.
+}
+
+- (void)nativeAdDidRecordClick:(VponNativeAd *)nativeAd {
+	// Invoked if an click has been recorded for an ad.
+}
+```
+
+### Swift
+
+```swift
+// MARK: - VponNativeAdLoaderDelegate
+func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+	nativeAd.delegate = self
+}
+
+// MARK: - VponNativeAdDelegate
+func nativeAdDidRecordImpression(_ nativeAd: VponNativeAd) {
+	// Invoked if an impression has been recorded for an ad.
+}
+
+func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
+	// Invoked if an click has been recorded for an ad.
+}
+```
+
+
+## （進階）訂閱影片事件通知 {#notifyNativeVideo}
+
+要監聽 native ad 影片事件，在 `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` 時設定 videoController 的 `delegate` 屬性，並實作 `VponVideoControllerDelegate`：
+
+### Objective-C
+
+```objc
+// MARK: - VponNativeAdLoaderDelegate
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.mediaContent.videoController.delegate = self;
+}
+
+// MARK: - VponVideoControllerDelegate
+- (void)videoControllerDidPlayVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidPauseVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidMuteVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidUnmuteVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidEndVideoPlayback:(VponVideoController *)videoController {
+}
+```
+
+### Swift
+
+```swift
+// MARK: - VponNativeAdLoaderDelegate
+func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+	nativeAd.mediaContent?.videoController?.delegate = self
+}
+
+// MARK: - VponVideoControllerDelegate
+func videoControllerDidPlayVideo(_ videoController: VponVideoController) {
+}
+func videoControllerDidPauseVideo(_ videoController: VponVideoController) {
+}
+func videoControllerDidEndVideoPlayback(_ videoController: VponVideoController) {
+}
+func videoControllerDidMuteVideo(_ videoController: VponVideoController) {
+}
+func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
+}
+```
 
 
 # Native Ad Spec {#nativeAdSpec}
@@ -258,24 +386,20 @@ Vpon SDK 提供原生廣告管理器( Native Ads Manager )。當您設計的 App
 `紅色`表示您必須顯示的原生廣告元件，其中 CoverImage 與 Icon 必須至少顯示其中一個。
 
 
-Properties   |   Description
-:-----------:|:-----------:|
-<font color="red">AdLabel</font>      | 讓使用者了解此為廣告 (例如：贊助、廣告 等等)
-:-----------:|:-----------:|
-<font color="red">Title</font>  | 最少需顯示8個中文字, 放不下時須顯示`...`
-:-----------:|:-----------:|
-CoverImage   | 1200 x 627px (可等比例縮放，不可變形，不可裁切)
-:-----------:|:-----------:|
-Icon         | 128 x 128px (可等比例縮放，不可變形，不可裁切)
-:-----------:|:-----------:|
-CallToAction | 需要完整顯示
-:-----------:|:-----------:|
-BodyText     | 最少顯示20個中文字，或不要顯示
-:-----------:|:-----------:|
-SocialContext| 需要完整顯示 <br> *適用於 SDK v4.9.3 及以下版本*
-:-----------:|:-----------:|
-RatingScale  | 5，可能為空值
-:-----------:|:-----------:|
+| Properties  |   Description | VponNativeAd Properties |
+|:-----------:|:-----------:|:-----------:|
+| <font color="red">AdLabel</font>      | 讓使用者了解此為廣告 (例如：贊助、廣告 等等) | Publisher 自行實作 |
+|:-----------:|:-----------:|:-----------:|
+| <font color="red">Title</font>  | 最少需顯示8個中文字, 放不下時須顯示`...` | headline |
+|:-----------:|:-----------:|:-----------:|
+| CoverImage  | 1200 x 627px (可等比例縮放，不可變形，不可裁切) | coverImage |
+|:-----------:|:-----------:|:-----------:|
+| Icon        | 128 x 128px (可等比例縮放，不可變形，不可裁切) | icon |
+|:-----------:|:-----------:|:-----------:|
+| CallToAction| 需要完整顯示 | callToAction |
+|:-----------:|:-----------:|:-----------:|
+| BodyText    | 最少顯示20個中文字，或不要顯示 | body |
+
 
 # Tips
 ---
@@ -303,8 +427,8 @@ RatingScale  | 5，可能為空值
 <!-- - [使用 MoPub] <br>
 - [使用 Smaato] -->
 
-### 適用於 Vpon SDK v5.5.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.5.0 以下版本的串接方法，請參考[原生廣告](../native-under550)
+### 適用於 Vpon SDK v5.6.0 以下版本的串接方法
+如果您想了解 Vpon SDK v5.6.0 以下版本的串接方法，請參考[原生廣告](../native-under560)
 
 [串接說明]: ../integration-guide/
 [Vpon PDMKT Team]: mailto:partner.service@vpon.com

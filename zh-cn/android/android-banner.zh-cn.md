@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mainLayout = findViewById(R.id.main_layout);
 
-            VponBanner vponBanner = new VponBanner(context, bannerId, adSize);
+            VponBanner vponBanner = new VponBanner(context);
+            vponBanner.setLicenseKey(bannerId);
+            vponBanner.setAdSize(adSize);
             // adSize: The Banner Ad size that will be displayed
 
             VponAdRequest.Builder builder = new VponAdRequest.Builder();
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             android:id="@+id/banner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            vpon:adSize="SMART_BANNER"
+            vpon:adSize="BANNER"
             vpon:bannerId= "License Key"/>
   </LinearLayout>
 ```
@@ -134,24 +136,6 @@ vponBanner.setAdListener(new VponAdListener() {
 为使广告正常运作，并在适当的时机释放资源，我们建议可以在 Activity 生命周期中加入以下程式码：
 
 ```java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponBanner != null) {
-        vponBanner.resume();
-    }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponBanner != null) {
-        vponBanner.pause();
-    }
-}
-
 @Override
 protected void onDestroy() {
     super.onDestroy();
@@ -204,8 +188,8 @@ I/VPON: [::Impression::]  response.code : 200
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
-### 适用于 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[横幅广告](../banner-under5)
+### 适用于 Vpon SDK v5.5 的串接方法
+如果您想了解 Vpon SDK v5.5 或以下版本的串接方法，请参考[横幅广告](../banner-under550)
 
 [串接说明]: ../integration-guide/
 [Sample Code]:../../android/download/

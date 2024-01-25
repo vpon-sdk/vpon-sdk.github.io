@@ -51,7 +51,9 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mainLayout = findViewById(R.id.main_layout);
 
-            VponBanner vponBanner = new VponBanner(context, bannerId, adSize);
+            VponBanner vponBanner = new VponBanner(context);
+            vponBanner.setLicenseKey(bannerId);
+            vponBanner.setAdSize(adSize);
             // adSize: The Banner Ad size that will be displayed
 
             VponAdRequest.Builder builder = new VponAdRequest.Builder();
@@ -93,7 +95,7 @@ You can alse implement Banner Ad in layout.xml
             android:id="@+id/banner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            vpon:adSize="SMART_BANNER"
+            vpon:adSize="BANNER"
             vpon:bannerId= "License Key"/>
   </LinearLayout>
 ```
@@ -133,24 +135,6 @@ vponBanner.setAdListener(new VponAdListener() {
 To make the Ads work more smoothly and release resource appropriately, we recommend that you can add below code snippets in the Activity Lifecycle.
 
 ```java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponBanner != null) {
-        vponBanner.resume();
-    }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponBanner != null) {
-        vponBanner.pause();
-    }
-}
-
 @Override
 protected void onDestroy() {
     super.onDestroy();
@@ -202,7 +186,7 @@ I/VPON: [::Impression::]  response.code : 200
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For Vpon SDK v4.9
-Please refer to [Banner Ad Integration Guide](../banner-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
+### Integration Guide For Vpon SDK v5.5
+Please refer to [Banner Ad Integration Guide](../banner-under550) if you want to know more about the integration that compatible with Vpon SDK v5.5 and below version.
 
 [Sample Code]: ../download/

@@ -26,7 +26,7 @@ lang:           "zh-cn"
 3. 建立 VponAdrequest 物件，并请求广告
 4. 建立原生广告 Layout
 5. 建置原生广告
-6. 实作 AdListener
+6. 实作 VponAdListener / VponNativeAd.OnNativeAdLoadedListener
 
 建议您在应用程式的 Activity 内进行上述步骤。
 
@@ -48,11 +48,12 @@ public class MainActivity extends AppCompatActivity {
         adContainer = findViewById(R.id.ad_container); 
 
         vponNativeAd = new VponNativeAd(this, nativeAdId);
+        VponAdLoader vponAdLoader = new VponAdLoader.Builder().build();
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
         builder.addTestDevice("your device advertising id");
         // Set your test device's GAID here if you're trying to get Vpon test ad
-        vponNativeAd.loadAd(builder.build());
+        vponAdLoader.loadAd(builder.build());
         // Set ad request and load ad
     }
 }
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## 建立原生广告 Layout {#createNativeUI}
 --------
-当撷取到原生广告资料之前，您需要建置原生广告 Layout。关于原生广告呈现元件规范请参照 [Native Ad Spec](#nativeAdSpec) )：
+当撷取到原生广告资料之前，您需要建置原生广告 Layout。关于原生广告呈现元件规范请参照 [Native Ad Spec](#nativeAdSpec) ：
 
 您也可以参考以下 Sample 完成 Layout 的设计：
 
@@ -148,19 +149,6 @@ public class MainActivity extends AppCompatActivity {
         tools:layout_width="0dp" >
     </com.vpon.ads.VponMediaView>
     
-    <RatingBar
-        android:id="@+id/ad_stars"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:stepSize="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ad_media_view"
-        tools:rating="3" />
     
     <Button
         android:id="@+id/ad_call_to_action"
@@ -176,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## 建置原生广告
 ---
-完成原生广告请求后，您可以透过 VponAdListener 监听广告请求的状态，在广告请求成功之后，将回传的素材建构成自定义的原生广告样式，并在完成设定后注册检视元件来绑定点击事件。
+完成原生广告请求后，您可以透过 VponAdListener 监听广告请求的状态，在 `onNativeAdLoaded` 之后，将回传的素材建构成自定义的原生广告样式，并在完成设定后注册检视元件来绑定点击事件。
 
 ```java
 import com.vpon.ads.*;
@@ -188,10 +176,10 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater.from(this).inflate(R.layout.layout_native_ad_template, adContainer, true);
         // Inflate your custom ad layout
 
-        vponNativeAd.withNativeAdLoadedListener(new VponNativeAd.OnNativeAdLoadedListener() {
+        vponAdLoader.forNativeAd(new VponNativeAd.OnNativeAdLoadedListener() {
             @Override
-            public void onNativeAdLoaded(VponNativeAd.NativeAdData nativeAdData) {
-                setNativeAdDatas(nativeAdData, adContainer);
+            public void onNativeAdLoaded(VponNativeAd nativeAd) {
+                setNativeAdDatas(nativeAd, adContainer);
                 // Set ad datas to your custom ad layout
                 //TODO set native ad datas to view, registerViewForInteraction
                 //TODO VpadnNativeAd.Rating is change to VponNativeAd.NativeAdData.Rating
@@ -200,42 +188,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
-        vponNativeAd.loadAd(builder.build());
+        vponAdLoader.loadAd(builder.build());
         // Set ad request and load ad
     }
     
-    private void setNativeAdDatas(VponNativeAd.NativeAdData adData, View adContainer) {
+    private void setNativeAdDatas(VponNativeAd nativeAd, View adContainer) {
         ImageView nativeAdIcon = adContainer.findViewById(R.id.ad_app_icon);
         TextView nativeAdTitle = adContainer.findViewById(R.id.ad_headline);
         TextView nativeAdBody = adContainer.findViewById(R.id.ad_body);
         VponMediaView nativeMediaView = adContainer.findViewById(R.id.ad_media_view);
         Button nativeAdCallToAction = adContainer.findViewById(R.id.ad_call_to_action);
-        RatingBar nativeAdStarRating = adContainer.findViewById(R.id.ad_stars);
 
-        VponNativeAd.downloadAndDisplayImage(adData.getIcon(), nativeAdIcon);
+        VponAdLoader.downloadAndDisplayImage(nativeAd.getIcon(), nativeAdIcon);
         // Use VponNativeAd.downloadAndDisplayImage to display icon in your custom ad layout
 
-        nativeAdTitle.setText(adData.getTitle());
-        if (adData.getBody() != null) {
-            nativeAdBody.setText(adData.getBody());
+        nativeAdTitle.setText(nativeAd.getTitle());
+        if (nativeAd.getBody() != null) {
+            nativeAdBody.setText(nativeAd.getBody());
         } else {
             nativeAdBody.setVisibility(View.INVISIBLE);
         }
 
-        nativeMediaView.setNativeAd(vponNativeAd ,adData);
+        nativeMediaView.setNativeAd(nativeAd);
 
-        if (adData.getCallToAction() != null) {
-            nativeAdCallToAction.setText(adData.getCallToAction());
+        if (nativeAd.getCallToAction() != null) {
+            nativeAdCallToAction.setText(nativeAd.getCallToAction());
         } else {
             nativeAdCallToAction.setVisibility(View.INVISIBLE);
-        }
-
-        VponNativeAd.NativeAdData.Rating rating = adData.getRating();
-        if (rating != null) {
-            nativeAdStarRating.setNumStars((int) rating.getScale());
-            nativeAdStarRating.setRating((float) rating.getValue());
-        } else {
-            nativeAdStarRating.setVisibility(View.INVISIBLE);
         }
 
         vponNativeAd.registerViewForInteraction(adContainer);
@@ -251,7 +230,7 @@ vponNativeAd.setAdListener(new VponAdListener() {
 
     @Override
     public void onAdLoaded() {
-        // Invoked if receive ad successfully
+        // Invoked if receive ad successfully
     }
     
     @Override
@@ -278,24 +257,6 @@ vponNativeAd.setAdListener(new VponAdListener() {
 为使广告正常运作，并在适当的时机释放资源，我们建议可以在 Activity 生命周期中加入以下程式码：
 
 ```java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponNativeAd != null) {
-        vponNativeAd.resume();
-    }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponNativeAd != null) {
-        vponNativeAd.pause();
-    }
-}
-
 @Override
 protected void onDestroy() {
     super.onDestroy();
@@ -330,12 +291,7 @@ CallToAction | 需要完整显示
 :-----------:|:-----------:|
 BodyText     | 最少显示20个中文字，或不要显示
 :-----------:|:-----------:|
-SocialContext| 需要完整显示 <br> *适用于 SDK v4.9.1 及以下版本*
-:-----------:|:-----------:|
-RatingScale  | 5，可能为空值
-:-----------:|:-----------:|
-Rating Min/Max| 1/5，可能为空值
-:-----------:|:-----------:|
+
 
 # Tips
 ---

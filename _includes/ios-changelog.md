@@ -1,5 +1,12 @@
 # Vpon iOS SDK Change Log
 
+## 5.6.0
+* Release Date: 25 Jan, 2024
+* Add Ad Choices for Native Ad
+* Add Privacy Manifest to comply with App Store Review Policy
+* Interface Update for Banner, Interstitial and Native
+* Interface Deprecation: interface in v5.5.0 and below will be remarked as deprecated
+
 ## 5.5.0
 * Release Date: 5 Sept. 2023
 * Compliant with IAB OM SDK v1.4.4

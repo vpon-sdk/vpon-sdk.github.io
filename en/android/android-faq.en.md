@@ -217,6 +217,57 @@ Please try to modify the Embed setting of VpadnSDKAdKit.framework from Do Not Em
 ![FAQ_02.png]
 
 
+### Unable to connect IBOutlet to VponNativeAdView
+---
+
+Please add a new .h file in Objective-C project / a new .swift file in Swift project. And add below content in it:
+
+Objective-C (VponNativeAdViewCopy.h)
+
+```objc
+#indef VponNativeAdViewCopy_h
+#define VponNativeAdViewCopy_h
+#endif /* VponNativeAdViewCopy_h */
+SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView" )
+
+@interface VponNativeAdView : UIView
+@property (nonatomic, weak) IBOutlet UView * _Nullable iconView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingScaleView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable headlineView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable bodyView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable socialContextView;
+@property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
+- (nonnull instancetype)initWithFrame:(CGRect) frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnul1)coder OBJC_DESIGNATED_INITIALIZER;|
+@end
+```
+
+Swift (VponNativeAdViewCopy.swift)
+
+```swift
+import UIKit
+import VpadnSDKAdKit
+@MainActor @objc @objcMembers open class VponNativeAdView: UIView {
+@MainActor @objc @IBOutlet weak public var iconView: UIView?
+@MainActor @objc @IBOutlet weak public var coverImageView: UIView?
+@MainActor @objc @IBOutlet weak public var ratingValueView: UIView?
+@MainActor @objc @IBOutlet weak public var ratingScaleView: UIView?
+@MainActor @objc @IBOutlet weak public var headlineView: UIView?
+@MainActor @objc @IBOutlet weak public var bodyView: UIView?
+@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
+@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
+@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+@MainActor @objc public var nativeAd: VpadnSDKAdKit. VponNativeAd?
+}
+```
+
+Back to xid file, you can see IBOutlet in Outlets panel.
+
+
 
 # Web
 ---

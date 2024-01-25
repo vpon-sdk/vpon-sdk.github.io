@@ -122,18 +122,18 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 ### Objective-C
 
 ```objc
-// Using Vpon SDK v550 and above
+// Using Vpon SDK v560 and above
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
-    VpadnAdConfiguration *config = VpadnAdConfiguration.shared;
-    config.logLevel = VpadnLogLevelDefaultLevel;
+    VponAdConfiguration *config = VponAdConfiguration.shared;
+    config.logLevel = VponLogLevelDefault;
     [config initializeSdk];
 
     return YES;
 }
 
-// Using Vpon SDK v550 below
+// Using Vpon SDK v560 below
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
@@ -150,19 +150,19 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 若您是使用 Swift，请在您的 AppDelegate.swift 中，加入以下程式码：
 
 ```swift
-// Using Vpon SDK v550 and above
+// Using Vpon SDK v560 and above
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Vpon SDK initialization
-        let config = VpadnAdConfiguration.shared
-        config.logLevel = .defaultLevel
+        let config = VponAdConfiguration.shared
+        config.logLevel = .default
         config.initializeSdk()
 
         return true
     }
 
-// Using Vpon SDK v550 below
+// Using Vpon SDK v560 below
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -179,7 +179,7 @@ SDK lib 会参照 iOS 的 framework，因此您必须加入必要的 framework�
 >
 >* 为配合第三方追踪要求，Vpon SDK 会在初始化时，将 App 的 Audio Session Category 设为`AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (当有音乐要播放时，App 将以混音形式播放音乐，且不会受实体音量键的影响)。您可以在初始化后，重新指定及启用 Audio Session Category。如果您不希望 Vpon SDK 更动 Audio Session Category，请参考[进阶设定]进行对应调整。
 >
->* 自 v5.4.6 起，Vpon SDK 将逐步停止支援已弃用的 v4 SDK 方法，请依照本站文件指引完成 SDK 串接，且不要使用未在文件中描述如何使用的介面，以免发生错误
+>* 自 v5.6.0 起，Vpon SDK 将逐步停止支援已弃用的 v5.5.0 以下的 SDK 方法，请依照本站文件指引完成 SDK 串接，且不要使用未在文件中描述如何使用的介面，以免发生错误
 
 
 # Usage Description

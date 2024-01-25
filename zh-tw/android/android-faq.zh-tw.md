@@ -40,7 +40,7 @@ Vpadn-Status -> INVALID_REQUEST
 ### 導入 Vpon SDK 時發現需要提供多種 Privacy Permission，請問是否所有的 Permission 都需要加入呢？
 ---
 
-否，請參考 [Android SDK 權限說明]，除了必須加入的 Permission 外，您可以依實際狀況選擇是否加入額外的 Permission。
+否，請參考 [Android SDK 權限說明]，除了必須加入的 Permission 外，您可以依實際狀況選擇是否加入額外的 Permission。
 
 然多樣化的權限有助於增加使用者體驗的廣告投放，請在不影響使用者個人隱私且不違背平台 (Google Play / Apple Store) 的廣告政策下，斟酌加入相關權限。
 
@@ -210,6 +210,58 @@ Vpon 提供測試廣告，請參考 [iOS 測試廣告]呼叫測試廣告，以�
 請嘗試在 Project 的 Framework, Libraries, and Embedded Content 中，將 VpadnSDKAdKit.framework 由 Do Not Embed 改為 Embed & Sign。
 
 ![FAQ_02.png]
+
+
+### 無法順利連接 IBOutlet 到 VponNativeAdView 的對應屬性
+---
+
+請在 Objective-C 專案請新創一個.h 檔案 / Swift 專案請新創一個.swift 檔，並把以下 VponNativeAdView header 內容貼上：
+
+Objective-C (VponNativeAdViewCopy.h)
+
+```objc
+#indef VponNativeAdViewCopy_h
+#define VponNativeAdViewCopy_h
+#endif /* VponNativeAdViewCopy_h */
+SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView" )
+
+@interface VponNativeAdView : UIView
+@property (nonatomic, weak) IBOutlet UView * _Nullable iconView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingScaleView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable headlineView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable bodyView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable socialContextView;
+@property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
+- (nonnull instancetype)initWithFrame:(CGRect) frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnul1)coder OBJC_DESIGNATED_INITIALIZER;|
+@end
+```
+
+Swift (VponNativeAdViewCopy.swift)
+
+```swift
+import UIKit
+import VpadnSDKAdKit
+@MainActor @objc @objcMembers open class VponNativeAdView: UIView {
+@MainActor @objc @IBOutlet weak public var iconView: UIView?
+@MainActor @objc @IBOutlet weak public var coverImageView: UIView?
+@MainActor @objc @IBOutlet weak public var ratingValueView: UIView?
+@MainActor @objc @IBOutlet weak public var ratingScaleView: UIView?
+@MainActor @objc @IBOutlet weak public var headlineView: UIView?
+@MainActor @objc @IBOutlet weak public var bodyView: UIView?
+@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
+@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
+@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+@MainActor @objc public var nativeAd: VpadnSDKAdKit. VponNativeAd?
+}
+```
+
+此時回到 xib 檔案，應該就能在右側欄 Outlets 面板看見 IBOutlet 並且連接。連結成功後即可視需求移除上述的 header
+
 
 
 # Web

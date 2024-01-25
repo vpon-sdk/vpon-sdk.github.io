@@ -214,6 +214,57 @@ Vpon 提供测试广告，请参考 [iOS 测试广告]呼叫测试广告，以�
 ![FAQ_02.png]
 
 
+### 无法顺利连接 IBOutlet 到 VponNativeAdView 的对应属性
+---
+
+请在 Objective-C 专案请新创一个.h 档案 / Swift 专案请新创一个.swift 档，并把以下 VponNativeAdView header 内容贴上：
+
+Objective-C (VponNativeAdViewCopy.h)
+
+```objc
+#indef VponNativeAdViewCopy_h
+#define VponNativeAdViewCopy_h
+#endif /* VponNativeAdViewCopy_h */
+SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView" )
+
+@interface VponNativeAdView : UIView
+@property (nonatomic, weak) IBOutlet UView * _Nullable iconView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingScaleView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable headlineView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable bodyView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
+@property (nonatomic, weak) IBOutlet UView * _Nullable socialContextView;
+@property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
+- (nonnull instancetype)initWithFrame:(CGRect) frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnul1)coder OBJC_DESIGNATED_INITIALIZER;|
+@end
+```
+
+Swift (VponNativeAdViewCopy.swift)
+
+```swift
+import UIKit
+import VpadnSDKAdKit
+@MainActor @objc @objcMembers open class VponNativeAdView: UIView {
+@MainActor @objc @IBOutlet weak public var iconView: UIView?
+@MainActor @objc @IBOutlet weak public var coverImageView: UIView?
+@MainActor @objc @IBOutlet weak public var ratingValueView: UIView?
+@MainActor @objc @IBOutlet weak public var ratingScaleView: UIView?
+@MainActor @objc @IBOutlet weak public var headlineView: UIView?
+@MainActor @objc @IBOutlet weak public var bodyView: UIView?
+@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
+@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
+@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+@MainActor @objc public var nativeAd: VpadnSDKAdKit. VponNativeAd?
+}
+```
+
+此时回到 xib 档案，应该就能在右侧栏 Outlets 面板看见 IBOutlet 并且连接。连结成功后即可视需求移除上述的 header
+
+
 
 # Web
 ---

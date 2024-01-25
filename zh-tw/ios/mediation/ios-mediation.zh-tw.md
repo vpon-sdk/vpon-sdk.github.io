@@ -34,10 +34,10 @@ lang: "zh-tw"
 
 ## AdMob / Google Ad Manager {#admob}
 
-若您是使用 AdMob / Google Ad Manager 來進行 Mediation，請確認您所使用的 SDK 及 Adapter 版本：
+若您是使用 AdMob / Google Ad Manager 來進行 Mediation，請確認您所使用的 SDK 及 Adapter 版本：
 
-* `Vpon SDK v5.1.1` 及以上版本
-* `Vpon AdMob Adapter v2.0.1` 及以上版本
+* `Vpon SDK v5.6.0` 及以上版本
+* `Vpon AdMob Adapter v2.1.0` 及以上版本
 
 
 若您串接的是橫幅廣告或是插頁廣告，請參考以下範例：

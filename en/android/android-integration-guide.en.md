@@ -112,12 +112,6 @@ Add com.vpadn.widget.VpadnActivity to your AndroidManifest.xml.
 android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
 android:theme="@android:style/Theme.Translucent"
 android:hardwareAccelerated="true"/>
-
-<!-- Please add below script if you're using SDK v4.9.1 or below -->
-<activity android:name="com.vpadn.widget.VpadnActivity"
-android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
-android:theme="@android:style/Theme.Translucent"
-android:hardwareAccelerated="true"/>
 ```
 
 > **Note**: **EVERY** attribute is required!

@@ -1,8 +1,17 @@
 # Vpon Android SDK Change Log
 
+
+## 5.6.0
+* Release Date: 25 Jan, 2024
+* Add Ad Choices for Native Ad
+* Interface Update for Banner, Interstitial and Native
+* Interface Deprecation: interface in v5.5.2 and below will be remarked as deprecated
+
 ## 5.5.2
-* Release Date: 5 Sept. 2023
-* Bug fix
+* Release Date:
+* Add Ad Choices for Native Ad
+* Interface Update for Banner, Interstitial and Native
+* Interface Deprecation: interface in v5.5.2 and below will be remarked as deprecated
 
 ## 5.5.0
 * Release Date: 5 Sept. 2023

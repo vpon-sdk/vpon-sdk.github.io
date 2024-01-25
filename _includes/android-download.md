@@ -23,7 +23,7 @@
 
 
 
-[1]: https://m.vpon.com/sdk/android/maven/com/vpon/vpadnSDK/5.5.2/vpadnSDK-5.5.2.aar
+[1]: https://m.vpon.com/sdk/android/maven/com/vpon/vpadnSDK/5.6.0/vpadnSDK-5.6.0.aar
 [2]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter
 [6]: https://github.com/vpon-sdk/Vpon-android-examples
 [7]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admobexample

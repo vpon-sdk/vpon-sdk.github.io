@@ -15,7 +15,7 @@ While using the Native Ad API, you will receive a group of ad properties such as
 
 # Prerequisites
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/android/integration-guide/) to finish your setting.
 
 # Start To Implement Native Ad
 ---
@@ -26,7 +26,7 @@ Please follow the steps below to implement Vpon Native Ad to your application:
 3. Set up VponAdRequest object and send ad request
 4. Set up custom Native Ad layout
 5. Set up Native Ad with ad metadata
-6. Implement AdListener
+6. Implement VponAdListener / VponNativeAd.OnNativeAdLoadedListener
 
 We strongly recommend that you can finish all the steps in the Activity of the application.
 
@@ -49,11 +49,12 @@ public class MainActivity extends AppCompatActivity {
         adContainer = findViewById(R.id.ad_container); 
 
         vponNativeAd = new VponNativeAd(this, nativeAdId);
+        VponAdLoader vponAdLoader = new VponAdLoader.Builder().build();
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
         builder.addTestDevice("your device advertising id");
         // Set your test device's GAID here if you're trying to get Vpon test ad
-        vponNativeAd.loadAd(builder.build());
+        vponAdLoader.loadAd(builder.build());
         // Set ad request and load ad
     }
 }
@@ -150,19 +151,6 @@ Here is an example to create Native Ad layout:
         tools:layout_width="0dp" >
     </com.vpon.ads.VponMediaView>
     
-    <RatingBar
-        android:id="@+id/ad_stars"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        android:isIndicator="true"
-        android:numStars="5"
-        android:stepSize="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ad_media_view"
-        tools:rating="3" />
     
     <Button
         android:id="@+id/ad_call_to_action"
@@ -178,7 +166,7 @@ Here is an example to create Native Ad layout:
 
 ## Set Up Native Ad with Ad Metadata
 ---
-Implement VponAdListener and set up Native Ad with Ad metadata when received ad successfully. Please note that you should register the ad view to bind the click event on the ad.
+Implement VponAdListener and set up Native Ad with Ad metadata after `onNativeAdLoaded`. Please note that you should register the ad view to bind the click event on the ad.
 
 ```java
 import com.vpon.ads.*;
@@ -190,10 +178,10 @@ public class MainActivity extends AppCompatActivity {
         LayoutInflater.from(this).inflate(R.layout.layout_native_ad_template, adContainer, true);
         // Inflate your custom ad layout
 
-        vponNativeAd.withNativeAdLoadedListener(new VponNativeAd.OnNativeAdLoadedListener() {
+        vponAdLoader.forNativeAd(new VponNativeAd.OnNativeAdLoadedListener() {
             @Override
-            public void onNativeAdLoaded(VponNativeAd.NativeAdData nativeAdData) {
-                setNativeAdDatas(nativeAdData, adContainer);
+            public void onNativeAdLoaded(VponNativeAd nativeAd) {
+                setNativeAdDatas(nativeAd, adContainer);
                 // Set ad datas to your custom ad layout
                 //TODO set native ad datas to view, registerViewForInteraction
                 //TODO VpadnNativeAd.Rating is change to VponNativeAd.NativeAdData.Rating
@@ -202,42 +190,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
-        vponNativeAd.loadAd(builder.build());
+        vponAdLoader.loadAd(builder.build());
         // Set ad request and load ad
     }
     
-    private void setNativeAdDatas(VponNativeAd.NativeAdData adData, View adContainer) {
+    private void setNativeAdDatas(VponNativeAd nativeAd, View adContainer) {
         ImageView nativeAdIcon = adContainer.findViewById(R.id.ad_app_icon);
         TextView nativeAdTitle = adContainer.findViewById(R.id.ad_headline);
         TextView nativeAdBody = adContainer.findViewById(R.id.ad_body);
         VponMediaView nativeMediaView = adContainer.findViewById(R.id.ad_media_view);
         Button nativeAdCallToAction = adContainer.findViewById(R.id.ad_call_to_action);
-        RatingBar nativeAdStarRating = adContainer.findViewById(R.id.ad_stars);
 
-        VponNativeAd.downloadAndDisplayImage(adData.getIcon(), nativeAdIcon);
+        VponAdLoader.downloadAndDisplayImage(nativeAd.getIcon(), nativeAdIcon);
         // Use VponNativeAd.downloadAndDisplayImage to display icon in your custom ad layout
 
-        nativeAdTitle.setText(adData.getTitle());
-        if (adData.getBody() != null) {
-            nativeAdBody.setText(adData.getBody());
+        nativeAdTitle.setText(nativeAd.getTitle());
+        if (nativeAd.getBody() != null) {
+            nativeAdBody.setText(nativeAd.getBody());
         } else {
             nativeAdBody.setVisibility(View.INVISIBLE);
         }
 
-        nativeMediaView.setNativeAd(vponNativeAd ,adData);
+        nativeMediaView.setNativeAd(nativeAd);
 
-        if (adData.getCallToAction() != null) {
-            nativeAdCallToAction.setText(adData.getCallToAction());
+        if (nativeAd.getCallToAction() != null) {
+            nativeAdCallToAction.setText(nativeAd.getCallToAction());
         } else {
             nativeAdCallToAction.setVisibility(View.INVISIBLE);
-        }
-
-        VponNativeAd.NativeAdData.Rating rating = adData.getRating();
-        if (rating != null) {
-            nativeAdStarRating.setNumStars((int) rating.getScale());
-            nativeAdStarRating.setRating((float) rating.getValue());
-        } else {
-            nativeAdStarRating.setVisibility(View.INVISIBLE);
         }
 
         vponNativeAd.registerViewForInteraction(adContainer);
@@ -253,7 +232,7 @@ vponNativeAd.setAdListener(new VponAdListener() {
 
     @Override
     public void onAdLoaded() {
-        // Invoked if receive ad successfully
+        // Invoked if receive ad successfully
     }
     
     @Override
@@ -279,24 +258,6 @@ vponNativeAd.setAdListener(new VponAdListener() {
 To make the Ads work more smoothly and release resource appropriately, we recommend that you can add below code snippets in the Activity Lifecycle.
 
 ```java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponNativeAd != null) {
-        vponNativeAd.resume();
-    }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponNativeAd != null) {
-        vponNativeAd.pause();
-    }
-}
-
 @Override
 protected void onDestroy() {
     super.onDestroy();
@@ -332,12 +293,7 @@ CallToAction | Show completely
 :-----------:|:-----------:|
 BodyText     | Show at least 20 English characters or unshow it.
 :-----------:|:-----------:|
-SocialContext| Show completely <br> *Applicable Version: SDK v4.9.1 and below*
-:-----------:|:-----------:|
-RatingScale  | 5, might be null
-:-----------:|:-----------:|
-Rating Min/Max| 1/5, might be null
-:-----------:|:-----------:|
+
 
 # Tips
 ---
@@ -363,8 +319,8 @@ I/VPON: [::Impression::]  response.code : 200
 Please refer to our [Sample Code] for a complete integration sample.
 
 
-### Integration Guide For Vpon SDK v4.9
-Please refer to [Interstitial Ad Integration Guide](../interstitial-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
+### Integration Guide For Vpon SDK v5.5
+Please refer to [Interstitial Ad Integration Guide](../interstitial-under550) if you want to know more about the integration that compatible with Vpon SDK v5.5 and below version.
 
 ### Mediation
 Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.

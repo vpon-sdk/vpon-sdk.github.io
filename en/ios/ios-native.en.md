@@ -21,264 +21,393 @@ Please make sure you've imported Vpon SDK to your Xcode project. If not, please 
 
 
 # Start To Implement Native Ad
----
+--------
 There are five actions you will need to take to implement this in your app:
 
 1. Import VpadnSDKAdKit
-2. Declare a VpadnNativeAd instance
-3. Initialize VpadnNativeAd object and indicate an License Key
-4. Set up VpadnRequest object and send ad request
-5. Set up custom Native Ad layout
-6. Set up Delegate protocol
+2. Declare VponNativeAdView and Customize UI
+3. Initialize VponNativeAdLoader Object and Request ad
+4. Implement VponNativeAdLoaderDelegate
+5. Custom Native Ad Layout with Returned Data
+6. (Advanced) Implement Native Ad Event Listener
+7. (Advanced) Implement Native Ad (Video) Event Listener
 
 The best place to do all this is in your app's ViewController.
 
-## Import VpadnSDKAdKit And Declare A VpadnNativeAd Instance
+## Import VpadnSDKAdKit
 ---
-First, in your View Controller header file, import Vpon SDK and declare that you implement the VpadnNativeAdDelegate protocol as well as declare and connect instance variables to your UI. (Please follow the [Natie Ad Spec](#nativeAdSpec))
+
+Firstly, import SDK and declare VpadnNativeAdDelegate and VpadnMediaViewDelegate protocols to receive ad status. At the same time, declare various components you intend to present in the Native Ad.
+(For specifications on components for Native Ad presentation, please refer to [Native Ad Spec](#nativeAdSpec))
+
 
 ### Objective-C
 
 ```objc
 @import VpadnSDKAdKit;
-// Import Vpon SDK
-
-@interface ViewController () <VpadnMediaViewDelegate, VpadnNativeAdDelegate>
-
-@property (strong, nonatomic) VpadnNativeAd *nativeAd;
-
-@property (weak, nonatomic) IBOutlet UIView *contentView;
-
-@property (weak, nonatomic) IBOutlet UIImageView *adIcon;
-@property (weak, nonatomic) IBOutlet UILabel *adTitle;
-@property (weak, nonatomic) IBOutlet UILabel *adBody;
-@property (weak, nonatomic) IBOutlet UILabel *adSocialContext;
-@property (weak, nonatomic) IBOutlet UIButton *adAction;
-@property (weak, nonatomic) IBOutlet VpadnMediaView *adMediaView;
-
-@end
 ```
 
 ### Swift
 
 ```swift
 import VpadnSDKAdKit
-// Import Vpon SDK
+```
 
+## Declare VponNativeAdView and Customize UI
+---
+
+For native ads, Vpon provides the `VponNativeAdView`, which inherits from UIView, to serve as the ad view. Each `VponNativeAdView` corresponds to a `VponNativeAd` object. Please use the `VponNativeAdView` to display the ad, and ensure that every desired UIView component you wish to present (such as headline, body, etc.) must be its subview.
+
+Please follow these steps sequentially to display the Native Ad:
+
+1. Create a `UIView` XIB file (using `NativeAdView` as an example). In the Identity inspector, specify the Custom Class as `VponNativeAdView` and set the Module to `VpadnSDKAdKit`, as shown in the image:
+
+<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-300"/>
+
+1. Arrange UI you desire within the .xib file and connect each UI component (e.g., a `UILabel` intended to display the headline) to the corresponding property of `VponNativeAdView` using IBOutlet. Set it up as illustrated in the image:
+
+<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-300"/>
+    * For specifications on components for Native Ad presentation, please refer to [Native Ad Spec](#nativeAdSpec)
+
+    If you are unable to successfully connect IBOutlet to the corresponding properties of `VponNativeAdView`, we provide a solution for your reference:
+
+    For Objective-C projects, create a new .h file. For Swift projects, create a new .swift file. Copy and paste the header content of `VponNativeAdView` as follows:
+
+### Obejctive-C (VponNativeAdViewCopy.h)
+
+```objc
+#ifndef VponNativeAdViewCopy_h
+#define VponNativeAdViewCopy_h
+#endif /* VponNativeAdViewCopy_h */
+
+SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
+@interface  VponNativeAdView : UIView
+@property (nonatomic, weak) IBOutlet UIView * _Nullable iconView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable ratingScaleView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable headlineView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable bodyView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable socialContextView;
+@property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
+
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+
+@end
+```
+
+### Swift (VponNativeAdViewCopy.swift)
+
+```swift
+import UIKit
+import VpadnSDKAdKit
+
+@MainActor @objc @objcMembers open class VponNativeAdView: UIView {
+	@MainActor @objc @IBOutlet weak public var iconView: UIView?
+	@MainActor @objc @IBOutlet weak public var coverImageView: UIView?
+	@MainActor @objc @IBOutlet weak public var ratingValueView: UIView?
+	@MainActor @objc @IBOutlet weak public var ratingScaleView: UIView?
+	@MainActor @objc @IBOutlet weak public var headlineView: UIView?
+	@MainActor @objc @IBOutlet weak public var bodyView: UIView?
+	@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
+	@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
+	@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+	@MainActor @objc public var nativeAd: VpadnSDKAdKit.VponNativeAd?
+}
+```
+
+At this point, return to the .xib file, and you should be able to see the IBOutlet in the Outlets panel on the right side. Once successfully connected, you can remove the aforementioned header copy file as needed.
+
+3. Ensure that the `UIView` you intend to use as the mediaView has its type specified as `VponMediaView` in the Custom Class section at the top right corner:
+   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-300"/>
+4. In your view controller, refer to the following code to correctly add `NativeAdView` to the screen:
+
+### Objective-C
+
+```objc
+#import "VponSdkNativeViewController.h"
+#import <VpadnSDKAdKit/VpadnSDKAdKit.h>
+
+@interface VponSdkNativeViewController () <VponNativeAdLoaderDelegate, VponNativeAdDelegate, VponVideoControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIView *adContainerView;
+@property(nonatomic, strong) VponNativeAdView *nativeAdView;
+@end
+
+@implementation  VponSdkNativeViewController
+
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	_nativeAdView = [[NSBundle mainBundle] loadNibNamed:@"NativeAdView" owner:nil options:nil].firstObject;
+	[_adContainerView addSubview:_nativeAdView];
+	_nativeAdView.translatesAutoresizingMaskIntoConstraints = NO;
+	[NSLayoutConstraint activateConstraints:@[
+		[_nativeAdView.heightAnchor constraintEqualToAnchor: _adContainerView.heightAnchor],
+		[_nativeAdView.widthAnchor constraintEqualToAnchor: _adContainerView.widthAnchor]
+	]];
+}
+```
+
+### Swift
+
+```swift
 class VponSdkNativeViewController: UIViewController {
-    
-    var vpadnNative: VpadnNativeAd!
-    @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var adIcon: UIImageView!
-    @IBOutlet weak var adTitle: UILabel!
-    @IBOutlet weak var adBody: UILabel!
-    @IBOutlet weak var adSocialContext: UILabel!
-    @IBOutlet weak var adAction: UIButton!
-    @IBOutlet weak var adMediaView: VpadnMediaView!
+
+var nativeAdView: VponNativeAdView!
+@IBOutlet weak var adContainer: UIView!
+
+override func viewDidLoad() {
+	super.viewDidLoad()
+
+	guard let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
+		  let adView = nibObjects.first as? VponNativeAdView else {
+		fatalError("Could not load nib file for nativeAdView")
+	}
+
+	nativeAdView = adView
+	adContainer.addSubview(adView)
+	nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+	NSLayoutConstraint.activate([
+		nativeAdView.widthAnchor.constraint(equalTo: adContainer.widthAnchor),
+		nativeAdView.heightAnchor.constraint(equalTo: adContainer.heightAnchor)
+	])
 }
 ```
 
+## Initialize VponNativeAdLoader Object and Request ad
+--------
+Follow the steps below to make ad request
 
-## Initialize VpadnNativeAd Object And Indicate A License Key
----
-Please follow the instrcution below to initialize VpadnNativeAd and indicate a License Key for it.
+  1. Declare and initialize the `VponNativeAdLoader` object
+  2. Set the `delegate` property of the `adLoader` to receive the request results
+  3. Call the `load(_ request: VponAdRequest)` method, passing in the `VponAdRequest` parameter.
+
+**Note：Ensure that the `VponNativeAdLoader` object maintains a strong reference throughout the ad loading process to prevent errors.**
 
 ### Objective-C
 
 ```objc
-_nativeAd = [[VpadnNativeAd alloc] initWithLicenseKey:@"License Key"];
-// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
-
-_nativeAd.delegate = self;
+// Must keep a strong reference
+@property(nonatomic, strong) VponNativeAdLoader *adLoader;
+_adLoader = [[VponNativeAdLoader alloc] initWithLicenseKey:@"License Key" 				
+										rootViewController:self];
+_adLoader.delegate = self;
+[_adLoader load:request];
 ```
 
 ### Swift
 
 ```swift
-vpadnNative = VpadnNativeAd(licenseKey: "License Key")
-// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
-
-vpadnNative.delegate = self
+// Must keep a strong reference
+var adLoader: VponNativeAdLoader?
+adLoader = VponNativeAdLoader(licenseKey: "License Key", rootViewController: self)
+adLoader?.delegate = self
+adLoader?.load(request)
 ```
 
-## Set Up VpadnAdRequest and Send Ad Request
----
-Set up VpadnAdRequest before you send ad request:
-
-### Objective-C
-
-```objc
-VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
-
-[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
-// Set your test device's IDFA here if you're trying to get Vpon test ad
-
-[_nativeAd loadRequest:request];
-// Start to load ad
-```
-
-### Swift
-
-```swift
-let request = VpadnAdRequest()
-
-request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
-// Set your test device's IDFA here if you're trying to get Vpon test ad
-
-vpadnNative.loadRequest(request)
-// start to load ad
-```
-
->**Note:**
+>**Note**
 >
->* Besides of setting up VpadnRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
->* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
+>* You can create `VpadnRequest` object for each type of ad, or use the same `VpadnRequest` object for all ad requests.
+>* If you wish to specify addtional targeting criteria, please refer to [Advanced](../advanced)
 
 
-## Set Up Custom Native Ad Layout
+
+## Implement VponNativeAdLoaderDelegate
 ---
-Please refer to the sample below to set up custom Native Ad Layout when onVpadnNativeAdLoaded triggered:
 
+After sending the ad request, implement the `VponNativeAdLoaderDelegate` protocol to handle both successful and unsuccessful request scenarios.
+
+
+* When the request is successful, the Vpon SDK will call `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` and return the native ad object. If you wish to receive notifications for native ad-related events, you can set the `delegate` property. For more details, refer to [Implement Native Ad Event Listener](#notifyNative).
+* When the request fails, the Vpon SDK will call `adLoader(_ adLoader: VponNativeAdLoader, didFailToReceiveAdWithError error: Error)` and return the corresponding error.
 
 ### Objective-C
 
 ```objc
-- (void)setNativeAd {
-    _adIcon.image = nil;
-    
-    __block typeof(self) safeSelf = self;
-    [_nativeAd.icon loadImageAsyncWithBlock:^(UIImage * _Nullable image) {
-        safeSelf.adIcon.image = image;
-    }];
-    
-    [_adMediaView setNativeAd:_nativeAd];
-    _adMediaView.delegate = self;
-    
-    _adTitle.text = [_nativeAd.title copy];
-    _adBody.text = [_nativeAd.body copy];
-    _adSocialContext.text = [_nativeAd.socialContext copy];
-    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateNormal];
-    [_adAction setTitle:[_nativeAd.callToAction copy] forState:UIControlStateHighlighted];
-    
-    [_nativeAd registerViewForInteraction:_contentView withViewController:self];
-    // You must register the Ad View to make the ad clickable
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.delegate = self;
+}
 
-    // [_nativeAd registerViewForInteraction:withViewController:withClickableViews:self._adAction];
-    // You can also register a specific ad component to make the Ad View to be clickable partly
+- (void)adLoader:(VponNativeAdLoader *)adLoader didFailToReceiveAdWithError:(NSError *)error {
+	// Handle error
 }
 ```
 
 ### Swift
 
 ```swift
-func setNativeAd() {
-        adIcon.image = nil
-            
-        vpadnNative.icon.loadImageAsync(withBlock: { image in
-            self.adIcon.image = image
-        })
-        
-        adMediaView.nativeAd = vpadnNative
-        adMediaView.delegate = self
-            
-        adTitle.text = vpadnNative.title
-        adBody.text = vpadnNative.body
-        adSocialContext.text = vpadnNative.socialContext
-        adAction.setTitle(vpadnNative.callToAction, for: .normal)
-        adAction.setTitle(vpadnNative.callToAction, for: .highlighted)
-        
-        vpadnNative.registerView(forInteraction: contentView, with: self)
-        // You must register the Ad View to make the ad clickable
+extension VponSdkNativeViewController: VponNativeAdLoaderDelegate {
+	func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+		nativeAd.delegate = self
+	}
 
-        vpadnNative.registerView(forInteraction: withViewController, with: self.adAction)
-        // You can also register a specific ad component to make the Ad View to be clickable partly
-    }
-
+	func adLoader(_ adLoader: VponNativeAdLoader, didFailToReceiveAdWithError error: Error) {
+		// Handle error
+	}
+}
 ```
+## Custom Native Ad Layout with Returned Data
 
-## Set Up Delegate Protocol
----
-After finishing ad request, implement the delegate protocol as below to listen ad status.
+
+When `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` is triggered, it means you have obtained the available ad data. At this point, you can use the returned nativeAd to set up the content of your native ad such as the title, description, and other textual elements. Arrange this data within your custom UI layout. After configuring the ad content, it is essential to set the nativeAd property of your nativeAdView to ensure the ad displays correctly and can be clicked on.
+
+The following is the suggested implementation approach:
 
 ### Objective-C
 
 ```objc
-- (void) onVpadnNativeAdLoaded:(VpadnNativeAd *)nativeAd {
-    // Invoked if receive Native Ad successfully
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.delegate = self;
 
-    [self setNativeAd];
-    // Construct Native Ad with returned components
-}
-- (void) onVpadnNativeAd:(VpadnNativeAd *)nativeAd failedToLoad:(NSError *)error {
-    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-}
-- (void) onVpadnNativeAdWillLeaveApplication:(VpadnNativeAd *)nativeAd {
-    // Invoked if user leave the app and the current app was backgrounded
-}
-- (void) mediaViewDidLoad:(VpadnMediaView *)mediaView {
-    // Invoked if the media creatives load sucessfully
-}
-- (void)mediaViewDidFail:(VpadnMediaView *)mediaView error:(NSError *)error {
-    // Invoked if the media creatives load fail
+	((UILabel *)_nativeAdView.headlineView).text = nativeAd.headline;
+	_nativeAdView.mediaView.mediaContent = nativeAd.mediaContent;
+	if (nativeAd.mediaContent.hasVideoContent) {
+		nativeAd.mediaContent.videoController.delegate = self;
+	}
+	((UILabel *)_nativeAdView.bodyView).text = nativeAd.body;
+	[((UIButton *)_nativeAdView.callToActionView) setTitle:nativeAd.callToAction
+	forState:UIControlStateNormal];
+	((UIImageView *)_nativeAdView.iconView).image = nativeAd.icon.image;
+	// Necessary to show media content and make it clickable!
+	_nativeAdView.nativeAd = nativeAd;
 }
 ```
 
 ### Swift
 
 ```swift
-extension VponSdkNativeViewController: VpadnNativeAdDelegate, VpadnMediaViewDelegate {
-    
-    func onVpadnNativeAdLoaded(_ nativeAd: VpadnNativeAd) {
-        // Invoked if receive Native Ad successfully
+extension VponSdkNativeViewController: VponNativeAdLoaderDelegate {
+	func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+		nativeAd.delegate = self
 
-        self.setNativeAd()
-        // Construct Native Ad with returned components
-    }
-    func onVpadnNativeAd(_ nativeAd: VpadnNativeAd, failedToLoad error: Error) {
-        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-    }
-    func onVpadnNativeAdWillLeaveApplication(_ nativeAd: VpadnNativeAd) {
-        // Invoked if user leave the app and the current app was backgrounded
-    }
-    func mediaViewDidLoad(_ mediaView: VpadnMediaView) {
-        // Invoked if the media creatives load sucessfully
-    }
-    func mediaViewDidFail(_ mediaView: VpadnMediaView, error: Error) {
-        // Invoked if the media creatives load fail  
-    }
+		(nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+		(nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
+		(nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
+		(nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+		nativeAdView.callToActionView?.isUserInteractionEnabled = false
+		nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+		if nativeAd.mediaContent?.hasVideoContent ?? false {
+			nativeAd.mediaContent?.videoController?.delegate = self
+		}
+		// Necessary to show media content and make it clickable!
+		nativeAdView.nativeAd = nativeAd
+	}
+}
+```
+
+## (Advanced) Implement Native Ad Event Listener {#notifyNative}
+---
+
+To listen to Native Ad events, set the `delegate` property of the nativeAd within the `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` method and implement the `VponNativeAdDelegate`.
+
+
+### Objective-C
+
+```objc
+// MARK: - VponNativeAdLoaderDelegate
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.delegate = self;
+}
+
+// MARK: - VponNativeAdDelegate
+
+- (void)nativeAdDidRecordImpression:(VponNativeAd *)nativeAd {
+	// Invoked if an impression has been recorded for an ad.
+}
+
+- (void)nativeAdDidRecordClick:(VponNativeAd *)nativeAd {
+	// Invoked if an click has been recorded for an ad.
+}
+```
+
+### Swift
+
+```swift
+// MARK: - VponNativeAdLoaderDelegate
+func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+	nativeAd.delegate = self
+}
+
+// MARK: - VponNativeAdDelegate
+func nativeAdDidRecordImpression(_ nativeAd: VponNativeAd) {
+	// Invoked if an impression has been recorded for an ad.
+}
+
+func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
+	// Invoked if an click has been recorded for an ad.
 }
 ```
 
 
-<!-- # Native Ads Manager
----
-The `Native Ad Manager` is supported by Vpon SDK. Use the Native Ads Manager when your user experience involves displaying multiple ads within a short amount of time, such as a vertical feed or horizontal scroll. An app can also use Native Ads Manager to automatically refresh and deliver ads. Please follow the [Sample Code] to realize how to use the Native Ads Manager. -->
+## （Advanced）Implement Native Ad (Video) Event Listener {#notifyNativeVideo}
+
+To listen to native ad video events, set the `delegate` property of the videoController within the `adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd)` method and implement the `VponVideoControllerDelegate`.
+
+
+### Objective-C
+
+```objc
+// MARK: - VponNativeAdLoaderDelegate
+- (void)adLoader:(VponNativeAdLoader *)adLoader didReceive:(VponNativeAd *)nativeAd {
+	nativeAd.mediaContent.videoController.delegate = self;
+}
+
+// MARK: - VponVideoControllerDelegate
+- (void)videoControllerDidPlayVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidPauseVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidMuteVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidUnmuteVideo:(VponVideoController *)videoController {
+}
+- (void)videoControllerDidEndVideoPlayback:(VponVideoController *)videoController {
+}
+```
+
+### Swift
+
+```swift
+// MARK: - VponNativeAdLoaderDelegate
+func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
+	nativeAd.mediaContent?.videoController?.delegate = self
+}
+
+// MARK: - VponVideoControllerDelegate
+func videoControllerDidPlayVideo(_ videoController: VponVideoController) {
+}
+func videoControllerDidPauseVideo(_ videoController: VponVideoController) {
+}
+func videoControllerDidEndVideoPlayback(_ videoController: VponVideoController) {
+}
+func videoControllerDidMuteVideo(_ videoController: VponVideoController) {
+}
+func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
+}
+```
+
 
 # Native Ad Spec {#nativeAdSpec}
 --------
 Please check to table below to find the Native Ad component provided by Vpon.
 
-* Components in red are required to show in Native Ad layout. 
-* Show at least one image (CoverImage or Icon) in Native Ad layout.
 
-Properties   |   Description
-:-----------:|:-----------:|
-<font color="red">AdLabel</font>      | Let user know it is ad ( Sponsor, Ad, and so on ).
-:-----------:|:-----------:|
-<font color="red">Title</font>  | Show at least 16 English alphabets. <br>Show `...` while it's out of space.
-:-----------:|:-----------:|
-CoverImage   | 1200 x 627px <br>(enable scaling in proportion, without distortion and clipping)
-:-----------:|:-----------:|
-Icon         | 128 x 128px <br>(enable scaling in proportion, without distortion and clipping)
-:-----------:|:-----------:|
-CallToAction | Show completely
-:-----------:|:-----------:|
-BodyText     | Show at least 20 English characters or unshow it.
-:-----------:|:-----------:|
-SocialContext| Show completely <br> *Applicable Version: SDK v4.9.3 and below*
-:-----------:|:-----------:|
-RatingScale  | 5, might be null
-:-----------:|:-----------:|
+| Properties  |   Description | VponNativeAd Properties |
+|:-----------:|:-----------:|:-----------:|
+| <font color="red">AdLabel</font>      | Let user know it is ad ( Sponsor, Ad, and so on ). | Customed |
+|:-----------:|:-----------:|:-----------:|
+| <font color="red">Title</font>  | Show at least 16 English alphabets. <br>Show `...` while it's out of space. | headline |
+|:-----------:|:-----------:|:-----------:|
+| CoverImage  | 1200 x 627px <br>(enable scaling in proportion, without distortion and clipping) | coverImage |
+|:-----------:|:-----------:|:-----------:|
+| Icon        | 128 x 128px <br>(enable scaling in proportion, without distortion and clipping) | icon |
+|:-----------:|:-----------:|:-----------:|
+| CallToAction| Show completely | callToAction |
+|:-----------:|:-----------:|:-----------:|
+| BodyText    | Show at least 20 English characters or unshow it. | body |
+
 
 
 # Tips
@@ -303,8 +432,8 @@ Please help to check if below log printed after the ad display and match the vie
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Native Ad Integration Guide](../native-under550) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
+### Integration Guide For The Version Below Vpon SDK v5.6.0
+Please refer to [Native Ad Integration Guide](../native-under560) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
 
 ### Mediation
 ---

@@ -25,24 +25,24 @@ iOS apps are composed of UIView objects which will present as text area, buttons
 Just like all the other UIView, a VpadnBanner is easy to implement in code.
 
 1. Import VpadnSDKAdKit
-2. Declare a VpadnBanner instance
-3. Initialize VpadnBanner and indicate a License Key
-4. Set up VpadnRequest object and send ad request
+2. Declare a VponBannerView instance
+3. Initialize VponBannerView and indicate a License Key
+4. Set up VponAdRequest object and send ad request
 5. Set up Delegate protocol
 
 We strongly recommend that you can finish all the steps in ViewController of the application.
 
-## Import VpadnSDKAdKit And Declare A VpadnBanner Instance
+## Import VpadnSDKAdKit And Declare A VponBannerView Instance
 ---
 
 ### Obejctive-C
 
 ```objc
-@import VpadnSDKAdKit;
 // Import Vpon SDK
+@import VpadnSDKAdKit;
 
-@interface ViewController() <VpadnBannerDelegate>
-@property (strong, nonatomic) VpadnBanner *vpadnBanner;
+@interface ViewController() <VponBannerViewDelegate>
+@property (strong, nonatomic) VponBannerView *bannerView;
 @property (weak, nonatomic) IBOutlet UIView *loadBannerView;
 
 @end
@@ -51,77 +51,80 @@ We strongly recommend that you can finish all the steps in ViewController of the
 ### Swift
 
 ```swift
-import VpadnSDKAdKit
 // Import Vpon SDK
+import VpadnSDKAdKit
 
 class VponSdkBannerViewController: UIViewController {
-  @IBOutlet weak var requestButton: UIButton!
-  @IBOutlet weak var loadBannerView: UIView!
+	var bannerView: VponBannerView?
+	@IBOutlet weak var loadBannerView: UIView!
 }
 ```
 
-## Initialize VpadnBanner Object And Indicate A License Key
+## Initialize VponBannerView Object And Indicate A License Key
 ---
 Please refer to the code snippet below to initialize Banner Ad in viewDidLoad of ViewController.
 
 ### Objective-C
 
 ```objc
-_vpadnBanner = [[VpadnBanner alloc]initWithLicenseKey:@"License Key" adSize:VpadnAdSize.banner];
-// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
-// adSize: The Banner Ad size that will be displayed
+// initWithAdSize: The Banner Ad size that will be displayed
+_bannerView = [[VponBannerView alloc]initWithAdSize:[VponAdSize banner]];
+// licenseKey: Vpon License Key to get ad, please replace with your own one
+_bannerView.licenseKey = @"License Key";
 
-_vpadnBanner.delegate = self;
+// Only available for Banner Ad, will auto refresh ad if set YES
+_bannerView.autoRefresh = NO;
+
+_bannerView.rootViewController = self;
+_bannerView.delegate = self;
 ```
 
 ### Swift
 
 ``` swift
-vpadnBanner = VpadnBanner(licenseKey: "License Key", adSize: .banner())
-// licenseKey: Vpon License Key to get ad, please replace with your own one
 // adSize: The Banner Ad size that will be displayed
+bannerView = VponBannerView(adSize: .banner())
+// licenseKey: Vpon License Key to get ad, please replace with your own one
+bannerView?.licenseKey = "License Key"
 
-vpadnBanner.delegate = self
+// Only available for Banner Ad, will auto refresh ad if set true
+bannerView?.autoRefresh = false
+
+bannerView?.rootViewController = self
+bannerView?.delegate = self
 ```
 
 
-## Set Up VpadnAdRequest and Send Ad Request
+## Set Up VponAdRequest and Send Ad Request
 ---
 Set up VpadnAdRequest before you send ad request:
 
 ### Objective-C
 
 ```objc
-VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
-
-[request setAutoRefresh:YES];
-// Only available for Banner Ad, will auto refresh ad if set YES
-
-[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
+VponAdRequest *request = [[VponAdRequest alloc] init];
 // Set your test device's IDFA here if you're trying to get Vpon test ad
+VponAdRequestConfiguration *config = VponAdRequestConfiguration.shared;
+[config setTestDeviceIdentifiers:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
 
-[_vpadnBanner loadRequest:request];
 // Start to load ad
+[_bannerView load: request];
 ```
 
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
-
-request.autoRefresh = true
-// Only available for Banner Ad, will auto refresh ad if set YES
-
-request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+let request = VponAdRequest()
 // Set your test device's IDFA here if you're trying to get Vpon test ad
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 
-vpadnBanner.loadRequest(request)
-// start to load ad
+// Start to load ad
+bannerView?.load(request)
 ```
 
 >**Note:**
 >
->* Besides of setting up VpadnRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
+>* Besides of setting up VponAdRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
 >* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
 
 ## Set Up Delegate Protocol
@@ -131,43 +134,54 @@ After finishing ad request, implement the delegate protocol as below to listen a
 ### Objective-C
 
 ```objc
-- (void) onVpadnAdLoaded:(VpadnBanner *)banner {
-    // Invoked if receive Banner Ad successfully
+- (void)bannerViewDidReceiveAd:(VponBannerView *)bannerView {
+	// Invoked if receive Banner Ad successfully
+	// Add ad view to your layout
+	bannerView.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.loadBannerView addSubview:bannerView];
+	[NSLayoutConstraint activateConstraints:@[
+		[bannerView.centerXAnchor constraintEqualToAnchor: _loadBannerView.centerXAnchor],
+		[bannerView.centerYAnchor constraintEqualToAnchor: _loadBannerView.centerYAnchor]
+	]];
+}
 
-    [self.loadBannerView addSubview:banner.getVpadnAdView];
-    // Add ad view to your layout
+- (void)bannerView:(VponBannerView *)bannerView didFailToReceiveAdWithError:(NSError *)error {
+	// Invoked if received ad fail, check this callback to indicates what type of failure occurred
 }
-- (void) onVpadnAd:(VpadnBanner *)banner failedToLoad:(NSError *)error {
-    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+
+- (void)bannerViewDidRecordImpression:(VponBannerView *)bannerView {
+	// Invoked if an impression has been recorded for an ad.
 }
-- (void) onVpadnAdWillLeaveApplication:(VpadnBanner *)banner {
-    // Invoked if user leave the app and the current app was backgrounded
-}
-- (void) onVpadnAdRefreshed:(VpadnBanner *)banner {
-   // Invoked if the Banner Ad will be refresh
+
+- (void)bannerViewDidRecordClick:(VponBannerView *)bannerView {
+	// Invoked if an click has been recorded for an ad.
 }
 ```
 
 ### Swift
 
 ```swift
-extension VponSdkBannerViewController : VpadnBannerDelegate {
+func bannerViewDidReceiveAd(_ bannerView: VponBannerView) {
+	// Invoked if receive Banner Ad successfully
+	// Add ad view to your layout
+	bannerView.translatesAutoresizingMaskIntoConstraints = false
+	loadBannerView.addSubview(bannerView)
+	NSLayoutConstraint.activate([
+		bannerView.centerXAnchor.constraint(equalTo: loadBannerView.centerXAnchor),
+		bannerView.centerYAnchor.constraint(equalTo: loadBannerView.centerYAnchor)
+	])
+}
 
-    func onVpadnAdLoaded(_ banner: VpadnBanner) {
-      // Invoked if receive Banner Ad successfully
-      if let adView = banner.getVpadnAdView() {
-            self.loadBannerView.addSubview(adView)            
-        }
-    }
-    func onVpadnAd(_ banner: VpadnBanner, failedToLoad error: Error) {
-      // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-    }
-    func onVpadnAdWillLeaveApplication(_ banner: VpadnBanner) {
-      // Invoked if user leave the app and the current app was backgrounded
-    }
-    func onVpadnAdRefreshed(_ banner: VpadnBanner) {
-      // Invoked if the Banner Ad will be refresh 
-    }
+func bannerView(_ bannerView: VponBannerView, didFailToReceiveAdWithError error: Error) {
+	// Invoked if received ad fail, check this callback to indicates what type of failure occurred
+}
+
+func bannerViewDidRecordImpression(_ bannerView: VponBannerView) {
+	// Invoked if an impression has been recorded for an ad.
+}
+
+func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
+	// Invoked if an click has been recorded for an ad.
 }
 ```
 
@@ -184,6 +198,19 @@ Size (WxH)                 |Description             |  VponAdSize Constant      
 320x480                    | Large Rectangle Banner | VpadnAdSizeLargeRectangle      |iPhone<br>iPad
 
 
+Besides, you can all use VponAdSize as the parameter of `VponBannerView`: 
+
+### Objective-C
+
+```objc
+_bannerView = [[VponBannerView alloc] initWithAdSize:[VponAdSize mediumRectangle]];
+```
+
+### Swift
+
+```swift
+bannerView = VponBannerView(adSize: .mediumRectangle())
+```
 <!-- 320x100                    | Large Banner           | VpadnAdSizeLARGEBANNER         |iPhone<br>iPad -->
 <!-- device width x auto height | Custom Banner Size     | VpadnAdSizeFromCGSize | iPhone<br>iPad -->
 
@@ -215,8 +242,8 @@ Please help to check if below log printed after the ad display and match the vie
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Banner Ad Integration Guide](../banner-under550) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
+### Integration Guide For The Version Below Vpon SDK v5.6.0
+Please refer to [Banner Ad Integration Guide](../banner-under560) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         VponInterstitialAd.loadAd(this, interstitialId, builder.build());
         // Set ad request and load ad
     }
+}
 ```
 
 >**Note:**
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
 public void onAdLoaded(VponInterstitialAd ad) {
         // Show Interstitial Ad
         ad.show();
+}
 }
 ```
 
@@ -147,6 +149,8 @@ I/VPON: [::Impression::]  response.code : 200
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
 
+### 適用於 Vpon SDK v5.5 的串接方法
+如果您想了解 Vpon SDK v5.5 或以下版本的串接方法，請參考[插頁廣告](../interstitial-under550)
 
 
 [串接說明]: {{site.baseurl}}/zh-tw/android/integration-guide/

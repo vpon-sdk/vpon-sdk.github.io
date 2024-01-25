@@ -23,7 +23,7 @@ lang: "zh-cn"
 ## 直接串接 Vpon SDK 的设定方式 {#vponsdk}
 ---
 
-* 本介面适用于 `Vpon SDK v5.1.7` 及以上版本
+* 本介面适用于 `Vpon SDK v5.6.0` 及以上版本
 
 当 adview 因为被其它 view(s) 覆盖住而造成无法成功送出 Impression 时，您会看到类似以下的 Log 提示您覆盖住广告的 view(s)：
 
@@ -38,8 +38,9 @@ lang: "zh-cn"
 ### Objective-C
 
 ```objc
-VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
-[request addFriendlyObstruction:_obstructView purpose:VpadnFriendlyObstructionTypeNotVisible description:@"not visible"];
+VponAdRequest *request = [[VponAdRequest alloc] init];
+[request addFriendlyObstruction:_obstructView purpose:VponFriendlyObstructionTypeNotVisible description:@"not visible"];
+
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -48,8 +49,9 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VponAdRequest()
 request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: “not visible”)
+
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -83,9 +85,10 @@ request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: 
 GADRequest *request = [GADRequest request];
 GADExtras *extra = [[GADExtras alloc] init];
 extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
+	@"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
 };
 [request registerAdNetworkExtras:extra];
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -96,11 +99,14 @@ extra.additionalParameters = @{
 ```swift
 let extra = GADExtras()
 extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
+	"friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
+]
+
 request.register(extra)
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
+// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 ```
 
 如果您请求的是原生广告，请先参考[透过 AdMob 串接 Vpon Native Ad] 完成自订事件设定，再参考以下范例，完成实作：
@@ -108,12 +114,13 @@ request.register(extra)
 ### Objective-C
 
 ```objc
-GADRequest *request = [GADRequest request];
-GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
+GADRequest *request = [GADRequest  request];
+GADCustomEventExtras *extra = [[GADCustomEventExtras  alloc] init];
 [extra setExtras:@{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @'desc": @"not_visible"|]
+	@"friendlyObstructions": @[@{@"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
 } forLabel:@"Vpon"];
 [request registerAdNetworkExtras:extra];
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -122,10 +129,15 @@ GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
 ### Swift
 
 ```swift
+let request = GADRequest()
 let extra = GADCustomEventExtras()
 extra.setExtras([
-    "friendly Obstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"1] ], forLabel: "Vpon")
+	"friendlyObstructions": [
+			["view": UIView(), "purpose": 2, "desc": "not_visible"]
+		]
+	], forLabel: "Vpon")
 request.register(extra)
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space

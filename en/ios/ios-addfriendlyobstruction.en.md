@@ -24,7 +24,7 @@ Please select the instruction base on the way you integrate Vpon SDK to finish t
 ## Integrate Vpon SDK Directly {#vponsdk}
 ---
 
-* Available in `Vpon SDK v5.1.7` and above
+* Available in `Vpon SDK v5.6.0` and above
 
 When the ad can't send impression successfully after displayed since that the adview is cover by other view(s), you might see the log as below. This log will tell you the view(s) info which covered the adview.
 
@@ -39,8 +39,9 @@ Please check the log above to see if the cover view(s) can be adjusted. If not, 
 ### Objective-C
 
 ```objc
-VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
-[request addFriendlyObstruction:_obstructView purpose:VpadnFriendlyObstructionTypeNotVisible description:@"not visible"];
+VponAdRequest *request = [[VponAdRequest alloc] init];
+[request addFriendlyObstruction:_obstructView purpose:VponFriendlyObstructionTypeNotVisible description:@"not visible"];
+
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -49,8 +50,9 @@ VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
 ### Swift
 
 ```swift
-let request = VpadnAdRequest.init()
+let request = VponAdRequest()
 request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: “not visible”)
+
 // addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -84,9 +86,10 @@ Please check the log above to see if the cover view(s) can be adjusted. If not, 
 GADRequest *request = [GADRequest request];
 GADExtras *extra = [[GADExtras alloc] init];
 extra.additionalParameters = @{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
+	@"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
 };
 [request registerAdNetworkExtras:extra];
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -97,9 +100,11 @@ extra.additionalParameters = @{
 ```swift
 let extra = GADExtras()
 extra.additionalParameters = [
-    "friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
-    ]
+	"friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
+]
+
 request.register(extra)
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -110,12 +115,13 @@ If you are trying to request Native ad, please refer to [Integrate Vpon Native A
 ### Objective-C
 
 ```objc
-GADRequest *request = [GADRequest request];
-GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
+GADRequest *request = [GADRequest  request];
+GADCustomEventExtras *extra = [[GADCustomEventExtras  alloc] init];
 [extra setExtras:@{
-    @"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @'desc": @"not_visible"|]
+	@"friendlyObstructions": @[@{@"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
 } forLabel:@"Vpon"];
 [request registerAdNetworkExtras:extra];
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
@@ -124,10 +130,15 @@ GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
 ### Swift
 
 ```swift
+let request = GADRequest()
 let extra = GADCustomEventExtras()
 extra.setExtras([
-    "friendly Obstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"1] ], forLabel: "Vpon")
+	"friendlyObstructions": [
+			["view": UIView(), "purpose": 2, "desc": "not_visible"]
+		]
+	], forLabel: "Vpon")
 request.register(extra)
+
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
 // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space

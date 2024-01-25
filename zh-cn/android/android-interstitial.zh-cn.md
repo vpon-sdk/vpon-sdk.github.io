@@ -41,21 +41,20 @@ public class MainActivity extends AppCompatActivity {
     private String interstitialId = "License Key";
     // interstitialId: Vpon License Key to get ad, please replace with your own one
 
-    private VponInterstitialAd vponInterstitialAd;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vponInterstitialAd = new VponInterstitialAd(this, interstitialId);
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
         builder.addTestDevice("your device advertising id");
         // Set your test device's GAID here if you're trying to get Vpon test ad
-        vponInterstitialAd.loadAd(builder.build()); 
+        VponInterstitialAd.loadAd(this, interstitialId, builder.build());
         // Set ad request and load ad
     }
+}
 ```
 
 >**Note:**
@@ -66,95 +65,63 @@ public class MainActivity extends AppCompatActivity {
 
 ## 展示广告
 ---
-为了维持良好的用户体验，请避免取得插页广告后就立刻将广告展示出来。我们建议您可以先拉取插页广告，在特定时机展示广告。舉例來說：您可以實作 VpadnAdListener 來監聽廣告請求的事件，在 onVpadnReceiveAd 事件被觸發後，再將廣告顯示出來，請參考以下範例：
+为了维持良好的用户体验，请避免取得插页广告后就立刻将广告展示出来。我们建议您可以先拉取插页广告，在特定时机展示广告。舉例來說：您可以實作 VponInterstitialAdLoadCallback 來監聽廣告請求的事件，在 onVpadnReceiveAd 事件被觸發後，再將廣告顯示出來，請參考以下範例：
 
 ```java
-public class MainActivity extends AppCompatActivity {
+public void onAdLoaded(VponInterstitialAd ad) {
 
 @Override
 public void onAdLoaded() {
     if (vponInterstitialAd.isReady()) {
         // Show Interstitial Ad
-        vponIntersitialAd.show();
+        ad.show();
         }
     }
 }
 ```
 
->**Note:** 您可以在呼叫 show() 之后，再使用 loadAd() 请求新广告
+>**Note:** 您可以在呼叫 show() 之后，再使用 VponInterstitialAd.loadAd() 请求新广告
 
 
-## 实作 AdListener
+## 实作 VponInterstitialAdLoadCallback 与 VponFullScreenContentCallback
 ---
 ```java
-vponIntersitialAd.setAdListener(new VponAdListener() {
-    
+VponFullScreenContentCallback fullScreenContentCallback = new VponFullScreenContentCallback(){
     @Override
-    public void onAdLoaded() {
-        // Invoked if receive Interstitial Ad successfully
-        if (vponInterstitialAd.isReady()) {
-            // Show Interstitial Ad
-            vponIntersitialAd.show();
-            }
-        }
-
+    public void onAdClicked() {
+        // Invoked while ad has been clicked
+    }
     @Override
-    public void onAdFailedToLoad(int errorCode) {
+    public void onAdDismissedFullScreenContent() {
+        // Invoked while ad has been closed
+    }
+    @Override
+    public void onAdFailedToShowFullScreenContent(int errorCode) {
         // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-        }
+    }
+    @Override
+    public void onAdImpression() {
+        // Invoked while ad has been determined as impression
+    }
+    @Override
+    public void onAdShowedFullScreenContent() {
+        // Invoked while ad has been shown
+    }
+};
+
+VponInterstitialAdLoadCallback adLoadCallback = new VponInterstitialAdLoadCallback(){
+    @Override
+    public void onAdLoaded(VponInterstitialAd ad) {
+        ad.setFullScreenContentCallback(fullScreenContentCallback);
+        // Show Interstitial Ad
+        ad.show();
+    }
 
     @Override
-    public void onAdOpened() {
-        // Invoked if the Interstitial Ad was clicked
-        }
-
-    @Override
-    public void onAdLeftApplication() {
-        // Invoked if user leave the app and the current app was backgrounded
-        }
-
-    @Override
-    public void onAdClosed() {
-        // Invoked if the Interstitial Ad was closed
-
-        vponInterstitialAd.loadAd(new VponAdRequest.Builder().build());
-        // Load next ad if needed
-        }
-});
-```
-
-## 广告生命周期
----
-
-为使广告正常运作，并在适当的时机释放资源，我们建议可以在 Activity 生命周期中加入以下程式码：
-
-```java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponInterstitialAd != null) {
-        vponInterstitialAd.resume();
+    public void onAdFailedToLoad(@NonNull VponAdRequest.VponErrorCode adError) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
     }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponInterstitialAd != null) {
-        vponInterstitialAd.pause();
-    }
-}
-
-@Override
-protected void onDestroy() {
-    super.onDestroy();
-    if (vponInterstitialAd != null) {
-        vponInterstitialAd.destroy();
-        vponInterstitialAd = null;
-    }
-}
+};
 ```
 
 # Tips
@@ -177,8 +144,8 @@ I/VPON: [::Impression::]  response.code : 200
 ### Sample Code
 如果您想看到完整的串接实例，请参考我们的 [Sample Code]
 
-### 适用于 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，请参考[插页广告](../interstitial-under5)
+### 适用于 Vpon SDK v5.5 的串接方法
+如果您想了解 Vpon SDK v5.5 或以下版本的串接方法，请参考[插页广告](../interstitial-under550)
 
 [串接说明]: ../integration-guide/
 [Sample Code]:../../android/download/

@@ -53,13 +53,15 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             mainLayout = findViewById(R.id.main_layout);
 
-            VponBanner vponBanner = new VponBanner(context, bannerId, adSize);
-            View obstructionView = findViewById(R.id.obstruction_view);
+            VponBanner vponBanner = new VponBanner(context);
+            vponBanner.setLicenseKey(bannerId);
+            vponBanner.setAdSize(adSize);
+            View obstructionView = findViewById(R.id.obstruction_view);
 
             VponAdRequest.Builder builder = new VponAdRequest.Builder();
             builder.addFriendlyObstruction(obstructionView, VponAdRequest.FriendlyObstructionPurpose.OTHER, "for demo");
-            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
-            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+            // obstructionView: insert the obstruction view that will be set as Friendly Obstruction
+            // description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
 
             vponBanner.loadAd(builder.build());
             // Set ad request and load ad

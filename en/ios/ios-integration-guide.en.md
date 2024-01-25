@@ -133,18 +133,18 @@ Please follow the tips below to initialize Vpon SDK.
 ### Objective-C
 
 ```objc
-// Using Vpon SDK v550 and above
+// Using Vpon SDK v560 and above
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
-    VpadnAdConfiguration *config = VpadnAdConfiguration.shared;
-    config.logLevel = VpadnLogLevelDefaultLevel;
+    VponAdConfiguration *config = VponAdConfiguration.shared;
+    config.logLevel = VponLogLevelDefault;
     [config initializeSdk];
 
     return YES;
 }
 
-// Using Vpon SDK v550 below
+// Using Vpon SDK v560 below
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
@@ -162,19 +162,19 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 
 
 ```swift
-// Using Vpon SDK v550 and above
+// Using Vpon SDK v560 and above
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Vpon SDK initialization
-        let config = VpadnAdConfiguration.shared
-        config.logLevel = .defaultLevel
+        let config = VponAdConfiguration.shared
+        config.logLevel = .default
         config.initializeSdk()
 
         return true
     }
 
-// Using Vpon SDK v550 below
+// Using Vpon SDK v560 below
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
     [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -192,7 +192,7 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 >
 >* To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization. To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction.
 >
->* Vpon SDK will stop supporting deprecated v4 method. Please follow the integration guide on this site and do not use any method that are not described on the site.
+>* Vpon SDK will stop supporting deprecated method using in v5.5.0 and below version. Please follow the integration guide on this site and do not use any method that are not described on the site.
 
 
 # Usage Description

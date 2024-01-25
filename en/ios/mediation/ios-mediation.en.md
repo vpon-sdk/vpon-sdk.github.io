@@ -37,8 +37,8 @@ Please follow the instruction below to send the content information to Vpon if y
 
 Please check your SDK and Adapter version first if you are using AdMob / Google Ad Manager, the SDK and Adapter version must be:
 
-* `Vpon SDK v5.1.1` and above
-* `Vpon AdMob Adapter v2.0.1` and above
+* `Vpon SDK v5.6.0` and above
+* `Vpon AdMob Adapter v2.1.0` and above
 
 
 Please refer to the sample below if you are integrating Banner Ad or Interstitial Ad:

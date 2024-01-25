@@ -28,25 +28,25 @@ The richer, more heavyweight nature of Vpadn interstitial is reflected by its de
 Usage is nevertheless very similar to Vpadn banner:
 
 1. Import VpadnSDKAdKit
-2. Declare a VpadnInterstitial instance
-3. Initialize VpadnInterstitial object and indicate an License Key
-4. Set up VpadnRequest object and send ad request
+2. Declare a VponInterstitialAd instance
+3. Set up VponAdRequest object
+4. Use VponInterstitialAd static method to request ad
 5. Show interstitial ad
 6. Set up Delegate protocol
 
 We strongly recommend that you can finish all the steps in ViewController of the application.
 
-## Import VpadnSDKAdKit And Declare A VpadnInterstitial Instance
+## Import VpadnSDKAdKit And Declare A VponInterstitialAd Instance
 ---
 
 ### Objective-C
 
 ```objc
-@import VpadnSDKAdKit;
 // Import Vpon SDK
+@import VpadnSDKAdKit;
 
-@interface ViewController() <VpadnInterstitialDelegate>
-@property (strong, nonatomic) VpadnInterstitial *vpadnInterstitial;
+@interface ViewController() <VponFullScreenContentDelegate>
+@property (strong, nonatomic) VponInterstitialAd *vponInterstitial;
 
 @end
 ```
@@ -54,68 +54,76 @@ We strongly recommend that you can finish all the steps in ViewController of the
 ## Swift
 
 ```swift
-import VpadnSDKAdKit
 // Import Vpon SDK
+import VpadnSDKAdKit
 
 class VponSdkInterstitialViewController: UIViewController {
-    var vpadnInterstitial : VpadnInterstitial!
+    var interstitialAd: VponInterstitialAd?
 }
 ```
 
-## Initialize VpadnInterstitial Object And Indicate A License Key
----
-Please refer to the code snippet below to initialize Interstitial Ad in viewDidLoad of ViewController.
 
-### Objective-C
-
-```objc
-_vpadnInterstitial = [[VpadnInterstitial alloc] initWithLicenseKey:@"License Key"];
-// initWithLicenseKey: Vpon License Key to get ad, please replace with your own one
-
-_vpadnInterstitial.delegate = self;
-```
-
-### Swift
-
-```swift
-vpadnInterstitial = VpadnInterstitial(licenseKey:"License Key")
-// licenseKey: Vpon License Key to get ad, please replace with your own one
-
-vpadnInterstitial.delegate = self
-```
-
-## Set Up VpadnAdRequest and Send Ad Request
+## Set Up VponAdRequest Object
 ---
 Set up VpadnAdRequest before you send ad request:
 
 ### Objective-C
 
 ```objc
-VpadnAdRequest *request = [[VpadnAdRequest alloc] init];
+VponAdRequest *request = [[VponAdRequest alloc] init];
 
-[request setTestDevices:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-
-[_vpadnInterstitial loadRequest:request];
-// Start to load ad
+[VponAdRequestConfiguration.shared setTestDeviceIdentifiers:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
 ```
 
 ### Swift
 
 ```swift
-let request = VpadnAdRequest()
+let request = VponAdRequest()
 
-request.setTestDevices([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-
-vpadnInterstitial.loadRequest(request)
-// start to load ad
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
 ```
 
 >**Note:**
 >
->* Besides of setting up VpadnRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
+>* Besides of setting up VpadnRequest for each ad type, you can also set up a general VponAdRequest for all types of ad.
 >* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
+
+## Use VponInterstitialAd Static Method To Request Ad
+---
+
+Call `VponInterstitialAd` static function `load` to send ad request. And handle `VponInterstitialAd` or error in completion callback.
+
+### Objective-C
+
+```objc
+[VponInterstitialAd loadWithLicenseKey:@"License Key"
+					request:request
+					completion:^(VponInterstitialAd *interstitial, NSError *error){
+	if (error != nil) {
+		NSLog(@"Failed to load ad with error: %@", error.localizedDescription);
+		return;
+	}
+	self.interstitial = interstitial;
+	self.interstitial.delegate = self;
+}];
+```
+
+### Swift
+
+```swift
+VponInterstitialAd.load(licenseKey: "License Key", request: request) { [weak self] (ad, error) in
+	if let error {
+		print("Failed to load ad with error: \(error.localizedDescription)")
+		return
+	}
+	if let ad {
+		self?.interstitial = ad
+		self?.interstitial?.delegate = self
+	}
+}
+```
 
 
 ## Show Interstitial Ad
@@ -126,16 +134,16 @@ You can only show the interstitial ad after ad initializaion and ad receviced. F
 ### Objective-C
 
 ```objc
-- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
-    [self.vpadnInterstitial showFromRootViewController:self];
+if (_interstitial != nil) {
+	[_interstitial presentFromRootViewController:self];
 }
 ```
 
 ### Swift
 
 ```swift
-func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
-    vpadnInterstitial.showFromRootViewController(self)
+if let interstitial {
+	interstitial.present(fromRootViewController: self)
 }
 ```
 
@@ -150,46 +158,72 @@ After finishing ad request, implement the delegate protocol as below to listen a
 ### Objective-C
 
 ```objc
-- (void) onVpadnInterstitialLoaded:(VpadnInterstitial *)interstitial {
-    // Invoked if receive Banner Ad successfully
+[VponInterstitialAd loadWithLicenseKey:@"License Key"
+							   request:request
+							completion:^(VponInterstitialAd *interstitial, NSError *error) {
+	self.interstitial = interstitial;
+	self.interstitial.delegate = self;
+}];
+
+// MARK: - VponFullScreenContentDelegate
+- (void)adWillPresentScreen:(id<VponFullScreenContentAd>)ad {
+	// Ad will present full screen content
 }
-- (void) onVpadnInterstitial:(VpadnInterstitial *)interstitial failedToLoad:(NSError *)error {
-    // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+
+- (void)ad:(id<VponFullScreenContentAd>)ad didFailToPresentFullScreenContentWithError:(NSError *)error {
+	// Ad did fail to present full screen content
 }
-- (void) onVpadnInterstitialWillOpen:(VpadnInterstitial *)interstitial {
-    // Invoked if the Interstitial Ad is going to be displayed
+
+- (void)adWillDismissScreen:(id<VponFullScreenContentAd>)ad {
+	// Ad will dismiss full screen content
 }
-- (void) onVpadnInterstitialClosed:(VpadnInterstitial *)interstitial {
-    // Invoked if the Interstitial Ad was dismissed
+
+- (void)adDidDismissScreen:(id<VponFullScreenContentAd>)ad {
+	// Ad did dismiss full screen content
 }
-- (void) onVpadnInterstitialWillLeaveApplication:(VpadnInterstitial *)interstitial {
-    // Invoked if user leave the app and the current app was backgrounded
+
+- (void)adDidRecordImpression:(id<VponFullScreenContentAd>)ad {
+	// Ad did record an impression
+}
+
+- (void)adDidRecordClick:(id<VponFullScreenContentAd>)ad {
+	// Ad did record a click
 }
 ```
 
 ### Swift
 
 ```swift
-extension VponSdkInterstitialViewController : VpadnInterstitialDelegate {
+VponInterstitialAd.load(licenseKey: "License Key", request: request) { [weak self] (ad, error) in
+	self?.interstitial = ad
+	self?.interstitial?.delegate = self
+}
 
-    func onVpadnInterstitialLoaded(_ interstitial: VpadnInterstitial) {
-        // Invoked if receive Banner Ad successfully
-    }
-    func onVpadnInterstitial(_ interstitial: VpadnInterstitial, failedToLoad error: Error) {
-        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-    }
-    func onVpadnInterstitialWillOpen(_ interstitial: VpadnInterstitial) {
-        // Invoked if the Interstitial Ad is going to be displayed
-    }
-    func onVpadnInterstitialClosed(_ interstitial: VpadnInterstitial) {
-        // Invoked if the Interstitial Ad was dismissed
-    }
-    func onVpadnInterstitialWillLeaveApplication(_ interstitial: VpadnInterstitial) {
-        // Invoked if user leave the app and the current app was backgrounded
-    }
+// MARK: - VponFullScreenContentDelegate
+func adWillPresentScreen(_ ad: VponFullScreenContentAd) {
+	// Ad will present full screen content
+}
+
+func ad(_ ad: VponFullScreenContentAd, didFailToPresentFullScreenContentWithError error: Error) {
+	// Ad did fail to present full screen content
+}
+
+func adWillDismissScreen(_ ad: VponFullScreenContentAd) {
+	// Ad will dismiss full screen content
+}
+
+func adDidDismissScreen(_ ad: VponFullScreenContentAd) {
+	// Ad did dismiss full screen content
+}
+
+func adDidRecordImpression(_ ad: VponFullScreenContentAd) {
+	// Ad did record an impression
+}
+
+func adDidRecordClick(_ ad: VponFullScreenContentAd) {
+	// Ad did record a click
 }
 ```
-
 
 
 # Tips
@@ -214,8 +248,8 @@ Please help to check if below log printed after the ad display and match the vie
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For The Version Below Vpon SDK v5.5.0
-Please refer to [Interstitial Ad Integration Guide](../interstitial-under550) if you want to know more about the integration compatible with the Vpon SDK version below v5.5.0.
+### Integration Guide For The Version Below Vpon SDK v5.6.0
+Please refer to [Interstitial Ad Integration Guide](../interstitial-under560) if you want to know more about the integration compatible with the Vpon SDK version below v5.6.0.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

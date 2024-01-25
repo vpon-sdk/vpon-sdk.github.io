@@ -16,7 +16,7 @@ Interstitials, on the other hand, immediately present rich HTML5 experiences or 
 
 # Prerequisites
 ---
-Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/andoird/integration-guide/) to finish your setting.
+Please make sure you've imported Vpon SDK to your Xcode project. If not, please refer to our [Integration Guide]({{site.baseurl}}/andoird/integration-guide/) to finish your setting.
 
 
 # Start To Implement Interstitial Ad
@@ -29,7 +29,7 @@ Usage is nevertheless very similar to Vpadn banner:
 2. Declare a VponInterstitialAd instance and indicate a License Key
 3. Set up VponAdRequest object and send ad request
 4. Show Interstitial Ad
-5. Implement AdListener
+5. Implement VponInterstitialAdLoadCallback / VponFullScreenContentCallback
 
 We strongly recommend that you can finish all the steps in the Activity of the application.
 
@@ -43,21 +43,20 @@ public class MainActivity extends AppCompatActivity {
     private String interstitialId = "License Key";
     // interstitialId: Vpon License Key to get ad, please replace with your own one
 
-    private VponInterstitialAd vponInterstitialAd;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vponInterstitialAd = new VponInterstitialAd(this, interstitialId);
 
         VponAdRequest.Builder builder = new VponAdRequest.Builder();
         builder.addTestDevice("your device advertising id");
         // Set your test device's GAID here if you're trying to get Vpon test ad
-        vponInterstitialAd.loadAd(builder.build()); 
+        VponInterstitialAd.loadAd(this, interstitialId, builder.build());
         // Set ad request and load ad
     }
+}
 ```
 
 >**Note:**
@@ -69,93 +68,60 @@ public class MainActivity extends AppCompatActivity {
 
 ## Show Interstitial Ad
 ---
-Please avoid to show Interstitial Ad right away after ad request. We recommend that you can request Interstitial Ad first and show it in a specific moment. For example, you can implement VponAdListener and show ad when onAdLoaded triggered.
+Please avoid to show Interstitial Ad right away after ad request. We recommend that you can request Interstitial Ad first and show it in a specific moment. For example, you can implement VponInterstitialAdLoadCallback and show ad when onAdLoaded triggered.
 
 ```java
 public class MainActivity extends AppCompatActivity {
 
 @Override
-public void onAdLoaded() {
-    if (vponInterstitialAd.isReady()) {
+public void onAdLoaded(VponInterstitialAd ad) {
         // Show Interstitial Ad
-        vponIntersitialAd.show();
-        }
-    }
+        ad.show();
+}
 }
 ```
 
->**Note:** You can loadAd() to get new ad after you call show().
+>**Note:** You can VponInterstitialAd.loadAd() to get new ad after you call show().
 
-## Implement AdListener
+## Implement VponInterstitialAdLoadCallback and VponFullScreenContentCallback
 ---
 ```java
-vponIntersitialAd.setAdListener(new VponAdListener() {
-    
+VponFullScreenContentCallback fullScreenContentCallback = new VponFullScreenContentCallback(){
     @Override
-    public void onAdLoaded() {
-        // Invoked if receive Interstitial Ad successfully
-        if (vponInterstitialAd.isReady()) {
-            // Show Interstitial Ad
-            vponIntersitialAd.show();
-            }
-        }
-
+    public void onAdClicked() {
+        // Invoked while ad has been clicked
+    }
     @Override
-    public void onAdFailedToLoad(int errorCode) {
+    public void onAdDismissedFullScreenContent() {
+        // Invoked while ad has been closed
+    }
+    @Override
+    public void onAdFailedToShowFullScreenContent(int errorCode) {
         // Invoked if received ad fail, check this callback to indicates what type of failure occurred
-        }
+    }
+    @Override
+    public void onAdImpression() {
+        // Invoked while ad has been determined as impression
+    }
+    @Override
+    public void onAdShowedFullScreenContent() {
+        // Invoked while ad has been shown
+    }
+};
+
+VponInterstitialAdLoadCallback adLoadCallback = new VponInterstitialAdLoadCallback(){
+    @Override
+    public void onAdLoaded(VponInterstitialAd ad) {
+        ad.setFullScreenContentCallback(fullScreenContentCallback);
+        // Show Interstitial Ad
+        ad.show();
+    }
 
     @Override
-    public void onAdOpened() {
-        // Invoked if the Interstitial Ad was clicked
-        }
-
-    @Override
-    public void onAdLeftApplication() {
-        // Invoked if user leave the app and the current app was backgrounded
-        }
-
-    @Override
-    public void onAdClosed() {
-        // Invoked if the Interstitial Ad was closed
-
-        vponInterstitialAd.loadAd(new VponAdRequest.Builder().build());
-        // Load next ad if needed
-        }
-});
-```
-
-## Ad Lifecycle Handling
----
-To make the Ads work more smoothly and release resource appropriately, we recommend that you can add below code snippets in the Activity Lifecycle.
-
-```java
-@Override
-protected void onResume() {
-    super.onResume();
-
-    if (vponInterstitialAd != null) {
-        vponInterstitialAd.resume();
+    public void onAdFailedToLoad(@NonNull VponAdRequest.VponErrorCode adError) {
+        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
     }
-}
-
-@Override
-protected void onPause() {
-    super.onPause();
-
-    if (vponInterstitialAd != null) {
-        vponInterstitialAd.pause();
-    }
-}
-
-@Override
-protected void onDestroy() {
-    super.onDestroy();
-    if (vponInterstitialAd != null) {
-        vponInterstitialAd.destroy();
-        vponInterstitialAd = null;
-    }
-}
+};
 ```
 
 # Tips
@@ -185,7 +151,7 @@ I/VPON: [::Impression::]  response.code : 200
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For Vpon SDK v4.9
-Please refer to [Interstitial Ad Integration Guide](../interstitial-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
+### Integration Guide For Vpon SDK v5.5
+Please refer to [Interstitial Ad Integration Guide](../interstitial-under550) if you want to know more about the integration that compatible with Vpon SDK v5.5 and below version.
 
 [Sample Code]: ../download/

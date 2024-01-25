@@ -232,7 +232,7 @@ vponNativeAd.setAdListener(new VponAdListener() {
 
     @Override
     public void onAdLoaded() {
-        // Invoked if receive ad successfully
+        // Invoked if receive ad successfully
     }
     
     @Override
@@ -315,6 +315,9 @@ I/VPON: [::Impression::]  response.code : 200
 
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
+
+### 適用於 Vpon SDK v5.5 的串接方法
+如果您想了解 Vpon SDK v5.5 或以下版本的串接方法，請參考[原生廣告](../native-under550)
 
 
 ### 中介服務
