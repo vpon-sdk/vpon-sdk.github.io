@@ -209,7 +209,7 @@ adLoader?.load(request)
 
 >**Note**
 >
->* You can create `VpadnRequest` object for each type of ad, or use the same `VpadnRequest` object for all ad requests.
+>* You can create `VponAdRequest` object for each type of ad, or use the same `VponAdRequest` object for all ad requests.
 >* If you wish to specify addtional targeting criteria, please refer to [Advanced](../advanced)
 
 

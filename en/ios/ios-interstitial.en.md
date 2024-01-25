@@ -23,9 +23,7 @@ Please make sure you've imported Vpon SDK to your Xcode project. If not, please 
 
 # Start To Implement Interstitial Ad
 ---
-The richer, more heavyweight nature of Vpadn interstitial is reflected by its definition not as a UIView but rather an NSObject requiring more distinct instantiation, load and display steps.
-
-Usage is nevertheless very similar to Vpadn banner:
+Please follow the guideline below to implement Interstitial Ad:
 
 1. Import VpadnSDKAdKit
 2. Declare a VponInterstitialAd instance
@@ -87,7 +85,7 @@ VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.
 
 >**Note:**
 >
->* Besides of setting up VpadnRequest for each ad type, you can also set up a general VponAdRequest for all types of ad.
+>* Besides of setting up VponAdRequest for each ad type, you can also set up a general VponAdRequest for all types of ad.
 >* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
 
 ## Use VponInterstitialAd Static Method To Request Ad

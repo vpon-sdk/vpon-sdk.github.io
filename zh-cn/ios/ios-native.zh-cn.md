@@ -207,7 +207,7 @@ vpadnNative.loadRequest(request)
 
 >**Note**
 >
->* 您可以为每种类型的广告都建立不同的 VpadnRequest 物件，或是在所有的广告请求中都使用同一个 VpadnRequest 物件
+>* 您可以为每种类型的广告都建立不同的 VponAdRequest 物件，或是在所有的广告请求中都使用同一个 VponAdRequest 物件
 >* 如果您想要指定更多投放条件，请参考[进阶设定](../advanced)
 
 

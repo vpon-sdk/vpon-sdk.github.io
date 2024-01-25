@@ -263,6 +263,20 @@ import VpadnSDKAdKit
 
 此时回到 xib 档案，应该就能在右侧栏 Outlets 面板看见 IBOutlet 并且连接。连结成功后即可视需求移除上述的 header
 
+### 更新 AdMob Adapter v2.1.0 后产生的错误
+---
+
+若在更新 AdMob Adapter v2.1.0 以后出现以下错误
+
+```
+ld: warning: Could not find or use auto-linked library 'swiftCompatibility56': library 'swiftCompatibility56' not found ld: warning: Could not find or use auto-linked library 'swiftCompatibilityConcurrency': library 'swiftCompatibilityConcurrency' not found ld: warning: Could not find or use auto-linked library 'swiftCompatibilityPacks': library 'swiftCompatibilityPacks' not found ld: warning: Could not find or use auto-linked framework 'CoreAudioTypes': framework 'CoreAudioTypes' not found ld: Undefined symbols: __swift_FORCE_LOAD_$_swiftCompatibility56, referenced from: __swift_FORCE_LOAD_$_swiftCompatibility56_$_AdMobMediationAdapterVpadn in AdMobMediationAdapterVpadn[arm64][3](GADVpadnNativeAdCustomEvent.o) __swift_FORCE_LOAD_$_swiftCompatibilityConcurrency, referenced from: __swift_FORCE_LOAD_$_swiftCompatibilityConcurrency_$_AdMobMediationAdapterVpadn in AdMobMediationAdapterVpadn[arm64][3](GADVpadnNativeAdCustomEvent.o) clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+请在专案中：
+
+1. New File -> Swift File 创建一个 .swift 档案，档名任意、不需新增内容
+2. Xcode 会自动弹窗询问是否新增 Objective-C Bridging Header -> 点击 Create Bridging Header（预设的选项)
+3. 重新 build 即可
 
 
 # Web

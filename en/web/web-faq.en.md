@@ -266,6 +266,20 @@ import VpadnSDKAdKit
 
 Back to xid file, you can see IBOutlet in Outlets panel.
 
+### Error Occured After Update AdMob Adapter v2.1.0
+---
+
+If you see error when you update to AdMob Adapter v2.1.0:
+
+```
+ld: warning: Could not find or use auto-linked library 'swiftCompatibility56': library 'swiftCompatibility56' not found ld: warning: Could not find or use auto-linked library 'swiftCompatibilityConcurrency': library 'swiftCompatibilityConcurrency' not found ld: warning: Could not find or use auto-linked library 'swiftCompatibilityPacks': library 'swiftCompatibilityPacks' not found ld: warning: Could not find or use auto-linked framework 'CoreAudioTypes': framework 'CoreAudioTypes' not found ld: Undefined symbols: __swift_FORCE_LOAD_$_swiftCompatibility56, referenced from: __swift_FORCE_LOAD_$_swiftCompatibility56_$_AdMobMediationAdapterVpadn in AdMobMediationAdapterVpadn[arm64][3](GADVpadnNativeAdCustomEvent.o) __swift_FORCE_LOAD_$_swiftCompatibilityConcurrency, referenced from: __swift_FORCE_LOAD_$_swiftCompatibilityConcurrency_$_AdMobMediationAdapterVpadn in AdMobMediationAdapterVpadn[arm64][3](GADVpadnNativeAdCustomEvent.o) clang: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+Please follow the steps below：
+
+1. New File -> Swift File, create a new .swift any empty content
+2. Click Create Bridging Header (Default) while Xcode ask if you want to add Objective-C Bridging Header
+3. Build again
 
 
 # Web

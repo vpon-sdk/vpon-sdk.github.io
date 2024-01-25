@@ -205,7 +205,7 @@ adLoader?.load(request)
 
 >**Note**
 >
->* 您可以為每種類型的廣告都建立不同的 VpadnRequest 物件，或是在所有的廣告請求中都使用同一個 VpadnRequest 物件
+>* 您可以為每種類型的廣告都建立不同的 VponRequest 物件，或是在所有的廣告請求中都使用同一個 VponRequest 物件
 >* 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
 
 

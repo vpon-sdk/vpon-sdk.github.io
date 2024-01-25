@@ -20,7 +20,7 @@ Please make sure you've imported Vpon SDK to your Xcode project. If not, please 
 
 # Start To Implement Banner Ad
 ---
-iOS apps are composed of UIView objects which will present as text area, buttons or other controllers. VpadnBanner is simply an UIView subclass that can display small HTML5 ads trigger by users' touch.
+iOS apps are composed of UIView objects which will present as text area, buttons or other controllers. VponAdRequestView is simply an UIView subclass that can display small HTML5 ads trigger by users' touch.
 
 Just like all the other UIView, a VpadnBanner is easy to implement in code.
 
@@ -97,7 +97,7 @@ bannerView?.delegate = self
 
 ## Set Up VponAdRequest and Send Ad Request
 ---
-Set up VpadnAdRequest before you send ad request:
+Set up VponAdRequest before you send ad request:
 
 ### Objective-C
 
@@ -191,11 +191,11 @@ Besides the 320x50, Vpon supports the following ad formats:
 
 Size (WxH)                 |Description             |  VponAdSize Constant           | Devices
 :------------------------: | :---------------------:| :-----------------------------:|:-----------:
-320x50                     | Standard Banner        | VpadnAdSizeBANNER              |iPhone<br>iPad
-468x60                     | IAB Full-Size Banner   | VpadnAdSizeFullBanner          |iPad
-728x90                     | IAB  Leaderboard       | VpadnAdSizeLeaderboard         |iPad
-300x250                    | IAB Medium Recangle    | VpadnAdSizeMediumRectangle     |iPhone<br>iPad
-320x480                    | Large Rectangle Banner | VpadnAdSizeLargeRectangle      |iPhone<br>iPad
+320x50                     | Standard Banner        | banner              |iPhone<br>iPad
+468x60                     | IAB Full-Size Banner   | fullBanner          |iPad
+728x90                     | IAB  Leaderboard       | leaderBoard         |iPad
+300x250                    | IAB Medium Recangle    | mediumRectangle     |iPhone<br>iPad
+320x480                    | Large Rectangle Banner | largeRectangle      |iPhone<br>iPad
 
 
 Besides, you can all use VponAdSize as the parameter of `VponBannerView`: 

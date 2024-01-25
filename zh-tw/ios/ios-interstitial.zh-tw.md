@@ -20,8 +20,7 @@ lang: "zh-tw"
 
 # 開始撰寫 Interstitial
 ---
-Interstitial Ad 的內容更加豐富精彩，因為它是需要更多不同實例化、載入和顯示步驟的 Object，而不是 View。
-不過，它的用法與 Vpadn Banner 非常類似：
+請求 Interstitial Ad 並展示需經過以下步驟：
 
 1. Import VpadnSDKAdKit
 2. 宣告 VponInterstitialAd

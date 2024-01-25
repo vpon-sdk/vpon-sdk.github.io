@@ -20,7 +20,7 @@ Vpon 橫幅廣告 (Banner) 是利用畫面的一小部分展示廣告來吸引�
 
 # 開始撰寫 Banner
 ---
-iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕等控制項的形式向使用者顯示的 Objective-C 執行個體。VpadnBanner 是一種 UIView 子類別，用來顯示由使用者點擊觸發的小型 HTML5 廣告。
+iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕等控制項的形式向使用者顯示的 Objective-C 執行個體。VponAdRequestView 是一種 UIView 子類別，用來顯示由使用者點擊觸發的小型 HTML5 廣告。
 
 和所有的 UIView 一樣，用程式碼編寫 VpadnBanner 很簡單。以下為所需步驟：
 
@@ -98,7 +98,7 @@ bannerView?.delegate = self
 
 ## 建立 VponAdRequest 物件，並請求廣告
 ---
-在發出廣告請求前，請先建立 VpadnRequest 物件：
+在發出廣告請求前，請先建立 VponAdRequest 物件：
 
 ### Objective-C
 
@@ -194,11 +194,11 @@ func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
 
 尺吋<br>(寬x高)             |     說明       |  VponAdSize 常數值              | 適用裝置
 :------------------------: | :-------------:| :-----------------------------:|:-----------:
-320x50                     | 標準橫幅廣告     | VpadnAdSizeBANNER              |iPhone<br>iPad
-468x60                     | IAB 全橫幅廣告   | VpadnAdSizeFullBanner          |iPad
-728x90                     | IAB 超級橫幅廣告 | VpadnAdSizeLeaderboard         |iPad
-300x250                    | IAB 中矩形廣告   | VpadnAdSizeMediumRectangle     |iPhone<br>iPad
-320x480                    | 大型橫幅廣告     | VpadnAdSizeLargeRectangle      |iPhone<br>iPad
+320x50                     | 標準橫幅廣告     | banner              |iPhone<br>iPad
+468x60                     | IAB 全橫幅廣告   | fullBanner          |iPad
+728x90                     | IAB 超級橫幅廣告 | leaderBoard         |iPad
+300x250                    | IAB 中矩形廣告   | mediumRectangle     |iPhone<br>iPad
+320x480                    | 大型橫幅廣告     | largeRectangle      |iPhone<br>iPad
 
 此外，也可使用 VponAdSize 的類別方法（class method）創建想要的尺寸，作為 init `VponBannerView` 的參數，例如：
 

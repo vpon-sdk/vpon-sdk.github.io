@@ -19,8 +19,7 @@ lang: "zh-cn"
 
 # 开始撰写 interstitial
 ---
-Interstitial Ad 的内容更加丰富精彩，因为它是需要更多不同实例化、载入和显示步骤的 Object，而不是 View。
-
+请求 Interstitial Ad 并展示需经过以下步骤：
 
 1. Import VpadnSDKAdKit
 2. 宣告 VponInterstitialAd
@@ -81,7 +80,7 @@ VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.
 
 >**Note**
 >
->* 您可以为每种类型的广告都建立不同的 VponAdRequest 物件，或是在所有的广告请求中都使用同一个 VpadnRequest 物件
+>* 您可以为每种类型的广告都建立不同的 VponAdRequest 物件，或是在所有的广告请求中都使用同一个 VponAdRequest 物件
 >* 如果您想要指定更多投放条件，请参考[进阶设定](../advanced)
 
 
