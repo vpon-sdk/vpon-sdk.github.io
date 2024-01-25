@@ -60,10 +60,10 @@ import VpadnSDKAdKit
 
 1. 創建一個 `UIView` xib 檔案（以下用 `NativeAdView` 為範例），在右上角 Identity inspector 指定 Custom Class 為 `VponNativeAdView`、Module 指定為 `VpadnSDKAdKit`，如圖：
 
-<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-500"/>
 
 2. 在 .xib 檔案中佈局您想要的 UI，並將各個 UI 元件（例如：欲呈現 headline 的 `UILabel`）連接 IBOutlet 到 `VponNativeAdView` 的對應屬性，設定方式如圖：
-<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-500"/>
     *原生廣告呈現元件規範請參照 [Native Ad Spec](https://wiki.vpon.com/zh-tw/ios/native/#nativeAdSpec)  
 
     如果無法順利連接 IBOutlet 到 `VponNativeAdView` 的對應屬性，我們提供一個解決方案供參：
@@ -118,7 +118,7 @@ import VpadnSDKAdKit
 此時回到 xib 檔案，應該就能在右側欄 Outlets 面板看見 IBOutlet 並且連接。連結成功後即可視需求移除上述的 header copy 檔案。
 
 3. 確認欲作為 mediaView 的 `UIView` 於右上角 Custom Class 指定型別為 `VponMediaView`：
-   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-300"/>
+   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-500"/>
 4. 在您的 view controller 參考下方程式碼讓 `NativeAdView` 正確添加到畫面上：
 
 ### Objective-C
@@ -424,8 +424,6 @@ func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
 ### 中介服務
 透過中介服務，您的應用程式就能放送眾多來源的廣告，詳細請見說明：<br>
 - [使用 AdMob] <br>
-<!-- - [使用 MoPub] <br>
-- [使用 Smaato] -->
 
 ### 適用於 Vpon SDK v5.6.0 以下版本的串接方法
 如果您想了解 Vpon SDK v5.6.0 以下版本的串接方法，請參考[原生廣告](../native-under560)

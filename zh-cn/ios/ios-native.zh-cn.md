@@ -60,10 +60,11 @@ import VpadnSDKAdKit
 
 1. 创建一个 `UIView` xib 档案（以下用 `NativeAdView` 为范例），在右上角 Identity inspector 指定 Custom Class 为 `VponNativeAdView`、Module 指定为 `VpadnSDKAdKit`，如图：
 
-<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-500"/>
+
 
 2. 在 .xib 档案中布局您想要的 UI，并将各个 UI 元件（例如：欲呈现 headline 的 `UILabel`）连接 IBOutlet 到 `VponNativeAdView` 的对应属性，设定方式如图：
-<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-500"/>
     *原生广告呈现元件规范请参照 [Native Ad Spec](https://wiki.vpon.com/zh-tw/ios/native/#nativeAdSpec)  
 
     如果无法顺利连接 IBOutlet 到 `VponNativeAdView` 的对应属性，我们提供一个解决方案供参：
@@ -118,7 +119,7 @@ import VpadnSDKAdKit
 此时回到 xib 档案，应该就能在右侧栏 Outlets 面板看见 IBOutlet 并且连接。连结成功后即可视需求移除上述的 header copy 档案。
 
 3. 确认欲作为 mediaView 的 `UIView` 于右上角 Custom Class 指定型别为 `VponMediaView`：
-   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-300"/>
+   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-500"/>
 4. 在您的 view controller 参考下方程式码让 `NativeAdView` 正确添加到画面上：
 
 ### Objective-C

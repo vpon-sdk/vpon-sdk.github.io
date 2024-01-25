@@ -21,7 +21,7 @@ lang: "zh-tw"
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
-    VponAdConfiguration *config = VpadnAdConfiguration.shared;
+    VponAdConfiguration *config = VponAdConfiguration.shared;
     config.logLevel = VponLogLevelDefault;
     // set YES, SDK won't set and activate the audio session
     config.audioManager.isAudioApplicationManaged = YES;

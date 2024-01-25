@@ -62,11 +62,12 @@ Please follow these steps sequentially to display the Native Ad:
 
 1. Create a `UIView` XIB file (using `NativeAdView` as an example). In the Identity inspector, specify the Custom Class as `VponNativeAdView` and set the Module to `VpadnSDKAdKit`, as shown in the image:
 
-<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-300"/>
+<img src="{{site.imgurl}}/Native_iOS_NA_01.png" alt="" class="width-500"/>
 
-1. Arrange UI you desire within the .xib file and connect each UI component (e.g., a `UILabel` intended to display the headline) to the corresponding property of `VponNativeAdView` using IBOutlet. Set it up as illustrated in the image:
 
-<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-300"/>
+2. Arrange UI you desire within the .xib file and connect each UI component (e.g., a `UILabel` intended to display the headline) to the corresponding property of `VponNativeAdView` using IBOutlet. Set it up as illustrated in the image:
+
+<img src="{{site.imgurl}}/Native_iOS_NA_02.png" alt="" class="width-500"/>
     * For specifications on components for Native Ad presentation, please refer to [Native Ad Spec](#nativeAdSpec)
 
     If you are unable to successfully connect IBOutlet to the corresponding properties of `VponNativeAdView`, we provide a solution for your reference:
@@ -122,7 +123,7 @@ import VpadnSDKAdKit
 At this point, return to the .xib file, and you should be able to see the IBOutlet in the Outlets panel on the right side. Once successfully connected, you can remove the aforementioned header copy file as needed.
 
 3. Ensure that the `UIView` you intend to use as the mediaView has its type specified as `VponMediaView` in the Custom Class section at the top right corner:
-   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-300"/>
+   <img src="{{site.imgurl}}/Native_iOS_NA_03.png" alt="" class="width-500"/>
 4. In your view controller, refer to the following code to correctly add `NativeAdView` to the screen:
 
 ### Objective-C
@@ -438,9 +439,7 @@ Please refer to [Native Ad Integration Guide](../native-under560) if you want to
 ### Mediation
 ---
 Mediation is a feature that lets you serve ads to your apps from multiple sources. Please refer to the reference below to get the complete description about the Native Ad Mediation setting.<br>
-- [AdMob]<br>
-<!-- - [Mopub]<br>
-- [Smaato] -->
+- [AdMob]
 
 
 [settings here]: ../integration-guide/

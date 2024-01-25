@@ -23,7 +23,7 @@ Please follow the guideline below if you don't want Vpon SDK to reset the Audio 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
-    VponAdConfiguration *config = VpadnAdConfiguration.shared;
+    VponAdConfiguration *config = VponAdConfiguration.shared;
     config.logLevel = VponLogLevelDefault;
     // set YES, SDK won't set and activate the audio session
     config.audioManager.isAudioApplicationManaged = YES;
