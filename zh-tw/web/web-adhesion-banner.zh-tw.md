@@ -96,20 +96,5 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 
 ## 仍然無法解決？
 請將 debug 模式打開，重新連線網站，將 "Vpadn-" 開頭的訊息截取下來並且聯繫 [Vpon FAE]
 
-{{% tabs %}}
-{{% tab "Groovy" %}}
- standard fenced code block here
-{{% /tab %}}
-
-{{% tab "JavaScript" %}}
- standard fenced code block here
-{{% /tab %}}
-
-{{% tab "Ruby" %}}
- standard fenced code block here
-{{% /tab %}}
-
-{{% /tabs %}}
-
 [Callback]: {{site.baseurl}}/zh-tw/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
