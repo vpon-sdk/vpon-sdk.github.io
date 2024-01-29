@@ -28,7 +28,7 @@ Vpon Mobile Web SDK 支援以下`置頂/置底廣告格式`:<br>
 
 # 嵌入廣告程式碼
 ---
-與一般 Web Banner 相似，同樣是在行動網頁的 <body> 中填入 \<vpon\> tag，唯一不同點在於當 \<vpon\> tag 中包含了 `vpon_ad_adhesion` 的屬性且其參數為 "top" 或 "bottom" 時，可自動將該廣告固定於行動裝置的螢幕上方或下方。<br><br>
+與一般 Web Banner 相似，同樣是在行動網頁的 <body> 中填入 \<vpon\> tag，唯一不同點在於當 \<vpon\> tag 中包含了 `vpon_ad_adhesion` 的屬性且其參數為 "top" 或 "bottom" 時，可自動將該廣告固定於行動裝置的螢幕上方或下方。<br><br>
 在網頁 <body> 內欲放廣告的位置加上以下程式碼：
 
 ```html
@@ -95,6 +95,21 @@ ad\_request\_callback | 沒有廣告回傳時的 Callback Function  | N       | 
 
 ## 仍然無法解決？
 請將 debug 模式打開，重新連線網站，將 "Vpadn-" 開頭的訊息截取下來並且聯繫 [Vpon FAE]
+
+{{% tabs %}}
+{{% tab "Groovy" %}}
+ standard fenced code block here
+{{% /tab %}}
+
+{{% tab "JavaScript" %}}
+ standard fenced code block here
+{{% /tab %}}
+
+{{% tab "Ruby" %}}
+ standard fenced code block here
+{{% /tab %}}
+
+{{% /tabs %}}
 
 [Callback]: {{site.baseurl}}/zh-tw/web/original-banner/#callback
 [Vpon FAE]: mailto:fae@vpon.com
