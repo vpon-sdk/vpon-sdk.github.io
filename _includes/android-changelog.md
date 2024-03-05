@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.6.2
+* Release Date: 4 Mar, 2024
+* Fix memory leak issue while using VponBanner
+* Fix unsafe Cryptographic Encryption issue
 
 ## 5.6.0
 * Release Date: 25 Jan, 2024
