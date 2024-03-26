@@ -1,5 +1,9 @@
 # Vpon iOS SDK Change Log
 
+## 5.6.1
+* Release Date: 26 Mar, 2024
+* Bug fix
+
 ## 5.6.0
 * Release Date: 25 Jan, 2024
 * Add Ad Choices for Native Ad
