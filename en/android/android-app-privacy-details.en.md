@@ -70,8 +70,8 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 
 | <b>Type of Data</b> | <b>Description</b> | <b>Data Collected</b> | <b> Data Shared | <b>Data Usage</b> |
 |:--------------------|:-------------------|:----------------------|:----------------|:------------------|
-| Photos | A user’s photos. | Y <br> Data is not processed ephemerally | N | Advertising or marketing (with user consent)  |
-| Videos | A user’s videos. | Y <br> Data is not processed ephemerally | N | Advertising or marketing (with user consent)  |
+| Photos | A user’s photos. | Y <br> Data is processed ephemerally | N | Advertising or marketing (with user consent)  |
+| Videos | A user’s videos. | Y <br> Data is processed ephemerally | N | Advertising or marketing (with user consent)  |
 
 ## Audio files
 
