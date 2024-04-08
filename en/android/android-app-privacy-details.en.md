@@ -21,8 +21,8 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 
 | <b>Type of Data</b> | <b>Description</b> | <b>Data Collected</b> | <b> Data Shared | <b>Data Usage</b> |
 |:--------------------|:-------------------|:----------------------|:----------------|:------------------|
-| Approximate location | User or device physical location to an area greater than or equal to 3 square kilometers, such as the city a user is in, or location provided by Android’s ACCESS_COARSE_LOCATION permission. | Y <br> Data encrypted in transit <br> Data is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
-| Precise location | User or device physical location within an area less than 3 square kilometers, such as location provided by Android’s ACCESS_FINE_LOCATION permission. | Y <br> Data encrypted in transit <br> Data is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
+| Approximate location | User or device physical location to an area greater than or equal to 3 square kilometers, such as the city a user is in, or location provided by Android’s ACCESS_COARSE_LOCATION permission. | Y <br> Data encrypted in transit and is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
+| Precise location | User or device physical location within an area less than 3 square kilometers, such as location provided by Android’s ACCESS_FINE_LOCATION permission. | Y <br> Data encrypted in transit and is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
 
 > **Note:** Accroding to [Google Play Ad Policy],location permissions may only be requested to implement current features or services within your app, and may not request device location permissions solely for the use of ads.
 >
@@ -105,7 +105,7 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 |:--------------------|:-------------------|:----------------------|:----------------|:------------------|
 | App interactions | Information about how a user interacts with the app. For example, the number of times they visit a page or sections they tap on. | N | N | |
 | In-app search history | Information about what a user has searched for in your app. | N | N | |
-| Installed apps | Information about the apps installed on a user's device. | Y <br> Data encrypted in transit <br> Data is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
+| Installed apps | Information about the apps installed on a user's device. | Y <br> Data encrypted in transit and is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
 | Other user-generated content | Any other user-generated content not listed here, or in any other section. For example, user bios, notes, or open-ended responses. | N | N | |
 | Other actions | Any other user activity or actions in-app not listed here such as gameplay, likes, and dialog options. | N | N | |
 
@@ -127,7 +127,7 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 
 | <b>Type of Data</b> | <b>Description</b> | <b>Data Collected</b> | <b> Data Shared | <b>Data Usage</b> |
 |:--------------------|:-------------------|:----------------------|:----------------|:------------------|
-| Device or other IDs | Identifiers that relate to an individual device, browser or app. For example, an IMEI number, MAC address, Widevine Device ID, Firebase installation ID, or advertising identifier. | Y <br> Data encrypted in transit <br> Data is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
+| Device or other IDs | Identifiers that relate to an individual device, browser or app. For example, an IMEI number, MAC address, Widevine Device ID, Firebase installation ID, or advertising identifier. | Y <br> Data encrypted in transit and is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
 
 
 [Google Play Policy Annoucement]: https://support.google.com/googleplay/android-developer/answer/10787469
