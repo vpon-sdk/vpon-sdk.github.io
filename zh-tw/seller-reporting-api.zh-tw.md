@@ -21,25 +21,21 @@ lang:           "zh-tw"
 Vpon Seller Reporting API 提供三個月內的資料查詢，請見以下 API 使用說明：
 
 API Endpoint
-
 ```
 https://seller-report.vpon.com
 ```
 
 Request URL
-
 ```
 GET /api/banner_report	
 ```
 
 Request Parameter
-
 ```
 ?from={YYYYMMDD}&to={YYYYMMDD}&token_str:{str}
 ```
 
 Sample
-
 ```
 https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token=8a80818234847dc90134898eaf312345
 ```
@@ -47,7 +43,7 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 ## 請求參數說明
 
 | Parameter | Sample | Description |
-|:---------:|:------:|:-----------:|
+|:----------|:-------|:------------|
 | from      | 20240101 | 請求報告的起始日，最多回應三個月前的數據；若填入大於三個月的日期，仍僅會回傳最多到三個月前的數據 |
 | to        | 20240201 | 請求報告的結束日，最多回應請求當日前一日的數據 |
 | token     | sample | API Token，將由 Vpon BD 提供 |
@@ -92,7 +88,7 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 ## 回應參數說明
 
 | Parameter | Description |
-|:---------:|:-----------:|
+|:----------|:------------|
 | date      | 報告日期 |
 | app_name  | 開發商後台所註冊的 App 名稱 |
 | banner_name | 開發商後台所註冊的版位名稱 |
