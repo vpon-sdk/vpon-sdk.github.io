@@ -24,7 +24,7 @@ Please note that this is a general guideline for the data that Vpon SDK might co
 | Approximate location | User or device physical location to an area greater than or equal to 3 square kilometers, such as the city a user is in, or location provided by Android’s ACCESS_COARSE_LOCATION permission. | Y <br> Data encrypted in transit and is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
 | Precise location | User or device physical location within an area less than 3 square kilometers, such as location provided by Android’s ACCESS_FINE_LOCATION permission. | Y <br> Data encrypted in transit and is not processed ephemerally | Y | Advertising or marketing (with user consent)  |
 
-> **Note:** Accroding to [Google Play Ad Policy],location permissions may only be requested to implement current features or services within your app, and may not request device location permissions solely for the use of ads.
+> **Note:** Accroding to [Google Play Ad Policy], location permissions may only be requested to implement current features or services within your app, and may not request device location permissions solely for the use of ads.
 >
 > Please fill this field depend on your App.
 
