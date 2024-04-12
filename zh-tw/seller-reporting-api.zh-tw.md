@@ -11,7 +11,7 @@ lang:           "zh-tw"
 # 提出使用需求
 ---
 
-若您有 Reporting API 的使用需求，請向 partner.service@vpon.com 提出使用需求，並附上您在 Vpon 開發商後台註冊的帳號，以便提供相應使用的 API Token。
+若您有 Reporting API 的使用需求，請向 [Vpon PDMKT Team] 提出使用需求，並附上您在 Vpon 開發商後台註冊的帳號，以便提供相應使用的 API Token。
 
 # API 使用說明
 ---
@@ -104,3 +104,6 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 | banner_id | 該版位的 License Key |
 
 > **Note:** 若取得數據與 Vpon 開發商後台所展示的有所差異，請依 Vpon 開發商後台所展示的數據為主。
+
+
+[Vpon PDMKT Team]: mailto:partner.service@vpon.com
