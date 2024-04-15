@@ -4,7 +4,7 @@ title:          "Seller Reporting API 使用說明"
 lead:           ""
 description:    ""
 keywords:       "Seller Reporting API 使用說明"
-permalink:       zh-tw/android/seller-reporting-api/
+permalink:       zh-tw/seller-reporting-api/
 lang:           "zh-tw"
 ---
 
