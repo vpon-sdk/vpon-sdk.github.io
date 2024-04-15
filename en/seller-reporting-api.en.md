@@ -4,7 +4,7 @@ title:          "Seller Reporting API"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       web/seller-reporting-api/
+permalink:       /seller-reporting-api/
 lang:           "en"
 ---
 
