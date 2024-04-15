@@ -88,6 +88,15 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 | currency | 收益幣值 |
 | banner_id | 該版位的 License Key |
 
+## Error Code 說明
+
+| Error Code | Description |
+|:-----------|:------------|
+| 200    | Success |
+| 403 Token Invalide | Token 過期或被撤銷 |
+| 400 Bad Request | 請求參數錯誤 |
+
+
 > **Note:** 若取得數據與 Vpon 開發商後台所展示的有所差異，請依 Vpon 開發商後台所展示的數據為主。
 
 

@@ -89,6 +89,15 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 | currency | Currency of the revenue |
 | banner_id | License key of the placement |
 
+## Error Code 
+
+| Error Code | Description |
+|:-----------|:------------|
+| 200    | Success |
+| 403 Token Invalide | Invalid Token |
+| 400 Bad Request | Invalid Request |
+
+
 > **Note:** If there is any discrepancy between the data obtained and what is displayed on the Vpon Publisher Console, please refer to the data displayed on the Vpon Developer Console.
 
 [Vpon PDMKT Team]: mailto:partner.service@vpon.com
