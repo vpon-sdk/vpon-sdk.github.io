@@ -143,6 +143,25 @@ request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]
 ```
 
 
+<!-- 
+# Location Manager
+---
+
+```objc
+VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
+config.logLevel = VpadnLogLevelDefault;
+config.locationManager.isEnable = NO;
+[config initializeSdk];
+```
+
+```swift
+let config = VpadnAdConfiguration.sharedInstance()
+config.logLevel = .default
+config.locationManger.isEnable = false
+config.initializeSdk()
+``` -->
+
+
 
 <!-- >**Note:** 關於自定義參數值的參考值，請參考以下說明 -->
 

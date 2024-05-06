@@ -97,7 +97,9 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 | 400 Bad Request | 請求參數錯誤 |
 
 
-> **Note:** 若取得數據與 Vpon 開發商後台所展示的有所差異，請依 Vpon 開發商後台所展示的數據為主。
+> **Note:** 
+> * 若取得數據與 Vpon 開發商後台所展示的有所差異，請依 Vpon 開發商後台所展示的數據為主。
+> * 為避免無法正常抓取數據，建議於每日上午 6:00 後執行 API
 
 
 [Vpon PDMKT Team]: mailto:partner.service@vpon.com

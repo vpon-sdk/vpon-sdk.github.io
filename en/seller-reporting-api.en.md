@@ -98,6 +98,8 @@ https://seller-report.vpon.com/api/banner_report?from=20240101&to=20240201&token
 | 400 Bad Request | Invalid Request |
 
 
-> **Note:** If there is any discrepancy between the data obtained and what is displayed on the Vpon Publisher Console, please refer to the data displayed on the Vpon Developer Console.
+> **Note:** 
+> * If there is any discrepancy between the data obtained and what is displayed on the Vpon Publisher Console, please refer to the data displayed on the Vpon Developer Console.
+> * To avoid any issues with data retrieval, it is recommended to execute the API after 6:00 AM.
 
 [Vpon PDMKT Team]: mailto:partner.service@vpon.com
