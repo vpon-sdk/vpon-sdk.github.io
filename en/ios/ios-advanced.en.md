@@ -1,10 +1,10 @@
 ---
 layout:         "ios"
-title:          "iOS - Advanced Setting"
+title:          "iOS - Custom Request Params"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/advanced/
+permalink:       ios/custom-request-params/
 lang:            "en"
 ---
 

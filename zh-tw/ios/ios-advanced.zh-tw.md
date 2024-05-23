@@ -1,10 +1,10 @@
 ---
 layout: "ios"
-title: "iOS - 進階設定"
+title: "iOS - 自定義廣告請求參數"
 lead: "幫助您取得更多廣告功能"
 description:
 keywords: 'Keywords for this page, in the meta data'
-permalink: /zh-tw/ios/advanced/
+permalink: /zh-tw/ios/custom-request-params/
 lang: "zh-tw"
 ---
 

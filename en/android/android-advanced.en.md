@@ -1,10 +1,10 @@
 ---
 layout:         "android"
-title:          "Android - Advanced"
+title:          "Android - Custom Request Params"
 lead:           "Optimizing your ads performance from advanced skills here."
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       android/advanced/
+permalink:       android/custom-request-params/
 lang:           "en"
 ---
 

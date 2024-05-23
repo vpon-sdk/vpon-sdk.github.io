@@ -8,9 +8,9 @@
   {% assign urlBanner = v | append:"/android/banner" %}
   {% assign urlInterstitial = v | append:"/android/interstitial" %}
   {% assign urlNative = v | append:"/android/native" %}
-  {% assign urlOutstream = v | append:"/android/outstream" %}
   {% assign urlMediation = v | append:"/android/mediation" %}
-  {% assign urlAdvanced = v | append:"/android/advanced" %}
+  {% assign urlFlutter = v | append:"/android/flutter" %}
+  {% assign urlCustomRequestParams = v | append:"/android/custom-request-params" %}
   {% assign urlLatestNews = v | append:"/android/latest-news" %}
   {% assign urlDownload = v | append:"/android/download" %}
   {% assign urlChangelog = v | append:"/android/changelog" %}
@@ -24,10 +24,11 @@
   {% assign banner-id = "Banner Ad" %}
   {% assign interstitial-id = "Interstitial Ad" %}
   {% assign native-id = "Native Ad" %}
-  {% assign outstream-id = "Out-stream Video Ad" %}
+  {% assign sidebar-title3 = "Advanced Setting" %}
   {% assign mediation = "Mediation" %}
-  {% assign advanced = "Advanced" %}
-  {% assign sidebar-title3 = "MISC" %}
+  {% assign flutter = "Flutter" %}
+  {% assign custom-request-params = "Custom Request Params" %}
+  {% assign sidebar-title4 = "MISC" %}
   {% assign download = "Download" %}
   {% assign latest-news = "Latest News" %}
   {% assign changelog = "Change Log" %}
@@ -40,9 +41,9 @@
   {% assign urlBanner = v | append:"/" | append: langs | append: "/android/banner" %}
   {% assign urlInterstitial = v | append:"/" | append: langs | append: "/android/interstitial" %}
   {% assign urlNative = v | append:"/" | append: langs | append: "/android/native" %}
-  {% assign urlOutstream = v | append:"/" | append: langs | append: "/android/outstream" %}
   {% assign urlMediation = v | append:"/" | append: langs | append: "/android/mediation" %}
-  {% assign urlAdvanced = v | append:"/" | append: langs | append: "/android/advanced" %}
+  {% assign urlFlutter = v | append:"/" | append: langs | append: "/android/flutter" %}
+  {% assign urlCustomRequestParams = v | append:"/" | append: langs | append: "/android/custom-request-params" %}
   {% assign urlLatestNews = v | append:"/" | append: langs | append: "/android/latest-news" %}
   {% assign urlDownload = v | append:"/" | append: langs | append: "/android/download" %}
   {% assign urlChangelog = v | append:"/" | append: langs | append: "/android/changelog" %}
@@ -59,10 +60,11 @@
   {% assign banner-id = "橫幅廣告" %}
   {% assign interstitial-id = "插頁廣告" %}
   {% assign native-id = "原生廣告" %}
-  {% assign outstream-id = "Out-stream 影音廣告" %}
+  {% assign sidebar-title4 = "進階設定" %}
   {% assign mediation = "中介服務" %}
-  {% assign advanced = "進階設定" %}
-  {% assign sidebar-title3 = "其他" %}
+  {% assign flutter = "Flutter" %}
+  {% assign custom-request-params = "自定義廣告請求參數" %}
+  {% assign sidebar-title4 = "其他" %}
   {% assign download = "下載 SDK" %}
   {% assign latest-news = "最新消息" %}
   {% assign changelog = "更新日誌" %}
@@ -77,10 +79,11 @@
   {% assign banner-id = "横幅广告" %}
   {% assign interstitial-id = "插页广告" %}
   {% assign native-id = "原生广告" %}
-  {% assign outstream-id = "Out-stream 影音广告" %}
+  {% assign sidebar-title3 = "进阶设定" %}
   {% assign mediation = "中介服务" %}
-  {% assign advanced = "进阶设定" %}
-  {% assign sidebar-title3 = "其他" %}
+  {% assign flutter = "Flutter" %}
+  {% assign custom-request-params = "自定义广告请求参数" %}
+  {% assign sidebar-title4 = "其他" %}
   {% assign download = "下载 SDK" %}
   {% assign latest-news = "最新消息" %}
   {% assign changelog = "更新日志" %}
@@ -95,7 +98,6 @@
   {% assign banner-id = "バナー広告" %}
   {% assign interstitial-id = "インタースティシャル広告" %}
   {% assign native-id = "Native Ad" %}
-  {% assign outstream-id = "Out-stream Video Ad" %}
   {% assign mediation = "メディエーション" %}
   {% assign advanced = "詳細設定" %}
   {% assign sidebar-title3 = "ダウンロード/その他" %}
@@ -113,10 +115,11 @@
   <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
   <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
   <li><a id= "native-id" href="{{urlNative}}">{{native-id}}</a></li>
-  <li><a id= "outstream-id" href="{{urlOutstream}}">{{outstream-id}}</a></li>
-  <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
-  <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
   <span id= "sidebar-title3">{{sidebar-title3}}</span>
+  <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
+  <li><a id= "flutter" href="{{urlFlutter}}">{{flutter}}</a></li>
+  <li><a id= "custom-request-params" href="{{urlCustomRequestParams}}">{{custom-request-params}}</a></li>
+  <span id= "sidebar-title4">{{sidebar-title4}}</span>
   <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
   <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
   <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
@@ -136,16 +139,19 @@
         <li><a id= "banner-id" href="{{urlBanner}}">{{banner-id}}</a></li>
         <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial-id}}</a></li>
         <li><a id= "native-id" href="{{urlNative}}">{{native-id}}</a></li>
-        <li><a id= "outstream-id" href="{{urlOutstream}}">{{outstream-id}}</a></li>
-        <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
-        <li><a id= "advanced" href="{{urlAdvanced}}">{{advanced}}</a></li>
   </div>
   <div class="nav nav-sidebar" style="float: right">
       <span id="sidebar-title3">{{sidebar-title3}}</span>
-        <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
-        <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
-        <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
-        <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li>
-        <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
+      <li><a id= "mediation" href="{{urlMediation}}">{{mediation}}</a></li>
+      <li><a id= "flutter" href="{{urlFlutter}}">{{flutter}}</a></li>
+      <li><a id= "custom-request-params" href="{{urlCustomRequestParams}}">{{custom-request-params}}</a></li>
   </div>
+  <div class="nav nav-sidebar" style="float: right">
+    <span id="sidebar-title4">{{sidebar-title4}}</span>
+      <li><a id= "download" href="{{urlDownload}}">{{download}}</a></li>
+      <li><a id= "latest-news" href="{{urlLatestNews}}">{{latest-news}}</a></li>
+      <li><a id= "changelog" href="{{urlChangelog}}">{{changelog}}</a></li>
+      <li><a id= "appprivacydetails" href="{{urlAppPrivacyDetails}}">{{appprivacydetails}}</a></li>
+      <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
+</div>
 </div>

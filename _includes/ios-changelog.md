@@ -1,4 +1,10 @@
 # Vpon iOS SDK Change Log
+<!-- 
+## 5.6.2
+* Release Date: 22 May, 2024
+* Compliant with IAB OM SDK v1.4.13
+* Remove Out-stream Video Ad
+* Support Vpon Flutter Plugin -->
 
 ## 5.6.1
 * Release Date: 26 Mar, 2024

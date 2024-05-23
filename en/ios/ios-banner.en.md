@@ -192,6 +192,7 @@ Besides the 320x50, Vpon supports the following ad formats:
 Size (WxH)                 |Description             |  VponAdSize Constant           | Devices
 :------------------------: | :---------------------:| :-----------------------------:|:-----------:
 320x50                     | Standard Banner        | banner              |iPhone<br>iPad
+320x100                    | Large Banner           | largeBanner         |iPhone<br>iPad
 468x60                     | IAB Full-Size Banner   | fullBanner          |iPad
 728x90                     | IAB  Leaderboard       | leaderBoard         |iPad
 300x250                    | IAB Medium Recangle    | mediumRectangle     |iPhone<br>iPad

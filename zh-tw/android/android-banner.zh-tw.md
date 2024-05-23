@@ -152,13 +152,14 @@ protected void onDestroy() {
 ---
 除了支援標準橫幅廣告的尺吋外，Vpon Android SDK 還支援下列幾種尺吋的橫幅廣告：
 
-大小 (寬度x高度)             |     說明       |  VponAdSize 常數值
-:------------------------: | :-------------:| :-----------------------------:
-320x50                     | 標準橫幅廣告     | VponAdSize.BANNER
-300x250                    | IAB 中矩形廣告   | VponAdSize.IAB\_MRECT
-320x480                    | 大型橫幅廣告      | VponAdSize.LARGE\_RECTANGLE
-468x60                     | IAB 全橫幅廣告   | VponAdSize.IAB\_BANNER
-728x90                     | IAB 超級橫幅廣告 | VponAdSize.IAB\_LEADERBOARD
+|      Size (WxH)            | Description    |  VponAdSize Constant            |
+  :------------------------: | :-------------:| :-----------------------------:
+  320x50                     | Standard Banner| VponAdSize.BANNER
+  320x100                    | Large Banner   | VponAdSize.LARGE\_BANNER
+  300x250                    |IAB Medium Rectangle| VponAdSize.IAB\_MRECT
+  320x480                    | Large Rectangle Banner| VponAdSize.LARGE\_RECTANGLE
+  468x60                     |IAB Full-Size Banner| VponAdSize.IAB\_BANNER
+  728x90                     | IAB Leaderboard|  VponAdSize.IAB\_LEADERBOARD
 
 <!-- 320x100                    | 大型橫幅廣告     | VponAdSize.LARGE\_BANNER -->
 

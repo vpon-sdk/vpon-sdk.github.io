@@ -1,10 +1,10 @@
 ---
 layout:         "android"
-title:          "Android - 進階設定"
+title:          "Android - 自定義廣告請求參數"
 lead:           "幫助您取得更多廣告功能與資料收集"
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       /zh-tw/android/advanced/
+permalink:       /zh-tw/android/custom-request-params/
 lang:            "zh-tw"
 --- 
 

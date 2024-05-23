@@ -192,13 +192,14 @@ func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
 ---
 除了標準尺吋 (320x50) 的橫幅廣告外，Vpon 還支援多種不同尺吋的橫幅廣告：
 
-尺吋<br>(寬x高)             |     說明       |  VponAdSize 常數值              | 適用裝置
-:------------------------: | :-------------:| :-----------------------------:|:-----------:
-320x50                     | 標準橫幅廣告     | banner              |iPhone<br>iPad
-468x60                     | IAB 全橫幅廣告   | fullBanner          |iPad
-728x90                     | IAB 超級橫幅廣告 | leaderBoard         |iPad
-300x250                    | IAB 中矩形廣告   | mediumRectangle     |iPhone<br>iPad
-320x480                    | 大型橫幅廣告     | largeRectangle      |iPhone<br>iPad
+Size (WxH)                 |Description             |  VponAdSize Constant           | Devices
+:------------------------: | :---------------------:| :-----------------------------:|:-----------:
+320x50                     | Standard Banner        | banner              |iPhone<br>iPad
+320x100                    | Large Banner           | largeBanner         |iPhone<br>iPad
+468x60                     | IAB Full-Size Banner   | fullBanner          |iPad
+728x90                     | IAB  Leaderboard       | leaderBoard         |iPad
+300x250                    | IAB Medium Recangle    | mediumRectangle     |iPhone<br>iPad
+320x480                    | Large Rectangle Banner | largeRectangle      |iPhone<br>iPad
 
 此外，也可使用 VponAdSize 的類別方法（class method）創建想要的尺寸，作為 init `VponBannerView` 的參數，例如：
 
