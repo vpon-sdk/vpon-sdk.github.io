@@ -14,9 +14,13 @@ lang: "zh-cn"
 
 本篇将说明如何透过 Vpon Flutter Plugin 串接 Vpon SDK，请根据您计划串接的广告类型完成串接
 
-1. [引入及初始化 SDK]
-2. [横幅广告串接]
-3. [插页广告串接]
+1. [引入及初始化 SDK](#initsdk)
+2. [横幅广告串接](#banner)
+3. [插页广告串接](#interstitial)
+
+您也可以在 [pub.dev] 查看我们的串接文件与 Plugin 讯息。
+
+>**Note:** 支援 Vpon SDK `Android v5.6.4` 及 `iOS v5.6.2` 以上版本。
 
 # 引入及初始化 SDK {#initsdk}
 ---
@@ -34,7 +38,7 @@ $ flutter pub add vpon_plugin_poc
 
 ```
 dependencies:
-  vpon_plugin_poc: ^0.0.1
+  vpon_mobile_ads: ^0.0.1
 ```
 
 ## 初始化 SDK
@@ -43,7 +47,7 @@ dependencies:
 请在请求广告之前，呼叫 `VponAdSDK.instance.initialize()` 完成 SDK 初始化：
 
 ```dart
-import 'package:vpon_plugin_poc/vpon_ad_sdk.dart';
+import 'package:vpon_mobile_ads/vpon_ad_sdk.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -173,7 +177,4 @@ InterstitialAd? _interstitialAd;
 _interstitialAd.show();
 ```
 
-
-[引入及初始化 SDK]: {{ site.baseurl }}/zh-cn/ios/flutter/initsdk
-[横幅广告串接]: {{ site.baseurl }}/zh-cn/ios/flutter/banner
-[插页广告串接]: {{ site.baseurl }}/zh-cn/ios/flutter/interstitial
+[pub.dev]: https://pub.dev/packages/vpon_mobile_ads/install

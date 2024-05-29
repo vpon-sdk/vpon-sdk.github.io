@@ -12,11 +12,14 @@ lang:           "en"
 
 This guideline will instruct you to integrate Vpon SDK with Vpon Flutter Plugin. Please follow the steps below to finish your integration.
 
-1. [Import and Initialize SDK]
-2. [Banner Ad Implementation]
-3. [Insterstitial Ad Implementation]
+1. [Import and Initialize SDK](#initsdk)
+2. [Banner Ad Implementation](#banner)
+3. [Insterstitial Ad Implementation](#interstitial)
 
-You can alse check this guideline on [].
+You can alse check this guideline and the information about the plugin on [pub.dev].
+
+>**Note:** Support Vpon SDK `Android v5.6.4` and `iOS v5.6.2` above.
+
 
 # Import and Initialize SDK {#initsdk}
 ---
@@ -34,7 +37,7 @@ Check your package's pubspec.yaml to see if below dependency added:
 
 ```
 dependencies:
-  vpon_plugin_poc: ^0.0.1
+  vpon_mobile_ads: ^0.0.1
 ```
 
 ## Initialize SDK
@@ -43,7 +46,7 @@ dependencies:
 Please initialize Vpon SDK by calling `VponAdSDK.instance.initialize()` before loading ads:
 
 ```dart
-import 'package:vpon_plugin_poc/vpon_ad_sdk.dart';
+import 'package:vpon_mobile_ads/vpon_ad_sdk.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -173,7 +176,4 @@ InterstitialAd? _interstitialAd;
 _interstitialAd.show();
 ```
 
-
-[Import and Initialize SDK]: {{ site.baseurl }}/android/flutter/initsdk
-[Banner Ad Implementation]: {{ site.baseurl }}/android/flutter/banner
-[Insterstitial Ad Implementation]: {{ site.baseurl }}/android/flutter/interstitial
+[pub.dev]: https://pub.dev/packages/vpon_mobile_ads/install

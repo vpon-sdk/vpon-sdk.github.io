@@ -144,6 +144,22 @@ Vpon 目前以自訂事件的方式支援 AdMob (Google Ad Manager) Native Ad Me
 Vpon 提供測試廣告，請參考 [Android 測試廣告]呼叫測試廣告，以便測試。
 
 
+<!-- <br>
+
+### 在 Google Play 上架審核時，因為所含 SDK 預設會收集裝置的位置資訊或在背景中收集地理位置資訊而遭拒絕上架
+---
+
+Vpon SDK 僅會在 App 經 User 同意提供權限後，嘗試抓取地理位置資訊。對於這些資訊的使用，可以參考我們的[隱私條款]。
+
+Google Play 近期開始要求 App 對於隱私資料的收集與使用訊息揭露要保持一致性，請參考以下資訊以通過 Google Play 的隱私政策審查：
+
+* 請參考 [Android - Privacy Details]，確認 Data Safety Form 有勾選與地理位置資訊的使用用途，包含收集與分享
+* 請在 App 中加上隱私政策的連結，並確認隱私政策包含對地理位置資訊收集與使用的說明
+* 根據 [Google Play 政策要求]，App 在彈窗向 User 要求提供地理位置資訊權限前，需要以醒目提示說明資料使用的用途。可以參考以下文案：「 App 會收集和使用你的定位資料來提供更合適你的個人化用戶體驗，例如 [特定功能]，以及讓第三方平台提供更合適的廣告。」
+* 在審核前，請將曾被 Google Play 拒絕上架的版本移除
+* 在審核 (或審核被拒絕後提出申訴) 時，附上 App 的操作影片，影片需包含 Launch App 後如何觸發醒目提示的彈窗、在 User 同意後才顯示要求提供權限的彈窗，並顯示 App 中與該權限相關的功能。關於影片的說明，可以參考 [Google 的 Best Practice]
+
+<br> -->
 
 # iOS
 ---
@@ -334,3 +350,7 @@ Vpon 提供沒有廣告回傳時的 Callback Function，請參考 [Web SDK Callb
 [Vpon FAE]: mailto:fae@vpon.com
 [FAQ_01.png]: {{site.imgurl}}/FAQ_01.png
 [FAQ_02.png]: {{site.imgurl}}/FAQ_02.png
+[隱私條款]: https://www.vpon.com/en/privacy-policy/
+[Google Play 政策要求]: https://support.google.com/googleplay/android-developer/answer/10144311
+[Google 的 Best Practice]: https://support.google.com/googleplay/android-developer/answer/11150561
+[Android - Privacy Details]: https://wiki.vpon.com/android/app-privacy-details/
