@@ -1,5 +1,5 @@
 ---
-layout:         "android"
+layout:         "flutter"
 title:          "註冊成為開發商"
 lead:           "Vpon SDK 帳號註冊教學頁面"
 description:    "Vpon SDK 帳號註冊教學頁面"

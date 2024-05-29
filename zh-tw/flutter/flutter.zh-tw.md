@@ -12,12 +12,12 @@ lang:           "zh-tw"
 ---
 Vpon 提供 Flutter Plugin，若您使用 Flutter 開發您的 App，可以參照本系列文件完成 Vpon SDK 串接。
 
-在開始串接之前，請先註冊成為 Vpon 開發商夥伴，並取得 Vpon License Key
+在開始串接之前，請先註冊成為 Vpon 開發商夥伴，並取得 Vpon License Key：
 
 * [註冊成為 Vpon 開發商夥伴](http://console.vpon.com/register.action)
 * [申請 License Key](http://console.vpon.com)
 
-完成註冊後，請根據您計劃串接的廣告類型完成串接
+完成註冊後，請根據您計劃串接的廣告類型完成串接：
 
 1. [引入及初始化 SDK](#initsdk)
 2. [橫幅廣告串接](http://wiki.vpon.com/zh-tw/flutter/banner)
