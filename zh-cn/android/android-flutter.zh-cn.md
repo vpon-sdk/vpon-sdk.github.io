@@ -124,7 +124,7 @@ Vpon supports following Banner sizes:
   468x60                     |IAB Full-Size Banner| fullBanner
   728x90                     | IAB Leaderboard|  leaderBoard
 
-# 插页广告串接 {#insterstitial}
+# 插页广告串接 {#interstitial}
 
 ## 宣告 Interstitial Ad 物件
 --- 
