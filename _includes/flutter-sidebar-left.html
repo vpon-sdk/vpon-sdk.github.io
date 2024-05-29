@@ -1,0 +1,94 @@
+{% assign v = {{site.baseurl}} %}
+{% assign langs = {{page.lang}}%}
+{% case langs %}
+{% when "en" %}
+  {% assign urlGettingStarted = v | append:"/flutter" %}
+  {% assign urlRegistration = v | append:"/flutter/registration" %}
+  {% assign urlBanner = v | append:"/flutter/banner" %}
+  {% assign urlInterstitial = v | append:"/flutter/interstitial" %}
+  {% assign urlChangelog = v | append:"/flutter/changelog" %}
+  {% assign urlFaq = v | append:"/flutter/faq" %}
+  {% assign sidebar-title1 = "Flutter Integration" %}
+  {% assign registration = "Registration" %}
+  {% assign sidebar-title2 = "Ad Type Choices" %}
+  {% assign banner = "Banner Ad" %}
+  {% assign interstitial = "Interstitial Ad" %}
+  {% assign sidebar-title3 = "MISC" %}
+  {% assign changeLog = "Change Log" %}
+  {% assign faq = "FAQ" %}
+
+{% else %}
+  {% assign urlGettingStarted = v | append:"/" | append: langs | append: "/flutter" %}
+  {% assign urlRegistration = v | append:"/" | append: langs | append: "/flutter/registration" %}
+  {% assign urlBanner = v | append:"/" | append: langs | append: "/flutter/banner" %}
+  {% assign urlInterstitial = v | append:"/" | append: langs | append: "/flutter/interstitial" %}
+  {% assign urlChangelog = v | append:"/" | append: langs | append: "/flutter/changelog" %}
+  {% assign urlFaq = v | append:"/" | append: langs | append: "/flutter/faq" %}
+{% endcase %}
+{% case langs %}
+{% when "zh-tw" %}
+  {% assign sidebar-title1 = "Flutter 串接" %}
+  {% assign getting-started = "開始使用" %}
+  {% assign registration = "註冊帳號" %}
+  {% assign sidebar-title2 = "廣告型態選擇" %}
+  {% assign original-banner-id = "橫幅廣告" %}
+  {% assign interstitial-id = "插頁廣告" %}
+  {% assign sidebar-title3 = "其它" %}
+  {% assign changeLog = "Change Log" %}
+  {% assign faq = "常見問題" %}
+
+{% when "zh-cn" %}
+  {% assign sidebar-title1 = "Flutter 串接" %}
+  {% assign getting-started = "开始使用" %}
+  {% assign registration = "注册帐号" %}
+  {% assign sidebar-title2 = "广告型态选择" %}
+  {% assign original-banner-id = "横幅广告" %}
+  {% assign interstitial-id = "插页广告" %}
+  {% assign sidebar-title3 = "其它" %}
+  {% assign changeLog = "Change Log" %}
+  {% assign faq = "常见问题" %}
+
+{% when "jp" %}
+  {% assign sidebar-title1 = "Web 串接" %}
+  {% assign getting-started = "スタートガイド" %}
+  {% assign registration = "Vponへの登録" %}
+  {% assign sidebar-title2 = "広告パターンとを選択" %}
+  {% assign original-banner-id = "バナー広告" %}
+  {% assign adhesion-banner-id = "(adhesion)バナー広告" %}
+  {% assign interstitial-id = "インタースティシャル広告" %}
+  {% assign native-id = "Native Ad" %}
+  {% assign sidebar-title3 = "MISC" %}
+  {% assign faq = "FAQ" %}
+
+
+{% endcase %}
+<ul class= "nav nav-sidebar nav-left hidden-xs hidden-sm">
+  <span id= "sidebar-title1">{{sidebar-title1}}</span>
+  <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+  <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
+  <span id= "sidebar-title2">{{sidebar-title2}}</span>
+  <li><a id= "banner-id" href="{{urlBanner}}">{{banner}}</a></li>
+  <li><a id= "interstitial-id" href="{{urlInterstitial}}">{{interstitial}}</a></li>
+  <li><a id= "native-id" href="{{urlNative}}">{{native-id}}</a></li>
+  <span id= "sidebar-title3">{{sidebar-title3}}</span>
+  <li><a id= "changeLog" href="{{urlChangeLog}}">{{changeLog}}</a></li>
+  <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
+</ul>
+
+<div class="visible-xs visible-sm" style="width:100%">
+  <div class="nav nav-sidebar" style="float:left">
+      <span id= "sidebar-title1">{{sidebar-title1}}</span>
+      <li><a id= "getting-started" href="{{urlGettingStarted}}">{{getting-started}}</a></li>
+      <li><a id= "registration" href="{{urlRegistration}}">{{registration}}</a></li>
+  </div>
+  <div class="nav nav-sidebar">
+      <span id="sidebar-title2">{{sidebar-title2}}</span>
+        <li><a id= "banner" href="{{urlBanner}}">{{banner}}</a></li>
+        <li><a id= "interstitial" href="{{urlInterstitial}}">{{interstitial}}</a></li>
+  </div>
+  <div class="nav nav-sidebar" style="float: right">
+      <span id="sidebar-title3">{{sidebar-title3}}</span>
+      <li><a id= "changeLog" href="{{urlChangeLog}}">{{faq}}</a></li>
+        <li><a id= "faq" href="{{urlFaq}}">{{faq}}</a></li>
+  </div>
+</div>

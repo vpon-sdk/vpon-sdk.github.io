@@ -94,6 +94,10 @@ right_nav_new:
     url2: /zh-tw/web/
     url3: /zh-cn/web/
     url4: /jp/web/
+  - title: Flutter
+    url1: /flutter/
+    url2: /zh-tw/flutter/
+    url3: /zh-cn/flutter/
 
 
 # languages
@@ -112,4 +116,4 @@ analytics:
 
 #version
 a_version:          5.6.4
-i_version:          5.6.1
+i_version:          5.6.2
