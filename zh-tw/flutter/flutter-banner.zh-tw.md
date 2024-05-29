@@ -11,9 +11,7 @@ lang:           "zh-tw"
 # 概覽
 ---
 
-本篇將說明如何透過 Vpon Flutter Plugin 串接橫幅廣告。
-
-您也可以在 [pub.dev] 查看我們的串接文件與 Plugin 訊息。
+本篇將說明如何透過 Vpon Flutter Plugin 串接橫幅廣告，您也可以在 [pub.dev] 查看我們的串接文件與 Plugin 訊息。
 
 # 橫幅廣告串接
 ---
