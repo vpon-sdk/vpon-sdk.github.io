@@ -210,7 +210,6 @@ For more ad types, please refer to:
 * [Banner Ad][1]
 * [Interstitial Ad][2]
 * [Native Ad][3]
-* [Out-stream Video Ad][5]
 * [Mediation][4]
 
 

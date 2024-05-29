@@ -212,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
 * [橫幅廣告][1]
 * [插頁廣告][2]
 * [原生廣告][3]
-* [Out-stream 影音廣告][5]
 * [中介服務][4]
 
 

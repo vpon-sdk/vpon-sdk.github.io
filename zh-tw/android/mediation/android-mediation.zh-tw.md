@@ -14,9 +14,13 @@ lang:           "zh-tw"
 
 # 完成串接準備
 ---
-在開始串接廣告之前，請確認您已經將 Vpon SDK 導入您的專案中。若您尚未完成，請先參考[串接說明]完成相關設定。
+在開始串接廣告之前，請確認您已經將 Vpon SDK 導入您的專案中。若您尚未完成，請先參考[串接說明]完成相關設定，並由以下連結下載 Vpon Adapter，將其加入 App Project 中：
 
-# 中介服務平台
+| Mediation Platform | Adapter | Compatible SDK Version|
+|:------------------:|:-------:|:---:|
+| AdMob <br> Google Ad Manager <br> (v2.0.11) | [download] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 19.4 ↑ | 
+
+# 支援的中介平台
 ---
 
 | AdMob         | Ad Manager |
@@ -108,3 +112,4 @@ adView.setLocalExtras(localExtras);
 [4]: smaato
 [5]: {{site.baseurl}}/zh-tw/android/mediation/#admob
 [6]: {{site.baseurl}}/zh-tw/android/mediation/#mopub
+[download]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter

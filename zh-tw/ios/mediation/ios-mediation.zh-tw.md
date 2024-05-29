@@ -7,16 +7,20 @@ keywords: 'Keywords for this page, in the meta data'
 permalink: /zh-tw/ios/mediation/
 lang: "zh-tw"
 ---
-## 完成串接指示
----
-若您尚未完成串接廣告形式前的串接說明，請先前往[串接說明]完成相關設定
-
 # 概要
 ---
-透過中介服務，您的應用程式就能放送眾多來源 (包括 AdMob 聯播網、MoPub 聯播網、第三方廣告聯播網和內部廣告活動) 的廣告。
+透過中介服務，您的應用程式就能放送眾多來源 (包括 AdMob 聯播網、第三方廣告聯播網和內部廣告活動) 的廣告。
+
+# 完成串接指示
+---
+若您尚未完成串接廣告形式前的串接說明，請先前往[串接說明]完成相關設定，並由以下連結下載 Vpon Adapter，將其加入 App Project 中：
+
+| Mediation Platform | Adapter | Compatible SDK Version|
+|:------------------:|:-------:|:---:|
+| AdMob <br> Google Ad Manager <br> (v2.0.11) | [download] | Vpon SDK 5.5.0 ↑ <br> GMA SDK 9.0.0 ↑ | 
 
 
-# 中介平台
+# 支援的中介平台
 ---
 
 | AdMob         | Ad Manager |
@@ -193,3 +197,4 @@ targeting?.localExtras = ["contentURL":"https://www.vpon.com", "contentData": ["
 [4]: smaato
 [5]: {{site.baseurl}}/zh-tw/ios/mediation/#admob
 [6]: {{site.baseurl}}/zh-tw/ios/mediation/#mopub
+[download]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter

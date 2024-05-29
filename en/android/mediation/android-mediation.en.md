@@ -11,6 +11,12 @@ lang:           "en"
 ---
 If you haven't finished the previous integration guide, please check all the [settings here](../integration-guide/).
 
+Besides, you have to download and import Vpon Adapter in your project:
+
+| Mediation Platform | Adapter | Compatible SDK Version|
+|:------------------:|:-------:|:---:|
+| AdMob <br> Google Ad Manager <br> (v2.0.11) | [download] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 19.4 ↑ | 
+
 # Overview
 ---
 AdMob Mediation is a feature that lets you serve ads to your apps from multiple sources, including the AdMob Network, Mopub Network, third-party ad networks and house ad campaigns.
@@ -107,3 +113,4 @@ adView.setLocalExtras(localExtras);
 [4]: smaato
 [5]: {{site.baseurl}}/android/mediation/#admob
 [6]: {{site.baseurl}}/android/mediation/#mopub
+[download]: https://github.com/vpon-sdk/Vpon-android-examples/tree/master/admob-adapter

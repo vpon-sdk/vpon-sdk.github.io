@@ -210,7 +210,6 @@ public class MainActivity extends AppCompatActivity {
 * [横幅广告][1]
 * [插页广告][2]
 * [原生广告][3]
-* [Out-stream 影音广告][5]
 * [中介服务][4]
 
 [注册帐号]: {{ site.baseurl }}/zh-cn/android/registration/
