@@ -2,7 +2,7 @@
 
 ## 5.6.2
 * Release Date: 28 May, 2024
-* Compliant with IAB OM SDK v1.4.13
+* Upgrade to IAB OM SDK v1.4.13
 * Remove Out-stream Video Ad
 * Support Vpon Flutter Plugin
 

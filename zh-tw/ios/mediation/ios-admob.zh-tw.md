@@ -11,7 +11,7 @@ lang:           "zh-tw"
 ---
 在開始進行 AdMob 設定之前，請務必確認您的專案中已包含以下三個檔案：
 
-1. Google Mobile Ads SDK
+1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
