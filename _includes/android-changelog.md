@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.6.6
+* Release Date: 31 Jul, 2024
+* Minor code refactor
+
 ## 5.6.4
 * Release Date: 2 Apr, 2024
 * Bug fix
