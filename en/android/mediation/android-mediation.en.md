@@ -13,9 +13,12 @@ If you haven't finished the previous integration guide, please check all the [se
 
 Besides, you have to download and import Vpon Adapter in your project:
 
+
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.0.11) | [download] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 19.4 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.1.0) | [download] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 19.4 ↑ | 
+
+
 
 # Overview
 ---

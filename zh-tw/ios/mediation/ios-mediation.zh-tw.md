@@ -17,8 +17,7 @@ lang: "zh-tw"
 
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.0.11) | [download] | Vpon SDK 5.5.0 ↑ <br> GMA SDK 9.0.0 ↑ | 
-
+| AdMob <br> Google Ad Manager <br> (v2.1.1) | [download] | Vpon SDK 5.6.0 ↑ <br> GMA SDK 10.14.0 ↑ | 
 
 # 支援的中介平台
 ---

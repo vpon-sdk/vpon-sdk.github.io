@@ -16,9 +16,12 @@ lang:           "zh-cn"
 ---
 在开始串接广告之前，请确认您已经将 Vpon SDK 导入您的专案中。若您尚未完成，请先参考[串接说明]完成相关设定，并由以下连结下载 Vpon Adapter，将其加入 App Project 中：
 
+
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.0.11) | [download] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 19.4 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.1.0) | [download] | Vpon SDK 5.2.0 ↑ <br> GMA SDK 19.4 ↑ | 
+
+
 
 # 支援的中介平台
 ---
