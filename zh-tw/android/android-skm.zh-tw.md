@@ -1,58 +1,19 @@
 ---
 layout:         "android"
-title:          "Android - 串接說明"
+title:          "Android - Vpon SDK Integration Guideline"
 lead:           ""
 description:    ""
 keywords:       "Keywords for this page, in the meta data"
-permalink:       zh-tw/android/integration-guide/
+permalink:       zh-tw/android/guideline
 lang:           "zh-tw"
 ---
-# 串接準備
+
+# Vpon SDK Integration
 ---
-在開始串接 SDK 前，請確認您已經擁有 Vpon 開發商帳號，並已經取得您的 License Key。如果您還沒完成註冊，請先[註冊帳號]。
 
-取得 Vpon 開發商帳號後，請參考以下說明完成 Vpon Android SDK 的串接：
-
-1. 導入 SDK 到您的專案中
-2. 加入所需的 3rd-party Library
-3. 在 AndroidManifest.xml 中宣告 com.vpadn.widget.VponActivity
-4. 在 AndroidManifest.xml 中設定必要的 Permission
-5. 在 Application 或 MainActivity 初始化 SDK
-
-# 導入 SDK
+## Import Vpon SDK
 ---
-您可以使用 Gradle 來導入 Vpon SDK。
 
-開啟 Android Studio Project 層級的 `build.gradle` 檔案，在下方所示 allprojects 的 repositories 加入 Maven Repository
-
-```javascript
-allprojects {
-    repositories {
-        maven{
-            url 'https://m.vpon.com/sdk/android/maven'
-        }
-    }
-}
-```
-
-加入 Maven Repository 後，開啟 App 層級下的 `build.gradle` 加入 Vpon SDK 指定版本的編譯相依性
-
-```javascript
-dependencies {
-    ...
-    implementation 'com.vpon:vpadnSDK:latest.release'
-}
-```
-
-
-<!-- ## 手動 (手動下載並串接) {#manual-sdk}
----
-要手動在應用程式中加入 Vpon SDK，您需要完成以下步驟：
-
-1. [由此下載最新版本的 Vpon SDK](../download)
-2. 在 Android Studio 專案中加入 Vpon SDK
-
-### Android Studio
 1. 在 Android 中的應用程式專案找到 `libs` (路徑：`project_name` -> `app` -> `libs`)
 ![]({{site.imgurl}}/ProjectLibFolder.jpg)
 
@@ -72,15 +33,12 @@ dependencies {
 ```
 
 如下圖所示，如果 jar /aar 檔被讀到了，將顯示在 dependencies 中
-![]({{site.imgurl}}/ModifyBuildGradle2.jpg) -->
+![]({{site.imgurl}}/ModifyBuildGradle2.jpg)
 
-
-# 3rd-party Library
+## Import 3rd-party Library
 ---
-從 `4.8.0` 版開始，Vpon SDK 引入第三方的 Library － Retrofit，請參考以下方法導入 Retrofit：
 
-1. 手動下載導入：[由此直接下載] Retrofit 的 jar 檔並導入專案中
-2. 透過 Maven 導入：在 App 層級下的 build.gradle 的 dependencies 中加入以下內容導入 Retrofit：
+透過 Maven 導入：在 App 層級下的 build.gradle 的 dependencies 中加入以下內容導入 Retrofit
 
 ```xml
 dependencies {
@@ -95,8 +53,7 @@ dependencies {
 }
 ```
 
-
-# 宣告 VponActivity
+## 宣告 VponActivity
 ---
 請在您的 AndroidManifest.xml 加入以下內容：
 
@@ -145,11 +102,8 @@ android:hardwareAccelerated="true"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 ```
 
-
-
-# 初始化 SDK {#initial-sdk}
+## 初始化 SDK
 ---
-為了提高 SDK 的效能，請在 Application 或 MainActivity 初始化 SDK：
 
 ```java
 // Initial SDK in Application
@@ -159,55 +113,28 @@ public class CustomApplication extends Application {
     public void onCreate() {
         super.onCreate();
         VponMobileAds.initialize(getBaseContext());
+        VponMobileAds.setRequestConfiguration(
+                new RequestConfiguration.Builder()
+                        .setNetworkId(RequestConfiguration.NETWORK_ID_SKM)
+                        .build()
+        );
     }
 }
 ```
 
 
-
-
-# Proguard Configuration
+# 取得 VponID
 ---
-如果您的 App 使用 Vpon Android SDK v5.0.2 或以下版本的 SDK，請在 Proguuard Config 中增加以下設定：
 
-```xml
--dontwarn c.**
--dontwarn com.vpon.**
--dontwarn vpadn.**
--keep class c.**{ *; }
--keep class com.vpon.** { *; }
--keep class vpon.** { *; }
--keep class com.vpadn.** { *; }
--keep class vpadn.** { *; }
+請使用以下方式取得 VponID:
 
-<!-- ----------- require since 4.8.0 --------- -->
--dontnote retrofit2.Platform
--dontwarn retrofit2.Platform$Java8
--dontwarn okhttp3.internal.platform.*
--keepattributes Exceptions
--keepattributes Signature
--dontwarn okio.**
--dontwarn javax.annotation.**
+```java
+Context context = getBaseContext();
+String vponId = VponMobileAds.getVponID(context);
 ```
- 
 
+使用以上 API 取得的 VponID 格式將如下：
 
-
-
-# Tips
----
-關於更多廣告形式的呈現，請參考：
-
-* [橫幅廣告][1]
-* [插頁廣告][2]
-* [原生廣告][3]
-* [中介服務][4]
-
-
-[註冊帳號]: {{ site.baseurl }}/zh-tw/android/registration/
-[1]:{{ site.baseurl }}/zh-tw/android/banner/
-[2]:{{ site.baseurl }}/zh-tw/android/interstitial/
-[3]:{{ site.baseurl }}/zh-tw/android/native/
-[4]:{{ site.baseurl }}/zh-tw/android/mediation/
-[5]:{{ site.baseurl }}/zh-tw/android/outstream/
-[由此直接下載]: https://github.com/square/retrofit
+```
+v1_89177a51-1708-46ad-a38a-03a4c37e6f2d.1722917052121
+```

@@ -54,7 +54,7 @@ Vpon Web SDK 提供介面可以讓您將自定義的內容資訊回傳給 Vpon A
 >**Notes:** 
 >* 請將 License Key 置換為您在 Vpon 後台對應的版位 ID
 >* 廣告素材請勿勾選`放送至 SafeFrame`
->* 針對範例中所使用的 Google Ad Manager Macro 說明，請參考：[Google Ad Manager 巨集]
+>* 針對範例中所使用的 Google Ad Manager Macro 說明，請參考：[Google Ad Manager 巨集]
 
 
 

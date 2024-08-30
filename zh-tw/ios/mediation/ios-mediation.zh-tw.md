@@ -91,7 +91,7 @@ GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
 
 ```swift
 let extra = GADCustomEventExtras()
-extra.setExtras(["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]], forLabel: "Vpon")
+extra.setExtras(["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]], forLabel: "vpon")
 request.register(extra)
 // Set content page url and data with an array of key-value
 // forLabel string must be the same as the one you set for AdMob / GAM custom event
