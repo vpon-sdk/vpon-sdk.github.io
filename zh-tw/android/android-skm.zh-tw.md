@@ -65,7 +65,7 @@ android:theme="@android:style/Theme.Translucent"
 android:hardwareAccelerated="true"/>
 ```
 
-> **Note**：上面**每一個**屬性都不能少，其值都需要相同！
+> **Note**：為了提昇使用體驗，上面每一個屬性都不能少，其值都需要相同
 
 
 此外，由於 Vpon SDK 4 開始支援影音形式的廣告，建議您在放置廣告的 Activity 中加入硬體加速，請參考如下：
