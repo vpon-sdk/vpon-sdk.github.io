@@ -63,7 +63,6 @@ dependencies {
 android:configChanges="orientation|keyboardHidden|navigation|keyboard|screenLayout|uiMode|screenSize|smallestScreenSize"
 android:theme="@android:style/Theme.Translucent"
 android:hardwareAccelerated="true"/>
-
 ```
 
 > **Note**：上面**每一個**屬性都不能少，其值都需要相同！
