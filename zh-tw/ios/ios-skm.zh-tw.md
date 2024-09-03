@@ -114,3 +114,5 @@ let vponId = VponAdConfiguration.shared.getVponID()
 ```
 v1_89177a51-1708-46ad-a38a-03a4c37e6f2d.1722917052121
 ```
+
+[進階設定]:{{ site.baseurl }}/zh-tw/ios/advanced/#audio
