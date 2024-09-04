@@ -72,8 +72,7 @@ lang: "zh-tw"
 >**Note:**
 >
 >* 為配合第三方追蹤要求，Vpon SDK 會在初始化時，將 App 的 Audio Session Category 設為 `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (當有音樂要播放時，App 將以混音形式播放音樂，且不會受實體音量鍵的影響)。您可以在初始化後，重新指定及啟用 Audio Session Category。如果您不希望 Vpon SDK 更動 Audio Session Category，請參考[進階設定]進行對應調整。
->
->* 自 v5.6.0 起，Vpon SDK 將逐步停止支援已棄用的 v5.5.0 以下的 SDK 方法，請依照本站文件指引完成 SDK 串接，且不要使用未在文件中描述如何使用的介面，以免發生錯誤
+
 
 ## Usage Description
 ---

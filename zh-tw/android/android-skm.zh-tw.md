@@ -48,7 +48,6 @@ dependencies {
 
     <!-- Import required Google Play Service -->
     implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
-    <!-- Import required dependency if you are using Vpon SDK v5.3.2 and above -->
     implementation 'com.google.android.gms:play-services-appset:16.0.0'
 }
 ```
@@ -65,10 +64,10 @@ android:theme="@android:style/Theme.Translucent"
 android:hardwareAccelerated="true"/>
 ```
 
-> **Note**：為了提昇使用體驗，上面每一個屬性都不能少，其值都需要相同
+> **Note**：為了提昇使用體驗，請務必按照上述範例加入所有屬性
 
 
-此外，由於 Vpon SDK 4 開始支援影音形式的廣告，建議您在放置廣告的 Activity 中加入硬體加速，請參考如下：
+此外，由於 Vpon SDK 支援影音形式的廣告，建議您在放置廣告的 Activity 中加入硬體加速，請參考如下：
 
 ```xml
 <activity
