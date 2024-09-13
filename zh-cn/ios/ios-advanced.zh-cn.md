@@ -141,6 +141,74 @@ request.setContentUrl("https://www.google.com.tw/")
 request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]) 
 ```
 
+# 透过 Mediation 回传内容资讯
+---
+如果您是使用 Mediation 的方式来串接 Vpon SDK，您可以透过以下方式，将页面内容资讯发给 Vpon：
+
+* [AdMob / Google Ad Manager][5]
+* [MoPub][6]
+
+## AdMob / Google Ad Manager {#admob}
+
+若您是使用 AdMob / Google Ad Manager 来进行 Mediation，请确认您所使用的 SDK 及 Adapter 版本：
+
+* `Vpon SDK v5.6.0` 及以上版本
+* `Vpon AdMob Adapter v2.1.0` 及以上版本
+
+
+若您串接的是横幅广告或插页广告，请参考以下范例：
+
+### Objective-C
+
+```objc
+GADRequest *request = [GADRequest request];
+GADExtras *extra = [[GADExtras alloc] init];
+ extra.additionalParameters = @{
+    @"contentURL": @"https://www.vpon.com",
+    @"contentData": @{@"key1": @"Admob", @"key2": @(1.2), @"key3": @(YES)}
+    };
+[request registerAdNetworkExtras:extra];
+// Set content page url and data with an array of key-value
+```
+
+### Swift
+
+```swift
+let extra = GADExtras()
+extra.additionalParameters = ["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]]
+request.register(extra)
+// Set content page url and data with an array of key-value
+```
+
+若您串接的是原生广告，请留意在您设定自订事件时所设置的 Label，并参考以下范例传入对应资料：
+
+<img src="{{site.imgurl}}/AdMob_ContentLabel01.PNG" alt=""/>
+<!-- <img src="{{site.imgurl}}/AdMob_ContentLabel02.PNG" alt=""/> -->
+
+
+### Objective-C
+
+```objc
+GADRequest *request = [GADRequest request];
+GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
+[extra setExtras:@{
+        @"contentURL": @"https://www.google.com.tw/",
+        @"contentData": @{@"key1": @(1), @"key2": @(YES), @"key3": @"name", @"key4": @(123.31)}
+        } forLabel:@"vpon"];
+[request registerAdNetworkExtras:extra];
+// Set content page url and data with an array of key-value
+// forLabel string must be the same as the one you set for AdMob / GAM custom event
+```
+
+### Swift
+
+```swift
+let extra = GADCustomEventExtras()
+extra.setExtras(["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]], forLabel: "Vpon")
+request.register(extra)
+// Set content page url and data with an array of key-value
+// forLabel string must be the same as the one you set for AdMob / GAM custom event
+```
 
 <!-- 
 >**Note:** 关于自定义参数值的定义，请参考以下说明

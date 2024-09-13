@@ -145,6 +145,77 @@ request.setContentUrl("https://www.google.com.tw/")
 request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]) 
 ```
 
+
+# Send Content Data To Vpon Via Mediation
+---
+Please follow the instruction below to send the content information to Vpon if you are trying to integrate Vpon SDK with below Mediation Platforms:
+
+* [AdMob / Google Ad Manager][5]
+* [MoPub][6]
+
+## AdMob / Google Ad Manager {#admob}
+
+Please check your SDK and Adapter version first if you are using AdMob / Google Ad Manager, the SDK and Adapter version must be:
+
+* `Vpon SDK v5.6.0` and above
+* `Vpon AdMob Adapter v2.1.0` and above
+
+
+Please refer to the sample below if you are integrating Banner Ad or Interstitial Ad:
+
+### Objective-C
+
+```objc
+GADRequest *request = [GADRequest request];
+GADExtras *extra = [[GADExtras alloc] init];
+ extra.additionalParameters = @{
+    @"contentURL": @"https://www.vpon.com",
+    @"contentData": @{@"key1": @"Admob", @"key2": @(1.2), @"key3": @(YES)}
+    };
+[request registerAdNetworkExtras:extra];
+// Set content page url and data with an array of key-value
+```
+
+### Swift
+
+```swift
+let extra = GADExtras()
+extra.additionalParameters = ["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]]
+request.register(extra)
+// Set content page url and data with an array of key-value
+```
+
+For Native Ad, please note the Label you set for the custom event and refer to the sample below to integrate the ads:
+
+<img src="{{site.imgurl}}/AdMob_ContentLabel01.PNG" alt=""/>
+<!-- <img src="{{site.imgurl}}/AdMob_ContentLabel02.PNG" alt=""/> -->
+
+
+### Objective-C
+
+```objc
+GADRequest *request = [GADRequest request];
+GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
+[extra setExtras:@{
+        @"contentURL": @"https://www.google.com.tw/",
+        @"contentData": @{@"key1": @(1), @"key2": @(YES), @"key3": @"name", @"key4": @(123.31)}
+        } forLabel:@"vpon"];
+[request registerAdNetworkExtras:extra];
+// Set content page url and data with an array of key-value
+// forLabel string must be the same as the one you set for AdMob / GAM custom event
+```
+
+### Swift
+
+```swift
+let extra = GADCustomEventExtras()
+extra.setExtras(["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]], forLabel: "vpon")
+request.register(extra)
+// Set content page url and data with an array of key-value
+// forLabel string must be the same as the one you set for AdMob / GAM custom event
+```
+
+
 <!-- >**Note:** Please refer to the reference below for the description of specific custom parameters -->
 
 <!-- 需要以下參數的 defination -->

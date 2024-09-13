@@ -31,53 +31,7 @@ lang:           "zh-tw"
 | [![admob]][1] | [![dfp]][2]|
 
 
-# 透過 Mediation 回傳內容資訊
----
-如果您是使用 Mediation 的方式來串接 Vpon SDK，您可以透過以下方式，將頁面內容資訊發給 Vpon：
 
-* [AdMob / Google Ad Manager][5]
-* [MoPub][6]
-
-## AdMob / Google Ad Manager {#admob}
-
-若您是使用 AdMob / Google Ad Manager 來進行 Mediation，請確認您所使用的 SDK 及 Adapter 版本：
-
-* `Vpon SDK v5.1.1` 及以上版本
-* `Vpon AdMob Adapter v2.0.1` 及以上版本
-
-若您串接的是橫幅廣告或插頁廣告，請參考以下範例：
-
-```java
-AdRequest.Builder builder = new AdRequest.Builder();
-Bundle bundle = new Bundle();
-
-HashMap<String, Object> contentData = new HashMap<>();
-contentData.put("key1", "Vpon");
-contentData.put("key2", 1.2);
-contentData.put("key3", true);
-bundle.putSerializable(AD_CONTENT_DATA, contentData);
-bundle.putSerializable(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
-builder.addNetworkExtrasBundle(VpadnAdapter.class, bundle);
-
-adLoader.loadAd(builder.build());
-```
-
-若您串接的是原生廣告，請參考以下範例：
-
-```java
-AdRequest.Builder builder = new AdRequest.Builder();
-Bundle bundle = new Bundle();
-
-HashMap<String, Object> contentData = new HashMap<>();
-contentData.put("key1", "Vpon");
-contentData.put("key2", 1.2);
-contentData.put("key3", true);
-bundle.putSerializable(AD_CONTENT_DATA, contentData);
-bundle.putSerializable(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
-builder.addNetworkExtrasBundle(VpadnAdapter.class, bundle);
-
-adLoader.loadAd(builder.build());
-```
 
 
 <!-- ## MoPub {#mopub}

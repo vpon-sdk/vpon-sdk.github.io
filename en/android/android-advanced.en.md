@@ -58,6 +58,56 @@ builder.setContentData(contentData);
 builder.setContentUrl("https://www.vpon.com/zh-hant/");
 ```
 
+
+# Send Content Data To Vpon Via Mediation
+---
+Please follow the instruction below to send the content information to Vpon if you are trying to integrate Vpon SDK with below Mediation Platforms:
+
+* [AdMob / Google Ad Manager][5]
+* [MoPub][6]
+
+## AdMob / Google Ad Manager {#admob}
+
+Please check your SDK and Adapter version first if you are using AdMob / Google Ad Manager, the SDK and Adapter version must be:
+
+* `Vpon SDK v5.1.1` and above
+* `Vpon AdMob Adapter v2.0.1` and above
+
+Please refer to below sample if you are integrating Banner Ad or Interstitial Ad:
+
+```java
+AdRequest.Builder builder = new AdRequest.Builder();
+Bundle bundle = new Bundle();
+
+HashMap<String, Object> contentData = new HashMap<>();
+contentData.put("key1", "Vpon");
+contentData.put("key2", 1.2);
+contentData.put("key3", true);
+bundle.putSerializable(AD_CONTENT_DATA, contentData);
+bundle.putSerializable(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
+builder.addNetworkExtrasBundle(VpadnAdapter.class, bundle);
+
+adLoader.loadAd(builder.build());
+```
+
+Please refer to below sample if you are integrating Native Ad:
+
+```java
+AdRequest.Builder builder = new AdRequest.Builder();
+Bundle bundle = new Bundle();
+
+HashMap<String, Object> contentData = new HashMap<>();
+contentData.put("key1", "Vpon");
+contentData.put("key2", 1.2);
+contentData.put("key3", true);
+bundle.putSerializable(AD_CONTENT_DATA, contentData);
+bundle.putSerializable(AD_CONTENT_URL, "https://www.vpon.com/zh-hant/");
+builder.addNetworkExtrasBundle(VpadnAdapter.class, bundle);
+
+adLoader.loadAd(builder.build());
+```
+
+
 <!-- 
 >**Note:** Please refer to the reference below for the description of specific custom parameters
 
