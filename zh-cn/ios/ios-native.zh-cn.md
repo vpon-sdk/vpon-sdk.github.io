@@ -88,6 +88,7 @@ SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
 @property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable socialContextView;
 @property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable advertiseView;
 @property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
 
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -112,6 +113,7 @@ import VpadnSDKAdKit
 	@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
 	@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
 	@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+	@MainActor @objc @IBOutlet weak public var advertiseView: UIView?
 	@MainActor @objc public var nativeAd: VpadnSDKAdKit.VponNativeAd?
 }
 ```
@@ -391,7 +393,7 @@ func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
 
 | Properties  |   Description | VponNativeAd Properties |
 |:-----------:|:-----------:|:-----------:|
-| <font color="red">AdLabel</font>      | 让使用者了解此为广告 (例如：赞助、广告 等等) | Publisher 自行实作 |
+| <font color="red">AdLabel</font>      | 让使用者了解此为广告 (例如：赞助、广告 等等) | advertise |
 |:-----------:|:-----------:|:-----------:|
 | <font color="red">Title</font>  | 最少需显示8个中文字, 放不下时须显示`...` | headline |
 |:-----------:|:-----------:|:-----------:|

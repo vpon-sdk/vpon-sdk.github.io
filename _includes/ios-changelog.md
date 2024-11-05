@@ -1,5 +1,10 @@
 # Vpon iOS SDK Change Log
 
+## 5.7.2
+* Release Date: 4 Nov. 2024
+* add new property : advertise in nativead
+* Bug fix
+
 ## 5.6.3
 * Release Date: 16 Jul. 2024
 * Bug fix
