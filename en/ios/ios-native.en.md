@@ -92,6 +92,7 @@ SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
 @property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable socialContextView;
 @property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable advertiseView;
 @property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
 
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -116,6 +117,7 @@ import VpadnSDKAdKit
 	@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
 	@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
 	@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
+	@MainActor @objc @IBOutlet weak public var advertiseView: UIView?
 	@MainActor @objc public var nativeAd: VpadnSDKAdKit.VponNativeAd?
 }
 ```
@@ -397,7 +399,7 @@ Please check to table below to find the Native Ad component provided by Vpon.
 
 | Properties  |   Description | VponNativeAd Properties |
 |:-----------:|:-----------:|:-----------:|
-| <font color="red">AdLabel</font>      | Let user know it is ad ( Sponsor, Ad, and so on ). | Customed |
+| <font color="red">AdLabel</font>      | Let user know it is ad ( Sponsor, Ad, and so on ). | advertise |
 |:-----------:|:-----------:|:-----------:|
 | <font color="red">Title</font>  | Show at least 16 English alphabets. <br>Show `...` while it's out of space. | headline |
 |:-----------:|:-----------:|:-----------:|
