@@ -151,6 +151,17 @@ Here is an example to create Native Ad layout:
         tools:layout_width="0dp" >
     </com.vpon.ads.VponMediaView>
     
+    <TextView
+        android:id="@+id/ad_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_media_view"
+        android:layout_marginStart="5dp"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        tools:text="This is ad label" />
     
     <Button
         android:id="@+id/ad_call_to_action"
@@ -198,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView nativeAdIcon = adContainer.findViewById(R.id.ad_app_icon);
         TextView nativeAdTitle = adContainer.findViewById(R.id.ad_headline);
         TextView nativeAdBody = adContainer.findViewById(R.id.ad_body);
+        TextView nativeAdLabel = adContainer.findViewById(R.id.ad_label);
         VponMediaView nativeMediaView = adContainer.findViewById(R.id.ad_media_view);
         Button nativeAdCallToAction = adContainer.findViewById(R.id.ad_call_to_action);
 
@@ -209,6 +221,11 @@ public class MainActivity extends AppCompatActivity {
             nativeAdBody.setText(nativeAd.getBody());
         } else {
             nativeAdBody.setVisibility(View.INVISIBLE);
+        }
+        if (nativeAd.getAdLabel() != null) {
+            nativeAdLabel.setText(nativeAd.getAdLabel());
+        } else {
+            nativeAdLabel.setVisibility(View.INVISIBLE);
         }
 
         nativeMediaView.setNativeAd(nativeAd);
