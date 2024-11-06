@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.7.2
+* Release Date: 6 Nov. 2024
+* add new property : advertise in nativead
+
 ## 5.6.6
 * Release Date: 31 Jul, 2024
 * Minor code refactor
