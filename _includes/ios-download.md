@@ -12,7 +12,7 @@
 
 | Mediation Platform | Adapter | Compatible SDK Version|
 |:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.1.1) | [download][4] | Vpon SDK 5.6.0 ↑ <br> GMA SDK 10.14.0 ↑ | 
+| AdMob <br> Google Ad Manager <br> (v2.1.4) | [download][4] | Vpon SDK 5.7.6 ↑ <br> GMA SDK 10.14.0 ↑ | 
  
  
 ## Sample Code Download
@@ -23,7 +23,7 @@
 | [download][7] | [download][8] | [download][9]     |
 
 
-[2]: https://m.vpon.com/sdk/ios/VpadnSDKiOS-5.6.4.zip
+[2]: https://m.vpon.com/sdk/ios/VpadnSDKiOS-5.7.6.zip
 [4]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Adapter/AdMobAdapter
 [7]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/FrameworkExample
 [8]: https://github.com/vpon-sdk/Vpon-mobile-ios-examples/tree/master/Mediation/AdMobExample
