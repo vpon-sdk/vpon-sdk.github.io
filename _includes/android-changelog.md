@@ -1,5 +1,10 @@
 # Vpon Android SDK Change Log
 
+## 5.7.4
+* Release Date: 13 May, 2025
+* Adjust Interstitial layout to support edge to edge style in Apps target on Android SDK 35 and above
+* Minor code refactor
+
 ## 5.7.2
 * Release Date: 6 Nov. 2024
 * add new property : advertise in nativead
