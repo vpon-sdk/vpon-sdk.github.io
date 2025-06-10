@@ -1,5 +1,9 @@
 # Vpon iOS SDK Change Log
 
+## 5.7.8
+* Release Date: 10 Jun. 2025
+* Bug fix
+
 ## 5.7.6
 * Release Date: 18 Apr. 2025
 * Minor code refactor and enhancement
