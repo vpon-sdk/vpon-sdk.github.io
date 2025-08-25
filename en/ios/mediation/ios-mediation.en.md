@@ -17,11 +17,11 @@ Mediation is a feature that lets you serve ads to your apps from multiple source
 ---
 If you haven't finished the previous integration guide, please check all the [settings here](../integration-guide/).
 
-Besides, you have to download and import Vpon Adapter in your project:
+Besides, you have to add Vpon AdMob Adapter into your App Project through Cocoapods:
 
-| Mediation Platform | Adapter | Compatible SDK Version|
-|:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.1.1) | [download] | Vpon SDK 5.6.0 ↑ <br> GMA SDK 10.14.0 ↑ | 
+```
+pod 'AdMobMediationAdapterVpadn'
+```
 
 
 # Support Mediation Platforms

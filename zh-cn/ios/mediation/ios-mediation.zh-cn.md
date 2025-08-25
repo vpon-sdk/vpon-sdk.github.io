@@ -13,11 +13,12 @@ lang: "zh-cn"
 
 # 完成串接指示
 ---
-若您尚未完成串接广告形式前的串接说明，请先前往[串接说明]完成相关设定，并由以下连结下载 Vpon Adapter，将其加入 App Project 中：
+若您尚未完成串接广告形式前的串接说明，请先前往[串接说明]完成相关设定，再透过 CocoaPods 将 Vpon AdMob Adapter 加入 App Project 中：
 
-| Mediation Platform | Adapter | Compatible SDK Version|
-|:------------------:|:-------:|:---:|
-| AdMob <br> Google Ad Manager <br> (v2.1.1) | [download] | Vpon SDK 5.6.0 ↑ <br> GMA SDK 10.14.0 ↑ | 
+```
+pod 'AdMobMediationAdapterVpadn'
+```
+
 
 # 支援的中介平台
 ---

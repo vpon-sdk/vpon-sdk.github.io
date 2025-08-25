@@ -1,7 +1,7 @@
 # Vpon Android SDK Change Log
 
 ## 5.7.4
-* Release Date: 13 May, 2025
+* Release Date: 13 May. 2025
 * Adjust Interstitial layout to support edge to edge style in Apps target on Android SDK 35 and above
 * Minor code refactor
 
@@ -10,26 +10,26 @@
 * add new property : advertise in nativead
 
 ## 5.6.6
-* Release Date: 31 Jul, 2024
+* Release Date: 31 Jul. 2024
 * Minor code refactor
 
 ## 5.6.4
-* Release Date: 2 Apr, 2024
+* Release Date: 2 Apr. 2024
 * Bug fix
 
 ## 5.6.2
-* Release Date: 4 Mar, 2024
+* Release Date: 4 Mar. 2024
 * Fix memory leak issue while using VponBanner
 * Fix unsafe Cryptographic Encryption issue
 
 ## 5.6.0
-* Release Date: 25 Jan, 2024
+* Release Date: 25 Jan. 2024
 * Add Ad Choices for Native Ad
 * Interface Update for Banner, Interstitial and Native
 * Interface Deprecation: interface in v5.5.2 and below will be remarked as deprecated
 
 ## 5.5.2
-* Release Date:
+* Release Date: 19 Sept. 2023
 * Add Ad Choices for Native Ad
 * Interface Update for Banner, Interstitial and Native
 * Interface Deprecation: interface in v5.5.2 and below will be remarked as deprecated
