@@ -170,7 +170,7 @@ public class CustomApplication extends Application {
 
 # Proguard Configuration
 ---
-If you are using Vpon Android SDK v5.0.2 or below version SDK in your app, please add the setting below in your Proguard Config:
+Please add the setting below in your Proguard Config:
 
 ```xml
 -dontwarn c.**
