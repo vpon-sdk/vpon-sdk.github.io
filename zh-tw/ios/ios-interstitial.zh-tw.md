@@ -152,8 +152,8 @@ if let interstitial {
 
 ```objc
 [VponInterstitialAd loadWithLicenseKey:@"License Key"
-							   request:request
-							completion:^(VponInterstitialAd *interstitial, NSError *error) {
+					request:request
+					completion:^(VponInterstitialAd *interstitial, NSError *error) {
 	self.interstitial = interstitial;
 	self.interstitial.delegate = self;
 }];
