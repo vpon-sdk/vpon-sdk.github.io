@@ -1,5 +1,10 @@
 # Vpon iOS SDK Change Log
 
+## 5.7.10
+* Release Date: 11 Nov. 2025
+* Upgrade minimum deployment target version from iOS 11.0 to iOS 12.0
+* Bug fix
+
 ## 5.7.8
 * Release Date: 10 Jun. 2025
 * Bug fix

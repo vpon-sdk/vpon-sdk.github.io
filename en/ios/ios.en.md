@@ -14,7 +14,7 @@ lang:            "en"
 ---
 Vpon SDK support:
 
-* `iOS 11 or later`
+* `iOS 12 or later`
 
 Before you start to integrate Vpon SDK, make sure your app is compatible.
 
@@ -31,7 +31,7 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 
 | [Banner][4]  |[Interstitial][5] | [Native][7]|[Out-stream Video Ad][8]|[Mediation][6]|
 
-## License Key For Testing
+## License Key For Testing
 ---
 
 Here are sample Vpon License Keys for testing. Please implement the one that match the ad type you're testing if you haven't finished the publisher registration process.

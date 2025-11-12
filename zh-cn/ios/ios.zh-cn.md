@@ -13,7 +13,7 @@ lang: "zh-cn"
 ---
 Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SDK 前，请确保您的 App 符合以下条件：
 
-* `iOS 11.0 以上`
+* `iOS 12.0 以上`
 
 ## Step2: 成为 Vpon 开发商伙伴
 ---
@@ -29,7 +29,7 @@ Vpon SDK 目前最低支援以下版本的作业系统，在开始串接 Vpon SD
 | [横幅广告][4]  |[插页广告][5] |[原生广告][7]| [Out-stream 影音广告][8]| [中介服务][6]|
 
 
-# License Key For Testing
+# License Key For Testing
 ---
 
 在您完成 Vpon 开发商帐号申请流程之前，如果您需要进行广告串接测试，可以使用以下 License Key 进行测试。请依照您要展示的广告型态，选择对应的 License Key 进行测试。
