@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.7.8
+* Release Date: 10 Dec. 2025
+* Bug fix
+
 ## 5.7.4
 * Release Date: 13 May. 2025
 * Adjust Interstitial layout to support edge to edge style in Apps target on Android SDK 35 and above
