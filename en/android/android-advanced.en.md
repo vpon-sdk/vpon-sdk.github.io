@@ -63,8 +63,6 @@ builder.setContentUrl("https://www.vpon.com/zh-hant/");
 ---
 Please follow the instruction below to send the content information to Vpon if you are trying to integrate Vpon SDK with below Mediation Platforms:
 
-* [AdMob / Google Ad Manager][5]
-* [MoPub][6]
 
 ## AdMob / Google Ad Manager {#admob}
 

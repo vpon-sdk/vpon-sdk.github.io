@@ -60,8 +60,6 @@ builder.setContentUrl("https://www.vpon.com/zh-hant/");
 ---
 如果您是使用 Mediation 的方式來串接 Vpon SDK，您可以透過以下方式，將頁面內容資訊發給 Vpon：
 
-* [AdMob / Google Ad Manager][5]
-* [MoPub][6]
 
 ## AdMob / Google Ad Manager {#admob}
 

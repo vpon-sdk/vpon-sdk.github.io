@@ -145,9 +145,6 @@ request.setContentData(["key1": 1, "key2": true, "key3": "name", "key4": 123.31]
 ---
 如果您是使用 Mediation 的方式来串接 Vpon SDK，您可以透过以下方式，将页面内容资讯发给 Vpon：
 
-* [AdMob / Google Ad Manager][5]
-* [MoPub][6]
-
 ## AdMob / Google Ad Manager {#admob}
 
 若您是使用 AdMob / Google Ad Manager 来进行 Mediation，请确认您所使用的 SDK 及 Adapter 版本：
