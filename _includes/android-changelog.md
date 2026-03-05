@@ -1,5 +1,9 @@
 # Vpon Android SDK Change Log
 
+## 5.8.0
+* Release Date: 03 Feb. 2026
+* Enhance ad request to better align with RTB protocol
+
 ## 5.7.8
 * Release Date: 10 Dec. 2025
 * Bug fix

@@ -1,5 +1,9 @@
 # Vpon iOS SDK Change Log
 
+## 5.8.0
+* Release Date: 23 Feb. 2026
+* Enhance ad request to better align with RTB protocol
+
 ## 5.7.10
 * Release Date: 11 Nov. 2025
 * Upgrade minimum deployment target version from iOS 11.0 to 12.0
