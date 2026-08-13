@@ -115,7 +115,12 @@ vponBanner.setAdListener(new VponAdListener() {
     
     @Override
     public void onAdFailedToLoad(int errorCode) {
-        // Invoked if received ad fail, check this callback to indicates what type of failure occurred
+        // The errorCode indicates the specific failure scenario:
+        // 0: INTERNAL_ERROR    - Internal SDK exception, data parsing failure, or server error.
+        // 1: INVALID_REQUEST   - Incorrect License Key, missing parameters, or invalid dimensions.
+        // 2: NETWORK_ERROR     - No connectivity, DNS failure, or connection timeout (3000ms).
+        // 3: NO_FILL           - No inventory available or excluded by sampling (WhiteList) settings.
+        // 99: EXCEED_ENDURANCE - Frequency capping or request limit exceeded for specific ad types.
     }
 
     @Override
