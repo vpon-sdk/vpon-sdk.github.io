@@ -20,9 +20,9 @@ Please make sure you've imported Vpon SDK to your Xcode project. If not, please 
 
 # Start To Implement Banner Ad
 ---
-iOS apps are composed of UIView objects which will present as text area, buttons or other controllers. VponAdRequestView is simply an UIView subclass that can display small HTML5 ads trigger by users' touch.
+iOS apps are composed of UIView objects which will present as text area, buttons or other controllers. `VponBannerView` is a `UIView` subclass that displays banner ads.
 
-Just like all the other UIView, a VpadnBanner is easy to implement in code.
+Just like all the other UIView, `VponBannerView` is easy to implement in code.
 
 1. Import VpadnSDKAdKit
 2. Declare a VponBannerView instance
@@ -35,11 +35,12 @@ We strongly recommend that you can finish all the steps in ViewController of the
 ## Import VpadnSDKAdKit And Declare A VponBannerView Instance
 ---
 
-### Obejctive-C
+### Objective-C
 
 ```objc
 // Import Vpon SDK
 @import VpadnSDKAdKit;
+@import AdSupport;
 
 @interface ViewController() <VponBannerViewDelegate>
 @property (strong, nonatomic) VponBannerView *bannerView;
@@ -53,6 +54,7 @@ We strongly recommend that you can finish all the steps in ViewController of the
 ```swift
 // Import Vpon SDK
 import VpadnSDKAdKit
+import AdSupport
 
 class VponSdkBannerViewController: UIViewController {
 	var bannerView: VponBannerView?
@@ -116,7 +118,7 @@ VponAdRequestConfiguration *config = VponAdRequestConfiguration.shared;
 ```swift
 let request = VponAdRequest()
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = [ASIdentifierManager.shared().advertisingIdentifier.uuidString]
 
 // Start to load ad
 bannerView?.load(request)
@@ -124,7 +126,7 @@ bannerView?.load(request)
 
 >**Note:**
 >
->* Besides of setting up VponAdRequest for each ad type, you can also set up a general VpadnRequest for all types of ad.
+>* Besides of setting up VponAdRequest for each ad type, you can also set up a general VponAdRequest for all types of ad.
 >* If you want to know more about target setting, please refer to [Advanced Setting](../advanced).
 
 ## Set Up Delegate Protocol
@@ -161,27 +163,29 @@ After finishing ad request, implement the delegate protocol as below to listen a
 ### Swift
 
 ```swift
-func bannerViewDidReceiveAd(_ bannerView: VponBannerView) {
-	// Invoked if receive Banner Ad successfully
-	// Add ad view to your layout
-	bannerView.translatesAutoresizingMaskIntoConstraints = false
-	loadBannerView.addSubview(bannerView)
-	NSLayoutConstraint.activate([
-		bannerView.centerXAnchor.constraint(equalTo: loadBannerView.centerXAnchor),
-		bannerView.centerYAnchor.constraint(equalTo: loadBannerView.centerYAnchor)
-	])
-}
+extension VponSdkBannerViewController: VponBannerViewDelegate {
+	func bannerViewDidReceiveAd(_ bannerView: VponBannerView) {
+		// Invoked if receive Banner Ad successfully
+		// Add ad view to your layout
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		loadBannerView.addSubview(bannerView)
+		NSLayoutConstraint.activate([
+			bannerView.centerXAnchor.constraint(equalTo: loadBannerView.centerXAnchor),
+			bannerView.centerYAnchor.constraint(equalTo: loadBannerView.centerYAnchor)
+		])
+	}
 
-func bannerView(_ bannerView: VponBannerView, didFailToReceiveAdWithError error: Error) {
-	// Invoked if received ad fail, check this callback to indicates what type of failure occurred
-}
+	func bannerView(_ bannerView: VponBannerView, didFailToReceiveAdWithError error: Error) {
+		// Invoked if received ad fail, check this callback to indicates what type of failure occurred
+	}
 
-func bannerViewDidRecordImpression(_ bannerView: VponBannerView) {
-	// Invoked if an impression has been recorded for an ad.
-}
+	func bannerViewDidRecordImpression(_ bannerView: VponBannerView) {
+		// Invoked if an impression has been recorded for an ad.
+	}
 
-func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
-	// Invoked if an click has been recorded for an ad.
+	func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
+		// Invoked if an click has been recorded for an ad.
+	}
 }
 ```
 
@@ -242,9 +246,6 @@ Please help to check if below log printed after the ad display and match the vie
 
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
-
-### Integration Guide For The Version Below Vpon SDK v5.6.0
-Please refer to [Banner Ad Integration Guide](../banner-under560) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

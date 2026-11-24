@@ -37,7 +37,7 @@ The best place to do all this is in your app's ViewController.
 ## Import VpadnSDKAdKit
 ---
 
-Firstly, import SDK and declare VpadnNativeAdDelegate and VpadnMediaViewDelegate protocols to receive ad status. At the same time, declare various components you intend to present in the Native Ad.
+Firstly, import SDK and declare `VponNativeAdLoaderDelegate`, `VponNativeAdDelegate`, and `VponVideoControllerDelegate` protocols to receive ad status. At the same time, declare various components you intend to present in the Native Ad.
 (For specifications on components for Native Ad presentation, please refer to [Native Ad Spec](#nativeAdSpec))
 
 
@@ -74,7 +74,7 @@ Please follow these steps sequentially to display the Native Ad:
 
     For Objective-C projects, create a new .h file. For Swift projects, create a new .swift file. Copy and paste the header content of `VponNativeAdView` as follows:
 
-### Obejctive-C (VponNativeAdViewCopy.h)
+### Objective-C (VponNativeAdViewCopy.h)
 
 ```objc
 #ifndef VponNativeAdViewCopy_h
@@ -82,7 +82,7 @@ Please follow these steps sequentially to display the Native Ad:
 #endif /* VponNativeAdViewCopy_h */
 
 SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
-@interface  VponNativeAdView : UIView
+@interface VponNativeAdView : UIView
 @property (nonatomic, weak) IBOutlet UIView * _Nullable iconView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
@@ -92,7 +92,7 @@ SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
 @property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable socialContextView;
 @property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
-@property (nonatomic, weak) IBOutlet UIView * _Nullable advertiseView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable advertise;
 @property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
 
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -117,7 +117,7 @@ import VpadnSDKAdKit
 	@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
 	@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
 	@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
-	@MainActor @objc @IBOutlet weak public var advertiseView: UIView?
+	@MainActor @objc @IBOutlet weak public var advertise: UIView?
 	@MainActor @objc public var nativeAd: VpadnSDKAdKit.VponNativeAd?
 }
 ```
@@ -132,14 +132,15 @@ At this point, return to the .xib file, and you should be able to see the IBOutl
 
 ```objc
 #import "VponSdkNativeViewController.h"
-#import <VpadnSDKAdKit/VpadnSDKAdKit.h>
+@import VpadnSDKAdKit;
 
 @interface VponSdkNativeViewController () <VponNativeAdLoaderDelegate, VponNativeAdDelegate, VponVideoControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *adContainerView;
-@property(nonatomic, strong) VponNativeAdView *nativeAdView;
+@property (nonatomic, strong) VponNativeAdView *nativeAdView;
+@property (nonatomic, strong) VponNativeAdLoader *adLoader;
 @end
 
-@implementation  VponSdkNativeViewController
+@implementation VponSdkNativeViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -158,24 +159,26 @@ At this point, return to the .xib file, and you should be able to see the IBOutl
 ```swift
 class VponSdkNativeViewController: UIViewController {
 
-var nativeAdView: VponNativeAdView!
-@IBOutlet weak var adContainer: UIView!
+	var nativeAdView: VponNativeAdView!
+	var adLoader: VponNativeAdLoader?
+	@IBOutlet weak var adContainer: UIView!
 
-override func viewDidLoad() {
-	super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-	guard let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
-		  let adView = nibObjects.first as? VponNativeAdView else {
-		fatalError("Could not load nib file for nativeAdView")
+		guard let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
+			  let adView = nibObjects.first as? VponNativeAdView else {
+			fatalError("Could not load nib file for nativeAdView")
+		}
+
+		nativeAdView = adView
+		adContainer.addSubview(adView)
+		nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			nativeAdView.widthAnchor.constraint(equalTo: adContainer.widthAnchor),
+			nativeAdView.heightAnchor.constraint(equalTo: adContainer.heightAnchor)
+		])
 	}
-
-	nativeAdView = adView
-	adContainer.addSubview(adView)
-	nativeAdView.translatesAutoresizingMaskIntoConstraints = false
-	NSLayoutConstraint.activate([
-		nativeAdView.widthAnchor.constraint(equalTo: adContainer.widthAnchor),
-		nativeAdView.heightAnchor.constraint(equalTo: adContainer.heightAnchor)
-	])
 }
 ```
 
@@ -192,9 +195,9 @@ Follow the steps below to make ad request
 ### Objective-C
 
 ```objc
-// Must keep a strong reference
-@property(nonatomic, strong) VponNativeAdLoader *adLoader;
-_adLoader = [[VponNativeAdLoader alloc] initWithLicenseKey:@"License Key" 				
+// Keep a strong reference on self.adLoader
+VponAdRequest *request = [[VponAdRequest alloc] init];
+_adLoader = [[VponNativeAdLoader alloc] initWithLicenseKey:@"License Key"
 										rootViewController:self];
 _adLoader.delegate = self;
 [_adLoader load:request];
@@ -203,8 +206,8 @@ _adLoader.delegate = self;
 ### Swift
 
 ```swift
-// Must keep a strong reference
-var adLoader: VponNativeAdLoader?
+// Keep a strong reference on self.adLoader
+let request = VponAdRequest()
 adLoader = VponNativeAdLoader(licenseKey: "License Key", rootViewController: self)
 adLoader?.delegate = self
 adLoader?.load(request)
@@ -328,18 +331,14 @@ To listen to Native Ad events, set the `delegate` property of the nativeAd withi
 ### Swift
 
 ```swift
-// MARK: - VponNativeAdLoaderDelegate
-func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
-	nativeAd.delegate = self
-}
+extension VponSdkNativeViewController: VponNativeAdDelegate {
+	func nativeAdDidRecordImpression(_ nativeAd: VponNativeAd) {
+		// Invoked if an impression has been recorded for an ad.
+	}
 
-// MARK: - VponNativeAdDelegate
-func nativeAdDidRecordImpression(_ nativeAd: VponNativeAd) {
-	// Invoked if an impression has been recorded for an ad.
-}
-
-func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
-	// Invoked if an click has been recorded for an ad.
+	func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
+		// Invoked if a click has been recorded for an ad.
+	}
 }
 ```
 
@@ -373,21 +372,17 @@ To listen to native ad video events, set the `delegate` property of the videoCon
 ### Swift
 
 ```swift
-// MARK: - VponNativeAdLoaderDelegate
-func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
-	nativeAd.mediaContent?.videoController?.delegate = self
-}
-
-// MARK: - VponVideoControllerDelegate
-func videoControllerDidPlayVideo(_ videoController: VponVideoController) {
-}
-func videoControllerDidPauseVideo(_ videoController: VponVideoController) {
-}
-func videoControllerDidEndVideoPlayback(_ videoController: VponVideoController) {
-}
-func videoControllerDidMuteVideo(_ videoController: VponVideoController) {
-}
-func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
+extension VponSdkNativeViewController: VponVideoControllerDelegate {
+	func videoControllerDidPlayVideo(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidPauseVideo(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidEndVideoPlayback(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidMuteVideo(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
+	}
 }
 ```
 
@@ -434,9 +429,6 @@ Please help to check if below log printed after the ad display and match the vie
 
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
-
-### Integration Guide For The Version Below Vpon SDK v5.6.0
-Please refer to [Native Ad Integration Guide](../native-under560) if you want to know more about the integration that compatible with the Vpon SDK version below v5.5.0.
 
 ### Mediation
 ---

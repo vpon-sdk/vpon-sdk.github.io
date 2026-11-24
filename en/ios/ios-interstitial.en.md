@@ -42,28 +42,30 @@ We strongly recommend that you can finish all the steps in ViewController of the
 ```objc
 // Import Vpon SDK
 @import VpadnSDKAdKit;
+@import AdSupport;
 
 @interface ViewController() <VponFullScreenContentDelegate>
-@property (strong, nonatomic) VponInterstitialAd *vponInterstitial;
+@property (strong, nonatomic) VponInterstitialAd *interstitial;
 
 @end
 ```
 
-## Swift
+### Swift
 
 ```swift
 // Import Vpon SDK
 import VpadnSDKAdKit
+import AdSupport
 
 class VponSdkInterstitialViewController: UIViewController {
-    var interstitialAd: VponInterstitialAd?
+    var interstitial: VponInterstitialAd?
 }
 ```
 
 
 ## Set Up VponAdRequest Object
 ---
-Set up VpadnAdRequest before you send ad request:
+Set up VponAdRequest before you send ad request:
 
 ### Objective-C
 
@@ -80,7 +82,7 @@ VponAdRequest *request = [[VponAdRequest alloc] init];
 let request = VponAdRequest()
 
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = [ASIdentifierManager.shared().advertisingIdentifier.uuidString]
 ```
 
 >**Note:**
@@ -126,7 +128,7 @@ VponInterstitialAd.load(licenseKey: "License Key", request: request) { [weak sel
 
 ## Show Interstitial Ad
 ---
-You can only show the interstitial ad after ad initializaion and ad receviced. For example, display ad when onVpadnInterstitialAdReceived triggered.
+You can only show the interstitial ad after `VponInterstitialAd.load` succeeds and returns a valid `VponInterstitialAd` instance.
 
 
 ### Objective-C
@@ -197,29 +199,30 @@ VponInterstitialAd.load(licenseKey: "License Key", request: request) { [weak sel
 	self?.interstitial?.delegate = self
 }
 
-// MARK: - VponFullScreenContentDelegate
-func adWillPresentScreen(_ ad: VponFullScreenContentAd) {
-	// Ad will present full screen content
-}
+extension VponSdkInterstitialViewController: VponFullScreenContentDelegate {
+	func adWillPresentScreen(_ ad: VponFullScreenContentAd) {
+		// Ad will present full screen content
+	}
 
-func ad(_ ad: VponFullScreenContentAd, didFailToPresentFullScreenContentWithError error: Error) {
-	// Ad did fail to present full screen content
-}
+	func ad(_ ad: VponFullScreenContentAd, didFailToPresentFullScreenContentWithError error: Error) {
+		// Ad did fail to present full screen content
+	}
 
-func adWillDismissScreen(_ ad: VponFullScreenContentAd) {
-	// Ad will dismiss full screen content
-}
+	func adWillDismissScreen(_ ad: VponFullScreenContentAd) {
+		// Ad will dismiss full screen content
+	}
 
-func adDidDismissScreen(_ ad: VponFullScreenContentAd) {
-	// Ad did dismiss full screen content
-}
+	func adDidDismissScreen(_ ad: VponFullScreenContentAd) {
+		// Ad did dismiss full screen content
+	}
 
-func adDidRecordImpression(_ ad: VponFullScreenContentAd) {
-	// Ad did record an impression
-}
+	func adDidRecordImpression(_ ad: VponFullScreenContentAd) {
+		// Ad did record an impression
+	}
 
-func adDidRecordClick(_ ad: VponFullScreenContentAd) {
-	// Ad did record a click
+	func adDidRecordClick(_ ad: VponFullScreenContentAd) {
+		// Ad did record a click
+	}
 }
 ```
 
@@ -245,9 +248,6 @@ Please help to check if below log printed after the ad display and match the vie
 
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
-
-### Integration Guide For The Version Below Vpon SDK v5.6.0
-Please refer to [Interstitial Ad Integration Guide](../interstitial-under560) if you want to know more about the integration compatible with the Vpon SDK version below v5.6.0.
 
 [Sample Code]: ../download/
 [iOS9 ATS]: ../latest-news/ios9ats/

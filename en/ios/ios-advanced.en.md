@@ -33,12 +33,12 @@ Please follow the guideline below if you don't want Vpon SDK to reset the Audio 
 }
 ```
 
-### Switft
+### Swift
 
 ```swift
- func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
-    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
 	// Vpon SDK initialization
 	let config = VponAdConfiguration.shared
 	config.logLevel = .default
@@ -53,9 +53,21 @@ Please follow the guideline below if you don't want Vpon SDK to reset the Audio 
 ## (Optional) SDK Audio Session Usage
 ---
 
-We recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session. 
+We recommend that you should call the functions below to let SDK know that you are taking the control of the Audio Session.
+
+### Objective-C
 
 ```objc
+// Call this function to let SDK know that you will set and activate a new Audio Session Category
+[VponAdAudioManager.shared noticeApplicationAudioWillStart];
+
+// Call this function to let SDK know that your media is finish, SDK will set and activate the Audio Session Category to AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers
+[VponAdAudioManager.shared noticeApplicationAudioDidEnded];
+```
+
+### Swift
+
+```swift
 // Call this function to let SDK know that you will set and activate a new Audio Session Category
 VponAdAudioManager.shared.noticeApplicationAudioWillStart()
 
@@ -69,11 +81,14 @@ VponAdAudioManager.shared.noticeApplicationAudioDidEnded()
 ---
 # Custom Ad Request Parameters
 ---
-Add the optional parameters below when setting up VpadnAdRequest to make Vpon deliver more ads precisely.
+Add the optional parameters below when setting up `VponAdRequest` to make Vpon deliver more ads precisely.
 
 ### Objective-C
 
 ```objc
+@import VpadnSDKAdKit;
+@import AdSupport;
+
 VponAdRequest *request = [[VponAdRequest alloc] init];
 
 // Set user's gender if available
@@ -88,35 +103,26 @@ VponAdRequestConfiguration *config = VponAdRequestConfiguration.shared;
 
 // Set your test device's IDFA here if you're trying to get Vpon test ad
 [config setTestDeviceIdentifiers:@[[ASIdentifierManager sharedManager].advertisingIdentifier.UUIDString]];
-// To set up if the ads will be displayed only to the specific ages of audience
-[config setTagForUnderAgeOfConsent:VponTagForUnderAgeOfConsentNotForUnderAgeOfConsent];
-// To set up if the ads will be displayed to childern specific
-[config setTagForChildDirectedTreatment:VponTagForChildDirectedTreatmentNotForChildDirectedTreatment];
-// To set up the maximum content rating filter
-[config setMaxAdContentRating:VponMaxAdContentRatingGeneral];
 ```
 
 ### Swift
 
 ```swift
+import VpadnSDKAdKit
+import AdSupport
+
 let request = VponAdRequest()
 
 // Set user's gender if available
 request.setUserInfoGender(.male)
 // Set user's birthday if available
-request.setUserInfoBirthday(year: 2000, month: 08, day: 17)
- 
+request.setUserInfoBirthday(year: 2000, month: 8, day: 17)
+
 request.addKeyword("keywordA")
 request.addKeyword("keyword1:value1")
 
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
-// To set up if the ads will be displayed to childern specific
-VponAdRequestConfiguration.shared.tagForChildDirectedTreatment = .notForChildDirectedTreatment // 是否專為兒童投放
-// To set up if the ads will be displayed only to the specific ages of audience
-VponAdRequestConfiguration.shared.tagForUnderAgeOfConsent = .notForUnderAgeOfConsent // 是否專為特定年齡投放
-// To set up the maximum content rating filter
-VponAdRequestConfiguration.shared.maxAdContentRating = .general
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = [ASIdentifierManager.shared().advertisingIdentifier.uuidString]
 ```
 
 
@@ -176,8 +182,11 @@ GADExtras *extra = [[GADExtras alloc] init];
 ### Swift
 
 ```swift
-let extra = GADExtras()
-extra.additionalParameters = ["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]]
+import GoogleMobileAds
+
+let request = Request()
+let extra = Extras()
+extra.additionalParameters = ["contentURL": "https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]]
 request.register(extra)
 // Set content page url and data with an array of key-value
 ```
@@ -205,43 +214,16 @@ GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
 ### Swift
 
 ```swift
-let extra = GADCustomEventExtras()
-extra.setExtras(["contentURL":"https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]], forLabel: "vpon")
+import GoogleMobileAds
+
+let request = Request()
+let extra = CustomEventExtras()
+extra.setExtras(["contentURL": "https://www.vpon.com", "contentData": ["key1": "Admob", "key2": 1.2, "key3": true]], forLabel: "vpon")
 request.register(extra)
 // Set content page url and data with an array of key-value
 // forLabel string must be the same as the one you set for AdMob / GAM custom event
 ```
 
-
-<!-- >**Note:** Please refer to the reference below for the description of specific custom parameters -->
-
-<!-- 需要以下參數的 defination -->
-<!-- 
-## MaxAdContentRating
-
-|Constant|Description|
-|:------|:---------|
-|MAX_AD_CONTENT_RATING_G||
-|MAX_AD_CONTENT_RATING_PG||
-|MAX_AD_CONTENT_RATING_T||
-|MAX_AD_CONTENT_RATING_MA||
-|MAX_AD_CONTENT_RATING_UNSPECIFIED|Default value|
-
-## TagForUnderAgeOfConsent
-
-|Constant|Description|
-|:------|:---------|
-|TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE||
-|TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE|
-|TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED|Default value|
-
-## TagForChildDirectedTreatment
-
-|Constant|Description|
-|:------|:---------|
-|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE||
-|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE||
-|TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED|Default value| -->
 
 <!-- # Corona User
 ---

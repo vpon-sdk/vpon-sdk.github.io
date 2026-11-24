@@ -28,7 +28,7 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 ## Step4: 串接廣告
 ---
 
-| [橫幅廣告][4]  |[插頁廣告][5] |[原生廣告][7]| [Out-stream 影音廣告][8]|[中介服務][6]|
+| [橫幅廣告][4]  |[插頁廣告][5] |[原生廣告][7]|[中介服務][6]|
 
 ## License Key For Testing
 ---
@@ -57,4 +57,3 @@ Vpon SDK 目前最低支援以下版本的作業系統，在開始串接 Vpon SD
 [5]:{{ site.baseurl }}/zh-tw/android/interstitial/
 [6]:{{ site.baseurl }}/zh-tw/android/mediation/
 [7]:{{ site.baseurl }}/zh-tw/android/native/
-[8]:{{ site.baseurl }}/zh-tw/android/outstream/

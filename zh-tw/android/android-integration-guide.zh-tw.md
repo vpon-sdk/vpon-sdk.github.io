@@ -209,5 +209,4 @@ public class CustomApplication extends Application {
 [2]:{{ site.baseurl }}/zh-tw/android/interstitial/
 [3]:{{ site.baseurl }}/zh-tw/android/native/
 [4]:{{ site.baseurl }}/zh-tw/android/mediation/
-[5]:{{ site.baseurl }}/zh-tw/android/outstream/
 [由此直接下載]: https://github.com/square/retrofit

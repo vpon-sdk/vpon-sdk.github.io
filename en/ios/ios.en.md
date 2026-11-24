@@ -12,9 +12,10 @@ lang:            "en"
 
 ## Step1: System Compatibility
 ---
-Vpon SDK support:
+Vpon SDK supports:
 
-* `iOS 12 or later`
+* **Vpon SDK 5.8.2 or later**: `iOS 16.0 or later` (distributed via Swift Package Manager only)
+* **Vpon SDK 5.8.0**: `iOS 12.0 or later` (for apps that still support iOS 12–15; last version available on CocoaPods)
 
 Before you start to integrate Vpon SDK, make sure your app is compatible.
 
@@ -29,7 +30,7 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 ## Step4: Ad Integration
 ---
 
-| [Banner][4]  |[Interstitial][5] | [Native][7]|[Out-stream Video Ad][8]|[Mediation][6]|
+| [Banner][4]  |[Interstitial][5] | [Native][7]|[Mediation][6]|
 
 ## License Key For Testing
 ---
@@ -53,9 +54,6 @@ Here are sample Vpon License Keys for testing. Please implement the one that mat
 Still have problems? Please contact [Vpon FAE](mailto:fae@vpon.com). We will help to figure it out ASAP!
 
 
-> **Note**: Apple recently revised App Transport Security (ATS), to iOS0. Please refer to [iOS9 ATS](latest-news/ios9ats/) for some modification.
-
-
 
 
 [1]:{{ site.baseurl }}/ios/download/
@@ -65,4 +63,3 @@ Still have problems? Please contact [Vpon FAE](mailto:fae@vpon.com). We will hel
 [5]:{{ site.baseurl }}/ios/interstitial/
 [6]:{{ site.baseurl }}/ios/mediation/
 [7]:{{ site.baseurl }}/ios/native/
-[8]:{{ site.baseurl }}/ios/outstream/

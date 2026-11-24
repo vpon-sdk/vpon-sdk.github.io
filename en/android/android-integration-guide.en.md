@@ -207,5 +207,4 @@ For more ad types, please refer to:
 [2]:{{ site.baseurl }}/android/interstitial/
 [3]:{{ site.baseurl }}/android/native/
 [4]:{{ site.baseurl }}/android/mediation/
-[5]:{{ site.baseurl }}/android/outstream/
 [Download Retrofit here]: https://github.com/square/retrofit

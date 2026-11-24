@@ -36,7 +36,7 @@ lang: "zh-tw"
 ## Import VpadnSDKAdKit
 ---
 
-首先匯入 SDK ，宣告實作了 VpadnNativeAdDelegate, VpadnMediaViewDelegate protocol 以接收廣告狀態，同時也宣告了欲在原生廣告中呈現的各種元件。( 原生廣告呈現元件規範請參照[Native Ad Spec](#nativeAdSpec) )
+首先匯入 SDK ，宣告實作 `VponNativeAdLoaderDelegate`、`VponNativeAdDelegate` 與 `VponVideoControllerDelegate` protocol 以接收廣告狀態，同時也宣告欲在原生廣告中呈現的各種元件。( 原生廣告呈現元件規範請參照[Native Ad Spec](#nativeAdSpec) )
 
 
 ### Objective-C
@@ -69,7 +69,7 @@ import VpadnSDKAdKit
     如果無法順利連接 IBOutlet 到 `VponNativeAdView` 的對應屬性，我們提供一個解決方案供參：
     Objective-C 專案請新創一個 .h 檔案 / Swift 專案請新創一個 .swift 檔案，並把 `VponNativeAdView` header 內容貼上如下：
 
-### Obejctive-C (VponNativeAdViewCopy.h)
+### Objective-C (VponNativeAdViewCopy.h)
 
 ```objc
 #ifndef VponNativeAdViewCopy_h
@@ -77,7 +77,7 @@ import VpadnSDKAdKit
 #endif /* VponNativeAdViewCopy_h */
 
 SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
-@interface  VponNativeAdView : UIView
+@interface VponNativeAdView : UIView
 @property (nonatomic, weak) IBOutlet UIView * _Nullable iconView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable coverImageView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable ratingValueView;
@@ -87,7 +87,7 @@ SWIFT_CLASS("_TtC13VpadnSDKAdKit16VponNativeAdView")
 @property (nonatomic, weak) IBOutlet UIView * _Nullable callToActionView;
 @property (nonatomic, weak) IBOutlet UIView * _Nullable socialContextView;
 @property (nonatomic, weak) IBOutlet VponMediaView * _Nullable mediaView;
-@property (nonatomic, weak) IBOutlet UIView * _Nullable advertiseView;
+@property (nonatomic, weak) IBOutlet UIView * _Nullable advertise;
 @property (nonatomic, strong) VponNativeAd * _Nullable nativeAd;
 
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
@@ -112,7 +112,7 @@ import VpadnSDKAdKit
 	@MainActor @objc @IBOutlet weak public var callToActionView: UIView?
 	@MainActor @objc @IBOutlet weak public var socialContextView: UIView?
 	@MainActor @objc @IBOutlet weak public var mediaView: VpadnSDKAdKit.VponMediaView?
-	@MainActor @objc @IBOutlet weak public var advertiseView: UIView?
+	@MainActor @objc @IBOutlet weak public var advertise: UIView?
 	@MainActor @objc public var nativeAd: VpadnSDKAdKit.VponNativeAd?
 }
 ```
@@ -127,14 +127,15 @@ import VpadnSDKAdKit
 
 ```objc
 #import "VponSdkNativeViewController.h"
-#import <VpadnSDKAdKit/VpadnSDKAdKit.h>
+@import VpadnSDKAdKit;
 
 @interface VponSdkNativeViewController () <VponNativeAdLoaderDelegate, VponNativeAdDelegate, VponVideoControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIView *adContainerView;
-@property(nonatomic, strong) VponNativeAdView *nativeAdView;
+@property (nonatomic, strong) VponNativeAdView *nativeAdView;
+@property (nonatomic, strong) VponNativeAdLoader *adLoader;
 @end
 
-@implementation  VponSdkNativeViewController
+@implementation VponSdkNativeViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -153,24 +154,26 @@ import VpadnSDKAdKit
 ```swift
 class VponSdkNativeViewController: UIViewController {
 
-var nativeAdView: VponNativeAdView!
-@IBOutlet weak var adContainer: UIView!
+	var nativeAdView: VponNativeAdView!
+	var adLoader: VponNativeAdLoader?
+	@IBOutlet weak var adContainer: UIView!
 
-override func viewDidLoad() {
-	super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-	guard let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
-		  let adView = nibObjects.first as? VponNativeAdView else {
-		fatalError("Could not load nib file for nativeAdView")
+		guard let nibObjects = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil),
+			  let adView = nibObjects.first as? VponNativeAdView else {
+			fatalError("Could not load nib file for nativeAdView")
+		}
+
+		nativeAdView = adView
+		adContainer.addSubview(adView)
+		nativeAdView.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			nativeAdView.widthAnchor.constraint(equalTo: adContainer.widthAnchor),
+			nativeAdView.heightAnchor.constraint(equalTo: adContainer.heightAnchor)
+		])
 	}
-
-	nativeAdView = adView
-	adContainer.addSubview(adView)
-	nativeAdView.translatesAutoresizingMaskIntoConstraints = false
-	NSLayoutConstraint.activate([
-		nativeAdView.widthAnchor.constraint(equalTo: adContainer.widthAnchor),
-		nativeAdView.heightAnchor.constraint(equalTo: adContainer.heightAnchor)
-	])
 }
 ```
 
@@ -187,9 +190,9 @@ override func viewDidLoad() {
 ### Objective-C
 
 ```objc
-// Must keep a strong reference
-@property(nonatomic, strong) VponNativeAdLoader *adLoader;
-_adLoader = [[VponNativeAdLoader alloc] initWithLicenseKey:@"License Key" 				
+// Keep a strong reference on self.adLoader
+VponAdRequest *request = [[VponAdRequest alloc] init];
+_adLoader = [[VponNativeAdLoader alloc] initWithLicenseKey:@"License Key"
 										rootViewController:self];
 _adLoader.delegate = self;
 [_adLoader load:request];
@@ -198,8 +201,8 @@ _adLoader.delegate = self;
 ### Swift
 
 ```swift
-// Must keep a strong reference
-var adLoader: VponNativeAdLoader?
+// Keep a strong reference on self.adLoader
+let request = VponAdRequest()
 adLoader = VponNativeAdLoader(licenseKey: "License Key", rootViewController: self)
 adLoader?.delegate = self
 adLoader?.load(request)
@@ -207,7 +210,7 @@ adLoader?.load(request)
 
 >**Note**
 >
->* 您可以為每種類型的廣告都建立不同的 VponRequest 物件，或是在所有的廣告請求中都使用同一個 VponRequest 物件
+>* 您可以為每種類型的廣告都建立不同的 VponAdRequest 物件，或是在所有的廣告請求中都使用同一個 VponAdRequest 物件
 >* 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
 
 
@@ -320,18 +323,14 @@ extension VponSdkNativeViewController: VponNativeAdLoaderDelegate {
 ### Swift
 
 ```swift
-// MARK: - VponNativeAdLoaderDelegate
-func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
-	nativeAd.delegate = self
-}
+extension VponSdkNativeViewController: VponNativeAdDelegate {
+	func nativeAdDidRecordImpression(_ nativeAd: VponNativeAd) {
+		// Invoked if an impression has been recorded for an ad.
+	}
 
-// MARK: - VponNativeAdDelegate
-func nativeAdDidRecordImpression(_ nativeAd: VponNativeAd) {
-	// Invoked if an impression has been recorded for an ad.
-}
-
-func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
-	// Invoked if an click has been recorded for an ad.
+	func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
+		// Invoked if a click has been recorded for an ad.
+	}
 }
 ```
 
@@ -364,21 +363,17 @@ func nativeAdDidRecordClick(_ nativeAd: VponNativeAd) {
 ### Swift
 
 ```swift
-// MARK: - VponNativeAdLoaderDelegate
-func adLoader(_ adLoader: VponNativeAdLoader, didReceive nativeAd: VponNativeAd) {
-	nativeAd.mediaContent?.videoController?.delegate = self
-}
-
-// MARK: - VponVideoControllerDelegate
-func videoControllerDidPlayVideo(_ videoController: VponVideoController) {
-}
-func videoControllerDidPauseVideo(_ videoController: VponVideoController) {
-}
-func videoControllerDidEndVideoPlayback(_ videoController: VponVideoController) {
-}
-func videoControllerDidMuteVideo(_ videoController: VponVideoController) {
-}
-func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
+extension VponSdkNativeViewController: VponVideoControllerDelegate {
+	func videoControllerDidPlayVideo(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidPauseVideo(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidEndVideoPlayback(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidMuteVideo(_ videoController: VponVideoController) {
+	}
+	func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
+	}
 }
 ```
 
@@ -426,9 +421,6 @@ func videoControllerDidUnmuteVideo(_ videoController: VponVideoController) {
 ### 中介服務
 透過中介服務，您的應用程式就能放送眾多來源的廣告，詳細請見說明：<br>
 - [使用 AdMob] <br>
-
-### 適用於 Vpon SDK v5.6.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.6.0 以下版本的串接方法，請參考[原生廣告](../native-under560)
 
 [串接說明]: ../integration-guide/
 [Vpon PDMKT Team]: mailto:partner.service@vpon.com

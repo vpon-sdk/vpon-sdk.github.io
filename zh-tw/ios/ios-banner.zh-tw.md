@@ -20,9 +20,9 @@ Vpon 橫幅廣告 (Banner) 是利用畫面的一小部分展示廣告來吸引�
 
 # 開始撰寫 Banner
 ---
-iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕等控制項的形式向使用者顯示的 Objective-C 執行個體。VponAdRequestView 是一種 UIView 子類別，用來顯示由使用者點擊觸發的小型 HTML5 廣告。
+iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕等控制項的形式向使用者顯示的執行個體。`VponBannerView` 是一種 `UIView` 子類別，用來顯示橫幅廣告。
 
-和所有的 UIView 一樣，用程式碼編寫 VpadnBanner 很簡單。以下為所需步驟：
+和所有的 UIView 一樣，用程式碼編寫 `VponBannerView` 很簡單。以下為所需步驟：
 
 1. Import VpadnSDKAdKit
 2. 宣告 VponBannerView
@@ -35,11 +35,12 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 ## Import VpadnSDKAdKit 並宣告 VponBannerView
 ---
 
-### Obejctive-C
+### Objective-C
 
 ```objc
 // Import Vpon SDK
 @import VpadnSDKAdKit;
+@import AdSupport;
 
 @interface ViewController() <VponBannerViewDelegate>
 @property (strong, nonatomic) VponBannerView *bannerView;
@@ -53,6 +54,7 @@ iOS 應用程式由 UIView 物件所組成，也就是以文字區域和按鈕�
 ```swift
 // Import Vpon SDK
 import VpadnSDKAdKit
+import AdSupport
 
 class VponSdkBannerViewController: UIViewController {
 	var bannerView: VponBannerView?
@@ -117,7 +119,7 @@ VponAdRequestConfiguration *config = VponAdRequestConfiguration.shared;
 ```swift
 let request = VponAdRequest()
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = [ASIdentifierManager.shared().advertisingIdentifier.uuidString]
 
 // Start to load ad
 bannerView?.load(request)
@@ -125,7 +127,7 @@ bannerView?.load(request)
 
 >**Note**
 >
->* 您可以為每種類型的廣告都建立不同的 VponAdRequest 物件，或是在所有的廣告請求中都使用同一個 VpadnRequest 物件
+>* 您可以為每種類型的廣告都建立不同的 VponAdRequest 物件，或是在所有的廣告請求中都使用同一個 VponAdRequest 物件
 >* 如果您想要指定更多投放條件，請參考[進階設定](../advanced)
 
 
@@ -164,27 +166,29 @@ bannerView?.load(request)
 ### Swift
 
 ```swift
-func bannerViewDidReceiveAd(_ bannerView: VponBannerView) {
-	// Invoked if receive Banner Ad successfully
-	// Add ad view to your layout
-	bannerView.translatesAutoresizingMaskIntoConstraints = false
-	loadBannerView.addSubview(bannerView)
-	NSLayoutConstraint.activate([
-		bannerView.centerXAnchor.constraint(equalTo: loadBannerView.centerXAnchor),
-		bannerView.centerYAnchor.constraint(equalTo: loadBannerView.centerYAnchor)
-	])
-}
+extension VponSdkBannerViewController: VponBannerViewDelegate {
+	func bannerViewDidReceiveAd(_ bannerView: VponBannerView) {
+		// Invoked if receive Banner Ad successfully
+		// Add ad view to your layout
+		bannerView.translatesAutoresizingMaskIntoConstraints = false
+		loadBannerView.addSubview(bannerView)
+		NSLayoutConstraint.activate([
+			bannerView.centerXAnchor.constraint(equalTo: loadBannerView.centerXAnchor),
+			bannerView.centerYAnchor.constraint(equalTo: loadBannerView.centerYAnchor)
+		])
+	}
 
-func bannerView(_ bannerView: VponBannerView, didFailToReceiveAdWithError error: Error) {
-	// Invoked if received ad fail, check this callback to indicates what type of failure occurred
-}
+	func bannerView(_ bannerView: VponBannerView, didFailToReceiveAdWithError error: Error) {
+		// Invoked if received ad fail, check this callback to indicates what type of failure occurred
+	}
 
-func bannerViewDidRecordImpression(_ bannerView: VponBannerView) {
-	// Invoked if an impression has been recorded for an ad.
-}
+	func bannerViewDidRecordImpression(_ bannerView: VponBannerView) {
+		// Invoked if an impression has been recorded for an ad.
+	}
 
-func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
-	// Invoked if an click has been recorded for an ad.
+	func bannerViewDidRecordClick(_ bannerView: VponBannerView) {
+		// Invoked if an click has been recorded for an ad.
+	}
 }
 ```
 
@@ -237,9 +241,6 @@ bannerView = VponBannerView(adSize: .mediumRectangle())
 
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
-
-### 適用於 Vpon SDK v5.6.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.6.0 以下版本的串接方法，請參考[橫幅廣告](../banner-under560)
 
 [串接說明]: ../integration-guide/
 [Sample Code]: ../download/

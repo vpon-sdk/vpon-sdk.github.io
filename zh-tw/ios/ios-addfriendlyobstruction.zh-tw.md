@@ -33,7 +33,7 @@ lang: "zh-tw"
 <VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
 ```
 
-請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，在建立 VpadnRequest 物件時，將該 view 設為 Friendly Obstruction：
+請先根據以上 Log，確認覆蓋住廣告的 view(s) 是否可以進行調整，如果確實無法修改，請確認該 view 在視覺上不會影響廣告展示 (alpha = 0, Hidden)，再參考以下範例，在建立 `VponAdRequest` 物件時，將該 view 設為 Friendly Obstruction：
 
 
 ### Objective-C
@@ -42,20 +42,20 @@ lang: "zh-tw"
 VponAdRequest *request = [[VponAdRequest alloc] init];
 [request addFriendlyObstruction:_obstructView purpose:VponFriendlyObstructionTypeNotVisible description:@"not visible"];
 
-// addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
+// addFriendlyObstruction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 ### Swift
 
 ```swift
 let request = VponAdRequest()
-request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: “not visible”)
+request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: "not visible")
 
-// addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
+// addFriendlyObstruction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 
@@ -87,28 +87,31 @@ request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: 
 GADRequest *request = [GADRequest request];
 GADExtras *extra = [[GADExtras alloc] init];
 extra.additionalParameters = @{
-	@"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
+	@"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not visible"}]
 };
 [request registerAdNetworkExtras:extra];
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 ### Swift
 
 ```swift
-let extra = GADExtras()
+import GoogleMobileAds
+
+let request = Request()
+let extra = Extras()
 extra.additionalParameters = [
-	"friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
+	"friendlyObstructions": [["view": obstructView, "purpose": 2, "desc": "not visible"]]
 ]
 
 request.register(extra)
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 如果您請求的是原生廣告，請先參考[透過 AdMob 串接 Vpon Native Ad] 完成自訂事件設定，再參考以下範例，完成實作：
@@ -116,33 +119,35 @@ request.register(extra)
 ### Objective-C
 
 ```objc
-GADRequest *request = [GADRequest  request];
-GADCustomEventExtras *extra = [[GADCustomEventExtras  alloc] init];
+GADRequest *request = [GADRequest request];
+GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
 [extra setExtras:@{
-	@"friendlyObstructions": @[@{@"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
+	@"friendlyObstructions": @[@{@"view": _obstructView, @"purpose": @(2), @"desc": @"not visible"}]
 } forLabel:@"Vpon"];
 [request registerAdNetworkExtras:extra];
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 ### Swift
 
 ```swift
-let request = GADRequest()
-let extra = GADCustomEventExtras()
+import GoogleMobileAds
+
+let request = Request()
+let extra = CustomEventExtras()
 extra.setExtras([
 	"friendlyObstructions": [
-			["view": UIView(), "purpose": 2, "desc": "not_visible"]
+			["view": obstructView, "purpose": 2, "desc": "not visible"]
 		]
 	], forLabel: "Vpon")
 request.register(extra)
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 設置完成後，請確認當廣告露出在頁面上並達到曝光標準後，有印出以下的 Log 代表廣告有成功曝光：
@@ -156,12 +161,12 @@ request.register(extra)
 ---
 以下為可以選擇的 Friendly Obstruction 類型：
 
-| Constant| Purpose |
-|:--------|:--------|
-| 0 | VpadnFriendlyObstructionMediaControls |
-| 1 | VpadnFriendlyObstructionCloseAd |
-| 2 | VpadnFriendlyObstructionNotVisible |
-| 3 | VpadnFriendlyObstructionOther |
+| Constant | Objective-C | Swift (`VponFriendlyObstructionType`) |
+|:--------:|:------------|:--------------------------------------|
+| 0 | `VponFriendlyObstructionTypeMediaControls` | `.mediaControls` |
+| 1 | `VponFriendlyObstructionTypeCloseAd` | `.closeAd` |
+| 2 | `VponFriendlyObstructionTypeNotVisible` | `.notVisible` |
+| 3 | `VponFriendlyObstructionTypeOther` | `.other` |
 
 
 

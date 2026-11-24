@@ -24,7 +24,7 @@ lang: "zh-tw"
 
 1. Import VpadnSDKAdKit
 2. 宣告 VponInterstitialAd
-3. 建立 VpadnRequest 物件
+3. 建立 VponAdRequest 物件
 4. 使用 VponInterstitialAd 靜態方法請求廣告
 5. 展示廣告
 6. 實作 Delegate protocol
@@ -39,28 +39,30 @@ lang: "zh-tw"
 ```objc
 // Import Vpon SDK
 @import VpadnSDKAdKit;
+@import AdSupport;
 
 @interface ViewController() <VponFullScreenContentDelegate>
-@property (strong, nonatomic) VponInterstitialAd *vponInterstitial;
+@property (strong, nonatomic) VponInterstitialAd *interstitial;
 
 @end
 ```
 
-## Swift
+### Swift
 
 ```swift
 // Import Vpon SDK
 import VpadnSDKAdKit
+import AdSupport
 
 class VponSdkInterstitialViewController: UIViewController {
-    var interstitialAd: VponInterstitialAd?
+    var interstitial: VponInterstitialAd?
 }
 ```
 
 
-## 建立 VpadnRequest 物件
+## 建立 VponAdRequest 物件
 ---
-在發出廣告請求前，請先建立 VpadnRequest 物件：
+在發出廣告請求前，請先建立 VponAdRequest 物件：
 
 ### Objective-C
 
@@ -77,7 +79,7 @@ VponAdRequest *request = [[VponAdRequest alloc] init];
 let request = VponAdRequest()
 
 // Set your test device's IDFA here if you're trying to get Vpon test ad
-VponAdRequestConfiguration.shared.testDeviceIdentifiers = ([ASIdentifierManager.shared().advertisingIdentifier.uuidString])
+VponAdRequestConfiguration.shared.testDeviceIdentifiers = [ASIdentifierManager.shared().advertisingIdentifier.uuidString]
 ```
 
 >**Note**
@@ -192,29 +194,30 @@ VponInterstitialAd.load(licenseKey: "License Key", request: request) { [weak sel
 	self?.interstitial?.delegate = self
 }
 
-// MARK: - VponFullScreenContentDelegate
-func adWillPresentScreen(_ ad: VponFullScreenContentAd) {
-	// Ad will present full screen content
-}
+extension VponSdkInterstitialViewController: VponFullScreenContentDelegate {
+	func adWillPresentScreen(_ ad: VponFullScreenContentAd) {
+		// Ad will present full screen content
+	}
 
-func ad(_ ad: VponFullScreenContentAd, didFailToPresentFullScreenContentWithError error: Error) {
-	// Ad did fail to present full screen content
-}
+	func ad(_ ad: VponFullScreenContentAd, didFailToPresentFullScreenContentWithError error: Error) {
+		// Ad did fail to present full screen content
+	}
 
-func adWillDismissScreen(_ ad: VponFullScreenContentAd) {
-	// Ad will dismiss full screen content
-}
+	func adWillDismissScreen(_ ad: VponFullScreenContentAd) {
+		// Ad will dismiss full screen content
+	}
 
-func adDidDismissScreen(_ ad: VponFullScreenContentAd) {
-	// Ad did dismiss full screen content
-}
+	func adDidDismissScreen(_ ad: VponFullScreenContentAd) {
+		// Ad did dismiss full screen content
+	}
 
-func adDidRecordImpression(_ ad: VponFullScreenContentAd) {
-	// Ad did record an impression
-}
+	func adDidRecordImpression(_ ad: VponFullScreenContentAd) {
+		// Ad did record an impression
+	}
 
-func adDidRecordClick(_ ad: VponFullScreenContentAd) {
-	// Ad did record a click
+	func adDidRecordClick(_ ad: VponFullScreenContentAd) {
+		// Ad did record a click
+	}
 }
 ```
 
@@ -237,10 +240,6 @@ func adDidRecordClick(_ ad: VponFullScreenContentAd) {
 
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的 [Sample Code]
-
-### 適用於 Vpon SDK v5.6.0 以下版本的串接方法
-如果您想了解 Vpon SDK v5.6.0 以下版本的串接方法，請參考[插頁廣告](../interstitial-under560)
-
 
 [串接說明]: ../integration-guide/
 [Sample Code]: ../download/

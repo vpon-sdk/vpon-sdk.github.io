@@ -191,9 +191,6 @@ extension VponSdkSplashViewController: VpadnSplashDelegate {
 ### Sample Code
 如果您想看到完整的串接實例，請參考我們的，請參考我們的 [Sample Code]
 
-### 適用於 Vpon SDK v4.9 的串接方法
-如果您想了解 Vpon SDK v4.9.1 或以下版本的串接方法，請參考[開屏廣告](../splash-under5)
-
 
 [串接說明]: ../integration-guide/
 [說明]: {{ site.baseurl }}/zh-tw/ios/registration/

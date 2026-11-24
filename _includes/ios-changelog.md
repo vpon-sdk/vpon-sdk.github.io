@@ -1,5 +1,12 @@
 # Vpon iOS SDK Change Log
 
+## 5.8.2
+* Release Date: 23 Nov. 2026
+* Upgrade minimum deployment target version from iOS 12.0 to iOS 16.0
+* Distributed exclusively via Swift Package Manager (v5.8.0 is the last version on CocoaPods)
+* Improve Banner and Native ad viewability detection on iOS 26+ and multi-window apps
+* Fix Banner display when added to the view hierarchy before loading ads, and when scrolled off-screen and back
+
 ## 5.8.0
 * Release Date: 23 Feb. 2026
 * Enhance ad request to better align with RTB protocol

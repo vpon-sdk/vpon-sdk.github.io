@@ -33,7 +33,7 @@ When the ad can't send impression successfully after displayed since that the ad
 <VPON> [ERROR] [AD VIEWABILITY] 8a808182447617bf0144d414ff2a3db1: Visible ratio (40.00%) is not reach. Because: { OnScreen(100.00%) - Overlap(60.00%, <UIView: 0x10ec0d990; frame = (37.6667 465; 180 300); autoresize = RM+BM; layer = <CALayer: 0x283117a60>>) = 40.00%, }
 ```
 
-Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction when you create VpadnRequest.
+Please check the log above to see if the cover view(s) can be adjusted. If not, please make sure that the adview won't be covered by the view visually (the attribute of the cover view should be alpha = 0, Hidden) and follow the instruction below to set the view as Friendly Obstruction when you create `VponAdRequest`.
 
 
 ### Objective-C
@@ -42,20 +42,20 @@ Please check the log above to see if the cover view(s) can be adjusted. If not, 
 VponAdRequest *request = [[VponAdRequest alloc] init];
 [request addFriendlyObstruction:_obstructView purpose:VponFriendlyObstructionTypeNotVisible description:@"not visible"];
 
-// addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
+// addFriendlyObstruction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 ### Swift
 
 ```swift
 let request = VponAdRequest()
-request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: “not visible”)
+request.addFriendlyObstruction(obstructView, purpose: .notVisible, description: "not visible")
 
-// addFriendlyObstuction: insert the obstruction view that will be set as Friendly Obstruction
+// addFriendlyObstruction: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
@@ -86,28 +86,31 @@ Please check the log above to see if the cover view(s) can be adjusted. If not, 
 GADRequest *request = [GADRequest request];
 GADExtras *extra = [[GADExtras alloc] init];
 extra.additionalParameters = @{
-	@"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
+	@"friendlyObstructions": @[@{ @"view": _obstructView, @"purpose": @(2), @"desc": @"not visible"}]
 };
 [request registerAdNetworkExtras:extra];
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 ### Swift
 
 ```swift
-let extra = GADExtras()
+import GoogleMobileAds
+
+let request = Request()
+let extra = Extras()
 extra.additionalParameters = [
-	"friendlyObstructions": [["view": UIView(), "purpose": 2, "desc": "not_visible"]]
+	"friendlyObstructions": [["view": obstructView, "purpose": 2, "desc": "not visible"]]
 ]
 
 request.register(extra)
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 If you are trying to request Native ad, please refer to [Integrate Vpon Native Ad via AdMob] to finish the setting of custom event first and follow the instruction below to set the view as Friendly Obstruction.
@@ -115,33 +118,35 @@ If you are trying to request Native ad, please refer to [Integrate Vpon Native A
 ### Objective-C
 
 ```objc
-GADRequest *request = [GADRequest  request];
-GADCustomEventExtras *extra = [[GADCustomEventExtras  alloc] init];
+GADRequest *request = [GADRequest request];
+GADCustomEventExtras *extra = [[GADCustomEventExtras alloc] init];
 [extra setExtras:@{
-	@"friendlyObstructions": @[@{@"view": _obstructView, @"purpose": @(2), @"desc": @"not_visible"}]
+	@"friendlyObstructions": @[@{@"view": _obstructView, @"purpose": @(2), @"desc": @"not visible"}]
 } forLabel:@"Vpon"];
 [request registerAdNetworkExtras:extra];
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 ### Swift
 
 ```swift
-let request = GADRequest()
-let extra = GADCustomEventExtras()
+import GoogleMobileAds
+
+let request = Request()
+let extra = CustomEventExtras()
 extra.setExtras([
 	"friendlyObstructions": [
-			["view": UIView(), "purpose": 2, "desc": "not_visible"]
+			["view": obstructView, "purpose": 2, "desc": "not visible"]
 		]
 	], forLabel: "Vpon")
 request.register(extra)
 
 // friendlyObstructions: insert the obstruction view that will be set as Friendly Obstruction
 // purpose: define the purpose of Friendly Obstruction
-// description: limit at 50 characters and characters contain only `A-z`,`0-9` or a space
+// description: limit at 50 characters and characters contain only `A-z`, `0-9` or a space
 ```
 
 Please help to check if below log printed after you implement addFriendlyObstruction and the ad display on the screen:
@@ -155,12 +160,12 @@ Please help to check if below log printed after you implement addFriendlyObstruc
 ---
 Please refer to the table below for the type of Friendly Obstruction:
 
-| Constant| Purpose |
-|:--------|:--------|
-| 0 | VpadnFriendlyObstructionMediaControls |
-| 1 | VpadnFriendlyObstructionCloseAd |
-| 2 | VpadnFriendlyObstructionNotVisible |
-| 3 | VpadnFriendlyObstructionOther |
+| Constant | Objective-C | Swift (`VponFriendlyObstructionType`) |
+|:--------:|:------------|:--------------------------------------|
+| 0 | `VponFriendlyObstructionTypeMediaControls` | `.mediaControls` |
+| 1 | `VponFriendlyObstructionTypeCloseAd` | `.closeAd` |
+| 2 | `VponFriendlyObstructionTypeNotVisible` | `.notVisible` |
+| 3 | `VponFriendlyObstructionTypeOther` | `.other` |
 
 
 

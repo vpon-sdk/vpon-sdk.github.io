@@ -8,9 +8,7 @@ permalink:       /zh-tw/android/mediation/dfp/
 lang:           "zh-tw"
 ---
 
-# 最新消息
----
-根據 [Google Ad Manager 公告](https://support.google.com/admanager/answer/9020684)，目前已停止使用 Google Ad Manager 廣告素材中 SDK 中介服務廣告素材的功能，若您想使用 Google Ad Manager 進行 SDK Mediation，請參考[建立及管理收益群組](https://support.google.com/admanager/answer/7390828)，將 SDK 中介服務廣告素材轉移到收益群組中。
+> **Note：** 在 Google Ad Manager 中，請透過**收益群組（Yield Groups）**設定行動應用程式中介服務。詳細步驟請參考[建立及管理收益群組](https://support.google.com/admanager/answer/7390828)。
 
 
 
@@ -76,7 +74,7 @@ lang:           "zh-tw"
 2. 指定要投放的廣告格式及廣告空間類型
 3. 指定要投放的廣告空間
 4. 依您的需求，選擇是否指定投放的裝置類別、作業系統、地理位置等設定
-5. 點選新增收益夥伴，選擇 `Vpon`
+5. 點選`新增中介服務夥伴`，選擇 `Vpon`
 6. 選擇整合類型
 * 串接`橫幅廣告`或是`插頁廣告`，請選擇`Mobile SDK`，並在 Zone 的欄位填入 `TW`、在 Vpon Ad ID 的欄位填入 `Vpon License Key`
 * 串接`原生廣告`，請選擇`自訂事件中介服務`，並在 Class Name 的欄位填入 `com.vpadn.mediation.VpadnAdapter`，在 Parameter 的欄位填入 `Vpon License Key`
@@ -84,7 +82,7 @@ lang:           "zh-tw"
 
 
 >**Note**: 使用 GAM Mediation 搭配 Vpon Adapter 串接原生廣告時，adListener 的行為可能會與單獨使用 GAM 不一致。<br>
-可能會受到影響的 adListener: `onAdLeftApplication`、`onAdClosed`
+可能會受到影響的 adListener: `onAdClosed`
 
 
 # Tips
@@ -95,9 +93,9 @@ lang:           "zh-tw"
 
 
 [串接說明]: ../../integration-guide
-[Sample Code]: {{site.baseurl}}/zh-tw/android/download/#dfp
+[Sample Code]: {{site.baseurl}}/zh-tw/android/download/#sample-code-download
 [Google Ad Manager 後台]: https://admanager.google.com/
-[Google Ad Manager 串接說明文件]: https://developers.google.com/ad-manager/mobile-ads-sdk/ios/banner#banner_sizes
+[Google Ad Manager 串接說明文件]: https://developers.google.com/ad-manager/mobile-ads-sdk/android/banner#banner_sizes
 [Ad Manager 廣告單元]: {{site.imgurl}}/AppAdManager_01.png
 [新增指定目標]: {{site.imgurl}}/新增指定目標.png
 [廣告素材類型]: {{site.imgurl}}/廣告素材類型.png

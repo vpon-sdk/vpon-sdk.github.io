@@ -7,16 +7,14 @@ keywords:       "Keywords for this page, in the meta data"
 permalink:       ios/mediation/dfp/
 lang:           "en"
 ---
-# Latest Information
----
-According to [Google Ad Manager's announcement](https://support.google.com/admanager/answer/9020684), Google Ad Manager will deprecate SDK Mediation in Creatives. Please refer to [Create and manage yield groups](https://support.google.com/admanager/answer/7390828) to finish mediation setting in Yield Group.
+> **Note:** In Google Ad Manager, configure mobile app mediation via **Yield Groups**. Please refer to [Create and manage yield groups](https://support.google.com/admanager/answer/7390828) for details.
 
 
 # General
 ---
 Please make sure you've added following files in your project:
 
-1. Google Mobile Ads SDK
+1. Google Mobile Ads SDK
 2. Vpon SDK
 3. Vpon AdMob Adapter
 
@@ -53,7 +51,7 @@ After finishing your ad unit setting, please choose an ad unit and click Generat
 
 ## Create A Yield Partner
 
-Please follow the steps below to add Vpon as your Yield Partner first in to Company page under Management tag:
+Please follow the steps below to add Vpon as your Yield Partner first on the **Admin > Companies** page:
 
 1. Choose to create a new company (Ad Network) as your Yield Partner
 2. Choose Vpon in the drop list of Ad Network
@@ -62,16 +60,16 @@ Please follow the steps below to add Vpon as your Yield Partner first in to Comp
 
 ## Set Up Yield Group
 
-Please refer to the instruction below to finish the Yield Group setting:
+Go to **Delivery > Yield groups** and follow the steps below:
 
-1. Create new Yield Gruop
+1. Create a new Yield Group
 2. Determine the ad format and the inventory type for your requirement
-3. Determine the ad unit for develiering
+3. Determine the ad unit for delivering
 4. Finish the optional setting for your requirement
-5. Choose to add additional third-party yield partners, and add Vpon from the drop list
+5. Click **Add mediation partner**, and select `Vpon` from the dropdown list
 6. Determine the integration type:
 * Choose `Mobile SDK` if you are trying to integrate `Banner Ad` or `Interstitial Ad`. Please insert `TW` in the Zone column, and insert your `Vpon License Key` in the Vpon Ad ID column.
-* Chhose `Custom Event` if you are trying to integrate `Native Ad`. Please insert `GADVpadnNativeAdCustomEvent` in the Class Name column, and insert your `Vpon License Key` in the Parameter column.
+* Choose `Custom Event` if you are trying to integrate `Native Ad`. Please insert `GADVpadnNativeAdCustomEvent` in the Class Name column, and insert your `Vpon License Key` in the Parameter column.
 7. Save your change
 
 
@@ -84,7 +82,7 @@ Please refer to our [Sample Code] for a complete integration sample.
 
 
 [Integration Guide]: ../../integration-guide/#initial-sdk
-[Sample Code]: {{site.baseurl}}/ios/download/#dfp
+[Sample Code]: {{site.baseurl}}/ios/download/#sample-code-download
 [Here]: https://www.google.com/dfp/
 [DFP 廣告空間]: {{site.imgurl}}/AppAdManager_03.png
 [DFP_Partner_English.png]: {{site.imgurl}}/DFP_Partner_English.png

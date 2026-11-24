@@ -431,7 +431,6 @@ Please refer to the link below to learn more about other ad types:
 
 * [Banner Ad](../banner)
 * [Interstitial Ad](../interstitial)
-* [Out-sream Video Ad](../outstream)
 * [Advanced](../advanced)
 
 ### Mediation

@@ -33,7 +33,6 @@ lang: "zh-tw"
 若您是使用 Objective-C，請在您的 AppDelegate.m 中，加入以下程式碼：
 
 ```objc
-// Using Vpon SDK v560 and above
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
@@ -53,9 +52,8 @@ lang: "zh-tw"
 若您是使用 Swift，請在您的 AppDelegate.swift 中，加入以下程式碼：
 
 ```swift
-// Using Vpon SDK v560 and above
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
-    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Vpon SDK initialization
         let config = VponAdConfiguration.shared

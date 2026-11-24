@@ -10,18 +10,36 @@ lang:            "en"
 
 # Overview
 ---
-Mediation is a feature that lets you serve ads to your apps from multiple sources, including AdMob Network, Mopub Network, third-party ad networks and house ad campaigns.
+Mediation is a feature that lets you serve ads to your apps from multiple sources, including AdMob Network, third-party ad networks and house ad campaigns.
 
 
-## Finished Integration Guide
+## Install Vpon AdMob Adapter (Swift Package Manager)
 ---
 If you haven't finished the previous integration guide, please check all the [settings here](../integration-guide/).
 
-Besides, you have to add Vpon AdMob Adapter into your App Project through Cocoapods:
+Vpon AdMob Mediation Adapter is distributed via **Swift Package Manager**:
 
-```
-pod 'AdMobMediationAdapterVpadn'
-```
+1. In Xcode, select **File > Add Package Dependencies…**
+2. Enter the repository URL:
+   ```
+   https://github.com/vpon-sdk/AdMobMediationAdapterVpadn-iOS-SPM
+   ```
+3. Choose the version rule based on your app's minimum deployment target (see the compatibility table below):
+   * **iOS 16.0+**: Select **Up to Next Major Version** starting at `3.0.0`.
+   * **iOS 12.0 – 15.x**: Select **Up to Next Major Version** starting at `2.2.1`.
+4. Add `-ObjC` to your App Target's **Build Settings > Other Linker Flags**.
+
+The adapter automatically pulls in `VpadnSDKAdKit` and `GoogleMobileAds`. Do not mix Swift Package Manager and CocoaPods for these dependencies in the same project.
+
+### Version Compatibility
+
+| Adapter | Minimum iOS | VpadnSDK | Google Mobile Ads | Notes |
+|:-------:|:-----------:|:--------:|:-----------------:|:------|
+| **3.0.0** | 16.0 | 5.8.x (≥ 5.8.2) | 12.x – 13.x | Recommended for iOS 16+ apps. Upgrading from 2.2.x requires updating the SPM rule to start at `3.0.0`. |
+| **2.2.1** | 12.0 | 5.8.0 | 12.x | For apps that still support iOS 12–15. |
+| 2.2.0 | 12.0 | ≥ 5.7.6 | 12.x | Final version on CocoaPods. SPM users should upgrade to `2.2.1` or `3.0.0` to avoid resolving to a VpadnSDK version that requires iOS 16.0. |
+
+> **Note (CocoaPods)**: Adapter `2.2.0` is the last version on CocoaPods; `2.2.1` and later are distributed via Swift Package Manager only. If you currently use `pod 'AdMobMediationAdapterVpadn'`, remove it from your `Podfile`, run `pod install`, and migrate to Swift Package Manager.
 
 
 # Support Mediation Platforms

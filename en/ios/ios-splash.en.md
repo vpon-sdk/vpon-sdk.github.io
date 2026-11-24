@@ -191,9 +191,6 @@ extension VponSdkSplashViewController: VpadnSplashDelegate {
 ### Sample Code
 Please refer to our [Sample Code] for a complete integration sample.
 
-### Integration Guide For Vpon SDK v4.9
-Please refer to [Splash Ad Integration Guide](../splash-under5) if you want to know more about the integration that compatible with Vpon SDK v4.9 and below version.
-
 
 [settings here]: {{site.baseurl}}/ios/integration-guide/
 [this link]: {{site.baseurl}}/ios/latest-news/ios9ats/

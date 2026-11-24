@@ -28,13 +28,6 @@ builder.setBirthday(Date);
 builder.setLocation(Location);
 // Set user's location if available
 
-builder.setMaxAdContentRating(String);
-// To set up the maximum content rating filter
-builder.setTagForUnderAgeOfConsent(-1);
-// To set up if the ads will be displayed only to the specific ages of audience
-builder.tagForChildDirectedTreatment(-1);
-// To set up if the ads will be displayed to childern specific
-
 builder.addKeyword(String);
 builder.addKeywords(Set<String>);
 ```
@@ -105,34 +98,6 @@ builder.addNetworkExtrasBundle(VpadnAdapter.class, bundle);
 adLoader.loadAd(builder.build());
 ```
 
-
-<!-- 
->**Note:** Please refer to the reference below for the description of specific custom parameters
-
-## MaxAdContentRating
-
-|Constant|Description|
-|:------|:---------|
-|T| For teenager|
-|PG| For parent guardian|
-|MA| For mature adult|
-|G| For general, any one, include child age under|
-
-## TagForUnderAgeOfConsent
-
-|Constant|Description|
-|:------|:---------|
-|1|TAG_FOR_UNDER_AGE_OF_CONSENT_TRUE|
-|0|TAG_FOR_UNDER_AGE_OF_CONSENT_FALSE|
-|-1|(Default Value)<br>TAG_FOR_UNDER_AGE_OF_CONSENT_UNSPECIFIED|
-
-## TagForChildDirectedTreatment
-
-|Constant|Description|
-|:------|:---------|
-|1|TAG_FOR_CHILD_DIRECTED_TREATMENT_TRUE|
-|0|TAG_FOR_CHILD_DIRECTED_TREATMENT_FALSE|
-|-1|(Default Value)<br>TAG_FOR_CHILD_DIRECTED_TREATMENT_UNSPECIFIED| -->
 
 
 <!-- # Corona User

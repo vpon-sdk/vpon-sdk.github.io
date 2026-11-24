@@ -1,61 +1,58 @@
 ---
 layout:         "ios"
-title:          "iOS - Get IDFA in iOS 14+"
-lead:           "Compatible with iOS 14 and above version"
-description:    ""
-keywords:       "Keywords for this page, in the meta data"
-permalink:       ios/idfa/
-lang:            "en"
-
+title:          "iOS - App Tracking Transparency (IDFA)"
+lead:           ""
+description:    "Implement Apple's App Tracking Transparency (ATT) framework to request IDFA authorization."
+keywords:       "iOS, IDFA, ATT, App Tracking Transparency, Vpon SDK"
+permalink:      ios/idfa/
+lang:           "en"
 ---
+
 # Overview
 ---
-According to [User Privacy and Data Use - App Store], Apple will start to restrict how App get IDFA from iOS 14. App must receive the authorization of App Tracking from user through [App Tracking Transparency framework]. The instruction will describe how to implement ATT framework to get user's permission.
+On iOS, apps must request user permission through Apple's [App Tracking Transparency (ATT) framework] before accessing the device's IDFA (Identifier for Advertisers), in accordance with Apple's [User Privacy and Data Use] policy.
 
->**Note:** Without the implementation of ATT framework, the IDFA from user will be zeroed out completely and might cause the loss in ad revenue.
+> **Note:** Without ATT authorization, the system returns an all-zero IDFA, which may reduce ad relevance and overall ad revenue.
 
-
-## Step1. Add Usage Description In The Info.plist
+# Step 1: Add Usage Description to `Info.plist`
 ---
-Please add `NSUserTrackingUsageDescription` in the Info.plist of your project to describe how this permission will be used.
-
+Add the `NSUserTrackingUsageDescription` key to your project's `Info.plist` with a clear message explaining why your app requests tracking permission:
 
 ```xml
 <key>NSUserTrackingUsageDescription</key>
-<string>Your data will be used to deliver personalized ads to you.</string>
+<string>This identifier will be used to deliver personalized ads to you.</string>
 ```
 
->**Note:** We recommend that you can add some explanation of the App Tracking permission and data usage to increase user's willingness to grant the permission. For example, `"This identifier will be used to deliver personalized ads to you."`
+> **Tip:** Explain the benefit clearly (for example, delivering more relevant ads) so users understand how their data is used before making a choice.
 
-
-## Step2. ATT Framework Implementation
+# Step 2: Request Tracking Authorization
 ---
-Please refer to the sample below to implement the ATT framework to ask if user allow to be tracked through IDFA.
+Call `ATTrackingManager.requestTrackingAuthorization` to display the system permission prompt.
 
 ### Objective-C
 
 ```objc
-if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-        }];
-    } else {
-    }
-```
+@import AppTrackingTransparency;
 
+[ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+    // Proceed to load ads after the authorization dialog is completed
+}];
+```
 
 ### Swift
 
 ```swift
-if #available(iOS 14, *) {
-	ATTrackingManager.requestTrackingAuthorization { _ in
-	}
-} else {
-            // Fallback on earlier versions
+import AppTrackingTransparency
+
+ATTrackingManager.requestTrackingAuthorization { status in
+    // Proceed to load ads after the authorization dialog is completed
 }
 ```
 
->**Note:** To prevent the impact on the ad revenue, we recommend that it would be better to ask for the App Tracking authorization before sending the first ad request.
+## Best Practices
+---
+* **Call when the app is active:** Request authorization after the app becomes active (for example, in `sceneDidBecomeActive:` or `applicationDidBecomeActive:`); otherwise, iOS may not display the prompt.
+* **Request before loading ads:** Display the ATT prompt before sending your first ad request so Vpon SDK can receive the updated IDFA status.
 
-
-[User Privacy and Data Use - App Store]: https://developer.apple.com/app-store/user-privacy-and-data-use/
-[App Tracking Transparency framework]: https://developer.apple.com/documentation/apptrackingtransparency
+[User Privacy and Data Use]: https://developer.apple.com/app-store/user-privacy-and-data-use/
+[App Tracking Transparency (ATT) framework]: https://developer.apple.com/documentation/apptrackingtransparency

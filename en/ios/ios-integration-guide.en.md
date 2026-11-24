@@ -16,31 +16,37 @@ Once you have your own Publisher Account, follow the instruction below to integr
 
 # Import SDK
 ---
-You can install Vpon SDK through CocoaPods.
+Vpon iOS SDK is distributed via **Swift Package Manager (SPM)**.
 
-CocoaPods is a dependency manager for Swift and Objective-C Cocoa projects. If you haven't installed CocoaPods in your device for development, please refer to [CocoaPods Introduction](https://cocoapods.org/)
+### 1. Add Package Dependency in Xcode
 
-### 1. Create Podfile
+1. In Xcode, select **File > Add Package Dependencies…**
+2. Enter the repository URL:
+   ```
+   https://github.com/vpon-sdk/VpadnSDK-iOS-SPM
+   ```
+3. Select the Dependency Rule:
+   * **iOS 16.0 or later (Recommended)**: Select **Up to Next Major Version** and enter `{{site.i_version}}`.
+   * **iOS 12.0 – 15.x**: Select **Exact Version** and enter `5.8.0`.
+4. Add **`VpadnSDKAdKit`** to your App target.
 
-1.1 Launch your terminal and change the directory to your Xcode project. Use `pod init` to initialize and generate a `Podfile`.<br>
-1.2 Open the Podfile. Uncomment the description about the platform version and modify it to the corresponding one.<br>
-1.3 Add the description about SDK version to the `target` section of the podfile. The description depends on `whether the publishers assign a specified version of SDK` :
+Or add it directly in your `Package.swift`:
 
-* **Non specific version (Preferred)**: download the latest version automatically → `pod 'VpadnSDK'`
-* **Specific version**: (Take SDK {{site.i_version}} for example) → `pod 'VpadnSDK', '~>{{site.i_version}}'`
+```swift
+dependencies: [
+    .package(url: "https://github.com/vpon-sdk/VpadnSDK-iOS-SPM.git", from: "{{site.i_version}}"),
+]
+```
 
-![]({{site.imgurl}}/cocoapods_1.png)
+### 2. Add `-ObjC` Linker Flag
 
+When integrating via Swift Package Manager, you must manually add `-ObjC` to your App target's linker flags to prevent runtime crashes:
 
-### 2. Run pod install
+1. Select your **App Target** in Xcode.
+2. Open **Build Settings** and search for **Other Linker Flags**.
+3. Add `-ObjC`.
 
-Make sure your current directory in terminal is the same as your Xcode project. Close the project (.xcodeproj) and run `pod install` to install SDK.
-
-You'll see a new project file (.xcoworkspace) in your Xcode project directory. A Pods project with new dependencies for VpadnSDK will included. 
-
-![]({{site.imgurl}}/cocoapods_3.png)
-
-> **Note**: To update to the latest SDK, please change your directory in terminal to your Xcode project. Run `pod repo update` to refresh the podspec and use `pod install` again to install SDK.
+> **Note (CocoaPods)**: `5.8.0` is the final version of `VpadnSDK` published on CocoaPods. Starting from `5.8.2`, Vpon iOS SDK is distributed exclusively via Swift Package Manager. Existing CocoaPods projects using `pod 'VpadnSDK'` will remain on `5.8.0`; to upgrade to `5.8.2` or later, please remove `pod 'VpadnSDK'` from your `Podfile`, run `pod install`, and switch to Swift Package Manager.
 
 
 <!-- ## Integrate SDK Manually {#manual-sdk}
@@ -133,23 +139,11 @@ Please follow the tips below to initialize Vpon SDK.
 ### Objective-C
 
 ```objc
-// Using Vpon SDK v560 and above
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     // Vpon SDK initialization
     VponAdConfiguration *config = VponAdConfiguration.shared;
     config.logLevel = VponLogLevelDefault;
-    [config initializeSdk];
-
-    return YES;
-}
-
-// Using Vpon SDK v560 below
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    // Vpon SDK initialization
-    VpadnAdConfiguration *config = [VpadnAdConfiguration sharedInstance];
-    config.logLevel = VpadnLogLevelDefault;
     [config initializeSdk];
 
     return YES;
@@ -162,37 +156,22 @@ Please add below code snipet in your AppDelegate.swift if you are using Swift:
 
 
 ```swift
-// Using Vpon SDK v560 and above
- func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
-    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        // Vpon SDK initialization
-        let config = VponAdConfiguration.shared
-        config.logLevel = .default
-        config.initializeSdk()
+    // Vpon SDK initialization
+    let config = VponAdConfiguration.shared
+    config.logLevel = .default
+    config.initializeSdk()
 
-        return true
-    }
-
-// Using Vpon SDK v560 below
- func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:      
-    [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        // Vpon SDK initialization
-        let config = VpadnAdConfiguration.sharedInstance()
-        config.logLevel = .default
-        config.initializeSdk()
-
-        return true
-    }
+    return true
+}
 ```
 
 
 >**Note:**
 >
 >* To comply with 3rd-party tracking vendors' requirement, Vpon SDK will set the Audio Session Category of the App as `AVAudioSessionCategoryPlayBack / OptionsWithMixWithOthers` (The audio play in the app will be mixable, and the audio playing won't be impacted by the Ring/Silent swtich on iPhone). You can reassign and activate the Audio Session Category after SDK initilization. To ask not to change the audio session category, please refer to [Advanced Setting] for further instruction.
->
->* Vpon SDK will stop supporting deprecated method using in v5.5.0 and below version. Please follow the integration guide on this site and do not use any method that are not described on the site.
 
 
 # Usage Description
@@ -233,10 +212,9 @@ For more ad types, please refer to:
 [Adapter or Custom Events]: {{site.baseurl}}/ios/download/#adapter-download
 [Sample Codes]: {{site.baseurl}}/ios/download/#sample-code-download
 
-[Register as a Vpon Publisher]: {{ site.baseurl }}/zh-tw/ios/registration/
+[Register as a Vpon Publisher]: {{ site.baseurl }}/ios/registration/
 [1]:{{ site.baseurl }}/ios/banner/
 [2]:{{ site.baseurl }}/ios/interstitial/
 [3]:{{ site.baseurl }}/ios/native/
 [4]:{{ site.baseurl }}/ios/mediation/
-[5]:{{ site.baseurl }}/ios/outstream/
 [Advanced Setting]:{{ site.baseurl }}/ios/advanced/#audio

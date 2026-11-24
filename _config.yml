@@ -49,7 +49,7 @@ meta:
   author:           "Vpon MI"
 
 # multiple language
-lang:          ["en", "zh-tw", "zh-cn", "jp"]
+lang:          ["en", "zh-tw"]
 
 # left navigation
 left_nav:
@@ -65,14 +65,6 @@ left_nav:
     title:          "Vpon SDK"
     path:           /zh-tw
 
-  zh-cn:
-    title:          "Vpon SDK"
-    path:           /zh-cn
-
-  jp:
-    title:          "Vpon SDK"
-    path:           /jp
-
 
 # new right navigation
 right_nav_new:
@@ -80,32 +72,23 @@ right_nav_new:
     cls: right-android
     url1: /android/
     url2: /zh-tw/android/
-    url3: /zh-cn/android/
-    url4: /jp/android/
   - title: iOS
     cls: right-ios
     url1: /ios/
     url2: /zh-tw/ios/
-    url3: /zh-cn/ios/
-    url4: /jp/ios/
   - title: Web
     cls: right-web
     url1: /web/
     url2: /zh-tw/web/
-    url3: /zh-cn/web/
-    url4: /jp/web/
   - title: Flutter
     url1: /flutter/
     url2: /zh-tw/flutter/
-    url3: /zh-cn/flutter/
 
 
 # languages
 languages:
   - title: English
   - title: 繁體中文
-  - title: 简体中文
-  - title: 日本語
 
 
 
@@ -116,4 +99,4 @@ analytics:
 
 #version
 a_version:          5.8.0
-i_version:          5.8.0
+i_version:          5.8.2

@@ -29,7 +29,7 @@ Please follow [Integration Guide][3] to finish Vpon SDK integration, including p
 ## Step4: Ad Integration
 ---
 
-| [Banner][4]  |[Interstitial][5] | [Native][7]|[Out-stream Video Ad][8]|[Mediation][6]|
+| [Banner][4]  |[Interstitial][5] | [Native][7]|[Mediation][6]|
 
 
 ## License Key For Testing
@@ -65,4 +65,3 @@ Still have problems? Please contact [Vpon FAE](mailto:fae@vpon.com). We will hel
 [5]:{{ site.baseurl }}/android/interstitial/
 [6]:{{ site.baseurl }}/android/mediation/
 [7]:{{ site.baseurl }}/android/native/
-[8]:{{ site.baseurl }}/android/outstream/
